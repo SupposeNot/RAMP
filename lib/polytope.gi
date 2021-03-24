@@ -99,6 +99,12 @@ TranslateWord := function(word, f)
 	return AbstractWordTietzeWord(tw, GeneratorsOfGroup(f));
 	end;
 	
+# This is a bit of a hack.
+# GAP has a built-in way to parse group presentations, so that if you take the quotient of,
+# say, <a, b, c> by the string "a^5 = b^3 = c^2 = 1", then it does what you expect.
+# I want to use this to do something similar with sggis. But the built-in GAP method
+# only allows single-letter generators. So I translate r0 -> a, r1 -> b, etc, and
+# then back again.	
 ParseStringCRels := function(rels, w)
 	local n, f, old_names, new_names, i, parsed_rels, trans_rels, f2;
 	n := Size(GeneratorsOfGroup(w));
@@ -120,6 +126,8 @@ IsSameRank := function(f1, f2)
 	return f1!.rank = f2!.rank;
 	end;
 
+# Given a finitely presented group (which should be a sggi), builds the regular
+# polytope (well, maniplex) out of it.
 InstallMethod(AbstractRegularPolytope,
 	[IsFpGroup],
 	function(autgp)
@@ -135,6 +143,10 @@ InstallMethod(AbstractRegularPolytope,
 	SetAutomorphismGroup(p, autgp);
 	return p;
 	end);
+	
+# Given any group (which should be a sggi), builds the regular
+# polytope (well, maniplex) out of it. So you could pass in a
+# permutation group, matrix group, or anything else.
 InstallMethod(AbstractRegularPolytope,
 	[IsGroup],
 	function(autgp)
@@ -176,6 +188,8 @@ InstallOtherMethod(AbstractRegularPolytope,
 	return p;
 	end);
 
+# Given an abstract regular polytope where we don't have a presentation for
+# the automorphism group yet, we attempt to find a presentation.
 # TODO: Prune out extra rels -- the usual sggi rels appear twice
 InstallMethod(FindRels,
 	[IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithoutRels],
@@ -192,6 +206,8 @@ InstallMethod(FindRels,
 	return AbstractRegularPolytope(fp);
 	end);
 	
+# Given a finitely presented group, builds the rotary (regular or chiral)
+# polytope with that group as its rotation group.
 InstallMethod(AbstractRotaryPolytope,
 	[IsFpGroup],
 	function(rotgp)
@@ -208,7 +224,8 @@ InstallMethod(AbstractRotaryPolytope,
 	SetIsOrientable(p, true);
 	return p;
 	end);
-	
+
+# Given a permutation group (sggi), builds a polytope with that as its connection group.	
 InstallMethod(AbstractPolytope,
 	[IsPermGroup],
 	function(g)
@@ -290,6 +307,8 @@ InstallMethod(IsTight,
 	return (Size(p) = 2*Product(SchlafliSymbol(p)));
 	end);
 	
+# A regular polytope is vertex-faithful if the action
+# of the automorphism group on the vertices is faithful.
 InstallMethod(IsVertexFaithful,
 	[IsAbstractRegularPolytope],
 	function(p)
@@ -374,6 +393,9 @@ InstallMethod(Fvector,
 	return fvec;
 	end);
 	
+# To determine if P is a quotient of Q, if they are both just generic polytopes,
+# then we try to find a homomorphism between their connection groups.
+# TODO: Optimize this by checking some easy algebraic invariants first.
 InstallMethod(IsQuotientOf,
 	IsSameRank,
 	[IsAbstractPolytope, IsAbstractPolytope],
@@ -385,6 +407,8 @@ InstallMethod(IsQuotientOf,
 	return (hom <> fail);
 	end);
 
+# This determines whether the regular polytope P is a quotient of the regular polytope Q,
+# assuming that we have presentations for both of their groups.
 InstallMethod(IsQuotientOf,
 	IsSameRank,
 	[IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels],
@@ -675,7 +699,8 @@ SavePolytopes := function(polys, filename)
 
 	CloseStream(stream);
 	end;
-	
+
+# TODO: This is a work in progress!	
 ReadPolytopes := function(filename)
 	local polys, stream, desc;
 	stream := InputTextFile(filename);
