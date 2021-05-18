@@ -4,10 +4,8 @@
 # Have simplex etc add some combinatorial information
 # Put some tests here
 
-# Returns the universal sggi of rank n.
-# If the argument is a list of integers, this is instead taken to be the Schlafli symbol
 	
-	
+# Helper function for UniversalPolytope below.	
 _IS_SPHERICAL := function(sym)
 	local prefix, suffix, k, n;
 	n := 1+Size(sym);
@@ -36,7 +34,7 @@ _IS_SPHERICAL := function(sym)
 	fi;
 	end;
 
-	
+# Returns the Universal Polytope of rank n.
 InstallMethod( UniversalPolytope,
 	[IsInt],
 	function(n)
@@ -60,6 +58,8 @@ InstallMethod( UniversalPolytope,
 	fi;
 	return p;
 	end);
+	
+# Returns the Universal polytope with the given Schlafli symbol
 InstallOtherMethod( UniversalPolytope,
 	[IsList],
 	function(sym)
@@ -182,6 +182,7 @@ InstallMethod(FlatExtension,
 
 # Calculate the petrie length. Find the rels that define g as a quotient of [p,q]_r.
 # Look for 2-holes next. (order of r0 r1 r2 r1)
+# STUB - not finished yet
 _STANDARDIZE_RELS := function(p)
 	local g;
 	end;

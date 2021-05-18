@@ -2,3 +2,4 @@
 * Add some optimization to the generic "IsQuotientOf" function to have it check for compatible sizes etc.
 * Add the torus maps (including non-regular!) of type {3,6} to conn.gi. (I have the torus maps of type {4,4} there.)
 * Add truncation or medial to cons.gi. Eventually we can try coding up a generic Wythoff operation function.
+* In cons.gi, have Cube, Orthotope, and Simplex set the fvector.
