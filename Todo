@@ -1,5 +1,43 @@
-* Write a NumberOfIFaces function for generic polytopes. (Currently I only have it for regular polytopes.)
-* Add some optimization to the generic "IsQuotientOf" function to have it check for compatible sizes etc.
-* Add the torus maps (including non-regular!) of type {3,6} to conn.gi. (I have the torus maps of type {4,4} there.)
-* Add truncation or medial to cons.gi. Eventually we can try coding up a generic Wythoff operation function.
-* In cons.gi, have Cube, Orthotope, and Simplex set the fvector.
+Below are several things we'd like to eventually add. If you are going to work on one of these and you expect it to take more than a few hours, then write down below what you are working on:
+
+Gabe: Add Medial construction
+Gordon:
+Mark:
+
+* Polytopes to add:
+	* Torus maps (including non-regular!) of type {3,6} to conn.gi. (I have the torus maps of type {4,4} there.)
+	* Other maps of type {4, 4}. (e.g. on a Klein bottle, on a cylinder, ...)
+	* Tomotope
+	* Cubic toroids
+	
+* Constructions to add:
+	* Medial
+	* Mix
+	* Eventually a generic Wythoff operation
+	
+* Comb / Alg info to add:
+	* Fvector to Cube, Orthotope, and Simplex
+	* "Multi-schlafli symbol"? For polyhedra, something like [ [p1, p2, ..., pm], [q1, q2, ..., qk] ] to show all the face-types and vertex-types.
+	* "Pseudo-schlafli symbol"? Sometimes we construct something where we know the Schlafli symbol is [p, q] or a proper quotient - it might be useful to store that information somehow, in case computing the SS is hard.
+	* Min regular cover
+	
+* Optimization
+	* Generic "IsQuotientOf" function - have it check for compatible sizes etc.
+
+* General constructors
+	* Quotient representation -- give a regular polytope and a subgroup of its automorphism group.
+	* Add support for working with rotation groups directly
+	
+* Properties to check for:
+	* IsInternallySelfDual
+	
+* Bigger picture architecture
+	* Make maniplexes / maps more explicit - right now everything is a "polytope" even when it's not.
+	
+* Big data
+	* Hook up an interface to the list of Small Regular Polytopes
+	* Generate a list of Small 2-orbit Polytopes and hook up an interface
+	
+* Testing
+
+* Documentation

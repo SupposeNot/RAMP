@@ -51,3 +51,6 @@ DeclareOperation("IsIOrientable", [IsAbstractPolytope, IsList]);
 DeclareProperty("IsVertexBipartite", IsAbstractPolytope);
 DeclareProperty("IsFacetBipartite", IsAbstractPolytope);
 
+# Symmetry Type Graphs
+DeclareAttribute("SymmetryTypeGraph", IsAbstractPolytope);
+DeclareAttribute("NumberOfFlagOrbits", IsAbstractPolytope);

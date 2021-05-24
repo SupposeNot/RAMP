@@ -727,3 +727,47 @@ ReadPolytopes := function(filename)
 	
 	CloseStream(stream);
 	end;
+
+InstallMethod(SymmetryTypeGraph,
+	[IsAbstractPolytope],
+	function(p)
+	local ag, cg, orbs, k, perms, i, r, rp, orb, new_orb;
+	if IsAbstractRegularPolytope(p) then
+		return List([1..RankPolytope(p)], i -> ());
+	fi;
+	
+	ag := AutomorphismGroup(p);
+	orbs := List(Orbits(ag), o -> Set(o));
+	k := Size(orbs);
+	cg := ConnectionGroup(p);
+	perms := [];
+	
+	# There is probably a built-in way to get this, but I'm not finding it today
+	for r in GeneratorsOfGroup(cg) do
+		rp := ();
+		for i in [1..k] do
+			# Next line prevents me from adding (a, b) and (b, a) to rp, which would cancel out.
+			if i^rp = i then
+				orb := orbs[i];
+				new_orb := OnSets(orb, r);
+				if new_orb <> orb then
+					rp := rp * (i, Position(orbs, new_orb));
+				fi;
+			fi;
+		od;
+		Add(perms, rp);
+	od;
+
+	return perms;
+	
+	end);
+	
+InstallMethod(NumberOfFlagOrbits,
+	[IsAbstractPolytope],
+	function(p)
+	local n;
+	if IsAbstractRegularPolytope(p) then return 1; fi;
+	n := LargestMovedPoint(Group(SymmetryTypeGraph(p)));
+	if n = 0 then n := 1; fi;
+	return n;
+	end);
