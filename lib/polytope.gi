@@ -345,9 +345,22 @@ InstallMethod(IsFacetFaithful,
 	return (Size(c) = 1);
 	end);
 	
+InstallMethod(NumberOfIFaces,
+	[IsAbstractPolytope, IsInt],
+	function(p,i)
+	local g, n, ranks, MP;
+	n:=RankPolytope(p);
+	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
+	ranks:=[1..n];
+	Remove(ranks,i+1);
+	g:=ConnectionGroup(p);
+	MP:=Subgroup(g, GeneratorsOfGroup(g){ranks});
+	return Size(Orbits(MP));
+	end);  	
+	
 # TODO: Deal more gracefully with infinite polytopes
 # This should also use the schlafli symbol if it is bound.
-InstallMethod(NumberOfIFaces,
+InstallOtherMethod(NumberOfIFaces,
 	[IsAbstractRegularPolytope, IsInt],
 	function(p, i)
 	local g, h, sym, n, J, num;
