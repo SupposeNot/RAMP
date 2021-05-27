@@ -279,11 +279,32 @@ InstallMethod(Amalgamate,
 	return a;
 	end);
 	
-# Not currently right -- gives me a regular thing with 96 flags.
-Tomotope := function()
-	local g,h;
-	g := Group([(5,10)(6,9)(7,12)(8,11), (1,6)(2,5)(3,8)(4,7), (5,9)(6,10)(7,11)(8,12), (5,8)(6,7)(9,12)(10,11)]);
-	h := Image(RegularActionHomomorphism(g));
-	return AbstractPolytope(h);
-	end;
+# Currently only well-defined for polyhedra
+InstallMethod(Medial,
+	[IsAbstractPolytope],
+	function(p)
+	local cg, n, r0, r1, r2, s0, s1, s2;
+	
+	if RankPolytope(p) <> 3 then Error("Medial only defined for polyhedra."); fi;
+	
+	cg := ConnectionGroup(p);
+	n := Size(p);
+	
+	r0 := cg.1;
+	r1 := cg.2;
+	r2 := cg.3;
 
+	# The flags of the medial of P are of the form (Phi, 0) and (Phi, 2).
+	# If P has flags 1, ..., N, then we define flag j+N to be (j, 2).
+	
+	# s0 acts like r1 on the first component, fixing the second component.
+	s0 := MultPerm(r1, 2, n);
+	
+	# s1 acts like r2 on (Phi, 0) and like r0 on (Phi, 2), fixing the second component.
+	s1 := r2 * TranslatePerm(r0, n);
+	
+	# s2 fixes the first component while switching the second component.
+	s2 := MultPerm((1,n+1), n, 1);
+
+	return AbstractPolytope(Group([s0,s1,s2]));
+	end);

@@ -8,6 +8,7 @@
 ##
 #R  Read the install files.
 ##
+ReadPackage( "ramp", "lib/utils.gi" );
 ReadPackage( "ramp", "lib/polytope.gi" );
 ReadPackage( "ramp", "lib/cons.gi" ); 
 ReadPackage( "ramp", "lib/conn.gi" ); 
