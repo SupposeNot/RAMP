@@ -714,18 +714,45 @@ SavePolytopes := function(polys, filename)
 	end;
 
 # TODO: This is a work in progress!	
+# TODO: Incorporate the degenerate polyhedra [p, 2] and [2, q]
+# TODO: Make the filename handling easier. (Right now I have to use an absolute path)
+# TODO: Optimize the handling of flat polyhedra. There are some choices of i and j that always work, so I don't
+#	really need to store these - I can easily make them on the fly.
 ReadPolytopes := function(filename)
-	local polys, stream, desc;
+	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr;
 	stream := InputTextFile(filename);
 	polys := [];
 	desc := ReadLine(stream);
-	if desc = "flats" then
+	if desc = "flats\n" then
 		# start reading in data on flat polytopes
+		params := ReadLine(stream);
+		while params <> "nonflats\n" do
+			flatpolystr := Concatenation("FlatRegularPolyhedron(", params, ")");
+			Add(polys, EvalString(flatpolystr));
+			params := ReadLine(stream);
+		od;
 	fi;
 
-	# Read data on the rest...
+	paramstr := ReadLine(stream);
+	while not(IsEndOfStream(stream)) do
+		params := EvalString(Concatenation("[", paramstr, "]"));
+		
+		sym := params[1];
+		petrie := params[2];
+		flagnum := params[3];
+		rels := params[4][1];
+		
+		p := AbstractRegularPolytope(sym, rels);
+		SetSize(p, flagnum);
+		SetPetrieLength(p, petrie);
+		SetSchlafliSymbol(p, sym);
+		Add(polys, p);
+
+		paramstr := ReadLine(stream);
+	od;
 	
 	CloseStream(stream);
+	return polys;
 	end;
 
 InstallMethod(SymmetryTypeGraph,
