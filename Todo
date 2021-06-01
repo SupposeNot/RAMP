@@ -1,28 +1,28 @@
-Below are several things we'd like to eventually add. If you are going to work on one of these and you expect it to take more than a few hours, then write down below what you are working on:
+Below are several things we'd like to eventually add. If you are going to work on one of these and you expect it to take more than a few hours, then write down below what you are working on and/or broadcast in Discord:
 
-Gabe: Add Medial construction
-Gordon:
-Mark:
+Gabe: Facet types
+Gordon: Products
+Mark: Fvector to Cube, Orthotope, and Simplex. IsInternallySelfDual
+
 
 * Polytopes to add:
 	* Torus maps (including non-regular!) of type {3,6} to conn.gi. (I have the torus maps of type {4,4} there.)
 	* Other maps of type {4, 4}. (e.g. on a Klein bottle, on a cylinder, ...)
-	* Tomotope
 	* Cubic toroids
 	
 * Constructions to add:
-	* Medial
+	* Truncation of polyhedra
 	* Mix
 	* Eventually a generic Wythoff operation
 	
 * Comb / Alg info to add:
-	* Fvector to Cube, Orthotope, and Simplex
 	* "Multi-schlafli symbol"? For polyhedra, something like [ [p1, p2, ..., pm], [q1, q2, ..., qk] ] to show all the face-types and vertex-types.
 	* "Pseudo-schlafli symbol"? Sometimes we construct something where we know the Schlafli symbol is [p, q] or a proper quotient - it might be useful to store that information somehow, in case computing the SS is hard.
 	* Min regular cover
 	
 * Optimization
 	* Generic "IsQuotientOf" function - have it check for compatible sizes etc.
+	* Have some way to turn off optimizations in case we want to check an optimization for correctness
 
 * General constructors
 	* Quotient representation -- give a regular polytope and a subgroup of its automorphism group.

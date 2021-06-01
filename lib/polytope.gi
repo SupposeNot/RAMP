@@ -744,6 +744,7 @@ ReadPolytopes := function(filename)
 		
 		p := AbstractRegularPolytope(sym, rels);
 		SetSize(p, flagnum);
+		SetSize(AutomorphismGroup(p), flagnum);
 		SetPetrieLength(p, petrie);
 		SetSchlafliSymbol(p, sym);
 		Add(polys, p);
