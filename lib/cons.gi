@@ -198,6 +198,7 @@ InstallMethod(Cube,
 	return p;
 	end);
 	
+#This REALLY needs to be crosspolytope	
 InstallMethod(Orthotope,
 	[IsInt],
 	function(n)
