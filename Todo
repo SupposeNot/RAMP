@@ -19,6 +19,7 @@ Mark: Fvector to Cube, Orthotope, and Simplex. IsInternallySelfDual
 	* "Multi-schlafli symbol"? For polyhedra, something like [ [p1, p2, ..., pm], [q1, q2, ..., qk] ] to show all the face-types and vertex-types.
 	* "Pseudo-schlafli symbol"? Sometimes we construct something where we know the Schlafli symbol is [p, q] or a proper quotient - it might be useful to store that information somehow, in case computing the SS is hard.
 	* Min regular cover
+	* Symmetry type graph with respect to a subgroup of the automorphism group
 	
 * Optimization
 	* Generic "IsQuotientOf" function - have it check for compatible sizes etc.
