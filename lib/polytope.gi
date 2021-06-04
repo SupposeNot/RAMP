@@ -535,13 +535,16 @@ InstallMethod(ConnectionGroup,
 InstallMethod(DualPolytope,
 	[IsAbstractRegularPolytope],
 	function(p)
-	local g, rels, q, n, sym;
+	local g, rels, q, n, sym, newrels, relstr;
 	n := RankPolytope(p);
 	rels := ExtraRelators(p);
 	sym := SchlafliSymbol(p);
 	sym := Reversed(sym);
-	rels := List(rels, r -> List(r, i -> n+1-i));
-	q := AbstractRegularPolytope(sym, rels);
+	rels := List(rels, r -> TietzeWordAbstractWord(r));
+	newrels := List(rels, r -> List(r, i -> n+1-i));
+	newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroup(p)))));
+	relstr := JoinStringsWithSeparator(newrels, ",");
+	q := AbstractRegularPolytope(sym, relstr);
 	SetSize(q, Size(p));
 	SetSchlafliSymbol(q, sym);
 	SetDualPolytope(q, p);
