@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Basics">
+<Heading>Basics</Heading>
+
+<Section Label="Chapter_Basics_Section_Constructors">
+<Heading>Constructors</Heading>
+
+<ManSection Label="UniversalSggi">
+<Heading>UniversalSggi</Heading>
+  <Oper Arg="n" Name="UniversalSggi" Label="for IsInt"/>
+  <Oper Arg="sym" Name="UniversalSggi" Label="for IsList"/>
+ <Description>
+ In the first form, returns the universal Coxeter Group of rank n.
+ In the second form, returns the Coxeter Group with Schlafli symbol sym.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="g" Name="AbstractRegularPolytope" Label="for IsGroup"/>
+ <Description>
+Given a group g (which should be a string C-group),
+ returns the abstract regular polytope with that automorphism group,
+ where the privileged generators are those returned by GeneratorsOfGroup(g).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="symbol, relations" Name="AbstractRegularPolytope" Label="for IsList, IsString"/>
+ <Description>
+Returns an abstract regular polytope with the given Schlafli
+ symbol and with the given relations.
+ The formatting of the relations is quite flexible. All of the following work:
+<Example><![CDATA[
+q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
+q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
+p := AbstractRegularPolytope([infinity], "r0 r1 r0 = r1 r0 r1");
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

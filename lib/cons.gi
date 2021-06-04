@@ -88,12 +88,6 @@ InstallOtherMethod( UniversalPolytope,
 	return p;
 	end);
 
-InstallMethod(Pgon,
-	[IsInt],
-	function(n)
-	return UniversalPolytope([n]);
-	end);
-	
 InstallMethod(QuotientPolytope,
 	[IsAbstractRegularPolytope, IsList],
 	function(p, rels)
@@ -187,51 +181,6 @@ _STANDARDIZE_RELS := function(p)
 	local g;
 	end;
 
-InstallMethod(Cube,
-	[IsInt],
-	function(n)
-	local sym, p;
-	sym := List([1..n-1], i -> 3);
-	sym[1] := 4;
-	p := UniversalPolytope(sym);
-	SetSize(p, 2^n * Factorial(n));
-	return p;
-	end);
-	
-#This REALLY needs to be crosspolytope	
-InstallMethod(Orthotope,
-	[IsInt],
-	function(n)
-	local sym, p;
-	sym := List([1..n-1], i -> 3);
-	sym[n-1] := 4;
-	p := UniversalPolytope(sym);
-	SetSize(p, 2^n * Factorial(n));
-	return p;
-	end);
-	
-InstallMethod(Simplex,
-	[IsInt],
-	function(n)
-	local sym, p;
-	sym := List([1..n-1], i -> 3);
-	p := UniversalPolytope(sym);
-	SetSize(p, Factorial(n+1));
-	return p;
-	end);
-	
-InstallMethod(CubicTiling,
-	[IsInt],
-	function(n)
-	local sym, p;
-	sym := List([1..n-1], i -> 3);
-	sym[1] := 4;
-	sym[n-1] := 4;
-	p := UniversalPolytope(sym);
-	SetSize(p, infinity);
-	return p;
-	end);
-	
 # TODO: Guard against some bad function values
 # Make this one not assume anything and actually compute everything;
 # make an NC version that assumes well-definedness.
