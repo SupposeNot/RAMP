@@ -34,6 +34,13 @@ DeclareOperation("AbstractRegularPolytope", [IsGroup]);
 #! @EndExampleSession
 DeclareOperation("AbstractRegularPolytope", [IsList, IsString]);
 
+#! @Arguments name
+#! @Description Returns the regular polytope with the given symbolic name.
+#! Examples:
+#! AbstractRegularPolytope("{3,3,3}");
+#! AbstractRegularPolytope("{4,3}_3");
+DeclareOperation("AbstractRegularPolytope", [IsString]);
+
 DeclareOperation("AbstractRotaryPolytope", [IsGroup]);
 DeclareOperation("AbstractPolytope", [IsGroup]);
 

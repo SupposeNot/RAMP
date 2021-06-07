@@ -188,6 +188,38 @@ InstallMethod(AbstractRegularPolytope,
 	return p;
 	end);
 
+# Returns the regular polytope with the given symbolic name.
+# Examples:
+# AbstractRegularPolytope("{3,3,3}");
+# AbstractRegularPolytope("{4,3}_3");
+InstallMethod(AbstractRegularPolytope,
+	[IsString],
+	function(name)
+	local sym, p, nameparts, petrie, n, petrie_word, symname;
+	if name[1] = '{' and name[Size(name)] = '}' then
+		sym := SplitString(name{[2..Size(name)-1]}, ',');
+		sym := List(sym, str -> Int(str));
+		p := UniversalPolytope(sym);
+	elif '_' in name then
+		nameparts := SplitString(name, '_');
+		symname := nameparts[1];
+		if symname[1] = '{' and symname[Size(symname)] = '}' then
+			sym := SplitString(symname{[2..Size(symname)-1]}, ',');
+			sym := List(sym, str -> Int(str));
+			petrie := Int(nameparts[2]);
+			n := 1 + Size(sym);
+			petrie_word := Concatenation(List([0..n-1], i -> Concatenation("r", String(i))));
+			p := AbstractRegularPolytope(sym, Concatenation("(", petrie_word, ")^", String(petrie)));
+		else
+			Error("Cannot parse name.");
+		fi;
+	else
+		Error("Cannot parse name.");
+	fi;
+	
+	return p;
+	end);
+
 # Given an abstract regular polytope where we don't have a presentation for
 # the automorphism group yet, we attempt to find a presentation.
 # TODO: Prune out extra rels -- the usual sggi rels appear twice
