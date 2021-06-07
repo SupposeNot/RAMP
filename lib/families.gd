@@ -28,3 +28,15 @@ DeclareOperation("HemiDodecahedron", []);
 DeclareOperation("Icosahedron", []);
 #!
 DeclareOperation("HemiIcosahedron", []);
+#!
+DeclareOperation("24Cell", []);
+#!
+DeclareOperation("Hemi24Cell", []);
+#!
+DeclareOperation("120Cell", []);
+#!
+DeclareOperation("Hemi120Cell", []);
+#!
+DeclareOperation("600Cell", []);
+#!
+DeclareOperation("Hemi600Cell", []);

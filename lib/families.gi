@@ -90,3 +90,33 @@ InstallMethod(HemiIcosahedron,
 	function()
 	return QuotientPolytope(Icosahedron(), PetrieRelation(3,5));
 	end);
+InstallMethod(24Cell,
+	[],
+	function()
+	return UniversalPolytope([3,4,3]);
+	end);
+InstallMethod(Hemi24Cell,
+	[],
+	function()
+	return QuotientPolytope(24Cell(), PetrieRelation(4,6));
+	end);
+InstallMethod(120Cell,
+	[],
+	function()
+	return UniversalPolytope([5,3,3]);
+	end);
+InstallMethod(Hemi120Cell,
+	[],
+	function()
+	return QuotientPolytope(120Cell(), PetrieRelation(4,15));
+	end);
+InstallMethod(600Cell,
+	[],
+	function()
+	return UniversalPolytope([3,3,5]);
+	end);
+InstallMethod(HemiIcosahedron,
+	[],
+	function()
+	return QuotientPolytope(600Cell(), PetrieRelation(4,15));
+	end);
