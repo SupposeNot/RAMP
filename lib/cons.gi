@@ -88,12 +88,19 @@ InstallOtherMethod( UniversalPolytope,
 	return p;
 	end);
 
+# Accepts either a list of Tietze words like [1, 2, 3, 2]
+# or a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4"
 InstallMethod(QuotientPolytope,
 	[IsAbstractRegularPolytope, IsList],
 	function(p, rels)
-	local g, h, q;
+	local g, w, h, q;
 	g := AutomorphismGroup(p);
-	h := FactorGroupFpGroupByRels(g, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g))));
+	if IsString(rels) then
+		rels := ParseStringCRels(rels, g);
+	else
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
+	fi;
+	h := FactorGroupFpGroupByRels(g, rels);
 	q := AbstractRegularPolytope(h);
 	return q;
 	end);
