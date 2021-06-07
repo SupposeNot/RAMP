@@ -1,9 +1,7 @@
 ### RAMP -- Research Assistant for Maniplexes and Polytopes ###
 
 # TODO
-# Fix DualPolytopes, or let AbstractRegularPolytope take tietze words again.
 # Write AutomorphismGroup for arbitrary polytopes via connection group
-# Write fvector for arbitrary polytopes
 # If we later learn that a polytope is regular, then do we need to promote it?
 # Fix print so that it works for WithoutRels rep
 # Store petrie rel
@@ -90,41 +88,6 @@ InstallMethod(IsStringC,
 	end);
 
 
-
-# Takes an abstract word in the generators of some free group and returns the corresponding
-# abstract word in the generators of f.
-TranslateWord := function(word, f)
-	local tw;
-	tw := TietzeWordAbstractWord(word);
-	return AbstractWordTietzeWord(tw, GeneratorsOfGroup(f));
-	end;
-	
-# This is a bit of a hack.
-# GAP has a built-in way to parse group presentations, so that if you take the quotient of,
-# say, <a, b, c> by the string "a^5 = b^3 = c^2 = 1", then it does what you expect.
-# I want to use this to do something similar with sggis. But the built-in GAP method
-# only allows single-letter generators. So I translate r0 -> a, r1 -> b, etc, and
-# then back again.	
-ParseStringCRels := function(rels, w)
-	local n, f, old_names, new_names, i, parsed_rels, trans_rels, f2;
-	n := Size(GeneratorsOfGroup(w));
-	if n > 9 then Error("Only works for n < 10"); fi;
-	f := FreeGroupOfFpGroup(w);
-
-	old_names := List([0..n-1], i -> Concatenation("r", String(i)));
-	new_names := ["a","b","c","d","e","f","g","h","i"]{[1..n]};
-	for i in [1..n] do
-		rels := ReplacedString(rels, old_names[i], new_names[i]);
-	od;
-	f2 := FreeGroup(new_names);
-	parsed_rels := ParseRelators(GeneratorsOfGroup(f2), rels);
-	trans_rels := List(parsed_rels, r -> TranslateWord(r, f));
-	return trans_rels;
-	end;
-	
-IsSameRank := function(f1, f2)
-	return f1!.rank = f2!.rank;
-	end;
 
 # Given a finitely presented group (which should be a sggi), builds the regular
 # polytope (well, maniplex) out of it.
@@ -376,67 +339,6 @@ InstallMethod(IsFacetFaithful,
 	return (Size(c) = 1);
 	end);
 	
-InstallMethod(NumberOfIFaces,
-	[IsAbstractPolytope, IsInt],
-	function(p,i)
-	local g, n, ranks, MP;
-	n:=RankPolytope(p);
-	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
-	ranks:=[1..n];
-	Remove(ranks,i+1);
-	g:=ConnectionGroup(p);
-	MP:=Subgroup(g, GeneratorsOfGroup(g){ranks});
-	return Size(Orbits(MP));
-	end);  	
-	
-# TODO: Deal more gracefully with infinite polytopes
-# This should also use the schlafli symbol if it is bound.
-InstallOtherMethod(NumberOfIFaces,
-	[IsAbstractRegularPolytope, IsInt],
-	function(p, i)
-	local g, h, sym, n, J, num;
-	n := RankPolytope(p);
-	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
-	if p!.fvec[i+1] <> fail then
-		return p!.fvec[i+1];
-	fi;
-
-	g := AutomorphismGroup(p);
-	if n = 3 and HasSize(p) and IsFinite(p) then
-		if (i = 1) then
-			num := Size(p)/4;
-		elif (i = 0) then
-			num := Size(p) / (2*SchlafliSymbol(p)[2]);
-		else # i = 2
-			num := Size(p) / (2*SchlafliSymbol(p)[1]);
-		fi;
-	else
-		J := [1..n];
-		Remove(J, i+1);
-		h := Subgroup(g, GeneratorsOfGroup(g){J});
-		num := Index(g,h);
-	fi;
-	
-	p!.fvec[i+1] := num;
-	if ForAll(p!.fvec, i -> i <> fail) then
-		SetFvector(p, p!.fvec);
-	fi;
-	
-	return num;
-	end);
-	
-InstallMethod(Fvector,
-	[IsAbstractPolytope],
-	function(p)
-	local fvec, i, n;
-	n := RankPolytope(p);
-	fvec := [];
-	for i in [0..n-1] do
-		Add(fvec, NumberOfIFaces(p,i));
-	od;
-	return fvec;
-	end);
-	
 # To determine if P is a quotient of Q, if they are both just generic polytopes,
 # then we try to find a homomorphism between their connection groups.
 # TODO: Optimize this by checking some easy algebraic invariants first.
@@ -619,38 +521,6 @@ InstallMethod(PetrialPolytope,
 	SetSize(q, Size(p));
 	SetSchlafliSymbol(q, sym);
 	SetPetrialPolytope(q, p);
-	return q;
-	end);
-	
-# TODO: Handle some special cases:
-# 1. The facets of a universal coxeter group are a universal coxeter group.
-# 2. If P is finite, then try guessing a presentation for the facets.
-#	This will give something that might properly cover the facets -- compare size.
-InstallMethod(Facets,
-	[IsAbstractRegularPolytope],
-	function(p)
-	local n, sym, g, h, s, q;
-	n := RankPolytope(p);
-	g := AutomorphismGroup(p);
-	h := Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
-	q := AbstractRegularPolytope(h);
-	if HasSchlafliSymbol(p) then
-		SetSchlafliSymbol(q, SchlafliSymbol(p){[1..n-2]});
-	fi;
-	return q;
-	end);
-	
-InstallMethod(VertexFigures,
-	[IsAbstractRegularPolytope],
-	function(p)
-	local n, sym, g, h, s, q;
-	n := RankPolytope(p);
-	g := AutomorphismGroup(p);
-	h := Subgroup(g, GeneratorsOfGroup(g){[2..n]});
-	q := AbstractRegularPolytope(h);
-	if HasSchlafliSymbol(p) then
-		SetSchlafliSymbol(q, SchlafliSymbol(p){[2..n-1]});
-	fi;
 	return q;
 	end);
 	

@@ -45,6 +45,17 @@ p := AbstractRegularPolytope([infinity], "r0 r1 r0 = r1 r0 r1");
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="name" Name="AbstractRegularPolytope" Label="for IsString"/>
+ <Description>
+Returns the regular polytope with the given symbolic name.
+ Examples:
+ AbstractRegularPolytope("{3,3,3}");
+ AbstractRegularPolytope("{4,3}_3");
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

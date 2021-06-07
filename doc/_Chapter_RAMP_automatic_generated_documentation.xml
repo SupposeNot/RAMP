@@ -1,43 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is an automatically generated file. -->
-<Chapter Label="Chapter_RAMP_automatic_generated_documentation">
-<Heading>RAMP automatic generated documentation</Heading>
+<Chapter Label="Chapter_ramp_automatic_generated_documentation">
+<Heading>ramp automatic generated documentation</Heading>
 
-<Section Label="Chapter_RAMP_automatic_generated_documentation_Section_RAMP_automatic_generated_documentation_of_properties">
-<Heading>RAMP automatic generated documentation of properties</Heading>
-
-<ManSection>
-  <Prop Arg="arg" Name="IsOrientable" Label="for IsAbstractPolytope"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
-A polytope is orientable if its flag graph is bipartite.
- Currently only implemented for regular polytopes.
- </Description>
-</ManSection>
-
+<Section Label="Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_methods">
+<Heading>ramp automatic generated documentation of methods</Heading>
 
 <ManSection>
-  <Prop Arg="arg" Name="IsVertexBipartite" Label="for IsAbstractPolytope"/>
- <Returns><C>true</C> or <C>false</C>
+  <Oper Arg="P, i" Name="NumberOfIFaces" Label="for IsAbstractPolytope, IsInt"/>
+ <Returns>The number of <A>i</A>-faces that <A>P</A> has.
 </Returns>
  <Description>
-A polytope is vertex-bipartite if its 1-skeleton is
- bipartite. This is equivalent to being I-orientable for
- I = {0}.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="arg" Name="IsFacetBipartite" Label="for IsAbstractPolytope"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
-A polytope is facet-bipartite if the 1-skeleton of its
- dual is bipartite. This is equivalent to being I-orientable for
- I = {n-1}.
+<P/>
  </Description>
 </ManSection>
 
@@ -45,16 +20,61 @@ A polytope is facet-bipartite if the 1-skeleton of its
 </Section>
 
 
-<Section Label="Chapter_RAMP_automatic_generated_documentation_Section_RAMP_automatic_generated_documentation_of_methods">
-<Heading>RAMP automatic generated documentation of methods</Heading>
+<Section Label="Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_attributes">
+<Heading>ramp automatic generated documentation of attributes</Heading>
 
 <ManSection>
-  <Oper Arg="arg1,arg2" Name="IsIOrientable" Label="for IsAbstractPolytope, IsList"/>
+  <Attr Arg="arg" Name="NumberOfVertices" Label="for IsAbstractPolytope"/>
  <Description>
-For a subset I of {0, ..., n-1}, a polytope if I-orientable
- if every closed path in its flag graph contains an even number
- of edges with colors in I.
- Currently only implemented for regular polytopes.
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="NumberOfEdges" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="NumberOfFacets" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="NumberOfRidges" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="Fvector" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="Facets" Label="for IsAbstractPolytope"/>
+ <Description>
+Currently only works for regular polytopes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="VertexFigures" Label="for IsAbstractPolytope"/>
+ <Description>
+Currently only works for regular polytopes.
  </Description>
 </ManSection>
 

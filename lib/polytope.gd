@@ -52,8 +52,6 @@ DeclareAttribute("RankPolytope", IsAbstractPolytope);
 DeclareAttribute("SchlafliSymbol", IsAbstractPolytope);
 DeclareOperation("ComputeSchlafliSymbol", [IsAbstractPolytope]);
 DeclareProperty("IsTight", IsAbstractPolytope);
-DeclareOperation("NumberOfIFaces", [IsAbstractPolytope, IsInt]);
-DeclareAttribute("Fvector", IsAbstractPolytope);
 DeclareOperation("PetrieRelation", [IsInt, IsInt]);
 DeclareAttribute("PetrieLength", IsAbstractRegularPolytope);
 DeclareAttribute("HoleLength", IsAbstractRegularPolytope);
@@ -80,10 +78,6 @@ DeclareOperation("IsIsomorphicTo", 	[IsAbstractPolytope, IsAbstractPolytope]);
 DeclareAttribute("DualPolytope", IsAbstractPolytope);
 DeclareAttribute("PetrialPolytope", IsAbstractPolytope);
 DeclareProperty("IsSelfDual", IsAbstractPolytope);
-
-# Substructure
-DeclareAttribute("Facets", IsAbstractPolytope);
-DeclareAttribute("VertexFigures", IsAbstractPolytope);
 
 # Symmetry Type Graphs
 DeclareAttribute("SymmetryTypeGraph", IsAbstractPolytope);

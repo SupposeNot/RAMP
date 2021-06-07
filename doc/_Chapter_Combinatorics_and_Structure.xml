@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Combinatorics_and_Structure">
+<Heading>Combinatorics and Structure</Heading>
+
+<Section Label="Chapter_Combinatorics_and_Structure_Section_Faces">
+<Heading>Faces</Heading>
+
+<ManSection>
+  <Oper Arg="P, i" Name="NumberOfIFaces" Label="for IsAbstractPolytope, IsInt"/>
+ <Returns>The number of <A>i</A>-faces that <A>P</A> has.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="NumberOfVertices" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="NumberOfEdges" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="NumberOfFacets" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="NumberOfRidges" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="Fvector" Label="for IsAbstractPolytope"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="Facets" Label="for IsAbstractPolytope"/>
+ <Description>
+Currently only works for regular polytopes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="VertexFigures" Label="for IsAbstractPolytope"/>
+ <Description>
+Currently only works for regular polytopes.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+
