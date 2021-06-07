@@ -54,6 +54,7 @@ DeclareOperation("ComputeSchlafliSymbol", [IsAbstractPolytope]);
 DeclareProperty("IsTight", IsAbstractPolytope);
 DeclareOperation("NumberOfIFaces", [IsAbstractPolytope, IsInt]);
 DeclareAttribute("Fvector", IsAbstractPolytope);
+DeclareOperation("PetrieRelation", [IsInt, IsInt]);
 DeclareAttribute("PetrieLength", IsAbstractRegularPolytope);
 DeclareAttribute("HoleLength", IsAbstractRegularPolytope);
 

@@ -208,8 +208,7 @@ InstallMethod(AbstractRegularPolytope,
 			sym := List(sym, str -> Int(str));
 			petrie := Int(nameparts[2]);
 			n := 1 + Size(sym);
-			petrie_word := Concatenation(List([0..n-1], i -> Concatenation("r", String(i))));
-			p := AbstractRegularPolytope(sym, Concatenation("(", petrie_word, ")^", String(petrie)));
+			p := AbstractRegularPolytope(sym, PetrieRelation(n, petrie));
 		else
 			Error("Cannot parse name.");
 		fi;
@@ -655,12 +654,22 @@ InstallMethod(VertexFigures,
 	return q;
 	end);
 	
+InstallMethod(PetrieRelation,
+	[IsInt, IsInt],
+	function(n, k)
+	local L, petrie_word;
+	L := [0..n-1];
+	L := List(L, i -> Concatenation("r", String(i)));
+	petrie_word := Concatenation(L);
+	return Concatenation("(", petrie_word, ")^", String(k));
+	end);
+	
 InstallMethod(PetrieLength,
 	[IsAbstractRegularPolytope],
 	function(p)
 	local g;
 	g := AutomorphismGroup(p);
-	return Order(g.1*g.2*g.3);
+	return Order(Product(GeneratorsOfGroup(g)));
 	end);
 
 InstallMethod(HoleLength,
