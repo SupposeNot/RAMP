@@ -4,12 +4,22 @@
 <Chapter Label="Chapter_ramp_automatic_generated_documentation">
 <Heading>ramp automatic generated documentation</Heading>
 
-<Section Label="Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_methods">
-<Heading>ramp automatic generated documentation of methods</Heading>
+<Section Label="Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_attributes">
+<Heading>ramp automatic generated documentation of attributes</Heading>
 
 <ManSection>
-  <Oper Arg="P, i" Name="NumberOfIFaces" Label="for IsAbstractPolytope, IsInt"/>
- <Returns>The number of <A>i</A>-faces that <A>P</A> has.
+  <Attr Arg="P" Name="DualPolytope" Label="for IsAbstractPolytope"/>
+ <Returns>The polytope that is dual to <A>P</A>.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="PetrialPolytope" Label="for IsAbstractPolytope"/>
+ <Returns>The Petrial (Petrie dual) of <A>P</A>.  Note that this is not necessarily a polytope.
 </Returns>
  <Description>
 <P/>
@@ -20,61 +30,15 @@
 </Section>
 
 
-<Section Label="Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_attributes">
-<Heading>ramp automatic generated documentation of attributes</Heading>
+<Section Label="Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_properties">
+<Heading>ramp automatic generated documentation of properties</Heading>
 
 <ManSection>
-  <Attr Arg="arg" Name="NumberOfVertices" Label="for IsAbstractPolytope"/>
+  <Prop Arg="P" Name="IsSelfDual" Label="for IsAbstractPolytope"/>
+ <Returns>Whether this polytope is isomorphic to its dual.
+</Returns>
  <Description>
 <P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="NumberOfEdges" Label="for IsAbstractPolytope"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="NumberOfFacets" Label="for IsAbstractPolytope"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="NumberOfRidges" Label="for IsAbstractPolytope"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="Fvector" Label="for IsAbstractPolytope"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="Facets" Label="for IsAbstractPolytope"/>
- <Description>
-Currently only works for regular polytopes.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="VertexFigures" Label="for IsAbstractPolytope"/>
- <Description>
-Currently only works for regular polytopes.
  </Description>
 </ManSection>
 

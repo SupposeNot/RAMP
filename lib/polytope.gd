@@ -32,7 +32,7 @@ DeclareOperation("AbstractRegularPolytope", [IsGroup]);
 #! q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
 #! p := AbstractRegularPolytope([infinity], "r0 r1 r0 = r1 r0 r1");
 #! @EndExampleSession
-DeclareOperation("AbstractRegularPolytope", [IsList, IsString]);
+DeclareOperation("AbstractRegularPolytope", [IsList, IsList]);
 
 #! @Arguments name
 #! @Description Returns the regular polytope with the given symbolic name.
@@ -73,11 +73,6 @@ DeclareOperation("MaxVertexFaithfulQuotient", [IsAbstractRegularPolytope]);
 DeclareOperation("IsQuotientOf", [IsAbstractPolytope, IsAbstractPolytope]);
 DeclareOperation("IsCoverOf", [IsAbstractPolytope, IsAbstractPolytope]);
 DeclareOperation("IsIsomorphicTo", 	[IsAbstractPolytope, IsAbstractPolytope]);
-
-# Dualities
-DeclareAttribute("DualPolytope", IsAbstractPolytope);
-DeclareAttribute("PetrialPolytope", IsAbstractPolytope);
-DeclareProperty("IsSelfDual", IsAbstractPolytope);
 
 # Symmetry Type Graphs
 DeclareAttribute("SymmetryTypeGraph", IsAbstractPolytope);

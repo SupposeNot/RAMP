@@ -29,7 +29,7 @@ Given a group g (which should be a string C-group),
 
 
 <ManSection>
-  <Oper Arg="symbol, relations" Name="AbstractRegularPolytope" Label="for IsList, IsString"/>
+  <Oper Arg="symbol, relations" Name="AbstractRegularPolytope" Label="for IsList, IsList"/>
  <Description>
 Returns an abstract regular polytope with the given Schlafli
  symbol and with the given relations.

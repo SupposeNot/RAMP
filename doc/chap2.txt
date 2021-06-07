@@ -1,74 +1,43 @@
   
-  [1X2 [33X[0;0YFamilies of Polytopes[133X[101X
+  [1X2 [33X[0;0YCombinatorics and Structure[133X[101X
   
   
-  [1X2.1 [33X[0;0YClassical Polytopes[133X[101X
+  [1X2.1 [33X[0;0YFaces[133X[101X
   
-  [1X2.1-1 Pgon[101X
+  [1X2.1-1 NumberOfIFaces[101X
   
-  [33X[1;0Y[29X[2XPgon[102X( [3Xp[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XP[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe number of [3Xi[103X-faces that [3XP[103X has.[133X
   
-  [1X2.1-2 Cube[101X
+  [1X2.1-2 NumberOfVertices[101X
   
-  [33X[1;0Y[29X[2XCube[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XP[103X ) [32X attribute[133X
   
-  [1X2.1-3 HemiCube[101X
+  [1X2.1-3 NumberOfEdges[101X
   
-  [33X[1;0Y[29X[2XHemiCube[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XP[103X ) [32X attribute[133X
   
-  [1X2.1-4 CrossPolytope[101X
+  [1X2.1-4 NumberOfFacets[101X
   
-  [33X[1;0Y[29X[2XCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XP[103X ) [32X attribute[133X
   
-  [1X2.1-5 HemiCrossPolytope[101X
+  [1X2.1-5 NumberOfRidges[101X
   
-  [33X[1;0Y[29X[2XHemiCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XP[103X ) [32X attribute[133X
   
-  [1X2.1-6 Simplex[101X
+  [1X2.1-6 Fvector[101X
   
-  [33X[1;0Y[29X[2XSimplex[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFvector[102X( [3XP[103X ) [32X attribute[133X
   
-  [1X2.1-7 CubicTiling[101X
+  [1X2.1-7 Facets[101X
   
-  [33X[1;0Y[29X[2XCubicTiling[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFacets[102X( [3XP[103X ) [32X attribute[133X
   
-  [1X2.1-8 Dodecahedron[101X
+  [33X[0;0YCurrently only works for regular polytopes.[133X
   
-  [33X[1;0Y[29X[2XDodecahedron[102X(  ) [32X operation[133X
+  [1X2.1-8 VertexFigures[101X
   
-  [1X2.1-9 HemiDodecahedron[101X
+  [33X[1;0Y[29X[2XVertexFigures[102X( [3XP[103X ) [32X attribute[133X
   
-  [33X[1;0Y[29X[2XHemiDodecahedron[102X(  ) [32X operation[133X
-  
-  [1X2.1-10 Icosahedron[101X
-  
-  [33X[1;0Y[29X[2XIcosahedron[102X(  ) [32X operation[133X
-  
-  [1X2.1-11 HemiIcosahedron[101X
-  
-  [33X[1;0Y[29X[2XHemiIcosahedron[102X(  ) [32X operation[133X
-  
-  [1X2.1-12 24Cell[101X
-  
-  [33X[1;0Y[29X[2X24Cell[102X(  ) [32X operation[133X
-  
-  [1X2.1-13 Hemi24Cell[101X
-  
-  [33X[1;0Y[29X[2XHemi24Cell[102X(  ) [32X operation[133X
-  
-  [1X2.1-14 120Cell[101X
-  
-  [33X[1;0Y[29X[2X120Cell[102X(  ) [32X operation[133X
-  
-  [1X2.1-15 Hemi120Cell[101X
-  
-  [33X[1;0Y[29X[2XHemi120Cell[102X(  ) [32X operation[133X
-  
-  [1X2.1-16 600Cell[101X
-  
-  [33X[1;0Y[29X[2X600Cell[102X(  ) [32X operation[133X
-  
-  [1X2.1-17 Hemi600Cell[101X
-  
-  [33X[1;0Y[29X[2XHemi600Cell[102X(  ) [32X operation[133X
+  [33X[0;0YCurrently only works for regular polytopes.[133X
   

@@ -9,6 +9,7 @@ ReadPackage( "ramp", "lib/types.gd" );
 
 ReadPackage( "ramp", "lib/conn.gd" ); 
 ReadPackage( "ramp", "lib/cons.gd" ); 
+ReadPackage( "ramp", "lib/duality.gd" ); 
 ReadPackage( "ramp", "lib/faces.gd" ); 
 ReadPackage( "ramp", "lib/families.gd" );
 ReadPackage( "ramp", "lib/orientable.gd" );

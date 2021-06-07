@@ -128,7 +128,7 @@ InstallMethod(AbstractRegularPolytope,
 	
 # Usage: AbstractRegularPolytope([4,6], "(r0r1r2)^6 = r0(r1r2)^5 = 1");
 InstallMethod(AbstractRegularPolytope,
-	[IsList, IsString],
+	[IsList, IsList],
 	function(sym, rels)
 	local n, w, autgp, fam, p;
 	n := Size(sym)+1;
@@ -463,65 +463,6 @@ InstallMethod(ConnectionGroup,
 	[IsAbstractPolytope and IsAbstractPolytopeConnGpRep],
 	function(p)
 	return p!.conn_gp;
-	end);
-	
-InstallMethod(DualPolytope,
-	[IsAbstractRegularPolytope],
-	function(p)
-	local g, rels, q, n, sym, newrels, relstr;
-	n := RankPolytope(p);
-	rels := ExtraRelators(p);
-	sym := SchlafliSymbol(p);
-	sym := Reversed(sym);
-	rels := List(rels, r -> TietzeWordAbstractWord(r));
-	newrels := List(rels, r -> List(r, i -> n+1-i));
-	newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroup(p)))));
-	relstr := JoinStringsWithSeparator(newrels, ",");
-	q := AbstractRegularPolytope(sym, relstr);
-	SetSize(q, Size(p));
-	SetSchlafliSymbol(q, sym);
-	SetDualPolytope(q, p);
-	return q;
-	end);
-	
-InstallMethod(IsSelfDual,
-	[IsAbstractRegularPolytope],
-	function(p)
-	return p = DualPolytope(p);
-	end);
-
-_PETRIAL_REL := function(r)
-	local i, new_r;
-	new_r := [];
-	for i in r do
-		if i = 1 then
-			Append(new_r, [1,3]);
-		else
-			Add(new_r, i);
-		fi;
-	od;
-	return new_r;
-	end;
-	
-InstallMethod(PetrialPolytope,
-	[IsAbstractRegularPolytope],
-	function(p)
-	local g, rels, q, n, sym, pet;
-	g := AutomorphismGroup(p);
-	sym := ShallowCopy(SchlafliSymbol(p));
-	rels := ExtraRelators(p);
-	Add(rels, Flat(ListWithIdenticalEntries(sym[1],[1,2])));
-	pet := Order(g.1*g.2*g.3);
-
-	sym[1] := pet;
-	
-	rels := List(rels, r -> _PETRIAL_REL(r));
-	
-	q := AbstractRegularPolytope(sym, rels);
-	SetSize(q, Size(p));
-	SetSchlafliSymbol(q, sym);
-	SetPetrialPolytope(q, p);
-	return q;
 	end);
 	
 InstallMethod(PetrieRelation,

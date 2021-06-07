@@ -1,43 +1,27 @@
   
-  [1X1 [33X[0;0YCombinatorics and Structure[133X[101X
+  [1X1 [33X[0;0YConstructions[133X[101X
   
   
-  [1X1.1 [33X[0;0YFaces[133X[101X
+  [1X1.1 [33X[0;0YDuality[133X[101X
   
-  [1X1.1-1 NumberOfIFaces[101X
+  [1X1.1-1 Dual[101X
   
-  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XP[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YThe number of [3Xi[103X-faces that [3XP[103X has.[133X
+  [33X[1;0Y[29X[2XDual[102X( [3XP[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe polytope that is dual to [3XP[103X.[133X
   
-  [1X1.1-2 NumberOfVertices[101X
+  [1X1.1-2 IsSelfDual[101X
   
-  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XP[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its dual.[133X
   
-  [1X1.1-3 NumberOfEdges[101X
+  [1X1.1-3 Petrial[101X
   
-  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XPetrial[102X( [3XP[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XP[103X. Note that this is not necessarily
+            a polytope.[133X
   
-  [1X1.1-4 NumberOfFacets[101X
+  [1X1.1-4 IsSelfPetrial[101X
   
-  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XP[103X ) [32X attribute[133X
-  
-  [1X1.1-5 NumberOfRidges[101X
-  
-  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XP[103X ) [32X attribute[133X
-  
-  [1X1.1-6 Fvector[101X
-  
-  [33X[1;0Y[29X[2XFvector[102X( [3XP[103X ) [32X attribute[133X
-  
-  [1X1.1-7 Facets[101X
-  
-  [33X[1;0Y[29X[2XFacets[102X( [3XP[103X ) [32X attribute[133X
-  
-  [33X[0;0YCurrently only works for regular polytopes.[133X
-  
-  [1X1.1-8 VertexFigures[101X
-  
-  [33X[1;0Y[29X[2XVertexFigures[102X( [3XP[103X ) [32X attribute[133X
-  
-  [33X[0;0YCurrently only works for regular polytopes.[133X
+  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XP[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its Petrial.[133X
   
