@@ -2,7 +2,7 @@
 InstallMethod(Pgon,
 	[IsInt],
 	function(n)
-	return UniversalPolytope([n]);
+	return AbstractRegularPolytope([n]);
 	end);	
 
 InstallMethod(Cube,
@@ -11,7 +11,7 @@ InstallMethod(Cube,
 	local sym, p;
 	sym := List([1..n-1], i -> 3);
 	sym[1] := 4;
-	p := UniversalPolytope(sym);
+	p := AbstractRegularPolytope(sym);
 	SetSize(p, 2^n * Factorial(n));
 	return p;
 	end);
@@ -33,7 +33,7 @@ InstallMethod(CrossPolytope,
 	local sym, p;
 	sym := List([1..n-1], i -> 3);
 	sym[n-1] := 4;
-	p := UniversalPolytope(sym);
+	p := AbstractRegularPolytope(sym);
 	SetSize(p, 2^n * Factorial(n));
 	return p;
 	end);
@@ -53,7 +53,7 @@ InstallMethod(Simplex,
 	function(n)
 	local sym, p;
 	sym := List([1..n-1], i -> 3);
-	p := UniversalPolytope(sym);
+	p := AbstractRegularPolytope(sym);
 	SetSize(p, Factorial(n+1));
 	return p;
 	end);
@@ -65,7 +65,7 @@ InstallMethod(CubicTiling,
 	sym := List([1..n-1], i -> 3);
 	sym[1] := 4;
 	sym[n-1] := 4;
-	p := UniversalPolytope(sym);
+	p := AbstractRegularPolytope(sym);
 	SetSize(p, infinity);
 	return p;
 	end);
@@ -73,7 +73,7 @@ InstallMethod(CubicTiling,
 InstallMethod(Dodecahedron,
 	[],
 	function()
-	return UniversalPolytope([5,3]);
+	return AbstractRegularPolytope([5,3]);
 	end);
 InstallMethod(HemiDodecahedron,
 	[],
@@ -83,7 +83,7 @@ InstallMethod(HemiDodecahedron,
 InstallMethod(Icosahedron,
 	[],
 	function()
-	return UniversalPolytope([3,5]);
+	return AbstractRegularPolytope([3,5]);
 	end);
 InstallMethod(HemiIcosahedron,
 	[],
@@ -93,7 +93,7 @@ InstallMethod(HemiIcosahedron,
 InstallMethod(24Cell,
 	[],
 	function()
-	return UniversalPolytope([3,4,3]);
+	return AbstractRegularPolytope([3,4,3]);
 	end);
 InstallMethod(Hemi24Cell,
 	[],
@@ -103,7 +103,7 @@ InstallMethod(Hemi24Cell,
 InstallMethod(120Cell,
 	[],
 	function()
-	return UniversalPolytope([5,3,3]);
+	return AbstractRegularPolytope([5,3,3]);
 	end);
 InstallMethod(Hemi120Cell,
 	[],
@@ -113,7 +113,7 @@ InstallMethod(Hemi120Cell,
 InstallMethod(600Cell,
 	[],
 	function()
-	return UniversalPolytope([3,3,5]);
+	return AbstractRegularPolytope([3,3,5]);
 	end);
 InstallMethod(HemiIcosahedron,
 	[],

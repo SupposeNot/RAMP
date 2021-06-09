@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Constructions">
+<Heading>Constructions</Heading>
+
+<Section Label="Chapter_Constructions_Section_Duality">
+<Heading>Duality</Heading>
+
+<ManSection>
+  <Attr Arg="P" Name="Dual" Label="for IsAbstractPolytope"/>
+ <Returns>The polytope that is dual to <A>P</A>.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="P" Name="IsSelfDual" Label="for IsAbstractPolytope"/>
+ <Returns>Whether this polytope is isomorphic to its dual.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="P" Name="Petrial" Label="for IsAbstractPolytope"/>
+ <Returns>The Petrial (Petrie dual) of <A>P</A>.  Note that this is not necessarily a polytope.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="P" Name="IsSelfPetrial" Label="for IsAbstractPolytope"/>
+ <Returns>Whether this polytope is isomorphic to its Petrial.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

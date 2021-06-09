@@ -1,6 +1,6 @@
 
 InstallMethod(IsOrientable,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local rels;
 	rels := ExtraRelators(p);
@@ -8,7 +8,7 @@ InstallMethod(IsOrientable,
 	end);
 
 InstallMethod(IsIOrientable,
-	[IsAbstractRegularPolytope, IsList],
+	[IsReflexibleManiplex, IsList],
 	function(p, I)
 	local rels;
 	rels := RelatorsOfFpGroup(AutomorphismGroup(p));
@@ -19,14 +19,14 @@ InstallMethod(IsIOrientable,
 	end);
 
 InstallMethod(IsVertexBipartite,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	return IsIOrientable(p, [0]);
 	end);
 	
 InstallMethod(IsFacetBipartite,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
-	return IsIOrientable(p, [RankPolytope(p)-1]);
+	return IsIOrientable(p, [Rank(p)-1]);
 	end);
 	

@@ -21,59 +21,72 @@ DeclareOperation("UniversalSggi", [IsList]);
 #! @Description Given a group g (which should be a string C-group),
 #! returns the abstract regular polytope with that automorphism group,
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
-DeclareOperation("AbstractRegularPolytope", [IsGroup]);
+DeclareOperation("ReflexibleManiplex", [IsGroup]);
+
+DeclareOperation("ReflexibleManiplex", [IsList]);
+
 
 #! @Arguments symbol, relations
 #! @Description Returns an abstract regular polytope with the given Schlafli
 #! symbol and with the given relations.
 #! The formatting of the relations is quite flexible. All of the following work:
 #! @BeginExampleSession
-#! q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
-#! q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
-#! p := AbstractRegularPolytope([infinity], "r0 r1 r0 = r1 r0 r1");
+#! q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
+#! q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
+#! p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");
 #! @EndExampleSession
-DeclareOperation("AbstractRegularPolytope", [IsList, IsList]);
+DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 
 #! @Arguments name
 #! @Description Returns the regular polytope with the given symbolic name.
 #! Examples:
-#! AbstractRegularPolytope("{3,3,3}");
-#! AbstractRegularPolytope("{4,3}_3");
-DeclareOperation("AbstractRegularPolytope", [IsString]);
+#! ReflexibleManiplex("{3,3,3}");
+#! ReflexibleManiplex("{4,3}_3");
+DeclareOperation("ReflexibleManiplex", [IsString]);
 
-DeclareOperation("AbstractRotaryPolytope", [IsGroup]);
-DeclareOperation("AbstractPolytope", [IsGroup]);
+AbstractRegularPolytope := function(args)
+	return ReflexibleManiplex(args : polytopal := true);
+	end;
 
+DeclareOperation("RotaryManiplex", [IsGroup]);
+DeclareOperation("Maniplex", [IsGroup]);
+
+AbstractPolytope := function(args)
+	return Maniplex(args : polytopal := true);
+	end;
+
+
+DeclareProperty("IsPolytopal", IsManiplex);
 
 # Combinatorics
-DeclareAttribute("Size", IsAbstractPolytope);
+DeclareAttribute("Size", IsManiplex);
 DeclareSynonymAttr("NumberOfFlags", Size);
-DeclareAttribute("RankPolytope", IsAbstractPolytope);
-DeclareAttribute("SchlafliSymbol", IsAbstractPolytope);
-DeclareOperation("ComputeSchlafliSymbol", [IsAbstractPolytope]);
-DeclareProperty("IsTight", IsAbstractPolytope);
+DeclareAttribute("RankManiplex", IsManiplex);
+DeclareAttribute("SchlafliSymbol", IsManiplex);
+DeclareOperation("ComputeSchlafliSymbol", [IsManiplex]);
+DeclareProperty("IsTight", IsManiplex and IsPolytopal);
 DeclareOperation("PetrieRelation", [IsInt, IsInt]);
-DeclareAttribute("PetrieLength", IsAbstractRegularPolytope);
-DeclareAttribute("HoleLength", IsAbstractRegularPolytope);
+DeclareAttribute("PetrieLength", IsReflexibleManiplex);
+DeclareAttribute("HoleLength", IsReflexibleManiplex);
 
 # Groups
-DeclareAttribute("AutomorphismGroup", IsAbstractPolytope);
-DeclareAttribute("ConnectionGroup", IsAbstractPolytope);
-DeclareAttribute("RotationGroup", IsAbstractRotaryPolytope);
-DeclareOperation("FindRels", [IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithoutRels]);
-DeclareAttribute("ExtraRelators", IsAbstractRegularPolytope);
+DeclareAttribute("AutomorphismGroup", IsManiplex);
+DeclareAttribute("ConnectionGroup", IsManiplex);
+DeclareAttribute("RotationGroup", IsManiplex);
+DeclareOperation("FindRels", [IsReflexibleManiplex and IsReflexibleManiplexWithoutRels]);
+DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
 DeclareOperation("IsStringC", [IsGroup]);
 
 # Faithfulness
-DeclareProperty("IsVertexFaithful", IsAbstractRegularPolytope);
-DeclareProperty("IsFacetFaithful", IsAbstractRegularPolytope);
+DeclareProperty("IsVertexFaithful", IsReflexibleManiplex);
+DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);
 
 # Covers / Quotients
-DeclareOperation("MaxVertexFaithfulQuotient", [IsAbstractRegularPolytope]);
-DeclareOperation("IsQuotientOf", [IsAbstractPolytope, IsAbstractPolytope]);
-DeclareOperation("IsCoverOf", [IsAbstractPolytope, IsAbstractPolytope]);
-DeclareOperation("IsIsomorphicTo", 	[IsAbstractPolytope, IsAbstractPolytope]);
+DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
+DeclareOperation("IsQuotientOf", [IsManiplex, IsManiplex]);
+DeclareOperation("IsCoverOf", [IsManiplex, IsManiplex]);
+DeclareOperation("IsIsomorphicTo", 	[IsManiplex, IsManiplex]);
 
 # Symmetry Type Graphs
-DeclareAttribute("SymmetryTypeGraph", IsAbstractPolytope);
-DeclareAttribute("NumberOfFlagOrbits", IsAbstractPolytope);
+DeclareAttribute("SymmetryTypeGraph", IsManiplex);
+DeclareAttribute("NumberOfFlagOrbits", IsManiplex);

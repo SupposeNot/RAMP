@@ -1,3 +1,3 @@
-DeclareAttribute("RegularCover", IsAbstractPolytope);
-DeclareOperation("PyramidOver", [IsAbstractPolytope]);
-DeclareOperation("PrismOver", [IsAbstractPolytope]);
+DeclareAttribute("RegularCover", IsManiplex);
+DeclareOperation("PyramidOver", [IsManiplex]);
+DeclareOperation("PrismOver", [IsManiplex]);

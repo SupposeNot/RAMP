@@ -40,9 +40,8 @@ InstallMethod( UniversalPolytope,
 	function(n)
 	local g, fam, p;
 	g := UniversalSggi(n);
-	fam := NewFamily(Concatenation("Abstract Regular ", String(n), "-Polytope"), IsAbstractRegularPolytope);
-	fam!.rank := n;
-	p := Objectify( NewType( fam, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels), rec( aut_gp := g, rank := n, schlafli_symbol := List([1..n-1], i -> infinity)));
+	p := AbstractRegularPolytope(g);
+	
 	if n = 0 then
 		SetSize(p, 1);
 		SetFvector(p, []);
@@ -54,44 +53,15 @@ InstallMethod( UniversalPolytope,
 	elif n > 1 then
 		SetSize(p, infinity);
 		SetFvector(p, List([1..n], i -> infinity));
-		SetSchlafliSymbol(p, p!.schlafli_symbol);
+		SetSchlafliSymbol(p, List([1..n-1], i -> infinity));
 	fi;
 	return p;
 	end);
 	
-# Returns the Universal polytope with the given Schlafli symbol
-InstallOtherMethod( UniversalPolytope,
-	[IsList],
-	function(sym)
-	local g, n, fam, p, w, gens, rels, i;
-	n := 1+Size(sym);
-	w := UniversalSggi(n);
-	gens := FreeGeneratorsOfFpGroup(w);
-	rels := [];
-	for i in [1..n-1] do
-		if sym[i] <> infinity then
-			Add(rels, (gens[i]*gens[i+1])^sym[i]);
-		fi;
-	od;
-	g := FactorGroupFpGroupByRels(w, rels);
-	fam := NewFamily(Concatenation("Abstract Regular ", String(n), "-Polytope"), IsAbstractRegularPolytope);
-	fam!.rank := n;
-
-	p := Objectify( NewType( fam, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels), rec( aut_gp := g, rank := n, schlafli_symbol := sym, fvec := List([1..n], i -> fail)));
-	
-	if not(_IS_SPHERICAL(sym)) then
-		SetSize(p, infinity);
-	fi;
-	
-	SetSchlafliSymbol(p, sym);
-	
-	return p;
-	end);
-
 # Accepts either a list of Tietze words like [1, 2, 3, 2]
 # or a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4"
 InstallMethod(QuotientPolytope,
-	[IsAbstractRegularPolytope, IsList],
+	[IsReflexibleManiplex, IsList],
 	function(p, rels)
 	local g, w, h, q;
 	g := AutomorphismGroup(p);
@@ -101,20 +71,20 @@ InstallMethod(QuotientPolytope,
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
 	fi;
 	h := FactorGroupFpGroupByRels(g, rels);
-	q := AbstractRegularPolytope(h);
+	q := ReflexibleManiplex(h);
 	return q;
 	end);
 	
 InstallMethod(UniversalExtension,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g, n, rels, f2, g2, p2, sym;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	f2 := UniversalSggi(n+1);
 	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
-	p2 := AbstractRegularPolytope(g2);
+	p2 := ReflexibleManiplex(g2);
 	
 	SetSize(p2, infinity);
 	sym := ShallowCopy(SchlafliSymbol(p));
@@ -122,20 +92,24 @@ InstallMethod(UniversalExtension,
 	p2!.schlafli_symbol := sym;
 	SetSchlafliSymbol(p2, sym);
 
+	if HasIsPolytopal(p) then
+		SetIsPolytopal(p2, IsPolytopal(p));
+	fi;
+
 	return p2;
 	end);
 
 InstallOtherMethod(UniversalExtension,
-	[IsAbstractRegularPolytope, IsInt],
+	[IsReflexibleManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	Add(rels, List([0..2*k-1], i -> n+(i mod 2)));
 	f2 := UniversalSggi(n+1);
 	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
-	p2 := AbstractRegularPolytope(g2);
+	p2 := ReflexibleManiplex(g2);
 
 	# TODO: Handle other exceptional cases
 	if k = infinity then
@@ -151,11 +125,15 @@ InstallOtherMethod(UniversalExtension,
 		SetSchlafliSymbol(p2, sym);
 	fi;
 
+	if HasIsPolytopal(p) then
+		SetIsPolytopal(p2, IsPolytopal(p));
+	fi;
+	
 	return p2;
 	end);
 	
 InstallMethod(TrivialExtension,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	return UniversalExtension(p,2);
 	end);
@@ -163,11 +141,11 @@ InstallMethod(TrivialExtension,
 # TODO: Enforce that last entry of SchlafliSymbol(p) is even.
 # Actually, I need an even stronger restriction...
 InstallMethod(FlatExtension,
-	[IsAbstractRegularPolytope, IsInt],
+	[IsReflexibleManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	p2 := QuotientPolytope(UniversalExtension(p, k), [[n-1, n, n+1, n, n+1, n-1, n+1, n, n+1, n]]);
 
 	if HasSize(p) then SetSize(p2, k*Size(p)); fi;
@@ -218,11 +196,11 @@ InstallMethod(FlatRegularPolyhedron,
 # Results not guaranteed to be correct for incompatible polytopes
 InstallMethod(Amalgamate, 
 	IsSameRank,
-	[IsAbstractRegularPolytope, IsAbstractRegularPolytope],
+	[IsReflexibleManiplex, IsReflexibleManiplex],
 	function(p,q)
 	local a, g, h, n, rels, q_rels, f2, g2, sym;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	q_rels := List(RelatorsOfFpGroup(AutomorphismGroup(q)), r -> TietzeWordAbstractWord(r));
 	# shift the relations of q "right" by one
@@ -233,7 +211,7 @@ InstallMethod(Amalgamate,
 	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2)));
 	rels := Difference(rels, RelatorsOfFpGroup(f2));
 	g2 := FactorGroupFpGroupByRels(f2, rels);
-	a := AbstractRegularPolytope(g2);
+	a := ReflexibleManiplex(g2);
 	
 	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) then
 		sym := ShallowCopy(SchlafliSymbol(p));
@@ -244,13 +222,13 @@ InstallMethod(Amalgamate,
 	return a;
 	end);
 	
-# Currently only well-defined for polyhedra
+# Currently only well-defined for rank 3
 InstallMethod(Medial,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	local cg, n, r0, r1, r2, s0, s1, s2;
 	
-	if RankPolytope(p) <> 3 then Error("Medial only defined for polyhedra."); fi;
+	if Rank(p) <> 3 then Error("Medial only defined for rank 3."); fi;
 	
 	cg := ConnectionGroup(p);
 	n := Size(p);
@@ -271,5 +249,5 @@ InstallMethod(Medial,
 	# s2 fixes the first component while switching the second component.
 	s2 := MultPerm((1,n+1), n, 1);
 
-	return AbstractPolytope(Group([s0,s1,s2]));
+	return Maniplex(Group([s0,s1,s2]));
 	end);

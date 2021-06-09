@@ -1,17 +1,17 @@
 
 # TODO: This should eventually return a maniplex, not a polytope
 InstallMethod(RegularCover,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
-	return AbstractPolytope(Image(RegularActionHomomorphism(ConnectionGroup(p))));
+	return ReflexibleManiplex(Image(RegularActionHomomorphism(ConnectionGroup(p))));
 	end);
 	
 InstallMethod(PyramidOver,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
-	local n, k, flagNum, i, j, t, r_t, perms, thisFlag, nextFlag, conn, newConn, s;
+	local n, k, flagNum, i, j, t, r_t, perms, thisFlag, nextFlag, conn, newConn, s, q;
 	conn := ConnectionGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	k := Size(p);
 
 	# The number of flags in the pyramid over P, where P is an n-polytope with k flags,
@@ -54,15 +54,19 @@ InstallMethod(PyramidOver,
 		perms[t+1] := r_t;	# Indices are off by one because GAP lists are 1-indexed.
 	od;
 	newConn := Group(perms);
-	return AbstractPolytope(newConn);
+	q := Maniplex(newConn);
+	if HasIsPolytopal(p) then
+		SetIsPolytopal(q, IsPolytopal(p));
+	fi;
+	return q;
 	end);
 
 InstallMethod(PrismOver,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	local n, k, flagNum, i, t, r_t, d, thisFlag, perm, perms, newConn, conn, s;
 	conn := ConnectionGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	k := Size(p);
 	flagNum := function(i, j, d, k)
 		return i + j*k + (d-1)*2*k;
@@ -98,7 +102,7 @@ InstallMethod(PrismOver,
 		perms[t+1] := r_t;
 	od;
 	newConn := Group(perms);
-	return AbstractPolytope(newConn);
+	return Maniplex(newConn);
 	end);
 	
 # Return the Toroidal Map {4,4}_u,v.
@@ -257,7 +261,7 @@ ToroidalMap44 := function(u, arg...)
 		r2 := r2 * (n+1, n_h+6) * (n+2, n_h+5) * (n+3, n_v+8) * (n+4, n_v+7);
 	od;
 	
-	return AbstractPolytope(Group([r0,r1,r2]));
+	return Maniplex(Group([r0,r1,r2]));
 	end;
 
 # I think this is correct, but would love a second set of eyes.
@@ -304,7 +308,7 @@ Tomotope := function()
     166)(167, 168)(169, 170)(171, 172)(173, 174)(175, 176)(177, 178)(179, 180)(181, 182)(183, 184)(185, 
     186)(187, 188)(189, 190)(191, 192)
 ]);
-	return AbstractPolytope(g);
+	return Maniplex(g);
 	end;
 
 	

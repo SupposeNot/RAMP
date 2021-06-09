@@ -3,24 +3,24 @@
 
 #! @Arguments P, i
 #! @Returns The number of <A>i</A>-faces that <A>P</A> has.
-DeclareOperation("NumberOfIFaces", [IsAbstractPolytope, IsInt]);
+DeclareOperation("NumberOfIFaces", [IsManiplex, IsInt]);
 
 #! @Arguments P
-DeclareAttribute("NumberOfVertices", IsAbstractPolytope);
+DeclareAttribute("NumberOfVertices", IsManiplex);
 #! @Arguments P
-DeclareAttribute("NumberOfEdges", IsAbstractPolytope);
+DeclareAttribute("NumberOfEdges", IsManiplex);
 #! @Arguments P
-DeclareAttribute("NumberOfFacets", IsAbstractPolytope);
+DeclareAttribute("NumberOfFacets", IsManiplex);
 #! @Arguments P
-DeclareAttribute("NumberOfRidges", IsAbstractPolytope);
+DeclareAttribute("NumberOfRidges", IsManiplex);
 #! @Arguments P
-DeclareAttribute("Fvector", IsAbstractPolytope);
-
-#! @Arguments P
-#! @Description Currently only works for regular polytopes.
-DeclareAttribute("Facets", IsAbstractPolytope);
+DeclareAttribute("Fvector", IsManiplex);
 
 #! @Arguments P
 #! @Description Currently only works for regular polytopes.
-DeclareAttribute("VertexFigures", IsAbstractPolytope);
+DeclareAttribute("Facets", IsManiplex);
+
+#! @Arguments P
+#! @Description Currently only works for regular polytopes.
+DeclareAttribute("VertexFigures", IsManiplex);
 

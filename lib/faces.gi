@@ -6,10 +6,10 @@
 # of i-faces for each i that hasn't already been computed.
 
 InstallMethod(NumberOfIFaces,
-	[IsAbstractPolytope, IsInt],
+	[IsManiplex, IsInt],
 	function(p,i)
 	local g, n, ranks, MP;
-	n:=RankPolytope(p);
+	n:=Rank(p);
 	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
 	ranks:=[1..n];
 	Remove(ranks,i+1);
@@ -21,10 +21,10 @@ InstallMethod(NumberOfIFaces,
 # TODO: Deal more gracefully with infinite polytopes
 # This should also use the schlafli symbol if it is bound.
 InstallOtherMethod(NumberOfIFaces,
-	[IsAbstractRegularPolytope, IsInt],
+	[IsReflexibleManiplex, IsInt],
 	function(p, i)
 	local g, h, sym, n, J, num;
-	n := RankPolytope(p);
+	n := Rank(p);
 	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
 	if p!.fvec[i+1] <> fail then
 		return p!.fvec[i+1];
@@ -55,34 +55,34 @@ InstallOtherMethod(NumberOfIFaces,
 	end);
 
 InstallMethod(NumberOfVertices,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	return NumberOfIFaces(p,0);
 	end);
 	
 InstallMethod(NumberOfEdges,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	return NumberOfIFaces(p,1);
 	end);
 	
 InstallMethod(NumberOfFacets,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
-	return NumberOfIFaces(p,RankPolytope(p)-1);
+	return NumberOfIFaces(p,Rank(p)-1);
 	end);
 	
 InstallMethod(NumberOfRidges,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
-	return NumberOfIFaces(p,RankPolytope(p)-2);
+	return NumberOfIFaces(p,Rank(p)-2);
 	end);
 	
 InstallMethod(Fvector,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	local fvec, i, n;
-	n := RankPolytope(p);
+	n := Rank(p);
 	fvec := [];
 	for i in [0..n-1] do
 		Add(fvec, NumberOfIFaces(p,i));
@@ -95,13 +95,13 @@ InstallMethod(Fvector,
 # 2. If P is finite, then try guessing a presentation for the facets.
 #	This will give something that might properly cover the facets -- compare size.
 InstallMethod(Facets,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local n, sym, g, h, s, q;
-	n := RankPolytope(p);
+	n := Rank(p);
 	g := AutomorphismGroup(p);
 	h := Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
-	q := AbstractRegularPolytope(h);
+	q := ReflexibleManiplex(h);
 	if HasSchlafliSymbol(p) then
 		SetSchlafliSymbol(q, SchlafliSymbol(p){[1..n-2]});
 	fi;
@@ -109,13 +109,13 @@ InstallMethod(Facets,
 	end);
 	
 InstallMethod(VertexFigures,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local n, sym, g, h, s, q;
-	n := RankPolytope(p);
+	n := Rank(p);
 	g := AutomorphismGroup(p);
 	h := Subgroup(g, GeneratorsOfGroup(g){[2..n]});
-	q := AbstractRegularPolytope(h);
+	q := ReflexibleManiplex(h);
 	if HasSchlafliSymbol(p) then
 		SetSchlafliSymbol(q, SchlafliSymbol(p){[2..n-1]});
 	fi;

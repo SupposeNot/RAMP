@@ -24,6 +24,7 @@ Mark: DualPolytope for non-regulars
 * Optimization
 	* Generic "IsQuotientOf" function - have it check for compatible sizes etc.
 	* Have some way to turn off optimizations in case we want to check an optimization for correctness
+	* Make FlatRegularPolyhedra work better. (Better optimized presentations?)
 
 * General constructors
 	* Quotient representation -- give a regular polytope and a subgroup of its automorphism group.

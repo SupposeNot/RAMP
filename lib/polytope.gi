@@ -56,7 +56,7 @@ InstallOtherMethod(UniversalSggi,
 # define the automorphism group of p as a quotient of the string
 # Coxeter group implied by its Schlafli Symbol.
 InstallMethod(ExtraRelators,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g, rels, type_rels, sym, i;
 	g := AutomorphismGroup(p);
@@ -73,6 +73,7 @@ InstallMethod(ExtraRelators,
 	return rels;
 	end);
 	
+# TODO: Currently will fail for infinite groups.
 InstallMethod(IsStringC,
 	[IsGroup],
 	function(g)
@@ -87,47 +88,66 @@ InstallMethod(IsStringC,
 	return IsStringC(vfig) and IsStringC(facet) and (Size(medial) = Size(Intersection(vfig, facet)));
 	end);
 
+InstallMethod(IsPolytopal,
+	[IsReflexibleManiplex],
+	function(m)
+	return IsStringC(AutomorphismGroup(m));
+	end);
 
-
-# Given a finitely presented group (which should be a sggi), builds the regular
-# polytope (well, maniplex) out of it.
-InstallMethod(AbstractRegularPolytope,
-	[IsFpGroup],
-	function(autgp)
+BuildReflexibleManiplex := function(autgp, hasrels)
 	local n, fam, p;
 	n := Size(GeneratorsOfGroup(autgp));
-	fam := NewFamily(Concatenation("Abstract Regular ", String(n), "-Polytope"), IsAbstractRegularPolytope);
+
+	fam := NewFamily(Concatenation("Reflexible ", String(n), "-Maniplex"), IsReflexibleManiplex);
 	fam!.rank := n;
-	
-	p := Objectify( NewType( fam, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
+	if hasrels then
+		p := Objectify( NewType( fam, IsReflexibleManiplex and IsReflexibleManiplexWithRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
+	else
+		p := Objectify( NewType( fam, IsReflexibleManiplex and IsReflexibleManiplexWithoutRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));		
+	fi;
 	
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
-	SetRankPolytope(p, n);
+	SetRankManiplex(p, n);
 	SetAutomorphismGroup(p, autgp);
+	if (ValueOption("polytopal") = true) then
+		SetIsPolytopal(p, true);
+	fi;
 	return p;
+	end;
+
+# Given a finitely presented group (which should be a sggi), builds the 
+# reflexible maniplex out of it.
+# NOTE: This does not check whether autgp is an sggi.
+InstallMethod(ReflexibleManiplex,
+	[IsFpGroup],
+	function(autgp)
+	return BuildReflexibleManiplex(autgp, true);
 	end);
-	
+
 # Given any group (which should be a sggi), builds the regular
 # polytope (well, maniplex) out of it. So you could pass in a
 # permutation group, matrix group, or anything else.
-InstallMethod(AbstractRegularPolytope,
+InstallMethod(ReflexibleManiplex,
 	[IsGroup],
 	function(autgp)
-	local n, fam, p;
-	n := Size(GeneratorsOfGroup(autgp));
-	fam := NewFamily(Concatenation("Abstract Regular ", String(n), "-Polytope"), IsAbstractRegularPolytope);
-	fam!.rank := n;
-	
-	p := Objectify( NewType( fam, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithoutRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
-	
-	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
-	SetRankPolytope(p, n);
-	SetAutomorphismGroup(p, autgp);
-	return p;
+	return BuildReflexibleManiplex(autgp, false);
 	end);
 	
-# Usage: AbstractRegularPolytope([4,6], "(r0r1r2)^6 = r0(r1r2)^5 = 1");
-InstallMethod(AbstractRegularPolytope,
+# The universal maniplex with the given Schlafli symbol.
+# Requires every entry of the symbol to be at least 2.
+InstallMethod(ReflexibleManiplex,
+	[IsList],
+	function(sym)
+	local n, w, p;
+	n := Size(sym)+1;
+	w := UniversalSggi(sym);
+	p := ReflexibleManiplex(w);
+	SetSchlafliSymbol(p, sym);
+	return p;
+	end);
+
+# Usage: ReflexibleManiplex([4,6], "(r0r1r2)^6 = r0(r1r2)^5 = 1");
+InstallMethod(ReflexibleManiplex,
 	[IsList, IsList],
 	function(sym, rels)
 	local n, w, autgp, fam, p;
@@ -139,30 +159,21 @@ InstallMethod(AbstractRegularPolytope,
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
 	autgp := FactorGroupFpGroupByRels(w, rels);
-	
-	fam := NewFamily(Concatenation("Abstract Regular ", String(n), "-Polytope"), IsAbstractRegularPolytope);
-	fam!.rank := n;
-	
-	p := Objectify( NewType( fam, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
-	
-	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
-	SetRankPolytope(p, n);
-	SetAutomorphismGroup(p, autgp);
-	return p;
+	return ReflexibleManiplex(autgp);
 	end);
 
 # Returns the regular polytope with the given symbolic name.
 # Examples:
-# AbstractRegularPolytope("{3,3,3}");
-# AbstractRegularPolytope("{4,3}_3");
-InstallMethod(AbstractRegularPolytope,
+# ReflexibleManiplex("{3,3,3}");
+# ReflexibleManiplex("{4,3}_3");
+InstallOtherMethod(ReflexibleManiplex,
 	[IsString],
 	function(name)
 	local sym, p, nameparts, petrie, n, petrie_word, symname;
 	if name[1] = '{' and name[Size(name)] = '}' then
 		sym := SplitString(name{[2..Size(name)-1]}, ',');
 		sym := List(sym, str -> Int(str));
-		p := UniversalPolytope(sym);
+		p := ReflexibleManiplex(sym);
 	elif '_' in name then
 		nameparts := SplitString(name, '_');
 		symname := nameparts[1];
@@ -171,7 +182,7 @@ InstallMethod(AbstractRegularPolytope,
 			sym := List(sym, str -> Int(str));
 			petrie := Int(nameparts[2]);
 			n := 1 + Size(sym);
-			p := AbstractRegularPolytope(sym, PetrieRelation(n, petrie));
+			p := ReflexibleManiplex(sym, PetrieRelation(n, petrie));
 		else
 			Error("Cannot parse name.");
 		fi;
@@ -182,81 +193,90 @@ InstallMethod(AbstractRegularPolytope,
 	return p;
 	end);
 
+# Builds a reflexible maniplex using any of its constructors, and marks the
+# result as being polytopal.
+AbstractRegularPolytope := function(args)
+	return ReflexibleManiplex(args : polytopal := true);
+	end;
+	
+
+
 # Given an abstract regular polytope where we don't have a presentation for
 # the automorphism group yet, we attempt to find a presentation.
 # TODO: Prune out extra rels -- the usual sggi rels appear twice
+# TODO: This sends back a new object. Do I want that? If so I should check
+# the properties and make sure the new object has all the old properties.
 InstallMethod(FindRels,
-	[IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithoutRels],
+	[IsReflexibleManiplex and IsReflexibleManiplexWithoutRels],
 	function(p)
 	local g, fp, w, rels;
 	g := AutomorphismGroup(p);
 	fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "Q"));
 	# This is a silly hack, but I want the generators to be the usual r0 etc.
-	w := UniversalSggi(RankPolytope(p));
+	w := UniversalSggi(Rank(p));
 	rels := RelatorsOfFpGroup(fp);
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
 	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fp := FactorGroupFpGroupByRels(w, rels);
-	return AbstractRegularPolytope(fp);
+	return ReflexibleManiplex(fp);
 	end);
 	
 # Given a finitely presented group, builds the rotary (regular or chiral)
 # polytope with that group as its rotation group.
-InstallMethod(AbstractRotaryPolytope,
+InstallMethod(RotaryManiplex,
 	[IsFpGroup],
 	function(rotgp)
 	local n, fam, p;
 	n := 1+Size(GeneratorsOfGroup(rotgp));
-	fam := NewFamily(Concatenation("Abstract Rotary ", String(n), "-Polytope"), IsAbstractRotaryPolytope);
+	fam := NewFamily(Concatenation("Rotary ", String(n), "-maniplex"), IsRotaryManiplex);
 	fam!.rank := n;
 	
-	p := Objectify( NewType( fam, IsAbstractRotaryPolytope and IsAbstractRotaryPolytopeRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( fam, IsRotaryManiplex and IsRotaryManiplexRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail) ));
 	
 	if HasSize(rotgp) then SetSize(p, 2*Size(rotgp)); fi;
-	SetRankPolytope(p, n);
+	SetRankManiplex(p, n);
 	SetRotationGroup(p, rotgp);
 	SetIsOrientable(p, true);
 	return p;
 	end);
 
-# Given a permutation group (sggi), builds a polytope with that as its connection group.	
-InstallMethod(AbstractPolytope,
+# Given a permutation group (sggi), builds a maniplex with that as its connection group.	
+InstallMethod(Maniplex,
 	[IsPermGroup],
 	function(g)
 	local n, fam, p;
 	n := Size(GeneratorsOfGroup(g));
-	fam := NewFamily(Concatenation("Abstract ", String(n), "-Polytope"), IsAbstractPolytope);
+	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
 	fam!.rank := n;
 	
-	p := Objectify( NewType( fam, IsAbstractPolytope and IsAbstractPolytopeConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( fam, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail) ));
 	
 	SetSize(p, NrMovedPoints(g));
-	SetRankPolytope(p, n);
+	SetRankManiplex(p, n);
 	SetConnectionGroup(p, g);
+	if (ValueOption("polytopal") = true) then
+		SetIsPolytopal(p, true);
+	fi;
 	return p;
 	end);
 	
 InstallMethod(AutomorphismGroup, 
-	"for abstract polytopes",
-	[IsAbstractPolytope],
+	[IsManiplex],
 	p -> Centralizer(SymmetricGroup(Size(p)), ConnectionGroup(p)));
 	
 InstallOtherMethod(AutomorphismGroup, 
-	"for abstract regular polytopes",
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	p -> p!.aut_gp);
 
 InstallMethod(RotationGroup,
-	"for abstract rotary polytopes",
-	[IsAbstractRotaryPolytope and IsAbstractRotaryPolytopeRep],
+	[IsRotaryManiplex and IsRotaryManiplexRep],
 	p -> p!.rot_gp);
 InstallMethod(RotationGroup,
-	"for abstract regular polytopes",
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local gens, n, i, new_gens;
 	gens := GeneratorsOfGroup(AutomorphismGroup(p));
-	n := RankPolytope(p);
+	n := Rank(p);
 	new_gens := [];
 	for i in [1..n-1] do
 		Add(new_gens, gens[i]*gens[i+1]);
@@ -265,17 +285,21 @@ InstallMethod(RotationGroup,
 	end);
 
 InstallOtherMethod(Size,
-	"for abstract regular polytopes",
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	p -> Size(AutomorphismGroup(p)));
 
-InstallOtherMethod(RankPolytope,
-	"for abstract regular polytopes",
-	[IsAbstractRegularPolytope],
+InstallMethod(RankManiplex,
+	[IsReflexibleManiplex],
 	p -> Size(GeneratorsOfGroup(AutomorphismGroup(p))));
+
+InstallMethod(RankManiplex,
+	[IsManiplex],
+	p -> Size(GeneratorsOfGroup(ConnectionGroup(p))));
+
+InstallMethod(Rank, [IsManiplex], RankManiplex);
 	
 InstallMethod(SchlafliSymbol,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local gens, n, i, sym;
 	if IsBound(p!.schlafli_symbol) then return p!.schlafli_symbol; fi;
@@ -283,11 +307,11 @@ InstallMethod(SchlafliSymbol,
 	end);
 	
 InstallMethod(ComputeSchlafliSymbol,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local gens, n, i, sym;
 	gens := GeneratorsOfGroup(AutomorphismGroup(p));
-	n := RankPolytope(p);
+	n := Rank(p);
 	sym := [];
 	for i in [1..n-1] do
 		Add(sym, Order(gens[i]*gens[i+1]));
@@ -296,7 +320,7 @@ InstallMethod(ComputeSchlafliSymbol,
 	end);
 
 InstallMethod(IsTight,
-	[IsAbstractRotaryPolytope],
+	[IsReflexibleManiplex and HasIsPolytopal and IsPolytopal],
 	function(p)
 	return (Size(p) = 2*Product(SchlafliSymbol(p)));
 	end);
@@ -304,11 +328,11 @@ InstallMethod(IsTight,
 # A regular polytope is vertex-faithful if the action
 # of the automorphism group on the vertices is faithful.
 InstallMethod(IsVertexFaithful,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g, h, c, n, gens;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	gens := GeneratorsOfGroup(g){[2..n]};
 	h := Subgroup(g, gens);
 	c := Core(g,h);
@@ -316,23 +340,23 @@ InstallMethod(IsVertexFaithful,
 	end);
 	
 InstallMethod(MaxVertexFaithfulQuotient,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g, h, c, n, gens;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	gens := GeneratorsOfGroup(g){[2..n]};
 	h := Subgroup(g, gens);
 	c := Core(g,h);
-	return AbstractRegularPolytope(g/c);
+	return ReflexibleManiplex(g/c);
 	end);
 	
 InstallMethod(IsFacetFaithful,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g, h, c, n, gens;
 	g := AutomorphismGroup(p);
-	n := RankPolytope(p);
+	n := Rank(p);
 	gens := GeneratorsOfGroup(g){[1..n-1]};
 	h := Subgroup(g, gens);
 	c := Core(g,h);
@@ -344,7 +368,7 @@ InstallMethod(IsFacetFaithful,
 # TODO: Optimize this by checking some easy algebraic invariants first.
 InstallMethod(IsQuotientOf,
 	IsSameRank,
-	[IsAbstractPolytope, IsAbstractPolytope],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
 	g1 := ConnectionGroup(q);
@@ -357,11 +381,11 @@ InstallMethod(IsQuotientOf,
 # assuming that we have presentations for both of their groups.
 InstallMethod(IsQuotientOf,
 	IsSameRank,
-	[IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels, IsAbstractRegularPolytope and IsAbstractRegularPolytopeWithRels],
+	[IsReflexibleManiplex and IsReflexibleManiplexWithRels, IsReflexibleManiplex and IsReflexibleManiplexWithRels],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
 	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) then
-		for i in [1..RankPolytope(p)-1] do
+		for i in [1..Rank(p)-1] do
 			k1 := SchlafliSymbol(p)[i];
 			k2 := SchlafliSymbol(q)[i];
 			if k2 < k1 then 	# This also handles infinity
@@ -396,14 +420,14 @@ InstallMethod(IsQuotientOf,
 	
 InstallMethod(IsCoverOf,
 	IsSameRank,
-	[IsAbstractPolytope, IsAbstractPolytope],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsQuotientOf(q,p);
 	end);
 
 InstallMethod(IsIsomorphicTo,
 	IsSameRank,
-	[IsAbstractPolytope, IsAbstractPolytope],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	local atts, att;
 	atts := [Size, SchlafliSymbol, Fvector];
@@ -420,30 +444,44 @@ InstallMethod(IsIsomorphicTo,
 	end);
 InstallMethod( \=,
 	IsSameRank,
-	[IsAbstractPolytope, IsAbstractPolytope],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsIsomorphicTo(p,q);
 	end);
 InstallMethod( \<,
 	IsSameRank,
-	[IsAbstractPolytope, IsAbstractPolytope],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsQuotientOf(p,q);
 	end);
 	
 InstallMethod( ViewObj,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
-	if IsAbstractRegularPolytope(p) then
-		Print("regular ");
+	if IsReflexibleManiplex(p) then
+		if HasIsPolytopal(p) and IsPolytopal(p) then
+			Print("Regular ");
+		else
+			Print("Reflexible ");
+		fi;
 	fi;
-	Print(Concatenation(String(RankPolytope(p)), "-polytope"));
+	
+	if HasIsPolytopal(p) and not(IsPolytopal(p)) then
+		Print("nonpolytopal ");
+	fi;
+	
+	Print(String(Rank(p)));
+	if HasIsPolytopal(p) and IsPolytopal(p) then
+		Print("-polytope");
+	else
+		Print("-maniplex");
+	fi;
 	if HasSchlafliSymbol(p) then Print(Concatenation(" of type ", String(SchlafliSymbol(p)))); fi;
 	if HasSize(p) then Print(Concatenation(" with ", String(Size(p)), " flags")); fi;
 	end);
 
 InstallMethod( PrintObj,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	ViewObj(p);
 	Print("\n");
@@ -453,14 +491,14 @@ InstallMethod( PrintObj,
 	end);
 	
 InstallMethod(ConnectionGroup,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g, hom;
 	g := AutomorphismGroup(p);
 	return Image(RegularActionHomomorphism(g));
 	end);
 InstallMethod(ConnectionGroup,
-	[IsAbstractPolytope and IsAbstractPolytopeConnGpRep],
+	[IsManiplex and IsManiplexConnGpRep],
 	function(p)
 	return p!.conn_gp;
 	end);
@@ -476,7 +514,7 @@ InstallMethod(PetrieRelation,
 	end);
 	
 InstallMethod(PetrieLength,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g;
 	g := AutomorphismGroup(p);
@@ -484,7 +522,7 @@ InstallMethod(PetrieLength,
 	end);
 
 InstallMethod(HoleLength,
-	[IsAbstractRegularPolytope],
+	[IsReflexibleManiplex],
 	function(p)
 	local g;
 	g := AutomorphismGroup(p);
@@ -492,11 +530,11 @@ InstallMethod(HoleLength,
 	end);
 	
 InstallMethod(SymmetryTypeGraph,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	local ag, cg, orbs, k, perms, i, r, rp, orb, new_orb;
-	if IsAbstractRegularPolytope(p) then
-		return List([1..RankPolytope(p)], i -> ());
+	if IsReflexibleManiplex(p) then
+		return List([1..Rank(p)], i -> ());
 	fi;
 	
 	ag := AutomorphismGroup(p);
@@ -526,10 +564,10 @@ InstallMethod(SymmetryTypeGraph,
 	end);
 	
 InstallMethod(NumberOfFlagOrbits,
-	[IsAbstractPolytope],
+	[IsManiplex],
 	function(p)
 	local n;
-	if IsAbstractRegularPolytope(p) then return 1; fi;
+	if IsReflexibleManiplex(p) then return 1; fi;
 	n := LargestMovedPoint(Group(SymmetryTypeGraph(p)));
 	if n = 0 then n := 1; fi;
 	return n;
