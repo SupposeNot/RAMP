@@ -14,3 +14,4 @@ ReadPackage( "ramp", "lib/faces.gd" );
 ReadPackage( "ramp", "lib/families.gd" );
 ReadPackage( "ramp", "lib/orientable.gd" );
 ReadPackage( "ramp", "lib/polytope.gd" ); 
+ReadPackage( "ramp", "lib/poset.gd" );

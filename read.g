@@ -18,6 +18,7 @@ ReadPackage( "ramp", "lib/faces.gi" );
 ReadPackage( "ramp", "lib/families.gi" ); 
 ReadPackage( "ramp", "lib/orientable.gi" ); 
 ReadPackage( "ramp", "lib/polytope.gi" );
+ReadPackage( "ramp", "lib/poset.gi" );
 
 #E  read.g . . . . . . . . . . . . . . . . . . . . . . . . . . . .  ends here
 
