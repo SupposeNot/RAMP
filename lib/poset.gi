@@ -25,8 +25,8 @@ InstallMethod(FullPosetOfConnectionGroup,
 	for i in [1..rank] do
 		Append(poset,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	Add(poset,[],1);
-	Add(poset,flags);
+	Add(poset,[[]],1);
+	Add(poset,[flags]);
 	return poset;
 	end);
 
@@ -93,8 +93,8 @@ InstallMethod(FullPosetOfManiplex,
 	for i in [1..rank] do
 		Append(poset,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	Add(poset,[],1);
-	Add(poset,flags);
+	Add(poset,[[]],1);
+	Add(poset,[flags]);
 	return poset;
 	end);	
 
