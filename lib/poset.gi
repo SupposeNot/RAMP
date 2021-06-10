@@ -97,5 +97,17 @@ InstallMethod(FullPosetOfManiplex,
 	Add(poset,flags);
 	return poset;
 	end);	
-	
+
+InstallMethod(AreIncidentFaces,
+	[IsList,IsList],
+	function(list1,list2)
+	if list1=[] or list2=[] then
+		return true;
+	elif Intersection(list1,list2)=[] then
+		return false;
+	else
+		return true;
+	fi;
+	return "Was unable to evaluate for some reason.\n";
+	end);	
 	
