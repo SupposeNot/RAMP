@@ -6,3 +6,4 @@ DeclareRepresentation("IsReflexibleManiplexWithRels", IsComponentObjectRep and I
 DeclareRepresentation("IsReflexibleManiplexWithoutRels", IsComponentObjectRep and IsAttributeStoringRep, ["aut_gp", "schlafli_symbol", "fvec"]);
 DeclareRepresentation("IsRotaryManiplexRep", IsComponentObjectRep and IsAttributeStoringRep, ["rot_gp", "rels", "size", "fvec"]);
 DeclareRepresentation("IsManiplexConnGpRep", IsComponentObjectRep and IsAttributeStoringRep, ["conn_gp", "fvec"]);
+
