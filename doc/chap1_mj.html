@@ -25,46 +25,126 @@
 <p id="mathjaxlink" class="pcenter"><a href="chap1.html">[MathJax off]</a></p>
 <p><a id="X836F56D77AA04554" name="X836F56D77AA04554"></a></p>
 <div class="ChapSects"><a href="chap1_mj.html#X836F56D77AA04554">1 <span class="Heading">Constructions</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X87FD993F7F6F2FAB">1.1 <span class="Heading">Duality</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X871C2D73829F1FC1">1.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85EF28277F8CFC9F">1.1-1 Dual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X871F0F4587D64A9A">1.1-2 IsSelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X82C4B5BB8646EDBA">1.1-3 Petrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X782AFC818501E3B3">1.1-4 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X808AEA5281D52911">1.1-1 UniversalPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X800E07C686CF3EA7">1.1-2 FlatRegularPolyhedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X81DABA8680E94B18">1.1-3 QuotientPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X8582D0CF7EA1CB34">1.1-4 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X78B4610E7DE67E32">1.1-5 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X84BB6B21853173FD">1.1-6 TrivialExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A5853E278A83D74">1.1-7 FlatExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X790F22D47CD222EB">1.1-8 Amalgamate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X840BC19484E0E9CC">1.1-9 Medial</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1_mj.html#X87FD993F7F6F2FAB">1.2 <span class="Heading">Duality</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7D62BD3E7F941F5B">1.2-1 Dual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7FF8B96C83DA60CB">1.2-2 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E6D0732862D6BA3">1.2-3 Petrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X78FDB0047E3388A5">1.2-4 IsSelfPetrial</a></span>
 </div></div>
 </div>
 
 <h3>1 <span class="Heading">Constructions</span></h3>
 
+<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
+
+<h4>1.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
+
+<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
+
+<h5>1.1-1 UniversalPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal polytope of rank <var class="Arg">n</var>.</p>
+
+<p><a id="X800E07C686CF3EA7" name="X800E07C686CF3EA7"></a></p>
+
+<h5>1.1-2 FlatRegularPolyhedron</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedron</code>( <var class="Arg">p</var>, <var class="Arg">q</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the flat regular polyhedron with automorphism group [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function does not currently validate the inputs to make sure that the output makes sense.</p>
+
+<p><a id="X81DABA8680E94B18" name="X81DABA8680E94B18"></a></p>
+
+<h5>1.1-3 QuotientPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientPolytope</code>( <var class="Arg">M</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the quotient of <var class="Arg">M</var> by <var class="Arg">rels</var>, which may be given as either a list of Tietze words, such as [[1,2,1,0,1,2,1,0]] or as a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4".</p>
+
+<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
+
+<h5>1.1-4 UniversalExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
+
+<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
+
+<h5>1.1-5 UniversalExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
+
+<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
+
+<h5>1.1-6 TrivialExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M/</var>, 2}.</p>
+
+<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
+
+<h5>1.1-7 FlatExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in "Flat Extensions of Abstract Polytopes".) Currently only defined for reflexible maniplexes.</p>
+
+<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
+
+<h5>1.1-8 Amalgamate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
+
+<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
+
+<h5>1.1-9 Medial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
+
 <p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
 
-<h4>1.1 <span class="Heading">Duality</span></h4>
+<h4>1.2 <span class="Heading">Duality</span></h4>
 
-<p><a id="X85EF28277F8CFC9F" name="X85EF28277F8CFC9F"></a></p>
+<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
 
-<h5>1.1-1 Dual</h5>
+<h5>1.2-1 Dual</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The polytope that is dual to <var class="Arg">P</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
 
-<p><a id="X871F0F4587D64A9A" name="X871F0F4587D64A9A"></a></p>
+<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
 
-<h5>1.1-2 IsSelfDual</h5>
+<h5>1.2-2 IsSelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether this polytope is isomorphic to its dual.</p>
 
-<p><a id="X82C4B5BB8646EDBA" name="X82C4B5BB8646EDBA"></a></p>
+<p><a id="X7E6D0732862D6BA3" name="X7E6D0732862D6BA3"></a></p>
 
-<h5>1.1-3 Petrial</h5>
+<h5>1.2-3 Petrial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The Petrial (Petrie dual) of <var class="Arg">P</var>. Note that this is not necessarily a polytope.</p>
 
-<p><a id="X782AFC818501E3B3" name="X782AFC818501E3B3"></a></p>
+<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
-<h5>1.1-4 IsSelfPetrial</h5>
+<h5>1.2-4 IsSelfPetrial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether this polytope is isomorphic to its Petrial.</p>

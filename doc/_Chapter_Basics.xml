@@ -19,7 +19,7 @@
 
 
 <ManSection>
-  <Oper Arg="g" Name="AbstractRegularPolytope" Label="for IsGroup"/>
+  <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
  <Description>
 Given a group g (which should be a string C-group),
  returns the abstract regular polytope with that automorphism group,
@@ -29,15 +29,15 @@ Given a group g (which should be a string C-group),
 
 
 <ManSection>
-  <Oper Arg="symbol, relations" Name="AbstractRegularPolytope" Label="for IsList, IsList"/>
+  <Oper Arg="symbol, relations" Name="ReflexibleManiplex" Label="for IsList, IsList"/>
  <Description>
 Returns an abstract regular polytope with the given Schlafli
  symbol and with the given relations.
  The formatting of the relations is quite flexible. All of the following work:
 <Example><![CDATA[
-q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
-q := AbstractRegularPolytope([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
-p := AbstractRegularPolytope([infinity], "r0 r1 r0 = r1 r0 r1");
+q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
+q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
+p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");
 ]]></Example>
 
 
@@ -46,12 +46,12 @@ p := AbstractRegularPolytope([infinity], "r0 r1 r0 = r1 r0 r1");
 
 
 <ManSection>
-  <Oper Arg="name" Name="AbstractRegularPolytope" Label="for IsString"/>
+  <Oper Arg="name" Name="ReflexibleManiplex" Label="for IsString"/>
  <Description>
 Returns the regular polytope with the given symbolic name.
  Examples:
- AbstractRegularPolytope("{3,3,3}");
- AbstractRegularPolytope("{4,3}_3");
+ ReflexibleManiplex("{3,3,3}");
+ ReflexibleManiplex("{4,3}_3");
  </Description>
 </ManSection>
 

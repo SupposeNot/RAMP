@@ -96,7 +96,7 @@ InstallMethod(UniversalExtension,
 	return p2;
 	end);
 
-InstallOtherMethod(UniversalExtension,
+InstallMethod(UniversalExtension,
 	[IsReflexibleManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;

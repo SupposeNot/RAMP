@@ -8,7 +8,7 @@
 <Heading>Orientability</Heading>
 
 <ManSection>
-  <Prop Arg="p" Name="IsOrientable" Label="for IsAbstractPolytope"/>
+  <Prop Arg="p" Name="IsOrientable" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
@@ -19,7 +19,7 @@ A polytope is orientable if its flag graph is bipartite.
 
 
 <ManSection>
-  <Oper Arg="p, I" Name="IsIOrientable" Label="for IsAbstractPolytope, IsList"/>
+  <Oper Arg="p, I" Name="IsIOrientable" Label="for IsManiplex, IsList"/>
  <Description>
 For a subset I of {0, ..., n-1}, a polytope if I-orientable
  if every closed path in its flag graph contains an even number
@@ -30,7 +30,7 @@ For a subset I of {0, ..., n-1}, a polytope if I-orientable
 
 
 <ManSection>
-  <Prop Arg="p" Name="IsVertexBipartite" Label="for IsAbstractPolytope"/>
+  <Prop Arg="p" Name="IsVertexBipartite" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
@@ -42,7 +42,7 @@ A polytope is vertex-bipartite if its 1-skeleton is
 
 
 <ManSection>
-  <Prop Arg="p" Name="IsFacetBipartite" Label="for IsAbstractPolytope"/>
+  <Prop Arg="p" Name="IsFacetBipartite" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
