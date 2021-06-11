@@ -33,11 +33,8 @@ Mark: DualPolytope for non-regulars
 * Properties to check for:
 	* IsInternallySelfDual
 	
-* Bigger picture architecture
-	* Make maniplexes / maps more explicit - right now everything is a "polytope" even when it's not.
-	
 * Big data
-	* Hook up an interface to the list of Small Regular Polytopes
+	* Split out flat polyhedra from the nonflat polyhedra
 	* Generate a list of Small 2-orbit Polytopes and hook up an interface
 	
 * Testing

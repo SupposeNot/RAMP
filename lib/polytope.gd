@@ -44,16 +44,8 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 #! ReflexibleManiplex("{4,3}_3");
 DeclareOperation("ReflexibleManiplex", [IsString]);
 
-AbstractRegularPolytope := function(args)
-	return ReflexibleManiplex(args : polytopal := true);
-	end;
-
 DeclareOperation("RotaryManiplex", [IsGroup]);
 DeclareOperation("Maniplex", [IsGroup]);
-
-AbstractPolytope := function(args)
-	return Maniplex(args : polytopal := true);
-	end;
 
 
 DeclareProperty("IsPolytopal", IsManiplex);
@@ -68,6 +60,7 @@ DeclareProperty("IsTight", IsManiplex and IsPolytopal);
 DeclareOperation("PetrieRelation", [IsInt, IsInt]);
 DeclareAttribute("PetrieLength", IsReflexibleManiplex);
 DeclareAttribute("HoleLength", IsReflexibleManiplex);
+DeclareProperty("IsDegenerate", IsManiplex);
 
 # Groups
 DeclareAttribute("AutomorphismGroup", IsManiplex);
@@ -86,6 +79,8 @@ DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 DeclareOperation("IsQuotientOf", [IsManiplex, IsManiplex]);
 DeclareOperation("IsCoverOf", [IsManiplex, IsManiplex]);
 DeclareOperation("IsIsomorphicTo", 	[IsManiplex, IsManiplex]);
+DeclareAttribute("SmallestRegularCover", IsManiplex);
+
 
 # Symmetry Type Graphs
 DeclareAttribute("SymmetryTypeGraph", IsManiplex);
