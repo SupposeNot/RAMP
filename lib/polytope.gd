@@ -60,6 +60,7 @@ DeclareProperty("IsTight", IsManiplex and IsPolytopal);
 DeclareOperation("PetrieRelation", [IsInt, IsInt]);
 DeclareAttribute("PetrieLength", IsReflexibleManiplex);
 DeclareAttribute("HoleLength", IsReflexibleManiplex);
+DeclareProperty("IsDegenerate", IsManiplex);
 
 # Groups
 DeclareAttribute("AutomorphismGroup", IsManiplex);

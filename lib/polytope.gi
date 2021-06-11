@@ -307,6 +307,12 @@ InstallMethod(ComputeSchlafliSymbol,
 	od;
 	return sym;
 	end);
+	
+InstallMethod(IsDegenerate,
+	[IsReflexibleManiplex],
+	function(p)
+	return (2 in SchlafliSymbol(p));
+	end);
 
 InstallMethod(IsTight,
 	[IsReflexibleManiplex and HasIsPolytopal and IsPolytopal],

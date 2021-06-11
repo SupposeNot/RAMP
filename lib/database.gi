@@ -44,30 +44,70 @@ SavePolytopes := function(polys, filename)
 	CloseStream(stream);
 	end;
 
-# TODO: This is a work in progress!	
-# TODO: Incorporate the degenerate polyhedra [p, 2] and [2, q]
-# TODO: Make the filename handling easier. (Right now I have to use an absolute path)
+InstallMethod(DegeneratePolyhedra,
+	[IsInt],
+	function(maxsize)
+	local polys, k, p;
+	polys := [];
+	if maxsize >= 8 then
+		p := AbstractRegularPolytope([2,2]);
+		SetSize(p, 8);
+		Add(polys, p);
+	fi;
+	k := 3;
+	while 4*k <= maxsize do
+		p := AbstractRegularPolytope([2,k]);
+		SetSize(p, 4*k);
+		Add(polys, p);
+		
+		p := AbstractRegularPolytope([k,2]);
+		SetSize(p, 4*k);
+		Add(polys, p);
+		k := k + 1;
+	od;
+	return polys;
+	end);
+
+# TODO: Split flat polyhedra into a separate file, and add an option to exclude them if desired.
 # TODO: Optimize the handling of flat polyhedra. There are some choices of i and j that always work, so I don't
 #	really need to store these - I can easily make them on the fly.
-ReadPolytopes := function()
-	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath;
+# WARNING: The exact interface (arguments and their order etc) may change as we figure out
+# better ways to store and query the data...
+InstallMethod(SmallRegularPolyhedra,
+	[IsInt],
+	function(maxsize)
+	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens;
 	rampPath := DirectoriesLibrary("pkg/ramp/lib");
-	filename := Filename(rampPath, "polys.txt");
+	filename := Filename(rampPath, "regularPolyhedra.txt");
 	stream := InputTextFile(filename);
 	polys := [];
+	toobig := false;
+	
+	if ValueOption("nondegenerate") <> true then
+		polys := DegeneratePolyhedra(maxsize);
+	fi;
+	
 	desc := ReadLine(stream);
 	if desc = "flats\n" then
 		# start reading in data on flat polytopes
 		params := ReadLine(stream);
 		while params <> "nonflats\n" do
-			flatpolystr := Concatenation("FlatRegularPolyhedron(", params, ")");
-			Add(polys, EvalString(flatpolystr));
+			if not(toobig) then
+				flatpolystr := Concatenation("FlatRegularPolyhedron(", params, ")");
+				p := EvalString(flatpolystr);
+				if Size(p) <= maxsize then
+					Add(polys, EvalString(flatpolystr));
+				else
+					toobig := true;
+				fi;
+			fi;
 			params := ReadLine(stream);
 		od;
 	fi;
 
+	toobig := false;
 	paramstr := ReadLine(stream);
-	while not(IsEndOfStream(stream)) do
+	while not(toobig) and not(IsEndOfStream(stream)) do
 		params := EvalString(Concatenation("[", paramstr, "]"));
 		
 		sym := params[1];
@@ -75,17 +115,22 @@ ReadPolytopes := function()
 		flagnum := params[3];
 		rels := params[4][1];
 		
-		p := AbstractRegularPolytope(sym, rels);
-		SetSize(p, flagnum);
-		SetSize(AutomorphismGroup(p), flagnum);
-		SetPetrieLength(p, petrie);
-		SetSchlafliSymbol(p, sym);
-		Add(polys, p);
+		if flagnum > maxsize then
+			toobig := true;
+		else
+			p := AbstractRegularPolytope(sym, rels);
+			SetSize(p, flagnum);
+			SetSize(AutomorphismGroup(p), flagnum);
+			SetPetrieLength(p, petrie);
+			SetSchlafliSymbol(p, sym);
+			Add(polys, p);
+		fi;
 
 		paramstr := ReadLine(stream);
 	od;
-	
-	CloseStream(stream);
-	return polys;
-	end;
 
+	CloseStream(stream);
+
+	SortBy(polys, p -> Size(p));
+	return polys;
+	end);
