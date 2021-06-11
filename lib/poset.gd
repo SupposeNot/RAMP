@@ -48,3 +48,9 @@ DeclareOperation("ConnectionGeneratorOfPoset",[IsList,IsInt]);
 #! @Arguments poset
 #! @Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group. Note that it assumes we are NOT using a full poset (currently).
 DeclareOperation("ConnectionGroupOfPoset",[IsList]);
+
+
+
+#! @Arguments poset
+#! @Given a <A>poset</A> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.
+DeclareOperation("IsFlaggablePoset",[IsList]);

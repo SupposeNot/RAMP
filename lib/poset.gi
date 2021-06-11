@@ -167,21 +167,52 @@ InstallOtherMethod(ConnectionGeneratorOfPoset,
 		od;
 	return PermutationOfImage(Transformation(imagesList));
 	end);
+
+InstallMethod(IsFlaggablePoset,
+	[IsList],
+	function(poset)
+	local flags,flag,facesList,facesForFlag,ranks,x,y,truthValues;
+	ranks:=Length(poset);
+	flags:=DuplicateFreeList(Flat(poset));
+	truthValues:=[];
+	Sort(flags);
+	facesList:=[];
+	for flag in flags do
+		for x in [1..ranks] do
+			facesForFlag:=Filtered(poset[x],y->flag in y);
+			Append(facesList,facesForFlag);
+			od;			
+		#Print([flag,Intersection(facesList)]);
+		if Intersection(facesList)=[flag] then
+			Append(truthValues,[true]);
+		else
+			Append(truthValues,[false]);
+		fi;
+		facesList:=[];
+		od;
+	return DuplicateFreeList(truthValues)=[true];
+	end
+);
 	
 InstallMethod(ConnectionGroupOfPoset,
 	[IsList],
 	function(poset)
 	local rank,flagsList,ranks,generators,x;
-	rank:=Length(poset);
-	ranks:=[1..rank];
-	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-	generators:=ShallowCopy(ranks);
-	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1,flagsList));
-	return Group(generators);
+	if IsFlaggablePoset(poset)=false then
+		Print("This poset is not flaggable.");
+		return;
+	else
+		rank:=Length(poset);
+		ranks:=[1..rank];
+		flagsList:=FlagsAsListOfFacesFromPoset(poset);
+		generators:=ShallowCopy(ranks);
+		Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1,flagsList));
+	 	return Group(generators);
+	 fi;
 	end);
 
 
-#Todo item: rewrite some of this code so it is more efficient, e.g., reorganizing so that the flagslist isn't being regenerated quite so often.
+
 
 #Here's a sample of things you can do...
 #p:=PyramidOver(HemiCube(3));
