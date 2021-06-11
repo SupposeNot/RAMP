@@ -135,7 +135,8 @@ InstallMethod(AdjacentFlag,
 	ranks:=[1..n];
 	i:=i+1;
 	Remove(ranks,i);
-	return Filtered(flags,x->(flag{ranks}=x{ranks} and not(flag=x)))[1];
+#	return Filtered(flags,x->(flag{ranks}=x{ranks} and not(flag=x)))[1];
+	return Filtered(flags,x->(flag{ranks}=x{ranks} and flag<>x))[1];
 	end);
 	
 
@@ -152,8 +153,21 @@ InstallMethod(ConnectionGeneratorOfPoset,
 		od;
 	return PermutationOfImage(Transformation(imagesList));
 	end);
-	
 
+InstallOtherMethod(ConnectionGeneratorOfPoset,
+	[IsList,IsInt,IsList],
+	function(poset,i,flagsList) #in this case we have precalculated the flagsList.
+	local nFlags,imagesList,flagPosition,iNeighbor,j;
+#	flagsList:=FlagsAsListOfFacesFromPoset(poset);
+	nFlags:=Length(flagsList);
+	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
+	for j in [1..nFlags] do
+		iNeighbor:=AdjacentFlag(flagsList[j],flagsList,i);
+		imagesList[j]:=Position(flagsList,iNeighbor);
+		od;
+	return PermutationOfImage(Transformation(imagesList));
+	end);
+	
 InstallMethod(ConnectionGroupOfPoset,
 	[IsList],
 	function(poset)
@@ -162,7 +176,7 @@ InstallMethod(ConnectionGroupOfPoset,
 	ranks:=[1..rank];
 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
 	generators:=ShallowCopy(ranks);
-	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
+	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1,flagsList));
 	return Group(generators);
 	end);
 
