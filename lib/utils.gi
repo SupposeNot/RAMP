@@ -1,3 +1,19 @@
+AbstractRegularPolytope := function(args...)
+	local p;
+	p := CallFuncList(ReflexibleManiplex, args);
+	SetIsPolytopal(p, true);
+	return p;
+	end;
+
+AbstractPolytope := function(args...)
+	local p;
+	p := CallFuncList(Maniplex, args);
+	SetIsPolytopal(p, true);
+	return p;
+	end;
+
+
+
 # Modifies the permutation perm by adding k to each entry.
 TranslatePerm := function(perm, k)
 	local n, l, l2;

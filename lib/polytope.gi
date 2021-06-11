@@ -109,9 +109,6 @@ BuildReflexibleManiplex := function(autgp, hasrels)
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
 	SetAutomorphismGroup(p, autgp);
-	if (ValueOption("polytopal") = true) then
-		SetIsPolytopal(p, true);
-	fi;
 	return p;
 	end;
 
@@ -192,15 +189,7 @@ InstallOtherMethod(ReflexibleManiplex,
 	
 	return p;
 	end);
-
-# Builds a reflexible maniplex using any of its constructors, and marks the
-# result as being polytopal.
-AbstractRegularPolytope := function(args)
-	return ReflexibleManiplex(args : polytopal := true);
-	end;
 	
-
-
 # Given an abstract regular polytope where we don't have a presentation for
 # the automorphism group yet, we attempt to find a presentation.
 # TODO: Prune out extra rels -- the usual sggi rels appear twice

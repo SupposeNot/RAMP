@@ -44,16 +44,8 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 #! ReflexibleManiplex("{4,3}_3");
 DeclareOperation("ReflexibleManiplex", [IsString]);
 
-AbstractRegularPolytope := function(args)
-	return ReflexibleManiplex(args : polytopal := true);
-	end;
-
 DeclareOperation("RotaryManiplex", [IsGroup]);
 DeclareOperation("Maniplex", [IsGroup]);
-
-AbstractPolytope := function(args)
-	return Maniplex(args : polytopal := true);
-	end;
 
 
 DeclareProperty("IsPolytopal", IsManiplex);

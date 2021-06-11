@@ -49,8 +49,10 @@ SavePolytopes := function(polys, filename)
 # TODO: Make the filename handling easier. (Right now I have to use an absolute path)
 # TODO: Optimize the handling of flat polyhedra. There are some choices of i and j that always work, so I don't
 #	really need to store these - I can easily make them on the fly.
-ReadPolytopes := function(filename)
-	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr;
+ReadPolytopes := function()
+	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath;
+	rampPath := DirectoriesLibrary("pkg/ramp/lib");
+	filename := Filename(rampPath, "polys.txt");
 	stream := InputTextFile(filename);
 	polys := [];
 	desc := ReadLine(stream);
