@@ -223,3 +223,9 @@ InstallMethod(ConnectionGroupOfPoset,
 #AdjacentFlag(flagList[4],flagList,3);
 #conG:=ConnectionGroupOfPoset(pos);
 #GeneratorsOfGroup(cg)=GeneratorsOfGroup(conG);
+
+#If you want to play with the flaggable stuff... m44 is the {4,4}_(1,0) map.
+#m44:=ReflexibleManiplex(Group([(1,8)(2,3)(4,5)(6,7),(1,2)(3,4)(5,6)(7,8),(1,4)(2,7)(3,6)(5,8)]);
+#m44pos:=PosetOfManiplex(m44);
+#IsFlaggablePoset(m44);
+#IsFlaggablePoset(pos);
