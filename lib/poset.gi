@@ -171,7 +171,7 @@ InstallOtherMethod(ConnectionGeneratorOfPoset,
 InstallMethod(ConnectionGroupOfPoset,
 	[IsList],
 	function(poset)
-	local rank,flagsList,ranks,generators;
+	local rank,flagsList,ranks,generators,x;
 	rank:=Length(poset);
 	ranks:=[1..rank];
 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
@@ -182,3 +182,13 @@ InstallMethod(ConnectionGroupOfPoset,
 
 
 #Todo item: rewrite some of this code so it is more efficient, e.g., reorganizing so that the flagslist isn't being regenerated quite so often.
+
+#Here's a sample of things you can do...
+#p:=PyramidOver(HemiCube(3));
+#pos:=PosetOfManiplex(p);;
+#cg:=ConnectionGroup(p);
+#flagList:=FlagsAsListOfFacesFromPoset(pos);;
+#flagList[4];
+#AdjacentFlag(flagList[4],flagList,3);
+#conG:=ConnectionGroupOfPoset(pos);
+#GeneratorsOfGroup(cg)=GeneratorsOfGroup(conG);
