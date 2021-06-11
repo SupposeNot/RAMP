@@ -19,3 +19,4 @@ ReadPackage( "ramp", "lib/poset.gd" );
 ReadPackage( "ramp", "lib/products.gd" );
 ReadPackage( "ramp", "lib/tomotope.gd" );
 ReadPackage( "ramp", "lib/toroids.gd" );
+ReadPackage( "ramp", "lib/utils.gd" );

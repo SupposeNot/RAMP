@@ -1,21 +1,23 @@
-AbstractRegularPolytope := function(args...)
-	local p;
-	p := CallFuncList(ReflexibleManiplex, args);
-	SetIsPolytopal(p, true);
-	return p;
-	end;
-
-AbstractPolytope := function(args...)
+InstallGlobalFunction(AbstractPolytope,
+	function(args...)
 	local p;
 	p := CallFuncList(Maniplex, args);
 	SetIsPolytopal(p, true);
 	return p;
-	end;
-
+	end);
+	
+InstallGlobalFunction(AbstractRegularPolytope,
+	function(args...)
+	local p;
+	p := CallFuncList(ReflexibleManiplex, args);
+	SetIsPolytopal(p, true);
+	return p;
+	end);
 
 
 # Modifies the permutation perm by adding k to each entry.
-TranslatePerm := function(perm, k)
+InstallGlobalFunction(TranslatePerm,
+	function(perm, k)
 	local n, l, l2;
 	l := ListPerm(perm);
 	Apply(l, i -> i+k);
@@ -23,10 +25,11 @@ TranslatePerm := function(perm, k)
 	Append(l2, l);
 	perm := PermList(l2);
 	return perm;
-	end;
+	end);
 
 # Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with multiplier terms.	
-MultPerm := function(perm, multiplier, offset)
+InstallGlobalFunction(MultPerm,
+	function(perm, multiplier, offset)
 	local MultPermAux;
 
 	# perm is the "seed" permutations, newperm is the accumulated result so far.
@@ -39,15 +42,16 @@ MultPerm := function(perm, multiplier, offset)
 		end;
 		
 	return MultPermAux(perm, perm, multiplier, offset);
-	end;
+	end);
 	
 # Takes an abstract word in the generators of some free group and returns the corresponding
 # abstract word in the generators of f.
-TranslateWord := function(word, f)
+InstallGlobalFunction(TranslateWord,
+	function(word, f)
 	local tw;
 	tw := TietzeWordAbstractWord(word);
 	return AbstractWordTietzeWord(tw, GeneratorsOfGroup(f));
-	end;
+	end);
 	
 # This is a bit of a hack.
 # GAP has a built-in way to parse group presentations, so that if you take the quotient of,
@@ -55,7 +59,8 @@ TranslateWord := function(word, f)
 # I want to use this to do something similar with sggis. But the built-in GAP method
 # only allows single-letter generators. So I translate r0 -> a, r1 -> b, etc, and
 # then back again.	
-ParseStringCRels := function(rels, w)
+InstallGlobalFunction(ParseStringCRels,
+	function(rels, w)
 	local n, f, old_names, new_names, i, parsed_rels, trans_rels, f2;
 	n := Size(GeneratorsOfGroup(w));
 	if n > 9 then Error("Only works for n < 10"); fi;
@@ -70,9 +75,10 @@ ParseStringCRels := function(rels, w)
 	parsed_rels := ParseRelators(GeneratorsOfGroup(f2), rels);
 	trans_rels := List(parsed_rels, r -> TranslateWord(r, f));
 	return trans_rels;
-	end;
+	end);
 	
-IsSameRank := function(f1, f2)
+InstallGlobalFunction(IsSameRank,
+	function(f1, f2)
 	return f1!.rank = f2!.rank;
-	end;
+	end);
 
