@@ -567,3 +567,10 @@ InstallMethod(NumberOfFlagOrbits,
 	if n = 0 then n := 1; fi;
 	return n;
 	end);
+
+InstallMethod(SmallestRegularCover,
+	[IsManiplex],
+	function(p)
+	return ReflexibleManiplex(Image(RegularActionHomomorphism(ConnectionGroup(p))));
+	end);
+	

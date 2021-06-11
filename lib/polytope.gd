@@ -79,6 +79,8 @@ DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 DeclareOperation("IsQuotientOf", [IsManiplex, IsManiplex]);
 DeclareOperation("IsCoverOf", [IsManiplex, IsManiplex]);
 DeclareOperation("IsIsomorphicTo", 	[IsManiplex, IsManiplex]);
+DeclareAttribute("SmallestRegularCover", IsManiplex);
+
 
 # Symmetry Type Graphs
 DeclareAttribute("SymmetryTypeGraph", IsManiplex);
