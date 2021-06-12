@@ -12,7 +12,6 @@ InstallMethod(Cube,
 	sym := List([1..n-1], i -> 3);
 	sym[1] := 4;
 	p := AbstractRegularPolytope(sym);
-	SetSize(p, 2^n * Factorial(n));
 	return p;
 	end);
 	
@@ -34,7 +33,6 @@ InstallMethod(CrossPolytope,
 	sym := List([1..n-1], i -> 3);
 	sym[n-1] := 4;
 	p := AbstractRegularPolytope(sym);
-	SetSize(p, 2^n * Factorial(n));
 	return p;
 	end);
 
@@ -54,7 +52,6 @@ InstallMethod(Simplex,
 	local sym, p;
 	sym := List([1..n-1], i -> 3);
 	p := AbstractRegularPolytope(sym);
-	SetSize(p, Factorial(n+1));
 	return p;
 	end);
 	
@@ -66,7 +63,6 @@ InstallMethod(CubicTiling,
 	sym[1] := 4;
 	sym[n-1] := 4;
 	p := AbstractRegularPolytope(sym);
-	SetSize(p, infinity);
 	return p;
 	end);
 	

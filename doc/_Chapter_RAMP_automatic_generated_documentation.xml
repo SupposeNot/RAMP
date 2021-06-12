@@ -8,86 +8,19 @@
 <Heading>ramp automatic generated documentation of methods</Heading>
 
 <ManSection>
-  <Oper Arg="n" Name="UniversalPolytope" Label="for IsInt"/>
+  <Oper Arg="M" Name="PyramidOver" Label="for IsManiplex"/>
  <Description>
- Returns the universal polytope of rank <A>n</A>.
+ Returns the pyramid over <A>M</A>.
+ Currently only works for finite maniplexes.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Oper Arg="p, q, i, j" Name="FlatRegularPolyhedron" Label="for IsInt, IsInt, IsInt, IsInt"/>
+  <Oper Arg="M" Name="PrismOver" Label="for IsManiplex"/>
  <Description>
- Returns the flat regular polyhedron with automorphism group
- [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j).
- This function does not currently validate the inputs to make sure
- that the output makes sense.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M, rels" Name="QuotientPolytope" Label="for IsManiplex, IsList"/>
- <Description>
- Returns the quotient of <A>M</A> by <A>rels</A>, which may be given
- as either a list of Tietze words, such as [[1,2,1,0,1,2,1,0]] or as
- a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4".
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M" Name="UniversalExtension" Label="for IsManiplex"/>
- <Description>
- Returns the universal extension of <A>M</A>, i.e. the maniplex with facets
- isomorphic to <A>M</A> that covers all other maniplexes with facets
- isomorphic to <A>M</A>.
- Currently only defined for reflexible maniplexes.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M, k" Name="UniversalExtension" Label="for IsManiplex, IsInt"/>
- <Description>
- Returns the universal extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
- Currently only defined for reflexible maniplexes.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M" Name="TrivialExtension" Label="for IsManiplex"/>
- <Description>
- Returns the trivial extension of <A>M</A>, also known as {<A>M/</A>, 2}.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M, k" Name="FlatExtension" Label="for IsManiplex, IsInt"/>
- <Description>
- Returns the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
- (As defined in "Flat Extensions of Abstract Polytopes".)
- Currently only defined for reflexible maniplexes.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M1, M2" Name="Amalgamate" Label="for IsManiplex, IsManiplex"/>
- <Description>
- Returns the amalgamation of <A>M1</A> and <A>M2</A>.
- Implicitly assumes that <A>M1</A> and <A>M2</A> are compatible.
- Currently only defined for reflexible maniplexes.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M" Name="Medial" Label="for IsManiplex"/>
- <Description>
- Given a 3-maniplex <A>M</A>, returns its medial.
+ Returns the prism over <A>M</A>.
+ Currently only works for finite maniplexes.
  </Description>
 </ManSection>
 

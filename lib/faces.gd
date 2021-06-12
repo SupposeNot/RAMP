@@ -1,26 +1,38 @@
+
 #! @Chapter Combinatorics and Structure
 #! @Section Faces
 
-#! @Arguments P, i
-#! @Returns The number of <A>i</A>-faces that <A>P</A> has.
+#! @Arguments M, i
+#! Returns The number of <A>i</A>-faces of <A>M</A>.
 DeclareOperation("NumberOfIFaces", [IsManiplex, IsInt]);
 
-#! @Arguments P
+#! @Arguments M
+#! Returns the number of vertices of <A>M</A>.
 DeclareAttribute("NumberOfVertices", IsManiplex);
-#! @Arguments P
+
+#! @Arguments M
+#! Returns the number of edges of <A>M</A>.
 DeclareAttribute("NumberOfEdges", IsManiplex);
-#! @Arguments P
+
+#! @Arguments M
+#! Returns the number of facets of <A>M</A>.
 DeclareAttribute("NumberOfFacets", IsManiplex);
-#! @Arguments P
+
+#! @Arguments M
+#! Returns the number of ridges ((n-2)-faces) of <A>M</A>.
 DeclareAttribute("NumberOfRidges", IsManiplex);
-#! @Arguments P
+
+#! @Arguments M
+#! Returns the f-vector of <A>M</A>.
 DeclareAttribute("Fvector", IsManiplex);
 
-#! @Arguments P
-#! @Description Currently only works for regular polytopes.
+#! @Arguments M
+#! Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
+#! Currently only works for reflexible maniplexes.
 DeclareAttribute("Facets", IsManiplex);
 
-#! @Arguments P
-#! @Description Currently only works for regular polytopes.
+#! @Arguments M
+#! Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
+#! Currently only works for reflexible maniplexes.
 DeclareAttribute("VertexFigures", IsManiplex);
 

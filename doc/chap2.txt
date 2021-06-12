@@ -6,40 +6,53 @@
   
   [1X2.1-1 NumberOfIFaces[101X
   
-  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XP[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YThe number of [3Xi[103X-faces that [3XP[103X has.[133X
+  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns The number of [3Xi[103X-faces of [3XM[103X.[133X
   
   [1X2.1-2 NumberOfVertices[101X
   
-  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the number of vertices of [3XM[103X.[133X
   
   [1X2.1-3 NumberOfEdges[101X
   
-  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the number of edges of [3XM[103X.[133X
   
   [1X2.1-4 NumberOfFacets[101X
   
-  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the number of facets of [3XM[103X.[133X
   
   [1X2.1-5 NumberOfRidges[101X
   
-  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the number of ridges ((n-2)-faces) of [3XM[103X.[133X
   
   [1X2.1-6 Fvector[101X
   
-  [33X[1;0Y[29X[2XFvector[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XFvector[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the f-vector of [3XM[103X.[133X
   
   [1X2.1-7 Facets[101X
   
-  [33X[1;0Y[29X[2XFacets[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XFacets[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YCurrently only works for regular polytopes.[133X
+  [33X[0;0YReturns  the  facet-types  of  [3XM[103X  (i.e.  the maniplexes corresponding to the
+  facets). Currently only works for reflexible maniplexes.[133X
   
   [1X2.1-8 VertexFigures[101X
   
-  [33X[1;0Y[29X[2XVertexFigures[102X( [3XP[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XVertexFigures[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YCurrently only works for regular polytopes.[133X
+  [33X[0;0YReturns  the types of vertex-figures of [3XM[103X (i.e. the maniplexes corresponding
+  to the vertex-figures). Currently only works for reflexible maniplexes.[133X
   
   
   [1X2.2 [33X[0;0YPosets[133X[101X

@@ -1,3 +1,4 @@
+
 InstallMethod(PyramidOver,
 	[IsManiplex],
 	function(p)

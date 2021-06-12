@@ -8,67 +8,67 @@
 <Heading>Faces</Heading>
 
 <ManSection>
-  <Oper Arg="P, i" Name="NumberOfIFaces" Label="for IsManiplex, IsInt"/>
- <Returns>The number of <A>i</A>-faces that <A>P</A> has.
-</Returns>
+  <Oper Arg="M, i" Name="NumberOfIFaces" Label="for IsManiplex, IsInt"/>
  <Description>
-<P/>
+ Returns The number of <A>i</A>-faces of <A>M</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="NumberOfVertices" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="NumberOfVertices" Label="for IsManiplex"/>
  <Description>
-<P/>
+ Returns the number of vertices of <A>M</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="NumberOfEdges" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="NumberOfEdges" Label="for IsManiplex"/>
  <Description>
-<P/>
+ Returns the number of edges of <A>M</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="NumberOfFacets" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="NumberOfFacets" Label="for IsManiplex"/>
  <Description>
-<P/>
+ Returns the number of facets of <A>M</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="NumberOfRidges" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="NumberOfRidges" Label="for IsManiplex"/>
  <Description>
-<P/>
+ Returns the number of ridges ((n-2)-faces) of <A>M</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="Fvector" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="Fvector" Label="for IsManiplex"/>
  <Description>
-<P/>
+ Returns the f-vector of <A>M</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="Facets" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="Facets" Label="for IsManiplex"/>
  <Description>
-Currently only works for regular polytopes.
+ Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
+ Currently only works for reflexible maniplexes.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Attr Arg="P" Name="VertexFigures" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="VertexFigures" Label="for IsManiplex"/>
  <Description>
-Currently only works for regular polytopes.
+ Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
+ Currently only works for reflexible maniplexes.
  </Description>
 </ManSection>
 

@@ -34,12 +34,44 @@ InstallMethod(UniversalSggi,
 	return g;
 	end);
 
+COXETER_GROUP_SIZES := function(sym)
+	local dict, n, k;
+	
+	dict := NewDictionary([], true);
+	AddDictionary(dict, [3,5], 120);
+	AddDictionary(dict, [5,3], 120);
+	AddDictionary(dict, [3,4,3], 1152);
+	AddDictionary(dict, [5,3,3], 14400);
+	AddDictionary(dict, [3,3,5], 14400);
+
+	n := Size(sym)+1;
+	
+	if n = 1 then
+		return 2;
+	elif n = 2 then
+		return 2 * sym[1];
+	elif KnowsDictionary(dict, sym) then
+		return LookupDictionary(dict, sym);
+	elif ForAll(sym, i -> i = 3) then
+		return Factorial(n+1);
+	elif sym[1] = 4 and ForAll(sym{[2..n-1]}, i -> i = 3) then
+		return 2^n * Factorial(n);
+	elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
+		return 2^n * Factorial(n);
+	elif 2 in sym then
+		k := Position(sym, 2);
+		return COXETER_GROUP_SIZES(sym{[1..k-1]}) * COXETER_GROUP_SIZES(sym{[k+1..n-1]});
+	else
+		return infinity;
+	fi;
+	end;
+
 # Returns the universal string Coxeter Group given by sym.
 # For example, UniversalSggi([4,4]) is the group denoted [4, 4].
 InstallOtherMethod(UniversalSggi,
 	[IsList],
 	function(sym)
-	local i, j, f, g, rels, gens, n;
+	local i, j, f, g, rels, gens, n, h;
 	n := Size(sym)+1;
 	g := UniversalSggi(n);
 	gens := FreeGeneratorsOfFpGroup(g);
@@ -49,7 +81,9 @@ InstallOtherMethod(UniversalSggi,
 			Add(rels, (gens[i]*gens[i+1])^sym[i]);
 		fi;
 	od;
-	return FactorGroupFpGroupByRels(g, rels);
+	h := FactorGroupFpGroupByRels(g, rels);
+	SetSize(h, COXETER_GROUP_SIZES(sym));
+	return h;
 	end);
 	
 # Returns a list of relators (as Tietze words) that are necessary to
@@ -140,6 +174,7 @@ InstallMethod(ReflexibleManiplex,
 	w := UniversalSggi(sym);
 	p := ReflexibleManiplex(w);
 	SetSchlafliSymbol(p, sym);
+	SetSize(p, Size(w));
 	return p;
 	end);
 
