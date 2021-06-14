@@ -213,12 +213,12 @@ InstallMethod(SmallRegularPolyhedra,
 	function(maxsize)
 	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens;
 	rampPath := DirectoriesLibrary("pkg/ramp/lib");
-	filename := Filename(rampPath, "regularPolyhedra2.txt");
+	filename := Filename(rampPath, "regularPolyhedra.txt");
 	stream := InputTextFile(filename);
 	polys := [];
 	toobig := false;
 	
-	if ValueOption("nondegenerate") <> true then
+	if ValueOption("nondegenerate") <> true and ValueOption("nonflat") <> true then
 		polys := DegeneratePolyhedra(maxsize);
 	fi;
 
