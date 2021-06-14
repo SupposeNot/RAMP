@@ -64,9 +64,10 @@ DeclareProperty("IsDegenerate", IsManiplex);
 
 # Groups
 DeclareAttribute("AutomorphismGroup", IsManiplex);
+DeclareAttribute("AutomorphismGroupFpGroup", IsManiplex);
+DeclareAttribute("AutomorphismGroupPermGroup", IsManiplex);
 DeclareAttribute("ConnectionGroup", IsManiplex);
 DeclareAttribute("RotationGroup", IsManiplex);
-DeclareOperation("FindRels", [IsReflexibleManiplex and IsReflexibleManiplexWithoutRels]);
 DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
 DeclareOperation("IsStringC", [IsGroup]);
 

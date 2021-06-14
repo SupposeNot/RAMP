@@ -93,7 +93,7 @@ InstallMethod(ExtraRelators,
 	[IsReflexibleManiplex],
 	function(p)
 	local g, rels, type_rels, sym, i;
-	g := AutomorphismGroup(p);
+	g := AutomorphismGroupFpGroup(p);
 	sym := SchlafliSymbol(p);
 	rels := List(RelatorsOfFpGroup(g));
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
@@ -108,6 +108,7 @@ InstallMethod(ExtraRelators,
 	end);
 	
 # TODO: Currently will fail for infinite groups.
+# TODO: Currently assumes g is an sggi
 InstallMethod(IsStringC,
 	[IsGroup],
 	function(g)
@@ -225,26 +226,6 @@ InstallOtherMethod(ReflexibleManiplex,
 	return p;
 	end);
 	
-# Given an abstract regular polytope where we don't have a presentation for
-# the automorphism group yet, we attempt to find a presentation.
-# TODO: Prune out extra rels -- the usual sggi rels appear twice
-# TODO: This sends back a new object. Do I want that? If so I should check
-# the properties and make sure the new object has all the old properties.
-InstallMethod(FindRels,
-	[IsReflexibleManiplex and IsReflexibleManiplexWithoutRels],
-	function(p)
-	local g, fp, w, rels;
-	g := AutomorphismGroup(p);
-	fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "Q"));
-	# This is a silly hack, but I want the generators to be the usual r0 etc.
-	w := UniversalSggi(Rank(p));
-	rels := RelatorsOfFpGroup(fp);
-	rels := List(rels, r -> TietzeWordAbstractWord(r));
-	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
-	fp := FactorGroupFpGroupByRels(w, rels);
-	return ReflexibleManiplex(fp);
-	end);
-	
 # Given a finitely presented group, builds the rotary (regular or chiral)
 # polytope with that group as its rotation group.
 InstallMethod(RotaryManiplex,
@@ -292,6 +273,38 @@ InstallOtherMethod(AutomorphismGroup,
 	[IsReflexibleManiplex],
 	p -> p!.aut_gp);
 
+InstallMethod(AutomorphismGroupFpGroup, 
+	[IsManiplex],
+	function(p)
+	local g, fp, w, rels;
+	g := AutomorphismGroup(p);
+	if IsFpGroup(g) then
+		return g;
+	else
+		fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "Q"));
+		
+		# Retranslate everything in terms of r0, r1, etc.
+		w := UniversalSggi(Rank(p));
+		rels := RelatorsOfFpGroup(fp);
+		rels := List(rels, r -> TietzeWordAbstractWord(r));
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+		fp := FactorGroupFpGroupByRels(w, rels);
+		return fp;
+	fi;
+	end);
+
+InstallMethod(AutomorphismGroupPermGroup, 
+	[IsManiplex],
+	function(p)
+	local g;
+	g := AutomorphismGroup(p);
+	if IsPermGroup(g) then
+		return g;
+	else
+		return Image(IsomorphismPermGroup(g));
+	fi;
+	end);
+	
 InstallMethod(RotationGroup,
 	[IsRotaryManiplex and IsRotaryManiplexRep],
 	p -> p!.rot_gp);
