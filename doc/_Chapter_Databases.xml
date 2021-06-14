@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Databases">
+<Heading>Databases</Heading>
+
+<Section Label="Chapter_Databases_Section_Regular_polyhedra">
+<Heading>Regular polyhedra</Heading>
+
+<ManSection>
+  <Oper Arg="maxsize" Name="DegeneratePolyhedra" Label="for IsInt"/>
+ <Description>
+ Returns all degenerate polyhedra (of type {2, q} and {p, 2})
+ with up to <A>maxsize</A> flags.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="maxsize" Name="FlatRegularPolyhedra" Label="for IsInt"/>
+ <Description>
+ Returns all nondegenerate flat regular polyhedra with up to <A>maxsize</A> flags.
+ Currently supports a maxsize of 4000 or less.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="maxsize" Name="SmallRegularPolyhedra" Label="for IsInt"/>
+ <Description>
+ Returns all regular polyhedra with up to <A>maxsize</A> flags.
+ Currently supports a maxsize of 4000 or less.
+ You can also set options "nondegenerate" and "nonflat".
+<Example><![CDATA[
+L1 := SmallRegularPolyhedra(500);;
+L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
+L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

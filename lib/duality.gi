@@ -7,16 +7,18 @@ InstallMethod(Dual,
 	sym := SchlafliSymbol(p);
 	sym := Reversed(sym);
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
-	newrels := List(rels, r -> List(r, i -> n+1-i));
+	
+	# Since the generators are involutions, an entry of -i means the same as i in a Tietze word
+	# If we don't take the absolute value here, then we get the wrong dual relator.
+	newrels := List(rels, r -> List(r, i -> n+1-AbsoluteValue(i)));
 	newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroup(p)))));
 	relstr := JoinStringsWithSeparator(newrels, ",");
 	q := ReflexibleManiplex(sym, relstr);
-	SetSize(q, Size(p));
+
+	if HasSize(p) then SetSize(q, Size(p)); fi;
 	SetSchlafliSymbol(q, sym);
 	SetDual(q, p);
-	if HasIsPolytopal(p) then
-		SetIsPolytopal(q, IsPolytopal(p));
-	fi;
+	if HasIsPolytopal(p) then SetIsPolytopal(q, IsPolytopal(p)); fi;
 	return q;
 	end);
 	
