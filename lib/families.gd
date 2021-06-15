@@ -1,6 +1,12 @@
 #! @Chapter Families of Polytopes
 #! @Section Classical Polytopes
 
+#!
+DeclareOperation("Vertex", []);
+
+#!
+DeclareOperation("Edge", []);
+
 #! @Arguments p
 DeclareOperation("Pgon", [IsInt]);
 

@@ -1,4 +1,16 @@
 
+InstallMethod(Vertex,
+	[],
+	function()
+	return UniversalPolytope(0);
+	end);	
+
+InstallMethod(Edge,
+	[],
+	function()
+	return UniversalPolytope(1);
+	end);	
+
 InstallMethod(Pgon,
 	[IsInt],
 	function(n)
@@ -10,7 +22,7 @@ InstallMethod(Cube,
 	function(n)
 	local sym, p;
 	sym := List([1..n-1], i -> 3);
-	sym[1] := 4;
+	if Size(sym) > 0 then sym[1] := 4; fi;
 	p := AbstractRegularPolytope(sym);
 	return p;
 	end);
@@ -20,6 +32,7 @@ InstallMethod(HemiCube,
 	function(n)
 	local p;
 	p := QuotientPolytope(Cube(n), PetrieRelation(n, n));
+	SetIsPolytopal(p, true);
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
 	return p;
@@ -41,6 +54,7 @@ InstallMethod(HemiCrossPolytope,
 	function(n)
 	local p;
 	p := QuotientPolytope(CrossPolytope(n), PetrieRelation(n, n));
+	SetIsPolytopal(p, true);
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
 	return p;
@@ -59,6 +73,9 @@ InstallMethod(CubicTiling,
 	[IsInt],
 	function(n)
 	local sym, p;
+	if n < 3 then
+		Error("n must be 3 or more");
+	fi;
 	sym := List([1..n-1], i -> 3);
 	sym[1] := 4;
 	sym[n-1] := 4;
@@ -74,7 +91,7 @@ InstallMethod(Dodecahedron,
 InstallMethod(HemiDodecahedron,
 	[],
 	function()
-	return QuotientPolytope(Dodecahedron(), PetrieRelation(3,5));
+	return AbstractRegularPolytope("{5,3}_5");
 	end);
 InstallMethod(Icosahedron,
 	[],
@@ -84,7 +101,7 @@ InstallMethod(Icosahedron,
 InstallMethod(HemiIcosahedron,
 	[],
 	function()
-	return QuotientPolytope(Icosahedron(), PetrieRelation(3,5));
+	return AbstractRegularPolytope("{3,5}_5");
 	end);
 InstallMethod(24Cell,
 	[],
@@ -94,7 +111,7 @@ InstallMethod(24Cell,
 InstallMethod(Hemi24Cell,
 	[],
 	function()
-	return QuotientPolytope(24Cell(), PetrieRelation(4,6));
+	return AbstractRegularPolytope("{3,4,3}_6");
 	end);
 InstallMethod(120Cell,
 	[],
@@ -104,15 +121,15 @@ InstallMethod(120Cell,
 InstallMethod(Hemi120Cell,
 	[],
 	function()
-	return QuotientPolytope(120Cell(), PetrieRelation(4,15));
+	return AbstractRegularPolytope("{5,3,3}_15");
 	end);
 InstallMethod(600Cell,
 	[],
 	function()
 	return AbstractRegularPolytope([3,3,5]);
 	end);
-InstallMethod(HemiIcosahedron,
+InstallMethod(Hemi600Cell,
 	[],
 	function()
-	return QuotientPolytope(600Cell(), PetrieRelation(4,15));
+	return AbstractRegularPolytope("{3,3,5}_15");
 	end);

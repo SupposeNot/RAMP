@@ -15,6 +15,10 @@ InstallMethod(UniversalSggi,
 	[IsInt],
 	function(n)
 	local i, j, f, rels, gens, g;
+	if n = 0 then
+		return FreeGroup([]);
+	fi;
+	
 	if not(IsBound(UNIVERSAL_SGGI_FREE_GROUPS[n])) then
 		UNIVERSAL_SGGI_FREE_GROUPS[n] := FreeGroup(List([0..n-1], i -> Concatenation("r", String(i))));	
 	fi;
@@ -203,6 +207,14 @@ InstallOtherMethod(ReflexibleManiplex,
 	[IsString],
 	function(name)
 	local sym, p, nameparts, petrie, n, petrie_word, symname;
+	
+	# HACK: If something calls ReflexibleManiplex([]) wanting the universal 1-polytope,
+	# then we end up here because [] is the same as the empty string. So we
+	# handle that case specially.
+	if name = [] then
+		return UniversalPolytope(1);
+	fi;
+	
 	if name[1] = '{' and name[Size(name)] = '}' then
 		sym := SplitString(name{[2..Size(name)-1]}, ',');
 		sym := List(sym, str -> Int(str));
