@@ -2,7 +2,7 @@
 #This stuff is Gordon's fault...
 #Probably need to figure out how to go from Poset TO connection group.
 
-
+#Note: The following function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 InstallMethod(PosetFromFaceListOfFlags,
 	[IsList],
 	function(list)
@@ -12,15 +12,15 @@ InstallMethod(PosetFromFaceListOfFlags,
 	return(poset);
 	end);
 
-InstallMethod(RankOfPoset,
-	[IsPosetOfFlags],
+InstallOtherMethod(Rank,
+	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local list;
 	list:=poset!.faces_list_by_rank;
-	if HasIsFullPoset(poset)=false then
-		SetIsFullPoset(poset,ListIsFullPoset(list));
+	if HasIsFull(poset)=false then
+		SetIsFull(poset,ListIsFullPoset(list));
 	fi;
-	if IsFullPoset(poset) then
+	if IsFull(poset) then
 		SetRankPoset(poset,Length(list)-2);
 	else
 		SetRankPoset(poset,Length(list));
@@ -28,7 +28,16 @@ InstallMethod(RankOfPoset,
 	return poset!.RankPoset;	
 	end);
 
-InstallOtherMethod(Rank, [IsPosetOfFlags], RankOfPoset);
+InstallMethod(IsNotFull,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+#	local ;
+	if IsFull(poset) then
+		return false;
+	else 
+		return true;
+	fi;
+	end);
 
 InstallMethod(ListIsFullPoset,
 	[IsList],
@@ -47,9 +56,9 @@ InstallMethod(ListIsFullPoset,
 	end);
 
 InstallMethod(FullPosetOfConnectionGroup, 
-	[IsGroup],
+	[IsPermGroup],
 	function(g)
-	local conng,poset,flags,rank,gens,genIndexes,i;
+	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
 	rank:=Length(GeneratorsOfGroup(g));
 	if IsPermGroup(g)=true then 
 		conng:=g;
@@ -60,22 +69,22 @@ InstallMethod(FullPosetOfConnectionGroup,
 	flags:=MovedPoints(conng);
 	gens:=GeneratorsOfGroup(conng);
 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-	poset:=[];
+	posetList:=[];
 	for i in [1..rank] do
-		Append(poset,[Orbits(Group(gens{genIndexes[i]}))]);
+		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	Add(poset,[[]],1);
-	Add(poset,[flags]);
-	return PosetFromFaceListOfFlags(poset);
+	Add(posetList,[[]],1);
+	Add(posetList,[flags]);
+	poset:=PosetFromFaceListOfFlags(posetList);
+	SetIsFull(poset,true);
+	return poset;
 	end);
 
 
-
-
 InstallMethod(PosetOfConnectionGroup,
-	[IsGroup],
+	[IsPermGroup],
 	function(g)
-	local conng,poset,flags,rank,gens,genIndexes,i;
+	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
 	if IsPermGroup(g)=true then 
 		conng:=g;
 	else
@@ -86,11 +95,13 @@ InstallMethod(PosetOfConnectionGroup,
 	flags:=MovedPoints(conng);
 	gens:=GeneratorsOfGroup(conng);
 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-	poset:=[];
+	posetList:=[];
 	for i in [1..rank] do
-		Append(poset,[Orbits(Group(gens{genIndexes[i]}))]);
+		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	return PosetFromFaceListOfFlags(poset);
+	poset:=PosetFromFaceListOfFlags(posetList);
+	SetIsFull(poset,false);
+	return poset;
 	end);
 	
 
@@ -100,17 +111,19 @@ InstallMethod(PosetOfConnectionGroup,
 InstallMethod(PosetOfManiplex,
 	[IsManiplex],
 	function(mani)
-	local conng,poset,flags,rank,gens,genIndexes,i;
+	local poset,conng,posetList,flags,rank,gens,genIndexes,i;
 	conng:=ConnectionGroup(mani);
 	rank:=Length(GeneratorsOfGroup(conng));
 	flags:=MovedPoints(conng);
 	gens:=GeneratorsOfGroup(conng);
 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-	poset:=[];
+	posetList:=[];
 	for i in [1..rank] do
-		Append(poset,[Orbits(Group(gens{genIndexes[i]}))]);
+		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	return PosetFromFaceListOfFlags(poset);
+	poset:=PosetFromFaceListOfFlags(posetList);
+	SetIsFull(poset,false);
+	return poset;
 	end);
 	
 	
@@ -119,19 +132,21 @@ InstallMethod(PosetOfManiplex,
 InstallMethod(FullPosetOfManiplex,
 	[IsManiplex],
 	function(mani)
-	local conng,poset,flags,rank,gens,genIndexes,i;
+	local posetList,conng,poset,flags,rank,gens,genIndexes,i;
 	conng:=ConnectionGroup(mani);
 	rank:=Length(GeneratorsOfGroup(conng));
 	flags:=MovedPoints(conng);
 	gens:=GeneratorsOfGroup(conng);
 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-	poset:=[];
+	posetList:=[];
 	for i in [1..rank] do
-		Append(poset,[Orbits(Group(gens{genIndexes[i]}))]);
+		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	Add(poset,[[]],1);
-	Add(poset,[flags]);
-	return PosetFromFaceListOfFlags(poset);
+	Add(posetList,[[]],1);
+	Add(posetList,[flags]);
+	poset:=PosetFromFaceListOfFlags(posetList);
+	SetIsFull(poset,true);
+	return poset;
 	end);	
 
 InstallMethod(AreIncidentFaces,
@@ -150,10 +165,15 @@ InstallMethod(AreIncidentFaces,
 
 
 InstallMethod(FlagsAsListOfFacesFromPoset,
-	[IsPosetOfFlags],
+	[IsPoset and IsPosetOfFlags],
 	function(poset)
-	local faceList, flags, size, flagList, rank, i, flag;
-	faceList:=poset!.faces_list_by_rank;
+	local faceList, flags, size, flagList, rank, i, flag, newPoset;
+	if IsFull(poset) then
+		newPoset:=PosetFromFaceListOfFlags(poset!.faces_list_by_rank{[2..Rank(poset)+1]});
+	else
+		newPoset:=poset;
+	fi;
+	faceList:=newPoset!.faces_list_by_rank;
 	flags:=DuplicateFreeList(Flat(faceList));
 	Sort(flags);
 	size:=Length(flags);
@@ -198,9 +218,10 @@ InstallOtherMethod(AdjacentFlag,
 
 
 InstallMethod(ConnectionGeneratorOfPoset,
-	[IsPosetOfFlags,IsInt],
-	function(poset,i) # here i is the rank of the generator, e.g., 0 is the rank of the generator for 0-connections.
+	[IsPoset and IsPosetOfFlags,IsInt],
+	function(poset,i) # here i is the rank of the generator, e.g., 0 is the rank of the generator for 0-connections. Also note, the poset here MUST not be full.
 	local flagsList,nFlags,imagesList,flagPosition,iNeighbor,j;
+#	if IsFull(poset) then Print("ConnectionGeneratorOfPoset was given a full poset, and failed."); return; fi;
 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
 	nFlags:=Length(flagsList);
 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
@@ -212,24 +233,9 @@ InstallMethod(ConnectionGeneratorOfPoset,
 	end);
 
 
-# 
-# InstallOtherMethod(ConnectionGeneratorOfPoset,
-# 	[IsList,IsInt,IsList],
-# 	function(poset,i,flagsList) #in this case we have precalculated the flagsList.
-# 	local nFlags,imagesList,flagPosition,iNeighbor,j;
-# #	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-# 	nFlags:=Length(flagsList);
-# 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
-# 	for j in [1..nFlags] do
-# 		iNeighbor:=AdjacentFlag(flagsList[j],flagsList,i);
-# 		imagesList[j]:=Position(flagsList,iNeighbor);
-# 		od;
-# 	return PermutationOfImage(Transformation(imagesList));
-# 	end);
 
-
-InstallMethod(IsFlaggablePoset,
-	[IsPosetOfFlags],
+InstallMethod(IsFlaggable,
+	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local flags,flag,facesList,facesForFlag,ranks,x,y,truthValues, result;
 	if ListIsFullPoset(poset!.faces_list_by_rank) then
@@ -255,33 +261,38 @@ InstallMethod(IsFlaggablePoset,
 		facesList:=[];
 		od;
 	result:= DuplicateFreeList(truthValues)=[true];
-	SetFlaggable(poset,result);
+	SetIsFlaggable(poset,result);
 	return result;
 	end
 );
 
 InstallMethod(ConnectionGroupOfPoset,
-	[IsPosetOfFlags],
+	[IsPoset and IsPosetOfFlags],
 	function(poset)
-	local rank,facelist,flagsList,ranks,generators,x;
-	if IsFlaggablePoset(poset)=false then
-		Print("This poset is not flaggable.");
+	local rank,facelist,flagsList,ranks,generators,x,newPoset;
+	if IsFlaggable(poset)=false then
+		Print("This poset is not flaggable, and this function only works for flaggable posets.");
 		return;
 	fi;
-	facelist:=poset!.faces_list_by_rank;
-	if ListIsFullPoset(facelist) then
+#	facelist:=poset!.faces_list_by_rank;
+	if IsFull(poset) then
 		ranks:=[2..Rank(poset)+1];
 	else
 		ranks:=[1..Rank(poset)];
 	fi;
-	facelist:=facelist{ranks};	
+	facelist:=poset!.faces_list_by_rank{ranks};	
 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-	generators:=ShallowCopy(ranks);
+	generators:=[1..Rank(poset)];
 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
 	return Group(generators);
 	end);
 #Can't handle full posets yet.
 
+# InstallOtherMethod(ConnectionGroupOfPoset,
+# 	[IsPoset and IsPosetOfFlags and IsFull],
+# 	function(poset)
+# 	Print("whoa.");
+# 	end);
 
 
 

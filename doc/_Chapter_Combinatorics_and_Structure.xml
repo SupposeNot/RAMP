@@ -81,14 +81,59 @@
 
 <ManSection>
   <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
+<<<<<<< Updated upstream
  <Description>
  Given a list of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
+=======
+ <Returns>IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.  Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
+</Returns>
+ <Description>
+<P/>
+>>>>>>> Stashed changes
  </Description>
 </ManSection>
 
 
 <ManSection>
+<<<<<<< Updated upstream
   <Oper Arg="poset" Name="RankOfPoset" Label="for IsPosetOfFlags"/>
+=======
+  <Attr Arg="poset" Name="IsFull" Label="for IsPoset"/>
+ <Returns>truth value
+</Returns>
+ <Description>
+	Checks or creates the value of the attribute IsFull for an IsPoset.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="arg" Name="IsFlaggable" Label="for IsPoset"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="IsFlaggablePoset" Label="for IsPosetOfFlags"/>
+ <Description>
+ Given a <A>poset</A> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="list" Name="ListIsFullPoset" Label="for IsList"/>
+ <Description>
+ Given <A>list</A>, a poset as a list of faces ordered by rank, each face listing the flags on the face, this function will tell you if the poset is full or not.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="RankOfPoset" Label="for IsPoset"/>
+>>>>>>> Stashed changes
  <Description>
  Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
  </Description>
@@ -96,7 +141,19 @@
 
 
 <ManSection>
+<<<<<<< Updated upstream
   <Oper Arg="g" Name="PosetOfConnectionGroup" Label="for IsGroup"/>
+=======
+  <Oper Arg="poset" Name="IsNotFull" Label="for IsPoset"/>
+ <Description>
+ Lets me check to see if a poset is NOT full, for certain filtering operations.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="g" Name="PosetOfConnectionGroup" Label="for IsPermGroup"/>
+>>>>>>> Stashed changes
  <Description>
  Given a group, returns a poset as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the <A>i</A>-faces correspond to the <A>i+1</A> item in the list because of how GAP indexes lists.
  </Description>
@@ -104,7 +161,7 @@
 
 
 <ManSection>
-  <Oper Arg="g" Name="FullPosetOfConnectionGroup" Label="for IsGroup"/>
+  <Oper Arg="g" Name="FullPosetOfConnectionGroup" Label="for IsPermGroup"/>
  <Description>
  Returns a full poset as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. This function does include the minimal (empty) face nor the maximal face of the maniplex, so the list has <A>n+2</A> ranks if the maniplex is of rank <A>n</A>. Note that the <A>i</A>-faces correspond to the <A>i+1</A> item in the list because of how GAP indexes lists.
  </Description>
@@ -128,14 +185,19 @@
 
 
 <ManSection>
+<<<<<<< Updated upstream
   <Oper Arg="poset" Name="FlagsAsListOfFacesFromPoset" Label="for IsPosetOfFlags"/>
+=======
+  <Oper Arg="object1, object2" Name="AreIncidentFaces" Label="for IsObject,IsObject"/>
+>>>>>>> Stashed changes
  <Description>
- Given a poset, (not a fullposet) this will give you a version of the list of flags in terms of the faces described in the poset.
+ Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.
  </Description>
 </ManSection>
 
 
 <ManSection>
+<<<<<<< Updated upstream
   <Oper Arg="flag,poset,i" Name="AdjacentFlag" Label="for IsList,IsList,IsInt"/>
  <Description>
  Given a flag (represented as chains of faces comprised of lists of flags) and a poset  and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
@@ -148,19 +210,26 @@
   <Oper Arg="arg1,arg2,arg3" Name="AdjacentFlag" Label="for IsList,IsPosetOfFlags,IsInt"/>
  <Description>
 <P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset, i" Name="ConnectionGeneratorOfPoset" Label="for IsList,IsInt"/>
+=======
+  <Oper Arg="poset" Name="FlagsAsListOfFacesFromPoset" Label="for IsPoset"/>
  <Description>
- Given a <A>poset</A> and an integer <A>i</A>, this function will give you the associated permutation for the rank <A>i</A>-connection.
+ Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face.
+>>>>>>> Stashed changes
  </Description>
 </ManSection>
 
 
 <ManSection>
+  <Oper Arg="flag,poset,i" Name="AdjacentFlag" Label="for IsList,IsPosetOfFlags,IsInt"/>
+ <Description>
+ Given a flag (represented as chains of faces comprised of lists of flags) and a poset  and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
+ You can replace <A>flag</A> with the integer corresponding to that flag.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+<<<<<<< Updated upstream
   <Oper Arg="arg1,arg2" Name="ConnectionGeneratorOfPoset" Label="for IsPosetOfFlags,IsInt"/>
  <Description>
 <P/>
@@ -170,16 +239,23 @@
 
 <ManSection>
   <Oper Arg="poset" Name="ConnectionGroupOfPoset" Label="for IsPosetOfFlags"/>
+=======
+  <Oper Arg="poset, i" Name="ConnectionGeneratorOfPoset" Label="for IsPoset,IsInt"/>
+>>>>>>> Stashed changes
  <Description>
- Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group. Note that it assumes we are NOT using a full poset (currently).
+ Given a <A>poset</A> and an integer <A>i</A>, this function will give you the associated permutation for the rank <A>i</A>-connection.
  </Description>
 </ManSection>
 
 
 <ManSection>
+<<<<<<< Updated upstream
   <Oper Arg="poset" Name="IsFlaggablePoset" Label="for IsPosetOfFlags"/>
+=======
+  <Oper Arg="poset" Name="ConnectionGroupOfPoset" Label="for IsPoset"/>
+>>>>>>> Stashed changes
  <Description>
- Given a <A>poset</A> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.
+ Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
  </Description>
 </ManSection>
 

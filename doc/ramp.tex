@@ -559,6 +559,7 @@ works for reflexible maniplexes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromFaceListOfFlags({\mdseries\slshape list})\index{PosetFromFaceListOfFlags@\texttt{PosetFromFaceListOfFlags}!for IsList}
 \label{PosetFromFaceListOfFlags:for IsList}
 }\hfill{\scriptsize (operation)}}\\
+<<<<<<< Updated upstream
 
 
  Given a list of lists of faces in increasing rank, where each face is
@@ -571,6 +572,82 @@ described by the incident flags, gives you a IsPosetOfFlags object back. }
 \hyperdef{L}{X79E4595984054EC6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankOfPoset({\mdseries\slshape poset})\index{RankOfPoset@\texttt{RankOfPoset}!for IsPosetOfFlags}
 \label{RankOfPoset:for IsPosetOfFlags}
+=======
+\textbf{\indent Returns:\ }
+IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether
+it is being given full poset or not. Given a \mbox{\texttt{\mdseries\slshape list}} of lists of faces in increasing rank, where each face is described by the
+incident flags, gives you a IsPosetOfFlags object back. 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFull (for IsPoset)}}
+\logpage{[ 3, 2, 2 ]}\nobreak
+\hyperdef{L}{X8089E32A82A1E9F8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFull({\mdseries\slshape poset})\index{IsFull@\texttt{IsFull}!for IsPoset}
+\label{IsFull:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+truth value 
+
+
+
+ Checks or creates the value of the attribute IsFull for an IsPoset. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
+\logpage{[ 3, 2, 3 ]}\nobreak
+\hyperdef{L}{X842B0F7E81670077}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape arg})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
+\label{IsFlaggable:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFlaggablePoset (for IsPosetOfFlags)}}
+\logpage{[ 3, 2, 4 ]}\nobreak
+\hyperdef{L}{X84E3CFD97C8AE422}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggablePoset({\mdseries\slshape poset})\index{IsFlaggablePoset@\texttt{IsFlaggablePoset}!for IsPosetOfFlags}
+\label{IsFlaggablePoset:for IsPosetOfFlags}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given a \mbox{\texttt{\mdseries\slshape poset}} (whose elements are lists of flags) corresponding to a maniplex, this function
+will tell you if it is flaggable, i.e., if the flags can be recovered from the
+poset or not. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ListIsFullPoset (for IsList)}}
+\logpage{[ 3, 2, 5 ]}\nobreak
+\hyperdef{L}{X85F7C2CE7D70A92D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsFullPoset({\mdseries\slshape list})\index{ListIsFullPoset@\texttt{ListIsFullPoset}!for IsList}
+\label{ListIsFullPoset:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given \mbox{\texttt{\mdseries\slshape list}}, a poset as a list of faces ordered by rank, each face listing the flags on
+the face, this function will tell you if the poset is full or not. }
+
+ 
+
+\subsection{\textcolor{Chapter }{RankOfPoset (for IsPoset)}}
+\logpage{[ 3, 2, 6 ]}\nobreak
+\hyperdef{L}{X820BF50C79C6C6C0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankOfPoset({\mdseries\slshape poset})\index{RankOfPoset@\texttt{RankOfPoset}!for IsPoset}
+\label{RankOfPoset:for IsPoset}
+>>>>>>> Stashed changes
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -579,11 +656,31 @@ untangle later. }
 
  
 
+<<<<<<< Updated upstream
 \subsection{\textcolor{Chapter }{PosetOfConnectionGroup (for IsGroup)}}
 \logpage{[ 3, 2, 3 ]}\nobreak
 \hyperdef{L}{X7DACCD4D8665EC1B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfConnectionGroup({\mdseries\slshape g})\index{PosetOfConnectionGroup@\texttt{PosetOfConnectionGroup}!for IsGroup}
 \label{PosetOfConnectionGroup:for IsGroup}
+=======
+\subsection{\textcolor{Chapter }{IsNotFull (for IsPoset)}}
+\logpage{[ 3, 2, 7 ]}\nobreak
+\hyperdef{L}{X831C74EB803C1610}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsNotFull({\mdseries\slshape poset})\index{IsNotFull@\texttt{IsNotFull}!for IsPoset}
+\label{IsNotFull:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Lets me check to see if a poset is NOT full, for certain filtering operations. }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetOfConnectionGroup (for IsPermGroup)}}
+\logpage{[ 3, 2, 8 ]}\nobreak
+\hyperdef{L}{X7C7435EF7FC3AB13}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfConnectionGroup({\mdseries\slshape g})\index{PosetOfConnectionGroup@\texttt{PosetOfConnectionGroup}!for IsPermGroup}
+\label{PosetOfConnectionGroup:for IsPermGroup}
+>>>>>>> Stashed changes
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -594,11 +691,19 @@ maniplex. Note that the \mbox{\texttt{\mdseries\slshape i}}-faces correspond to 
 
  
 
+<<<<<<< Updated upstream
 \subsection{\textcolor{Chapter }{FullPosetOfConnectionGroup (for IsGroup)}}
 \logpage{[ 3, 2, 4 ]}\nobreak
 \hyperdef{L}{X8514F5857FC8CC54}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullPosetOfConnectionGroup({\mdseries\slshape g})\index{FullPosetOfConnectionGroup@\texttt{FullPosetOfConnectionGroup}!for IsGroup}
 \label{FullPosetOfConnectionGroup:for IsGroup}
+=======
+\subsection{\textcolor{Chapter }{FullPosetOfConnectionGroup (for IsPermGroup)}}
+\logpage{[ 3, 2, 9 ]}\nobreak
+\hyperdef{L}{X7A8F19B083BD22FB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullPosetOfConnectionGroup({\mdseries\slshape g})\index{FullPosetOfConnectionGroup@\texttt{FullPosetOfConnectionGroup}!for IsPermGroup}
+\label{FullPosetOfConnectionGroup:for IsPermGroup}
+>>>>>>> Stashed changes
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -609,7 +714,11 @@ minimal (empty) face nor the maximal face of the maniplex, so the list has \mbox
  
 
 \subsection{\textcolor{Chapter }{PosetOfManiplex (for IsManiplex)}}
+<<<<<<< Updated upstream
 \logpage{[ 3, 2, 5 ]}\nobreak
+=======
+\logpage{[ 3, 2, 10 ]}\nobreak
+>>>>>>> Stashed changes
 \hyperdef{L}{X7C15F3F8792500D7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfManiplex({\mdseries\slshape mani})\index{PosetOfManiplex@\texttt{PosetOfManiplex}!for IsManiplex}
 \label{PosetOfManiplex:for IsManiplex}
@@ -624,7 +733,11 @@ maniplex. Note that the \mbox{\texttt{\mdseries\slshape i}}-faces correspond to 
  
 
 \subsection{\textcolor{Chapter }{FullPosetOfManiplex (for IsManiplex)}}
+<<<<<<< Updated upstream
 \logpage{[ 3, 2, 6 ]}\nobreak
+=======
+\logpage{[ 3, 2, 11 ]}\nobreak
+>>>>>>> Stashed changes
 \hyperdef{L}{X7B71A5747E126D8E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullPosetOfManiplex({\mdseries\slshape mani})\index{FullPosetOfManiplex@\texttt{FullPosetOfManiplex}!for IsManiplex}
 \label{FullPosetOfManiplex:for IsManiplex}
@@ -638,19 +751,28 @@ maniplex. Note that the \mbox{\texttt{\mdseries\slshape i}}-faces correspond to 
 
  
 
+<<<<<<< Updated upstream
 \subsection{\textcolor{Chapter }{FlagsAsListOfFacesFromPoset (for IsPosetOfFlags)}}
 \logpage{[ 3, 2, 7 ]}\nobreak
 \hyperdef{L}{X7EDEF1508698F917}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsListOfFacesFromPoset({\mdseries\slshape poset})\index{FlagsAsListOfFacesFromPoset@\texttt{FlagsAsListOfFacesFromPoset}!for IsPosetOfFlags}
 \label{FlagsAsListOfFacesFromPoset:for IsPosetOfFlags}
+=======
+\subsection{\textcolor{Chapter }{AreIncidentFaces (for IsObject,IsObject)}}
+\logpage{[ 3, 2, 12 ]}\nobreak
+\hyperdef{L}{X844D730679DCDCFC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AreIncidentFaces({\mdseries\slshape object1, object2})\index{AreIncidentFaces@\texttt{AreIncidentFaces}!for IsObject,IsObject}
+\label{AreIncidentFaces:for IsObject,IsObject}
+>>>>>>> Stashed changes
 }\hfill{\scriptsize (operation)}}\\
 
 
- Given a poset, (not a fullposet) this will give you a version of the list of
-flags in terms of the faces described in the poset. }
+ Given two faces, will tell you if they are incident. Currently only supports
+faces as list of their incident flags. }
 
  
 
+<<<<<<< Updated upstream
 \subsection{\textcolor{Chapter }{AdjacentFlag (for IsList,IsList,IsInt)}}
 \logpage{[ 3, 2, 8 ]}\nobreak
 \hyperdef{L}{X8795640C830E2602}{}
@@ -684,13 +806,36 @@ the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the i
 \hyperdef{L}{X7EE0B9D37852B3B8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGeneratorOfPoset({\mdseries\slshape poset, i})\index{ConnectionGeneratorOfPoset@\texttt{ConnectionGeneratorOfPoset}!for IsList,IsInt}
 \label{ConnectionGeneratorOfPoset:for IsList,IsInt}
+=======
+\subsection{\textcolor{Chapter }{FlagsAsListOfFacesFromPoset (for IsPoset)}}
+\logpage{[ 3, 2, 13 ]}\nobreak
+\hyperdef{L}{X7B9029A4868E7138}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsListOfFacesFromPoset({\mdseries\slshape poset})\index{FlagsAsListOfFacesFromPoset@\texttt{FlagsAsListOfFacesFromPoset}!for IsPoset}
+\label{FlagsAsListOfFacesFromPoset:for IsPoset}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Given a \mbox{\texttt{\mdseries\slshape poset}} and an integer \mbox{\texttt{\mdseries\slshape i}}, this function will give you the associated permutation for the rank \mbox{\texttt{\mdseries\slshape i}}-connection. }
+ Given a \mbox{\texttt{\mdseries\slshape poset}}, this will give you a version of the list of flags in terms of the faces
+described in the \mbox{\texttt{\mdseries\slshape poset}}. Note that the flag list does not include the empty face or the maximal face. }
 
  
 
+\subsection{\textcolor{Chapter }{AdjacentFlag (for IsList,IsPosetOfFlags,IsInt)}}
+\logpage{[ 3, 2, 14 ]}\nobreak
+\hyperdef{L}{X84773D767ABA4355}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlag({\mdseries\slshape flag, poset, i})\index{AdjacentFlag@\texttt{AdjacentFlag}!for IsList,IsPosetOfFlags,IsInt}
+\label{AdjacentFlag:for IsList,IsPosetOfFlags,IsInt}
+>>>>>>> Stashed changes
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given a flag (represented as chains of faces comprised of lists of flags) and
+a poset and a rank, this function will give you the \mbox{\texttt{\mdseries\slshape i}}-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than
+the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. }
+
+ 
+
+<<<<<<< Updated upstream
 \subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPosetOfFlags,IsInt)}}
 \logpage{[ 3, 2, 11 ]}\nobreak
 \hyperdef{L}{X7FC505DD78AF5ED5}{}
@@ -710,25 +855,37 @@ the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the i
 \hyperdef{L}{X853198097D1C0256}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroupOfPoset({\mdseries\slshape poset})\index{ConnectionGroupOfPoset@\texttt{ConnectionGroupOfPoset}!for IsPosetOfFlags}
 \label{ConnectionGroupOfPoset:for IsPosetOfFlags}
+=======
+\subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}
+\logpage{[ 3, 2, 15 ]}\nobreak
+\hyperdef{L}{X84E3B63C8639771B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGeneratorOfPoset({\mdseries\slshape poset, i})\index{ConnectionGeneratorOfPoset@\texttt{ConnectionGeneratorOfPoset}!for IsPoset,IsInt}
+\label{ConnectionGeneratorOfPoset:for IsPoset,IsInt}
+>>>>>>> Stashed changes
 }\hfill{\scriptsize (operation)}}\\
 
 
- Given a \mbox{\texttt{\mdseries\slshape poset}} corresponding to a maniplex, this function will give you the connection group.
-Note that it assumes we are NOT using a full poset (currently). }
+ Given a \mbox{\texttt{\mdseries\slshape poset}} and an integer \mbox{\texttt{\mdseries\slshape i}}, this function will give you the associated permutation for the rank \mbox{\texttt{\mdseries\slshape i}}-connection. }
 
  
 
+<<<<<<< Updated upstream
 \subsection{\textcolor{Chapter }{IsFlaggablePoset (for IsPosetOfFlags)}}
 \logpage{[ 3, 2, 13 ]}\nobreak
 \hyperdef{L}{X84E3CFD97C8AE422}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggablePoset({\mdseries\slshape poset})\index{IsFlaggablePoset@\texttt{IsFlaggablePoset}!for IsPosetOfFlags}
 \label{IsFlaggablePoset:for IsPosetOfFlags}
+=======
+\subsection{\textcolor{Chapter }{ConnectionGroupOfPoset (for IsPoset)}}
+\logpage{[ 3, 2, 16 ]}\nobreak
+\hyperdef{L}{X83C849F67D807854}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroupOfPoset({\mdseries\slshape poset})\index{ConnectionGroupOfPoset@\texttt{ConnectionGroupOfPoset}!for IsPoset}
+\label{ConnectionGroupOfPoset:for IsPoset}
+>>>>>>> Stashed changes
 }\hfill{\scriptsize (operation)}}\\
 
 
- Given a \mbox{\texttt{\mdseries\slshape poset}} (whose elements are lists of flags) corresponding to a maniplex, this function
-will tell you if it is flaggable, i.e., if the flags can be recovered from the
-poset or not. }
+ Given a \mbox{\texttt{\mdseries\slshape poset}} corresponding to a maniplex, this function will give you the connection group. }
 
  
 
@@ -1384,6 +1541,10 @@ ReflexibleManiplex("\texttt{\symbol{123}}4,3\texttt{\symbol{125}}{\textunderscor
 
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+<<<<<<< Updated upstream
+=======
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+>>>>>>> Stashed changes
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
 \immediate\closeout\pagenrlog

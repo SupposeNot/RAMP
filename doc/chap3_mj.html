@@ -41,6 +41,7 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7D495B407CDFAEA2">3.2-1 PosetFromFaceListOfFlags</a></span>
+<<<<<<< Updated upstream
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X79E4595984054EC6">3.2-2 RankOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7DACCD4D8665EC1B">3.2-3 PosetOfConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8514F5857FC8CC54">3.2-4 FullPosetOfConnectionGroup</a></span>
@@ -54,6 +55,23 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X853198097D1C0256">3.2-12 ConnectionGroupOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84E3CFD97C8AE422">3.2-13 IsFlaggablePoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X85F7C2CE7D70A92D">3.2-14 ListIsFullPoset</a></span>
+=======
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8089E32A82A1E9F8">3.2-2 IsFull</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X842B0F7E81670077">3.2-3 IsFlaggable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84E3CFD97C8AE422">3.2-4 IsFlaggablePoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X85F7C2CE7D70A92D">3.2-5 ListIsFullPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X820BF50C79C6C6C0">3.2-6 RankOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X831C74EB803C1610">3.2-7 IsNotFull</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C7435EF7FC3AB13">3.2-8 PosetOfConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7A8F19B083BD22FB">3.2-9 FullPosetOfConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C15F3F8792500D7">3.2-10 PosetOfManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B71A5747E126D8E">3.2-11 FullPosetOfManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X844D730679DCDCFC">3.2-12 AreIncidentFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B9029A4868E7138">3.2-13 FlagsAsListOfFacesFromPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84773D767ABA4355">3.2-14 AdjacentFlag</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84E3B63C8639771B">3.2-15 ConnectionGeneratorOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X83C849F67D807854">3.2-16 ConnectionGroupOfPoset</a></span>
+>>>>>>> Stashed changes
 </div></div>
 </div>
 
@@ -124,6 +142,7 @@
 <h4>3.2 <span class="Heading">Posets</span></h4>
 
 <p><a id="X7D495B407CDFAEA2" name="X7D495B407CDFAEA2"></a></p>
+<<<<<<< Updated upstream
 
 <h5>3.2-1 PosetFromFaceListOfFlags</h5>
 
@@ -140,40 +159,119 @@
 <p><a id="X7DACCD4D8665EC1B" name="X7DACCD4D8665EC1B"></a></p>
 
 <h5>3.2-3 PosetOfConnectionGroup</h5>
+=======
+
+<h5>3.2-1 PosetFromFaceListOfFlags</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromFaceListOfFlags</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not. Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.</p>
+
+<p><a id="X8089E32A82A1E9F8" name="X8089E32A82A1E9F8"></a></p>
+
+<h5>3.2-2 IsFull</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFull</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: truth value</p>
+
+<p>Checks or creates the value of the attribute IsFull for an IsPoset.</p>
+
+<p><a id="X842B0F7E81670077" name="X842B0F7E81670077"></a></p>
+
+<h5>3.2-3 IsFlaggable</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlaggable</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X84E3CFD97C8AE422" name="X84E3CFD97C8AE422"></a></p>
+
+<h5>3.2-4 IsFlaggablePoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlaggablePoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a <var class="Arg">poset</var> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.</p>
+
+<p><a id="X85F7C2CE7D70A92D" name="X85F7C2CE7D70A92D"></a></p>
+
+<h5>3.2-5 ListIsFullPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ListIsFullPoset</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given <var class="Arg">list</var>, a poset as a list of faces ordered by rank, each face listing the flags on the face, this function will tell you if the poset is full or not.</p>
+
+<p><a id="X820BF50C79C6C6C0" name="X820BF50C79C6C6C0"></a></p>
+
+<h5>3.2-6 RankOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a <var class="Arg">poset</var>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.</p>
+
+<p><a id="X831C74EB803C1610" name="X831C74EB803C1610"></a></p>
+
+<h5>3.2-7 IsNotFull</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsNotFull</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Lets me check to see if a poset is NOT full, for certain filtering operations.</p>
+
+<p><a id="X7C7435EF7FC3AB13" name="X7C7435EF7FC3AB13"></a></p>
+
+<h5>3.2-8 PosetOfConnectionGroup</h5>
+>>>>>>> Stashed changes
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetOfConnectionGroup</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a group, returns a poset as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the <var class="Arg">i</var>-faces correspond to the <var class="Arg">i+1</var> item in the list because of how GAP indexes lists.</p>
 
-<p><a id="X8514F5857FC8CC54" name="X8514F5857FC8CC54"></a></p>
+<p><a id="X7A8F19B083BD22FB" name="X7A8F19B083BD22FB"></a></p>
 
+<<<<<<< Updated upstream
 <h5>3.2-4 FullPosetOfConnectionGroup</h5>
+=======
+<h5>3.2-9 FullPosetOfConnectionGroup</h5>
+>>>>>>> Stashed changes
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FullPosetOfConnectionGroup</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns a full poset as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. This function does include the minimal (empty) face nor the maximal face of the maniplex, so the list has <var class="Arg">n+2</var> ranks if the maniplex is of rank <var class="Arg">n</var>. Note that the <var class="Arg">i</var>-faces correspond to the <var class="Arg">i+1</var> item in the list because of how GAP indexes lists.</p>
 
 <p><a id="X7C15F3F8792500D7" name="X7C15F3F8792500D7"></a></p>
 
+<<<<<<< Updated upstream
 <h5>3.2-5 PosetOfManiplex</h5>
+=======
+<h5>3.2-10 PosetOfManiplex</h5>
+>>>>>>> Stashed changes
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetOfManiplex</code>( <var class="Arg">mani</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a maniplex, returns a poset as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the <var class="Arg">i</var>-faces correspond to the <var class="Arg">i+1</var> item in the list because of how GAP indexes lists.</p>
 
 <p><a id="X7B71A5747E126D8E" name="X7B71A5747E126D8E"></a></p>
 
+<<<<<<< Updated upstream
 <h5>3.2-6 FullPosetOfManiplex</h5>
+=======
+<h5>3.2-11 FullPosetOfManiplex</h5>
+>>>>>>> Stashed changes
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FullPosetOfManiplex</code>( <var class="Arg">mani</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a maniplex, returns a poset as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <var class="Arg">i</var>-faces correspond to the <var class="Arg">i+1</var> item in the list because of how GAP indexes lists.</p>
 
+<<<<<<< Updated upstream
 <p><a id="X7EDEF1508698F917" name="X7EDEF1508698F917"></a></p>
 
 <h5>3.2-7 FlagsAsListOfFacesFromPoset</h5>
+=======
+<p><a id="X844D730679DCDCFC" name="X844D730679DCDCFC"></a></p>
+
+<h5>3.2-12 AreIncidentFaces</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreIncidentFaces</code>( <var class="Arg">object1</var>, <var class="Arg">object2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.</p>
+
+<p><a id="X7B9029A4868E7138" name="X7B9029A4868E7138"></a></p>
+
+<h5>3.2-13 FlagsAsListOfFacesFromPoset</h5>
+>>>>>>> Stashed changes
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagsAsListOfFacesFromPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given a poset, (not a fullposet) this will give you a version of the list of flags in terms of the faces described in the poset.</p>
+<p>Given a <var class="Arg">poset</var>, this will give you a version of the list of flags in terms of the faces described in the <var class="Arg">poset</var>. Note that the flag list does not include the empty face or the maximal face.</p>
 
-<p><a id="X8795640C830E2602" name="X8795640C830E2602"></a></p>
+<p><a id="X84773D767ABA4355" name="X84773D767ABA4355"></a></p>
 
+<<<<<<< Updated upstream
 <h5>3.2-8 AdjacentFlag</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">flag</var>, <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -187,10 +285,21 @@
 <p><a id="X7EE0B9D37852B3B8" name="X7EE0B9D37852B3B8"></a></p>
 
 <h5>3.2-10 ConnectionGeneratorOfPoset</h5>
+=======
+<h5>3.2-14 AdjacentFlag</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">flag</var>, <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag.</p>
+
+<p><a id="X84E3B63C8639771B" name="X84E3B63C8639771B"></a></p>
+
+<h5>3.2-15 ConnectionGeneratorOfPoset</h5>
+>>>>>>> Stashed changes
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGeneratorOfPoset</code>( <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a <var class="Arg">poset</var> and an integer <var class="Arg">i</var>, this function will give you the associated permutation for the rank <var class="Arg">i</var>-connection.</p>
 
+<<<<<<< Updated upstream
 <p><a id="X7FC505DD78AF5ED5" name="X7FC505DD78AF5ED5"></a></p>
 
 <h5>3.2-11 ConnectionGeneratorOfPoset</h5>
@@ -209,6 +318,14 @@
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlaggablePoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a <var class="Arg">poset</var> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.</p>
+=======
+<p><a id="X83C849F67D807854" name="X83C849F67D807854"></a></p>
+
+<h5>3.2-16 ConnectionGroupOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroupOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a <var class="Arg">poset</var> corresponding to a maniplex, this function will give you the connection group.</p>
+>>>>>>> Stashed changes
 
 <p><a id="X85F7C2CE7D70A92D" name="X85F7C2CE7D70A92D"></a></p>
 
