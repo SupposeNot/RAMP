@@ -67,6 +67,17 @@ InstallMethod(ConnectionGroup,
 	function(p)
 	return p!.conn_gp;
 	end);
+
+InstallMethod(EvenConnectionGroup,
+	[IsManiplex and IsManiplexConnGpRep],
+	function(p)
+	local c, gens, newgens;
+	c := ConnectionGroup(p);
+	gens := GeneratorsOfGroup(c);
+	newgens := List([1..Size(gens)-1], i -> gens[i] * gens[i+1]);
+	return Group(newgens);
+	end);
+
 	
 # Returns a list of relators (as Tietze words) that are necessary to
 # define the automorphism group of p as a quotient of the string

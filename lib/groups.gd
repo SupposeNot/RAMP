@@ -24,6 +24,11 @@ DeclareAttribute("AutomorphismGroupPermGroup", IsManiplex);
 DeclareAttribute("ConnectionGroup", IsManiplex);
 
 #! @Arguments M
+#! Returns the even-word subgroup of the connection group of <A>M</A> as a
+#! permutation group. 
+DeclareAttribute("EvenConnectionGroup", IsManiplex);
+
+#! @Arguments M
 #! Returns the rotation group of <A>M</A>.
 #! This group is not guaranteed to be in any particular form.
 DeclareAttribute("RotationGroup", IsManiplex);

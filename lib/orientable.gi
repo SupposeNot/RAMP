@@ -7,6 +7,12 @@ InstallMethod(IsOrientable,
 	return ForAll(rels, r -> Length(r) mod 2 = 0);
 	end);
 
+InstallMethod(IsOrientable,
+	[IsManiplex],
+	function(M)
+	return ConnectionGroup(M) <> EvenConnectionGroup(M);
+	end);
+
 InstallMethod(IsIOrientable,
 	[IsReflexibleManiplex, IsList],
 	function(p, I)
