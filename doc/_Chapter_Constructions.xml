@@ -141,5 +141,29 @@
 </Section>
 
 
+<Section Label="Chapter_Constructions_Section_Products">
+<Heading>Products</Heading>
+
+<ManSection>
+  <Oper Arg="M" Name="PyramidOver" Label="for IsManiplex"/>
+ <Description>
+ Returns the pyramid over <A>M</A>.
+ Currently only works for finite maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="PrismOver" Label="for IsManiplex"/>
+ <Description>
+ Returns the prism over <A>M</A>.
+ Currently only works for finite maniplexes.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 </Chapter>
 

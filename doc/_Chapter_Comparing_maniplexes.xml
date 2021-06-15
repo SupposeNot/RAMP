@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Comparing_maniplexes">
+<Heading>Comparing maniplexes</Heading>
+
+<Section Label="Chapter_Comparing_maniplexes_Section_Quotients_and_covers">
+<Heading>Quotients and covers</Heading>
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="IsQuotientOf" Label="for IsManiplex, IsManiplex"/>
+ <Description>
+ Returns whether <A>M1</A> is a quotient of <A>M2</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="IsCoverOf" Label="for IsManiplex, IsManiplex"/>
+ <Description>
+ Returns whether <A>M1</A> is a cover of <A>M2</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="IsIsomorphicTo" Label="for IsManiplex, IsManiplex"/>
+ <Description>
+ Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="SmallestRegularCover" Label="for IsManiplex"/>
+ <Description>
+ Returns the smallest regular cover of <A>M</A>, which is the
+ maniplex whose automorphism group is the connection group
+ of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

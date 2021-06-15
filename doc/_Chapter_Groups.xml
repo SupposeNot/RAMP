@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Groups">
+<Heading>Groups</Heading>
+
+<Section Label="Chapter_Groups_Section_Groups">
+<Heading>Groups</Heading>
+
+<ManSection>
+  <Attr Arg="M" Name="AutomorphismGroup" Label="for IsManiplex"/>
+ <Description>
+ Returns the automorphism group of <A>M</A>.
+ This group is not guaranteed to be in any particular form.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="AutomorphismGroupFpGroup" Label="for IsManiplex"/>
+ <Description>
+ Returns the automorphism group of <A>M</A> as a
+ finitely presented group.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="AutomorphismGroupPermGroup" Label="for IsManiplex"/>
+ <Description>
+ Returns the automorphism group of <A>M</A> as a
+ permutation group.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="ConnectionGroup" Label="for IsManiplex"/>
+ <Description>
+ Returns the connection group of <A>M</A> as a
+ permutation group. We may eventually allow other types
+ of connection groups.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="RotationGroup" Label="for IsManiplex"/>
+ <Description>
+ Returns the rotation group of <A>M</A>.
+ This group is not guaranteed to be in any particular form.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="ExtraRelators" Label="for IsReflexibleManiplex"/>
+ <Description>
+ For a reflexible maniplex <A>M</A>, returns the relators
+ needed to define its automorphism group as a quotient of
+ the string Coxeter group given by its Schlafli symbol.
+ Not particularly robust at the moment.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="G" Name="IsStringC" Label="for IsGroup"/>
+ <Description>
+ For an sggi <A>G</A>, returns whether the group is
+ a string C group. It does not check whether <A>G</A>
+ is an sggi.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

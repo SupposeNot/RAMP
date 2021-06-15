@@ -16,10 +16,12 @@ ReadPackage( "ramp", "lib/database.gi" );
 ReadPackage( "ramp", "lib/duality.gi" ); 
 ReadPackage( "ramp", "lib/faces.gi" ); 
 ReadPackage( "ramp", "lib/families.gi" ); 
+ReadPackage( "ramp", "lib/groups.gi" ); 
 ReadPackage( "ramp", "lib/orientable.gi" ); 
 ReadPackage( "ramp", "lib/polytope.gi" );
 ReadPackage( "ramp", "lib/poset.gi" );
 ReadPackage( "ramp", "lib/products.gi" );
+ReadPackage( "ramp", "lib/quotients.gi" );
 ReadPackage( "ramp", "lib/tomotope.gi" );
 ReadPackage( "ramp", "lib/toroids.gi" );
 

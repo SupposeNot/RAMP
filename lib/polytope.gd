@@ -62,26 +62,10 @@ DeclareAttribute("PetrieLength", IsReflexibleManiplex);
 DeclareAttribute("HoleLength", IsReflexibleManiplex);
 DeclareProperty("IsDegenerate", IsManiplex);
 
-# Groups
-DeclareAttribute("AutomorphismGroup", IsManiplex);
-DeclareAttribute("AutomorphismGroupFpGroup", IsManiplex);
-DeclareAttribute("AutomorphismGroupPermGroup", IsManiplex);
-DeclareAttribute("ConnectionGroup", IsManiplex);
-DeclareAttribute("RotationGroup", IsManiplex);
-DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
-DeclareOperation("IsStringC", [IsGroup]);
-
 # Faithfulness
 DeclareProperty("IsVertexFaithful", IsReflexibleManiplex);
 DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);
-
-# Covers / Quotients
 DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
-DeclareOperation("IsQuotientOf", [IsManiplex, IsManiplex]);
-DeclareOperation("IsCoverOf", [IsManiplex, IsManiplex]);
-DeclareOperation("IsIsomorphicTo", 	[IsManiplex, IsManiplex]);
-DeclareAttribute("SmallestRegularCover", IsManiplex);
-
 
 # Symmetry Type Graphs
 DeclareAttribute("SymmetryTypeGraph", IsManiplex);
