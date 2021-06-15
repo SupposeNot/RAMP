@@ -47,7 +47,7 @@ is read, and this should contain all of the .gi files. Thanks to the .gd / .gi s
 of .gi files shouldn't matter, and so I have just put them in alphabetical order.
 
 # Making a new type #
-Will Gabe finish this before Gordon makes his poset type? It's anyone's guess!
+
 
 ## Categories, Representations, and Families ##
 A **category** in GAP is pretty close to the mathematical sense of the word.
@@ -132,3 +132,70 @@ and methods you've coded to work with maniplexes will work with p.
 
 ## Operations, Attributes, and all that ##
 
+### Operations ###
+An **operation** is essentially a function that may have multiple different implementations depending
+on the type of its inputs. So, if you have a function that there is only one sensible way
+to compute, then we probably want to just make that a global function rather than an operation.
+(This is not completely adhered to in RAMP at present, because I only just understood this
+recently myself.) 
+
+Here is an example: consider the problem of determining the size of a group.
+The way we find the size of a finitely-presented group is completely different
+from how we find the size of a permutation group. So somewhere we want to declare
+an operation, and then two different implementations:
+
+    DeclareOperation("Size", [IsGroup]);
+    
+    InstallMethod(Size, [IsFpGroup],
+    	function(g) ... );
+	
+    InstallMethod(Size, [IsPermGroup],
+    	function(g) ... );
+	
+Then when we call Size(g), GAP figures out which method to use.
+
+It might happen that there are multiple installed methods that apply to a given object.
+In that case, roughly speaking, GAP will choose the method with the
+_most specific_ restrictions. For example, if we also had:
+
+    InstallMethod(Size, [IsGroup],
+    	function(g) ... );
+	
+then this new method would only be used for groups that are neither
+FpGroups nor PermGroups. 
+
+In cases where the above heuristic is not enough to determine which method to use,
+GAP has a whole "ranking system" for methods, but I haven't needed to
+even think about that yet, and I hope never to.
+
+### Attributes and Properties ###
+
+An **attribute** of an object can be any kind of information about the object.
+A **property** is just a boolean attribute.
+Whenever you declare an attribute of an object, you get two functions for free:
+HasATTRIBUTE and SetATTRIBUTE. For example, we have:
+
+    DeclareAttribute("SchlafliSymbol", IsManiplex);
+    
+So we can call SchlafliSymbol(m), HasSchlafliSymbol(m), and SetSchlafliSymbol(m, [3, 4]).
+
+Since we have set up maniplexes as IsAttributeStoringRep, the value of all attributes
+is stored. In particular, if you SetATTRIBUTE(m, something), then the computation of
+that attribute is never run. We often run this when building maniplexes that we know
+something about.
+
+Note that, **once the value of an attribute is set, it cannot be reset**.
+Attempts (by calling SetATTRIBUTE) will fail.
+
+### Declaration and Implementation ###
+
+DeclareOperation, DeclareAttribute etc set up a read-only name for the operation / 
+attribute etc, and tell us what type of object(s) the operation works on.
+
+When we use InstallMethod to set up the actual method, we may be _more_ specific
+than the declaration was. Thus we can have things like:
+
+    DeclareAttribute("AutomorphismGroup", IsManiplex);
+    
+    InstallMethod(AutomorphismGroup, [IsReflexibleManiplex], ...)
+    
