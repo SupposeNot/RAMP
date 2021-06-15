@@ -1,6 +1,6 @@
 ###Operations for dealing with maniplexes as posets###
 #This stuff is Gordon's fault...
-#Probably need to figure out how to go from Poset TO connection group.
+
 
 
 InstallMethod(PosetFromFaceListOfFlags,
@@ -29,22 +29,6 @@ InstallMethod(RankOfPoset,
 	end);
 
 InstallOtherMethod(Rank, [IsPosetOfFlags], RankOfPoset);
-
-InstallMethod(ListIsFullPoset,
-	[IsList],
-	function(list)
-	local rank,flags;
-	flags:=DuplicateFreeList(Flat(list));
-	Sort(flags);
-	rank:=Length(list);
-	if list[1]=[[]] and list[rank]=[flags] then
-		return true;
-	else
-		return false;
-	fi;
-	Print("Something went wrong");
-	return;
-	end);
 
 InstallMethod(FullPosetOfConnectionGroup, 
 	[IsGroup],
@@ -95,7 +79,10 @@ InstallMethod(PosetOfConnectionGroup,
 	
 
 
-
+#WTF:
+# myPoset:=PosetOfManiplex(p);
+# <object> 
+# gap> PosetOfManiplex(p)=myPoset;
 
 InstallMethod(PosetOfManiplex,
 	[IsManiplex],
@@ -147,41 +134,64 @@ InstallMethod(AreIncidentFaces,
 	return "Was unable to evaluate for some reason.\n";
 	end);	
 	
+	
 
+# InstallMethod(FlagsAsListOfFacesFromPoset,
+# 	[IsPosetOfFlags],
+# 	function(poset)
+# 	local flags,size,flagList,rank,i,flag,faceList;
+# 	faceList:=poset!.faces_list_by_rank;
+# 	flags:=DuplicateFreeList(Flat(faceList));
+# 	Sort(flags);
+# 	size:=Length(flags);
+# 	rank:=Length(faceList);
+# 	flagList:=ShallowCopy(flags);
+# 	Apply(flagList, x->List([1..rank],i->[]));
+# 	for flag in flags do
+# 		for i in [1..rank] do
+# 			flagList[flag][i]:=Filtered(faceList[i],x-> flag in x)[1]; #Might want to have a precheck that makes sure that poset doesn't have more than one face at each rank containing each flag.
+# 			od;
+# 		od;
+# 	return flagList;
+# 	end);	
+# 	
 
 InstallMethod(FlagsAsListOfFacesFromPoset,
 	[IsPosetOfFlags],
 	function(poset)
-	local faceList, flags, size, flagList, rank, i, flag;
+	local flags,size,flagList,rank,i,flag,faceList,ranks;
 	faceList:=poset!.faces_list_by_rank;
 	flags:=DuplicateFreeList(Flat(faceList));
 	Sort(flags);
-	size:=Length(flags);
-	rank:=Length(faceList);
-	flagList:=ShallowCopy(flags);
-	Apply(flagList, x->List([1..rank],i->[]));
+	#size:=Length(flags);
+	rank:=Rank(poset);
+	if IsFullPoset(poset) then
+		ranks:=[1..rank];
+	else
+		ranks:=[2..rank-1];
+	fi;
+	Apply(flags, x->List(ranks,i->[]));
 	for flag in flags do
-		for i in [1..rank] do
-			flagList[flag][i]:=Filtered(faceList[i],x-> flag in x)[1]; #Might want to have a precheck that makes sure that poset doesn't have more than one face at each rank containing each flag.
+		for i in ranks do
+			flags[flag][i]:=Filtered(faceList[i],x-> flag in x)[1]; #Might want to have a precheck that makes sure that poset doesn't have more than one face at each rank containing each flag.
 			od;
 		od;
-	return flagList;
-	end);	
-#Doesn't handle full posets yet.
-
+	return flags;
+	end);
+	
 
 InstallMethod(AdjacentFlag,
 	[IsList,IsPosetOfFlags,IsInt],
 	function(flag,poset,i)
 	#Note that flag and list of flags here are assumed to be given as lists of incident faces in increasing order. the variable i is the rank of the adjacency (indexed from 0)
 	local n,ranks,flags;
-	flags:=FlagsAsListOfFacesFromPoset(poset);
-	n:=Rank(poset);
+	n:=Length(flag);
 	ranks:=[1..n];
 	i:=i+1;
 	Remove(ranks,i);
+	flags:=FlagsAsListOfFacesFromPoset(poset);
 	return Filtered(flags,x->(flag{ranks}=x{ranks} and flag<>x))[1];
-	end);
+	end);	
 
 InstallOtherMethod(AdjacentFlag,
 	[IsInt,IsPosetOfFlags,IsInt],
@@ -205,45 +215,38 @@ InstallMethod(ConnectionGeneratorOfPoset,
 	nFlags:=Length(flagsList);
 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
 	for j in [1..nFlags] do
-		iNeighbor:=AdjacentFlag(j,poset,i);
+		iNeighbor:=AdjacentFlag(flagsList[j],poset,i);
 		imagesList[j]:=Position(flagsList,iNeighbor);
 		od;
 	return PermutationOfImage(Transformation(imagesList));
 	end);
 
-
-# 
-# InstallOtherMethod(ConnectionGeneratorOfPoset,
-# 	[IsList,IsInt,IsList],
-# 	function(poset,i,flagsList) #in this case we have precalculated the flagsList.
-# 	local nFlags,imagesList,flagPosition,iNeighbor,j;
-# #	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-# 	nFlags:=Length(flagsList);
-# 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
-# 	for j in [1..nFlags] do
-# 		iNeighbor:=AdjacentFlag(flagsList[j],flagsList,i);
-# 		imagesList[j]:=Position(flagsList,iNeighbor);
-# 		od;
-# 	return PermutationOfImage(Transformation(imagesList));
-# 	end);
-
+InstallOtherMethod(ConnectionGeneratorOfPoset,
+	[IsPosetOfFlags,IsInt,IsList],
+	function(poset,i,flagsList) #in this case we have precalculated the flagsList.
+	local nFlags,imagesList,flagPosition,iNeighbor,j;
+#	flagsList:=FlagsAsListOfFacesFromPoset(poset);
+	nFlags:=Length(flagsList);
+	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
+	for j in [1..nFlags] do
+		iNeighbor:=AdjacentFlag(flagsList[j],poset,i);
+		imagesList[j]:=Position(flagsList,iNeighbor);
+		od;
+	return PermutationOfImage(Transformation(imagesList));
+	end);
 
 InstallMethod(IsFlaggablePoset,
-	[IsPosetOfFlags],
+	[IsList],
 	function(poset)
-	local flags,flag,facesList,facesForFlag,ranks,x,y,truthValues, result;
-	if ListIsFullPoset(poset!.faces_list_by_rank) then
-		ranks:=[2..Rank(poset)+1];
-	else
-		ranks:=[1..Rank(poset)];
-	fi;
-	flags:=DuplicateFreeList(Flat(poset!.faces_list_by_rank));
+	local flags,flag,facesList,facesForFlag,ranks,x,y,truthValues;
+	ranks:=Length(poset);
+	flags:=DuplicateFreeList(Flat(poset));
 	truthValues:=[];
 	Sort(flags);
 	facesList:=[];
 	for flag in flags do
-		for x in ranks do
-			facesForFlag:=Filtered(poset!.faces_list_by_rank[x],y->flag in y);
+		for x in [1..ranks] do
+			facesForFlag:=Filtered(poset[x],y->flag in y);
 			Append(facesList,facesForFlag);
 			od;			
 		#Print([flag,Intersection(facesList)]);
@@ -254,36 +257,88 @@ InstallMethod(IsFlaggablePoset,
 		fi;
 		facesList:=[];
 		od;
-	result:= DuplicateFreeList(truthValues)=[true];
-	SetFlaggable(poset,result);
-	return result;
+	return DuplicateFreeList(truthValues)=[true];
 	end
 );
-
+InstallOtherMethod(IsFlaggablePoset,
+	[IsPosetOfFlags],
+	function(poset)
+	local posetAsFacesList,flags,flag,facesList,facesForFlag,ranks,x,y,truthValues;
+	ranks:=Rank(poset);
+	posetAsFacesList:=poset!.faces_list_by_rank;
+	flags:=DuplicateFreeList(Flat(posetAsFacesList));
+	truthValues:=[];
+	Sort(flags);
+	facesList:=[];
+	for flag in flags do
+		for x in [1..ranks] do
+			facesForFlag:=Filtered(posetAsFacesList[x],y->flag in y);
+			Append(facesList,facesForFlag);
+			od;			
+		#Print([flag,Intersection(facesList)]);
+		if Intersection(facesList)=[flag] then
+			Append(truthValues,[true]);
+		else
+			Append(truthValues,[false]);
+		fi;
+		facesList:=[];
+		od;
+	return DuplicateFreeList(truthValues)=[true];
+	end
+);
+	
+# InstallMethod(ConnectionGroupOfPoset,
+# 	[IsList],
+# 	function(poset)
+# 	local rank,flagsList,ranks,generators,x;
+# 	if IsFlaggablePoset(poset)=false then
+# 		Print("This poset is not flaggable.");
+# 		return;
+# 	else
+# 		rank:=Length(poset);
+# 		ranks:=[1..rank];
+# 		flagsList:=FlagsAsListOfFacesFromPoset(poset);
+# 		generators:=ShallowCopy(ranks);
+# 		Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1,flagsList));
+# 	 	return Group(generators);
+# 	 fi;
+# 	end);
 InstallMethod(ConnectionGroupOfPoset,
 	[IsPosetOfFlags],
 	function(poset)
 	local rank,facelist,flagsList,ranks,generators,x;
-	if IsFlaggablePoset(poset)=false then
+	facelist:=poset!.faces_list_by_rank;
+	if IsFlaggablePoset(facelist)=false then
 		Print("This poset is not flaggable.");
 		return;
-	fi;
-	facelist:=poset!.faces_list_by_rank;
-	if ListIsFullPoset(facelist) then
-		ranks:=[2..Rank(poset)+1];
 	else
-		ranks:=[1..Rank(poset)];
-	fi;
-	facelist:=facelist{ranks};	
-	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-	generators:=ShallowCopy(ranks);
-	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
-	return Group(generators);
+		rank:=Rank(poset);
+		ranks:=[1..rank];
+		flagsList:=FlagsAsListOfFacesFromPoset(poset);
+		generators:=ShallowCopy(ranks);
+		Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
+	 	return Group(generators);
+	 fi;
 	end);
-#Can't handle full posets yet.
+	
 
-
-
+InstallMethod(ListIsFullPoset,
+	[IsList],
+	function(list)
+	local rank,flags;
+	flags:=DuplicateFreeList(Flat(list));
+	Sort(flags);
+	rank:=Length(list);
+	if list[1]=[[]] and list[rank]=[flags] then
+		return true;
+	else
+		return false;
+	fi;
+	Print("Something went wrong");
+	return;
+	end);
+	
+#TODO InstallMethod for Rank of a poset	
 
 #Here's a sample of things you can do...
 #p:=PyramidOver(HemiCube(3));
