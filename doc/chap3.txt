@@ -60,22 +60,16 @@
   [1X3.2-1 PosetFromFaceListOfFlags[101X
   
   [33X[1;0Y[29X[2XPosetFromFaceListOfFlags[102X( [3Xlist[103X ) [32X operation[133X
-<<<<<<< Updated upstream
-  
-  [33X[0;0YGiven  a  list  of  lists  of  faces  in increasing rank, where each face is
-  described by the incident flags, gives you a IsPosetOfFlags object back.[133X
-  
-  [1X3.2-2 RankOfPoset[101X
-=======
   [6XReturns:[106X  [33X[0;10YIsPosetOfFlags.  Not  that  the function is INTENTIONALLY agnostic
-            about whether it is being given full poset or not. Given a [3Xlist[103X of
-            lists of faces in increasing rank, where each face is described by
-            the incident flags, gives you a IsPosetOfFlags object back.[133X
+            about whether it is being given full poset or not.[133X
+  
+  [33X[0;0YGiven  a  [3Xlist[103X  of  lists  of  faces  in increasing rank, where each face is
+  described by the incident flags, gives you a IsPosetOfFlags object back.[133X
   
   [1X3.2-2 IsFull[101X
   
   [33X[1;0Y[29X[2XIsFull[102X( [3Xposet[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Ytruth value[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
   
   [33X[0;0YChecks or creates the value of the attribute IsFull for an IsPoset.[133X
   
@@ -86,6 +80,7 @@
   [1X3.2-4 IsFlaggablePoset[101X
   
   [33X[1;0Y[29X[2XIsFlaggablePoset[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
   
   [33X[0;0YGiven  a  [3Xposet[103X  (whose  elements  are  lists  of  flags) corresponding to a
   maniplex, this function will tell you if it is flaggable, i.e., if the flags
@@ -94,120 +89,95 @@
   [1X3.2-5 ListIsFullPoset[101X
   
   [33X[1;0Y[29X[2XListIsFullPoset[102X( [3Xlist[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
   
   [33X[0;0YGiven  [3Xlist[103X,  a  poset as a list of faces ordered by rank, each face listing
   the  flags  on the face, this function will tell you if the poset is full or
   not.[133X
   
   [1X3.2-6 RankOfPoset[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XRankOfPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xinteger[113X[133X
   
   [33X[0;0YGiven  a  [3Xposet[103X,  returns  the  rank of the poset. Note: There may be hidden
   assumptions here to untangle later.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-3 PosetOfConnectionGroup[101X
-=======
   [1X3.2-7 IsNotFull[101X
   
   [33X[1;0Y[29X[2XIsNotFull[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
   
-  [33X[0;0YLets  me  check  to  see  if  a  poset  is  NOT  full, for certain filtering
+  [33X[0;0YLets  me  check  to see if a poset is NOT full. For use in certain filtering
   operations.[133X
   
   [1X3.2-8 PosetOfConnectionGroup[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XPosetOfConnectionGroup[102X( [3Xg[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X with [13XIsFull[113X=false.[133X
   
-  [33X[0;0YGiven  a  group,  returns  a poset as a list of faces ordered by rank, where
-  each  face is represented as a list of the flags it contains. Note that this
-  function  does  not include the minimal (empty) face nor the maximal face of
-  the  maniplex.  Note that the [3Xi[103X-faces correspond to the [3Xi+1[103X item in the list
-  because of how GAP indexes lists.[133X
+  [33X[0;0YGiven  a group, returns a poset with an internal representation as a list of
+  faces ordered by rank, where each face is represented as a list of the flags
+  it  contains.  Note  that this function does not include the minimal (empty)
+  face  nor the maximal face of the maniplex. Note that the [23Xi[123X-faces correspond
+  to the [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-4 FullPosetOfConnectionGroup[101X
-=======
   [1X3.2-9 FullPosetOfConnectionGroup[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XFullPosetOfConnectionGroup[102X( [3Xg[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X with [13XIsFull[113X=true.[133X
   
-  [33X[0;0YReturns  a full poset as a list of faces ordered by rank, where each face is
-  represented  as  a list of the flags it contains. This function does include
-  the  minimal  (empty) face nor the maximal face of the maniplex, so the list
-  has [3Xn+2[103X ranks if the maniplex is of rank [3Xn[103X. Note that the [3Xi[103X-faces correspond
-  to the [3Xi+1[103X item in the list because of how GAP indexes lists.[133X
+  [33X[0;0YReturns  a  full  poset  corresponding  to  the  connection  group [3Xg[103X with an
+  internal  representation as a list of faces ordered by rank, where each face
+  is  represented  as  a  list  of  the  flags it contains. This function does
+  include  the  minimal  (empty) face nor the maximal face of the maniplex, so
+  the  list  has [23Xn+2[123X ranks if the maniplex is of rank [23Xn[123X. Note that the [23Xi[123X-faces
+  correspond to the [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-5 PosetOfManiplex[101X
-=======
   [1X3.2-10 PosetOfManiplex[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XPosetOfManiplex[102X( [3Xmani[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
   
-  [33X[0;0YGiven  a maniplex, returns a poset as a list of faces ordered by rank, where
-  each  face is represented as a list of the flags it contains. Note that this
-  function  does  not include the minimal (empty) face nor the maximal face of
-  the  maniplex.  Note that the [3Xi[103X-faces correspond to the [3Xi+1[103X item in the list
-  because of how GAP indexes lists.[133X
+  [33X[0;0YGiven  a  maniplex,  returns  a  poset  of  the  maniplex  with  an internal
+  representation  as  a  list  of  faces  ordered  by rank, where each face is
+  represented as a list of the flags it contains. Note that this function does
+  not  include  the minimal (empty) face nor the maximal face of the maniplex.
+  Note  that the [23Xi[123X-faces correspond to the [23Xi+1[123X item in the list because of how
+  GAP indexes lists.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-6 FullPosetOfManiplex[101X
-=======
   [1X3.2-11 FullPosetOfManiplex[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XFullPosetOfManiplex[102X( [3Xmani[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
   
-  [33X[0;0YGiven  a maniplex, returns a poset as a list of faces ordered by rank, where
-  each  face is represented as a list of the flags it contains. Note that this
-  function  does  include the minimal (empty) face and the maximal face of the
-  maniplex.  Note  that  the  [3Xi[103X-faces  correspond  to the [3Xi+1[103X item in the list
-  because of how GAP indexes lists.[133X
+  [33X[0;0YGiven a maniplex, returns a poset with the internal representation be a list
+  of  lists of faces ordered by rank, where each face is represented as a list
+  of  the  flags it contains. Note that this function does include the minimal
+  (empty)  face  and  the  maximal face of the maniplex. Note that the [23Xi[123X-faces
+  correspond to the [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-7 FlagsAsListOfFacesFromPoset[101X
-=======
   [1X3.2-12 AreIncidentFaces[101X
   
   [33X[1;0Y[29X[2XAreIncidentFaces[102X( [3Xobject1[103X, [3Xobject2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
   
   [33X[0;0YGiven two faces, will tell you if they are incident. Currently only supports
   faces as list of their incident flags.[133X
   
   [1X3.2-13 FlagsAsListOfFacesFromPoset[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XFlagsAsListOfFacesFromPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
   
   [33X[0;0YGiven a [3Xposet[103X, this will give you a version of the list of flags in terms of
   the  faces  described in the [3Xposet[103X. Note that the flag list does not include
   the empty face or the maximal face.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-8 AdjacentFlag[101X
-  
-  [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xflag[103X, [3Xposet[103X, [3Xi[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven  a  flag  (represented as chains of faces comprised of lists of flags)
-  and  a  poset  and  a rank, this function will give you the [3Xi[103X-adjacent flag.
-  Note  that  adjacencies  are  listed  from  ranks  0  to  one  less than the
-  dimension. You can replace [3Xflag[103X with the integer corresponding to that flag.[133X
-  
-  [1X3.2-9 AdjacentFlag[101X
-  
-  [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xarg1[103X, [3Xarg2[103X, [3Xarg3[103X ) [32X operation[133X
-  
-  [1X3.2-10 ConnectionGeneratorOfPoset[101X
-=======
   [1X3.2-14 AdjacentFlag[101X
   
   [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xflag[103X, [3Xposet[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
   
   [33X[0;0YGiven  a  flag  (represented as chains of faces comprised of lists of flags)
   and  a  poset  and  a rank, this function will give you the [3Xi[103X-adjacent flag.
@@ -215,46 +185,18 @@
   dimension. You can replace [3Xflag[103X with the integer corresponding to that flag.[133X
   
   [1X3.2-15 ConnectionGeneratorOfPoset[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XConnectionGeneratorOfPoset[102X( [3Xposet[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YA permutation on the flags.[133X
   
-  [33X[0;0YGiven  a  [3Xposet[103X and an integer [3Xi[103X, this function will give you the associated
-  permutation for the rank [3Xi[103X-connection.[133X
+  [33X[0;0YGiven  a  [3Xposet[103X and an integer [23Xi[123X, this function will give you the associated
+  permutation for the rank [23Xi[123X-connection.[133X
   
-<<<<<<< Updated upstream
-  [1X3.2-11 ConnectionGeneratorOfPoset[101X
-  
-  [33X[1;0Y[29X[2XConnectionGeneratorOfPoset[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
-  
-  [1X3.2-12 ConnectionGroupOfPoset[101X
-=======
   [1X3.2-16 ConnectionGroupOfPoset[101X
->>>>>>> Stashed changes
   
   [33X[1;0Y[29X[2XConnectionGroupOfPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsPermGroup[113X[133X
   
   [33X[0;0YGiven  a  [3Xposet[103X corresponding to a maniplex, this function will give you the
-<<<<<<< Updated upstream
-  connection  group.  Note  that  it  assumes  we  are  NOT using a full poset
-  (currently).[133X
-  
-  [1X3.2-13 IsFlaggablePoset[101X
-  
-  [33X[1;0Y[29X[2XIsFlaggablePoset[102X( [3Xposet[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven  a  [3Xposet[103X  (whose  elements  are  lists  of  flags) corresponding to a
-  maniplex, this function will tell you if it is flaggable, i.e., if the flags
-  can be recovered from the poset or not.[133X
-=======
   connection group.[133X
->>>>>>> Stashed changes
-  
-  [1X3.2-14 ListIsFullPoset[101X
-  
-  [33X[1;0Y[29X[2XListIsFullPoset[102X( [3Xlist[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven  [3Xlist[103X,  a  poset as a list of faces ordered by rank, each face listing
-  the  flags  on the face, this function will tell you if the poset is full or
-  not.[133X
   

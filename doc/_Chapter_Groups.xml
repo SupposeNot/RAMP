@@ -45,6 +45,15 @@
 
 
 <ManSection>
+  <Attr Arg="M" Name="EvenConnectionGroup" Label="for IsManiplex"/>
+ <Description>
+ Returns the even-word subgroup of the connection group of <A>M</A> as a
+ permutation group. 
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Attr Arg="M" Name="RotationGroup" Label="for IsManiplex"/>
  <Description>
  Returns the rotation group of <A>M</A>.

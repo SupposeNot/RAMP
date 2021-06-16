@@ -29,9 +29,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X837641127998923F">5.1-2 AutomorphismGroupFpGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D6651587DF3790A">5.1-3 AutomorphismGroupPermGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7815931C7E926F4F">5.1-4 ConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D194510834667C8">5.1-5 RotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D2CE6707B452C0D">5.1-6 ExtraRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X835FA8527E2442F4">5.1-7 IsStringC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7CE8CFB183A4FFEE">5.1-5 EvenConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D194510834667C8">5.1-6 RotationGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D2CE6707B452C0D">5.1-7 ExtraRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X835FA8527E2442F4">5.1-8 IsStringC</a></span>
 </div></div>
 </div>
 
@@ -69,23 +70,30 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the connection group of <var class="Arg">M</var> as a permutation group. We may eventually allow other types of connection groups.</p>
 
+<p><a id="X7CE8CFB183A4FFEE" name="X7CE8CFB183A4FFEE"></a></p>
+
+<h5>5.1-5 EvenConnectionGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvenConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the even-word subgroup of the connection group of <var class="Arg">M</var> as a permutation group.</p>
+
 <p><a id="X7D194510834667C8" name="X7D194510834667C8"></a></p>
 
-<h5>5.1-5 RotationGroup</h5>
+<h5>5.1-6 RotationGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotationGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the rotation group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form.</p>
 
 <p><a id="X7D2CE6707B452C0D" name="X7D2CE6707B452C0D"></a></p>
 
-<h5>5.1-6 ExtraRelators</h5>
+<h5>5.1-7 ExtraRelators</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its automorphism group as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
 
 <p><a id="X835FA8527E2442F4" name="X835FA8527E2442F4"></a></p>
 
-<h5>5.1-7 IsStringC</h5>
+<h5>5.1-8 IsStringC</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringC</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>For an sggi <var class="Arg">G</var>, returns whether the group is a string C group. It does not check whether <var class="Arg">G</var> is an sggi.</p>
