@@ -319,7 +319,7 @@ InstallMethod(ConnectionGroupOfPoset,
 	end);
 
 InstallMethod(ViewObj,
-	[IsPoset and IsPosetOfFlags],
+	[IsPoset],
 	function(poset)
 	local faces;
 	Print("A poset ");
@@ -330,9 +330,9 @@ InstallMethod(ViewObj,
 	end);
 
 InstallMethod(PrintObj,
-	[IsPoset and IsPosetOfFlags],
+	[IsPoset],
 	function(poset)
-	ViewObj(p);
+	ViewObj(poset);
 	Print("\n");
 	if IsPosetOfFlags(poset) then Print("List faces in terms of flags collected by rank:\n", poset!.faces_list_by_rank);fi;
 	end);
