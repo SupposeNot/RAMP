@@ -317,14 +317,34 @@ InstallMethod(ConnectionGroupOfPoset,
 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
 	return Group(generators);
 	end);
-#Can't handle full posets yet.
 
-# InstallOtherMethod(ConnectionGroupOfPoset,
-# 	[IsPoset and IsPosetOfFlags and IsFull],
-# 	function(poset)
-# 	Print("whoa.");
-# 	end);
+InstallMethod(ViewObj,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+	local faces;
+	Print("A poset ");
+	if IsPosetOfFlags(poset) then Print("using the IsPosetOfFlags representation ");fi;
+	Print("of rank ",Rank(poset));
+	faces:=Concatenation(ShallowCopy(poset!.faces_list_by_rank));
+	Print(" with ",Length(faces)," faces.");
+	end);
 
+InstallMethod(PrintObj,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+	ViewObj(p);
+	Print("\n");
+	if IsPosetOfFlags(poset) then Print("List faces in terms of flags collected by rank:\n", poset!.faces_list_by_rank);fi;
+	end);
+
+InstallMethod(FacesOfPosetAsBinaryRelationOnFaces,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+	local n,faces,faceIndices;
+	faces:=ShallowCopy(poset!.faces_list_by_rank);
+	n:=Length(Concatenation(faces));
+	
+	end);
 
 
 #Here's a sample of things you can do...
