@@ -1,9 +1,7 @@
 ### RAMP -- Research Assistant for Maniplexes and Polytopes ###
 
 # TODO
-# Write AutomorphismGroup for arbitrary polytopes via connection group
 # If we later learn that a polytope is regular, then do we need to promote it?
-# Fix print so that it works for WithoutRels rep
 # Store petrie rel
 
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
@@ -96,40 +94,25 @@ InstallMethod(IsPolytopal,
 	return IsStringC(AutomorphismGroup(m));
 	end);
 
-BuildReflexibleManiplex := function(autgp, hasrels)
+# Given any group (which should be a sggi), builds the regular
+# polytope (well, maniplex) out of it. So you could pass in a
+# permutation group, matrix group, or anything else.
+# NOTE: This does not check whether autgp is an sggi.
+InstallMethod(ReflexibleManiplex,
+	[IsGroup],
+	function(autgp)
 	local n, fam, p;
 	n := Size(GeneratorsOfGroup(autgp));
 
 	fam := NewFamily(Concatenation("Reflexible ", String(n), "-Maniplex"), IsReflexibleManiplex);
 	fam!.rank := n;
-	if hasrels then
-		p := Objectify( NewType( fam, IsReflexibleManiplex and IsReflexibleManiplexWithRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
-	else
-		p := Objectify( NewType( fam, IsReflexibleManiplex and IsReflexibleManiplexWithoutRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));		
-	fi;
+	p := Objectify( NewType( fam, IsReflexibleManiplex and IsReflexibleManiplexWithRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
 	
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
 	SetAutomorphismGroup(p, autgp);
+
 	return p;
-	end;
-
-# Given a finitely presented group (which should be a sggi), builds the 
-# reflexible maniplex out of it.
-# NOTE: This does not check whether autgp is an sggi.
-InstallMethod(ReflexibleManiplex,
-	[IsFpGroup],
-	function(autgp)
-	return BuildReflexibleManiplex(autgp, true);
-	end);
-
-# Given any group (which should be a sggi), builds the regular
-# polytope (well, maniplex) out of it. So you could pass in a
-# permutation group, matrix group, or anything else.
-InstallMethod(ReflexibleManiplex,
-	[IsGroup],
-	function(autgp)
-	return BuildReflexibleManiplex(autgp, false);
 	end);
 	
 # The universal maniplex with the given Schlafli symbol.

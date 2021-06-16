@@ -60,7 +60,7 @@ InstallMethod(PyramidOver,
 InstallMethod(PrismOver,
 	[IsManiplex],
 	function(p)
-	local n, k, flagNum, i, t, r_t, d, thisFlag, perm, perms, newConn, conn, s;
+	local n, k, flagNum, i, t, r_t, d, thisFlag, perm, perms, newConn, conn, s, q;
 	conn := ConnectionGroup(p);
 	n := Rank(p);
 	k := Size(p);
