@@ -60,7 +60,7 @@
   [1X3.2-1 PosetFromFaceListOfFlags[101X
   
   [33X[1;0Y[29X[2XPosetFromFaceListOfFlags[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsPosetOfFlags.  Not  that  the function is INTENTIONALLY agnostic
+  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X.  Not  that  the function is INTENTIONALLY agnostic
             about whether it is being given full poset or not.[133X
   
   [33X[0;0YGiven  a  [3Xlist[103X  of  lists  of  faces  in increasing rank, where each face is
@@ -168,7 +168,7 @@
   [1X3.2-13 FlagsAsListOfFacesFromPoset[101X
   
   [33X[1;0Y[29X[2XFlagsAsListOfFacesFromPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
+  [6XReturns:[106X  [33X[0;10Y[13XIsList[113X[133X
   
   [33X[0;0YGiven a [3Xposet[103X, this will give you a version of the list of flags in terms of
   the  faces  described in the [3Xposet[103X. Note that the flag list does not include
@@ -176,13 +176,15 @@
   
   [1X3.2-14 AdjacentFlag[101X
   
-  [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xflag[103X, [3Xposet[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
+  [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xposet[103X, [3Xflag[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xflag(s)[113X[133X
   
   [33X[0;0YGiven  a  flag  (represented as chains of faces comprised of lists of flags)
   and  a  poset  and  a rank, this function will give you the [3Xi[103X-adjacent flag.
   Note  that  adjacencies  are  listed  from  ranks  0  to  one  less than the
-  dimension. You can replace [3Xflag[103X with the integer corresponding to that flag.[133X
+  dimension. You can replace [3Xflag[103X with the integer corresponding to that flag.
+  AdjacentFlag([13Xposet[113X,[13Xi[113X,[13Xj[113X)  returns  the  [23Xj[123X-adjacent  flag  to  the [23Xi[123Xth flag in
+  [13Xposet[113X. AdjacentFlag([13Xposet[113X,[13Xi[113X,[13Xj[113X,[13Xtrue[113X) will give the position of the flag.[133X
   
   [1X3.2-15 ConnectionGeneratorOfPoset[101X
   

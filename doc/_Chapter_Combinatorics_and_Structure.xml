@@ -76,12 +76,12 @@
 </Section>
 
 
-<Section Label="Chapter_Combinatorics_and_Structure_Section___Posets__">
-<Heading>  Posets  </Heading>
+<Section Label="Chapter_Combinatorics_and_Structure_Section_Posets">
+<Heading>Posets</Heading>
 
 <ManSection>
   <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
- <Returns>IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
+ <Returns><Emph>IsPosetOfFlags</Emph>. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 </Returns>
  <Description>
 Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
@@ -199,7 +199,7 @@ Given two faces, will tell you if they are incident. Currently only supports fac
 
 <ManSection>
   <Oper Arg="poset" Name="FlagsAsListOfFacesFromPoset" Label="for IsPoset"/>
- <Returns><Emph>IsPosetOfFlags</Emph>
+ <Returns><Emph>IsList</Emph>
 </Returns>
  <Description>
 Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face.
@@ -208,12 +208,14 @@ Given a <A>poset</A>, this will give you a version of the list of flags in terms
 
 
 <ManSection>
-  <Oper Arg="flag, poset, i" Name="AdjacentFlag" Label="for IsList,IsPosetOfFlags,IsInt"/>
- <Returns><Emph>IsPosetOfFlags</Emph>
+  <Oper Arg="poset, flag, i" Name="AdjacentFlag" Label="for IsPosetOfFlags,IsList,IsInt"/>
+ <Returns><Emph>flag(s)</Emph>
 </Returns>
  <Description>
 Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
  You can replace <A>flag</A> with the integer corresponding to that flag.
+ AdjacentFlag(<Emph>poset</Emph>,<Emph>i</Emph>,<Emph>j</Emph>) returns the <Math>j</Math>-adjacent flag to the <Math>i</Math>th flag in <Emph>poset</Emph>.
+ AdjacentFlag(<Emph>poset</Emph>,<Emph>i</Emph>,<Emph>j</Emph>,<Emph>true</Emph>) will give the position of the flag.
  </Description>
 </ManSection>
 

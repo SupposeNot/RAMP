@@ -191,8 +191,8 @@ InstallMethod(FlagsAsListOfFacesFromPoset,
 
 
 InstallMethod(AdjacentFlag,
-	[IsList,IsPosetOfFlags,IsInt],
-	function(flag,poset,i)
+	[IsPosetOfFlags,IsList,IsInt],
+	function(poset,flag,i)
 	#Note that flag and list of flags here are assumed to be given as lists of incident faces in increasing order. the variable i is the rank of the adjacency (indexed from 0)
 	local n,ranks,flags;
 	flags:=FlagsAsListOfFacesFromPoset(poset);
@@ -203,9 +203,11 @@ InstallMethod(AdjacentFlag,
 	return Filtered(flags,x->(flag{ranks}=x{ranks} and flag<>x))[1];
 	end);
 
+
+
 InstallOtherMethod(AdjacentFlag,
-	[IsInt,IsPosetOfFlags,IsInt],
-	function(flag,poset,i)
+	[IsPosetOfFlags,IsInt,IsInt],
+	function(poset,flag,i)
 	#The variable i is the rank of the adjacency (indexed from 0)
 	local n,ranks,flags;
 	n:=Rank(poset);
@@ -216,6 +218,35 @@ InstallOtherMethod(AdjacentFlag,
 	return Filtered(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
 	end);
 
+InstallOtherMethod(AdjacentFlag,
+	[IsPosetOfFlags,IsList,IsInt,IsBool],
+	function(poset,flag,i,bool)
+	#Note that flag and list of flags here are assumed to be given as lists of incident faces in increasing order. the variable i is the rank of the adjacency (indexed from 0)
+	local n,ranks,flags,found;
+	if bool<>true then return AdjacentFlag(poset,flag,i);fi;
+	flags:=FlagsAsListOfFacesFromPoset(poset);
+	n:=Rank(poset);
+	ranks:=[1..n];
+	i:=i+1;
+	Remove(ranks,i);
+	found:=Filtered(flags,x->(flag{ranks}=x{ranks} and flag<>x))[1];
+	return Position(flags,found);
+	end);
+
+InstallOtherMethod(AdjacentFlag,
+	[IsPosetOfFlags,IsInt,IsInt,IsBool],
+	function(poset,flag,i,bool)
+	#The variable i is the rank of the adjacency (indexed from 0)
+	local n,ranks,flags,found;
+	if bool<>true then return AdjacentFlag(poset,flag,i);fi;
+	n:=Rank(poset);
+	ranks:=[1..n];
+	i:=i+1;
+	Remove(ranks,i);
+	flags:=FlagsAsListOfFacesFromPoset(poset);
+	found:=Filtered(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
+	return Position(flags,found);
+	end);
 
 InstallMethod(ConnectionGeneratorOfPoset,
 	[IsPoset and IsPosetOfFlags,IsInt],
@@ -226,7 +257,7 @@ InstallMethod(ConnectionGeneratorOfPoset,
 	nFlags:=Length(flagsList);
 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
 	for j in [1..nFlags] do
-		iNeighbor:=AdjacentFlag(j,poset,i);
+		iNeighbor:=AdjacentFlag(poset,j,i);
 		imagesList[j]:=Position(flagsList,iNeighbor);
 		od;
 	return PermutationOfImage(Transformation(imagesList));

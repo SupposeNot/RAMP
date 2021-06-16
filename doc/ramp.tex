@@ -547,7 +547,7 @@ works for reflexible maniplexes. }
  }
 
  
-\section{\textcolor{Chapter }{ Posets }}\label{Chapter_Combinatorics_and_Structure_Section___Posets__}
+\section{\textcolor{Chapter }{Posets}}\label{Chapter_Combinatorics_and_Structure_Section_Posets}
 \logpage{[ 3, 2, 0 ]}
 \hyperdef{L}{X79540DAB85902432}{}
 {
@@ -560,8 +560,8 @@ works for reflexible maniplexes. }
 \label{PosetFromFaceListOfFlags:for IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether
-it is being given full poset or not. 
+\emph{IsPosetOfFlags}. Not that the function is INTENTIONALLY agnostic about whether it is being
+given full poset or not. 
 
 
 
@@ -760,7 +760,7 @@ faces as list of their incident flags. }
 \label{FlagsAsListOfFacesFromPoset:for IsPoset}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-\emph{IsPosetOfFlags} 
+\emph{IsList} 
 
 
 
@@ -769,20 +769,20 @@ described in the \mbox{\texttt{\mdseries\slshape poset}}. Note that the flag lis
 
  
 
-\subsection{\textcolor{Chapter }{AdjacentFlag (for IsList,IsPosetOfFlags,IsInt)}}
+\subsection{\textcolor{Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}
 \logpage{[ 3, 2, 14 ]}\nobreak
-\hyperdef{L}{X84773D767ABA4355}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlag({\mdseries\slshape flag, poset, i})\index{AdjacentFlag@\texttt{AdjacentFlag}!for IsList,IsPosetOfFlags,IsInt}
-\label{AdjacentFlag:for IsList,IsPosetOfFlags,IsInt}
+\hyperdef{L}{X7ACE88EC803EDE07}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlag({\mdseries\slshape poset, flag, i})\index{AdjacentFlag@\texttt{AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt}
+\label{AdjacentFlag:for IsPosetOfFlags,IsList,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-\emph{IsPosetOfFlags} 
+\emph{flag(s)} 
 
 
 
  Given a flag (represented as chains of faces comprised of lists of flags) and
 a poset and a rank, this function will give you the \mbox{\texttt{\mdseries\slshape i}}-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than
-the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. }
+the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. AdjacentFlag(\emph{poset},\emph{i},\emph{j}) returns the $j$-adjacent flag to the $i$th flag in \emph{poset}. AdjacentFlag(\emph{poset},\emph{i},\emph{j},\emph{true}) will give the position of the flag. }
 
  
 

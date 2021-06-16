@@ -2,10 +2,10 @@
 
 
 #! @Chapter Combinatorics and Structure
-#! @Section __Posets__
+#! @Section Posets
 
 #! @Arguments list
-#! @Returns IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
+#! @Returns __IsPosetOfFlags__. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 #! @Description Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 
@@ -74,16 +74,18 @@ DeclareOperation("FullPosetOfManiplex", [IsManiplex]);
 DeclareOperation("AreIncidentFaces",[IsObject,IsObject]);
 
 #! @Arguments poset
-#! @Returns __IsPosetOfFlags__
+#! @Returns __IsList__
 #a list of flags as a list of faces from <A>PosetFromFaceListOfFlags</A>.
 #! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face.
 DeclareOperation("FlagsAsListOfFacesFromPoset",[IsPoset]); 
 
-#! @Arguments flag, poset, i
-#! @Returns __IsPosetOfFlags__
+#! @Arguments poset, flag, i
+#! @Returns __flag(s)__
 #! @Description Given a flag (represented as chains of faces comprised of lists of flags) and a poset  and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
 #! You can replace <A>flag</A> with the integer corresponding to that flag.
-DeclareOperation("AdjacentFlag",[IsList,IsPosetOfFlags,IsInt]);
+#! AdjacentFlag(__poset__,__i__,__j__) returns the $j$-adjacent flag to the $i$th flag in __poset__.
+#! AdjacentFlag(__poset__,__i__,__j__,__true__) will give the position of the flag.
+DeclareOperation("AdjacentFlag",[IsPosetOfFlags,IsList,IsInt]);
 
 #! @Arguments poset, i
 #! @Returns A permutation on the flags.

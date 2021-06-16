@@ -34,7 +34,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78D48A797A8A981C">3.1-7 Facets</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FB4AE2779695BB4">3.1-8 VertexFigures</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X79540DAB85902432">3.2 <span class="Heading">  Posets  </span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X79540DAB85902432">3.2 <span class="Heading">Posets</span></a>
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7D495B407CDFAEA2">3.2-1 PosetFromFaceListOfFlags</a></span>
@@ -50,7 +50,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7B71A5747E126D8E">3.2-11 FullPosetOfManiplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X844D730679DCDCFC">3.2-12 AreIncidentFaces</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7B9029A4868E7138">3.2-13 FlagsAsListOfFacesFromPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84773D767ABA4355">3.2-14 AdjacentFlag</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7ACE88EC803EDE07">3.2-14 AdjacentFlag</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84E3B63C8639771B">3.2-15 ConnectionGeneratorOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X83C849F67D807854">3.2-16 ConnectionGroupOfPoset</a></span>
 </div></div>
@@ -120,14 +120,14 @@
 
 <p><a id="X79540DAB85902432" name="X79540DAB85902432"></a></p>
 
-<h4>3.2 <span class="Heading">  Posets  </span></h4>
+<h4>3.2 <span class="Heading">Posets</span></h4>
 
 <p><a id="X7D495B407CDFAEA2" name="X7D495B407CDFAEA2"></a></p>
 
 <h5>3.2-1 PosetFromFaceListOfFlags</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromFaceListOfFlags</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsPosetOfFlags. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.</p>
+<p>Returns: <em>IsPosetOfFlags</em>. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.</p>
 
 <p>Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.</p>
 
@@ -231,18 +231,18 @@
 <h5>3.2-13 FlagsAsListOfFacesFromPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagsAsListOfFacesFromPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <em>IsPosetOfFlags</em></p>
+<p>Returns: <em>IsList</em></p>
 
 <p>Given a <var class="Arg">poset</var>, this will give you a version of the list of flags in terms of the faces described in the <var class="Arg">poset</var>. Note that the flag list does not include the empty face or the maximal face.</p>
 
-<p><a id="X84773D767ABA4355" name="X84773D767ABA4355"></a></p>
+<p><a id="X7ACE88EC803EDE07" name="X7ACE88EC803EDE07"></a></p>
 
 <h5>3.2-14 AdjacentFlag</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">flag</var>, <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <em>IsPosetOfFlags</em></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">poset</var>, <var class="Arg">flag</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>flag(s)</em></p>
 
-<p>Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag.</p>
+<p>Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. AdjacentFlag(<em>poset</em>,<em>i</em>,<em>j</em>) returns the <span class="Math">j</span>-adjacent flag to the <span class="Math">i</span>th flag in <em>poset</em>. AdjacentFlag(<em>poset</em>,<em>i</em>,<em>j</em>,<em>true</em>) will give the position of the flag.</p>
 
 <p><a id="X84E3B63C8639771B" name="X84E3B63C8639771B"></a></p>
 
