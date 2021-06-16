@@ -84,23 +84,35 @@
       3.1-6 Fvector
       3.1-7 Facets
       3.1-8 VertexFigures
-    3.2 [33X[0;0YPosets[133X
-      3.2-1 PosetFromFaceListOfFlags
-      3.2-2 IsFull
-      3.2-3 IsFlaggable
-      3.2-4 IsFlaggablePoset
-      3.2-5 ListIsFullPoset
-      3.2-6 RankOfPoset
-      3.2-7 IsNotFull
-      3.2-8 PosetOfConnectionGroup
-      3.2-9 FullPosetOfConnectionGroup
-      3.2-10 PosetOfManiplex
-      3.2-11 FullPosetOfManiplex
-      3.2-12 AreIncidentFaces
-      3.2-13 FlagsAsListOfFacesFromPoset
-      3.2-14 AdjacentFlag
-      3.2-15 ConnectionGeneratorOfPoset
-      3.2-16 ConnectionGroupOfPoset
+    3.2 [33X[0;0YBasics[133X
+      3.2-1 Size
+      3.2-2 RankManiplex
+      3.2-3 SchlafliSymbol
+      3.2-4 ComputeSchlafliSymbol
+      3.2-5 IsTight
+      3.2-6 PetrieLength
+      3.2-7 HoleLength
+      3.2-8 IsDegenerate
+      3.2-9 SymmetryTypeGraph
+      3.2-10 NumberOfFlagOrbits
+      3.2-11 Description
+    3.3 [33X[0;0YPosets[133X
+      3.3-1 PosetFromFaceListOfFlags
+      3.3-2 IsFull
+      3.3-3 IsFlaggable
+      3.3-4 IsFlaggablePoset
+      3.3-5 ListIsFullPoset
+      3.3-6 RankOfPoset
+      3.3-7 IsNotFull
+      3.3-8 PosetOfConnectionGroup
+      3.3-9 FullPosetOfConnectionGroup
+      3.3-10 PosetOfManiplex
+      3.3-11 FullPosetOfManiplex
+      3.3-12 AreIncidentFaces
+      3.3-13 FlagsAsListOfFacesFromPoset
+      3.3-14 AdjacentFlag
+      3.3-15 ConnectionGeneratorOfPoset
+      3.3-16 ConnectionGroupOfPoset
   4 [33X[0;0YFamilies of Polytopes[133X
     4.1 [33X[0;0YClassical Polytopes[133X
       4.1-1 Vertex
@@ -144,12 +156,19 @@
       7.1-2 ReflexibleManiplex
       7.1-3 ReflexibleManiplex
       7.1-4 ReflexibleManiplex
-  8 [33X[0;0YComparing maniplexes[133X
-    8.1 [33X[0;0YQuotients and covers[133X
-      8.1-1 IsQuotientOf
-      8.1-2 IsCoverOf
-      8.1-3 IsIsomorphicTo
-      8.1-4 SmallestRegularCover
+      7.1-5 Maniplex
+      7.1-6 IsPolytopal
+  8 [33X[0;0YActions[133X
+    8.1 [33X[0;0YFaithfulness[133X
+      8.1-1 IsVertexFaithful
+      8.1-2 IsFacetFaithful
+      8.1-3 MaxVertexFaithfulQuotient
+  9 [33X[0;0YComparing maniplexes[133X
+    9.1 [33X[0;0YQuotients and covers[133X
+      9.1-1 IsQuotientOf
+      9.1-2 IsCoverOf
+      9.1-3 IsIsomorphicTo
+      9.1-4 SmallestRegularCover
   
   
   [32X

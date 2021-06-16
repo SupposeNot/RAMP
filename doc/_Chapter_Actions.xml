@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Actions">
+<Heading>Actions</Heading>
+
+<Section Label="Chapter_Actions_Section_Faithfulness">
+<Heading>Faithfulness</Heading>
+
+<ManSection>
+  <Prop Arg="M" Name="IsVertexFaithful" Label="for IsReflexibleManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the reflexible maniplex <A>M</A> is
+ vertex-faithful; i.e., whether the action of the automorphism
+ group on the vertices is faithful.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsFacetFaithful" Label="for IsReflexibleManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the reflexible maniplex <A>M</A> is
+ facet-faithful; i.e., whether the action of the automorphism
+ group on the facets is faithful.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsReflexibleManiplex"/>
+ <Description>
+ Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

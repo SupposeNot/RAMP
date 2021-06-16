@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 8: Comparing maniplexes</title>
+<title>GAP (RAMP) - Chapter 8: Actions</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,62 +15,58 @@
 <body class="chap8"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapInd.html">Ind</a>  </div>
 
-<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap8_mj.html">[MathJax on]</a></p>
-<p><a id="X7A3CC7F9873E02BF" name="X7A3CC7F9873E02BF"></a></p>
-<div class="ChapSects"><a href="chap8.html#X7A3CC7F9873E02BF">8 <span class="Heading">Comparing maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X7CD5138B85A97590">8.1 <span class="Heading">Quotients and covers</span></a>
+<p><a id="X833C5DA683E4EA15" name="X833C5DA683E4EA15"></a></p>
+<div class="ChapSects"><a href="chap8.html#X833C5DA683E4EA15">8 <span class="Heading">Actions</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X83355D207F38F997">8.1 <span class="Heading">Faithfulness</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7E83B53D8513D4A3">8.1-1 IsQuotientOf</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7F320DDB834A0A09">8.1-2 IsCoverOf</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X785EBE7B87A025B4">8.1-3 IsIsomorphicTo</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X879C71E784C41B77">8.1-4 SmallestRegularCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X785DE0A9842AAEA1">8.1-1 IsVertexFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X78CDF48E7CDED1AB">8.1-2 IsFacetFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X856543F87E52DDC6">8.1-3 MaxVertexFaithfulQuotient</a></span>
 </div></div>
 </div>
 
-<h3>8 <span class="Heading">Comparing maniplexes</span></h3>
+<h3>8 <span class="Heading">Actions</span></h3>
 
-<p><a id="X7CD5138B85A97590" name="X7CD5138B85A97590"></a></p>
+<p><a id="X83355D207F38F997" name="X83355D207F38F997"></a></p>
 
-<h4>8.1 <span class="Heading">Quotients and covers</span></h4>
+<h4>8.1 <span class="Heading">Faithfulness</span></h4>
 
-<p><a id="X7E83B53D8513D4A3" name="X7E83B53D8513D4A3"></a></p>
+<p><a id="X785DE0A9842AAEA1" name="X785DE0A9842AAEA1"></a></p>
 
-<h5>8.1-1 IsQuotientOf</h5>
+<h5>8.1-1 IsVertexFaithful</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsQuotientOf</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether <var class="Arg">M1</var> is a quotient of <var class="Arg">M2</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p><a id="X7F320DDB834A0A09" name="X7F320DDB834A0A09"></a></p>
+<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is vertex-faithful; i.e., whether the action of the automorphism group on the vertices is faithful.</p>
 
-<h5>8.1-2 IsCoverOf</h5>
+<p><a id="X78CDF48E7CDED1AB" name="X78CDF48E7CDED1AB"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCoverOf</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether <var class="Arg">M1</var> is a cover of <var class="Arg">M2</var>.</p>
+<h5>8.1-2 IsFacetFaithful</h5>
 
-<p><a id="X785EBE7B87A025B4" name="X785EBE7B87A025B4"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<h5>8.1-3 IsIsomorphicTo</h5>
+<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is facet-faithful; i.e., whether the action of the automorphism group on the facets is faithful.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicTo</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether <var class="Arg">M1</var> is isomorphic to <var class="Arg">M2</var>.</p>
+<p><a id="X856543F87E52DDC6" name="X856543F87E52DDC6"></a></p>
 
-<p><a id="X879C71E784C41B77" name="X879C71E784C41B77"></a></p>
+<h5>8.1-3 MaxVertexFaithfulQuotient</h5>
 
-<h5>8.1-4 SmallestRegularCover</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallestRegularCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the smallest regular cover of <var class="Arg">M</var>, which is the maniplex whose automorphism group is the connection group of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxVertexFaithfulQuotient</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the maximal vertex-faithful reflexible maniplex covered by <var class="Arg">M</var>.</p>
 
 
-<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

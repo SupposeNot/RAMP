@@ -14,7 +14,10 @@ InstallMethod(Edge,
 InstallMethod(Pgon,
 	[IsInt],
 	function(n)
-	return AbstractRegularPolytope([n]);
+	local p;
+	p := AbstractRegularPolytope([n]);
+	SetDescription(p, Concatenation(String(n), "-gon"));
+	return p;
 	end);	
 
 InstallMethod(Cube,
@@ -24,6 +27,7 @@ InstallMethod(Cube,
 	sym := List([1..n-1], i -> 3);
 	if Size(sym) > 0 then sym[1] := 4; fi;
 	p := AbstractRegularPolytope(sym);
+	SetDescription(p, Concatenation(String(n), "-cube"));
 	return p;
 	end);
 	
@@ -46,6 +50,7 @@ InstallMethod(CrossPolytope,
 	sym := List([1..n-1], i -> 3);
 	sym[n-1] := 4;
 	p := AbstractRegularPolytope(sym);
+	SetDescription(p, Concatenation(String(n), "-cross-polytope"));
 	return p;
 	end);
 
@@ -66,6 +71,7 @@ InstallMethod(Simplex,
 	local sym, p;
 	sym := List([1..n-1], i -> 3);
 	p := AbstractRegularPolytope(sym);
+	SetDescription(p, Concatenation(String(n), "-simplex"));
 	return p;
 	end);
 	

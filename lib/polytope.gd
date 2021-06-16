@@ -45,28 +45,103 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 DeclareOperation("ReflexibleManiplex", [IsString]);
 
 DeclareOperation("RotaryManiplex", [IsGroup]);
+
+#! @Arguments G
+#! Returns a maniplex with connection group <A>G</A>, where <A>G</A>
+#! is assumed to be a permutation group on the flags.
 DeclareOperation("Maniplex", [IsGroup]);
 
-
+#! @Arguments M
+#! Returns whether the maniplex <A>M</A> is a polytope.
 DeclareProperty("IsPolytopal", IsManiplex);
 
-# Combinatorics
+
+
+#! @Chapter Combinatorics and Structure
+#! @Section Basics
+
+#! @Arguments M
+#! Returns the number of flags of the maniplex <A>M</A>.
 DeclareAttribute("Size", IsManiplex);
+
 DeclareSynonymAttr("NumberOfFlags", Size);
+
+#! @Arguments M
+#! Returns the rank of the maniplex <A>M</A>.
 DeclareAttribute("RankManiplex", IsManiplex);
+
+#! @Arguments M
+#! Returns the Schlafli symbol of the maniplex <A>M</A>.
+#! Currently only implemented for reflexible maniplexes.
 DeclareAttribute("SchlafliSymbol", IsManiplex);
+
+#! @Arguments M
+#! Computes the Schlafli symbol of the maniplex <A>M</A>,
+#! ignoring any currently stored data about the Schlafli symbol.
+#! This is called by SchlafliSymbol(<A>M</A>) if no value is stored yet,
+#! but it can also be called directly by the user to double-check
+#! any optimizations.
+#! Currently only implemented for reflexible maniplexes.
 DeclareOperation("ComputeSchlafliSymbol", [IsManiplex]);
+
+#! @Arguments P
+#! Returns whether the polytope <A>P</A> is tight, meaning that
+#! it has a Schlafli symbol {k_1, ..., k_{n-1}} and has
+#! 2 k_1 ... k_{n-1} flags, which is the minimum possible.
+#! This property doesn't make any sense for non-polytopal maniplexes, which
+#! aren't constrained by this lower bound.
 DeclareProperty("IsTight", IsManiplex and IsPolytopal);
+
 DeclareOperation("PetrieRelation", [IsInt, IsInt]);
+
+#! @Arguments M
 DeclareAttribute("PetrieLength", IsReflexibleManiplex);
+
+#! @Arguments M
 DeclareAttribute("HoleLength", IsReflexibleManiplex);
+
+#! @Arguments M
+#! Returns whether the maniplex <A>M</A> has any sections that
+#! are digons. We may eventually want to include maniplexes with
+#! even smaller sections.
 DeclareProperty("IsDegenerate", IsManiplex);
 
-# Faithfulness
+# Symmetry Type Graphs
+
+#! @Arguments M
+#! Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
+#! a permutation group on Rank(<A>M</A>) generators.
+DeclareAttribute("SymmetryTypeGraph", IsManiplex);
+
+#! @Arguments M
+#! Returns the number of orbits of the automorphism group of <A>M</A>
+#! on its flags.
+DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
+
+#! @Arguments M
+#! Returns a short name for the maniplex <A>M</A>, if one is available.
+#! For example, Description(Simplex(3)) = "3-simplex".
+DeclareAttribute("Description", IsManiplex);
+
+
+#! @Chapter Actions
+#! @Section Faithfulness
+
+#! @Arguments M
+#! Returns whether the reflexible maniplex <A>M</A> is
+#! vertex-faithful; i.e., whether the action of the automorphism
+#! group on the vertices is faithful.
 DeclareProperty("IsVertexFaithful", IsReflexibleManiplex);
+
+#! @Arguments M
+#! Returns whether the reflexible maniplex <A>M</A> is
+#! facet-faithful; i.e., whether the action of the automorphism
+#! group on the facets is faithful.
 DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);
+
+#! @Arguments M
+#! Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
 DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 
-# Symmetry Type Graphs
-DeclareAttribute("SymmetryTypeGraph", IsManiplex);
-DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
+
+
