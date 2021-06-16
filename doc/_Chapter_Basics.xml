@@ -56,6 +56,25 @@ Returns the regular polytope with the given symbolic name.
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="G" Name="Maniplex" Label="for IsGroup"/>
+ <Description>
+ Returns a maniplex with connection group <A>G</A>, where <A>G</A>
+ is assumed to be a permutation group on the flags.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the maniplex <A>M</A> is a polytope.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

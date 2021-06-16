@@ -30,9 +30,9 @@
   of the following work:[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");[128X[104X
-    [4X[28Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[128X[104X
-    [4X[28Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");[128X[104X
+    [4X[28Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");[128X[104X
+    [4X[28Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[128X[104X
+    [4X[28Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");[128X[104X
   [4X[32X[104X
   
   [1X7.1-4 ReflexibleManiplex[101X
@@ -41,4 +41,18 @@
   
   [33X[0;0YReturns  the  regular  polytope  with  the  given  symbolic  name. Examples:
   ReflexibleManiplex("{3,3,3}"); ReflexibleManiplex("{4,3}_3");[133X
+  
+  [1X7.1-5 Maniplex[101X
+  
+  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  a  maniplex  with  connection  group  [3XG[103X, where [3XG[103X is assumed to be a
+  permutation group on the flags.[133X
+  
+  [1X7.1-6 IsPolytopal[101X
+  
+  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns whether the maniplex [3XM[103X is a polytope.[133X
   

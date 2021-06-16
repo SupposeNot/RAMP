@@ -76,6 +76,119 @@
 </Section>
 
 
+<Section Label="Chapter_Combinatorics_and_Structure_Section_Basics">
+<Heading>Basics</Heading>
+
+<ManSection>
+  <Attr Arg="M" Name="Size" Label="for IsManiplex"/>
+ <Description>
+ Returns the number of flags of the maniplex <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="RankManiplex" Label="for IsManiplex"/>
+ <Description>
+ Returns the rank of the maniplex <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="SchlafliSymbol" Label="for IsManiplex"/>
+ <Description>
+ Returns the Schlafli symbol of the maniplex <A>M</A>.
+ Currently only implemented for reflexible maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="ComputeSchlafliSymbol" Label="for IsManiplex"/>
+ <Description>
+ Computes the Schlafli symbol of the maniplex <A>M</A>,
+ ignoring any currently stored data about the Schlafli symbol.
+ This is called by SchlafliSymbol(<A>M</A>) if no value is stored yet,
+ but it can also be called directly by the user to double-check
+ any optimizations.
+ Currently only implemented for reflexible maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="P" Name="IsTight" Label="for IsManiplex and IsPolytopal"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the polytope <A>P</A> is tight, meaning that
+ it has a Schlafli symbol {k_1, ..., k_{n-1}} and has
+ 2 k_1 ... k_{n-1} flags, which is the minimum possible.
+ This property doesn't make any sense for non-polytopal maniplexes, which
+ aren't constrained by this lower bound.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="PetrieLength" Label="for IsReflexibleManiplex"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="HoleLength" Label="for IsReflexibleManiplex"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the maniplex <A>M</A> has any sections that
+ are digons. We may eventually want to include maniplexes with
+ even smaller sections.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="SymmetryTypeGraph" Label="for IsManiplex"/>
+ <Description>
+ Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
+ a permutation group on Rank(<A>M</A>) generators.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="NumberOfFlagOrbits" Label="for IsManiplex"/>
+ <Description>
+ Returns the number of orbits of the automorphism group of <A>M</A>
+ on its flags.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="Description" Label="for IsManiplex"/>
+ <Description>
+ Returns a short name for the maniplex <A>M</A>, if one is available.
+ For example, Description(Simplex(3)) = "3-simplex".
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Combinatorics_and_Structure_Section_Posets">
 <Heading>Posets</Heading>
 

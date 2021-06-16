@@ -51,6 +51,9 @@ InstallMethod(PyramidOver,
 	if HasIsPolytopal(p) then
 		SetIsPolytopal(q, IsPolytopal(p));
 	fi;
+	if HasDescription(p) then
+		SetDescription(q, Concatenation("Pyramid over ", Description(p)));
+	fi;
 	return q;
 	end);
 
@@ -95,6 +98,13 @@ InstallMethod(PrismOver,
 		perms[t+1] := r_t;
 	od;
 	newConn := Group(perms);
-	return Maniplex(newConn);
+	q := Maniplex(newConn);
+	if HasIsPolytopal(p) then
+		SetIsPolytopal(q, IsPolytopal(p));
+	fi;
+	if HasDescription(p) then
+		SetDescription(q, Concatenation("Prism over ", Description(p)));
+	fi;
+	return q;
 	end);
 	

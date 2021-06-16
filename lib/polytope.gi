@@ -328,6 +328,10 @@ InstallMethod(IsFacetFaithful,
 InstallMethod( ViewObj,
 	[IsManiplex],
 	function(p)
+	if HasDescription(p) then
+		Print(Description(p));
+		Print("\n");
+	fi;
 	if IsReflexibleManiplex(p) then
 		if HasIsPolytopal(p) and IsPolytopal(p) then
 			Print("Regular ");
