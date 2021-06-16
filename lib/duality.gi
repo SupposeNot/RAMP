@@ -11,7 +11,7 @@ InstallMethod(Dual,
 	# Since the generators are involutions, an entry of -i means the same as i in a Tietze word
 	# If we don't take the absolute value here, then we get the wrong dual relator.
 	newrels := List(rels, r -> List(r, i -> n+1-AbsoluteValue(i)));
-	newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroup(p)))));
+	newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(p)))));
 	relstr := JoinStringsWithSeparator(newrels, ",");
 	q := ReflexibleManiplex(sym, relstr);
 

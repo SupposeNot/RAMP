@@ -41,10 +41,10 @@ InstallMethod(IsQuotientOf,
 	
 	if HasSize(p) and IsFinite(p) then
 		# add rels from q to p...
-		rels := RelatorsOfFpGroup(AutomorphismGroup(q));
+		rels := RelatorsOfFpGroup(AutomorphismGroupFpGroup(q));
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroup(p))));
-		g := FactorGroupFpGroupByRels(AutomorphismGroup(p), rels);
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(p))));
+		g := FactorGroupFpGroupByRels(AutomorphismGroupFpGroup(p), rels);
 		return (Size(g) = Size(p));
 	else
 		g1 := AutomorphismGroup(q);

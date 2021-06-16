@@ -28,7 +28,7 @@ InstallMethod(Mix,
 		Append(L1,L2);
 		Add(gensnew,PermList(L1));
 	od; 
-	return Group(gensnew);
+	return ReflexibleManiplex(Group(gensnew));
 	end);
 
 
