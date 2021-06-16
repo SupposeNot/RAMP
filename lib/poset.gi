@@ -257,8 +257,8 @@ InstallMethod(ConnectionGeneratorOfPoset,
 	nFlags:=Length(flagsList);
 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
 	for j in [1..nFlags] do
-		iNeighbor:=AdjacentFlag(poset,j,i);
-		imagesList[j]:=Position(flagsList,iNeighbor);
+		iNeighbor:=AdjacentFlag(poset,j,i,true);
+		imagesList[j]:=iNeighbor;#Position(flagsList,iNeighbor);
 		od;
 	return PermutationOfImage(Transformation(imagesList));
 	end);
