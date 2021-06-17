@@ -126,6 +126,7 @@ InstallMethod(ReflexibleManiplex,
 	p := ReflexibleManiplex(w);
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, Size(w));
+	SetExtraRelators(p, []);
 	return p;
 	end);
 
@@ -142,7 +143,9 @@ InstallMethod(ReflexibleManiplex,
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
 	autgp := FactorGroupFpGroupByRels(w, rels);
-	return ReflexibleManiplex(autgp);
+	p := ReflexibleManiplex(autgp);
+	SetExtraRelators(p, rels);
+	return p;
 	end);
 
 # Returns the regular polytope with the given symbolic name.

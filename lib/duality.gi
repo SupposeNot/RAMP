@@ -1,7 +1,7 @@
 InstallMethod(Dual,
 	[IsReflexibleManiplex],
 	function(p)
-	local g, rels, q, n, sym, newrels, relstr;
+	local g, rels, q, n, sym, newrels, relstr, attr, attrs;
 	n := Rank(p);
 	rels := ExtraRelators(p);
 	sym := SchlafliSymbol(p);
@@ -15,10 +15,13 @@ InstallMethod(Dual,
 	relstr := JoinStringsWithSeparator(newrels, ",");
 	q := ReflexibleManiplex(sym, relstr);
 
-	if HasSize(p) then SetSize(q, Size(p)); fi;
+	attrs := [Size, IsPolytopal, NumberOfFlagOrbits, IsTight, IsDegenerate];
+	for attr in attrs do
+		if Tester(attr)(p) then Setter(attr)(q, attr(p)); fi;
+	od;
+
 	SetSchlafliSymbol(q, sym);
 	SetDual(q, p);
-	if HasIsPolytopal(p) then SetIsPolytopal(q, IsPolytopal(p)); fi;
 	return q;
 	end);
 	
