@@ -47,7 +47,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8483BE798579B521">3.2-8 IsDegenerate</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X856ED1E7866152A0">3.2-9 SymmetryTypeGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78060E3A788D2D3C">3.2-10 NumberOfFlagOrbits</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7A093ABC7851D5A8">3.2-11 Description</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7E4E689F86171C78">3.2-11 IsReflexible</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7A093ABC7851D5A8">3.2-12 Description</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X79540DAB85902432">3.3 <span class="Heading">Posets</span></a>
 </span>
@@ -68,6 +69,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7ACE88EC803EDE07">3.3-14 AdjacentFlag</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84E3B63C8639771B">3.3-15 ConnectionGeneratorOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X83C849F67D807854">3.3-16 ConnectionGroupOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8380DB8B856E1761">3.3-17 FacesOfPosetAsBinaryRelationOnFaces</a></span>
 </div></div>
 </div>
 
@@ -207,9 +209,16 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
 
+<p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
+
+<h5>3.2-11 IsReflexible</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
+
 <p><a id="X7A093ABC7851D5A8" name="X7A093ABC7851D5A8"></a></p>
 
-<h5>3.2-11 Description</h5>
+<h5>3.2-12 Description</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Description</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns a short name for the maniplex <var class="Arg">M</var>, if one is available. For example, Description(Simplex(3)) = "3-simplex".</p>
@@ -338,7 +347,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">poset</var>, <var class="Arg">flag</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <em>flag(s)</em></p>
 
-<p>Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. AdjacentFlag(<em>poset</em>,<em>i</em>,<em>j</em>) returns the <span class="Math">j</span>-adjacent flag to the <span class="Math">i</span>th flag in <em>poset</em>. AdjacentFlag(<em>poset</em>,<em>i</em>,<em>j</em>,<em>true</em>) will give the position of the flag.</p>
+<p>Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. Appending <em>true</em> to the arguments will give the position of the flag instead of its description from <em>FlagsAsListOfFacesFromPoset</em>.</p>
 
 <p><a id="X84E3B63C8639771B" name="X84E3B63C8639771B"></a></p>
 
@@ -357,6 +366,15 @@
 <p>Returns: <em>IsPermGroup</em></p>
 
 <p>Given a <var class="Arg">poset</var> corresponding to a maniplex, this function will give you the connection group.</p>
+
+<p><a id="X8380DB8B856E1761" name="X8380DB8B856E1761"></a></p>
+
+<h5>3.3-17 FacesOfPosetAsBinaryRelationOnFaces</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacesOfPosetAsBinaryRelationOnFaces</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: A binary relation on the integers 1 through <span class="Math">n</span>, where <span class="Math">n</span> is the number of faces of the full poset.</p>
+
+<p>FacesOfPosetAsBinaryRelationOnFaces</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>

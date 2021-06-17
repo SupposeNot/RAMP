@@ -178,6 +178,16 @@
 
 
 <ManSection>
+  <Prop Arg="M" Name="IsReflexible" Label="for IsManiplex"/>
+ <Returns>Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Attr Arg="M" Name="Description" Label="for IsManiplex"/>
  <Description>
  Returns a short name for the maniplex <A>M</A>, if one is available.
@@ -327,8 +337,7 @@ Given a <A>poset</A>, this will give you a version of the list of flags in terms
  <Description>
 Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
  You can replace <A>flag</A> with the integer corresponding to that flag.
- AdjacentFlag(<Emph>poset</Emph>,<Emph>i</Emph>,<Emph>j</Emph>) returns the <Math>j</Math>-adjacent flag to the <Math>i</Math>th flag in <Emph>poset</Emph>.
- AdjacentFlag(<Emph>poset</Emph>,<Emph>i</Emph>,<Emph>j</Emph>,<Emph>true</Emph>) will give the position of the flag.
+ Appending <Emph>true</Emph> to the arguments will give the position of the flag instead of its description from <Emph>FlagsAsListOfFacesFromPoset</Emph>.
  </Description>
 </ManSection>
 
@@ -349,6 +358,16 @@ Given a <A>poset</A> and an integer <Math>i</Math>, this function will give you 
 </Returns>
  <Description>
 Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="FacesOfPosetAsBinaryRelationOnFaces" Label="for IsPoset"/>
+ <Returns>A binary relation on the integers 1 through <Math>n</Math>, where <Math>n</Math> is the number of faces of the full poset.
+</Returns>
+ <Description>
+FacesOfPosetAsBinaryRelationOnFaces
  </Description>
 </ManSection>
 

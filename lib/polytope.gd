@@ -25,7 +25,6 @@ DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
 DeclareOperation("ReflexibleManiplex", [IsList]);
 
-
 #! @Arguments symbol, relations
 #! @Description Returns an abstract regular polytope with the given Schlafli
 #! symbol and with the given relations.
@@ -50,6 +49,10 @@ DeclareOperation("RotaryManiplex", [IsGroup]);
 #! Returns a maniplex with connection group <A>G</A>, where <A>G</A>
 #! is assumed to be a permutation group on the flags.
 DeclareOperation("Maniplex", [IsGroup]);
+
+DeclareOperation("Maniplex", [IsReflexibleManiplex, IsGroup]);
+
+
 
 #! @Arguments M
 #! Returns whether the maniplex <A>M</A> is a polytope.
@@ -117,6 +120,10 @@ DeclareAttribute("SymmetryTypeGraph", IsManiplex);
 #! Returns the number of orbits of the automorphism group of <A>M</A>
 #! on its flags.
 DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
+
+#! @Arguments M
+#! @Returns Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
+DeclareProperty("IsReflexible", IsManiplex);
 
 #! @Arguments M
 #! Returns a short name for the maniplex <A>M</A>, if one is available.

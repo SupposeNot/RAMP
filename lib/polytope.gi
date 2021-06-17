@@ -104,13 +104,14 @@ InstallMethod(ReflexibleManiplex,
 	local n, fam, p;
 	n := Size(GeneratorsOfGroup(autgp));
 
-	fam := NewFamily(Concatenation("Reflexible ", String(n), "-Maniplex"), IsReflexibleManiplex);
+	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
 	fam!.rank := n;
-	p := Objectify( NewType( fam, IsReflexibleManiplex and IsReflexibleManiplexWithRels), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( fam, IsManiplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
 	
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
 	SetAutomorphismGroup(p, autgp);
+	SetIsReflexible(p, true);
 
 	return p;
 	end);
@@ -224,6 +225,25 @@ InstallMethod(Maniplex,
 		SetIsPolytopal(p, true);
 	fi;
 	return p;
+	end);
+	
+InstallMethod(Maniplex,
+	[IsReflexibleManiplex, IsGroup],
+	function(M, G)
+	local n, M2, fam;
+	
+	n := Rank(M);
+	if not(IsSubgroup(AutomorphismGroup(M), G)) then
+		Error("The given group is not a subgroup of AutomorphismGroup(M).");
+	fi;
+	
+	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
+	fam!.rank := n;
+	
+	M2 := Objectify( NewType( fam, IsManiplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G ));
+	
+	SetRankManiplex(M2, n);
+	return M2;
 	end);
 	
 InstallOtherMethod(Size,
@@ -419,4 +439,8 @@ InstallMethod(NumberOfFlagOrbits,
 	if n = 0 then n := 1; fi;
 	return n;
 	end);
+
+InstallMethod(IsReflexible,
+	[IsManiplex],
+	M -> NumberOfFlagOrbits(M) = 1);
 

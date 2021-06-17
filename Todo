@@ -18,7 +18,6 @@ Mark: DualPolytope for non-regulars
 * Comb / Alg info to add:
 	* "Multi-schlafli symbol"? For polyhedra, something like [ [p1, p2, ..., pm], [q1, q2, ..., qk] ] to show all the face-types and vertex-types.
 	* "Pseudo-schlafli symbol"? Sometimes we construct something where we know the Schlafli symbol is [p, q] or a proper quotient - it might be useful to store that information somehow, in case computing the SS is hard.
-	* Min regular cover
 	* Symmetry type graph with respect to a subgroup of the automorphism group
 	
 * Optimization
@@ -32,11 +31,3 @@ Mark: DualPolytope for non-regulars
 	
 * Properties to check for:
 	* IsInternallySelfDual
-	
-* Big data
-	* Split out flat polyhedra from the nonflat polyhedra
-	* Generate a list of Small 2-orbit Polytopes and hook up an interface
-	
-* Testing
-
-* Documentation

@@ -693,8 +693,25 @@ with even smaller sections. }
 
  
 
-\subsection{\textcolor{Chapter }{Description (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
 \logpage{[ 3, 2, 11 ]}\nobreak
+\hyperdef{L}{X7E4E689F86171C78}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsManiplex}
+\label{IsReflexible:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one flag orbit). 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{Description (for IsManiplex)}}
+\logpage{[ 3, 2, 12 ]}\nobreak
 \hyperdef{L}{X7A093ABC7851D5A8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Description({\mdseries\slshape M})\index{Description@\texttt{Description}!for IsManiplex}
 \label{Description:for IsManiplex}
@@ -941,7 +958,8 @@ described in the \mbox{\texttt{\mdseries\slshape poset}}. Note that the flag lis
 
  Given a flag (represented as chains of faces comprised of lists of flags) and
 a poset and a rank, this function will give you the \mbox{\texttt{\mdseries\slshape i}}-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than
-the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. AdjacentFlag(\emph{poset},\emph{i},\emph{j}) returns the $j$-adjacent flag to the $i$th flag in \emph{poset}. AdjacentFlag(\emph{poset},\emph{i},\emph{j},\emph{true}) will give the position of the flag. }
+the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. Appending \emph{true} to the arguments will give the position of the flag instead of its description
+from \emph{FlagsAsListOfFacesFromPoset}. }
 
  
 
@@ -972,6 +990,21 @@ A permutation on the flags.
 
 
  Given a \mbox{\texttt{\mdseries\slshape poset}} corresponding to a maniplex, this function will give you the connection group. }
+
+ 
+
+\subsection{\textcolor{Chapter }{FacesOfPosetAsBinaryRelationOnFaces (for IsPoset)}}
+\logpage{[ 3, 3, 17 ]}\nobreak
+\hyperdef{L}{X8380DB8B856E1761}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacesOfPosetAsBinaryRelationOnFaces({\mdseries\slshape poset})\index{FacesOfPosetAsBinaryRelationOnFaces@\texttt{FacesOfPosetAsBinaryRelationOnFaces}!for IsPoset}
+\label{FacesOfPosetAsBinaryRelationOnFaces:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset. 
+
+
+
+ FacesOfPosetAsBinaryRelationOnFaces }
 
  }
 
@@ -1709,7 +1742,6 @@ facets is faithful. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

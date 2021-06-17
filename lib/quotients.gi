@@ -17,7 +17,7 @@ InstallMethod(IsQuotientOf,
 # assuming that we have presentations for both of their groups.
 InstallMethod(IsQuotientOf,
 	IsSameRank,
-	[IsReflexibleManiplex and IsReflexibleManiplexWithRels, IsReflexibleManiplex and IsReflexibleManiplexWithRels],
+	[IsReflexibleManiplex, IsReflexibleManiplex],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
 	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) then
