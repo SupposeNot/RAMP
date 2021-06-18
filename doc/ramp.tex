@@ -710,8 +710,26 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
 
  
 
-\subsection{\textcolor{Chapter }{Description (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
 \logpage{[ 3, 2, 12 ]}\nobreak
+\hyperdef{L}{X7DACFE5483893523}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsManiplex}
+\label{IsRotary:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whether it is orientable and has at most 2 flag orbits
+(making it either chiral or orientably regular). 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{Description (for IsManiplex)}}
+\logpage{[ 3, 2, 13 ]}\nobreak
 \hyperdef{L}{X7A093ABC7851D5A8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Description({\mdseries\slshape M})\index{Description@\texttt{Description}!for IsManiplex}
 \label{Description:for IsManiplex}
@@ -746,8 +764,22 @@ incident flags, gives you a IsPosetOfFlags object back. }
 
  
 
-\subsection{\textcolor{Chapter }{IsFull (for IsPoset)}}
+\subsection{\textcolor{Chapter }{RankPoset (for IsPoset)}}
 \logpage{[ 3, 3, 2 ]}\nobreak
+\hyperdef{L}{X7C9B4AA77C73A761}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPoset({\mdseries\slshape arg})\index{RankPoset@\texttt{RankPoset}!for IsPoset}
+\label{RankPoset:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFull (for IsPoset)}}
+\logpage{[ 3, 3, 3 ]}\nobreak
 \hyperdef{L}{X8089E32A82A1E9F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFull({\mdseries\slshape poset})\index{IsFull@\texttt{IsFull}!for IsPoset}
 \label{IsFull:for IsPoset}
@@ -762,7 +794,7 @@ incident flags, gives you a IsPosetOfFlags object back. }
  
 
 \subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
-\logpage{[ 3, 3, 3 ]}\nobreak
+\logpage{[ 3, 3, 4 ]}\nobreak
 \hyperdef{L}{X842B0F7E81670077}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape arg})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
 \label{IsFlaggable:for IsPoset}
@@ -775,25 +807,39 @@ incident flags, gives you a IsPosetOfFlags object back. }
 
  
 
-\subsection{\textcolor{Chapter }{IsFlaggablePoset (for IsPosetOfFlags)}}
-\logpage{[ 3, 3, 4 ]}\nobreak
-\hyperdef{L}{X84E3CFD97C8AE422}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggablePoset({\mdseries\slshape poset})\index{IsFlaggablePoset@\texttt{IsFlaggablePoset}!for IsPosetOfFlags}
-\label{IsFlaggablePoset:for IsPosetOfFlags}
-}\hfill{\scriptsize (operation)}}\\
+\subsection{\textcolor{Chapter }{IsAtomic (for IsPoset)}}
+\logpage{[ 3, 3, 5 ]}\nobreak
+\hyperdef{L}{X816460188169E650}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAtomic({\mdseries\slshape poset})\index{IsAtomic@\texttt{IsAtomic}!for IsPoset}
+\label{IsAtomic:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 \emph{true} or \emph{false} 
 
 
 
- Given a \mbox{\texttt{\mdseries\slshape poset}} (whose elements are lists of flags) corresponding to a maniplex, this function
-will tell you if it is flaggable, i.e., if the flags can be recovered from the
-poset or not. }
+ Checks if \mbox{\texttt{\mdseries\slshape poset}} is atomic. \emph{Note, currently something that is computed, just declared.} }
+
+ 
+
+\subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
+\logpage{[ 3, 3, 6 ]}\nobreak
+\hyperdef{L}{X85A9CAA682FE56EB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartialOrder({\mdseries\slshape poset})\index{PartialOrder@\texttt{PartialOrder}!for IsPoset}
+\label{PartialOrder:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\emph{partial order} 
+
+
+
+ HasPartialOrder Checks if \mbox{\texttt{\mdseries\slshape poset}} has a declared partial order (binary relation). SetPartialOrder assigns a
+partial order to the \mbox{\texttt{\mdseries\slshape poset}}. \emph{Note, currently something that is computed, just declared.} }
 
  
 
 \subsection{\textcolor{Chapter }{ListIsFullPoset (for IsList)}}
-\logpage{[ 3, 3, 5 ]}\nobreak
+\logpage{[ 3, 3, 7 ]}\nobreak
 \hyperdef{L}{X85F7C2CE7D70A92D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsFullPoset({\mdseries\slshape list})\index{ListIsFullPoset@\texttt{ListIsFullPoset}!for IsList}
 \label{ListIsFullPoset:for IsList}
@@ -809,7 +855,7 @@ the face, this function will tell you if the poset is full or not. }
  
 
 \subsection{\textcolor{Chapter }{RankOfPoset (for IsPoset)}}
-\logpage{[ 3, 3, 6 ]}\nobreak
+\logpage{[ 3, 3, 8 ]}\nobreak
 \hyperdef{L}{X820BF50C79C6C6C0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankOfPoset({\mdseries\slshape poset})\index{RankOfPoset@\texttt{RankOfPoset}!for IsPoset}
 \label{RankOfPoset:for IsPoset}
@@ -825,7 +871,7 @@ untangle later. }
  
 
 \subsection{\textcolor{Chapter }{IsNotFull (for IsPoset)}}
-\logpage{[ 3, 3, 7 ]}\nobreak
+\logpage{[ 3, 3, 9 ]}\nobreak
 \hyperdef{L}{X831C74EB803C1610}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsNotFull({\mdseries\slshape poset})\index{IsNotFull@\texttt{IsNotFull}!for IsPoset}
 \label{IsNotFull:for IsPoset}
@@ -841,7 +887,7 @@ operations. }
  
 
 \subsection{\textcolor{Chapter }{PosetOfConnectionGroup (for IsPermGroup)}}
-\logpage{[ 3, 3, 8 ]}\nobreak
+\logpage{[ 3, 3, 10 ]}\nobreak
 \hyperdef{L}{X7C7435EF7FC3AB13}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfConnectionGroup({\mdseries\slshape g})\index{PosetOfConnectionGroup@\texttt{PosetOfConnectionGroup}!for IsPermGroup}
 \label{PosetOfConnectionGroup:for IsPermGroup}
@@ -859,7 +905,7 @@ nor the maximal face of the maniplex. Note that the $i$-faces correspond to the 
  
 
 \subsection{\textcolor{Chapter }{FullPosetOfConnectionGroup (for IsPermGroup)}}
-\logpage{[ 3, 3, 9 ]}\nobreak
+\logpage{[ 3, 3, 11 ]}\nobreak
 \hyperdef{L}{X7A8F19B083BD22FB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullPosetOfConnectionGroup({\mdseries\slshape g})\index{FullPosetOfConnectionGroup@\texttt{FullPosetOfConnectionGroup}!for IsPermGroup}
 \label{FullPosetOfConnectionGroup:for IsPermGroup}
@@ -877,7 +923,7 @@ list has $n+2$ ranks if the maniplex is of rank $n$. Note that the $i$-faces cor
  
 
 \subsection{\textcolor{Chapter }{PosetOfManiplex (for IsManiplex)}}
-\logpage{[ 3, 3, 10 ]}\nobreak
+\logpage{[ 3, 3, 12 ]}\nobreak
 \hyperdef{L}{X7C15F3F8792500D7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfManiplex({\mdseries\slshape mani})\index{PosetOfManiplex@\texttt{PosetOfManiplex}!for IsManiplex}
 \label{PosetOfManiplex:for IsManiplex}
@@ -896,7 +942,7 @@ Note that the $i$-faces correspond to the $i+1$ item in the list because of how 
  
 
 \subsection{\textcolor{Chapter }{FullPosetOfManiplex (for IsManiplex)}}
-\logpage{[ 3, 3, 11 ]}\nobreak
+\logpage{[ 3, 3, 13 ]}\nobreak
 \hyperdef{L}{X7B71A5747E126D8E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullPosetOfManiplex({\mdseries\slshape mani})\index{FullPosetOfManiplex@\texttt{FullPosetOfManiplex}!for IsManiplex}
 \label{FullPosetOfManiplex:for IsManiplex}
@@ -913,8 +959,40 @@ the flags it contains. Note that this function does include the minimal
 
  
 
+\subsection{\textcolor{Chapter }{PosetFromPartialOrder (for IsBinaryRelation)}}
+\logpage{[ 3, 3, 14 ]}\nobreak
+\hyperdef{L}{X7ECC2FBC7AF3A960}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromPartialOrder({\mdseries\slshape partialOrder})\index{PosetFromPartialOrder@\texttt{PosetFromPartialOrder}!for IsBinaryRelation}
+\label{PosetFromPartialOrder:for IsBinaryRelation}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{IsPosetOfIndices} 
+
+
+
+ Given a partial order on a finite set of size $n$, this function will create a partial order on \emph{[1..n]}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetFromElements (for IsList,IsPartialOrderBinaryRelation)}}
+\logpage{[ 3, 3, 15 ]}\nobreak
+\hyperdef{L}{X8013FC8A82D7CE51}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromElements({\mdseries\slshape list{\textunderscore}of{\textunderscore}faces, partial{\textunderscore}order})\index{PosetFromElements@\texttt{PosetFromElements}!for IsList,IsPartialOrderBinaryRelation}
+\label{PosetFromElements:for IsList,IsPartialOrderBinaryRelation}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{IsPosetOfElements} 
+
+
+
+ This is for gathering elements with a known ordering function into a poset.
+Note... you should expect to get complete garbage if you send it a list of
+faces of different types. }
+
+ 
+
 \subsection{\textcolor{Chapter }{AreIncidentFaces (for IsObject,IsObject)}}
-\logpage{[ 3, 3, 12 ]}\nobreak
+\logpage{[ 3, 3, 16 ]}\nobreak
 \hyperdef{L}{X844D730679DCDCFC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AreIncidentFaces({\mdseries\slshape object1, object2})\index{AreIncidentFaces@\texttt{AreIncidentFaces}!for IsObject,IsObject}
 \label{AreIncidentFaces:for IsObject,IsObject}
@@ -930,7 +1008,7 @@ faces as list of their incident flags. }
  
 
 \subsection{\textcolor{Chapter }{FlagsAsListOfFacesFromPoset (for IsPoset)}}
-\logpage{[ 3, 3, 13 ]}\nobreak
+\logpage{[ 3, 3, 17 ]}\nobreak
 \hyperdef{L}{X7B9029A4868E7138}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsListOfFacesFromPoset({\mdseries\slshape poset})\index{FlagsAsListOfFacesFromPoset@\texttt{FlagsAsListOfFacesFromPoset}!for IsPoset}
 \label{FlagsAsListOfFacesFromPoset:for IsPoset}
@@ -946,7 +1024,7 @@ described in the \mbox{\texttt{\mdseries\slshape poset}}. Note that the flag lis
  
 
 \subsection{\textcolor{Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}
-\logpage{[ 3, 3, 14 ]}\nobreak
+\logpage{[ 3, 3, 18 ]}\nobreak
 \hyperdef{L}{X7ACE88EC803EDE07}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlag({\mdseries\slshape poset, flag, i})\index{AdjacentFlag@\texttt{AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt}
 \label{AdjacentFlag:for IsPosetOfFlags,IsList,IsInt}
@@ -964,7 +1042,7 @@ from \emph{FlagsAsListOfFacesFromPoset}. }
  
 
 \subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}
-\logpage{[ 3, 3, 15 ]}\nobreak
+\logpage{[ 3, 3, 19 ]}\nobreak
 \hyperdef{L}{X84E3B63C8639771B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGeneratorOfPoset({\mdseries\slshape poset, i})\index{ConnectionGeneratorOfPoset@\texttt{ConnectionGeneratorOfPoset}!for IsPoset,IsInt}
 \label{ConnectionGeneratorOfPoset:for IsPoset,IsInt}
@@ -979,7 +1057,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{ConnectionGroupOfPoset (for IsPoset)}}
-\logpage{[ 3, 3, 16 ]}\nobreak
+\logpage{[ 3, 3, 20 ]}\nobreak
 \hyperdef{L}{X83C849F67D807854}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroupOfPoset({\mdseries\slshape poset})\index{ConnectionGroupOfPoset@\texttt{ConnectionGroupOfPoset}!for IsPoset}
 \label{ConnectionGroupOfPoset:for IsPoset}
@@ -994,7 +1072,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{FacesOfPosetAsBinaryRelationOnFaces (for IsPoset)}}
-\logpage{[ 3, 3, 17 ]}\nobreak
+\logpage{[ 3, 3, 21 ]}\nobreak
 \hyperdef{L}{X8380DB8B856E1761}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacesOfPosetAsBinaryRelationOnFaces({\mdseries\slshape poset})\index{FacesOfPosetAsBinaryRelationOnFaces@\texttt{FacesOfPosetAsBinaryRelationOnFaces}!for IsPoset}
 \label{FacesOfPosetAsBinaryRelationOnFaces:for IsPoset}
@@ -1005,6 +1083,175 @@ A binary relation on the integers 1 through $n$, where $n$ is the number of face
 
 
  FacesOfPosetAsBinaryRelationOnFaces }
+
+ 
+
+\subsection{\textcolor{Chapter }{FaceListOfPoset (for IsPoset)}}
+\logpage{[ 3, 3, 22 ]}\nobreak
+\hyperdef{L}{X79F1837C835A5EFF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FaceListOfPoset({\mdseries\slshape poset})\index{FaceListOfPoset@\texttt{FaceListOfPoset}!for IsPoset}
+\label{FaceListOfPoset:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{list} 
+
+
+
+ Gives a list of faces collected into lists ordered by increasing rank. }
+
+ 
+
+\subsection{\textcolor{Chapter }{RankPosetElement (for IsPosetElement)}}
+\logpage{[ 3, 3, 23 ]}\nobreak
+\hyperdef{L}{X863F93B782AE6ABC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPosetElement({\mdseries\slshape posetelement, \texttt{\symbol{123}}face\texttt{\symbol{125}}})\index{RankPosetElement@\texttt{RankPosetElement}!for IsPosetElement}
+\label{RankPosetElement:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\emph{true} or \emph{false} 
+
+
+
+ The rank of a poset element. Alternately \emph{RankFace}(\mbox{\texttt{\mdseries\slshape IsPosetElement}}). }
+
+ 
+
+\subsection{\textcolor{Chapter }{FlagList (for IsPosetElement)}}
+\logpage{[ 3, 3, 24 ]}\nobreak
+\hyperdef{L}{X819B1AEF84E08B4D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagList({\mdseries\slshape posetelement, \texttt{\symbol{123}}face\texttt{\symbol{125}}})\index{FlagList@\texttt{FlagList}!for IsPosetElement}
+\label{FlagList:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\emph{list} 
+
+
+
+ Description of \mbox{\texttt{\mdseries\slshape posetelement}} n as a list of incident flags (when present). }
+
+ 
+
+\subsection{\textcolor{Chapter }{FromPoset (for IsPosetElement)}}
+\logpage{[ 3, 3, 25 ]}\nobreak
+\hyperdef{L}{X84A507EE81E5B3A3}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FromPoset({\mdseries\slshape posetelement, \texttt{\symbol{123}}face\texttt{\symbol{125}}})\index{FromPoset@\texttt{FromPoset}!for IsPosetElement}
+\label{FromPoset:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\emph{poset} 
+
+
+
+ Gives the poset to which the face belongs (when present). }
+
+ 
+
+\subsection{\textcolor{Chapter }{AtomList (for IsPosetElement)}}
+\logpage{[ 3, 3, 26 ]}\nobreak
+\hyperdef{L}{X878F991183754744}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AtomList({\mdseries\slshape posetelement, \texttt{\symbol{123}}face\texttt{\symbol{125}}})\index{AtomList@\texttt{AtomList}!for IsPosetElement}
+\label{AtomList:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\emph{list} 
+
+
+
+ Description of \mbox{\texttt{\mdseries\slshape posetelement}} n as a list of atoms (when present). }
+
+ 
+
+ 
+
+\subsection{\textcolor{Chapter }{Index (for IsPosetElement)}}
+\logpage{[ 3, 3, 27 ]}\nobreak
+\hyperdef{L}{X81AD262F84D7E532}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Index({\mdseries\slshape arg})\index{Index@\texttt{Index}!for IsPosetElement}
+\label{Index:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetElementFromListOfFlags (for IsList,IsInt)}}
+\logpage{[ 3, 3, 28 ]}\nobreak
+\hyperdef{L}{X7C74F3CE7933DA03}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromListOfFlags({\mdseries\slshape list, n})\index{PosetElementFromListOfFlags@\texttt{PosetElementFromListOfFlags}!for IsList,IsInt}
+\label{PosetElementFromListOfFlags:for IsList,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{IsPosetElement} 
+
+
+
+ This is used to create a face of rank \mbox{\texttt{\mdseries\slshape n}} from a \mbox{\texttt{\mdseries\slshape list}} of flags of poset. If an IsPoset object is appended to the input will tell the
+element what poset it belongs to. }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetElementFromAtomList (for IsList,IsInt)}}
+\logpage{[ 3, 3, 29 ]}\nobreak
+\hyperdef{L}{X85E6D20180DA4C3E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromAtomList({\mdseries\slshape list, n})\index{PosetElementFromAtomList@\texttt{PosetElementFromAtomList}!for IsList,IsInt}
+\label{PosetElementFromAtomList:for IsList,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{IsFace} 
+
+
+
+ Creates a \emph{face} with \mbox{\texttt{\mdseries\slshape list}} of atoms at rank \mbox{\texttt{\mdseries\slshape n}}. If an IsPoset object is appended to the input will tell the element what
+poset it belongs to. }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetElementFromIndex (for IsObject,IsInt)}}
+\logpage{[ 3, 3, 30 ]}\nobreak
+\hyperdef{L}{X7E36DF06841444FE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromIndex({\mdseries\slshape obj, n})\index{PosetElementFromIndex@\texttt{PosetElementFromIndex}!for IsObject,IsInt}
+\label{PosetElementFromIndex:for IsObject,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{IsFace} 
+
+
+
+ Creates a \emph{face} with index \mbox{\texttt{\mdseries\slshape obj}} at rank \mbox{\texttt{\mdseries\slshape n}}. If an IsPoset object is appended to will tell the element what poset it
+belongs to. }
+
+ 
+
+\subsection{\textcolor{Chapter }{RankedFaceListOfPoset (for IsPoset)}}
+\logpage{[ 3, 3, 31 ]}\nobreak
+\hyperdef{L}{X7A80223E83EF52E8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankedFaceListOfPoset({\mdseries\slshape poset})\index{RankedFaceListOfPoset@\texttt{RankedFaceListOfPoset}!for IsPoset}
+\label{RankedFaceListOfPoset:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{list} 
+
+
+
+ Gives a list of [\mbox{\texttt{\mdseries\slshape face}},\mbox{\texttt{\mdseries\slshape rank}}] pairs for all the faces of \mbox{\texttt{\mdseries\slshape poset}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsSubface (for IsFace,IsFace)}}
+\logpage{[ 3, 3, 32 ]}\nobreak
+\hyperdef{L}{X79BFF531809785A3}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSubface({\mdseries\slshape [face1, face1]})\index{IsSubface@\texttt{IsSubface}!for IsFace,IsFace}
+\label{IsSubface:for IsFace,IsFace}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\emph{true} or \emph{false} 
+
+
+
+ \mbox{\texttt{\mdseries\slshape face1}} and \mbox{\texttt{\mdseries\slshape face2}} are IsFace or IsPosetElement. Subface will check to make sure \mbox{\texttt{\mdseries\slshape face2}} is a subface of \mbox{\texttt{\mdseries\slshape face1}}. }
 
  }
 

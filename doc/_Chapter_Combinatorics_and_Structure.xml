@@ -188,6 +188,16 @@
 
 
 <ManSection>
+  <Prop Arg="M" Name="IsRotary" Label="for IsManiplex"/>
+ <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is orientable  and has at most 2 flag orbits (making it either chiral or orientably regular).
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Attr Arg="M" Name="Description" Label="for IsManiplex"/>
  <Description>
  Returns a short name for the maniplex <A>M</A>, if one is available.
@@ -212,6 +222,15 @@ Given a <A>list</A> of lists of faces in increasing rank, where each face is des
 </ManSection>
 
 
+
+<ManSection>
+  <Attr Arg="arg" Name="RankPoset" Label="for IsPoset"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
 <ManSection>
   <Attr Arg="poset" Name="IsFull" Label="for IsPoset"/>
  <Returns><Emph>true</Emph> or <Emph>false</Emph>
@@ -231,11 +250,21 @@ Checks or creates the value of the attribute IsFull for an IsPoset.
 
 
 <ManSection>
-  <Oper Arg="poset" Name="IsFlaggablePoset" Label="for IsPosetOfFlags"/>
+  <Attr Arg="poset" Name="IsAtomic" Label="for IsPoset"/>
  <Returns><Emph>true</Emph> or <Emph>false</Emph>
 </Returns>
  <Description>
-Given a <A>poset</A> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.
+Checks if <A>poset</A> is atomic. <Emph>Note, currently something that is computed, just declared.</Emph>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="PartialOrder" Label="for IsPoset"/>
+ <Returns><Emph>partial order</Emph>
+</Returns>
+ <Description>
+HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. <Emph>Note, currently something that is computed, just declared.</Emph>
  </Description>
 </ManSection>
 
@@ -268,6 +297,7 @@ Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden a
 Lets me check to see if a poset is NOT full. For use in certain filtering operations.
  </Description>
 </ManSection>
+
 
 
 <ManSection>
@@ -308,6 +338,27 @@ Given a maniplex, returns a poset of the maniplex with an internal representatio
 Given a maniplex, returns a poset with the internal representation be a list of lists of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
  </Description>
 </ManSection>
+
+
+<ManSection>
+  <Oper Arg="partialOrder" Name="PosetFromPartialOrder" Label="for IsBinaryRelation"/>
+ <Returns><Emph>IsPosetOfIndices</Emph>
+</Returns>
+ <Description>
+Given a partial order on a finite set of size <Math>n</Math>, this function will create a partial order on <Emph>[1..n]</Emph>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="list_of_faces, partial_order" Name="PosetFromElements" Label="for IsList,IsPartialOrderBinaryRelation"/>
+ <Returns><Emph>IsPosetOfElements</Emph>
+</Returns>
+ <Description>
+This is for gathering elements with a known ordering function into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types.
+ </Description>
+</ManSection>
+
 
 
 <ManSection>
@@ -368,6 +419,116 @@ Given a <A>poset</A> corresponding to a maniplex, this function will give you th
 </Returns>
  <Description>
 FacesOfPosetAsBinaryRelationOnFaces
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="FaceListOfPoset" Label="for IsPoset"/>
+ <Returns><Emph>list</Emph>
+</Returns>
+ <Description>
+Gives a list of faces collected into lists ordered by increasing rank.
+ </Description>
+</ManSection>
+
+
+
+<ManSection>
+  <Attr Arg="posetelement {face}" Name="RankPosetElement" Label="for IsPosetElement"/>
+ <Returns><Emph>true</Emph> or <Emph>false</Emph>
+</Returns>
+ <Description>
+The rank of a poset element. Alternately <Emph>RankFace</Emph>(<A>IsPosetElement</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="posetelement {face}" Name="FlagList" Label="for IsPosetElement"/>
+ <Returns><Emph>list</Emph>
+</Returns>
+ <Description>
+Description of <A>posetelement</A> n as a list of incident flags (when present).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="posetelement {face}" Name="FromPoset" Label="for IsPosetElement"/>
+ <Returns><Emph>poset</Emph>
+</Returns>
+ <Description>
+Gives the poset to which the face belongs (when present).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="posetelement {face}" Name="AtomList" Label="for IsPosetElement"/>
+ <Returns><Emph>list</Emph>
+</Returns>
+ <Description>
+Description of <A>posetelement</A> n as a list of atoms (when present).
+ </Description>
+</ManSection>
+
+
+<P/>
+<ManSection>
+  <Attr Arg="arg" Name="Index" Label="for IsPosetElement"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="list, n" Name="PosetElementFromListOfFlags" Label="for IsList,IsInt"/>
+ <Returns><Emph>IsPosetElement</Emph>
+</Returns>
+ <Description>
+This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of poset. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="list, n" Name="PosetElementFromAtomList" Label="for IsList,IsInt"/>
+ <Returns><Emph>IsFace</Emph>
+</Returns>
+ <Description>
+Creates a <Emph>face</Emph> with <A>list</A> of atoms at rank <A>n</A>. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="obj, n" Name="PosetElementFromIndex" Label="for IsObject,IsInt"/>
+ <Returns><Emph>IsFace</Emph>
+</Returns>
+ <Description>
+Creates a <Emph>face</Emph> with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="RankedFaceListOfPoset" Label="for IsPoset"/>
+ <Returns><Emph>list</Emph>
+</Returns>
+ <Description>
+Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="[face1,face1]" Name="IsSubface" Label="for IsFace,IsFace"/>
+ <Returns><Emph>true</Emph> or <Emph>false</Emph>
+</Returns>
+ <Description>
+<A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. Subface will check to make sure <A>face2</A> is a subface of <A>face1</A>.
  </Description>
 </ManSection>
 

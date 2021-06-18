@@ -1,3 +1,4 @@
+
 # Dealing with maniplexes as posets
 
 
@@ -135,8 +136,9 @@ DeclareOperation("FaceListOfPoset",[IsPoset]);
 
 #! @Arguments posetelement {face}
 #! @Returns __true__ or __false__
-#! @Description The rank of a poset element. Alternately __RankFace(<A>IsPosetElement</A>).
-DeclareAttribute("RankPosetElement",IsPosetElement); #the rank in the poset of the element
+#! @Description The rank of a poset element. Alternately __RankFace__(<A>IsPosetElement</A>).
+DeclareAttribute("RankPosetElement",IsPosetElement); 
+#the rank in the poset of the element
 DeclareSynonymAttr("RankFace",RankPosetElement);
 
 #! @Arguments posetelement {face}

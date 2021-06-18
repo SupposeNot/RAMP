@@ -96,25 +96,41 @@
       3.2-9 SymmetryTypeGraph
       3.2-10 NumberOfFlagOrbits
       3.2-11 IsReflexible
-      3.2-12 Description
+      3.2-12 IsRotary
+      3.2-13 Description
     3.3 [33X[0;0YPosets[133X
       3.3-1 PosetFromFaceListOfFlags
-      3.3-2 IsFull
-      3.3-3 IsFlaggable
-      3.3-4 IsFlaggablePoset
-      3.3-5 ListIsFullPoset
-      3.3-6 RankOfPoset
-      3.3-7 IsNotFull
-      3.3-8 PosetOfConnectionGroup
-      3.3-9 FullPosetOfConnectionGroup
-      3.3-10 PosetOfManiplex
-      3.3-11 FullPosetOfManiplex
-      3.3-12 AreIncidentFaces
-      3.3-13 FlagsAsListOfFacesFromPoset
-      3.3-14 AdjacentFlag
-      3.3-15 ConnectionGeneratorOfPoset
-      3.3-16 ConnectionGroupOfPoset
-      3.3-17 FacesOfPosetAsBinaryRelationOnFaces
+      3.3-2 RankPoset
+      3.3-3 IsFull
+      3.3-4 IsFlaggable
+      3.3-5 IsAtomic
+      3.3-6 PartialOrder
+      3.3-7 ListIsFullPoset
+      3.3-8 RankOfPoset
+      3.3-9 IsNotFull
+      3.3-10 PosetOfConnectionGroup
+      3.3-11 FullPosetOfConnectionGroup
+      3.3-12 PosetOfManiplex
+      3.3-13 FullPosetOfManiplex
+      3.3-14 PosetFromPartialOrder
+      3.3-15 PosetFromElements
+      3.3-16 AreIncidentFaces
+      3.3-17 FlagsAsListOfFacesFromPoset
+      3.3-18 AdjacentFlag
+      3.3-19 ConnectionGeneratorOfPoset
+      3.3-20 ConnectionGroupOfPoset
+      3.3-21 FacesOfPosetAsBinaryRelationOnFaces
+      3.3-22 FaceListOfPoset
+      3.3-23 RankPosetElement
+      3.3-24 FlagList
+      3.3-25 FromPoset
+      3.3-26 AtomList
+      3.3-27 Index
+      3.3-28 PosetElementFromListOfFlags
+      3.3-29 PosetElementFromAtomList
+      3.3-30 PosetElementFromIndex
+      3.3-31 RankedFaceListOfPoset
+      3.3-32 IsSubface
   4 [33X[0;0YFamilies of Polytopes[133X
     4.1 [33X[0;0YClassical Polytopes[133X
       4.1-1 Vertex

@@ -25,59 +25,93 @@
 \indexentry{Fvector@\texttt  {Fvector}!for IsManiplex|hyperpage}{9}
 \indexentry{Facets@\texttt  {Facets}!for IsManiplex|hyperpage}{9}
 \indexentry{VertexFigures@\texttt  {VertexFigures}!for IsManiplex|hyperpage}{9}
-\indexentry{PosetFromFaceListOfFlags@\texttt  {PosetFromFaceListOfFlags}!for IsList|hyperpage}{9}
-\indexentry{IsFull@\texttt  {IsFull}!for IsPoset|hyperpage}{9}
-\indexentry{IsFlaggable@\texttt  {IsFlaggable}!for IsPoset|hyperpage}{9}
-\indexentry{IsFlaggablePoset@\texttt  {IsFlaggablePoset}!for IsPosetOfFlags|hyperpage}{9}
-\indexentry{ListIsFullPoset@\texttt  {ListIsFullPoset}!for IsList|hyperpage}{10}
-\indexentry{RankOfPoset@\texttt  {RankOfPoset}!for IsPoset|hyperpage}{10}
-\indexentry{IsNotFull@\texttt  {IsNotFull}!for IsPoset|hyperpage}{10}
-\indexentry{PosetOfConnectionGroup@\texttt  {PosetOfConnectionGroup}!for IsPermGroup|hyperpage}{10}
-\indexentry{FullPosetOfConnectionGroup@\texttt  {FullPosetOfConnectionGroup}!for IsPermGroup|hyperpage}{10}
-\indexentry{PosetOfManiplex@\texttt  {PosetOfManiplex}!for IsManiplex|hyperpage}{10}
-\indexentry{FullPosetOfManiplex@\texttt  {FullPosetOfManiplex}!for IsManiplex|hyperpage}{11}
-\indexentry{AreIncidentFaces@\texttt  {AreIncidentFaces}!for IsObject,IsObject|hyperpage}{11}
-\indexentry{FlagsAsListOfFacesFromPoset@\texttt  {FlagsAsListOfFacesFromPoset}!for IsPoset|hyperpage}{11}
-\indexentry{AdjacentFlag@\texttt  {AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt|hyperpage}{11}
-\indexentry{ConnectionGeneratorOfPoset@\texttt  {ConnectionGeneratorOfPoset}!for IsPoset,IsInt|hyperpage}{11}
-\indexentry{ConnectionGroupOfPoset@\texttt  {ConnectionGroupOfPoset}!for IsPoset|hyperpage}{11}
-\indexentry{Vertex@\texttt  {Vertex}|hyperpage}{12}
-\indexentry{Edge@\texttt  {Edge}|hyperpage}{12}
-\indexentry{Pgon@\texttt  {Pgon}!for IsInt|hyperpage}{12}
-\indexentry{Cube@\texttt  {Cube}!for IsInt|hyperpage}{12}
-\indexentry{HemiCube@\texttt  {HemiCube}!for IsInt|hyperpage}{12}
-\indexentry{CrossPolytope@\texttt  {CrossPolytope}!for IsInt|hyperpage}{12}
-\indexentry{HemiCrossPolytope@\texttt  {HemiCrossPolytope}!for IsInt|hyperpage}{13}
-\indexentry{Simplex@\texttt  {Simplex}!for IsInt|hyperpage}{13}
-\indexentry{CubicTiling@\texttt  {CubicTiling}!for IsInt|hyperpage}{13}
-\indexentry{Dodecahedron@\texttt  {Dodecahedron}|hyperpage}{13}
-\indexentry{HemiDodecahedron@\texttt  {HemiDodecahedron}|hyperpage}{13}
-\indexentry{Icosahedron@\texttt  {Icosahedron}|hyperpage}{13}
-\indexentry{HemiIcosahedron@\texttt  {HemiIcosahedron}|hyperpage}{13}
-\indexentry{24Cell@\texttt  {24Cell}|hyperpage}{13}
-\indexentry{Hemi24Cell@\texttt  {Hemi24Cell}|hyperpage}{13}
-\indexentry{120Cell@\texttt  {120Cell}|hyperpage}{13}
-\indexentry{Hemi120Cell@\texttt  {Hemi120Cell}|hyperpage}{14}
-\indexentry{600Cell@\texttt  {600Cell}|hyperpage}{14}
-\indexentry{Hemi600Cell@\texttt  {Hemi600Cell}|hyperpage}{14}
-\indexentry{AutomorphismGroup@\texttt  {AutomorphismGroup}!for IsManiplex|hyperpage}{15}
-\indexentry{AutomorphismGroupFpGroup@\texttt  {AutomorphismGroupFpGroup}!for IsManiplex|hyperpage}{15}
-\indexentry{AutomorphismGroupPermGroup@\texttt  {AutomorphismGroupPermGroup}!for IsManiplex|hyperpage}{15}
-\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsManiplex|hyperpage}{15}
-\indexentry{EvenConnectionGroup@\texttt  {EvenConnectionGroup}!for IsManiplex|hyperpage}{15}
-\indexentry{RotationGroup@\texttt  {RotationGroup}!for IsManiplex|hyperpage}{16}
-\indexentry{ExtraRelators@\texttt  {ExtraRelators}!for IsReflexibleManiplex|hyperpage}{16}
-\indexentry{IsStringC@\texttt  {IsStringC}!for IsGroup|hyperpage}{16}
-\indexentry{IsOrientable@\texttt  {IsOrientable}!for IsManiplex|hyperpage}{17}
-\indexentry{IsIOrientable@\texttt  {IsIOrientable}!for IsManiplex, IsList|hyperpage}{17}
-\indexentry{IsVertexBipartite@\texttt  {IsVertexBipartite}!for IsManiplex|hyperpage}{17}
-\indexentry{IsFacetBipartite@\texttt  {IsFacetBipartite}!for IsManiplex|hyperpage}{17}
-\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsInt|hyperpage}{18}
-\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsList|hyperpage}{18}
-\indexentry{ReflexibleManiplex@\texttt  {ReflexibleManiplex}!for IsGroup|hyperpage}{18}
-\indexentry{ReflexibleManiplex@\texttt  {ReflexibleManiplex}!for IsList, IsList|hyperpage}{18}
-\indexentry{ReflexibleManiplex@\texttt  {ReflexibleManiplex}!for IsString|hyperpage}{18}
-\indexentry{IsQuotientOf@\texttt  {IsQuotientOf}!for IsManiplex, IsManiplex|hyperpage}{19}
-\indexentry{IsCoverOf@\texttt  {IsCoverOf}!for IsManiplex, IsManiplex|hyperpage}{19}
-\indexentry{IsIsomorphicTo@\texttt  {IsIsomorphicTo}!for IsManiplex, IsManiplex|hyperpage}{19}
-\indexentry{SmallestRegularCover@\texttt  {SmallestRegularCover}!for IsManiplex|hyperpage}{19}
+\indexentry{Size@\texttt  {Size}!for IsManiplex|hyperpage}{9}
+\indexentry{RankManiplex@\texttt  {RankManiplex}!for IsManiplex|hyperpage}{9}
+\indexentry{SchlafliSymbol@\texttt  {SchlafliSymbol}!for IsManiplex|hyperpage}{9}
+\indexentry{ComputeSchlafliSymbol@\texttt  {ComputeSchlafliSymbol}!for IsManiplex|hyperpage}{9}
+\indexentry{IsTight@\texttt  {IsTight}!for IsManiplex and IsPolytopal|hyperpage}{10}
+\indexentry{PetrieLength@\texttt  {PetrieLength}!for IsReflexibleManiplex|hyperpage}{10}
+\indexentry{HoleLength@\texttt  {HoleLength}!for IsReflexibleManiplex|hyperpage}{10}
+\indexentry{IsDegenerate@\texttt  {IsDegenerate}!for IsManiplex|hyperpage}{10}
+\indexentry{SymmetryTypeGraph@\texttt  {SymmetryTypeGraph}!for IsManiplex|hyperpage}{10}
+\indexentry{NumberOfFlagOrbits@\texttt  {NumberOfFlagOrbits}!for IsManiplex|hyperpage}{10}
+\indexentry{IsReflexible@\texttt  {IsReflexible}!for IsManiplex|hyperpage}{10}
+\indexentry{IsRotary@\texttt  {IsRotary}!for IsManiplex|hyperpage}{11}
+\indexentry{Description@\texttt  {Description}!for IsManiplex|hyperpage}{11}
+\indexentry{PosetFromFaceListOfFlags@\texttt  {PosetFromFaceListOfFlags}!for IsList|hyperpage}{11}
+\indexentry{RankPoset@\texttt  {RankPoset}!for IsPoset|hyperpage}{11}
+\indexentry{IsFull@\texttt  {IsFull}!for IsPoset|hyperpage}{11}
+\indexentry{IsFlaggable@\texttt  {IsFlaggable}!for IsPoset|hyperpage}{11}
+\indexentry{IsAtomic@\texttt  {IsAtomic}!for IsPoset|hyperpage}{11}
+\indexentry{PartialOrder@\texttt  {PartialOrder}!for IsPoset|hyperpage}{12}
+\indexentry{ListIsFullPoset@\texttt  {ListIsFullPoset}!for IsList|hyperpage}{12}
+\indexentry{RankOfPoset@\texttt  {RankOfPoset}!for IsPoset|hyperpage}{12}
+\indexentry{IsNotFull@\texttt  {IsNotFull}!for IsPoset|hyperpage}{12}
+\indexentry{PosetOfConnectionGroup@\texttt  {PosetOfConnectionGroup}!for IsPermGroup|hyperpage}{12}
+\indexentry{FullPosetOfConnectionGroup@\texttt  {FullPosetOfConnectionGroup}!for IsPermGroup|hyperpage}{12}
+\indexentry{PosetOfManiplex@\texttt  {PosetOfManiplex}!for IsManiplex|hyperpage}{13}
+\indexentry{FullPosetOfManiplex@\texttt  {FullPosetOfManiplex}!for IsManiplex|hyperpage}{13}
+\indexentry{PosetFromPartialOrder@\texttt  {PosetFromPartialOrder}!for IsBinaryRelation|hyperpage}{13}
+\indexentry{PosetFromElements@\texttt  {PosetFromElements}!for IsList,IsPartialOrderBinaryRelation|hyperpage}{13}
+\indexentry{AreIncidentFaces@\texttt  {AreIncidentFaces}!for IsObject,IsObject|hyperpage}{13}
+\indexentry{FlagsAsListOfFacesFromPoset@\texttt  {FlagsAsListOfFacesFromPoset}!for IsPoset|hyperpage}{13}
+\indexentry{AdjacentFlag@\texttt  {AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt|hyperpage}{14}
+\indexentry{ConnectionGeneratorOfPoset@\texttt  {ConnectionGeneratorOfPoset}!for IsPoset,IsInt|hyperpage}{14}
+\indexentry{ConnectionGroupOfPoset@\texttt  {ConnectionGroupOfPoset}!for IsPoset|hyperpage}{14}
+\indexentry{FacesOfPosetAsBinaryRelationOnFaces@\texttt  {FacesOfPosetAsBinaryRelationOnFaces}!for IsPoset|hyperpage}{14}
+\indexentry{FaceListOfPoset@\texttt  {FaceListOfPoset}!for IsPoset|hyperpage}{14}
+\indexentry{RankPosetElement@\texttt  {RankPosetElement}!for IsPosetElement|hyperpage}{14}
+\indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{14}
+\indexentry{FromPoset@\texttt  {FromPoset}!for IsPosetElement|hyperpage}{15}
+\indexentry{AtomList@\texttt  {AtomList}!for IsPosetElement|hyperpage}{15}
+\indexentry{Index@\texttt  {Index}!for IsPosetElement|hyperpage}{15}
+\indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsInt|hyperpage}{15}
+\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList,IsInt|hyperpage}{15}
+\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject,IsInt|hyperpage}{15}
+\indexentry{RankedFaceListOfPoset@\texttt  {RankedFaceListOfPoset}!for IsPoset|hyperpage}{15}
+\indexentry{IsSubface@\texttt  {IsSubface}!for IsFace,IsFace|hyperpage}{16}
+\indexentry{Vertex@\texttt  {Vertex}|hyperpage}{17}
+\indexentry{Edge@\texttt  {Edge}|hyperpage}{17}
+\indexentry{Pgon@\texttt  {Pgon}!for IsInt|hyperpage}{17}
+\indexentry{Cube@\texttt  {Cube}!for IsInt|hyperpage}{17}
+\indexentry{HemiCube@\texttt  {HemiCube}!for IsInt|hyperpage}{17}
+\indexentry{CrossPolytope@\texttt  {CrossPolytope}!for IsInt|hyperpage}{17}
+\indexentry{HemiCrossPolytope@\texttt  {HemiCrossPolytope}!for IsInt|hyperpage}{18}
+\indexentry{Simplex@\texttt  {Simplex}!for IsInt|hyperpage}{18}
+\indexentry{CubicTiling@\texttt  {CubicTiling}!for IsInt|hyperpage}{18}
+\indexentry{Dodecahedron@\texttt  {Dodecahedron}|hyperpage}{18}
+\indexentry{HemiDodecahedron@\texttt  {HemiDodecahedron}|hyperpage}{18}
+\indexentry{Icosahedron@\texttt  {Icosahedron}|hyperpage}{18}
+\indexentry{HemiIcosahedron@\texttt  {HemiIcosahedron}|hyperpage}{18}
+\indexentry{24Cell@\texttt  {24Cell}|hyperpage}{18}
+\indexentry{Hemi24Cell@\texttt  {Hemi24Cell}|hyperpage}{18}
+\indexentry{120Cell@\texttt  {120Cell}|hyperpage}{18}
+\indexentry{Hemi120Cell@\texttt  {Hemi120Cell}|hyperpage}{19}
+\indexentry{600Cell@\texttt  {600Cell}|hyperpage}{19}
+\indexentry{Hemi600Cell@\texttt  {Hemi600Cell}|hyperpage}{19}
+\indexentry{AutomorphismGroup@\texttt  {AutomorphismGroup}!for IsManiplex|hyperpage}{20}
+\indexentry{AutomorphismGroupFpGroup@\texttt  {AutomorphismGroupFpGroup}!for IsManiplex|hyperpage}{20}
+\indexentry{AutomorphismGroupPermGroup@\texttt  {AutomorphismGroupPermGroup}!for IsManiplex|hyperpage}{20}
+\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsManiplex|hyperpage}{20}
+\indexentry{EvenConnectionGroup@\texttt  {EvenConnectionGroup}!for IsManiplex|hyperpage}{20}
+\indexentry{RotationGroup@\texttt  {RotationGroup}!for IsManiplex|hyperpage}{21}
+\indexentry{ExtraRelators@\texttt  {ExtraRelators}!for IsReflexibleManiplex|hyperpage}{21}
+\indexentry{IsStringC@\texttt  {IsStringC}!for IsGroup|hyperpage}{21}
+\indexentry{IsOrientable@\texttt  {IsOrientable}!for IsManiplex|hyperpage}{22}
+\indexentry{IsIOrientable@\texttt  {IsIOrientable}!for IsManiplex, IsList|hyperpage}{22}
+\indexentry{IsVertexBipartite@\texttt  {IsVertexBipartite}!for IsManiplex|hyperpage}{22}
+\indexentry{IsFacetBipartite@\texttt  {IsFacetBipartite}!for IsManiplex|hyperpage}{22}
+\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsInt|hyperpage}{23}
+\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsList|hyperpage}{23}
+\indexentry{ReflexibleManiplex@\texttt  {ReflexibleManiplex}!for IsGroup|hyperpage}{23}
+\indexentry{ReflexibleManiplex@\texttt  {ReflexibleManiplex}!for IsList, IsList|hyperpage}{23}
+\indexentry{ReflexibleManiplex@\texttt  {ReflexibleManiplex}!for IsString|hyperpage}{23}
+\indexentry{Maniplex@\texttt  {Maniplex}!for IsGroup|hyperpage}{24}
+\indexentry{IsPolytopal@\texttt  {IsPolytopal}!for IsManiplex|hyperpage}{24}
+\indexentry{IsVertexFaithful@\texttt  {IsVertexFaithful}!for IsReflexibleManiplex|hyperpage}{25}
+\indexentry{IsFacetFaithful@\texttt  {IsFacetFaithful}!for IsReflexibleManiplex|hyperpage}{25}
+\indexentry{MaxVertexFaithfulQuotient@\texttt  {MaxVertexFaithfulQuotient}!for IsReflexibleManiplex|hyperpage}{25}
+\indexentry{IsQuotientOf@\texttt  {IsQuotientOf}!for IsManiplex, IsManiplex|hyperpage}{26}
+\indexentry{IsCoverOf@\texttt  {IsCoverOf}!for IsManiplex, IsManiplex|hyperpage}{26}
+\indexentry{IsIsomorphicTo@\texttt  {IsIsomorphicTo}!for IsManiplex, IsManiplex|hyperpage}{26}
+\indexentry{SmallestRegularCover@\texttt  {SmallestRegularCover}!for IsManiplex|hyperpage}{26}
