@@ -58,3 +58,73 @@ InstallMethod(Mix,
 	end);
 
 
+
+#! @Arguments a,b,N,M
+#! CtoL Returns an integer between 1 and N*M associated with the pair [a,b].  
+#! LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M.
+#! a should range between 1 and N, and b should range between 1 and M
+#! N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix
+#! Functions are inverses.
+DeclareOperation("CtoL",[IsInt,IsInt,IsInt,IsInt]);
+InstallMethod(CtoL,
+	[IsInt,IsInt,IsInt,IsInt],
+	function(a,b,N,M)
+	return  a+(b-1)*N;
+	end);
+DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
+InstallMethod(LtoC,
+	[IsInt,IsInt,IsInt],
+	function(k,N,M)
+  	return [k-N*(Int((k-1)/N)),Int((k-1)/N)+1];
+	end);
+
+
+
+#! @Arguments gp, gq
+#! Returns the maniplex of the "flag" mix of two maniplexes with connection groups gp and gq.
+#! Uses CtoL and LtoC
+DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
+
+InstallMethod(FlagMix,
+	[IsManiplex, IsManiplex],
+	function(p,q)
+	local gp, gq, gensp , r1, gensq, r2, Np, Nq, gensnew,  i, r, j;
+	gp:=ConnectionGroup(p);
+	gq:=ConnectionGroup(q);
+	gensp:=GeneratorsOfGroup(gp);
+	r1:=Size(gensp);
+	gensq:=GeneratorsOfGroup(gq);
+	r2:=Size(gensq);
+	Np:= LargestMovedPoint(gp);
+	Nq:= LargestMovedPoint(gq);;
+	gensnew:=[];
+	for i in [1..Maximum(r1,r2)] do
+		Add(gensnew,[]);
+	od;
+	for r in [1..Minimum(r1,r2)] do
+    		for i in [1..Np] do
+    		for j in [1..Nq] do
+    			gensnew[r][CtoL(i,j,Np,Nq)]:=CtoL(i^gensp[r],j^gensq[r],Np,Nq);
+  		od;
+  		od;
+	od;
+	for r in [Minimum(r1,r2)+1.. Maximum(r1,r2)] do
+  		if r1 < r2 then
+    			for i in [1..Np] do
+    			for j in [1..Nq] do
+      				gensnew[r][CtoL(i,j,Np,Nq)]:=CtoL(i,j^gensq[r],Np,Nq);
+    			od;
+    			od;
+  		else
+    			for i in [1..Np] do
+    			for j in [1..Nq] do
+      				gensnew[r][CtoL(i,j,Np,Nq)]:=CtoL(i^gensp[r],j,Np,Nq);
+    			od;
+    			od;
+  		fi;
+	od;
+	Apply(gensnew, i -> PermList(i));
+	return   Maniplex(Action(Group(gensnew),Orbit(Group(gensnew),1)));
+	end);
+
+
