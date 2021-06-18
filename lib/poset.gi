@@ -1,14 +1,26 @@
 ###Operations for dealing with maniplexes as posets###
 #This stuff is Gordon's fault...
-#Probably need to figure out how to go from Poset TO connection group.
 
 #Note: The following function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 InstallMethod(PosetFromFaceListOfFlags,
 	[IsList],
 	function(list)
 	local fam, poset;
-	fam:=NewFamily("Poset From Flags Description",IsPosetOfFlags);
+	fam:=NewFamily("Poset From Flags Description", IsPoset);
 	poset:=Objectify(NewType(fam, IsPoset and IsPosetOfFlags), rec(faces_list_by_rank:=list));
+	return(poset);
+	end);
+
+InstallMethod(PosetFromPartialOrder,
+	[IsBinaryRelation],
+	function(reln)
+	local fam, poset, myreln, n;
+	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order.");fi;
+	myreln:=AsBinaryRelationOnPoints(reln);
+	n:=Length(Successors(myreln));
+	fam:=NewFamily("Poset From Partial Order", IsPoset);
+	poset:=Objectify(NewType(fam, IsPoset and IsPosetOfIndices), rec(domain:=[1..n]));
+	SetPartialOrder(poset,myreln);
 	return(poset);
 	end);
 
@@ -305,7 +317,6 @@ InstallMethod(ConnectionGroupOfPoset,
 		Print("This poset is not flaggable, and this function only works for flaggable posets.");
 		return;
 	fi;
-#	facelist:=poset!.faces_list_by_rank;
 	if IsFull(poset) then
 		ranks:=[2..Rank(poset)+1];
 	else
@@ -323,10 +334,13 @@ InstallMethod(ViewObj,
 	function(poset)
 	local faces;
 	Print("A poset ");
-	if IsPosetOfFlags(poset) then Print("using the IsPosetOfFlags representation ");fi;
-	Print("of rank ",Rank(poset));
-	faces:=Concatenation(ShallowCopy(poset!.faces_list_by_rank));
-	Print(" with ",Length(faces)," faces.");
+	if IsPosetOfIndices(poset) then Print("using the IsPosetOfIndices representation ");fi;
+	if HasRankPoset(poset) then Print("of rank ",Rank(poset));fi;
+	if IsPosetOfFlags(poset) then 
+		Print("using the IsPosetOfFlags representation ");
+		faces:=Concatenation(ShallowCopy(poset!.faces_list_by_rank));
+		Print(" with ",Length(faces)," faces.");
+	fi;
 	end);
 
 InstallMethod(PrintObj,
@@ -334,16 +348,186 @@ InstallMethod(PrintObj,
 	function(poset)
 	ViewObj(poset);
 	Print("\n");
-	if IsPosetOfFlags(poset) then Print("List faces in terms of flags collected by rank:\n", poset!.faces_list_by_rank);fi;
+	if IsPosetOfFlags(poset) then Print("List of faces in terms of incident flags, collected by rank:\n", poset!.faces_list_by_rank);fi;
 	end);
 
-InstallMethod(FacesOfPosetAsBinaryRelationOnFaces,
+
+#####Todo
+# InstallMethod(FacesOfPosetAsBinaryRelationOnFaces,
+# 	[IsPoset and IsPosetOfFlags],
+# 	function(poset)
+# 	local n,faces,faceIndices;
+# 	faces:=ShallowCopy(poset!.faces_list_by_rank);
+# 	n:=Length(Concatenation(poset!.faces_list_by_rank));
+# 	
+# 	end);
+
+
+InstallMethod(FaceListOfPoset,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
-	local n,faces,faceIndices;
-	faces:=ShallowCopy(poset!.faces_list_by_rank);
-	n:=Length(Concatenation(faces));
+	local n;
+	if IsPosetOfFlags(poset)=true then return poset!.faces_list_by_rank; fi;
+	return;
+	end);
+
+
+
+InstallMethod(RankedFaceListOfPoset,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+	local list,flp;
+	flp:=ShallowCopy(FaceListOfPoset(poset));
+	if IsFull(poset) then 
+		list:=Concatenation(List(flp,x->List(x,y->[y,Position(flp,x)-2])));
+	else
+		list:=Concatenation(List(flp,x->List(x,y->[y,Position(flp,x)-1])));
+	fi;
+	return list;
+	end);
+
+
+InstallMethod(PosetElementFromListOfFlags,
+ 	[IsList,IsInt],
+ 	function(list,n)
+	local fam, face;
+	fam:=NewFamily("Face Using Flags Description", IsFace);
+	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+	SetFlagList(face,list);
+	SetRankFace(face,n);
+	return(face);
+	end);
+
+InstallOtherMethod(PosetElementFromListOfFlags,
+ 	[IsList],
+ 	function(listrank)
+	local fam, face,list,rank;
+	if IsList(listrank[1]) and IsInt(listrank[2]) then 
+		list:=listrank[1]; rank:=listrank[2];
+	else
+		Print("I expected a list of the form [IsInt,list of flags].");return;
+	fi;
+	fam:=NewFamily("Face Using Flags Description", IsFace);
+	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+	SetFlagList(face,list);
+	SetRankFace(face,rank);
+	return(face);
+	end);
+
+InstallOtherMethod(PosetElementFromListOfFlags,
+ 	[IsList,IsInt,IsPoset],
+ 	function(list,n,poset)
+	local fam, face;
+	fam:=NewFamily("Face Using Flags Description", IsFace);
+	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+	SetFlagList(face,list);
+	SetRankFace(face,n);
+	SetFromPoset(face,poset);
+	return(face);
+	end);
+
+
+InstallMethod(Rank,[IsFace],RankFace);
+
+InstallMethod(ViewObj,
+	[IsFace],
+	function(face)
+	Print("An element of a poset.");
+	end);
 	
+
+InstallMethod(PrintObj,
+	[IsFace],
+	function(face)
+	ViewObj(face);
+	if HasRankFace(face) then Print(" Rank of element=", Rank(face));fi;
+	if HasFlagList(face) then Print("\n with flags: ", FlagList(face));fi;
+	if HasAtomList(face) then Print("\n made up of atoms: ", AtomList(face));fi;
+	if HasIndex(face) then Print("\n with index=",face!.IndexAndRank); fi;
+	end);
+
+InstallMethod(IsSubface,
+	[IsFace and HasFlagList,IsFace and HasFlagList],
+	function(face1,face2)
+	if Rank(face1)>Rank(face2) and Intersection(FlagList(face1),FlagList(face2))<>[] then return true;
+	else return false;
+	fi;
+	end);
+
+
+InstallMethod(PosetElementFromAtomList,
+ 	[IsList,IsInt],
+ 	function(list,n)
+	local fam, face;
+	fam:=NewFamily("Face as list of atoms", IsFace);
+	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+	SetAtomList(face,list);
+	SetRankFace(face,n);
+	return(face);
+	end);
+
+InstallOtherMethod(IsSubface,
+	[IsFace and HasAtomList, IsFace and HasAtomList],
+	function(face1,face2)
+	if Rank(face1)>Rank(face2) and IsSubset(AtomList(face1),AtomList(face2)) then return true;
+	else return false;
+	fi;
+	end);
+
+InstallMethod(PosetElementFromIndex,
+ 	[IsObject,IsInt],
+ 	function(index,n)
+	local fam, face;
+	fam:=NewFamily("Face an indexed object", IsFace);
+	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+	SetIndex(face,index);
+	SetRankFace(face,n);
+	return(face);
+	end);
+
+InstallOtherMethod(PosetElementFromIndex,
+ 	[IsObject,IsInt,IsPoset],
+ 	function(index,n,pos)
+	local fam, face;
+	fam:=NewFamily("Face as list of atoms", IsFace);
+	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+	SetIndex(face,index);
+	SetRankFace(face,n);
+	SetFromPoset(face,pos);
+	return(face);
+	end);
+
+
+
+InstallOtherMethod(IsSubface,
+	[IsFace and HasIndex, IsFace and HasIndex],
+	function(face1,face2)
+	local reln,po;
+	if FromPoset(face1)=FromPoset(face2) and HasPartialOrder(FromPoset(face1)) then
+		po:=PartialOrder(FromPoset(face1));
+		if Rank(face1)>Rank(face2) and [AtomList(face1),AtomList(face2)] in po then return true;
+		else return false;
+		fi;
+	else Print("No partial order found for elements of this poset.");
+	fi;
+	end);
+
+InstallMethod(pairCompareFlags,
+	[IsList,IsList],
+	function(a,b) return Intersection(b[1],a[1])<>[] and a[2]>=b[2];end);
+
+InstallMethod(PosetFromElements,
+	[IsList,IsPartialOrderBinaryRelation],
+	function(faceList,po)
+	local nFaceList,workingList;
+	nFaceList:=Length(faceList);
+	if DuplicateFreeList(faceList,HasFlagList)[1] then
+		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareFlags);
+		return PosetFromPartialOrder(Domain(workingList),po);
+	else
+		Print("ya got me doc!");
+	fi;	
 	end);
 
 

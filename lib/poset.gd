@@ -10,9 +10,7 @@
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 
 
-#Poset attributes
-#DeclareAttribute("IsFullPoset",IsPoset,"mutable");
-#DeclareAttribute("IsFlaggable",IsPoset);
+#! @Subsection Poset attributes
 DeclareAttribute("RankPoset",IsPoset);
 
 #! @Arguments poset
@@ -24,8 +22,13 @@ DeclareAttribute("IsFlaggable",IsPoset);
 
 #! @Arguments poset
 #! @Returns __true__ or __false__
-#! @Description Given a <A>poset</A> (whose elements are lists of flags) corresponding to a maniplex, this function will tell you if it is flaggable, i.e., if the flags can be recovered from the poset or not.
-DeclareOperation("IsFlaggablePoset",[IsPosetOfFlags]);
+#! @Description Checks if <A>poset</A> is atomic. __Note, currently something that is computed, just declared.__
+DeclareAttribute("IsAtomic",IsPoset);
+
+#! @Arguments poset
+#! @Returns __partial order__
+#! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. __Note, currently something that is computed, just declared.__
+DeclareAttribute("PartialOrder", IsPoset);
 
 #! @Arguments list
 #! @Returns __true__ or __false__
@@ -44,6 +47,9 @@ DeclareOperation("RankOfPoset", [IsPoset]);
 #! @Description Lets me check to see if a poset is NOT full.  For use in certain filtering operations.
 DeclareOperation("IsNotFull",[IsPoset]);
 
+
+
+#! @Subsection Poset constructors
 
 #! @Arguments g
 #! @Returns __IsPosetOfFlags__ with __IsFull__=false.
@@ -67,6 +73,21 @@ DeclareOperation("PosetOfManiplex", [IsManiplex]);
 #! @Description Given a maniplex, returns a poset with the internal representation be a list of lists of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
 DeclareOperation("FullPosetOfManiplex", [IsManiplex]);
 
+#! @Arguments partialOrder
+#! @Returns __IsPosetOfIndices__
+#! @Description Given a partial order on a finite set of size $n$, this function will create a partial order on __[1..n]__.
+DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
+
+#! @Arguments list_of_faces, partial_order
+#! @Returns __IsPosetOfElements__
+#! @Description This is for gathering elements with a known ordering function into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types.
+DeclareOperation("PosetFromElements",[IsList,IsPartialOrderBinaryRelation]);
+
+#Helper functions for PosetFromElements
+DeclareOperation("pairCompareFlags",[IsList,IsList]);
+
+
+#! @Subsection Working with posets
 
 #! @Arguments object1, object2
 #! @Returns __true__ or __false__
@@ -97,18 +118,82 @@ DeclareOperation("ConnectionGeneratorOfPoset",[IsPoset,IsInt]);
 #! @Description Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
 DeclareOperation("ConnectionGroupOfPoset",[IsPoset]);
 
+##! @Arguments poset
+##! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
+##! @Description FacesOfPosetAsBinaryRelationOnFaces 
+#DeclareOperation("FacesOfPosetAsBinaryRelationOnFaces",[IsPoset]);
+
+
+##! @Arguments poset
+##! @Returns __list__
+##! @Description Gives a list of faces collected into lists ordered by increasing rank. 
+DeclareOperation("FaceListOfPoset",[IsPoset]);
+
+############# Face stuff #################
+
+#! @Subsection Elements of posets, also known as faces.
+
+#! @Arguments posetelement {face}
+#! @Returns __true__ or __false__
+#! @Description The rank of a poset element. Alternately __RankFace(<A>IsPosetElement</A>).
+DeclareAttribute("RankPosetElement",IsPosetElement); #the rank in the poset of the element
+DeclareSynonymAttr("RankFace",RankPosetElement);
+
+#! @Arguments posetelement {face}
+#! @Returns __list__
+#! @Description Description of <A>posetelement</A> n as a list of incident flags (when present).
+DeclareAttribute("FlagList", IsPosetElement); #list of incident flags
+
+#! @Arguments posetelement {face}
+#! @Returns __poset__
+#! @Description Gives the poset to which the face belongs (when present).
+DeclareAttribute("FromPoset",IsPosetElement); #Which poset the element belongs to.
+
+#! @Arguments posetelement {face}
+#! @Returns __list__
+#! @Description Description of <A>posetelement</A> n as a list of atoms (when present).
+DeclareAttribute("AtomList", IsPosetElement); #list of atoms
+
+#! 
+DeclareAttribute("Index", IsPosetElement); #face index, i.e., label from some list of unique identifiers
+
+
+#! @Arguments list, n
+#! @Returns __IsPosetElement__
+#! @Description This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of poset. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
+DeclareOperation("PosetElementFromListOfFlags",[IsList,IsInt]);
+
+
+#! @Arguments list, n
+#! @Returns __IsFace__
+#! @Description Creates a __face__ with <A>list</A> of atoms at rank <A>n</A>. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
+DeclareOperation("PosetElementFromAtomList",[IsList,IsInt]);
+
+#! @Arguments obj, n
+#! @Returns __IsFace__
+#! @Description Creates a __face__ with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
+DeclareOperation("PosetElementFromIndex",[IsObject,IsInt]);
+
 #! @Arguments poset
-#! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
-#! @Description FacesOfPosetAsBinaryRelationOnFaces 
-DeclareOperation("FacesOfPosetAsBinaryRelationOnFaces",[IsPoset]);
-
-##! @Arguments 
-##! @Returns 
-##! @Description 
+#! @Returns __list__
+#! @Description Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>.
+DeclareOperation("RankedFaceListOfPoset",[IsPoset]);
 
 
+
+#! @Arguments [face1,face1]
+#! @Returns __true__ or __false__
+#! @Description <A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. Subface will check to make sure <A>face2</A> is a subface of <A>face1</A>. 
+DeclareOperation("IsSubface", [IsFace,IsFace]);
+
+
+###To Do
 
 #! @Arguments poset1, poset2
 #! @Returns __true__ or __false__
 #! @Description Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic.
+
+
+
+
 
