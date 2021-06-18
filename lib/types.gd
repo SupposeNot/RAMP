@@ -12,16 +12,17 @@ DeclareFilter("IsRotaryManiplex");
 DeclareFilter("IsRegularPolytope");
 DeclareFilter("IsPolytope");
 
-# Poset stuff
-# DeclareRepresentation("IsPosetOfFlags", IsComponentObjectRep and IsAttributeStoringRep,["faces_list_by_rank"]);
-# DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);
+
+
 
 #Poset stuff
 DeclareCategory("IsPoset", IsObject);
 DeclareRepresentation("IsPosetOfFlags", IsComponentObjectRep and IsAttributeStoringRep,["faces_list_by_rank"]);
-DeclareRepresentation("IsPosetOfIndices", IsComponentObjectRep and IsAttributeStoringRep, ["domain"]); #Note... need to specify PartialOrder here
+DeclareRepresentation("IsPosetOfIndices", IsComponentObjectRep and IsAttributeStoringRep, ["domain"]); 
+#Note... need to specify PartialOrder here
 #DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);
-DeclareRepresentation("IsPosetOfElements", IsComponentObjectRep and IsAttributeStoringRep, ["faces"]); #Note... for this type also want to specify the partial order
+DeclareRepresentation("IsPosetOfElements", IsComponentObjectRep and IsAttributeStoringRep, ["faces"]); 
+#Note... for this type also want to specify the partial order
 
 
 #Face/Poset Element stuff
