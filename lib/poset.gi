@@ -456,7 +456,6 @@ InstallMethod(IsSubface,
 	fi;
 	end);
 
-
 InstallMethod(PosetElementFromAtomList,
  	[IsList,IsInt],
  	function(list,n)
