@@ -447,6 +447,7 @@ InstallMethod(PrintObj,
 	if HasIndex(face) then Print("\n with index=",face!.IndexAndRank); fi;
 	end);
 
+
 InstallMethod(IsSubface,
 	[IsFace and HasFlagList,IsFace and HasFlagList],
 	function(face1,face2)
