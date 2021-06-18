@@ -12,9 +12,9 @@ DeclareFilter("IsRotaryManiplex");
 DeclareFilter("IsRegularPolytope");
 DeclareFilter("IsPolytope");
 
-#Poset stuff
-DeclareRepresentation("IsPosetOfFlags", IsComponentObjectRep and IsAttributeStoringRep,["faces_list_by_rank"]);
-DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);
+# Poset stuff
+# DeclareRepresentation("IsPosetOfFlags", IsComponentObjectRep and IsAttributeStoringRep,["faces_list_by_rank"]);
+# DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);
 
 #Poset stuff
 DeclareCategory("IsPoset", IsObject);
