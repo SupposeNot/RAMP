@@ -66,6 +66,19 @@ InstallGlobalFunction(ParseStringCRels,
 	if n > 9 then Error("Only works for n < 10"); fi;
 	f := FreeGroupOfFpGroup(w);
 
+	# We also support using zj to mean the j-zigzag.
+	# For polyhedra, zj = r0 (r1 r2)^j.
+	# For now, we just replace z1.
+	# TODO: Handle z2 etc and higher rank.
+	rels := ReplacedString(rels, "z1", "(r0 r1 r2)");
+	rels := ReplacedString(rels, "z2", "(r0 (r1 r2)^2)");
+	rels := ReplacedString(rels, "z3", "(r0 (r1 r2)^3)");
+
+	rels := ReplacedString(rels, "Z3", "(r2 (r1 r0)^3)");
+
+
+	rels := ReplacedString(rels, "h2", "(r0 r1 r2 r1)");
+
 	old_names := List([0..n-1], i -> Concatenation("r", String(i)));
 	new_names := ["a","b","c","d","e","f","g","h","i"]{[1..n]};
 	for i in [1..n] do
