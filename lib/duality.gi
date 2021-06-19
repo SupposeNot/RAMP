@@ -54,12 +54,10 @@ InstallMethod(Petrial,
 	rels := ExtraRelators(p);
 	
 	pet := Order(g.1*g.2*g.3);
-
-	sym[1] := pet;
-	
 	rels := List(rels, r -> _PETRIAL_REL(TietzeWordAbstractWord(r)));
-	Add(rels, Flat(ListWithIdenticalEntries(pet, [1, 2, 3])));
+	Add(rels, Flat(ListWithIdenticalEntries(sym[1], [1, 2, 3])));
 	
+	sym[1] := pet;
 	q := ReflexibleManiplex(sym, rels);
 	SetSize(q, Size(p));
 	SetSchlafliSymbol(q, sym);
