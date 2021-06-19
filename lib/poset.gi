@@ -12,12 +12,27 @@ InstallMethod(PosetFromFaceListOfFlags,
 	return(poset);
 	end);
 
+
+
+InstallMethod(POConvertToBROnPoints,
+	[IsBinaryRelation],
+	function(reln)
+	local source, pairs, ord, i;
+		source:=AsList(Source(reln));
+		pairs:=[1..Length(source)];
+		ord:=UnderlyingRelation(reln);
+		for i in pairs do
+			pairs[i]:=PositionsProperty(source,x->Tuple([source[i],x]) in ord);
+		od;
+		return BinaryRelationOnPoints(pairs);
+	end);
+
 InstallMethod(PosetFromPartialOrder,
 	[IsBinaryRelation],
 	function(reln)
 	local fam, poset, myreln, n;
 	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order.");fi;
-	myreln:=AsBinaryRelationOnPoints(reln);
+	myreln:=POConvertToBROnPoints(reln);
 	n:=Length(Successors(myreln));
 	fam:=NewFamily("Poset From Partial Order", IsPoset);
 	poset:=Objectify(NewType(fam, IsPoset and IsPosetOfIndices), rec(domain:=[1..n]));
@@ -340,7 +355,7 @@ InstallMethod(ViewObj,
 	if IsPosetOfFlags(poset) then 
 		Print("using the IsPosetOfFlags representation ");
 		faces:=Concatenation(ShallowCopy(poset!.faces_list_by_rank));
-		Print(" with ",Length(faces)," faces.");
+		Print("with ",Length(faces)," faces.");
 	fi;
 	end);
 
@@ -406,7 +421,7 @@ InstallOtherMethod(PosetElementFromListOfFlags,
 	if IsList(listrank[1]) and IsInt(listrank[2]) then 
 		list:=listrank[1]; rank:=listrank[2];
 	else
-		Print("I expected a list of the form [IsInt,list of flags].");return;
+		Print("I expected a list of the form [list of flags, IsInt].");return;
 	fi;
 	fam:=NewFamily("Face Using Flags Description", IsFace);
 	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
@@ -455,6 +470,7 @@ InstallMethod(IsSubface,
 	else return false;
 	fi;
 	end);
+
 
 InstallMethod(PosetElementFromAtomList,
  	[IsList,IsInt],
@@ -506,26 +522,49 @@ InstallOtherMethod(IsSubface,
 	local reln,po;
 	if FromPoset(face1)=FromPoset(face2) and HasPartialOrder(FromPoset(face1)) then
 		po:=PartialOrder(FromPoset(face1));
-		if Rank(face1)>Rank(face2) and [AtomList(face1),AtomList(face2)] in po then return true;
+		if Rank(face1)>Rank(face2) and Tuple([Index(face1),Index(face2)]) in po then return true;
 		else return false;
 		fi;
 	else Print("No partial order found for elements of this poset.");
 	fi;
-	end);
+	end); #Not sure this works yet... Have to build up the right kind of object.
 
-InstallMethod(pairCompareFlags,
+InstallMethod(pairCompareFlagsList,
 	[IsList,IsList],
-	function(a,b) return Intersection(b[1],a[1])<>[] and a[2]>=b[2];end);
+	function(a,b) return Intersection(b[1],a[1])<>[] and a[2]<=b[2];end);
+
+InstallMethod(pairCompareAtomsList,
+	[IsList,IsList],
+	function(a,b) return IsSubset(b[1],a[1]) and a[2]<=b[2];end);
+
 
 InstallMethod(PosetFromElements,
-	[IsList,IsPartialOrderBinaryRelation],
+	[IsList],
+	function(faceList)
+	local nFaceList,workingList,po;
+	nFaceList:=Length(faceList);
+	if DuplicateFreeList(List(faceList,HasFlagList))[1] then
+		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareFlagsList);
+		return PosetFromPartialOrder(po);
+	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
+		workingList:=List(faceList,x->[AtomList(x),Rank(x)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareAtomsList);
+		return PosetFromPartialOrder(po);
+	else
+		Print("ya got me doc!");
+	fi;	
+	end);
+
+InstallOtherMethod(PosetFromElements,
+	[IsList,IsFunction],
 	function(faceList,po)
 	local nFaceList,workingList;
 	nFaceList:=Length(faceList);
-	if DuplicateFreeList(faceList,HasFlagList)[1] then
+	if DuplicateFreeList(List(faceList,HasFlagList))[1] then
 		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareFlags);
-		return PosetFromPartialOrder(Domain(workingList),po);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),po);
+		return PosetFromPartialOrder(po);
 	else
 		Print("ya got me doc!");
 	fi;	

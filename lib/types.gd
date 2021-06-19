@@ -22,7 +22,7 @@ DeclareRepresentation("IsPosetOfIndices", IsComponentObjectRep and IsAttributeSt
 #Note... need to specify PartialOrder here
 #DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);
 DeclareRepresentation("IsPosetOfElements", IsComponentObjectRep and IsAttributeStoringRep, ["faces"]); 
-#Note... for this type also want to specify the partial order
+#Note... for this type also (usually) want to specify the partial order
 
 
 #Face/Poset Element stuff

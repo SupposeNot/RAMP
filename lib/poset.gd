@@ -31,6 +31,7 @@ DeclareAttribute("IsAtomic",IsPoset);
 #! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. __Note, currently something that is computed, just declared.__
 DeclareAttribute("PartialOrder", IsPoset);
 
+
 #! @Arguments list
 #! @Returns __true__ or __false__
 #! @Description Given <A>list</A>, a poset as a list of faces ordered by rank, each face listing the flags on the face, this function will tell you if the poset is full or not.
@@ -74,19 +75,23 @@ DeclareOperation("PosetOfManiplex", [IsManiplex]);
 #! @Description Given a maniplex, returns a poset with the internal representation be a list of lists of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
 DeclareOperation("FullPosetOfManiplex", [IsManiplex]);
 
+#helper function for PosetFromPartialOrder
+DeclareOperation("POConvertToBROnPoints",[IsBinaryRelation]);
+
 #! @Arguments partialOrder
 #! @Returns __IsPosetOfIndices__
 #! @Description Given a partial order on a finite set of size $n$, this function will create a partial order on __[1..n]__.
 DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
 
-#! @Arguments list_of_faces, partial_order
+
+#! @Arguments list_of_faces, {function}
 #! @Returns __IsPosetOfElements__
-#! @Description This is for gathering elements with a known ordering function into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types.
-DeclareOperation("PosetFromElements",[IsList,IsPartialOrderBinaryRelation]);
+#! @Description This is for gathering elements with a known ordering <A>function</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList, you may omit the function.
+DeclareOperation("PosetFromElements",[IsList]);
 
 #Helper functions for PosetFromElements
-DeclareOperation("pairCompareFlags",[IsList,IsList]);
-
+DeclareOperation("pairCompareFlagsList",[IsList,IsList]);
+DeclareOperation("pairCompareAtomsList",[IsList,IsList]);
 
 #! @Subsection Working with posets
 
