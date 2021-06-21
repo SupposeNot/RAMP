@@ -1,23 +1,32 @@
 
 InstallMethod(IsOrientable,
 	[IsReflexibleManiplex],
-	function(p)
-	local rels;
-	rels := ExtraRelators(p);
-	return ForAll(rels, r -> Length(r) mod 2 = 0);
+	function(M)
+	local rels, val;
+	rels := ExtraRelators(M);
+	val := ForAll(rels, r -> Length(r) mod 2 = 0);
+	if HasDual(M) then
+		SetIsOrientable(Dual(M), val);
+	fi;
+	return val;
 	end);
 
 InstallMethod(IsOrientable,
 	[IsManiplex],
 	function(M)
-	return ConnectionGroup(M) <> EvenConnectionGroup(M);
+	local val;
+	val := ConnectionGroup(M) <> EvenConnectionGroup(M);
+	if HasDual(M) then
+		SetIsOrientable(Dual(M), val);
+	fi;
+	return val;
 	end);
 
 InstallMethod(IsIOrientable,
 	[IsReflexibleManiplex, IsList],
-	function(p, I)
+	function(M, I)
 	local rels;
-	rels := RelatorsOfFpGroup(AutomorphismGroup(p));
+	rels := RelatorsOfFpGroup(AutomorphismGroup(M));
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
 	# Translate I since tietze words are 1-based instead of 0-based
 	I := List(I, i -> i+1);
@@ -26,13 +35,13 @@ InstallMethod(IsIOrientable,
 
 InstallMethod(IsVertexBipartite,
 	[IsReflexibleManiplex],
-	function(p)
-	return IsIOrientable(p, [0]);
+	function(M)
+	return IsIOrientable(M, [0]);
 	end);
 	
 InstallMethod(IsFacetBipartite,
 	[IsReflexibleManiplex],
-	function(p)
-	return IsIOrientable(p, [Rank(p)-1]);
+	function(M)
+	return IsIOrientable(M, [Rank(M)-1]);
 	end);
 	

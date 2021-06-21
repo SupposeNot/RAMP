@@ -90,8 +90,13 @@ InstallOtherMethod(UniversalSggi,
 	
 InstallMethod(IsPolytopal,
 	[IsReflexibleManiplex],
-	function(m)
-	return IsStringC(AutomorphismGroup(m));
+	function(M)
+	local ispoly;
+	ispoly := IsStringC(AutomorphismGroup(M));
+	if HasDual(M) then
+		SetIsPolytopal(Dual(M), ispoly);
+	fi;
+	return ispoly;
 	end);
 
 # Given any group (which should be a sggi), builds the regular
@@ -111,6 +116,11 @@ InstallMethod(ReflexibleManiplex,
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
 	SetAutomorphismGroup(p, autgp);
+	if IsFpGroup(autgp) then
+		SetAutomorphismGroupFpGroup(p, autgp);
+	elif IsPermGroup(autgp) then
+		SetAutomorphismGroupPermGroup(p, autgp);
+	fi;
 	SetIsReflexible(p, true);
 
 	return p;
@@ -248,7 +258,14 @@ InstallMethod(Maniplex,
 	
 InstallOtherMethod(Size,
 	[IsReflexibleManiplex],
-	p -> Size(AutomorphismGroup(p)));
+	function(M)
+	local val;
+	val := Size(AutomorphismGroup(M));
+	if HasDual(M) then
+		SetSize(Dual(M), val);
+	fi;
+	return val;
+	end);
 
 InstallMethod(RankManiplex,
 	[IsReflexibleManiplex],
@@ -283,14 +300,24 @@ InstallMethod(ComputeSchlafliSymbol,
 	
 InstallMethod(IsDegenerate,
 	[IsReflexibleManiplex],
-	function(p)
-	return (2 in SchlafliSymbol(p));
+	function(M)
+	local val;
+	val := (2 in SchlafliSymbol(M));
+	if HasDual(M) then
+		SetIsDegenerate(Dual(M), val);
+	fi;
+	return val;
 	end);
 
 InstallMethod(IsTight,
 	[IsReflexibleManiplex and HasIsPolytopal and IsPolytopal],
-	function(p)
-	return (Size(p) = 2*Product(SchlafliSymbol(p)));
+	function(M)
+	local val;
+	val := (Size(M) = 2*Product(SchlafliSymbol(M)));
+	if HasDual(M) then
+		SetIsTight(Dual(M), val);
+	fi;
+	return val;
 	end);
 	
 # A regular polytope is vertex-faithful if the action
@@ -432,18 +459,39 @@ InstallMethod(SymmetryTypeGraph,
 	
 InstallMethod(NumberOfFlagOrbits,
 	[IsManiplex],
-	function(p)
+	function(M)
 	local n;
-	if IsReflexibleManiplex(p) then return 1; fi;
-	n := LargestMovedPoint(Group(SymmetryTypeGraph(p)));
-	if n = 0 then n := 1; fi;
+	if IsReflexibleManiplex(M) then 
+		n := 1; 
+	else
+		n := LargestMovedPoint(Group(SymmetryTypeGraph(M)));
+		if n = 0 then n := 1; fi;
+	fi;
+	
+	if HasDual(M) then
+		SetNumberOfFlagOrbits(Dual(M), n);
+	fi;
 	return n;
 	end);
 
 InstallMethod(IsReflexible,
 	[IsManiplex],
-	M -> NumberOfFlagOrbits(M) = 1);
+	function(M)
+	local val;
+	val := (NumberOfFlagOrbits(M) = 1);
+	if HasDual(M) then
+		SetIsReflexible(Dual(M), val);
+	fi;
+	return val;
+	end);
 
 InstallMethod(IsRotary,
 	[IsManiplex],
-	M -> IsOrientable(M) and (NumberOfFlagOrbits(M) <= 2));
+	function(M)
+	local val;
+	val := (IsOrientable(M) and (NumberOfFlagOrbits(M) <= 2));
+	if HasDual(M) then
+		SetIsRotary(Dual(M), val);
+	fi;
+	return val;
+	end);
