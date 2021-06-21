@@ -199,3 +199,17 @@ than the declaration was. Thus we can have things like:
     
     InstallMethod(AutomorphismGroup, [IsReflexibleManiplex], ...)
     
+
+# Testing #
+
+The most straightforward way to build tests is to log a GAP session where everything is working,
+and then use that log later as a test:
+
+    LogTo(filename);
+    
+This starts writing your GAP session to a file. Then you can use
+
+     Test(filename);
+     
+This essentially re-runs your session, comparing the output in the log with your current output,
+and it will warn you if there is a discrepancy.
