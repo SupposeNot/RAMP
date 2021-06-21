@@ -65,7 +65,7 @@ InstallMethod(IsIsomorphicTo,
 	IsSameRank,
 	[IsManiplex, IsManiplex],
 	function(p,q)
-	local atts, att;
+	local atts, att, val, prop;
 	atts := [Size, SchlafliSymbol, Fvector];
 	for att in atts do
 		if Tester(att)(p) and Tester(att)(q) and att(p) <> att(q) then return false; fi;
@@ -73,10 +73,33 @@ InstallMethod(IsIsomorphicTo,
 	
 	if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
 		# At this point, we know that p and q are the same size and finite.
-		return IsQuotientOf(p,q);
+		val := IsQuotientOf(p,q);
 	else
-		return IsQuotientOf(p,q) and IsCoverOf(p,q);
+		val := (IsQuotientOf(p,q) and IsCoverOf(p,q));
 	fi;
+	
+	if val then
+		# p and q might have different knowledge about their properties --
+		# sync them up!
+		for prop in KnownPropertiesOfObject(p) do
+			prop := EvalString(prop);
+			Setter(prop)(q, prop(p));
+		od;
+		for prop in KnownPropertiesOfObject(q) do
+			prop := EvalString(prop);
+			Setter(prop)(p, prop(q));
+		od;
+		for att in KnownAttributesOfObject(p) do
+			att := EvalString(att);
+			Setter(att)(q, att(p));
+		od;
+		for att in KnownAttributesOfObject(q) do
+			att := EvalString(att);
+			Setter(att)(p, att(q));
+		od;
+	fi;
+	
+	return val;
 	end);
 	
 InstallMethod( \=,
