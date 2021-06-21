@@ -1,0 +1,14 @@
+#! @Arguments listOfFaces #these faces shouldn't have indices
+#! @Returns posetWithPartialOrder
+#! @Description The goal here is to start with a list of faces that share a partial order and construct a poset that indexes the faces and stores both a partial order on the indices and the original partial order on the faces.
+DeclareOperation("PosetWithPartialOrderAndFaces");
+
+DeclareAttribute("list_of_elements",IsPoset); #for storing a list of IsPosetElements
+
+InstallMethod(PosetWithPartialOrderAndFaces,
+	[IsList],
+	function(listOfFaces)
+	local fam, poset, po;
+	fam:=NewFamily("Poset with partial order", IsPoset);
+	poset:=Objectivey(NewType(fam,IsPoset),rec(list_of_elements:=listOfFaces, PartialOrder:=po));
+	end);

@@ -6,7 +6,7 @@
 #! @Section Posets
 
 #! @Arguments list
-#! @Returns __IsPosetOfFlags__. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
+#! @Returns __IsPosetOfFlags__. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 #! @Description Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 
@@ -23,12 +23,12 @@ DeclareAttribute("IsFlaggable",IsPoset);
 
 #! @Arguments poset
 #! @Returns __true__ or __false__
-#! @Description Checks if <A>poset</A> is atomic. __Note, currently something that is computed, just declared.__
+#! @Description Checks if <A>poset</A> is atomic. __Note, currently something that is not computed, just declared.__
 DeclareAttribute("IsAtomic",IsPoset);
 
 #! @Arguments poset
 #! @Returns __partial order__
-#! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. __Note, currently something that is computed, just declared.__
+#! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. __Note, currently something that is not computed, just declared.__
 DeclareAttribute("PartialOrder", IsPoset);
 
 
@@ -86,7 +86,7 @@ DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
 
 #! @Arguments list_of_faces, {function}
 #! @Returns __IsPosetOfElements__
-#! @Description This is for gathering elements with a known ordering <A>function</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList, you may omit the function.
+#! @Description This is for gathering elements with a known ordering <A>function</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList or HasAtomList, you may omit the function.
 DeclareOperation("PosetFromElements",[IsList]);
 
 #Helper functions for PosetFromElements
