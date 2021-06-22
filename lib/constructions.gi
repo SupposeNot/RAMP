@@ -105,6 +105,19 @@ InstallMethod(TrivialExtension,
 	function(p)
 	return UniversalExtension(p,2);
 	end);
+	
+InstallMethod(TrivialExtension,
+	[IsManiplex],
+	function(M)
+	local c, cgens, N, r, newgens;
+	c := ConnectionGroup(M);
+	cgens := GeneratorsOfGroup(c);
+	N := LargestMovedPoint(c);
+	r := MultPerm((1,N+1), N, 1);
+	newgens := List(cgens, x -> MultPerm(x, 2, N));
+	Add(newgens, r);
+	return Maniplex(Group(newgens));
+	end);
 
 # TODO: Enforce that last entry of SchlafliSymbol(p) is even.
 # Actually, I need an even stronger restriction...

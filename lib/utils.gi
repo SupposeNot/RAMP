@@ -1,3 +1,7 @@
+TEST_RAMP := function()
+	Read(Filename(DirectoriesLibrary("pkg/ramp/tst"), "testall.g"));
+	end;
+
 InstallGlobalFunction(AbstractPolytope,
 	function(args...)
 	local p;

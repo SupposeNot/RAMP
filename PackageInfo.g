@@ -162,6 +162,20 @@ Persons := [
                        "Boston MA 02125\n" ] ),
     Place         := "Boston",
     Institution   := "University of Massachusetts Boston"
+  ),
+  rec( 
+    LastName      := "Mixer",
+    FirstNames    := "Mark",
+    IsAuthor      := true,
+    IsMaintainer  := true,
+    Email         := "mixerm@wit.edu",
+  ),
+  rec( 
+    LastName      := "Williams",
+    FirstNames    := "Gordon",
+    IsAuthor      := true,
+    IsMaintainer  := true,
+    Email         := "giwilliams@alaska.edu",
   )
 ],
 
@@ -205,9 +219,6 @@ PackageInfoURL :=
 ##  Web page. Please use '<span class="pkgname">GAP</span>' for GAP and
 ##  '<span class="pkgname">MyPKG</span>' for specifing package names.
 ##  
-# AbstractHTML := "This package provides  a collection of functions for \
-# computing the Smith normal form of integer matrices and some related \
-# utilities.",
 AbstractHTML := 
   "The <span class=\"pkgname\">RAMP</span> package provides tools \
    for computing with maniplexes and abstract polytopes.",
@@ -314,7 +325,6 @@ TestFile := "tst/testall.g",
 
 ##  *Optional*: Here you can list some keyword related to the topic 
 ##  of the package.
-# Keywords := ["Smith normal form", "p-adic", "rational matrix inversion"]
 Keywords := ["abstract polytopes", "maniplex"],
 
 ##  *Optional*: If you are using AutoDoc, then you can specify content of
@@ -323,7 +333,7 @@ AutoDoc := rec(
   TitlePage := rec(
     Copyright := """
       <Index>License</Index>
-      &copyright; 1997-2020 by Gabe Cunningham<P/>
+      &copyright; 1997-2020 by Gabe Cunningham, Mark Mixer, and Gordon Williams<P/>
       &RAMP; package is free software;
       you can redistribute it and/or modify it under the terms of the
       <URL Text="GNU General Public License">http://www.fsf.org/licenses/gpl.html</URL>
