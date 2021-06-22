@@ -21,7 +21,7 @@ DeclareRepresentation("IsPosetOfFlags", IsComponentObjectRep and IsAttributeStor
 DeclareRepresentation("IsPosetOfIndices", IsComponentObjectRep and IsAttributeStoringRep, ["domain"]); 
 #Note... need to specify PartialOrder here
 #DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);
-DeclareRepresentation("IsPosetOfElements", IsComponentObjectRep and IsAttributeStoringRep, ["faces_list"]); 
+DeclareRepresentation("IsPosetOfElements", IsComponentObjectRep and IsAttributeStoringRep, ["elements_list"]); 
 #Note... for this type also (usually) want to specify the partial order
 
 

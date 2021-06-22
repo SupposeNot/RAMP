@@ -13,6 +13,7 @@ InstallMethod(PosetFromFaceListOfFlags,
 	end);
 
 
+
 InstallMethod(POConvertToBROnPoints,
 	[IsBinaryRelation],
 	function(reln)
@@ -44,10 +45,10 @@ InstallOtherMethod(Rank,
 	function(poset)
 	local list;
 	list:=poset!.faces_list_by_rank;
-	if HasIsP1(poset)=false then
-		SetIsP1(poset,ListIsFullPoset(list));
+	if HasIsFull(poset)=false then
+		SetIsFull(poset,ListIsFullPoset(list));
 	fi;
-	if IsP1(poset) then
+	if IsFull(poset) then
 		SetRankPoset(poset,Length(list)-2);
 	else
 		SetRankPoset(poset,Length(list));
@@ -55,16 +56,16 @@ InstallOtherMethod(Rank,
 	return poset!.RankPoset;	
 	end);
 
-# InstallMethod(IsNotFull,
-# 	[IsPoset and IsPosetOfFlags],
-# 	function(poset)
-# #	local ;
-# 	if IsFull(poset) then
-# 		return false;
-# 	else 
-# 		return true;
-# 	fi;
-# 	end);
+InstallMethod(IsNotFull,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+#	local ;
+	if IsFull(poset) then
+		return false;
+	else 
+		return true;
+	fi;
+	end);
 
 InstallMethod(ListIsFullPoset,
 	[IsList],
@@ -81,21 +82,8 @@ InstallMethod(ListIsFullPoset,
 	Print("Something went wrong");
 	return;
 	end);
-# 
-# InstallMethod(IsP1,
-# 	[IsPoset and IsPosetOfFlags],
-# 	function(poset)
-# 	return IsFull(poset);
-# 	end);
 
-# InstallOtherMethod(IsP1,
-# 	[IsPoset and IsPosetOfElements],
-# 	function(poset)
-# 	
-# 	end);	
-
-# InstallMethod(FullPosetOfConnectionGroup, 
-InstallMethod(PosetOfConnectionGroup, 
+InstallMethod(FullPosetOfConnectionGroup, 
 	[IsPermGroup],
 	function(g)
 	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
@@ -116,63 +104,60 @@ InstallMethod(PosetOfConnectionGroup,
 	Add(posetList,[[]],1);
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList);
-# 	SetIsFull(poset,true);
-	SetIsP1(poset,true);
+	SetIsFull(poset,true);
 	return poset;
 	end);
 
 
-# InstallMethod(PosetOfConnectionGroup,
-# 	[IsPermGroup],
-# 	function(g)
-# 	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
-# 	if IsPermGroup(g)=true then 
-# 		conng:=g;
-# 	else
-# 		Print("Group was not given as a permutation group, may not be a connection group. Treat results with suspicion.\n");
-# 		conng:=Image(IsomorphismPermGroup(g));
-# 	fi;
-# 	rank:=Length(GeneratorsOfGroup(conng));
-# 	flags:=MovedPoints(conng);
-# 	gens:=GeneratorsOfGroup(conng);
-# 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-# 	posetList:=[];
-# 	for i in [1..rank] do
-# 		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
-# 		od;
-# 	poset:=PosetFromFaceListOfFlags(posetList);
-# # 	SetIsFull(poset,false);
-# 	SetIsP1(poset,false);
-# 	return poset;
-# 	end);
+InstallMethod(PosetOfConnectionGroup,
+	[IsPermGroup],
+	function(g)
+	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
+	if IsPermGroup(g)=true then 
+		conng:=g;
+	else
+		Print("Group was not given as a permutation group, may not be a connection group. Treat results with suspicion.\n");
+		conng:=Image(IsomorphismPermGroup(g));
+	fi;
+	rank:=Length(GeneratorsOfGroup(conng));
+	flags:=MovedPoints(conng);
+	gens:=GeneratorsOfGroup(conng);
+	genIndexes:=Reversed(Combinations([1..rank],rank-1));
+	posetList:=[];
+	for i in [1..rank] do
+		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
+		od;
+	poset:=PosetFromFaceListOfFlags(posetList);
+	SetIsFull(poset,false);
+	return poset;
+	end);
 	
 
 
 
 
-# InstallMethod(PosetOfManiplex,
-# 	[IsManiplex],
-# 	function(mani)
-# 	local poset,conng,posetList,flags,rank,gens,genIndexes,i;
-# 	conng:=ConnectionGroup(mani);
-# 	rank:=Length(GeneratorsOfGroup(conng));
-# 	flags:=MovedPoints(conng);
-# 	gens:=GeneratorsOfGroup(conng);
-# 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-# 	posetList:=[];
-# 	for i in [1..rank] do
-# 		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
-# 		od;
-# 	poset:=PosetFromFaceListOfFlags(posetList);
-# 	SetIsFull(poset,false);
-# 	return poset;
-# 	end);
-	
-	
-
-
-# InstallMethod(FullPosetOfManiplex,
 InstallMethod(PosetOfManiplex,
+	[IsManiplex],
+	function(mani)
+	local poset,conng,posetList,flags,rank,gens,genIndexes,i;
+	conng:=ConnectionGroup(mani);
+	rank:=Length(GeneratorsOfGroup(conng));
+	flags:=MovedPoints(conng);
+	gens:=GeneratorsOfGroup(conng);
+	genIndexes:=Reversed(Combinations([1..rank],rank-1));
+	posetList:=[];
+	for i in [1..rank] do
+		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
+		od;
+	poset:=PosetFromFaceListOfFlags(posetList);
+	SetIsFull(poset,false);
+	return poset;
+	end);
+	
+	
+
+
+InstallMethod(FullPosetOfManiplex,
 	[IsManiplex],
 	function(mani)
 	local posetList,conng,poset,flags,rank,gens,genIndexes,i;
@@ -188,12 +173,11 @@ InstallMethod(PosetOfManiplex,
 	Add(posetList,[[]],1);
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList);
-#	SetIsFull(poset,true);
-	SetIsP1(poset,true);
+	SetIsFull(poset,true);
 	return poset;
 	end);	
 
-InstallMethod(AreIncidentFlagFaces,
+InstallMethod(AreIncidentFaces,
 	[IsList,IsList],
 	function(list1,list2)
 	if list1=[] or list2=[] then
@@ -212,7 +196,7 @@ InstallMethod(FlagsAsListOfFacesFromPoset,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local faceList, flags, size, flagList, rank, i, flag, newPoset;
-	if IsP1(poset) then
+	if IsFull(poset) then
 		newPoset:=PosetFromFaceListOfFlags(poset!.faces_list_by_rank{[2..Rank(poset)+1]});
 	else
 		newPoset:=poset;
@@ -349,7 +333,7 @@ InstallMethod(ConnectionGroupOfPoset,
 		Print("This poset is not flaggable, and this function only works for flaggable posets.");
 		return;
 	fi;
-	if IsP1(poset) then
+	if IsFull(poset) then
 		ranks:=[2..Rank(poset)+1];
 	else
 		ranks:=[1..Rank(poset)];
@@ -410,7 +394,7 @@ InstallMethod(RankedFaceListOfPoset,
 	function(poset)
 	local list,flp;
 	flp:=ShallowCopy(FaceListOfPoset(poset));
-	if IsP1(poset) then 
+	if IsFull(poset) then 
 		list:=Concatenation(List(flp,x->List(x,y->[y,Position(flp,x)-2])));
 	else
 		list:=Concatenation(List(flp,x->List(x,y->[y,Position(flp,x)-1])));
@@ -477,8 +461,6 @@ InstallMethod(PrintObj,
 	if HasAtomList(face) then Print("\n made up of atoms: ", AtomList(face));fi;
 	if HasIndex(face) then Print("\n with index=",face!.IndexAndRank); fi;
 	end);
-
-# InstallMethod("IsP1")
 
 
 InstallMethod(IsSubface,
@@ -559,43 +541,33 @@ InstallMethod(pairCompareAtomsList,
 InstallMethod(PosetFromElements,
 	[IsList],
 	function(faceList)
-	local nFaceList, workingList, po, poset;
+	local nFaceList,workingList,po;
 	nFaceList:=Length(faceList);
 	if DuplicateFreeList(List(faceList,HasFlagList))[1] then
 		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
 		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareFlagsList);
-		poset:= PosetFromPartialOrder(po);
-		SetElementsList(poset,ShallowCopy(faceList));
-		return poset;
+		return PosetFromPartialOrder(po);
 	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
 		workingList:=List(faceList,x->[AtomList(x),Rank(x)]);
 		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareAtomsList);
-		poset:= PosetFromPartialOrder(po);
-		SetElementsList(poset,ShallowCopy(faceList));
-		return poset;
+		return PosetFromPartialOrder(po);
 	else
-		Print("ya got me doc! You might try including a partial ordering function.");
+		Print("ya got me doc!");
 	fi;	
 	end);
 
 InstallOtherMethod(PosetFromElements,
 	[IsList,IsFunction],
-	function(faceList,orderFunc)
-	local nFaceList,workingList,pairs,tuplesList,po,i,j, poset;
-	if Size(faceList)=infinity then Print("This only works for finite lists of poset elements."); fi;
+	function(faceList,po)
+	local nFaceList,workingList;
 	nFaceList:=Length(faceList);
-	tuplesList:=List([1..nFaceList],x->[]);
-	for i in [1..nFaceList] do
-		for j in [1..nFaceList] do
-			if orderFunc(faceList[i],faceList[j]) then 
-				Append(tuplesList[j],[i]); 
-			fi;
-		od;
-	od;
-	po:=BinaryRelationOnPoints(tuplesList);
-	poset:= PosetFromPartialOrder(po);
-	SetElementsList(poset,ShallowCopy(faceList));
-	return poset;
+	if DuplicateFreeList(List(faceList,HasFlagList))[1] then
+		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),po);
+		return PosetFromPartialOrder(po);
+	else
+		Print("ya got me doc!");
+	fi;	
 	end);
 
 
@@ -609,7 +581,7 @@ InstallOtherMethod(PosetFromElements,
 #conG:=ConnectionGroupOfPoset(pos);
 #GeneratorsOfGroup(cg)=GeneratorsOfGroup(conG);
 
-#If you want to play with the flaggable stuff... m44 below is the {4,4}_(1,0) map.
+#If you want to play with the flaggable stuff... m44 is the {4,4}_(1,0) map.
 #m44:=ReflexibleManiplex(Group([(1,8)(2,3)(4,5)(6,7),(1,2)(3,4)(5,6)(7,8),(1,4)(2,7)(3,6)(5,8)]);
 #m44pos:=PosetOfManiplex(m44);
 #IsFlaggablePoset(m44);

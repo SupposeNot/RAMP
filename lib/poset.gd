@@ -5,19 +5,67 @@
 #! @Chapter Combinatorics and Structure
 #! @Section Posets
 
+#! @Subsection Poset constructors
+
 #! @Arguments list
 #! @Returns __IsPosetOfFlags__. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 #! @Description Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 
+#! @Arguments g
+#! @Returns __IsPosetOfFlags__ with __IsFull__=false.
+#! @Description Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function includes the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
+DeclareOperation("PosetOfConnectionGroup",[IsPermGroup]);
+
+##! @Arguments g
+##! @Returns __IsPosetOfFlags__ with __IsFull__=true.
+##! @Description Returns a full poset corresponding to the connection group <A>g</A> with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. This function does include the minimal (empty) face nor the maximal face of the maniplex, so the list has $n+2$ ranks if the maniplex is of rank $n$. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
+#DeclareOperation("FullPosetOfConnectionGroup",[IsPermGroup]);
+
+
+#! @Arguments mani
+#! @Returns __IsPosetOfFlags__ 
+#List of lists of faces, ordered by rank. Each face is a list of the flags it contains.
+#! @Description Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
+DeclareOperation("PosetOfManiplex", [IsManiplex]);
+
+##! @Arguments mani
+##! @Returns __IsPosetOfFlags__
+##List of lists of faces, ordered by rank. Each face is a list of the flags it contains.
+##! @Description Given a maniplex, returns a poset with the internal representation be a list of lists of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
+#DeclareOperation("FullPosetOfManiplex", [IsManiplex]);
+
+#helper function for PosetFromPartialOrder
+DeclareOperation("POConvertToBROnPoints",[IsBinaryRelation]);
+
+#! @Arguments partialOrder
+#! @Returns __IsPosetOfIndices__
+#! @Description Given a partial order on a finite set of size $n$, this function will create a partial order on __[1..n]__.
+DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
+
+
+#! @Arguments list_of_faces, {function}
+#! @Returns __IsPosetOfElements__
+#! @Description This is for gathering elements with a known ordering <A>function</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList or HasAtomList, you may omit the function. Also note, the expectation is that <A>function</A> behaves similarly to IsSubset, i.e., <A>function</A>(a,b)=true means $b< a$ in the order.
+DeclareOperation("PosetFromElements",[IsList]);
+
+#Helper functions for PosetFromElements
+DeclareOperation("pairCompareFlagsList",[IsList,IsList]);
+DeclareOperation("pairCompareAtomsList",[IsList,IsList]);
 
 #! @Subsection Poset attributes
+
+DeclareAttribute("ElementsList", IsPoset); #for storing facelists
+DeclareSynonymAttr("FacesList", IsPoset);
+DeclareAttribute("Ranks", IsPoset,"mutable"); #for storing the list of ranks in the poset
+#for what it is worth, thinking about killing off the full versus not stuff. Just make the user make a NEW poset with all the stuff in it they want.
+
 DeclareAttribute("RankPoset",IsPoset);
 
-#! @Arguments poset
-#! @Returns __true__ or __false__
-#! @Description Checks or creates the value of the attribute IsFull for an IsPoset.
-DeclareAttribute("IsFull",IsPoset,"mutable");
+##! @Arguments poset
+##! @Returns __true__ or __false__
+##! @Description Checks or creates the value of the attribute IsFull for an IsPoset.
+#DeclareAttribute("IsFull",IsPoset,"mutable");
 DeclareAttribute("IsFlaggable",IsPoset);
 
 
@@ -35,70 +83,34 @@ DeclareAttribute("PartialOrder", IsPoset);
 #! @Arguments list
 #! @Returns __true__ or __false__
 #! @Description Given <A>list</A>, a poset as a list of faces ordered by rank, each face listing the flags on the face, this function will tell you if the poset is full or not.
-DeclareOperation("ListIsFullPoset",[IsList]);
+ DeclareOperation("ListIsFullPoset",[IsList]);
 
 
 #! @Arguments poset
 #! @Returns __integer__
-#! @Description Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
+#! @Description Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later. NOT IMPLEMENTED YET.
 DeclareOperation("RankOfPoset", [IsPoset]);
 
 
+##! @Arguments poset
+##! @Returns __true__ or __false__
+##! @Description Lets me check to see if a poset is NOT full.  For use in certain filtering operations.
+#DeclareOperation("IsNotFull",[IsPoset]);
+
 #! @Arguments poset
 #! @Returns __true__ or __false__
-#! @Description Lets me check to see if a poset is NOT full.  For use in certain filtering operations.
-DeclareOperation("IsNotFull",[IsPoset]);
+#! @Description Determines whether a poset has property P1 from ARP.
+DeclareAttribute("IsP1", IsPoset);
 
 
 
-#! @Subsection Poset constructors
-
-#! @Arguments g
-#! @Returns __IsPosetOfFlags__ with __IsFull__=false.
-#! @Description Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
-DeclareOperation("PosetOfConnectionGroup",[IsPermGroup]);
-
-#! @Arguments g
-#! @Returns __IsPosetOfFlags__ with __IsFull__=true.
-#! @Description Returns a full poset corresponding to the connection group <A>g</A> with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. This function does include the minimal (empty) face nor the maximal face of the maniplex, so the list has $n+2$ ranks if the maniplex is of rank $n$. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
-DeclareOperation("FullPosetOfConnectionGroup",[IsPermGroup]);
-
-#! @Arguments mani
-#! @Returns __IsPosetOfFlags__ 
-#List of lists of faces, ordered by rank. Each face is a list of the flags it contains.
-#! @Description Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
-DeclareOperation("PosetOfManiplex", [IsManiplex]);
-
-#! @Arguments mani
-#! @Returns __IsPosetOfFlags__
-#List of lists of faces, ordered by rank. Each face is a list of the flags it contains.
-#! @Description Given a maniplex, returns a poset with the internal representation be a list of lists of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
-DeclareOperation("FullPosetOfManiplex", [IsManiplex]);
-
-#helper function for PosetFromPartialOrder
-DeclareOperation("POConvertToBROnPoints",[IsBinaryRelation]);
-
-#! @Arguments partialOrder
-#! @Returns __IsPosetOfIndices__
-#! @Description Given a partial order on a finite set of size $n$, this function will create a partial order on __[1..n]__.
-DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
-
-
-#! @Arguments list_of_faces, {function}
-#! @Returns __IsPosetOfElements__
-#! @Description This is for gathering elements with a known ordering <A>function</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList or HasAtomList, you may omit the function.
-DeclareOperation("PosetFromElements",[IsList]);
-
-#Helper functions for PosetFromElements
-DeclareOperation("pairCompareFlagsList",[IsList,IsList]);
-DeclareOperation("pairCompareAtomsList",[IsList,IsList]);
 
 #! @Subsection Working with posets
 
 #! @Arguments object1, object2
 #! @Returns __true__ or __false__
 #! @Description Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.
-DeclareOperation("AreIncidentFaces",[IsObject,IsObject]);
+DeclareOperation("AreIncidentFlagFaces",[IsObject,IsObject]);
 
 #! @Arguments poset
 #! @Returns __IsList__
