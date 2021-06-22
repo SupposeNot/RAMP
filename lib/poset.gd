@@ -47,6 +47,7 @@ DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
 #! @Arguments list_of_faces, {function}
 #! @Returns __IsPosetOfElements__
 #! @Description This is for gathering elements with a known ordering <A>function</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList or HasAtomList, you may omit the function. Also note, the expectation is that <A>function</A> behaves similarly to IsSubset, i.e., <A>function</A>(a,b)=true means $b< a$ in the order.
+# Also worth noting, is that the internal representation of this kind of poset can and does keep both the partial order on the indices, and the list of faces corresponding to those indices.
 DeclareOperation("PosetFromElements",[IsList]);
 
 #Helper functions for PosetFromElements
@@ -150,6 +151,8 @@ DeclareOperation("FaceListOfPoset",[IsPoset]);
 ############# Face stuff #################
 
 #! @Subsection Elements of posets, also known as faces.
+
+#! @Subsubsection Element properties
 
 #! @Arguments posetelement {face}
 #! @Returns __true__ or __false__

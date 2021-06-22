@@ -2,7 +2,7 @@
 ###Operations for dealing with maniplexes as posets###
 #This stuff is Gordon's fault...
 
-#Note: The following function is INTENTIONALLY agnostic about whether it is being given full poset or not.
+#Note: The following function is INTENTIONALLY agnostic about whether it is being given full poset or not. I should probably fix that so that it will report a problem if the first entry isn't [[]] and the last entry has length more than 1. I should do something similar for atomic posets.
 InstallMethod(PosetFromFaceListOfFlags,
 	[IsList],
 	function(list)
@@ -81,20 +81,51 @@ InstallMethod(ListIsFullPoset,
 	Print("Something went wrong");
 	return;
 	end);
-# 
-# InstallMethod(IsP1,
-# 	[IsPoset and IsPosetOfFlags],
-# 	function(poset)
-# 	return IsFull(poset);
-# 	end);
 
-# InstallOtherMethod(IsP1,
-# 	[IsPoset and IsPosetOfElements],
-# 	function(poset)
-# 	
-# 	end);	
 
-# InstallMethod(FullPosetOfConnectionGroup, 
+InstallMethod(IsP1,
+	[IsPoset and IsPosetOfFlags],
+	function(poset)
+		local faceList;
+	faceList:=poset!.faces_list_by_rank;
+	if HasIsP1(poset) then return IsP1(poset); fi;
+	if faceList[1]=[[]] and Length(faceList[Rank(poset)+2])=1 then
+	SetIsP1(poset,true);
+	return true;
+	fi;
+	end);	
+
+InstallOtherMethod(IsP1,
+	[IsPoset and IsPosetOfIndices],
+	function(poset)
+	local faceList,atomicFaceList, partialOrder,successors, sourceList;
+	if HasIsP1(poset) then return IsP1(poset); fi;
+	faceList:=ElementsList(poset);
+	#for handling the case when all the elements have an atomic description
+	if DuplicateFreeList(List(faceList,x->HasAtomList(x)))=[true] then
+		atomicFaceList:=List(faceList,x->AtomList(x));
+		if [] in atomicFaceList and DuplicateFreeList(Concatenation(atomicFaceList)) in atomicFaceList then
+			SetIsP1(poset,true);
+			return true; 
+		else 
+			SetIsP1(poset,false); 
+			return false;
+		fi;
+	elif HasPartialOrder(poset) then #if we only know we have a partial order...
+		partialOrder:=PartialOrder(poset);
+		sourceList:=Elements(Source(partialOrder));
+		successors:=Successors(partialOrder);
+		if Length(PositionsProperty(successors,x->x=sourceList))=1 and Length(PositionsProperty([1..Length(sourceList)],x->successors[x]=[x]))=1 then
+			SetIsP1(poset,true);
+			return true;
+		else 
+			SetIsP1(poset,false); 
+			return false;
+		fi;
+	fi;
+end);
+
+
 InstallMethod(PosetOfConnectionGroup, 
 	[IsPermGroup],
 	function(g)
