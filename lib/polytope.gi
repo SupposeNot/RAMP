@@ -198,25 +198,6 @@ InstallOtherMethod(ReflexibleManiplex,
 	return p;
 	end);
 	
-# Given a finitely presented group, builds the rotary (regular or chiral)
-# polytope with that group as its rotation group.
-InstallMethod(RotaryManiplex,
-	[IsFpGroup],
-	function(rotgp)
-	local n, fam, p;
-	n := 1+Size(GeneratorsOfGroup(rotgp));
-	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
-	fam!.rank := n;
-	
-	p := Objectify( NewType( fam, IsManiplex and IsRotaryManiplexRotGpRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail) ));
-	
-	if HasSize(rotgp) then SetSize(p, 2*Size(rotgp)); fi;
-	SetRankManiplex(p, n);
-	SetRotationGroup(p, rotgp);
-	SetIsOrientable(p, true);
-	return p;
-	end);
-
 # Given a permutation group (sggi), builds a maniplex with that as its connection group.	
 InstallMethod(Maniplex,
 	[IsPermGroup],

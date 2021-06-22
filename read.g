@@ -22,6 +22,7 @@ ReadPackage( "ramp", "lib/polytope.gi" );
 ReadPackage( "ramp", "lib/poset.gi" );
 ReadPackage( "ramp", "lib/products.gi" );
 ReadPackage( "ramp", "lib/quotients.gi" );
+ReadPackage( "ramp", "lib/rotary.gi" );
 ReadPackage( "ramp", "lib/tomotope.gi" );
 ReadPackage( "ramp", "lib/toroids.gi" );
 
