@@ -207,7 +207,11 @@ and then use that log later as a test:
 
     LogTo(filename);
     
-This starts writing your GAP session to a file. Then you can use
+This starts writing your GAP session to a file. To stop logging to a file, just type
+
+    LogTo();
+
+Go open your log file and delete the LogTo(); line. Now you can use
 
      Test(filename);
      
