@@ -43,8 +43,6 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 #! ReflexibleManiplex("{4,3}_3");
 DeclareOperation("ReflexibleManiplex", [IsString]);
 
-DeclareOperation("RotaryManiplex", [IsGroup]);
-
 #! @Arguments G
 #! Returns a maniplex with connection group <A>G</A>, where <A>G</A>
 #! is assumed to be a permutation group on the flags.

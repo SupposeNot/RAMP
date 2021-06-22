@@ -3,9 +3,68 @@ InstallMethod(AutomorphismGroup,
 	[IsManiplex and IsManiplexConnGpRep],
 	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
 	
-InstallOtherMethod(AutomorphismGroup, 
+InstallMethod(AutomorphismGroup, 
 	[IsManiplex and IsReflexibleManiplexAutGpRep],
 	M -> M!.aut_gp);
+
+# BROKEN
+# Need to find another approach.
+InstallMethod(AutomorphismGroup,
+	[IsManiplex and IsRotaryManiplexRotGpRep],
+	function(M)
+	local n, gens, f, g, h, i, rels, h2, genr;
+	
+	# The strategy is to add a new generator r0 that acts as conjugation by
+	# r0 should. If this works, then we have a rotation group of an orientably
+	# regular polytope. If not, then we have a chiral polytope, and the automorphism
+	# group is just the rotation group.
+	
+	n := Rank(M);
+	g := RotationGroup(M);
+	gens := List([1..n-1], i -> Concatenation("s", String(i)));
+	Add(gens, "r0");
+	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r, FreeGeneratorsOfFpGroup(g)));
+
+	# The new generator r0 is an involution and should satisfy:
+	# r0 s1 r0 s1 = 1.
+	# r0 s2 r0 s1 s2 s1^-1 = 1.
+	# r0 si r0 si^-1 = 1 for i >= 3.
+	f := FreeGroup(gens);
+	Add(rels, [n, n]);
+	Add(rels, [n, 1, n, 1]);
+	if n > 2 then
+		Add(rels, [n, 2, n, 1, 2, -1]);
+	fi;
+	for i in [3..n-1] do
+		Add(rels, [n, i, n, -i]);
+	od;
+	
+	rels := List(rels, r -> AbstractWordTietzeWord(r, GeneratorsOfGroup(f)));
+	h := f / rels;
+	
+	# Now rearrange the generators to be the usual r0, r1, etc.
+	
+	genr := function(k)
+		if k = 0 then
+			return GeneratorsOfGroup(h)[n];
+		else
+			return genr(k-1) * GeneratorsOfGroup(h)[k];
+		fi;
+		end;
+	
+	h2 := Group(List([0..n-1], i -> genr(i)));
+	
+	if Size(h2) = 2 * Size(g) then
+		# We have an orientably regular polytope
+		SetIsReflexible(M, true);
+		return h2;
+	else
+		# We have a chiral polytope
+		SetIsReflexible(M, false);
+		return g;
+	fi;
+	
+	end);
 
 # TODO: Currently we always rewrite this as a quotient of a universal Coxeter group.
 # Is that what we actually want for non-reflexible maniplexes?
@@ -46,7 +105,7 @@ InstallMethod(RotationGroup,
 	M -> M!.rot_gp);
 	
 InstallMethod(RotationGroup,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(M)
 	local gens, n, i, new_gens;
 	gens := GeneratorsOfGroup(AutomorphismGroup(M));
@@ -65,6 +124,28 @@ InstallMethod(ConnectionGroup,
 	g := AutomorphismGroup(M);
 	return Image(RegularActionHomomorphism(g));
 	end);
+	
+InstallMethod(ConnectionGroup,
+	[IsRotaryManiplex],
+	function(M)
+	local g, n, w, wgens, wpgens, wp, hom, ker, ker2;
+	g := AutomorphismGroup(M);
+	if IsReflexible(M) then
+		return Image(RegularActionHomomorphism(g));
+	else
+		# A chiral polytope has a flag-stabilizer K that is normal in W+ but not W.
+		# So we find the flag-stabilizer, and then use it to build the connection group.
+		n := Rank(M);
+		w := UniversalSggi(n);
+		wgens := GeneratorsOfGroup(w);
+		wpgens := List([1..n-1], i -> wgens[i]*wgens[i+1]);
+		wp := Subgroup(w, wpgens);
+		hom := GroupHomomorphismByImagesNC(wp, g, wpgens, GeneratorsOfGroup(g));
+		ker := Kernel(hom);
+		ker2 := Core(w, ker);
+		return w / ker2;
+	fi;	
+	end);
 InstallMethod(ConnectionGroup,
 	[IsManiplex and IsManiplexConnGpRep],
 	function(M)
@@ -82,7 +163,7 @@ InstallMethod(EvenConnectionGroup,
 	end);
 
 	
-# Returns a list of relators (as Tietze words) that are necessary to
+# Returns a list of relators that are necessary to
 # define the automorphism group of M as a quotient of the string
 # Coxeter group implied by its Schlafli Symbol.
 InstallMethod(ExtraRelators,
