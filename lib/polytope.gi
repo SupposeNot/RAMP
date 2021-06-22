@@ -404,6 +404,9 @@ InstallMethod(HoleLength,
 	return Order(g.1*g.2*g.3*g.2);
 	end);
 	
+# TODO: This is currently broken for rotary maniplexes
+# I really want orbs to be the action of the automorphism
+# group on the _flags_.
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(p)
@@ -412,7 +415,7 @@ InstallMethod(SymmetryTypeGraph,
 		return List([1..Rank(p)], i -> ());
 	fi;
 	
-	ag := AutomorphismGroup(p);
+	ag := AutomorphismGroupPermGroup(p);
 	orbs := List(Orbits(ag), o -> Set(o));
 	k := Size(orbs);
 	cg := ConnectionGroup(p);
@@ -466,11 +469,22 @@ InstallMethod(IsReflexible,
 	return val;
 	end);
 
+InstallMethod(IsChiral,
+	[IsManiplex],
+	function(M)
+	local val;
+	val := ForAll(SymmetryTypeGraph(M), r -> r = (1,2));
+	if HasDual(M) then
+		SetIsChiral(Dual(M), val);
+	fi;	
+	return val;
+	end);
+
 InstallMethod(IsRotary,
 	[IsManiplex],
 	function(M)
 	local val;
-	val := (IsOrientable(M) and (NumberOfFlagOrbits(M) <= 2));
+	val := IsReflexible or IsChiral;
 	if HasDual(M) then
 		SetIsRotary(Dual(M), val);
 	fi;

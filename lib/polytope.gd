@@ -124,8 +124,12 @@ DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
 DeclareProperty("IsReflexible", IsManiplex);
 
 #! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is rotary; i.e., whether it is orientable
-#! and has at most 2 flag orbits (making it either chiral or orientably regular).
+#! @Returns Whether the maniplex <A>M</A> is chrial.
+DeclareProperty("IsChiral", IsManiplex);
+
+#! @Arguments M
+#! @Returns Whether the maniplex <A>M</A> is rotary; i.e., whether it is 
+#! either reflexible or chiral.
 DeclareProperty("IsRotary", IsManiplex);
 
 

@@ -2,35 +2,6 @@
 
 # This should probably be split into more files...
 	
-# Helper function for UniversalPolytope below.	
-_IS_SPHERICAL := function(sym)
-	local prefix, suffix, k, n;
-	n := 1+Size(sym);
-	if n <= 1 then return true; fi;
-	if ForAny(sym, i -> i = 2) then
-		k := First([1..n-1], i -> sym[i] = 2);
-		prefix := sym{[1..k-1]};
-		suffix := sym{[k+1..n-1]};
-		return _IS_SPHERICAL(prefix) and _IS_SPHERICAL(suffix);
-	elif n = 2 then
-		return sym[1] <> infinity;
-	elif n = 3 then
-		if sym in [[3,3], [3,4], [3,5], [4,3], [5,3]] then return true; else return false; fi;
-	elif n = 4 then
-		if sym in [[3,3,3], [3,3,4], [3,3,5], [3,4,3], [4,3,3], [5,3,3]] then return true; else return false; fi;
-	else # n >= 5
-		if ForAll(sym, i -> i = 3) then
-			return true;
-		elif sym[1] = 4 and ForAll(sym{[2..n-1]}, i -> i = 3) then
-			return true;
-		elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
-			return true;
-		else
-			return false;
-		fi;
-	fi;
-	end;
-
 # Returns the Universal Polytope of rank n.
 InstallMethod( UniversalPolytope,
 	[IsInt],
@@ -155,13 +126,6 @@ InstallMethod(FlatExtension,
 	fi;
 	return p2;
 	end);
-
-# Calculate the petrie length. Find the rels that define g as a quotient of [p,q]_r.
-# Look for 2-holes next. (order of r0 r1 r2 r1)
-# STUB - not finished yet
-_STANDARDIZE_RELS := function(p)
-	local g;
-	end;
 
 # TODO: Guard against some bad function values
 # Make this one not assume anything and actually compute everything;
