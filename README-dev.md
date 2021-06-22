@@ -213,3 +213,14 @@ This starts writing your GAP session to a file. Then you can use
      
 This essentially re-runs your session, comparing the output in the log with your current output,
 and it will warn you if there is a discrepancy.
+
+## Running tests ##
+
+There is a new function, TEST_RAMP(), that runs all of the tests in tst/testall.g. If the tests are all
+successful, then there is no output.
+
+When you want to add new tests, put them in the tst subdirectory as <name>.tst, and then add a line
+to testall.g.
+	
+When you are ready to push your code, first start a fresh GAP session and run TEST_RAMP() to make sure
+that everything still works. 
