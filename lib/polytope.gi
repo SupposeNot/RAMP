@@ -247,14 +247,29 @@ InstallOtherMethod(Size,
 	fi;
 	return val;
 	end);
-
+	
+InstallOtherMethod(Size,
+	[IsManiplex and IsManiplexQuotientRep],
+	function(M)
+	local val;
+	val := Index(AutomorphismGroup(M!.parent), M!.subgroup);
+	if HasDual(M) then
+		SetSize(Dual(M), val);
+	fi;
+	return val;
+	end);
+	
 InstallMethod(RankManiplex,
 	[IsReflexibleManiplex],
-	p -> Size(GeneratorsOfGroup(AutomorphismGroup(p))));
+	M -> Size(GeneratorsOfGroup(AutomorphismGroup(M))));
 
 InstallMethod(RankManiplex,
-	[IsManiplex],
-	p -> Size(GeneratorsOfGroup(ConnectionGroup(p))));
+	[IsManiplex and IsManiplexConnGpRep],
+	M -> Size(GeneratorsOfGroup(ConnectionGroup(M))));
+
+InstallMethod(RankManiplex,
+	[IsManiplex and IsManiplexQuotientRep],
+	M -> Rank(M!.parent));
 
 InstallMethod(Rank, [IsManiplex], RankManiplex);
 	

@@ -13,6 +13,17 @@ InstallMethod(IsQuotientOf,
 	return (hom <> fail);
 	end);
 
+InstallMethod(IsQuotientOf,
+	IsSameRank,
+	[IsManiplex and IsManiplexQuotientRep, IsManiplex and IsManiplexQuotientRep],
+	function(p,q)
+	if (p!.parent = q!.parent) and IsSubset(q!.subgroup, p!.subgroup) then
+		return true;
+	else
+		TryNextMethod();
+	fi;
+	end);
+	
 # This determines whether the regular polytope P is a quotient of the regular polytope Q,
 # assuming that we have presentations for both of their groups.
 InstallMethod(IsQuotientOf,
