@@ -122,3 +122,68 @@ InstallMethod(VertexFigures,
 	return q;
 	end);
 	
+InstallMethod(SchlafliSymbol,
+	[IsReflexibleManiplex],
+	function(M)
+	local gens, n, sym;
+	gens := GeneratorsOfGroup(AutomorphismGroup(M));
+	n := Rank(M);
+	sym := [];
+	sym := List([1..n-1], i -> Order(gens[i]*gens[i+1]));
+	if HasDual(M) then
+		SetSchlafliSymbol(Dual(M), Reversed(sym));
+	fi;
+	return sym;
+	end);
+	
+InstallMethod(SchlafliSymbol,
+	[IsManiplex and IsRotaryManiplexRotGpRep],
+	function(M)
+	local gens, n, sym;
+	gens := GeneratorsOfGroup(AutomorphismGroup(M));
+	n := Rank(M);
+	sym := List(gens, x -> Order(x));
+	if HasDual(M) then
+		SetSchlafliSymbol(Dual(M), Reversed(sym));
+	fi;
+	return sym;
+	end);
+	
+# This assumes that the connection group really does act on flags.
+# It should work for IsManiplexQuotientRep too.
+InstallMethod(SchlafliSymbol,
+	[IsManiplex],
+	function(M)
+	local n, g, i, sym, gens, h, orbs, sections;
+	sym := [];
+	n := Rank(M);
+	g := ConnectionGroup(M);
+	gens := GeneratorsOfGroup(g);
+	for i in [1..n-1] do
+		# Look at the orbits under <ri-1, ri>.
+		# An orbit of size k indicates a (k/2)-gon section.
+		h := Subgroup(g, [gens[i], gens[i+1]]);
+		orbs := OrbitLengths(h);
+		sections := Set(List(orbs, k -> k/2));
+		if Size(sections) = 1 then
+			Add(sym, sections[1]);
+		else
+			Add(sym, sections);
+		fi;
+	od;
+
+	if HasDual(M) then
+		SetSchlafliSymbol(Dual(M), Reversed(sym));
+	fi;
+	return sym;
+	end);
+	
+InstallMethod(IsEquivelar,
+	[IsManiplex],
+	function(M)
+	return ForAll(SchlafliSymbol(M), x -> IsInt(x));
+	end);
+	
+# Every reflexible and rotary maniplex is equivelar
+InstallTrueMethod(IsEquivelar, IsReflexible);
+InstallTrueMethod(IsEquivelar, IsRotary);

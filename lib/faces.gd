@@ -36,3 +36,20 @@ DeclareAttribute("Facets", IsManiplex);
 #! Currently only works for reflexible maniplexes.
 DeclareAttribute("VertexFigures", IsManiplex);
 
+
+#! @Chapter Combinatorics and Structure
+#! @Section Schlafli symbol
+
+#! @Arguments M
+#! Returns the Schlafli symbol of the maniplex <A>M</A>.
+#! Each entry is either an integer or a set of integers,
+#! where entry number i shows the polygons that we obtain
+#! as sections of (i+1)-faces over (i-2)-faces.
+DeclareAttribute("SchlafliSymbol", IsManiplex);
+
+#! @Arguments M
+#! @Returns the the maniplex <A>M</A> is equivelar; i.e.,
+#! whether its Schlafli Symbol consists of integers at each
+#! position (no lists).
+DeclareProperty("IsEquivelar", IsManiplex);
+

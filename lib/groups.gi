@@ -151,6 +151,15 @@ InstallMethod(ConnectionGroup,
 	function(M)
 	return M!.conn_gp;
 	end);
+InstallMethod(ConnectionGroup,
+	[IsManiplex and IsManiplexQuotientRep],
+	function(M)
+	local g, h, c;
+	g := AutomorphismGroup(M!.parent);
+	h := M!.subgroup;
+	c := Core(g, h);
+	return g / c;	
+	end);
 
 InstallMethod(EvenConnectionGroup,
 	[IsManiplex],

@@ -1,7 +1,6 @@
 ### RAMP -- Research Assistant for Maniplexes and Polytopes ###
 
 # TODO
-# If we later learn that a polytope is regular, then do we need to promote it?
 # Store petrie rel
 
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
@@ -132,6 +131,9 @@ InstallMethod(ReflexibleManiplex,
 	[IsList],
 	function(sym)
 	local n, w, p;
+	if ForAny(sym, x -> not(IsInt(x)) or x < 2) then
+		Error("Each entry of the Schlafli symbol must be a positive integer at least 2.");
+	fi;
 	n := Size(sym)+1;
 	w := UniversalSggi(sym);
 	p := ReflexibleManiplex(w);
@@ -156,6 +158,10 @@ InstallMethod(ReflexibleManiplex,
 	autgp := FactorGroupFpGroupByRels(w, rels);
 	p := ReflexibleManiplex(autgp);
 	SetExtraRelators(p, rels);
+	if ValueOption("set_schlafli") = true then
+		SetSchlafliSymbol(p, sym);
+	fi;
+	
 	return p;
 	end);
 
@@ -212,9 +218,6 @@ InstallMethod(Maniplex,
 	SetSize(p, NrMovedPoints(g));
 	SetRankManiplex(p, n);
 	SetConnectionGroup(p, g);
-	if (ValueOption("polytopal") = true) then
-		SetIsPolytopal(p, true);
-	fi;
 	return p;
 	end);
 	
@@ -273,27 +276,6 @@ InstallMethod(RankManiplex,
 
 InstallMethod(Rank, [IsManiplex], RankManiplex);
 	
-InstallMethod(SchlafliSymbol,
-	[IsReflexibleManiplex],
-	function(p)
-	local gens, n, i, sym;
-	if IsBound(p!.schlafli_symbol) then return p!.schlafli_symbol; fi;
-	return ComputeSchlafliSymbol(p);
-	end);
-	
-InstallMethod(ComputeSchlafliSymbol,
-	[IsReflexibleManiplex],
-	function(p)
-	local gens, n, i, sym;
-	gens := GeneratorsOfGroup(AutomorphismGroup(p));
-	n := Rank(p);
-	sym := [];
-	for i in [1..n-1] do
-		Add(sym, Order(gens[i]*gens[i+1]));
-	od;
-	return sym;
-	end);
-	
 InstallMethod(IsDegenerate,
 	[IsReflexibleManiplex],
 	function(M)
@@ -306,7 +288,7 @@ InstallMethod(IsDegenerate,
 	end);
 
 InstallMethod(IsTight,
-	[IsReflexibleManiplex and HasIsPolytopal and IsPolytopal],
+	[IsManiplex and IsEquivelar and HasIsPolytopal and IsPolytopal],
 	function(M)
 	local val;
 	val := (Size(M) = 2*Product(SchlafliSymbol(M)));

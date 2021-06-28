@@ -34,6 +34,10 @@ DeclareOperation("ReflexibleManiplex", [IsList]);
 #! q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
 #! p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");
 #! @EndExampleSession
+#! If the option set_schlafli is set, then we set the Schlafli symbol
+#! to the one given. This may not be the correct Schlafli symbol, since
+#! the relations may cause a collapse, so this should only be used if
+#! you know that the Schlafli symbol is correct.
 DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 
 #! @Arguments name
@@ -41,6 +45,10 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 #! Examples:
 #! ReflexibleManiplex("{3,3,3}");
 #! ReflexibleManiplex("{4,3}_3");
+#! If the option set_schlafli is set, then we set the Schlafli symbol
+#! to the one given. This may not be the correct Schlafli symbol, since
+#! the relations may cause a collapse, so this should only be used if
+#! you know that the Schlafli symbol is correct.
 DeclareOperation("ReflexibleManiplex", [IsString]);
 
 #! @Arguments G
@@ -70,20 +78,6 @@ DeclareSynonymAttr("NumberOfFlags", Size);
 #! @Arguments M
 #! Returns the rank of the maniplex <A>M</A>.
 DeclareAttribute("RankManiplex", IsManiplex);
-
-#! @Arguments M
-#! Returns the Schlafli symbol of the maniplex <A>M</A>.
-#! Currently only implemented for reflexible maniplexes.
-DeclareAttribute("SchlafliSymbol", IsManiplex);
-
-#! @Arguments M
-#! Computes the Schlafli symbol of the maniplex <A>M</A>,
-#! ignoring any currently stored data about the Schlafli symbol.
-#! This is called by SchlafliSymbol(<A>M</A>) if no value is stored yet,
-#! but it can also be called directly by the user to double-check
-#! any optimizations.
-#! Currently only implemented for reflexible maniplexes.
-DeclareOperation("ComputeSchlafliSymbol", [IsManiplex]);
 
 #! @Arguments P
 #! Returns whether the polytope <A>P</A> is tight, meaning that

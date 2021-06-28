@@ -1,5 +1,6 @@
 DeclareGlobalFunction("AbstractPolytope");
 DeclareGlobalFunction("AbstractRegularPolytope");
+DeclareSynonym("ARP", AbstractRegularPolytope);
 
 DeclareGlobalFunction("TranslatePerm");
 DeclareGlobalFunction("MultPerm");
