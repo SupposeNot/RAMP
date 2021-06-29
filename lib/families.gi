@@ -15,6 +15,9 @@ InstallMethod(Pgon,
 	[IsInt],
 	function(n)
 	local p;
+	if n < 2 then
+		Error("Number of sides must be at least 2.\n");
+	fi;
 	p := AbstractRegularPolytope([n]);
 	SetDescription(p, Concatenation(String(n), "-gon"));
 	return p;
@@ -35,10 +38,14 @@ InstallMethod(HemiCube,
 	[IsInt],
 	function(n)
 	local p;
+	if n < 3 then
+		Error("Rank must be at least 3.\n");
+	fi;
 	p := QuotientPolytope(Cube(n), PetrieRelation(n, n));
 	SetIsPolytopal(p, true);
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
+	SetSchlafliSymbol(p, SchlafliSymbol(Cube(n)));
 	return p;
 	end);
 	
@@ -58,10 +65,14 @@ InstallMethod(HemiCrossPolytope,
 	[IsInt],
 	function(n)
 	local p;
+	if n < 3 then
+		Error("Rank must be at least 3.\n");
+	fi;
 	p := QuotientPolytope(CrossPolytope(n), PetrieRelation(n, n));
 	SetIsPolytopal(p, true);
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
+	SetSchlafliSymbol(p, SchlafliSymbol(CrossPolytope(n)));
 	return p;
 	end);
 	
@@ -97,7 +108,7 @@ InstallMethod(Dodecahedron,
 InstallMethod(HemiDodecahedron,
 	[],
 	function()
-	return AbstractRegularPolytope("{5,3}_5");
+	return AbstractRegularPolytope("{5,3}_5" : set_schlafli);
 	end);
 InstallMethod(Icosahedron,
 	[],
@@ -107,7 +118,7 @@ InstallMethod(Icosahedron,
 InstallMethod(HemiIcosahedron,
 	[],
 	function()
-	return AbstractRegularPolytope("{3,5}_5");
+	return AbstractRegularPolytope("{3,5}_5" : set_schlafli);
 	end);
 InstallMethod(24Cell,
 	[],
@@ -117,7 +128,7 @@ InstallMethod(24Cell,
 InstallMethod(Hemi24Cell,
 	[],
 	function()
-	return AbstractRegularPolytope("{3,4,3}_6");
+	return AbstractRegularPolytope("{3,4,3}_6" : set_schlafli);
 	end);
 InstallMethod(120Cell,
 	[],
@@ -127,7 +138,7 @@ InstallMethod(120Cell,
 InstallMethod(Hemi120Cell,
 	[],
 	function()
-	return AbstractRegularPolytope("{5,3,3}_15");
+	return AbstractRegularPolytope("{5,3,3}_15" : set_schlafli);
 	end);
 InstallMethod(600Cell,
 	[],
@@ -137,5 +148,5 @@ InstallMethod(600Cell,
 InstallMethod(Hemi600Cell,
 	[],
 	function()
-	return AbstractRegularPolytope("{3,3,5}_15");
+	return AbstractRegularPolytope("{3,3,5}_15" : set_schlafli);
 	end);

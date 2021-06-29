@@ -150,7 +150,8 @@ InstallMethod(SchlafliSymbol,
 	end);
 	
 # This assumes that the connection group really does act on flags.
-# It should work for IsManiplexQuotientRep too.
+# It appears to work for IsManiplexQuotientRep too, but I'm not
+# sure if I can guarantee that.
 InstallMethod(SchlafliSymbol,
 	[IsManiplex],
 	function(M)
