@@ -138,22 +138,6 @@
 
 
 <ManSection>
-  <Attr Arg="M" Name="PetrieLength" Label="for IsReflexibleManiplex"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="M" Name="HoleLength" Label="for IsReflexibleManiplex"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
@@ -218,6 +202,51 @@
  <Description>
  Returns a short name for the maniplex <A>M</A>, if one is available.
  For example, Description(Simplex(3)) = "3-simplex".
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Combinatorics_and_Structure_Section_Zigzags_and_holes">
+<Heading>Zigzags and holes</Heading>
+
+<ManSection>
+  <Oper Arg="M, j" Name="ZigzagLength" Label="for IsManiplex, IsInt"/>
+ <Returns>The lengths of <A>j</A>-zigzags of the 3-maniplex <A>M</A>.  This corresponds to the lengths of orbits under r0 (r1 r2)^j.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="ZigzagVector" Label="for IsManiplex"/>
+ <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.  A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
+  because the j-zigzags are the same as the (q-j)-zigzags.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="PetrieLength" Label="for IsManiplex"/>
+ <Returns>The length of the petrie polygons of the maniplex <A>M</A>.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="HoleLength" Label="for IsReflexibleManiplex"/>
+ <Description>
+<P/>
  </Description>
 </ManSection>
 

@@ -648,36 +648,8 @@ non-polytopal maniplexes, which aren't constrained by this lower bound. }
 
  
 
-\subsection{\textcolor{Chapter }{PetrieLength (for IsReflexibleManiplex)}}
-\logpage{[ 3, 3, 4 ]}\nobreak
-\hyperdef{L}{X82F2745486E216DB}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PetrieLength({\mdseries\slshape M})\index{PetrieLength@\texttt{PetrieLength}!for IsReflexibleManiplex}
-\label{PetrieLength:for IsReflexibleManiplex}
-}\hfill{\scriptsize (attribute)}}\\
-
-
- 
-
- }
-
- 
-
-\subsection{\textcolor{Chapter }{HoleLength (for IsReflexibleManiplex)}}
-\logpage{[ 3, 3, 5 ]}\nobreak
-\hyperdef{L}{X80E7C3038595F54B}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleLength({\mdseries\slshape M})\index{HoleLength@\texttt{HoleLength}!for IsReflexibleManiplex}
-\label{HoleLength:for IsReflexibleManiplex}
-}\hfill{\scriptsize (attribute)}}\\
-
-
- 
-
- }
-
- 
-
 \subsection{\textcolor{Chapter }{IsDegenerate (for IsManiplex)}}
-\logpage{[ 3, 3, 6 ]}\nobreak
+\logpage{[ 3, 3, 4 ]}\nobreak
 \hyperdef{L}{X8483BE798579B521}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsDegenerate({\mdseries\slshape M})\index{IsDegenerate@\texttt{IsDegenerate}!for IsManiplex}
 \label{IsDegenerate:for IsManiplex}
@@ -693,7 +665,7 @@ with even smaller sections. }
  
 
 \subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsManiplex)}}
-\logpage{[ 3, 3, 7 ]}\nobreak
+\logpage{[ 3, 3, 5 ]}\nobreak
 \hyperdef{L}{X856ED1E7866152A0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SymmetryTypeGraph({\mdseries\slshape M})\index{SymmetryTypeGraph@\texttt{SymmetryTypeGraph}!for IsManiplex}
 \label{SymmetryTypeGraph:for IsManiplex}
@@ -705,7 +677,7 @@ with even smaller sections. }
  
 
 \subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsManiplex)}}
-\logpage{[ 3, 3, 8 ]}\nobreak
+\logpage{[ 3, 3, 6 ]}\nobreak
 \hyperdef{L}{X78060E3A788D2D3C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFlagOrbits({\mdseries\slshape M})\index{NumberOfFlagOrbits@\texttt{NumberOfFlagOrbits}!for IsManiplex}
 \label{NumberOfFlagOrbits:for IsManiplex}
@@ -717,7 +689,7 @@ with even smaller sections. }
  
 
 \subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
-\logpage{[ 3, 3, 9 ]}\nobreak
+\logpage{[ 3, 3, 7 ]}\nobreak
 \hyperdef{L}{X7E4E689F86171C78}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsManiplex}
 \label{IsReflexible:for IsManiplex}
@@ -734,7 +706,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
  
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsManiplex)}}
-\logpage{[ 3, 3, 10 ]}\nobreak
+\logpage{[ 3, 3, 8 ]}\nobreak
 \hyperdef{L}{X7D74CD997C7FF39D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChiral({\mdseries\slshape M})\index{IsChiral@\texttt{IsChiral}!for IsManiplex}
 \label{IsChiral:for IsManiplex}
@@ -751,7 +723,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is chrial.
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
-\logpage{[ 3, 3, 11 ]}\nobreak
+\logpage{[ 3, 3, 9 ]}\nobreak
 \hyperdef{L}{X7DACFE5483893523}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsManiplex}
 \label{IsRotary:for IsManiplex}
@@ -768,7 +740,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
 \subsection{\textcolor{Chapter }{Description (for IsManiplex)}}
-\logpage{[ 3, 3, 12 ]}\nobreak
+\logpage{[ 3, 3, 10 ]}\nobreak
 \hyperdef{L}{X7A093ABC7851D5A8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Description({\mdseries\slshape M})\index{Description@\texttt{Description}!for IsManiplex}
 \label{Description:for IsManiplex}
@@ -776,6 +748,81 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
 
 
  Returns a short name for the maniplex \mbox{\texttt{\mdseries\slshape M}}, if one is available. For example, Description(Simplex(3)) = "3-simplex". }
+
+ }
+
+ 
+\section{\textcolor{Chapter }{Zigzags and holes}}\label{Chapter_Combinatorics_and_Structure_Section_Zigzags_and_holes}
+\logpage{[ 3, 4, 0 ]}
+\hyperdef{L}{X780FC00678185849}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{ZigzagLength (for IsManiplex, IsInt)}}
+\logpage{[ 3, 4, 1 ]}\nobreak
+\hyperdef{L}{X7D0AAD597CDE5697}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ZigzagLength({\mdseries\slshape M, j})\index{ZigzagLength@\texttt{ZigzagLength}!for IsManiplex, IsInt}
+\label{ZigzagLength:for IsManiplex, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+The lengths of \mbox{\texttt{\mdseries\slshape j}}-zigzags of the 3-maniplex \mbox{\texttt{\mdseries\slshape M}}. This corresponds to the lengths of orbits under r0 (r1
+r2)\texttt{\symbol{94}}j. 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{ZigzagVector (for IsManiplex)}}
+\logpage{[ 3, 4, 2 ]}\nobreak
+\hyperdef{L}{X7FC09F34870E6CDE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ZigzagVector({\mdseries\slshape M})\index{ZigzagVector@\texttt{ZigzagVector}!for IsManiplex}
+\label{ZigzagVector:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+The lengths of all zigzags of the 3-maniplex \mbox{\texttt{\mdseries\slshape M}}. A rank 3 maniplex of type \texttt{\symbol{123}}p, q\texttt{\symbol{125}} has
+Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the
+(q-j)-zigzags. 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{PetrieLength (for IsManiplex)}}
+\logpage{[ 3, 4, 3 ]}\nobreak
+\hyperdef{L}{X7C4A38D780F6AECD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PetrieLength({\mdseries\slshape M})\index{PetrieLength@\texttt{PetrieLength}!for IsManiplex}
+\label{PetrieLength:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+The length of the petrie polygons of the maniplex \mbox{\texttt{\mdseries\slshape M}}. 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{HoleLength (for IsReflexibleManiplex)}}
+\logpage{[ 3, 4, 4 ]}\nobreak
+\hyperdef{L}{X80E7C3038595F54B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleLength({\mdseries\slshape M})\index{HoleLength@\texttt{HoleLength}!for IsReflexibleManiplex}
+\label{HoleLength:for IsReflexibleManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ 
+
+ }
 
  }
 
@@ -1651,8 +1698,28 @@ recover information about which objects are incident in the partial order.
 {
   
 
-\subsection{\textcolor{Chapter }{IsAtomic (for IsPoset)}}
+\subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
 \logpage{[ 9, 2, 1 ]}\nobreak
+\hyperdef{L}{X842B0F7E81670077}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape poset})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
+\label{IsFlaggable:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\emph{true} or \emph{false} 
+
+
+
+ Checks or creates the value of the attribute IsFlaggable for an IsPoset. Point
+here is to see if the structure of the poset is sufficient to determine the
+flag graph. For IsPosetOfFlags this is another way of saying that the
+intersection of the faces (thought of as collections of flags) containing a
+flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe
+was tired and Gordon hasn't bothered to think about it yet.) }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsAtomic (for IsPoset)}}
+\logpage{[ 9, 2, 2 ]}\nobreak
 \hyperdef{L}{X816460188169E650}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAtomic({\mdseries\slshape poset})\index{IsAtomic@\texttt{IsAtomic}!for IsPoset}
 \label{IsAtomic:for IsPoset}
@@ -1667,7 +1734,7 @@ recover information about which objects are incident in the partial order.
  
 
 \subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
-\logpage{[ 9, 2, 2 ]}\nobreak
+\logpage{[ 9, 2, 3 ]}\nobreak
 \hyperdef{L}{X85A9CAA682FE56EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartialOrder({\mdseries\slshape poset})\index{PartialOrder@\texttt{PartialOrder}!for IsPoset}
 \label{PartialOrder:for IsPoset}
@@ -1683,7 +1750,7 @@ partial order to the \mbox{\texttt{\mdseries\slshape poset}}. \emph{Note, curren
  
 
 \subsection{\textcolor{Chapter }{ListIsFullPoset (for IsList)}}
-\logpage{[ 9, 2, 3 ]}\nobreak
+\logpage{[ 9, 2, 4 ]}\nobreak
 \hyperdef{L}{X85F7C2CE7D70A92D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsFullPoset({\mdseries\slshape list})\index{ListIsFullPoset@\texttt{ListIsFullPoset}!for IsList}
 \label{ListIsFullPoset:for IsList}
@@ -1699,7 +1766,7 @@ the face, this function will tell you if the poset is full or not. }
  
 
 \subsection{\textcolor{Chapter }{RankOfPoset (for IsPoset)}}
-\logpage{[ 9, 2, 4 ]}\nobreak
+\logpage{[ 9, 2, 5 ]}\nobreak
 \hyperdef{L}{X820BF50C79C6C6C0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankOfPoset({\mdseries\slshape poset})\index{RankOfPoset@\texttt{RankOfPoset}!for IsPoset}
 \label{RankOfPoset:for IsPoset}
@@ -1715,7 +1782,7 @@ untangle later. NOT IMPLEMENTED YET. }
  
 
 \subsection{\textcolor{Chapter }{IsNotFull (for IsPoset)}}
-\logpage{[ 9, 2, 5 ]}\nobreak
+\logpage{[ 9, 2, 6 ]}\nobreak
 \hyperdef{L}{X831C74EB803C1610}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsNotFull({\mdseries\slshape poset})\index{IsNotFull@\texttt{IsNotFull}!for IsPoset}
 \label{IsNotFull:for IsPoset}
@@ -1731,7 +1798,7 @@ operations. }
  
 
 \subsection{\textcolor{Chapter }{IsP1 (for IsPoset)}}
-\logpage{[ 9, 2, 6 ]}\nobreak
+\logpage{[ 9, 2, 7 ]}\nobreak
 \hyperdef{L}{X81269ACB7EF202C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP1({\mdseries\slshape poset})\index{IsP1@\texttt{IsP1}!for IsPoset}
 \label{IsP1:for IsPoset}
@@ -2164,6 +2231,7 @@ belongs to. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}

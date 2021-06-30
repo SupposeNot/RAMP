@@ -157,6 +157,16 @@ Function assumes <A>list1</A> and <A>list2</A> are of the form <Emph>[listOfAtom
 <Heading>Poset attributes</Heading>
 
 <ManSection>
+  <Attr Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
+ <Returns><Emph>true</Emph> or <Emph>false</Emph>
+</Returns>
+ <Description>
+Checks or creates the value of the attribute IsFlaggable for an IsPoset. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Attr Arg="poset" Name="IsAtomic" Label="for IsPoset"/>
  <Returns><Emph>true</Emph> or <Emph>false</Emph>
 </Returns>

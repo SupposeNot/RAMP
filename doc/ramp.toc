@@ -39,15 +39,18 @@
 \contentsline {subsection}{\numberline {3.3.1}\textcolor {Chapter }{Size (for IsManiplex)}}{10}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}\textcolor {Chapter }{RankManiplex (for IsManiplex)}}{10}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}\textcolor {Chapter }{IsTight (for IsManiplex and IsPolytopal)}}{11}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}\textcolor {Chapter }{PetrieLength (for IsReflexibleManiplex)}}{11}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}\textcolor {Chapter }{HoleLength (for IsReflexibleManiplex)}}{11}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}\textcolor {Chapter }{IsDegenerate (for IsManiplex)}}{11}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}\textcolor {Chapter }{SymmetryTypeGraph (for IsManiplex)}}{11}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}\textcolor {Chapter }{NumberOfFlagOrbits (for IsManiplex)}}{11}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}\textcolor {Chapter }{IsReflexible (for IsManiplex)}}{11}{subsection.3.3.9}%
-\contentsline {subsection}{\numberline {3.3.10}\textcolor {Chapter }{IsChiral (for IsManiplex)}}{11}{subsection.3.3.10}%
-\contentsline {subsection}{\numberline {3.3.11}\textcolor {Chapter }{IsRotary (for IsManiplex)}}{12}{subsection.3.3.11}%
-\contentsline {subsection}{\numberline {3.3.12}\textcolor {Chapter }{Description (for IsManiplex)}}{12}{subsection.3.3.12}%
+\contentsline {subsection}{\numberline {3.3.4}\textcolor {Chapter }{IsDegenerate (for IsManiplex)}}{11}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}\textcolor {Chapter }{SymmetryTypeGraph (for IsManiplex)}}{11}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}\textcolor {Chapter }{NumberOfFlagOrbits (for IsManiplex)}}{11}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}\textcolor {Chapter }{IsReflexible (for IsManiplex)}}{11}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}\textcolor {Chapter }{IsChiral (for IsManiplex)}}{11}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}\textcolor {Chapter }{IsRotary (for IsManiplex)}}{11}{subsection.3.3.9}%
+\contentsline {subsection}{\numberline {3.3.10}\textcolor {Chapter }{Description (for IsManiplex)}}{11}{subsection.3.3.10}%
+\contentsline {section}{\numberline {3.4}\textcolor {Chapter }{Zigzags and holes}}{12}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}\textcolor {Chapter }{ZigzagLength (for IsManiplex, IsInt)}}{12}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}\textcolor {Chapter }{ZigzagVector (for IsManiplex)}}{12}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}\textcolor {Chapter }{PetrieLength (for IsManiplex)}}{12}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}\textcolor {Chapter }{HoleLength (for IsReflexibleManiplex)}}{12}{subsection.3.4.4}%
 \contentsline {chapter}{\numberline {4}\textcolor {Chapter }{Families of Polytopes}}{13}{chapter.4}%
 \contentsline {section}{\numberline {4.1}\textcolor {Chapter }{Classical Polytopes}}{13}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}\textcolor {Chapter }{Vertex}}{13}{subsection.4.1.1}%
@@ -108,29 +111,30 @@
 \contentsline {subsection}{\numberline {9.1.6}\textcolor {Chapter }{PairCompareFlagsList (for IsList,IsList)}}{24}{subsection.9.1.6}%
 \contentsline {subsection}{\numberline {9.1.7}\textcolor {Chapter }{PairCompareAtomsList (for IsList,IsList)}}{24}{subsection.9.1.7}%
 \contentsline {section}{\numberline {9.2}\textcolor {Chapter }{Poset attributes}}{24}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}\textcolor {Chapter }{IsAtomic (for IsPoset)}}{24}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}\textcolor {Chapter }{PartialOrder (for IsPoset)}}{25}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}\textcolor {Chapter }{ListIsFullPoset (for IsList)}}{25}{subsection.9.2.3}%
-\contentsline {subsection}{\numberline {9.2.4}\textcolor {Chapter }{RankOfPoset (for IsPoset)}}{25}{subsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.2.5}\textcolor {Chapter }{IsNotFull (for IsPoset)}}{25}{subsection.9.2.5}%
-\contentsline {subsection}{\numberline {9.2.6}\textcolor {Chapter }{IsP1 (for IsPoset)}}{25}{subsection.9.2.6}%
-\contentsline {section}{\numberline {9.3}\textcolor {Chapter }{Working with posets}}{25}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}\textcolor {Chapter }{AreIncidentFlagFaces (for IsObject,IsObject)}}{25}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.2.1}\textcolor {Chapter }{IsFlaggable (for IsPoset)}}{24}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}\textcolor {Chapter }{IsAtomic (for IsPoset)}}{25}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}\textcolor {Chapter }{PartialOrder (for IsPoset)}}{25}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}\textcolor {Chapter }{ListIsFullPoset (for IsList)}}{25}{subsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.2.5}\textcolor {Chapter }{RankOfPoset (for IsPoset)}}{25}{subsection.9.2.5}%
+\contentsline {subsection}{\numberline {9.2.6}\textcolor {Chapter }{IsNotFull (for IsPoset)}}{25}{subsection.9.2.6}%
+\contentsline {subsection}{\numberline {9.2.7}\textcolor {Chapter }{IsP1 (for IsPoset)}}{25}{subsection.9.2.7}%
+\contentsline {section}{\numberline {9.3}\textcolor {Chapter }{Working with posets}}{26}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}\textcolor {Chapter }{AreIncidentFlagFaces (for IsObject,IsObject)}}{26}{subsection.9.3.1}%
 \contentsline {subsection}{\numberline {9.3.2}\textcolor {Chapter }{FlagsAsListOfFacesFromPoset (for IsPoset)}}{26}{subsection.9.3.2}%
 \contentsline {subsection}{\numberline {9.3.3}\textcolor {Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}{26}{subsection.9.3.3}%
 \contentsline {subsection}{\numberline {9.3.4}\textcolor {Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}{26}{subsection.9.3.4}%
 \contentsline {subsection}{\numberline {9.3.5}\textcolor {Chapter }{ConnectionGroupOfPoset (for IsPoset)}}{26}{subsection.9.3.5}%
 \contentsline {subsection}{\numberline {9.3.6}\textcolor {Chapter }{FacesOfPosetAsBinaryRelationOnFaces (for IsPoset)}}{26}{subsection.9.3.6}%
-\contentsline {subsection}{\numberline {9.3.7}\textcolor {Chapter }{FaceListOfPoset (for IsPoset)}}{26}{subsection.9.3.7}%
-\contentsline {section}{\numberline {9.4}\textcolor {Chapter }{Elements of posets, also known as faces.}}{26}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}\textcolor {Chapter }{RankPosetElement (for IsPosetElement)}}{26}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.3.7}\textcolor {Chapter }{FaceListOfPoset (for IsPoset)}}{27}{subsection.9.3.7}%
+\contentsline {section}{\numberline {9.4}\textcolor {Chapter }{Elements of posets, also known as faces.}}{27}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}\textcolor {Chapter }{RankPosetElement (for IsPosetElement)}}{27}{subsection.9.4.1}%
 \contentsline {subsection}{\numberline {9.4.2}\textcolor {Chapter }{FlagList (for IsPosetElement)}}{27}{subsection.9.4.2}%
 \contentsline {subsection}{\numberline {9.4.3}\textcolor {Chapter }{FromPoset (for IsPosetElement)}}{27}{subsection.9.4.3}%
 \contentsline {subsection}{\numberline {9.4.4}\textcolor {Chapter }{AtomList (for IsPosetElement)}}{27}{subsection.9.4.4}%
 \contentsline {subsection}{\numberline {9.4.5}\textcolor {Chapter }{Index (for IsPosetElement)}}{27}{subsection.9.4.5}%
 \contentsline {subsection}{\numberline {9.4.6}\textcolor {Chapter }{PosetElementFromListOfFlags (for IsList,IsInt)}}{27}{subsection.9.4.6}%
-\contentsline {subsection}{\numberline {9.4.7}\textcolor {Chapter }{PosetElementFromAtomList (for IsList,IsInt)}}{27}{subsection.9.4.7}%
-\contentsline {subsection}{\numberline {9.4.8}\textcolor {Chapter }{PosetElementFromIndex (for IsObject,IsInt)}}{27}{subsection.9.4.8}%
+\contentsline {subsection}{\numberline {9.4.7}\textcolor {Chapter }{PosetElementFromAtomList (for IsList,IsInt)}}{28}{subsection.9.4.7}%
+\contentsline {subsection}{\numberline {9.4.8}\textcolor {Chapter }{PosetElementFromIndex (for IsObject,IsInt)}}{28}{subsection.9.4.8}%
 \contentsline {subsection}{\numberline {9.4.9}\textcolor {Chapter }{RankedFaceListOfPoset (for IsPoset)}}{28}{subsection.9.4.9}%
 \contentsline {subsection}{\numberline {9.4.10}\textcolor {Chapter }{IsSubface (for IsFace,IsFace)}}{28}{subsection.9.4.10}%
 \contentsline {chapter}{\numberline {10}\textcolor {Chapter }{Comparing maniplexes}}{29}{chapter.10}%

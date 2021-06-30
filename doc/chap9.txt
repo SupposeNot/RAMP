@@ -164,7 +164,20 @@
   
   [1X9.2 [33X[0;0YPoset attributes[133X[101X
   
-  [1X9.2-1 IsAtomic[101X
+  [1X9.2-1 IsFlaggable[101X
+  
+  [33X[1;0Y[29X[2XIsFlaggable[102X( [3Xposet[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
+  
+  [33X[0;0YChecks  or  creates  the  value of the attribute IsFlaggable for an IsPoset.
+  Point  here  is  to  see  if  the  structure  of  the poset is sufficient to
+  determine  the  flag graph. For IsPosetOfFlags this is another way of saying
+  that  the  intersection  of  the  faces (thought of as collections of flags)
+  containing   a   flag  is  that  selfsame  flag.  (Might  be  equivalent  to
+  prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about
+  it yet.)[133X
+  
+  [1X9.2-2 IsAtomic[101X
   
   [33X[1;0Y[29X[2XIsAtomic[102X( [3Xposet[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
@@ -172,7 +185,7 @@
   [33X[0;0YChecks  if  [3Xposet[103X is atomic. [13XNote, currently something that is not computed,
   just declared.[113X[133X
   
-  [1X9.2-2 PartialOrder[101X
+  [1X9.2-3 PartialOrder[101X
   
   [33X[1;0Y[29X[2XPartialOrder[102X( [3Xposet[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[13Xpartial order[113X[133X
@@ -181,7 +194,7 @@
   relation).  SetPartialOrder  assigns  a  partial  order  to the [3Xposet[103X. [13XNote,
   currently something that is not computed, just declared.[113X[133X
   
-  [1X9.2-3 ListIsFullPoset[101X
+  [1X9.2-4 ListIsFullPoset[101X
   
   [33X[1;0Y[29X[2XListIsFullPoset[102X( [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
@@ -190,7 +203,7 @@
   the  flags  on the face, this function will tell you if the poset is full or
   not.[133X
   
-  [1X9.2-4 RankOfPoset[101X
+  [1X9.2-5 RankOfPoset[101X
   
   [33X[1;0Y[29X[2XRankOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[13Xinteger[113X[133X
@@ -198,7 +211,7 @@
   [33X[0;0YGiven  a  [3Xposet[103X,  returns  the  rank of the poset. Note: There may be hidden
   assumptions here to untangle later. NOT IMPLEMENTED YET.[133X
   
-  [1X9.2-5 IsNotFull[101X
+  [1X9.2-6 IsNotFull[101X
   
   [33X[1;0Y[29X[2XIsNotFull[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
@@ -206,7 +219,7 @@
   [33X[0;0YLets  me  check  to see if a poset is NOT full. For use in certain filtering
   operations.[133X
   
-  [1X9.2-6 IsP1[101X
+  [1X9.2-7 IsP1[101X
   
   [33X[1;0Y[29X[2XIsP1[102X( [3Xposet[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X

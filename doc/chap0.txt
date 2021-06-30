@@ -99,15 +99,18 @@
       3.3-1 Size
       3.3-2 RankManiplex
       3.3-3 IsTight
-      3.3-4 PetrieLength
-      3.3-5 HoleLength
-      3.3-6 IsDegenerate
-      3.3-7 SymmetryTypeGraph
-      3.3-8 NumberOfFlagOrbits
-      3.3-9 IsReflexible
-      3.3-10 IsChiral
-      3.3-11 IsRotary
-      3.3-12 Description
+      3.3-4 IsDegenerate
+      3.3-5 SymmetryTypeGraph
+      3.3-6 NumberOfFlagOrbits
+      3.3-7 IsReflexible
+      3.3-8 IsChiral
+      3.3-9 IsRotary
+      3.3-10 Description
+    3.4 [33X[0;0YZigzags and holes[133X
+      3.4-1 ZigzagLength
+      3.4-2 ZigzagVector
+      3.4-3 PetrieLength
+      3.4-4 HoleLength
   4 [33X[0;0YFamilies of Polytopes[133X
     4.1 [33X[0;0YClassical Polytopes[133X
       4.1-1 Vertex
@@ -168,12 +171,13 @@
       9.1-6 PairCompareFlagsList
       9.1-7 PairCompareAtomsList
     9.2 [33X[0;0YPoset attributes[133X
-      9.2-1 IsAtomic
-      9.2-2 PartialOrder
-      9.2-3 ListIsFullPoset
-      9.2-4 RankOfPoset
-      9.2-5 IsNotFull
-      9.2-6 IsP1
+      9.2-1 IsFlaggable
+      9.2-2 IsAtomic
+      9.2-3 PartialOrder
+      9.2-4 ListIsFullPoset
+      9.2-5 RankOfPoset
+      9.2-6 IsNotFull
+      9.2-7 IsP1
     9.3 [33X[0;0YWorking with posets[133X
       9.3-1 AreIncidentFlagFaces
       9.3-2 FlagsAsListOfFacesFromPoset

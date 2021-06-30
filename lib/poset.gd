@@ -122,6 +122,9 @@ DeclareAttribute("RankPoset",IsPoset);
 # DeclareAttribute("IsFull",IsPoset);
 
 
+#! @Arguments poset
+#! @Returns __true__ or __false__
+#! @Description Checks or creates the value of the attribute IsFlaggable for an IsPoset. Point here is to see if the structure of the poset is sufficient to determine the flag graph.  For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
 DeclareAttribute("IsFlaggable",IsPoset);
 
 

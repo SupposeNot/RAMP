@@ -11,7 +11,7 @@
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{6}
   \item \texttt  {AreIncidentFlagFaces}
-    \subitem for IsObject,IsObject, \hyperpage{25}
+    \subitem for IsObject,IsObject, \hyperpage{26}
   \item \texttt  {AtomList}
     \subitem for IsPosetElement, \hyperpage{27}
   \item \texttt  {AutomorphismGroup}
@@ -41,7 +41,7 @@
   \item \texttt  {DegeneratePolyhedra}
     \subitem for IsInt, \hyperpage{8}
   \item \texttt  {Description}
-    \subitem for IsManiplex, \hyperpage{12}
+    \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {Dodecahedron}, \hyperpage{14}
   \item \texttt  {Dual}
     \subitem for IsManiplex, \hyperpage{6}
@@ -57,7 +57,7 @@
   \indexspace
 
   \item \texttt  {FaceListOfPoset}
-    \subitem for IsPoset, \hyperpage{26}
+    \subitem for IsPoset, \hyperpage{27}
   \item \texttt  {FacesOfPosetAsBinaryRelationOnFaces}
     \subitem for IsPoset, \hyperpage{26}
   \item \texttt  {Facets}
@@ -89,7 +89,7 @@
   \item \texttt  {HemiDodecahedron}, \hyperpage{14}
   \item \texttt  {HemiIcosahedron}, \hyperpage{14}
   \item \texttt  {HoleLength}
-    \subitem for IsReflexibleManiplex, \hyperpage{11}
+    \subitem for IsReflexibleManiplex, \hyperpage{12}
 
   \indexspace
 
@@ -97,7 +97,7 @@
   \item \texttt  {Index}
     \subitem for IsPosetElement, \hyperpage{27}
   \item \texttt  {IsAtomic}
-    \subitem for IsPoset, \hyperpage{24}
+    \subitem for IsPoset, \hyperpage{25}
   \item \texttt  {IsChiral}
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {IsCoverOf}
@@ -110,6 +110,8 @@
     \subitem for IsManiplex, \hyperpage{18}
   \item \texttt  {IsFacetFaithful}
     \subitem for IsReflexibleManiplex, \hyperpage{21}
+  \item \texttt  {IsFlaggable}
+    \subitem for IsPoset, \hyperpage{24}
   \item \texttt  {IsIOrientable}
     \subitem for IsManiplex, IsList, \hyperpage{18}
   \item \texttt  {IsIsomorphicTo}
@@ -127,7 +129,7 @@
   \item \texttt  {IsReflexible}
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {IsRotary}
-    \subitem for IsManiplex, \hyperpage{12}
+    \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {IsSelfDual}
     \subitem for IsManiplex, \hyperpage{6}
   \item \texttt  {IsSelfPetrial}
@@ -184,13 +186,13 @@
   \item \texttt  {Petrial}
     \subitem for IsManiplex, \hyperpage{6}
   \item \texttt  {PetrieLength}
-    \subitem for IsReflexibleManiplex, \hyperpage{11}
+    \subitem for IsManiplex, \hyperpage{12}
   \item \texttt  {Pgon}
     \subitem for IsInt, \hyperpage{13}
   \item \texttt  {PosetElementFromAtomList}
-    \subitem for IsList,IsInt, \hyperpage{27}
+    \subitem for IsList,IsInt, \hyperpage{28}
   \item \texttt  {PosetElementFromIndex}
-    \subitem for IsObject,IsInt, \hyperpage{27}
+    \subitem for IsObject,IsInt, \hyperpage{28}
   \item \texttt  {PosetElementFromListOfFlags}
     \subitem for IsList,IsInt, \hyperpage{27}
   \item \texttt  {PosetFromElements}
@@ -272,5 +274,12 @@
   \item \texttt  {Vertex}, \hyperpage{13}
   \item \texttt  {VertexFigures}
     \subitem for IsManiplex, \hyperpage{10}
+
+  \indexspace
+
+  \item \texttt  {ZigzagLength}
+    \subitem for IsManiplex, IsInt, \hyperpage{12}
+  \item \texttt  {ZigzagVector}
+    \subitem for IsManiplex, \hyperpage{12}
 
 \end{theindex}

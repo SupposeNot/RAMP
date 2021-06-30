@@ -96,15 +96,7 @@
   minimum  possible.  This  property  doesn't make any sense for non-polytopal
   maniplexes, which aren't constrained by this lower bound.[133X
   
-  [1X3.3-4 PetrieLength[101X
-  
-  [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
-  
-  [1X3.3-5 HoleLength[101X
-  
-  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X ) [32X attribute[133X
-  
-  [1X3.3-6 IsDegenerate[101X
+  [1X3.3-4 IsDegenerate[101X
   
   [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
@@ -112,39 +104,64 @@
   [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
   eventually want to include maniplexes with even smaller sections.[133X
   
-  [1X3.3-7 SymmetryTypeGraph[101X
+  [1X3.3-5 SymmetryTypeGraph[101X
   
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
   group on Rank([3XM[103X) generators.[133X
   
-  [1X3.3-8 NumberOfFlagOrbits[101X
+  [1X3.3-6 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
   
-  [1X3.3-9 IsReflexible[101X
+  [1X3.3-7 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
   
-  [1X3.3-10 IsChiral[101X
+  [1X3.3-8 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
   
-  [1X3.3-11 IsRotary[101X
+  [1X3.3-9 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
             reflexible or chiral.[133X
   
-  [1X3.3-12 Description[101X
+  [1X3.3-10 Description[101X
   
   [33X[1;0Y[29X[2XDescription[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  a  short name for the maniplex [3XM[103X, if one is available. For example,
   Description(Simplex(3)) = "3-simplex".[133X
+  
+  
+  [1X3.4 [33X[0;0YZigzags and holes[133X[101X
+  
+  [1X3.4-1 ZigzagLength[101X
+  
+  [33X[1;0Y[29X[2XZigzagLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths of [3Xj[103X-zigzags of the 3-maniplex [3XM[103X. This corresponds to
+            the lengths of orbits under r0 (r1 r2)^j.[133X
+  
+  [1X3.4-2 ZigzagVector[101X
+  
+  [33X[1;0Y[29X[2XZigzagVector[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths of all zigzags of the 3-maniplex [3XM[103X. A rank 3 maniplex
+            of  type {p, q} has Floor(q/2) distinct zigzag lengths because the
+            j-zigzags are the same as the (q-j)-zigzags.[133X
+  
+  [1X3.4-3 PetrieLength[101X
+  
+  [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe length of the petrie polygons of the maniplex [3XM[103X.[133X
+  
+  [1X3.4-4 HoleLength[101X
+  
+  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X ) [32X attribute[133X
   

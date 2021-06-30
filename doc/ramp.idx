@@ -30,15 +30,17 @@
 \indexentry{Size@\texttt  {Size}!for IsManiplex|hyperpage}{10}
 \indexentry{RankManiplex@\texttt  {RankManiplex}!for IsManiplex|hyperpage}{10}
 \indexentry{IsTight@\texttt  {IsTight}!for IsManiplex and IsPolytopal|hyperpage}{11}
-\indexentry{PetrieLength@\texttt  {PetrieLength}!for IsReflexibleManiplex|hyperpage}{11}
-\indexentry{HoleLength@\texttt  {HoleLength}!for IsReflexibleManiplex|hyperpage}{11}
 \indexentry{IsDegenerate@\texttt  {IsDegenerate}!for IsManiplex|hyperpage}{11}
 \indexentry{SymmetryTypeGraph@\texttt  {SymmetryTypeGraph}!for IsManiplex|hyperpage}{11}
 \indexentry{NumberOfFlagOrbits@\texttt  {NumberOfFlagOrbits}!for IsManiplex|hyperpage}{11}
 \indexentry{IsReflexible@\texttt  {IsReflexible}!for IsManiplex|hyperpage}{11}
 \indexentry{IsChiral@\texttt  {IsChiral}!for IsManiplex|hyperpage}{11}
-\indexentry{IsRotary@\texttt  {IsRotary}!for IsManiplex|hyperpage}{12}
-\indexentry{Description@\texttt  {Description}!for IsManiplex|hyperpage}{12}
+\indexentry{IsRotary@\texttt  {IsRotary}!for IsManiplex|hyperpage}{11}
+\indexentry{Description@\texttt  {Description}!for IsManiplex|hyperpage}{11}
+\indexentry{ZigzagLength@\texttt  {ZigzagLength}!for IsManiplex, IsInt|hyperpage}{12}
+\indexentry{ZigzagVector@\texttt  {ZigzagVector}!for IsManiplex|hyperpage}{12}
+\indexentry{PetrieLength@\texttt  {PetrieLength}!for IsManiplex|hyperpage}{12}
+\indexentry{HoleLength@\texttt  {HoleLength}!for IsReflexibleManiplex|hyperpage}{12}
 \indexentry{Vertex@\texttt  {Vertex}|hyperpage}{13}
 \indexentry{Edge@\texttt  {Edge}|hyperpage}{13}
 \indexentry{Pgon@\texttt  {Pgon}!for IsInt|hyperpage}{13}
@@ -87,27 +89,28 @@
 \indexentry{PosetFromElements@\texttt  {PosetFromElements}!for IsList|hyperpage}{24}
 \indexentry{PairCompareFlagsList@\texttt  {PairCompareFlagsList}!for IsList,IsList|hyperpage}{24}
 \indexentry{PairCompareAtomsList@\texttt  {PairCompareAtomsList}!for IsList,IsList|hyperpage}{24}
-\indexentry{IsAtomic@\texttt  {IsAtomic}!for IsPoset|hyperpage}{24}
+\indexentry{IsFlaggable@\texttt  {IsFlaggable}!for IsPoset|hyperpage}{24}
+\indexentry{IsAtomic@\texttt  {IsAtomic}!for IsPoset|hyperpage}{25}
 \indexentry{PartialOrder@\texttt  {PartialOrder}!for IsPoset|hyperpage}{25}
 \indexentry{ListIsFullPoset@\texttt  {ListIsFullPoset}!for IsList|hyperpage}{25}
 \indexentry{RankOfPoset@\texttt  {RankOfPoset}!for IsPoset|hyperpage}{25}
 \indexentry{IsNotFull@\texttt  {IsNotFull}!for IsPoset|hyperpage}{25}
 \indexentry{IsP1@\texttt  {IsP1}!for IsPoset|hyperpage}{25}
-\indexentry{AreIncidentFlagFaces@\texttt  {AreIncidentFlagFaces}!for IsObject,IsObject|hyperpage}{25}
+\indexentry{AreIncidentFlagFaces@\texttt  {AreIncidentFlagFaces}!for IsObject,IsObject|hyperpage}{26}
 \indexentry{FlagsAsListOfFacesFromPoset@\texttt  {FlagsAsListOfFacesFromPoset}!for IsPoset|hyperpage}{26}
 \indexentry{AdjacentFlag@\texttt  {AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt|hyperpage}{26}
 \indexentry{ConnectionGeneratorOfPoset@\texttt  {ConnectionGeneratorOfPoset}!for IsPoset,IsInt|hyperpage}{26}
 \indexentry{ConnectionGroupOfPoset@\texttt  {ConnectionGroupOfPoset}!for IsPoset|hyperpage}{26}
 \indexentry{FacesOfPosetAsBinaryRelationOnFaces@\texttt  {FacesOfPosetAsBinaryRelationOnFaces}!for IsPoset|hyperpage}{26}
-\indexentry{FaceListOfPoset@\texttt  {FaceListOfPoset}!for IsPoset|hyperpage}{26}
+\indexentry{FaceListOfPoset@\texttt  {FaceListOfPoset}!for IsPoset|hyperpage}{27}
 \indexentry{RankPosetElement@\texttt  {RankPosetElement}!for IsPosetElement|hyperpage}{27}
 \indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{27}
 \indexentry{FromPoset@\texttt  {FromPoset}!for IsPosetElement|hyperpage}{27}
 \indexentry{AtomList@\texttt  {AtomList}!for IsPosetElement|hyperpage}{27}
 \indexentry{Index@\texttt  {Index}!for IsPosetElement|hyperpage}{27}
 \indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsInt|hyperpage}{27}
-\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList,IsInt|hyperpage}{27}
-\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject,IsInt|hyperpage}{27}
+\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList,IsInt|hyperpage}{28}
+\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject,IsInt|hyperpage}{28}
 \indexentry{RankedFaceListOfPoset@\texttt  {RankedFaceListOfPoset}!for IsPoset|hyperpage}{28}
 \indexentry{IsSubface@\texttt  {IsSubface}!for IsFace,IsFace|hyperpage}{28}
 \indexentry{IsQuotientOf@\texttt  {IsQuotientOf}!for IsManiplex, IsManiplex|hyperpage}{29}
