@@ -87,14 +87,6 @@ DeclareAttribute("RankManiplex", IsManiplex);
 #! aren't constrained by this lower bound.
 DeclareProperty("IsTight", IsManiplex and IsPolytopal);
 
-DeclareOperation("PetrieRelation", [IsInt, IsInt]);
-
-#! @Arguments M
-DeclareAttribute("PetrieLength", IsReflexibleManiplex);
-
-#! @Arguments M
-DeclareAttribute("HoleLength", IsReflexibleManiplex);
-
 #! @Arguments M
 #! Returns whether the maniplex <A>M</A> has any sections that
 #! are digons. We may eventually want to include maniplexes with

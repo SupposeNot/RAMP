@@ -375,32 +375,6 @@ InstallMethod( PrintObj,
 	fi;
 	end);
 	
-InstallMethod(PetrieRelation,
-	[IsInt, IsInt],
-	function(n, k)
-	local L, petrie_word;
-	L := [0..n-1];
-	L := List(L, i -> Concatenation("r", String(i)));
-	petrie_word := Concatenation(L);
-	return Concatenation("(", petrie_word, ")^", String(k));
-	end);
-	
-InstallMethod(PetrieLength,
-	[IsReflexibleManiplex],
-	function(p)
-	local g;
-	g := AutomorphismGroup(p);
-	return Order(Product(GeneratorsOfGroup(g)));
-	end);
-
-InstallMethod(HoleLength,
-	[IsReflexibleManiplex],
-	function(p)
-	local g;
-	g := AutomorphismGroup(p);
-	return Order(g.1*g.2*g.3*g.2);
-	end);
-	
 # TODO: This is currently broken for rotary maniplexes
 # I really want orbs to be the action of the automorphism
 # group on the _flags_.
