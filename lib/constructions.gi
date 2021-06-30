@@ -200,28 +200,66 @@ InstallMethod(Amalgamate,
 InstallMethod(Medial,
 	[IsManiplex],
 	function(p)
-	local cg, n, r0, r1, r2, s0, s1, s2;
+	local fam, dict, Med;
 	
 	if Rank(p) <> 3 then Error("Medial only defined for rank 3."); fi;
-	
-	cg := ConnectionGroup(p);
-	n := Size(p);
-	
-	r0 := cg.1;
-	r1 := cg.2;
-	r2 := cg.3;
 
-	# The flags of the medial of P are of the form (Phi, 0) and (Phi, 2).
-	# If P has flags 1, ..., N, then we define flag j+N to be (j, 2).
+	fam := NewFamily("Maniplex", IsManiplex);
+	dict := NewDictionary(Size, true);
+	fam!.rank := 3;
 	
-	# s0 acts like r1 on the first component, fixing the second component.
-	s0 := MultPerm(r1, 2, n);
-	
-	# s1 acts like r2 on (Phi, 0) and like r0 on (Phi, 2), fixing the second component.
-	s1 := r2 * TranslatePerm(r0, n);
-	
-	# s2 fixes the first component while switching the second component.
-	s2 := MultPerm((1,n+1), n, 1);
+	Med := Objectify( NewType( fam, IsManiplex and IsManiplexInstructionsRep), rec( operation := Medial, base := p, attr_computers := dict ));
 
-	return Maniplex(Group([s0,s1,s2]));
+	SetRankManiplex(Med, 3);
+	
+	AddAttrComputer(Med, Size,
+		function(M)
+		return 2 * Size(M!.base);
+		end);
+
+	AddAttrComputer(Med, Fvector,
+		function(M)
+		local fvec;
+		fvec := Fvector(M!.base);
+		return [fvec[2], 2 * fvec[2], fvec[1] + fvec[3]];
+		end);
+		
+	AddAttrComputer(Med, SchlafliSymbol,
+		function(M)
+		local sch, pset;
+		sch := SchlafliSymbol(M!.base);
+		pset := [];
+		AddOrAppend(pset, sch[1]);
+		AddOrAppend(pset, sch[2]);
+		pset := Set(pset);
+		if Size(pset) = 1 then pset := pset[1]; fi;
+		return [pset, 4];
+		end);
+
+	AddAttrComputer(Med, ConnectionGroup,
+		function(M)
+		local cg, n, r0, r1, r2, s0, s1, s2;
+		cg := ConnectionGroup(M!.base);
+		n := Size(M!.base);
+		
+		r0 := cg.1;
+		r1 := cg.2;
+		r2 := cg.3;
+
+		# The flags of the medial of P are of the form (Phi, 0) and (Phi, 2).
+		# If P has flags 1, ..., N, then we define flag j+N to be (j, 2).
+		
+		# s0 acts like r1 on the first component, fixing the second component.
+		s0 := MultPerm(r1, 2, n);
+		
+		# s1 acts like r2 on (Phi, 0) and like r0 on (Phi, 2), fixing the second component.
+		s1 := r2 * TranslatePerm(r0, n);
+		
+		# s2 fixes the first component while switching the second component.
+		s2 := MultPerm((1,n+1), n, 1);
+
+		return Group([s0,s1,s2]);
+		end);
+	
+	return Med;
 	end);

@@ -99,3 +99,13 @@ InstallGlobalFunction(IsSameRank,
 	return f1!.rank = f2!.rank;
 	end);
 
+InstallGlobalFunction(AddOrAppend,
+	function(list, eltOrList)
+	if IsList(eltOrList) then
+		Append(list, eltOrList);
+	else
+		Add(list, eltOrList);
+	fi;
+	return;
+	end);
+	

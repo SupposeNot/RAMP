@@ -261,6 +261,12 @@ InstallOtherMethod(Size,
 	fi;
 	return val;
 	end);
+
+InstallMethod(Size,
+	[IsManiplex and IsManiplexInstructionsRep],
+	function(M)
+	return ComputeAttr(M, Size);	
+	end);
 	
 InstallMethod(RankManiplex,
 	[IsReflexibleManiplex],

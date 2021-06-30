@@ -31,7 +31,7 @@ InstallOtherMethod(NumberOfIFaces,
 	fi;
 
 	g := AutomorphismGroup(p);
-	if n = 3 and HasSize(p) and IsFinite(p) then
+	if n = 3 and HasSize(p) then
 		if (i = 1) then
 			num := Size(p)/4;
 		elif (i = 0) then
@@ -80,12 +80,17 @@ InstallMethod(NumberOfRidges,
 	
 InstallMethod(Fvector,
 	[IsManiplex],
-	function(p)
+	function(M)
 	local fvec, i, n;
-	n := Rank(p);
+	if IsManiplexInstructionsRep(M) then
+		fvec := ComputeAttr(M, Fvector);
+		if fvec <> fail then return fvec; fi;
+	fi;
+	
+	n := Rank(M);
 	fvec := [];
 	for i in [0..n-1] do
-		Add(fvec, NumberOfIFaces(p,i));
+		Add(fvec, NumberOfIFaces(M,i));
 	od;
 	return fvec;
 	end);
@@ -156,6 +161,12 @@ InstallMethod(SchlafliSymbol,
 	[IsManiplex],
 	function(M)
 	local n, g, i, sym, gens, h, orbs, sections;
+	
+	if IsManiplexInstructionsRep(M) then
+		sym := ComputeAttr(M, SchlafliSymbol);
+		if sym <> fail then return sym; fi;
+	fi;
+	
 	sym := [];
 	n := Rank(M);
 	g := ConnectionGroup(M);

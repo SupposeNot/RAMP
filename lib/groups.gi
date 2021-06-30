@@ -160,6 +160,11 @@ InstallMethod(ConnectionGroup,
 	c := Core(g, h);
 	return g / c;	
 	end);
+InstallMethod(ConnectionGroup,
+	[IsManiplex and IsManiplexInstructionsRep],
+	function(M)
+	return ComputeAttr(M, ConnectionGroup);
+	end);
 
 InstallMethod(EvenConnectionGroup,
 	[IsManiplex],

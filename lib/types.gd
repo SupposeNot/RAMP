@@ -4,6 +4,12 @@ DeclareRepresentation("IsManiplexConnGpRep", IsComponentObjectRep and IsAttribut
 DeclareRepresentation("IsReflexibleManiplexAutGpRep", IsComponentObjectRep and IsAttributeStoringRep, ["aut_gp", "fvec"]);
 DeclareRepresentation("IsRotaryManiplexRotGpRep", IsComponentObjectRep and IsAttributeStoringRep, ["rot_gp", "fvec"]);
 DeclareRepresentation("IsManiplexQuotientRep", IsComponentObjectRep and IsAttributeStoringRep, ["parent", "subgroup"]);
+DeclareRepresentation("IsManiplexInstructionsRep", IsComponentObjectRep and IsAttributeStoringRep, ["operation", "attr_computers"]);
+
+DeclareGlobalFunction("AddAttrComputer", [IsManiplex and IsManiplexInstructionsRep, IsAttribute, IsFunction]);
+DeclareGlobalFunction("ComputeAttr", [IsManiplex and IsManiplexInstructionsRep, IsAttribute]);
+
+
 
 # These are defined for convenience. They don't define new categories; they just combine information
 # from multiple filters.

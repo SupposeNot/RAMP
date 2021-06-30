@@ -9,3 +9,5 @@ DeclareGlobalFunction("TranslateWord");
 DeclareGlobalFunction("ParseStringCRels");
 
 DeclareGlobalFunction("IsSameRank");
+
+DeclareGlobalFunction("AddOrAppend");
