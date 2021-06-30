@@ -39,13 +39,22 @@ InstallMethod(PosetFromPartialOrder,
 	return(poset);
 	end);
 
+InstallOtherMethod(ElementsList,
+	[IsPosetOfFlags],
+	function(poset)
+	local list;
+	list:=RankedFaceListOfPoset(poset);
+	SetElementsList(poset,List(list,PosetElementFromListOfFlags));
+	return ElementsList(poset);
+	end);
+
 InstallOtherMethod(Rank,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local list;
 	list:=poset!.faces_list_by_rank;
 	if HasIsP1(poset)=false then
-		SetIsP1(poset,ListIsFullPoset(list));
+		SetIsP1(poset,ListIsP1Poset(list));
 	fi;
 	if IsP1(poset) then
 		SetRankPoset(poset,Length(list)-2);
@@ -55,6 +64,16 @@ InstallOtherMethod(Rank,
 	return poset!.RankPoset;	
 	end);
 
+InstallOtherMethod(Rank,
+	[IsPoset],
+	function(poset)
+	local fl,ranks,m;
+	fl:=ElementsList(poset);
+	ranks:=DuplicateFreeList(List(fl,Rank));
+	m:=Maximum(ranks);
+	return m;
+	end);
+	
 # InstallMethod(IsNotFull,
 # 	[IsPoset and IsPosetOfFlags],
 # 	function(poset)
@@ -66,7 +85,7 @@ InstallOtherMethod(Rank,
 # 	fi;
 # 	end);
 
-InstallMethod(ListIsFullPoset,
+InstallMethod(ListIsP1Poset,
 	[IsList],
 	function(list)
 	local rank,flags;
@@ -146,59 +165,14 @@ InstallMethod(PosetOfConnectionGroup,
 		od;
 	Add(posetList,[[]],1);
 	Add(posetList,[flags]);
-	poset:=PosetFromFaceListOfFlags(posetList);
-# 	SetIsFull(poset,true);
+	poset:=PosetFromFaceListOfFlags(posetList); 
 	SetIsP1(poset,true);
 	return poset;
 	end);
 
 
-# InstallMethod(PosetOfConnectionGroup,
-# 	[IsPermGroup],
-# 	function(g)
-# 	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
-# 	if IsPermGroup(g)=true then 
-# 		conng:=g;
-# 	else
-# 		Print("Group was not given as a permutation group, may not be a connection group. Treat results with suspicion.\n");
-# 		conng:=Image(IsomorphismPermGroup(g));
-# 	fi;
-# 	rank:=Length(GeneratorsOfGroup(conng));
-# 	flags:=MovedPoints(conng);
-# 	gens:=GeneratorsOfGroup(conng);
-# 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-# 	posetList:=[];
-# 	for i in [1..rank] do
-# 		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
-# 		od;
-# 	poset:=PosetFromFaceListOfFlags(posetList);
-# # 	SetIsFull(poset,false);
-# 	SetIsP1(poset,false);
-# 	return poset;
-# 	end);
-	
-# InstallMethod(PosetOfManiplex,
-# 	[IsManiplex],
-# 	function(mani)
-# 	local poset,conng,posetList,flags,rank,gens,genIndexes,i;
-# 	conng:=ConnectionGroup(mani);
-# 	rank:=Length(GeneratorsOfGroup(conng));
-# 	flags:=MovedPoints(conng);
-# 	gens:=GeneratorsOfGroup(conng);
-# 	genIndexes:=Reversed(Combinations([1..rank],rank-1));
-# 	posetList:=[];
-# 	for i in [1..rank] do
-# 		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
-# 		od;
-# 	poset:=PosetFromFaceListOfFlags(posetList);
-# 	SetIsFull(poset,false);
-# 	return poset;
-# 	end);
-	
-	
 
-
-# InstallMethod(FullPosetOfManiplex,
+	
 InstallMethod(PosetOfManiplex,
 	[IsManiplex],
 	function(mani)
@@ -215,7 +189,6 @@ InstallMethod(PosetOfManiplex,
 	Add(posetList,[[]],1);
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList);
-#	SetIsFull(poset,true);
 	SetIsP1(poset,true);
 	return poset;
 	end);	
@@ -258,7 +231,6 @@ InstallMethod(FlagsAsListOfFacesFromPoset,
 		od;
 	return flagList;
 	end);	
-#Doesn't handle full posets yet.
 
 
 InstallMethod(AdjacentFlag,
@@ -340,7 +312,7 @@ InstallMethod(IsFlaggable,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local flags,flag,facesList,facesForFlag,ranks,x,y,truthValues, result;
-	if ListIsFullPoset(poset!.faces_list_by_rank) then
+	if ListIsP1Poset(poset!.faces_list_by_rank) then
 		ranks:=[2..Rank(poset)+1];
 	else
 		ranks:=[1..Rank(poset)];
@@ -446,6 +418,34 @@ InstallMethod(RankedFaceListOfPoset,
 	end);
 
 
+
+InstallMethod(MaximalChains,
+	[IsPoset],
+	function(poset)
+	local flags,newflags,faces,ranks,facesByRanks,i,r,top,parents,parentsInds,iFlags;
+	if IsP1(poset)=false then Print("Sorry, I need a ranked P1 poset."); return; fi;
+	faces:=ShallowCopy(ElementsList(poset));
+	ranks:=DuplicateFreeList(List(ElementsList(poset),Rank));
+	facesByRanks:=List(ranks,x->PositionsProperty(faces,y->Rank(y)=x));
+	flags:=List(facesByRanks[1],x->[x]); #this line is more generic than needed, would maybe help if I rewrite the function to not assume P1.
+	top:=-1;
+	newflags:=[];
+	while top <> Rank(poset) do
+		for i in flags do
+			parentsInds:= PositionsProperty(faces{facesByRanks[top+3]}, x->IsSubface(x,faces[Last(i)]));
+			parents:=facesByRanks[top+3]{parentsInds};
+			iFlags:=List(parents,x->Concatenation(i,[x]));
+			Append(newflags,iFlags);
+			od;
+		flags:=newflags;
+		newflags:=[];
+#		Print(newflags,top,"\n");
+		top:=top+1;
+	od;
+	return List(flags,x->faces{x});
+	end);
+
+
 InstallMethod(PosetElementFromListOfFlags,
  	[IsList,IsInt],
  	function(list,n)
@@ -511,6 +511,7 @@ InstallMethod(PrintObj,
 InstallMethod(IsSubface,
 	[IsFace and HasFlagList,IsFace and HasFlagList],
 	function(face1,face2)
+	if FlagList(face2)=[] then return true;fi;
 	if Rank(face1)>Rank(face2) and Intersection(FlagList(face1),FlagList(face2))<>[] then return true;
 	else return false;
 	fi;
