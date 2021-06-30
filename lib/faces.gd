@@ -26,15 +26,31 @@ DeclareAttribute("NumberOfRidges", IsManiplex);
 #! Returns the f-vector of <A>M</A>.
 DeclareAttribute("Fvector", IsManiplex);
 
+#! @Arguments M, j, i
+#! Returns the section F_j / F_i, where F_j is the j-face of the base flag of <A>M</A> and
+#! F_i is the i-face of the base flag.
+DeclareOperation("Section", [IsManiplex, IsInt, IsInt]);
+
+#! @Arguments M, j, i
+#! Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.
+DeclareOperation("Sections", [IsManiplex, IsInt, IsInt]);
+
 #! @Arguments M
 #! Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
-#! Currently only works for reflexible maniplexes.
 DeclareAttribute("Facets", IsManiplex);
 
 #! @Arguments M
+#! Returns the facet of <A>M</A> that contains the base flag (that is, the maniplex corresponding to the facet).
+#! If the base flag is unspecified, we assume it is flag number 1.
+DeclareAttribute("Facet", IsManiplex);
+
+#! @Arguments M
 #! Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
-#! Currently only works for reflexible maniplexes.
 DeclareAttribute("VertexFigures", IsManiplex);
+
+#! @Arguments M
+#! Returns the vertex-figures of <A>M</A> that contains the base flag.
+DeclareAttribute("VertexFigure", IsManiplex);
 
 
 #! @Chapter Combinatorics and Structure

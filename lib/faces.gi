@@ -94,37 +94,98 @@ InstallMethod(Fvector,
 	od;
 	return fvec;
 	end);
+
+InstallMethod(Section,
+	[IsReflexibleManiplex, IsInt, IsInt],
+	function(M, j, i)
+	local n, sym, g, h, s, q;
+	n := Rank(M);
+	g := AutomorphismGroup(M);
+	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+	q := ReflexibleManiplex(h);
+	if HasSchlafliSymbol(M) then
+		SetSchlafliSymbol(q, SchlafliSymbol(M){[i+2..j-1]});
+	fi;
+	return q;
+	end);
+	
+InstallMethod(Section,
+	[IsManiplex, IsInt, IsInt],
+	function(M, j, i)
+	local g, n, h, o, newgens, q;
+	n := Rank(M);
+	g := ConnectionGroup(M);
+	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+	# Get the connected component of the graph with 1 in it...
+	o := Orbit(h, 1);
+	# Then restrict the permutations to only act on that orbit...
+	newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
+	q := Maniplex(Group(newgens));
+	return q;
+	end);
+
+InstallMethod(Sections,
+	[IsReflexibleManiplex, IsInt, IsInt],
+	function(M, j, i)
+	return [Section(M,j,i)];
+	end);
+	
+InstallMethod(Sections,
+	[IsManiplex, IsInt, IsInt],
+	function(M, j, i)
+	local g, n, h, orbs, orb, newgens, sections;
+	n := Rank(M);
+	g := ConnectionGroup(M);
+	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+	orbs := Orbits(h);
+	sections := [];
+	for orb in orbs do
+		newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, orb));
+		Add(sections, Maniplex(Group(newgens)));
+	od;
+	
+	# This might be terribly slow...
+	sections := Unique(sections);
+
+	return sections;
+	end);
+
+
+	
+InstallMethod(Facets,
+	[IsManiplex],
+	function(M)
+	local n;
+	n := Rank(M);
+	return Sections(M, n-1, -1);
+	end);
 	
 # TODO: Handle some special cases:
 # 1. The facets of a universal coxeter group are a universal coxeter group.
 # 2. If P is finite, then try guessing a presentation for the facets.
 #	This will give something that might properly cover the facets -- compare size.
-InstallMethod(Facets,
-	[IsReflexibleManiplex],
-	function(p)
-	local n, sym, g, h, s, q;
-	n := Rank(p);
-	g := AutomorphismGroup(p);
-	h := Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
-	q := ReflexibleManiplex(h);
-	if HasSchlafliSymbol(p) then
-		SetSchlafliSymbol(q, SchlafliSymbol(p){[1..n-2]});
-	fi;
-	return q;
+InstallMethod(Facet,
+	[IsManiplex],
+	function(M)
+	local n;
+	n := Rank(M);
+	return Section(M, n-1, -1);
 	end);
 	
 InstallMethod(VertexFigures,
-	[IsReflexibleManiplex],
-	function(p)
-	local n, sym, g, h, s, q;
-	n := Rank(p);
-	g := AutomorphismGroup(p);
-	h := Subgroup(g, GeneratorsOfGroup(g){[2..n]});
-	q := ReflexibleManiplex(h);
-	if HasSchlafliSymbol(p) then
-		SetSchlafliSymbol(q, SchlafliSymbol(p){[2..n-1]});
-	fi;
-	return q;
+	[IsManiplex],
+	function(M)
+	local n;
+	n := Rank(M);
+	return Sections(M, n, 0);
+	end);
+	
+InstallMethod(VertexFigure,
+	[IsManiplex],
+	function(M)
+	local n;
+	n := Rank(M);
+	return Section(M, n, 0);
 	end);
 	
 InstallMethod(SchlafliSymbol,
