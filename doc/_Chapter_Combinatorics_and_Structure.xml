@@ -76,6 +76,34 @@
 </Section>
 
 
+<Section Label="Chapter_Combinatorics_and_Structure_Section_Schlafli_symbol">
+<Heading>Schlafli symbol</Heading>
+
+<ManSection>
+  <Attr Arg="M" Name="SchlafliSymbol" Label="for IsManiplex"/>
+ <Description>
+ Returns the Schlafli symbol of the maniplex <A>M</A>.
+ Each entry is either an integer or a set of integers,
+ where entry number i shows the polygons that we obtain
+ as sections of (i+1)-faces over (i-2)-faces.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsEquivelar" Label="for IsManiplex"/>
+ <Returns>the the maniplex <A>M</A> is equivelar; i.e.,  whether its Schlafli Symbol consists of integers at each
+  position (no lists).
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Combinatorics_and_Structure_Section_Basics">
 <Heading>Basics</Heading>
 
@@ -91,28 +119,6 @@
   <Attr Arg="M" Name="RankManiplex" Label="for IsManiplex"/>
  <Description>
  Returns the rank of the maniplex <A>M</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="M" Name="SchlafliSymbol" Label="for IsManiplex"/>
- <Description>
- Returns the Schlafli symbol of the maniplex <A>M</A>.
- Currently only implemented for reflexible maniplexes.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="M" Name="ComputeSchlafliSymbol" Label="for IsManiplex"/>
- <Description>
- Computes the Schlafli symbol of the maniplex <A>M</A>,
- ignoring any currently stored data about the Schlafli symbol.
- This is called by SchlafliSymbol(<A>M</A>) if no value is stored yet,
- but it can also be called directly by the user to double-check
- any optimizations.
- Currently only implemented for reflexible maniplexes.
  </Description>
 </ManSection>
 
@@ -188,8 +194,18 @@
 
 
 <ManSection>
+  <Prop Arg="M" Name="IsChiral" Label="for IsManiplex"/>
+ <Returns>Whether the maniplex <A>M</A> is chrial.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Prop Arg="M" Name="IsRotary" Label="for IsManiplex"/>
- <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is orientable  and has at most 2 flag orbits (making it either chiral or orientably regular).
+ <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is  either reflexible or chiral.
 </Returns>
  <Description>
 <P/>
@@ -202,333 +218,6 @@
  <Description>
  Returns a short name for the maniplex <A>M</A>, if one is available.
  For example, Description(Simplex(3)) = "3-simplex".
- </Description>
-</ManSection>
-
-
-</Section>
-
-
-<Section Label="Chapter_Combinatorics_and_Structure_Section_Posets">
-<Heading>Posets</Heading>
-
-<ManSection>
-  <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
- <Returns><Emph>IsPosetOfFlags</Emph>. Not that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
-</Returns>
- <Description>
-Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
- </Description>
-</ManSection>
-
-
-
-<ManSection>
-  <Attr Arg="arg" Name="RankPoset" Label="for IsPoset"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="poset" Name="IsFull" Label="for IsPoset"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-Checks or creates the value of the attribute IsFull for an IsPoset.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="arg" Name="IsFlaggable" Label="for IsPoset"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="poset" Name="IsAtomic" Label="for IsPoset"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-Checks if <A>poset</A> is atomic. <Emph>Note, currently something that is computed, just declared.</Emph>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="poset" Name="PartialOrder" Label="for IsPoset"/>
- <Returns><Emph>partial order</Emph>
-</Returns>
- <Description>
-HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. <Emph>Note, currently something that is computed, just declared.</Emph>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="list" Name="ListIsFullPoset" Label="for IsList"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-Given <A>list</A>, a poset as a list of faces ordered by rank, each face listing the flags on the face, this function will tell you if the poset is full or not.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="RankOfPoset" Label="for IsPoset"/>
- <Returns><Emph>integer</Emph>
-</Returns>
- <Description>
-Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="IsNotFull" Label="for IsPoset"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-Lets me check to see if a poset is NOT full. For use in certain filtering operations.
- </Description>
-</ManSection>
-
-
-
-<ManSection>
-  <Oper Arg="g" Name="PosetOfConnectionGroup" Label="for IsPermGroup"/>
- <Returns><Emph>IsPosetOfFlags</Emph> with <Emph>IsFull</Emph>=false.
-</Returns>
- <Description>
-Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="g" Name="FullPosetOfConnectionGroup" Label="for IsPermGroup"/>
- <Returns><Emph>IsPosetOfFlags</Emph> with <Emph>IsFull</Emph>=true.
-</Returns>
- <Description>
-Returns a full poset corresponding to the connection group <A>g</A> with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. This function does include the minimal (empty) face nor the maximal face of the maniplex, so the list has <Math>n+2</Math> ranks if the maniplex is of rank <Math>n</Math>. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="mani" Name="PosetOfManiplex" Label="for IsManiplex"/>
- <Returns><Emph>IsPosetOfFlags</Emph>
-</Returns>
- <Description>
-Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does not include the minimal (empty) face nor the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="mani" Name="FullPosetOfManiplex" Label="for IsManiplex"/>
- <Returns><Emph>IsPosetOfFlags</Emph>
-</Returns>
- <Description>
-Given a maniplex, returns a poset with the internal representation be a list of lists of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="partialOrder" Name="PosetFromPartialOrder" Label="for IsBinaryRelation"/>
- <Returns><Emph>IsPosetOfIndices</Emph>
-</Returns>
- <Description>
-Given a partial order on a finite set of size <Math>n</Math>, this function will create a partial order on <Emph>[1..n]</Emph>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="list_of_faces, partial_order" Name="PosetFromElements" Label="for IsList,IsPartialOrderBinaryRelation"/>
- <Returns><Emph>IsPosetOfElements</Emph>
-</Returns>
- <Description>
-This is for gathering elements with a known ordering function into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types.
- </Description>
-</ManSection>
-
-
-
-<ManSection>
-  <Oper Arg="object1, object2" Name="AreIncidentFaces" Label="for IsObject,IsObject"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="FlagsAsListOfFacesFromPoset" Label="for IsPoset"/>
- <Returns><Emph>IsList</Emph>
-</Returns>
- <Description>
-Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset, flag, i" Name="AdjacentFlag" Label="for IsPosetOfFlags,IsList,IsInt"/>
- <Returns><Emph>flag(s)</Emph>
-</Returns>
- <Description>
-Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
- You can replace <A>flag</A> with the integer corresponding to that flag.
- Appending <Emph>true</Emph> to the arguments will give the position of the flag instead of its description from <Emph>FlagsAsListOfFacesFromPoset</Emph>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset, i" Name="ConnectionGeneratorOfPoset" Label="for IsPoset,IsInt"/>
- <Returns>A permutation on the flags.
-</Returns>
- <Description>
-Given a <A>poset</A> and an integer <Math>i</Math>, this function will give you the associated permutation for the rank <Math>i</Math>-connection.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="ConnectionGroupOfPoset" Label="for IsPoset"/>
- <Returns><Emph>IsPermGroup</Emph>
-</Returns>
- <Description>
-Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="FacesOfPosetAsBinaryRelationOnFaces" Label="for IsPoset"/>
- <Returns>A binary relation on the integers 1 through <Math>n</Math>, where <Math>n</Math> is the number of faces of the full poset.
-</Returns>
- <Description>
-FacesOfPosetAsBinaryRelationOnFaces
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="FaceListOfPoset" Label="for IsPoset"/>
- <Returns><Emph>list</Emph>
-</Returns>
- <Description>
-Gives a list of faces collected into lists ordered by increasing rank.
- </Description>
-</ManSection>
-
-
-
-<ManSection>
-  <Attr Arg="posetelement {face}" Name="RankPosetElement" Label="for IsPosetElement"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-The rank of a poset element. Alternately <Emph>RankFace</Emph>(<A>IsPosetElement</A>).
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="posetelement {face}" Name="FlagList" Label="for IsPosetElement"/>
- <Returns><Emph>list</Emph>
-</Returns>
- <Description>
-Description of <A>posetelement</A> n as a list of incident flags (when present).
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="posetelement {face}" Name="FromPoset" Label="for IsPosetElement"/>
- <Returns><Emph>poset</Emph>
-</Returns>
- <Description>
-Gives the poset to which the face belongs (when present).
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="posetelement {face}" Name="AtomList" Label="for IsPosetElement"/>
- <Returns><Emph>list</Emph>
-</Returns>
- <Description>
-Description of <A>posetelement</A> n as a list of atoms (when present).
- </Description>
-</ManSection>
-
-
-<P/>
-<ManSection>
-  <Attr Arg="arg" Name="Index" Label="for IsPosetElement"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="list, n" Name="PosetElementFromListOfFlags" Label="for IsList,IsInt"/>
- <Returns><Emph>IsPosetElement</Emph>
-</Returns>
- <Description>
-This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of poset. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="list, n" Name="PosetElementFromAtomList" Label="for IsList,IsInt"/>
- <Returns><Emph>IsFace</Emph>
-</Returns>
- <Description>
-Creates a <Emph>face</Emph> with <A>list</A> of atoms at rank <A>n</A>. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="obj, n" Name="PosetElementFromIndex" Label="for IsObject,IsInt"/>
- <Returns><Emph>IsFace</Emph>
-</Returns>
- <Description>
-Creates a <Emph>face</Emph> with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="RankedFaceListOfPoset" Label="for IsPoset"/>
- <Returns><Emph>list</Emph>
-</Returns>
- <Description>
-Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="[face1,face1]" Name="IsSubface" Label="for IsFace,IsFace"/>
- <Returns><Emph>true</Emph> or <Emph>false</Emph>
-</Returns>
- <Description>
-<A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. Subface will check to make sure <A>face2</A> is a subface of <A>face1</A>.
  </Description>
 </ManSection>
 

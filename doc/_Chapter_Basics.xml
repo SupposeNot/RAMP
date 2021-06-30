@@ -41,6 +41,10 @@ p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");
 ]]></Example>
 
 
+ If the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
  </Description>
 </ManSection>
 
@@ -52,6 +56,10 @@ Returns the regular polytope with the given symbolic name.
  Examples:
  ReflexibleManiplex("{3,3,3}");
  ReflexibleManiplex("{4,3}_3");
+ If the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
  </Description>
 </ManSection>
 

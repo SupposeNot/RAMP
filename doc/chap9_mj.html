@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 9: Comparing maniplexes</title>
+<title>GAP (RAMP) - Chapter 9: Posets</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -18,62 +18,428 @@
 <body class="chap9"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
-<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd_mj.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap10_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap9.html">[MathJax off]</a></p>
-<p><a id="X7A3CC7F9873E02BF" name="X7A3CC7F9873E02BF"></a></p>
-<div class="ChapSects"><a href="chap9_mj.html#X7A3CC7F9873E02BF">9 <span class="Heading">Comparing maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X7CD5138B85A97590">9.1 <span class="Heading">Quotients and covers</span></a>
+<p><a id="X79540DAB85902432" name="X79540DAB85902432"></a></p>
+<div class="ChapSects"><a href="chap9_mj.html#X79540DAB85902432">9 <span class="Heading">Posets</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X87ED175B85A4C5B7">9.1 <span class="Heading">Poset constructors</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E83B53D8513D4A3">9.1-1 IsQuotientOf</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F320DDB834A0A09">9.1-2 IsCoverOf</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X785EBE7B87A025B4">9.1-3 IsIsomorphicTo</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X879C71E784C41B77">9.1-4 SmallestRegularCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7D495B407CDFAEA2">9.1-1 PosetFromFaceListOfFlags</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C7435EF7FC3AB13">9.1-2 PosetOfConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C15F3F8792500D7">9.1-3 PosetOfManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7ECC2FBC7AF3A960">9.1-4 PosetFromPartialOrder</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79F9C24086F95EC9">9.1-5 PosetFromElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X803B663D81503640">9.1-6 PairCompareFlagsList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X862FE5C38230BD0A">9.1-7 PairCompareAtomsList</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X859F4CD47E3311AD">9.2 <span class="Heading">Poset attributes</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X816460188169E650">9.2-1 IsAtomic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85A9CAA682FE56EB">9.2-2 PartialOrder</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85F7C2CE7D70A92D">9.2-3 ListIsFullPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X820BF50C79C6C6C0">9.2-4 RankOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X831C74EB803C1610">9.2-5 IsNotFull</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X81269ACB7EF202C4">9.2-6 IsP1</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X8163385F7B822934">9.3 <span class="Heading">Working with posets</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C2B6B3379AFDDAC">9.3-1 AreIncidentFlagFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7B9029A4868E7138">9.3-2 FlagsAsListOfFacesFromPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7ACE88EC803EDE07">9.3-3 AdjacentFlag</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X84E3B63C8639771B">9.3-4 ConnectionGeneratorOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X83C849F67D807854">9.3-5 ConnectionGroupOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8380DB8B856E1761">9.3-6 FacesOfPosetAsBinaryRelationOnFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79F1837C835A5EFF">9.3-7 FaceListOfPoset</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X86FBAB3E8056F479">9.4 <span class="Heading">Elements of posets, also known as faces.</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X863F93B782AE6ABC">9.4-1 RankPosetElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X819B1AEF84E08B4D">9.4-2 FlagList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X84A507EE81E5B3A3">9.4-3 FromPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X878F991183754744">9.4-4 AtomList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X81AD262F84D7E532">9.4-5 Index</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C74F3CE7933DA03">9.4-6 PosetElementFromListOfFlags</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85E6D20180DA4C3E">9.4-7 PosetElementFromAtomList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E36DF06841444FE">9.4-8 PosetElementFromIndex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7A80223E83EF52E8">9.4-9 RankedFaceListOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79BFF531809785A3">9.4-10 IsSubface</a></span>
 </div></div>
 </div>
 
-<h3>9 <span class="Heading">Comparing maniplexes</span></h3>
+<h3>9 <span class="Heading">Posets</span></h3>
 
-<p><a id="X7CD5138B85A97590" name="X7CD5138B85A97590"></a></p>
-
-<h4>9.1 <span class="Heading">Quotients and covers</span></h4>
-
-<p><a id="X7E83B53D8513D4A3" name="X7E83B53D8513D4A3"></a></p>
-
-<h5>9.1-1 IsQuotientOf</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsQuotientOf</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether <var class="Arg">M1</var> is a quotient of <var class="Arg">M2</var>.</p>
-
-<p><a id="X7F320DDB834A0A09" name="X7F320DDB834A0A09"></a></p>
-
-<h5>9.1-2 IsCoverOf</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCoverOf</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether <var class="Arg">M1</var> is a cover of <var class="Arg">M2</var>.</p>
-
-<p><a id="X785EBE7B87A025B4" name="X785EBE7B87A025B4"></a></p>
-
-<h5>9.1-3 IsIsomorphicTo</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicTo</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether <var class="Arg">M1</var> is isomorphic to <var class="Arg">M2</var>.</p>
-
-<p><a id="X879C71E784C41B77" name="X879C71E784C41B77"></a></p>
-
-<h5>9.1-4 SmallestRegularCover</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallestRegularCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the smallest regular cover of <var class="Arg">M</var>, which is the maniplex whose automorphism group is the connection group of <var class="Arg">M</var>.</p>
+<p>I'm in the process of reconciling all of this, but there are going to be a number of ways to <em>define</em> a poset:</p>
 
 
-<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd_mj.html">[Next Chapter]</a>&nbsp;  </div>
+<ul>
+<li><p>As an <em>IsPosetOfFlags</em>, where the underlying description is an ordered list of length <span class="SimpleMath">\(n+2\)</span>. Each of the <span class="SimpleMath">\(n+2\)</span> list elements is a list of faces, and the assumption is that these are the faces of rank <span class="SimpleMath">\(i-2\)</span>, where <span class="SimpleMath">\(i\)</span> is the index in the master list (e.g., <em>l[1][1]</em> would usually correspond to the unique <span class="SimpleMath">\(-1\)</span> face of a polytope -- and there won't be an <em>l[1][2]</em>). Each face is then a list of the flags incident with that face.</p>
+
+</li>
+<li><p>As an <em>IsPosetOfIndices</em>, where the underlying description is a binary relation on a set of indices, which correspond to labels for the elements of the poset.</p>
+
+</li>
+<li><p>If the poset is known to be atomic, then by a description of the faces in terms of the atoms... usually we'll just need the list of the elements of maximal rank, from which all other elements may be obtained.</p>
+
+</li>
+<li><p>As an <em>IsPosetOfElements</em>, where the elements could be anything, and we have a known function determining the partial order on the elements.</p>
+
+</li>
+</ul>
+<p>Usually, we assume that the poset will have a natural rank function on it.</p>
+
+<p><a id="X87ED175B85A4C5B7" name="X87ED175B85A4C5B7"></a></p>
+
+<h4>9.1 <span class="Heading">Poset constructors</span></h4>
+
+<p><a id="X7D495B407CDFAEA2" name="X7D495B407CDFAEA2"></a></p>
+
+<h5>9.1-1 PosetFromFaceListOfFlags</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromFaceListOfFlags</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPosetOfFlags</em>. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.</p>
+
+<p>Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Note that if you don't include faces or ranks, this function doesn't know about about them!</p>
+
+<p>Here we have a poset using the <em>IsPosetOfFlags</em> description for the triangle.</p>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromFaceListOfFlags([[[]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);</span>
+A poset using the IsPosetOfFlags representation with 8 faces.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceListOfPoset(poset);</span>
+[ [ [  ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ]
+</pre></div>
+
+<p><a id="X7C7435EF7FC3AB13" name="X7C7435EF7FC3AB13"></a></p>
+
+<h5>9.1-2 PosetOfConnectionGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetOfConnectionGroup</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPosetOfFlags</em> with <em>IsFull</em>=true.</p>
+
+<p>Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function includes the minimal (empty) face and the maximal face of the maniplex. Note that the <span class="SimpleMath">\(i\)</span>-faces correspond to the <span class="SimpleMath">\(i+1\)</span> item in the list because of how GAP indexes lists.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);</span>
+Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PosetOfConnectionGroup(g);</span>
+A poset using the IsPosetOfFlags representation with 8 faces.
+</pre></div>
+
+<p><a id="X7C15F3F8792500D7" name="X7C15F3F8792500D7"></a></p>
+
+<h5>9.1-3 PosetOfManiplex</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetOfManiplex</code>( <var class="Arg">mani</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPosetOfFlags</em></p>
+
+<p>Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <span class="SimpleMath">\(i\)</span>-faces correspond to the <span class="SimpleMath">\(i+1\)</span> item in the list because of how GAP indexes lists.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=HemiCube(3);</span>
+Regular 3-polytope of type [ 4, 3 ] with 24 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PosetOfManiplex(p);</span>
+A poset using the IsPosetOfFlags representation with 15 faces.
+</pre></div>
+
+<p><a id="X7ECC2FBC7AF3A960" name="X7ECC2FBC7AF3A960"></a></p>
+
+<h5>9.1-4 PosetFromPartialOrder</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromPartialOrder</code>( <var class="Arg">partialOrder</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPosetOfIndices</em></p>
+
+<p>Given a partial order on a finite set of size <span class="SimpleMath">\(n\)</span>, this function will create a partial order on <em>[1..n]</em>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=List([[1,1],[1,2],[1,3],[1,4],[2,4],[2,2],[3,3],[4,4]],x-&gt;Tuple(x));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">r:=BinaryRelationByElements(Domain([1..4]), l);</span>
+&lt;general mapping: Domain([ 1 .. 4 ]) -&gt; Domain([ 1 .. 4 ]) &gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromPartialOrder(r);</span>
+A poset using the IsPosetOfIndices representation 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h:=HasseDiagramBinaryRelation(PartialOrder(poset));</span>
+&lt;general mapping: Domain([ 1 .. 4 ]) -&gt; Domain([ 1 .. 4 ]) &gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UnderlyingRelation(h);</span>
+Domain([ DirectProductElement( [ 1, 2 ] ), DirectProductElement( [ 1, 3 ] ), DirectProductElement( [ 2, 4 ] ) ])
+</pre></div>
+
+<p>Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.</p>
+
+<p><a id="X79F9C24086F95EC9" name="X79F9C24086F95EC9"></a></p>
+
+<h5>9.1-5 PosetFromElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromElements</code>( <var class="Arg">list_of_faces</var>, <var class="Arg">{func}</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPosetOfElements</em></p>
+
+<p>This is for gathering elements with a known ordering <var class="Arg">func</var> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList or HasAtomList, you may omit the function. Also note, the expectation is that <var class="Arg">func</var> behaves similarly to IsSubset, i.e., <var class="Arg">func</var> (x,y)=true means <span class="SimpleMath">\(y\)</span> is less than <span class="SimpleMath">\(x\)</span> in the order. Also worth noting, is that the internal representation of this kind of poset can and does keep both the partial order on the indices, and the list of faces corresponding to those indices, and the binary relation <var class="Arg">func</var> (if the <var class="Arg">list_of_faces</var> elements all have HasFlagList or HasAtomList, this will be the operation <em>PairCompareFlagsList</em> or <em>PairCompareAtomsList</em>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SymmetricGroup(3);</span>
+Sym( [ 1 .. 3 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">asg:=AllSubgroups(g);</span>
+[ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]), Group([ (1,2,3), (2,3) ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromElements(asg,IsSubgroup);</span>
+A poset using the IsPosetOfIndices representation 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasseDiagramBinaryRelation(PartialOrder(poset));</span>
+&lt;general mapping: Domain([ 1 .. 6 ]) -&gt; Domain([ 1 .. 6 ]) &gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UnderlyingRelation(last);</span>
+Domain([ DirectProductElement( [ 1, 2 ] ), DirectProductElement( [ 1, 3 ] ), DirectProductElement( [ 1, 4 ] ),   DirectProductElement( [ 1, 5 ] ), DirectProductElement( [ 2, 6 ] ), DirectProductElement( [ 3, 6 ] ),   DirectProductElement( [ 4, 6 ] ), DirectProductElement( [ 5, 6 ] ) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ElementsList(poset){[2,6]};</span>
+[ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
+</pre></div>
+
+<p>Here we have an example of how we can store a partially ordered set, and recover information about which objects are incident in the partial order.</p>
+
+<p><a id="X803B663D81503640" name="X803B663D81503640"></a></p>
+
+<h5>9.1-6 PairCompareFlagsList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareFlagsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Function assumes <var class="Arg">list1</var> and <var class="Arg">list2</var> are of the form [<em>listOfFlags</em>,<em>i</em>] where <em>listOfFlags</em> is a list of flags in the face and <em>i</em> is the rank of the face.</p>
+
+<p><a id="X862FE5C38230BD0A" name="X862FE5C38230BD0A"></a></p>
+
+<h5>9.1-7 PairCompareAtomsList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareAtomsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Function assumes <var class="Arg">list1</var> and <var class="Arg">list2</var> are of the form <em>[listOfAtoms,int]</em> where <em>listOfAtoms</em> is a list of flags in the face and <em>int</em> is the rank of the face.</p>
+
+<p><a id="X859F4CD47E3311AD" name="X859F4CD47E3311AD"></a></p>
+
+<h4>9.2 <span class="Heading">Poset attributes</span></h4>
+
+<p><a id="X816460188169E650" name="X816460188169E650"></a></p>
+
+<h5>9.2-1 IsAtomic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAtomic</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Checks if <var class="Arg">poset</var> is atomic. <em>Note, currently something that is not computed, just declared.</em></p>
+
+<p><a id="X85A9CAA682FE56EB" name="X85A9CAA682FE56EB"></a></p>
+
+<h5>9.2-2 PartialOrder</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartialOrder</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>partial order</em></p>
+
+<p>HasPartialOrder Checks if <var class="Arg">poset</var> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <var class="Arg">poset</var>. <em>Note, currently something that is not computed, just declared.</em></p>
+
+<p><a id="X85F7C2CE7D70A92D" name="X85F7C2CE7D70A92D"></a></p>
+
+<h5>9.2-3 ListIsFullPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ListIsFullPoset</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Given <var class="Arg">list</var>, a poset as a list of faces ordered by rank, each face listing the flags on the face, this function will tell you if the poset is full or not.</p>
+
+<p><a id="X820BF50C79C6C6C0" name="X820BF50C79C6C6C0"></a></p>
+
+<h5>9.2-4 RankOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>integer</em></p>
+
+<p>Given a <var class="Arg">poset</var>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later. NOT IMPLEMENTED YET.</p>
+
+<p><a id="X831C74EB803C1610" name="X831C74EB803C1610"></a></p>
+
+<h5>9.2-5 IsNotFull</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsNotFull</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Lets me check to see if a poset is NOT full. For use in certain filtering operations.</p>
+
+<p><a id="X81269ACB7EF202C4" name="X81269ACB7EF202C4"></a></p>
+
+<h5>9.2-6 IsP1</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP1</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Determines whether a poset has property P1 from ARP.</p>
+
+<p><a id="X8163385F7B822934" name="X8163385F7B822934"></a></p>
+
+<h4>9.3 <span class="Heading">Working with posets</span></h4>
+
+<p><a id="X7C2B6B3379AFDDAC" name="X7C2B6B3379AFDDAC"></a></p>
+
+<h5>9.3-1 AreIncidentFlagFaces</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreIncidentFlagFaces</code>( <var class="Arg">object1</var>, <var class="Arg">object2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.</p>
+
+<p><a id="X7B9029A4868E7138" name="X7B9029A4868E7138"></a></p>
+
+<h5>9.3-2 FlagsAsListOfFacesFromPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagsAsListOfFacesFromPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsList</em></p>
+
+<p>Given a <var class="Arg">poset</var>, this will give you a version of the list of flags in terms of the faces described in the <var class="Arg">poset</var>. Note that the flag list does not include the empty face or the maximal face.</p>
+
+<p><a id="X7ACE88EC803EDE07" name="X7ACE88EC803EDE07"></a></p>
+
+<h5>9.3-3 AdjacentFlag</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">poset</var>, <var class="Arg">flag</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>flag(s)</em></p>
+
+<p>Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. Appending <em>true</em> to the arguments will give the position of the flag instead of its description from <em>FlagsAsListOfFacesFromPoset</em>.</p>
+
+<p><a id="X84E3B63C8639771B" name="X84E3B63C8639771B"></a></p>
+
+<h5>9.3-4 ConnectionGeneratorOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGeneratorOfPoset</code>( <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: A permutation on the flags.</p>
+
+<p>Given a <var class="Arg">poset</var> and an integer <span class="SimpleMath">\(i\)</span>, this function will give you the associated permutation for the rank <span class="SimpleMath">\(i\)</span>-connection.</p>
+
+<p><a id="X83C849F67D807854" name="X83C849F67D807854"></a></p>
+
+<h5>9.3-5 ConnectionGroupOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroupOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPermGroup</em></p>
+
+<p>Given a <var class="Arg">poset</var> corresponding to a maniplex, this function will give you the connection group.</p>
+
+<p><a id="X8380DB8B856E1761" name="X8380DB8B856E1761"></a></p>
+
+<h5>9.3-6 FacesOfPosetAsBinaryRelationOnFaces</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacesOfPosetAsBinaryRelationOnFaces</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: A binary relation on the integers 1 through <span class="SimpleMath">\(n\)</span>, where <span class="SimpleMath">\(n\)</span> is the number of faces of the full poset.</p>
+
+<p>FacesOfPosetAsBinaryRelationOnFaces</p>
+
+<p><a id="X79F1837C835A5EFF" name="X79F1837C835A5EFF"></a></p>
+
+<h5>9.3-7 FaceListOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>list</em></p>
+
+<p>Gives a list of faces collected into lists ordered by increasing rank.</p>
+
+<p><a id="X86FBAB3E8056F479" name="X86FBAB3E8056F479"></a></p>
+
+<h4>9.4 <span class="Heading">Elements of posets, also known as faces.</span></h4>
+
+<p><a id="X863F93B782AE6ABC" name="X863F93B782AE6ABC"></a></p>
+
+<h5>9.4-1 RankPosetElement</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankPosetElement</code>( <var class="Arg">posetelement</var>, <var class="Arg">{face}</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p>The rank of a poset element. Alternately <em>RankFace</em>(<var class="Arg">IsPosetElement</var>).</p>
+
+<p><a id="X819B1AEF84E08B4D" name="X819B1AEF84E08B4D"></a></p>
+
+<h5>9.4-2 FlagList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagList</code>( <var class="Arg">posetelement</var>, <var class="Arg">{face}</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>list</em></p>
+
+<p>Description of <var class="Arg">posetelement</var> n as a list of incident flags (when present).</p>
+
+<p><a id="X84A507EE81E5B3A3" name="X84A507EE81E5B3A3"></a></p>
+
+<h5>9.4-3 FromPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FromPoset</code>( <var class="Arg">posetelement</var>, <var class="Arg">{face}</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>poset</em></p>
+
+<p>Gives the poset to which the face belongs (when present).</p>
+
+<p><a id="X878F991183754744" name="X878F991183754744"></a></p>
+
+<h5>9.4-4 AtomList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AtomList</code>( <var class="Arg">posetelement</var>, <var class="Arg">{face}</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <em>list</em></p>
+
+<p>Description of <var class="Arg">posetelement</var> n as a list of atoms (when present).</p>
+
+<p><a id="X81AD262F84D7E532" name="X81AD262F84D7E532"></a></p>
+
+<h5>9.4-5 Index</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Index</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X7C74F3CE7933DA03" name="X7C74F3CE7933DA03"></a></p>
+
+<h5>9.4-6 PosetElementFromListOfFlags</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromListOfFlags</code>( <var class="Arg">list</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsPosetElement</em></p>
+
+<p>This is used to create a face of rank <var class="Arg">n</var> from a <var class="Arg">list</var> of flags of poset. If an IsPoset object is appended to the input will tell the element what poset it belongs to.</p>
+
+<p><a id="X85E6D20180DA4C3E" name="X85E6D20180DA4C3E"></a></p>
+
+<h5>9.4-7 PosetElementFromAtomList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromAtomList</code>( <var class="Arg">list</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsFace</em></p>
+
+<p>Creates a <em>face</em> with <var class="Arg">list</var> of atoms at rank <var class="Arg">n</var>. If an IsPoset object is appended to the input will tell the element what poset it belongs to.</p>
+
+<p><a id="X7E36DF06841444FE" name="X7E36DF06841444FE"></a></p>
+
+<h5>9.4-8 PosetElementFromIndex</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromIndex</code>( <var class="Arg">obj</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>IsFace</em></p>
+
+<p>Creates a <em>face</em> with index <var class="Arg">obj</var> at rank <var class="Arg">n</var>. If an IsPoset object is appended to will tell the element what poset it belongs to.</p>
+
+<p><a id="X7A80223E83EF52E8" name="X7A80223E83EF52E8"></a></p>
+
+<h5>9.4-9 RankedFaceListOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankedFaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>list</em></p>
+
+<p>Gives a list of [<var class="Arg">face</var>,<var class="Arg">rank</var>] pairs for all the faces of <var class="Arg">poset</var>.</p>
+
+<p><a id="X79BFF531809785A3" name="X79BFF531809785A3"></a></p>
+
+<h5>9.4-10 IsSubface</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubface</code>( [<var class="Arg">face1</var>, <var class="Arg">face1</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <em>true</em> or <em>false</em></p>
+
+<p><var class="Arg">face1</var> and <var class="Arg">face2</var> are IsFace or IsPosetElement. Subface will check to make sure <var class="Arg">face2</var> is a subface of <var class="Arg">face1</var>.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap10_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

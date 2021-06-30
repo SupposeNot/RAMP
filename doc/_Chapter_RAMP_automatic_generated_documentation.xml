@@ -8,19 +8,33 @@
 <Heading>ramp automatic generated documentation of methods</Heading>
 
 <ManSection>
-  <Oper Arg="M" Name="PyramidOver" Label="for IsManiplex"/>
+  <Oper Arg="n" Name="UniversalRotationGroup" Label="for IsInt"/>
  <Description>
- Returns the pyramid over <A>M</A>.
- Currently only works for finite maniplexes.
+ Returns the rotation subgroup of the universal Coxeter Group of rank n.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Oper Arg="M" Name="PrismOver" Label="for IsManiplex"/>
+  <Oper Arg="sym" Name="UniversalRotationGroup" Label="for IsList"/>
  <Description>
- Returns the prism over <A>M</A>.
- Currently only works for finite maniplexes.
+ Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="arg" Name="RotaryManiplex" Label="for IsGroup"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="arg" Name="RotaryManiplex" Label="for IsList"/>
+ <Description>
+<P/>
  </Description>
 </ManSection>
 

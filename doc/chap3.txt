@@ -55,38 +55,38 @@
   to the vertex-figures). Currently only works for reflexible maniplexes.[133X
   
   
-  [1X3.2 [33X[0;0YBasics[133X[101X
+  [1X3.2 [33X[0;0YSchlafli symbol[133X[101X
   
-  [1X3.2-1 Size[101X
+  [1X3.2-1 SchlafliSymbol[101X
+  
+  [33X[1;0Y[29X[2XSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  Schlafli  symbol  of  the  maniplex [3XM[103X. Each entry is either an
+  integer  or  a set of integers, where entry number i shows the polygons that
+  we obtain as sections of (i+1)-faces over (i-2)-faces.[133X
+  
+  [1X3.2-2 IsEquivelar[101X
+  
+  [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ythe the maniplex [3XM[103X is equivelar; i.e., whether its Schlafli Symbol
+            consists of integers at each position (no lists).[133X
+  
+  
+  [1X3.3 [33X[0;0YBasics[133X[101X
+  
+  [1X3.3-1 Size[101X
   
   [33X[1;0Y[29X[2XSize[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the number of flags of the maniplex [3XM[103X.[133X
   
-  [1X3.2-2 RankManiplex[101X
+  [1X3.3-2 RankManiplex[101X
   
   [33X[1;0Y[29X[2XRankManiplex[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the rank of the maniplex [3XM[103X.[133X
   
-  [1X3.2-3 SchlafliSymbol[101X
-  
-  [33X[1;0Y[29X[2XSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  Schlafli  symbol of the maniplex [3XM[103X. Currently only implemented
-  for reflexible maniplexes.[133X
-  
-  [1X3.2-4 ComputeSchlafliSymbol[101X
-  
-  [33X[1;0Y[29X[2XComputeSchlafliSymbol[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YComputes  the  Schlafli  symbol  of  the  maniplex [3XM[103X, ignoring any currently
-  stored  data  about the Schlafli symbol. This is called by SchlafliSymbol([3XM[103X)
-  if no value is stored yet, but it can also be called directly by the user to
-  double-check  any  optimizations.  Currently only implemented for reflexible
-  maniplexes.[133X
-  
-  [1X3.2-5 IsTight[101X
+  [1X3.3-3 IsTight[101X
   
   [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
@@ -96,15 +96,15 @@
   minimum  possible.  This  property  doesn't make any sense for non-polytopal
   maniplexes, which aren't constrained by this lower bound.[133X
   
-  [1X3.2-6 PetrieLength[101X
+  [1X3.3-4 PetrieLength[101X
   
   [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
   
-  [1X3.2-7 HoleLength[101X
+  [1X3.3-5 HoleLength[101X
   
   [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X ) [32X attribute[133X
   
-  [1X3.2-8 IsDegenerate[101X
+  [1X3.3-6 IsDegenerate[101X
   
   [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
@@ -112,299 +112,39 @@
   [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
   eventually want to include maniplexes with even smaller sections.[133X
   
-  [1X3.2-9 SymmetryTypeGraph[101X
+  [1X3.3-7 SymmetryTypeGraph[101X
   
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
   group on Rank([3XM[103X) generators.[133X
   
-  [1X3.2-10 NumberOfFlagOrbits[101X
+  [1X3.3-8 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
   
-  [1X3.2-11 IsReflexible[101X
+  [1X3.3-9 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
   
-  [1X3.2-12 IsRotary[101X
+  [1X3.3-10 IsChiral[101X
+  
+  [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
+  
+  [1X3.3-11 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether  the  maniplex [3XM[103X is rotary; i.e., whether it is orientable
-            and  has  at  most  2  flag  orbits  (making  it  either chiral or
-            orientably regular).[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
+            reflexible or chiral.[133X
   
-  [1X3.2-13 Description[101X
+  [1X3.3-12 Description[101X
   
   [33X[1;0Y[29X[2XDescription[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  a  short name for the maniplex [3XM[103X, if one is available. For example,
   Description(Simplex(3)) = "3-simplex".[133X
-  
-  
-  [1X3.3 [33X[0;0YPosets[133X[101X
-  
-  [1X3.3-1 PosetFromFaceListOfFlags[101X
-  
-  [33X[1;0Y[29X[2XPosetFromFaceListOfFlags[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X.  Not  that  the function is INTENTIONALLY agnostic
-            about whether it is being given full poset or not.[133X
-  
-  [33X[0;0YGiven  a  [3Xlist[103X  of  lists  of  faces  in increasing rank, where each face is
-  described by the incident flags, gives you a IsPosetOfFlags object back.[133X
-  
-  [1X3.3-2 RankPoset[101X
-  
-  [33X[1;0Y[29X[2XRankPoset[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X3.3-3 IsFull[101X
-  
-  [33X[1;0Y[29X[2XIsFull[102X( [3Xposet[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0YChecks or creates the value of the attribute IsFull for an IsPoset.[133X
-  
-  [1X3.3-4 IsFlaggable[101X
-  
-  [33X[1;0Y[29X[2XIsFlaggable[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X3.3-5 IsAtomic[101X
-  
-  [33X[1;0Y[29X[2XIsAtomic[102X( [3Xposet[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0YChecks  if [3Xposet[103X is atomic. [13XNote, currently something that is computed, just
-  declared.[113X[133X
-  
-  [1X3.3-6 PartialOrder[101X
-  
-  [33X[1;0Y[29X[2XPartialOrder[102X( [3Xposet[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xpartial order[113X[133X
-  
-  [33X[0;0YHasPartialOrder  Checks  if  [3Xposet[103X  has  a  declared  partial  order (binary
-  relation).  SetPartialOrder  assigns  a  partial  order  to the [3Xposet[103X. [13XNote,
-  currently something that is computed, just declared.[113X[133X
-  
-  [1X3.3-7 ListIsFullPoset[101X
-  
-  [33X[1;0Y[29X[2XListIsFullPoset[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0YGiven  [3Xlist[103X,  a  poset as a list of faces ordered by rank, each face listing
-  the  flags  on the face, this function will tell you if the poset is full or
-  not.[133X
-  
-  [1X3.3-8 RankOfPoset[101X
-  
-  [33X[1;0Y[29X[2XRankOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xinteger[113X[133X
-  
-  [33X[0;0YGiven  a  [3Xposet[103X,  returns  the  rank of the poset. Note: There may be hidden
-  assumptions here to untangle later.[133X
-  
-  [1X3.3-9 IsNotFull[101X
-  
-  [33X[1;0Y[29X[2XIsNotFull[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0YLets  me  check  to see if a poset is NOT full. For use in certain filtering
-  operations.[133X
-  
-  [1X3.3-10 PosetOfConnectionGroup[101X
-  
-  [33X[1;0Y[29X[2XPosetOfConnectionGroup[102X( [3Xg[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X with [13XIsFull[113X=false.[133X
-  
-  [33X[0;0YGiven  a group, returns a poset with an internal representation as a list of
-  faces ordered by rank, where each face is represented as a list of the flags
-  it  contains.  Note  that this function does not include the minimal (empty)
-  face  nor the maximal face of the maniplex. Note that the [23Xi[123X-faces correspond
-  to the [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
-  
-  [1X3.3-11 FullPosetOfConnectionGroup[101X
-  
-  [33X[1;0Y[29X[2XFullPosetOfConnectionGroup[102X( [3Xg[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X with [13XIsFull[113X=true.[133X
-  
-  [33X[0;0YReturns  a  full  poset  corresponding  to  the  connection  group [3Xg[103X with an
-  internal  representation as a list of faces ordered by rank, where each face
-  is  represented  as  a  list  of  the  flags it contains. This function does
-  include  the  minimal  (empty) face nor the maximal face of the maniplex, so
-  the  list  has [23Xn+2[123X ranks if the maniplex is of rank [23Xn[123X. Note that the [23Xi[123X-faces
-  correspond to the [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
-  
-  [1X3.3-12 PosetOfManiplex[101X
-  
-  [33X[1;0Y[29X[2XPosetOfManiplex[102X( [3Xmani[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
-  
-  [33X[0;0YGiven  a  maniplex,  returns  a  poset  of  the  maniplex  with  an internal
-  representation  as  a  list  of  faces  ordered  by rank, where each face is
-  represented as a list of the flags it contains. Note that this function does
-  not  include  the minimal (empty) face nor the maximal face of the maniplex.
-  Note  that the [23Xi[123X-faces correspond to the [23Xi+1[123X item in the list because of how
-  GAP indexes lists.[133X
-  
-  [1X3.3-13 FullPosetOfManiplex[101X
-  
-  [33X[1;0Y[29X[2XFullPosetOfManiplex[102X( [3Xmani[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfFlags[113X[133X
-  
-  [33X[0;0YGiven a maniplex, returns a poset with the internal representation be a list
-  of  lists of faces ordered by rank, where each face is represented as a list
-  of  the  flags it contains. Note that this function does include the minimal
-  (empty)  face  and  the  maximal face of the maniplex. Note that the [23Xi[123X-faces
-  correspond to the [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
-  
-  [1X3.3-14 PosetFromPartialOrder[101X
-  
-  [33X[1;0Y[29X[2XPosetFromPartialOrder[102X( [3XpartialOrder[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfIndices[113X[133X
-  
-  [33X[0;0YGiven a partial order on a finite set of size [23Xn[123X, this function will create a
-  partial order on [13X[1..n][113X.[133X
-  
-  [1X3.3-15 PosetFromElements[101X
-  
-  [33X[1;0Y[29X[2XPosetFromElements[102X( [3Xlist_of_faces[103X, [3Xpartial_order[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetOfElements[113X[133X
-  
-  [33X[0;0YThis  is for gathering elements with a known ordering function into a poset.
-  Note...  you  should expect to get complete garbage if you send it a list of
-  faces of different types.[133X
-  
-  [1X3.3-16 AreIncidentFaces[101X
-  
-  [33X[1;0Y[29X[2XAreIncidentFaces[102X( [3Xobject1[103X, [3Xobject2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0YGiven two faces, will tell you if they are incident. Currently only supports
-  faces as list of their incident flags.[133X
-  
-  [1X3.3-17 FlagsAsListOfFacesFromPoset[101X
-  
-  [33X[1;0Y[29X[2XFlagsAsListOfFacesFromPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsList[113X[133X
-  
-  [33X[0;0YGiven a [3Xposet[103X, this will give you a version of the list of flags in terms of
-  the  faces  described in the [3Xposet[103X. Note that the flag list does not include
-  the empty face or the maximal face.[133X
-  
-  [1X3.3-18 AdjacentFlag[101X
-  
-  [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xposet[103X, [3Xflag[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xflag(s)[113X[133X
-  
-  [33X[0;0YGiven  a  flag  (represented as chains of faces comprised of lists of flags)
-  and  a  poset  and  a rank, this function will give you the [3Xi[103X-adjacent flag.
-  Note  that  adjacencies  are  listed  from  ranks  0  to  one  less than the
-  dimension. You can replace [3Xflag[103X with the integer corresponding to that flag.
-  Appending  [13Xtrue[113X  to the arguments will give the position of the flag instead
-  of its description from [13XFlagsAsListOfFacesFromPoset[113X.[133X
-  
-  [1X3.3-19 ConnectionGeneratorOfPoset[101X
-  
-  [33X[1;0Y[29X[2XConnectionGeneratorOfPoset[102X( [3Xposet[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YA permutation on the flags.[133X
-  
-  [33X[0;0YGiven  a  [3Xposet[103X and an integer [23Xi[123X, this function will give you the associated
-  permutation for the rank [23Xi[123X-connection.[133X
-  
-  [1X3.3-20 ConnectionGroupOfPoset[101X
-  
-  [33X[1;0Y[29X[2XConnectionGroupOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPermGroup[113X[133X
-  
-  [33X[0;0YGiven  a  [3Xposet[103X corresponding to a maniplex, this function will give you the
-  connection group.[133X
-  
-  [1X3.3-21 FacesOfPosetAsBinaryRelationOnFaces[101X
-  
-  [33X[1;0Y[29X[2XFacesOfPosetAsBinaryRelationOnFaces[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YA  binary  relation  on  the  integers 1 through [23Xn[123X, where [23Xn[123X is the
-            number of faces of the full poset.[133X
-  
-  [33X[0;0YFacesOfPosetAsBinaryRelationOnFaces[133X
-  
-  [1X3.3-22 FaceListOfPoset[101X
-  
-  [33X[1;0Y[29X[2XFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xlist[113X[133X
-  
-  [33X[0;0YGives a list of faces collected into lists ordered by increasing rank.[133X
-  
-  [1X3.3-23 RankPosetElement[101X
-  
-  [33X[1;0Y[29X[2XRankPosetElement[102X( [3Xposetelement[103X, [3X{face}[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0YThe rank of a poset element. Alternately [13XRankFace[113X([3XIsPosetElement[103X).[133X
-  
-  [1X3.3-24 FlagList[101X
-  
-  [33X[1;0Y[29X[2XFlagList[102X( [3Xposetelement[103X, [3X{face}[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xlist[113X[133X
-  
-  [33X[0;0YDescription of [3Xposetelement[103X n as a list of incident flags (when present).[133X
-  
-  [1X3.3-25 FromPoset[101X
-  
-  [33X[1;0Y[29X[2XFromPoset[102X( [3Xposetelement[103X, [3X{face}[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xposet[113X[133X
-  
-  [33X[0;0YGives the poset to which the face belongs (when present).[133X
-  
-  [1X3.3-26 AtomList[101X
-  
-  [33X[1;0Y[29X[2XAtomList[102X( [3Xposetelement[103X, [3X{face}[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xlist[113X[133X
-  
-  [33X[0;0YDescription of [3Xposetelement[103X n as a list of atoms (when present).[133X
-  
-  [1X3.3-27 Index[101X
-  
-  [33X[1;0Y[29X[2XIndex[102X( [3Xarg[103X ) [32X attribute[133X
-  
-  [1X3.3-28 PosetElementFromListOfFlags[101X
-  
-  [33X[1;0Y[29X[2XPosetElementFromListOfFlags[102X( [3Xlist[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsPosetElement[113X[133X
-  
-  [33X[0;0YThis is used to create a face of rank [3Xn[103X from a [3Xlist[103X of flags of poset. If an
-  IsPoset  object is appended to the input will tell the element what poset it
-  belongs to.[133X
-  
-  [1X3.3-29 PosetElementFromAtomList[101X
-  
-  [33X[1;0Y[29X[2XPosetElementFromAtomList[102X( [3Xlist[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsFace[113X[133X
-  
-  [33X[0;0YCreates  a  [13Xface[113X  with  [3Xlist[103X  of  atoms  at  rank [3Xn[103X. If an IsPoset object is
-  appended to the input will tell the element what poset it belongs to.[133X
-  
-  [1X3.3-30 PosetElementFromIndex[101X
-  
-  [33X[1;0Y[29X[2XPosetElementFromIndex[102X( [3Xobj[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13XIsFace[113X[133X
-  
-  [33X[0;0YCreates a [13Xface[113X with index [3Xobj[103X at rank [3Xn[103X. If an IsPoset object is appended to
-  will tell the element what poset it belongs to.[133X
-  
-  [1X3.3-31 RankedFaceListOfPoset[101X
-  
-  [33X[1;0Y[29X[2XRankedFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xlist[113X[133X
-  
-  [33X[0;0YGives a list of [[3Xface[103X,[3Xrank[103X] pairs for all the faces of [3Xposet[103X.[133X
-  
-  [1X3.3-32 IsSubface[101X
-  
-  [33X[1;0Y[29X[2XIsSubface[102X( [[3Xface1[103X, [3Xface1[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[13Xtrue[113X or [13Xfalse[113X[133X
-  
-  [33X[0;0Y[3Xface1[103X  and  [3Xface2[103X  are  IsFace or IsPosetElement. Subface will check to make
-  sure [3Xface2[103X is a subface of [3Xface1[103X.[133X
   

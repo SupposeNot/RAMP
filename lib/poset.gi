@@ -177,10 +177,6 @@ InstallMethod(PosetOfConnectionGroup,
 # 	return poset;
 # 	end);
 	
-
-
-
-
 # InstallMethod(PosetOfManiplex,
 # 	[IsManiplex],
 # 	function(mani)
@@ -578,13 +574,16 @@ InstallOtherMethod(IsSubface,
 	fi;
 	end); #Not sure this works yet... Have to build up the right kind of object.
 
-InstallMethod(pairCompareFlagsList,
+InstallMethod(PairCompareFlagsList,
 	[IsList,IsList],
-	function(a,b) return Intersection(b[1],a[1])<>[] and a[2]<=b[2];end);
+	function(a,b) 
+	if a[1]=[] and a[2]<=b[2] then return true; fi;
+	return Intersection(b[1],a[1])<>[] and a[2]<=b[2];end);
 
-InstallMethod(pairCompareAtomsList,
+InstallMethod(PairCompareAtomsList,
 	[IsList,IsList],
-	function(a,b) return IsSubset(b[1],a[1]) and a[2]<=b[2];end);
+	function(a,b) 
+	return IsSubset(b[1],a[1]) and a[2]<=b[2];end);
 
 
 InstallMethod(PosetFromElements,
@@ -594,15 +593,17 @@ InstallMethod(PosetFromElements,
 	nFaceList:=Length(faceList);
 	if DuplicateFreeList(List(faceList,HasFlagList))[1] then
 		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareFlagsList);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
 		poset:= PosetFromPartialOrder(po);
 		SetElementsList(poset,ShallowCopy(faceList));
+		SetOrderingFunction(poset,PairCompareFlagsList);
 		return poset;
 	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
 		workingList:=List(faceList,x->[AtomList(x),Rank(x)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),pairCompareAtomsList);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
 		poset:= PosetFromPartialOrder(po);
 		SetElementsList(poset,ShallowCopy(faceList));
+		SetOrderingFunction(poset,PairCompareAtomsList);
 		return poset;
 	else
 		Print("ya got me doc! You might try including a partial ordering function.");
@@ -626,6 +627,7 @@ InstallOtherMethod(PosetFromElements,
 	po:=BinaryRelationOnPoints(tuplesList);
 	poset:= PosetFromPartialOrder(po);
 	SetElementsList(poset,ShallowCopy(faceList));
+	SetOrderingFunction(poset,orderFunc);
 	return poset;
 	end);
 

@@ -35,12 +35,21 @@
     [4X[28Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");[128X[104X
   [4X[32X[104X
   
+  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
+  one  given. This may not be the correct Schlafli symbol, since the relations
+  may  cause  a  collapse,  so  this  should only be used if you know that the
+  Schlafli symbol is correct.[133X
+  
   [1X7.1-4 ReflexibleManiplex[101X
   
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
   
   [33X[0;0YReturns  the  regular  polytope  with  the  given  symbolic  name. Examples:
-  ReflexibleManiplex("{3,3,3}"); ReflexibleManiplex("{4,3}_3");[133X
+  ReflexibleManiplex("{3,3,3}");  ReflexibleManiplex("{4,3}_3"); If the option
+  set_schlafli  is set, then we set the Schlafli symbol to the one given. This
+  may  not  be  the  correct  Schlafli symbol, since the relations may cause a
+  collapse,  so  this should only be used if you know that the Schlafli symbol
+  is correct.[133X
   
   [1X7.1-5 Maniplex[101X
   
