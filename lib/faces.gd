@@ -31,6 +31,11 @@ DeclareAttribute("Fvector", IsManiplex);
 #! F_i is the i-face of the base flag.
 DeclareOperation("Section", [IsManiplex, IsInt, IsInt]);
 
+#! @Arguments M, j, i, k
+#! Returns the section F_j / F_i, where F_j is the j-face of flag number <A>k</A> of <A>M</A> and
+#! F_i is the i-face of the same flag.
+DeclareOperation("Section", [IsManiplex, IsInt, IsInt, IsInt]);
+
 #! @Arguments M, j, i
 #! Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.
 DeclareOperation("Sections", [IsManiplex, IsInt, IsInt]);
@@ -39,14 +44,21 @@ DeclareOperation("Sections", [IsManiplex, IsInt, IsInt]);
 #! Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
 DeclareAttribute("Facets", IsManiplex);
 
+#! @Arguments M, k
+#! Returns the facet of <A>M</A> that contains the flag number <A>k</A> (that is, the maniplex corresponding to the facet).
+DeclareOperation("Facet", [IsManiplex, IsInt]);
+
 #! @Arguments M
-#! Returns the facet of <A>M</A> that contains the base flag (that is, the maniplex corresponding to the facet).
-#! If the base flag is unspecified, we assume it is flag number 1.
+#! Returns the facet of <A>M</A> that contains flag number 1 (that is, the maniplex corresponding to the facet).
 DeclareAttribute("Facet", IsManiplex);
 
 #! @Arguments M
 #! Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
 DeclareAttribute("VertexFigures", IsManiplex);
+
+#! @Arguments M, k
+#! Returns the vertex-figures of <A>M</A> that contains flag number <A>k</A>.
+DeclareOperation("VertexFigure", [IsManiplex, IsInt]);
 
 #! @Arguments M
 #! Returns the vertex-figures of <A>M</A> that contains the base flag.

@@ -110,18 +110,24 @@ InstallMethod(Section,
 	end);
 	
 InstallMethod(Section,
-	[IsManiplex, IsInt, IsInt],
-	function(M, j, i)
+	[IsManiplex, IsInt, IsInt, IsInt],
+	function(M, j, i, k)
 	local g, n, h, o, newgens, q;
 	n := Rank(M);
 	g := ConnectionGroup(M);
 	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
-	# Get the connected component of the graph with 1 in it...
-	o := Orbit(h, 1);
+	# Get the connected component of the graph with k in it...
+	o := Orbit(h, k);
 	# Then restrict the permutations to only act on that orbit...
 	newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
 	q := Maniplex(Group(newgens));
 	return q;
+	end);
+
+InstallMethod(Section,
+	[IsManiplex, IsInt, IsInt],
+	function(M, j, i)
+	return Section(M, j, i, 1);
 	end);
 
 InstallMethod(Sections,
@@ -160,6 +166,14 @@ InstallMethod(Facets,
 	return Sections(M, n-1, -1);
 	end);
 	
+InstallMethod(Facet,
+	[IsManiplex, IsInt],
+	function(M, k)
+	local n;
+	n := Rank(M);
+	return Section(M, n-1, -1, k);
+	end);
+	
 # TODO: Handle some special cases:
 # 1. The facets of a universal coxeter group are a universal coxeter group.
 # 2. If P is finite, then try guessing a presentation for the facets.
@@ -167,9 +181,7 @@ InstallMethod(Facets,
 InstallMethod(Facet,
 	[IsManiplex],
 	function(M)
-	local n;
-	n := Rank(M);
-	return Section(M, n-1, -1);
+	return Facet(M, 1);
 	end);
 	
 InstallMethod(VertexFigures,
@@ -181,11 +193,17 @@ InstallMethod(VertexFigures,
 	end);
 	
 InstallMethod(VertexFigure,
-	[IsManiplex],
-	function(M)
+	[IsManiplex, IsInt],
+	function(M, k)
 	local n;
 	n := Rank(M);
-	return Section(M, n, 0);
+	return Section(M, n, 0, k);
+	end);
+	
+InstallMethod(VertexFigure,
+	[IsManiplex],
+	function(M)
+	return VertexFigure(M, 1);
 	end);
 	
 InstallMethod(SchlafliSymbol,
