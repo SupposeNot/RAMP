@@ -31,8 +31,12 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7DE9F1057B309554">3.1-4 NumberOfFacets</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7C5446247FD63F28">3.1-5 NumberOfRidges</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X816A47B879737629">3.1-6 Fvector</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78D48A797A8A981C">3.1-7 Facets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FB4AE2779695BB4">3.1-8 VertexFigures</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7CDDC432804AF30B">3.1-7 Section</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X80D7EF0E7A838F19">3.1-8 Sections</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78D48A797A8A981C">3.1-9 Facets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86F8A85C83C04F3B">3.1-10 Facet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FB4AE2779695BB4">3.1-11 VertexFigures</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7B18EFD87B76AF0E">3.1-12 VertexFigure</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X8052D0A68676A82C">3.2 <span class="Heading">Schlafli symbol</span></a>
 </span>
@@ -112,19 +116,47 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Fvector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the f-vector of <var class="Arg">M</var>.</p>
 
+<p><a id="X7CDDC432804AF30B" name="X7CDDC432804AF30B"></a></p>
+
+<h5>3.1-7 Section</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the section F_j / F_i, where F_j is the j-face of the base flag of <var class="Arg">M</var> and F_i is the i-face of the base flag.</p>
+
+<p><a id="X80D7EF0E7A838F19" name="X80D7EF0E7A838F19"></a></p>
+
+<h5>3.1-8 Sections</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sections</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.</p>
+
 <p><a id="X78D48A797A8A981C" name="X78D48A797A8A981C"></a></p>
 
-<h5>3.1-7 Facets</h5>
+<h5>3.1-9 Facets</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the facet-types of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the facets). Currently only works for reflexible maniplexes.</p>
+<p>Returns the facet-types of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the facets).</p>
+
+<p><a id="X86F8A85C83C04F3B" name="X86F8A85C83C04F3B"></a></p>
+
+<h5>3.1-10 Facet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the facet of <var class="Arg">M</var> that contains the base flag (that is, the maniplex corresponding to the facet). If the base flag is unspecified, we assume it is flag number 1.</p>
 
 <p><a id="X7FB4AE2779695BB4" name="X7FB4AE2779695BB4"></a></p>
 
-<h5>3.1-8 VertexFigures</h5>
+<h5>3.1-11 VertexFigures</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigures</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the types of vertex-figures of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the vertex-figures). Currently only works for reflexible maniplexes.</p>
+<p>Returns the types of vertex-figures of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the vertex-figures).</p>
+
+<p><a id="X7B18EFD87B76AF0E" name="X7B18EFD87B76AF0E"></a></p>
+
+<h5>3.1-12 VertexFigure</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the vertex-figures of <var class="Arg">M</var> that contains the base flag.</p>
 
 <p><a id="X8052D0A68676A82C" name="X8052D0A68676A82C"></a></p>
 

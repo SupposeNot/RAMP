@@ -74,16 +74,6 @@ InstallOtherMethod(Rank,
 	return m;
 	end);
 	
-# InstallMethod(IsNotFull,
-# 	[IsPoset and IsPosetOfFlags],
-# 	function(poset)
-# #	local ;
-# 	if IsFull(poset) then
-# 		return false;
-# 	else 
-# 		return true;
-# 	fi;
-# 	end);
 
 InstallMethod(ListIsP1Poset,
 	[IsList],
@@ -143,6 +133,22 @@ InstallOtherMethod(IsP1,
 		fi;
 	fi;
 end);
+
+InstallMethod(IsP2,
+	[IsPoset],
+	function(poset)
+	local maxChains;
+	maxChains:=MaximalChains(poset);
+	maxChains:=List(maxChains,x->Compacted(DuplicateFreeList(x)));
+	maxChains:=DuplicateFreeList(List(maxChains,Length));
+	if Length(maxChains)=1 then
+		SetIsP2(poset,true);
+		return true;
+		else
+		SetIsP2(poset,false);
+		return false;
+	fi;
+	end);
 
 
 InstallMethod(PosetOfConnectionGroup, 
@@ -418,32 +424,38 @@ InstallMethod(RankedFaceListOfPoset,
 	end);
 
 
-
 InstallMethod(MaximalChains,
 	[IsPoset],
 	function(poset)
-	local flags,newflags,faces,ranks,facesByRanks,i,r,top,parents,parentsInds,iFlags;
-	if IsP1(poset)=false then Print("Sorry, I need a ranked P1 poset."); return; fi;
+	local faces, ranks, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags;
+#	if IsP1(poset)=false then Print("Sorry, I need a P1 poset."); return; fi;
 	faces:=ShallowCopy(ElementsList(poset));
 	ranks:=DuplicateFreeList(List(ElementsList(poset),Rank));
-	facesByRanks:=List(ranks,x->PositionsProperty(faces,y->Rank(y)=x));
-	flags:=List(facesByRanks[1],x->[x]); #this line is more generic than needed, would maybe help if I rewrite the function to not assume P1.
-	top:=-1;
+	listofchildren:=List(faces,x->PositionsProperty(faces,y->IsSubface(x,y)));
+	flags:=List(PositionsProperty(listofchildren,x->Length(x)=1),x->[x]);
+	listofparents:=List(faces,x->PositionsProperty(faces,y->IsSubface(y,x)));
+	maxFaces:=PositionsProperty(listofparents,x->Length(x)=1);
 	newflags:=[];
-	while top <> Rank(poset) do
+	while  DuplicateFreeList(List(flags,Last))<>maxFaces do
 		for i in flags do
-			parentsInds:= PositionsProperty(faces{facesByRanks[top+3]}, x->IsSubface(x,faces[Last(i)]));
-			parents:=facesByRanks[top+3]{parentsInds};
-			iFlags:=List(parents,x->Concatenation(i,[x]));
-			Append(newflags,iFlags);
+			top:=Last(i);
+			listofparents:=PositionsProperty(faces,x->IsSubface(x,faces[top]));
+			listofparents:=Filtered(listofparents,x->x<>top);
+			for j in listofparents do
+				listofchildren:=PositionsProperty(faces,x->IsSubface(faces[j],x));
+				if Intersection(listofchildren,listofparents)=[j] then 
+					Append(newflags,[Concatenation(i,[j])]);
+				fi;
 			od;
+		od;
 		flags:=newflags;
 		newflags:=[];
-#		Print(newflags,top,"\n");
-		top:=top+1;
 	od;
-	return List(flags,x->faces{x});
+	flags:=List(flags,x->faces{x});
+	SetMaximalChains(poset,flags);
+	return flags;
 	end);
+
 
 
 InstallMethod(PosetElementFromListOfFlags,
@@ -512,7 +524,7 @@ InstallMethod(IsSubface,
 	[IsFace and HasFlagList,IsFace and HasFlagList],
 	function(face1,face2)
 	if FlagList(face2)=[] then return true;fi;
-	if Rank(face1)>Rank(face2) and Intersection(FlagList(face1),FlagList(face2))<>[] then return true;
+	if Rank(face1)>=Rank(face2) and Intersection(FlagList(face1),FlagList(face2))<>[] then return true;
 	else return false;
 	fi;
 	end);
@@ -532,7 +544,7 @@ InstallMethod(PosetElementFromAtomList,
 InstallOtherMethod(IsSubface,
 	[IsFace and HasAtomList, IsFace and HasAtomList],
 	function(face1,face2)
-	if Rank(face1)>Rank(face2) and IsSubset(AtomList(face1),AtomList(face2)) then return true;
+	if Rank(face1)>=Rank(face2) and IsSubset(AtomList(face1),AtomList(face2)) then return true;
 	else return false;
 	fi;
 	end);
@@ -568,7 +580,7 @@ InstallOtherMethod(IsSubface,
 	local reln,po;
 	if FromPoset(face1)=FromPoset(face2) and HasPartialOrder(FromPoset(face1)) then
 		po:=PartialOrder(FromPoset(face1));
-		if Rank(face1)>Rank(face2) and Tuple([Index(face1),Index(face2)]) in po then return true;
+		if Rank(face1)>=Rank(face2) and Tuple([Index(face1),Index(face2)]) in po then return true;
 		else return false;
 		fi;
 	else Print("No partial order found for elements of this poset.");

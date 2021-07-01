@@ -532,29 +532,78 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 
  
 
-\subsection{\textcolor{Chapter }{Facets (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Section (for IsManiplex, IsInt, IsInt)}}
 \logpage{[ 3, 1, 7 ]}\nobreak
+\hyperdef{L}{X7CDDC432804AF30B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Section({\mdseries\slshape M, j, i})\index{Section@\texttt{Section}!for IsManiplex, IsInt, IsInt}
+\label{Section:for IsManiplex, IsInt, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the section F{\textunderscore}j / F{\textunderscore}i, where
+F{\textunderscore}j is the j-face of the base flag of \mbox{\texttt{\mdseries\slshape M}} and F{\textunderscore}i is the i-face of the base flag. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Sections (for IsManiplex, IsInt, IsInt)}}
+\logpage{[ 3, 1, 8 ]}\nobreak
+\hyperdef{L}{X80D7EF0E7A838F19}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Sections({\mdseries\slshape M, j, i})\index{Sections@\texttt{Sections}!for IsManiplex, IsInt, IsInt}
+\label{Sections:for IsManiplex, IsInt, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns all sections of type F{\textunderscore}j / F{\textunderscore}i, where
+F{\textunderscore}j is a j-face and F{\textunderscore}i is an incident i-face. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Facets (for IsManiplex)}}
+\logpage{[ 3, 1, 9 ]}\nobreak
 \hyperdef{L}{X78D48A797A8A981C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Facets({\mdseries\slshape M})\index{Facets@\texttt{Facets}!for IsManiplex}
 \label{Facets:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 
 
- Returns the facet-types of \mbox{\texttt{\mdseries\slshape M}} (i.e. the maniplexes corresponding to the facets). Currently only works for
-reflexible maniplexes. }
+ Returns the facet-types of \mbox{\texttt{\mdseries\slshape M}} (i.e. the maniplexes corresponding to the facets). }
+
+ 
+
+\subsection{\textcolor{Chapter }{Facet (for IsManiplex)}}
+\logpage{[ 3, 1, 10 ]}\nobreak
+\hyperdef{L}{X86F8A85C83C04F3B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Facet({\mdseries\slshape M})\index{Facet@\texttt{Facet}!for IsManiplex}
+\label{Facet:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns the facet of \mbox{\texttt{\mdseries\slshape M}} that contains the base flag (that is, the maniplex corresponding to the
+facet). If the base flag is unspecified, we assume it is flag number 1. }
 
  
 
 \subsection{\textcolor{Chapter }{VertexFigures (for IsManiplex)}}
-\logpage{[ 3, 1, 8 ]}\nobreak
+\logpage{[ 3, 1, 11 ]}\nobreak
 \hyperdef{L}{X7FB4AE2779695BB4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigures({\mdseries\slshape M})\index{VertexFigures@\texttt{VertexFigures}!for IsManiplex}
 \label{VertexFigures:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 
 
- Returns the types of vertex-figures of \mbox{\texttt{\mdseries\slshape M}} (i.e. the maniplexes corresponding to the vertex-figures). Currently only
-works for reflexible maniplexes. }
+ Returns the types of vertex-figures of \mbox{\texttt{\mdseries\slshape M}} (i.e. the maniplexes corresponding to the vertex-figures). }
+
+ 
+
+\subsection{\textcolor{Chapter }{VertexFigure (for IsManiplex)}}
+\logpage{[ 3, 1, 12 ]}\nobreak
+\hyperdef{L}{X7B18EFD87B76AF0E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigure({\mdseries\slshape M})\index{VertexFigure@\texttt{VertexFigure}!for IsManiplex}
+\label{VertexFigure:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns the vertex-figures of \mbox{\texttt{\mdseries\slshape M}} that contains the base flag. }
 
  }
 
@@ -1723,24 +1772,18 @@ Another interesting example:
 \label{MaximalChains:for IsPoset}
 }\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
-\texttt{list} 
+\texttt{list} of flags as lists of poset elements. 
 
 
 
- Gives the list of maximal chains in a P1 poset in terms of the elements of the
+ Gives the list of maximal chains in a poset in terms of the elements of the
 poset. Synonym function is \texttt{FlagsList}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@poset:=PosetOfManiplex(HemiCube(3));|
   A poset using the IsPosetOfFlags representation with 15 faces.
-  !gapprompt@gap>| !gapinput@rfl:=RankedFaceListOfPoset(poset);|
-  [ [ [  ], -1 ], [ [ 1, 6, 2, 9, 3, 13 ], 0 ], [ [ 4, 14, 16, 23, 11, 21 ], 0 ], [ [ 5, 22, 8, 17, 19, 20 ], 0 ], 
-    [ [ 7, 10, 12, 24, 15, 18 ], 0 ], [ [ 1, 5, 2, 8 ], 1 ], [ [ 3, 11, 13, 21 ], 1 ], [ [ 4, 12, 16, 7 ], 1 ], 
-    [ [ 6, 15, 9, 18 ], 1 ], [ [ 10, 19, 24, 20 ], 1 ], [ [ 14, 22, 23, 17 ], 1 ], 
-    [ [ 1, 5, 6, 22, 15, 14, 12, 4 ], 2 ], [ [ 2, 8, 3, 19, 11, 10, 16, 7 ], 2 ], 
-    [ [ 9, 18, 13, 24, 21, 20, 23, 17 ], 2 ], 
-    [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ], 3 ] ]
+  !gapprompt@gap>| !gapinput@rfl:=RankedFaceListOfPoset(poset);;|
   !gapprompt@gap>| !gapinput@Apply(rfl,PosetElementFromListOfFlags);|
   !gapprompt@gap>| !gapinput@pos2:=PosetFromElements(rfl);|
   A poset using the IsPosetOfIndices representation 
@@ -1849,6 +1892,27 @@ untangle later. NOT IMPLEMENTED YET. }
 
  Determines whether a poset has property P1 from ARP. }
 
+ 
+
+\subsection{\textcolor{Chapter }{IsP2 (for IsPoset)}}
+\logpage{[ 9, 2, 8 ]}\nobreak
+\hyperdef{L}{X7AFA3C077FD9583A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP2({\mdseries\slshape poset})\index{IsP2@\texttt{IsP2}!for IsPoset}
+\label{IsP2:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Determines whether a poset has property P2 from ARP. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@poset:=PosetOfManiplex(HemiCube(3)); |
+  !gapprompt@gap>| !gapinput@IsP2(poset);|
+  true
+\end{Verbatim}
  }
 
  
@@ -2270,6 +2334,8 @@ belongs to. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

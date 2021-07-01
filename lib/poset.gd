@@ -132,19 +132,13 @@ DeclareAttribute("OrderingFunction", IsPoset); #helpful for facelist info.
 DeclareAttribute("RankPoset", IsPoset);
 
 #! @Arguments poset
-#! @Returns `list`
-#! @Description Gives the list of maximal chains in a P1 poset in terms of the elements of the poset. Synonym function is `FlagsList`.
-DeclareAttribute("MaximalChains", IsPoset,"mutable");
+#! @Returns `list` of flags as lists of poset elements.
+#! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is `FlagsList`.
+DeclareAttribute("MaximalChains", IsPoset);
 #! @BeginExampleSession
 #! gap> poset:=PosetOfManiplex(HemiCube(3));
 #! A poset using the IsPosetOfFlags representation with 15 faces.
-#! gap> rfl:=RankedFaceListOfPoset(poset);
-#! [ [ [  ], -1 ], [ [ 1, 6, 2, 9, 3, 13 ], 0 ], [ [ 4, 14, 16, 23, 11, 21 ], 0 ], [ [ 5, 22, 8, 17, 19, 20 ], 0 ], 
-#!   [ [ 7, 10, 12, 24, 15, 18 ], 0 ], [ [ 1, 5, 2, 8 ], 1 ], [ [ 3, 11, 13, 21 ], 1 ], [ [ 4, 12, 16, 7 ], 1 ], 
-#!   [ [ 6, 15, 9, 18 ], 1 ], [ [ 10, 19, 24, 20 ], 1 ], [ [ 14, 22, 23, 17 ], 1 ], 
-#!   [ [ 1, 5, 6, 22, 15, 14, 12, 4 ], 2 ], [ [ 2, 8, 3, 19, 11, 10, 16, 7 ], 2 ], 
-#!   [ [ 9, 18, 13, 24, 21, 20, 23, 17 ], 2 ], 
-#!   [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ], 3 ] ]
+#! gap> rfl:=RankedFaceListOfPoset(poset);;
 #! gap> Apply(rfl,PosetElementFromListOfFlags);
 #! gap> pos2:=PosetFromElements(rfl);
 #! A poset using the IsPosetOfIndices representation 
@@ -190,6 +184,14 @@ DeclareOperation("RankOfPoset", [IsPoset]);
 #! @Description Determines whether a poset has property P1 from ARP.
 DeclareProperty("IsP1", IsPoset);
 
+#! @Arguments poset
+#! @Description Determines whether a poset has property P2 from ARP.
+DeclareProperty("IsP2", IsPoset);
+#! @BeginExampleSession
+#! gap> poset:=PosetOfManiplex(HemiCube(3)); 
+#! gap> IsP2(poset);
+#! true
+#! @EndExampleSession
 
 
 

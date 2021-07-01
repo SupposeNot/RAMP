@@ -40,19 +40,47 @@
   
   [33X[0;0YReturns the f-vector of [3XM[103X.[133X
   
-  [1X3.1-7 Facets[101X
+  [1X3.1-7 Section[101X
+  
+  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the section F_j / F_i, where F_j is the j-face of the base flag of [3XM[103X
+  and F_i is the i-face of the base flag.[133X
+  
+  [1X3.1-8 Sections[101X
+  
+  [33X[1;0Y[29X[2XSections[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  all sections of type F_j / F_i, where F_j is a j-face and F_i is an
+  incident i-face.[133X
+  
+  [1X3.1-9 Facets[101X
   
   [33X[1;0Y[29X[2XFacets[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the  facet-types  of  [3XM[103X  (i.e.  the maniplexes corresponding to the
-  facets). Currently only works for reflexible maniplexes.[133X
+  facets).[133X
   
-  [1X3.1-8 VertexFigures[101X
+  [1X3.1-10 Facet[101X
+  
+  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  facet  of [3XM[103X that contains the base flag (that is, the maniplex
+  corresponding  to  the facet). If the base flag is unspecified, we assume it
+  is flag number 1.[133X
+  
+  [1X3.1-11 VertexFigures[101X
   
   [33X[1;0Y[29X[2XVertexFigures[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the types of vertex-figures of [3XM[103X (i.e. the maniplexes corresponding
-  to the vertex-figures). Currently only works for reflexible maniplexes.[133X
+  to the vertex-figures).[133X
+  
+  [1X3.1-12 VertexFigure[101X
+  
+  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the vertex-figures of [3XM[103X that contains the base flag.[133X
   
   
   [1X3.2 [33X[0;0YSchlafli symbol[133X[101X
