@@ -82,12 +82,15 @@ InstallMethod(IsIsomorphicTo,
 		if Tester(att)(p) and Tester(att)(q) and att(p) <> att(q) then return false; fi;
 	od;
 	
-	if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
+	# This optimization is disabled until IsQuotientOf is fixed...
+	#if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
 		# At this point, we know that p and q are the same size and finite.
-		val := IsQuotientOf(p,q);
-	else
-		val := (IsQuotientOf(p,q) and IsCoverOf(p,q));
-	fi;
+	#	val := IsQuotientOf(p,q);
+	#else
+	#	val := (IsQuotientOf(p,q) and IsCoverOf(p,q));
+	#fi;
+	val := (IsQuotientOf(p,q) and IsCoverOf(p,q));
+
 	
 	if val then
 		# p and q might have different knowledge about their properties --
