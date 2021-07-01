@@ -10,7 +10,6 @@ DeclareGlobalFunction("AddAttrComputer", [IsManiplex and IsManiplexInstructionsR
 DeclareGlobalFunction("ComputeAttr", [IsManiplex and IsManiplexInstructionsRep, IsAttribute]);
 
 
-
 # These are defined for convenience. They don't define new categories; they just combine information
 # from multiple filters.
 DeclareFilter("IsReflexibleManiplex");

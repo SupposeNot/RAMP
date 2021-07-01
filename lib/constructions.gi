@@ -200,15 +200,13 @@ InstallMethod(Amalgamate,
 InstallMethod(Medial,
 	[IsManiplex],
 	function(p)
-	local fam, dict, Med;
+	local dict, Med;
 	
 	if Rank(p) <> 3 then Error("Medial only defined for rank 3."); fi;
 
-	fam := NewFamily("Maniplex", IsManiplex);
 	dict := NewDictionary(Size, true);
-	fam!.rank := 3;
 	
-	Med := Objectify( NewType( fam, IsManiplex and IsManiplexInstructionsRep), rec( operation := Medial, base := p, attr_computers := dict ));
+	Med := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexInstructionsRep), rec( operation := Medial, base := p, attr_computers := dict ));
 
 	SetRankManiplex(Med, 3);
 	

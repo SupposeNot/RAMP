@@ -87,12 +87,10 @@ InstallOtherMethod(UniversalRotationGroup,
 InstallMethod(RotaryManiplex,
 	[IsGroup],
 	function(rotgp)
-	local n, fam, p;
+	local n, p;
 	n := 1 + Size(GeneratorsOfGroup(rotgp));
 
-	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
-	fam!.rank := n;
-	p := Objectify( NewType( fam, IsManiplex and IsRotaryManiplexRotGpRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsRotaryManiplexRotGpRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail) ));
 	
 	if HasSize(rotgp) then SetSize(p, 2*Size(rotgp)); fi;
 	SetRankManiplex(p, n);

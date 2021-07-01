@@ -1,3 +1,4 @@
+BindGlobal("ManiplexFamily", NewFamily("Maniplexes", IsManiplex));
 
 InstallTrueMethod(IsReflexibleManiplex, IsManiplex and IsReflexible);
 InstallTrueMethod(IsManiplex and IsReflexible, IsReflexibleManiplex);

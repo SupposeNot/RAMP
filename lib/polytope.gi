@@ -105,12 +105,10 @@ InstallMethod(IsPolytopal,
 InstallMethod(ReflexibleManiplex,
 	[IsGroup],
 	function(autgp)
-	local n, fam, p;
+	local n, p;
 	n := Size(GeneratorsOfGroup(autgp));
 
-	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
-	fam!.rank := n;
-	p := Objectify( NewType( fam, IsManiplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
 	
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
@@ -210,10 +208,8 @@ InstallMethod(Maniplex,
 	function(g)
 	local n, fam, p;
 	n := Size(GeneratorsOfGroup(g));
-	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
-	fam!.rank := n;
 	
-	p := Objectify( NewType( fam, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail) ));
 	
 	SetSize(p, NrMovedPoints(g));
 	SetRankManiplex(p, n);
@@ -231,10 +227,7 @@ InstallMethod(Maniplex,
 		Error("The given group is not a subgroup of AutomorphismGroup(M).");
 	fi;
 	
-	fam := NewFamily(Concatenation(String(n), "-maniplex"), IsManiplex);
-	fam!.rank := n;
-	
-	M2 := Objectify( NewType( fam, IsManiplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G ));
+	M2 := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G ));
 	
 	SetRankManiplex(M2, n);
 	return M2;

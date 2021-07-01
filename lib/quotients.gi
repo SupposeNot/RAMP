@@ -3,7 +3,7 @@
 # then we try to find a homomorphism between their connection groups.
 # TODO: Optimize this by checking some easy algebraic invariants first.
 InstallMethod(IsQuotientOf,
-	IsSameRank,
+	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
@@ -14,7 +14,7 @@ InstallMethod(IsQuotientOf,
 	end);
 
 InstallMethod(IsQuotientOf,
-	IsSameRank,
+	ReturnTrue,
 	[IsManiplex and IsManiplexQuotientRep, IsManiplex and IsManiplexQuotientRep],
 	function(p,q)
 	if (p!.parent = q!.parent) and IsSubset(q!.subgroup, p!.subgroup) then
@@ -27,7 +27,7 @@ InstallMethod(IsQuotientOf,
 # This determines whether the regular polytope P is a quotient of the regular polytope Q,
 # assuming that we have presentations for both of their groups.
 InstallMethod(IsQuotientOf,
-	IsSameRank,
+	ReturnTrue,
 	[IsReflexibleManiplex, IsReflexibleManiplex],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
@@ -66,14 +66,14 @@ InstallMethod(IsQuotientOf,
 	end);
 	
 InstallMethod(IsCoverOf,
-	IsSameRank,
+	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsQuotientOf(q,p);
 	end);
 
 InstallMethod(IsIsomorphicTo,
-	IsSameRank,
+	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	local atts, att, val, prop;
@@ -114,19 +114,12 @@ InstallMethod(IsIsomorphicTo,
 	end);
 	
 InstallMethod( \=,
-	IsSameRank,
+	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsIsomorphicTo(p,q);
 	end);
 
-InstallMethod( \<,
-	IsSameRank,
-	[IsManiplex, IsManiplex],
-	function(p,q)
-	return IsQuotientOf(p,q);
-	end);
-	
 InstallMethod(SmallestRegularCover,
 	[IsManiplex],
 	function(p)
