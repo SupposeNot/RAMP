@@ -65,6 +65,15 @@
 
 
 <ManSection>
+  <Oper Arg="M, j, i, k" Name="Section" Label="for IsManiplex, IsInt, IsInt, IsInt"/>
+ <Description>
+ Returns the section F_j / F_i, where F_j is the j-face of flag number <A>k</A> of <A>M</A> and
+ F_i is the i-face of the same flag.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Oper Arg="M, j, i" Name="Sections" Label="for IsManiplex, IsInt, IsInt"/>
  <Description>
  Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.
@@ -81,10 +90,17 @@
 
 
 <ManSection>
+  <Oper Arg="M, k" Name="Facet" Label="for IsManiplex, IsInt"/>
+ <Description>
+ Returns the facet of <A>M</A> that contains the flag number <A>k</A> (that is, the maniplex corresponding to the facet).
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Attr Arg="M" Name="Facet" Label="for IsManiplex"/>
  <Description>
- Returns the facet of <A>M</A> that contains the base flag (that is, the maniplex corresponding to the facet).
- If the base flag is unspecified, we assume it is flag number 1.
+ Returns the facet of <A>M</A> that contains flag number 1 (that is, the maniplex corresponding to the facet).
  </Description>
 </ManSection>
 
@@ -93,6 +109,14 @@
   <Attr Arg="M" Name="VertexFigures" Label="for IsManiplex"/>
  <Description>
  Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, k" Name="VertexFigure" Label="for IsManiplex, IsInt"/>
+ <Description>
+ Returns the vertex-figures of <A>M</A> that contains flag number <A>k</A>.
  </Description>
 </ManSection>
 

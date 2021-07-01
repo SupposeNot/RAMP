@@ -271,6 +271,15 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [33X[0;0YAnother nice example[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg:=AlternatingGroup(4);;a:=AllSubgroups(g);;poset:=PosetFromElements(a,IsSubgroup);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation [128X[104X
+    [4X[25Xgap>[125X [27XIsP2(poset);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
   
   [1X9.3 [33X[0;0YWorking with posets[133X[101X
   
@@ -369,7 +378,22 @@
   
   [33X[1;0Y[29X[2XIndex[102X( [3Xarg[103X ) [32X attribute[133X
   
-  [1X9.4-6 PosetElementFromListOfFlags[101X
+  [1X9.4-6 ElementOrderingFunction[101X
+  
+  [33X[1;0Y[29X[2XElementOrderingFunction[102X( [3Xarg[103X ) [32X attribute[133X
+  
+  [1X9.4-7 ElementObject[101X
+  
+  [33X[1;0Y[29X[2XElementObject[102X( [3Xarg[103X ) [32X attribute[133X
+  
+  [1X9.4-8 PosetElementWithOrder[101X
+  
+  [33X[1;0Y[29X[2XPosetElementWithOrder[102X( [3Xobj[103X, [3Xfunc[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
+  
+  [33X[0;0YCreates a [10Xface[110X with [3Xobj[103X and ordering function [10Xfunc[110X.[133X
+  
+  [1X9.4-9 PosetElementFromListOfFlags[101X
   
   [33X[1;0Y[29X[2XPosetElementFromListOfFlags[102X( [3Xlist[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsPosetElement[110X[133X
@@ -378,7 +402,7 @@
   IsPoset  object is appended to the input will tell the element what poset it
   belongs to.[133X
   
-  [1X9.4-7 PosetElementFromAtomList[101X
+  [1X9.4-10 PosetElementFromAtomList[101X
   
   [33X[1;0Y[29X[2XPosetElementFromAtomList[102X( [3Xlist[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
@@ -386,7 +410,7 @@
   [33X[0;0YCreates  a  [10Xface[110X  with  [3Xlist[103X  of  atoms  at  rank [3Xn[103X. If an IsPoset object is
   appended to the input will tell the element what poset it belongs to.[133X
   
-  [1X9.4-8 PosetElementFromIndex[101X
+  [1X9.4-11 PosetElementFromIndex[101X
   
   [33X[1;0Y[29X[2XPosetElementFromIndex[102X( [3Xobj[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
@@ -394,14 +418,14 @@
   [33X[0;0YCreates a [10Xface[110X with index [3Xobj[103X at rank [3Xn[103X. If an IsPoset object is appended to
   will tell the element what poset it belongs to.[133X
   
-  [1X9.4-9 RankedFaceListOfPoset[101X
+  [1X9.4-12 RankedFaceListOfPoset[101X
   
   [33X[1;0Y[29X[2XRankedFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
   [33X[0;0YGives a list of [[3Xface[103X,[3Xrank[103X] pairs for all the faces of [3Xposet[103X.[133X
   
-  [1X9.4-10 IsSubface[101X
+  [1X9.4-13 IsSubface[101X
   
   [33X[1;0Y[29X[2XIsSubface[102X( [[3Xface1[103X, [3Xface1[103X] ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X

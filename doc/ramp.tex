@@ -545,8 +545,21 @@ F{\textunderscore}j is the j-face of the base flag of \mbox{\texttt{\mdseries\sl
 
  
 
-\subsection{\textcolor{Chapter }{Sections (for IsManiplex, IsInt, IsInt)}}
+\subsection{\textcolor{Chapter }{Section (for IsManiplex, IsInt, IsInt, IsInt)}}
 \logpage{[ 3, 1, 8 ]}\nobreak
+\hyperdef{L}{X7F11B08F7D74DBF1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Section({\mdseries\slshape M, j, i, k})\index{Section@\texttt{Section}!for IsManiplex, IsInt, IsInt, IsInt}
+\label{Section:for IsManiplex, IsInt, IsInt, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the section F{\textunderscore}j / F{\textunderscore}i, where
+F{\textunderscore}j is the j-face of flag number \mbox{\texttt{\mdseries\slshape k}} of \mbox{\texttt{\mdseries\slshape M}} and F{\textunderscore}i is the i-face of the same flag. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Sections (for IsManiplex, IsInt, IsInt)}}
+\logpage{[ 3, 1, 9 ]}\nobreak
 \hyperdef{L}{X80D7EF0E7A838F19}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Sections({\mdseries\slshape M, j, i})\index{Sections@\texttt{Sections}!for IsManiplex, IsInt, IsInt}
 \label{Sections:for IsManiplex, IsInt, IsInt}
@@ -559,7 +572,7 @@ F{\textunderscore}j is a j-face and F{\textunderscore}i is an incident i-face. }
  
 
 \subsection{\textcolor{Chapter }{Facets (for IsManiplex)}}
-\logpage{[ 3, 1, 9 ]}\nobreak
+\logpage{[ 3, 1, 10 ]}\nobreak
 \hyperdef{L}{X78D48A797A8A981C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Facets({\mdseries\slshape M})\index{Facets@\texttt{Facets}!for IsManiplex}
 \label{Facets:for IsManiplex}
@@ -570,21 +583,33 @@ F{\textunderscore}j is a j-face and F{\textunderscore}i is an incident i-face. }
 
  
 
+\subsection{\textcolor{Chapter }{Facet (for IsManiplex, IsInt)}}
+\logpage{[ 3, 1, 11 ]}\nobreak
+\hyperdef{L}{X844C665A82993B2D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Facet({\mdseries\slshape M, k})\index{Facet@\texttt{Facet}!for IsManiplex, IsInt}
+\label{Facet:for IsManiplex, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the facet of \mbox{\texttt{\mdseries\slshape M}} that contains the flag number \mbox{\texttt{\mdseries\slshape k}} (that is, the maniplex corresponding to the facet). }
+
+ 
+
 \subsection{\textcolor{Chapter }{Facet (for IsManiplex)}}
-\logpage{[ 3, 1, 10 ]}\nobreak
+\logpage{[ 3, 1, 12 ]}\nobreak
 \hyperdef{L}{X86F8A85C83C04F3B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Facet({\mdseries\slshape M})\index{Facet@\texttt{Facet}!for IsManiplex}
 \label{Facet:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 
 
- Returns the facet of \mbox{\texttt{\mdseries\slshape M}} that contains the base flag (that is, the maniplex corresponding to the
-facet). If the base flag is unspecified, we assume it is flag number 1. }
+ Returns the facet of \mbox{\texttt{\mdseries\slshape M}} that contains flag number 1 (that is, the maniplex corresponding to the
+facet). }
 
  
 
 \subsection{\textcolor{Chapter }{VertexFigures (for IsManiplex)}}
-\logpage{[ 3, 1, 11 ]}\nobreak
+\logpage{[ 3, 1, 13 ]}\nobreak
 \hyperdef{L}{X7FB4AE2779695BB4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigures({\mdseries\slshape M})\index{VertexFigures@\texttt{VertexFigures}!for IsManiplex}
 \label{VertexFigures:for IsManiplex}
@@ -595,8 +620,20 @@ facet). If the base flag is unspecified, we assume it is flag number 1. }
 
  
 
+\subsection{\textcolor{Chapter }{VertexFigure (for IsManiplex, IsInt)}}
+\logpage{[ 3, 1, 14 ]}\nobreak
+\hyperdef{L}{X78A494BA79FE90C5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigure({\mdseries\slshape M, k})\index{VertexFigure@\texttt{VertexFigure}!for IsManiplex, IsInt}
+\label{VertexFigure:for IsManiplex, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the vertex-figures of \mbox{\texttt{\mdseries\slshape M}} that contains flag number \mbox{\texttt{\mdseries\slshape k}}. }
+
+ 
+
 \subsection{\textcolor{Chapter }{VertexFigure (for IsManiplex)}}
-\logpage{[ 3, 1, 12 ]}\nobreak
+\logpage{[ 3, 1, 15 ]}\nobreak
 \hyperdef{L}{X7B18EFD87B76AF0E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigure({\mdseries\slshape M})\index{VertexFigure@\texttt{VertexFigure}!for IsManiplex}
 \label{VertexFigure:for IsManiplex}
@@ -1913,6 +1950,13 @@ untangle later. NOT IMPLEMENTED YET. }
   !gapprompt@gap>| !gapinput@IsP2(poset);|
   true
 \end{Verbatim}
+ Another nice example 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g:=AlternatingGroup(4);;a:=AllSubgroups(g);;poset:=PosetFromElements(a,IsSubgroup);|
+  A poset using the IsPosetOfIndices representation 
+  !gapprompt@gap>| !gapinput@IsP2(poset);|
+  false
+\end{Verbatim}
  }
 
  
@@ -2115,8 +2159,55 @@ A binary relation on the integers 1 through $n$, where $n$ is the number of face
 
  
 
-\subsection{\textcolor{Chapter }{PosetElementFromListOfFlags (for IsList,IsInt)}}
+ 
+
+\subsection{\textcolor{Chapter }{ElementOrderingFunction (for IsPosetElement)}}
 \logpage{[ 9, 4, 6 ]}\nobreak
+\hyperdef{L}{X78BBECBB786AC112}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ElementOrderingFunction({\mdseries\slshape arg})\index{ElementOrderingFunction@\texttt{ElementOrderingFunction}!for IsPosetElement}
+\label{ElementOrderingFunction:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ 
+
+ }
+
+ 
+
+ 
+
+\subsection{\textcolor{Chapter }{ElementObject (for IsPosetElement)}}
+\logpage{[ 9, 4, 7 ]}\nobreak
+\hyperdef{L}{X8219ACA97881DDB8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ElementObject({\mdseries\slshape arg})\index{ElementObject@\texttt{ElementObject}!for IsPosetElement}
+\label{ElementObject:for IsPosetElement}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetElementWithOrder (for IsObject,IsFunction)}}
+\logpage{[ 9, 4, 8 ]}\nobreak
+\hyperdef{L}{X81CE0D9C872BE42B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementWithOrder({\mdseries\slshape obj, func})\index{PosetElementWithOrder@\texttt{PosetElementWithOrder}!for IsObject,IsFunction}
+\label{PosetElementWithOrder:for IsObject,IsFunction}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFace} 
+
+
+
+ Creates a \texttt{face} with \mbox{\texttt{\mdseries\slshape obj}} and ordering function \texttt{func}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetElementFromListOfFlags (for IsList,IsInt)}}
+\logpage{[ 9, 4, 9 ]}\nobreak
 \hyperdef{L}{X7C74F3CE7933DA03}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromListOfFlags({\mdseries\slshape list, n})\index{PosetElementFromListOfFlags@\texttt{PosetElementFromListOfFlags}!for IsList,IsInt}
 \label{PosetElementFromListOfFlags:for IsList,IsInt}
@@ -2132,7 +2223,7 @@ element what poset it belongs to. }
  
 
 \subsection{\textcolor{Chapter }{PosetElementFromAtomList (for IsList,IsInt)}}
-\logpage{[ 9, 4, 7 ]}\nobreak
+\logpage{[ 9, 4, 10 ]}\nobreak
 \hyperdef{L}{X85E6D20180DA4C3E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromAtomList({\mdseries\slshape list, n})\index{PosetElementFromAtomList@\texttt{PosetElementFromAtomList}!for IsList,IsInt}
 \label{PosetElementFromAtomList:for IsList,IsInt}
@@ -2148,7 +2239,7 @@ poset it belongs to. }
  
 
 \subsection{\textcolor{Chapter }{PosetElementFromIndex (for IsObject,IsInt)}}
-\logpage{[ 9, 4, 8 ]}\nobreak
+\logpage{[ 9, 4, 11 ]}\nobreak
 \hyperdef{L}{X7E36DF06841444FE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromIndex({\mdseries\slshape obj, n})\index{PosetElementFromIndex@\texttt{PosetElementFromIndex}!for IsObject,IsInt}
 \label{PosetElementFromIndex:for IsObject,IsInt}
@@ -2164,7 +2255,7 @@ belongs to. }
  
 
 \subsection{\textcolor{Chapter }{RankedFaceListOfPoset (for IsPoset)}}
-\logpage{[ 9, 4, 9 ]}\nobreak
+\logpage{[ 9, 4, 12 ]}\nobreak
 \hyperdef{L}{X7A80223E83EF52E8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankedFaceListOfPoset({\mdseries\slshape poset})\index{RankedFaceListOfPoset@\texttt{RankedFaceListOfPoset}!for IsPoset}
 \label{RankedFaceListOfPoset:for IsPoset}
@@ -2179,7 +2270,7 @@ belongs to. }
  
 
 \subsection{\textcolor{Chapter }{IsSubface (for IsFace,IsFace)}}
-\logpage{[ 9, 4, 10 ]}\nobreak
+\logpage{[ 9, 4, 13 ]}\nobreak
 \hyperdef{L}{X79BFF531809785A3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSubface({\mdseries\slshape [face1, face1]})\index{IsSubface@\texttt{IsSubface}!for IsFace,IsFace}
 \label{IsSubface:for IsFace,IsFace}
@@ -2334,9 +2425,6 @@ belongs to. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

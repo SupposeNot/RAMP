@@ -7,8 +7,7 @@ InstallMethod(PosetFromFaceListOfFlags,
 	[IsList],
 	function(list)
 	local fam, poset;
-	fam:=NewFamily("Poset From Flags Description", IsPoset);
-	poset:=Objectify(NewType(fam, IsPoset and IsPosetOfFlags), rec(faces_list_by_rank:=list));
+	poset:=Objectify(NewType(PosetFamily, IsPoset and IsPosetOfFlags), rec(faces_list_by_rank:=list));
 	return(poset);
 	end);
 
@@ -33,8 +32,8 @@ InstallMethod(PosetFromPartialOrder,
 	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order.");fi;
 	myreln:=POConvertToBROnPoints(reln);
 	n:=Length(Successors(myreln));
-	fam:=NewFamily("Poset From Partial Order", IsPoset);
-	poset:=Objectify(NewType(fam, IsPoset and IsPosetOfIndices), rec(domain:=[1..n]));
+# 	fam:=NewFamily("Poset From Partial Order", IsPoset);
+	poset:=Objectify(NewType(PosetFamily, IsPoset and IsPosetOfIndices), rec(domain:=[1..n]));
 	SetPartialOrder(poset,myreln);
 	return(poset);
 	end);
@@ -139,7 +138,7 @@ InstallMethod(IsP2,
 	function(poset)
 	local maxChains;
 	maxChains:=MaximalChains(poset);
-	maxChains:=List(maxChains,x->Compacted(DuplicateFreeList(x)));
+#	maxChains:=List(maxChains,x->Compacted(DuplicateFreeList(x)));
 	maxChains:=DuplicateFreeList(List(maxChains,Length));
 	if Length(maxChains)=1 then
 		SetIsP2(poset,true);
@@ -427,15 +426,18 @@ InstallMethod(RankedFaceListOfPoset,
 InstallMethod(MaximalChains,
 	[IsPoset],
 	function(poset)
-	local faces, ranks, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags;
+	local faces, ranks, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags, tempflags, order;
 #	if IsP1(poset)=false then Print("Sorry, I need a P1 poset."); return; fi;
 	faces:=ShallowCopy(ElementsList(poset));
-	ranks:=DuplicateFreeList(List(ElementsList(poset),Rank));
+#	if HasElementObject(faces[1]) then 
+# 	ranks:=DuplicateFreeList(List(ElementsList(poset),Rank));
 	listofchildren:=List(faces,x->PositionsProperty(faces,y->IsSubface(x,y)));
 	flags:=List(PositionsProperty(listofchildren,x->Length(x)=1),x->[x]);
 	listofparents:=List(faces,x->PositionsProperty(faces,y->IsSubface(y,x)));
 	maxFaces:=PositionsProperty(listofparents,x->Length(x)=1);
+# 	Print(maxFaces);
 	newflags:=[];
+	tempflags:=[];
 	while  DuplicateFreeList(List(flags,Last))<>maxFaces do
 		for i in flags do
 			top:=Last(i);
@@ -447,11 +449,16 @@ InstallMethod(MaximalChains,
 					Append(newflags,[Concatenation(i,[j])]);
 				fi;
 			od;
+# 			Print(newflags,"\n");
+# 			Print("New Layer\n");
 		od;
+		Append(tempflags,Filtered(newflags,x->(Last(x) in maxFaces)));
 		flags:=newflags;
+# 		Print(flags,"\n");
 		newflags:=[];
 	od;
-	flags:=List(flags,x->faces{x});
+# 	Print("temp\n",tempflags,"\n new\n",newflags);
+	flags:=List(tempflags,x->faces{x});
 	SetMaximalChains(poset,flags);
 	return flags;
 	end);
@@ -462,8 +469,8 @@ InstallMethod(PosetElementFromListOfFlags,
  	[IsList,IsInt],
  	function(list,n)
 	local fam, face;
-	fam:=NewFamily("Face Using Flags Description", IsFace);
-	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+# 	fam:=NewFamily("Face Using Flags Description", IsFace);
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
 	SetRankFace(face,n);
 	return(face);
@@ -478,8 +485,8 @@ InstallOtherMethod(PosetElementFromListOfFlags,
 	else
 		Print("I expected a list of the form [list of flags, IsInt].");return;
 	fi;
-	fam:=NewFamily("Face Using Flags Description", IsFace);
-	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+# 	fam:=NewFamily("Face Using Flags Description", IsFace);
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
 	SetRankFace(face,rank);
 	return(face);
@@ -489,8 +496,8 @@ InstallOtherMethod(PosetElementFromListOfFlags,
  	[IsList,IsInt,IsPoset],
  	function(list,n,poset)
 	local fam, face;
-	fam:=NewFamily("Face Using Flags Description", IsFace);
-	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+# 	fam:=NewFamily("Face Using Flags Description", IsFace);
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
 	SetRankFace(face,n);
 	SetFromPoset(face,poset);
@@ -534,8 +541,8 @@ InstallMethod(PosetElementFromAtomList,
  	[IsList,IsInt],
  	function(list,n)
 	local fam, face;
-	fam:=NewFamily("Face as list of atoms", IsFace);
-	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+# 	fam:=NewFamily("Face as list of atoms", IsFace);
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetAtomList(face,list);
 	SetRankFace(face,n);
 	return(face);
@@ -553,8 +560,8 @@ InstallMethod(PosetElementFromIndex,
  	[IsObject,IsInt],
  	function(index,n)
 	local fam, face;
-	fam:=NewFamily("Face an indexed object", IsFace);
-	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+# 	fam:=NewFamily("Face an indexed object", IsFace);
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetIndex(face,index);
 	SetRankFace(face,n);
 	return(face);
@@ -564,8 +571,8 @@ InstallOtherMethod(PosetElementFromIndex,
  	[IsObject,IsInt,IsPoset],
  	function(index,n,pos)
 	local fam, face;
-	fam:=NewFamily("Face as list of atoms", IsFace);
-	face:=Objectify(NewType(fam, IsFace and IsFaceOfPoset), rec());
+# 	fam:=NewFamily("Face as list of atoms", IsFace);
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetIndex(face,index);
 	SetRankFace(face,n);
 	SetFromPoset(face,pos);
@@ -586,6 +593,15 @@ InstallOtherMethod(IsSubface,
 	else Print("No partial order found for elements of this poset.");
 	fi;
 	end); #Not sure this works yet... Have to build up the right kind of object.
+
+InstallOtherMethod(IsSubface,
+	[IsFace and HasElementOrderingFunction, IsFace and HasElementOrderingFunction],
+	function(face1, face2)
+	local order;
+	if ElementOrderingFunction(face1)<>ElementOrderingFunction(face2) then Print("Faces have different ordering functions."); return; fi;
+	order:=ElementOrderingFunction(face1);
+	return order(ElementObject(face1), ElementObject(face2));
+	end);	
 
 InstallMethod(PairCompareFlagsList,
 	[IsList,IsList],
@@ -623,6 +639,16 @@ InstallMethod(PosetFromElements,
 	fi;	
 	end);
 
+InstallMethod(PosetElementWithOrder,
+	[IsObject, IsFunction],
+	function(obj, func)
+	local face;
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset),rec());
+	SetElementObject(face,obj);
+	SetElementOrderingFunction(face,func);
+	return face;
+	end);
+
 InstallOtherMethod(PosetFromElements,
 	[IsList,IsFunction],
 	function(faceList,orderFunc)
@@ -639,7 +665,9 @@ InstallOtherMethod(PosetFromElements,
 	od;
 	po:=BinaryRelationOnPoints(tuplesList);
 	poset:= PosetFromPartialOrder(po);
-	SetElementsList(poset,ShallowCopy(faceList));
+	faceList:=ShallowCopy(faceList);
+	Apply(faceList,x->PosetElementWithOrder(x,orderFunc));
+	SetElementsList(poset,faceList);
 	SetOrderingFunction(poset,orderFunc);
 	return poset;
 	end);

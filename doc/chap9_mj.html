@@ -67,11 +67,14 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X84A507EE81E5B3A3">9.4-3 FromPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X878F991183754744">9.4-4 AtomList</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X81AD262F84D7E532">9.4-5 Index</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C74F3CE7933DA03">9.4-6 PosetElementFromListOfFlags</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85E6D20180DA4C3E">9.4-7 PosetElementFromAtomList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E36DF06841444FE">9.4-8 PosetElementFromIndex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7A80223E83EF52E8">9.4-9 RankedFaceListOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79BFF531809785A3">9.4-10 IsSubface</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78BBECBB786AC112">9.4-6 ElementOrderingFunction</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8219ACA97881DDB8">9.4-7 ElementObject</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X81CE0D9C872BE42B">9.4-8 PosetElementWithOrder</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C74F3CE7933DA03">9.4-9 PosetElementFromListOfFlags</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85E6D20180DA4C3E">9.4-10 PosetElementFromAtomList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E36DF06841444FE">9.4-11 PosetElementFromIndex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7A80223E83EF52E8">9.4-12 RankedFaceListOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79BFF531809785A3">9.4-13 IsSubface</a></span>
 </div></div>
 </div>
 
@@ -338,6 +341,16 @@ A poset using the IsPosetOfIndices representation
 true
 </pre></div>
 
+<p>Another nice example</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AlternatingGroup(4);;a:=AllSubgroups(g);;poset:=PosetFromElements(a,IsSubgroup);</span>
+A poset using the IsPosetOfIndices representation 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsP2(poset);</span>
+false
+</pre></div>
+
 <p><a id="X8163385F7B822934" name="X8163385F7B822934"></a></p>
 
 <h4>9.3 <span class="Heading">Working with posets</span></h4>
@@ -450,9 +463,28 @@ true
 <h5>9.4-5 Index</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Index</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X78BBECBB786AC112" name="X78BBECBB786AC112"></a></p>
+
+<h5>9.4-6 ElementOrderingFunction</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ElementOrderingFunction</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X8219ACA97881DDB8" name="X8219ACA97881DDB8"></a></p>
+
+<h5>9.4-7 ElementObject</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ElementObject</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X81CE0D9C872BE42B" name="X81CE0D9C872BE42B"></a></p>
+
+<h5>9.4-8 PosetElementWithOrder</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementWithOrder</code>( <var class="Arg">obj</var>, <var class="Arg">func</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsFace</code></p>
+
+<p>Creates a <code class="code">face</code> with <var class="Arg">obj</var> and ordering function <code class="code">func</code>.</p>
+
 <p><a id="X7C74F3CE7933DA03" name="X7C74F3CE7933DA03"></a></p>
 
-<h5>9.4-6 PosetElementFromListOfFlags</h5>
+<h5>9.4-9 PosetElementFromListOfFlags</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromListOfFlags</code>( <var class="Arg">list</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsPosetElement</code></p>
@@ -461,7 +493,7 @@ true
 
 <p><a id="X85E6D20180DA4C3E" name="X85E6D20180DA4C3E"></a></p>
 
-<h5>9.4-7 PosetElementFromAtomList</h5>
+<h5>9.4-10 PosetElementFromAtomList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromAtomList</code>( <var class="Arg">list</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFace</code></p>
@@ -470,7 +502,7 @@ true
 
 <p><a id="X7E36DF06841444FE" name="X7E36DF06841444FE"></a></p>
 
-<h5>9.4-8 PosetElementFromIndex</h5>
+<h5>9.4-11 PosetElementFromIndex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromIndex</code>( <var class="Arg">obj</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFace</code></p>
@@ -479,7 +511,7 @@ true
 
 <p><a id="X7A80223E83EF52E8" name="X7A80223E83EF52E8"></a></p>
 
-<h5>9.4-9 RankedFaceListOfPoset</h5>
+<h5>9.4-12 RankedFaceListOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankedFaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
@@ -488,7 +520,7 @@ true
 
 <p><a id="X79BFF531809785A3" name="X79BFF531809785A3"></a></p>
 
-<h5>9.4-10 IsSubface</h5>
+<h5>9.4-13 IsSubface</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubface</code>( [<var class="Arg">face1</var>, <var class="Arg">face1</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>

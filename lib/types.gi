@@ -1,4 +1,6 @@
 BindGlobal("ManiplexFamily", NewFamily("Maniplexes", IsManiplex));
+BindGlobal("PosetFamily", NewFamily("Posets", IsPoset));
+BindGlobal("PosetElementFamily", NewFamily("PosetElements", IsPoset));
 
 InstallTrueMethod(IsReflexibleManiplex, IsManiplex and IsReflexible);
 InstallTrueMethod(IsManiplex and IsReflexible, IsReflexibleManiplex);

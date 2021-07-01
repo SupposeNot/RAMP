@@ -277,6 +277,15 @@ true
 ]]></Example>
 
 
+ Another nice example
+<Example><![CDATA[
+gap> g:=AlternatingGroup(4);;a:=AllSubgroups(g);;poset:=PosetFromElements(a,IsSubgroup);
+A poset using the IsPosetOfIndices representation 
+gap> IsP2(poset);
+false
+]]></Example>
+
+
 </Section>
 
 
@@ -407,6 +416,34 @@ Description of <A>posetelement</A> n as a list of atoms (when present).
   <Attr Arg="arg" Name="Index" Label="for IsPosetElement"/>
  <Description>
 <P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<ManSection>
+  <Attr Arg="arg" Name="ElementOrderingFunction" Label="for IsPosetElement"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<P/>
+<ManSection>
+  <Attr Arg="arg" Name="ElementObject" Label="for IsPosetElement"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="obj, func" Name="PosetElementWithOrder" Label="for IsObject,IsFunction"/>
+ <Returns><Code>IsFace</Code>
+</Returns>
+ <Description>
+Creates a <Code>face</Code> with <A>obj</A> and ordering function <Code>func</Code>.
  </Description>
 </ManSection>
 

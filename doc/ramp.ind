@@ -49,6 +49,10 @@
   \indexspace
 
   \item \texttt  {Edge}, \hyperpage{14}
+  \item \texttt  {ElementObject}
+    \subitem for IsPosetElement, \hyperpage{29}
+  \item \texttt  {ElementOrderingFunction}
+    \subitem for IsPosetElement, \hyperpage{29}
   \item \texttt  {EvenConnectionGroup}
     \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {ExtraRelators}
@@ -62,12 +66,13 @@
     \subitem for IsPoset, \hyperpage{28}
   \item \texttt  {Facet}
     \subitem for IsManiplex, \hyperpage{10}
+    \subitem for IsManiplex, IsInt, \hyperpage{10}
   \item \texttt  {Facets}
     \subitem for IsManiplex, \hyperpage{10}
   \item \texttt  {FlagList}
     \subitem for IsPosetElement, \hyperpage{29}
   \item \texttt  {FlagsAsListOfFacesFromPoset}
-    \subitem for IsPoset, \hyperpage{27}
+    \subitem for IsPoset, \hyperpage{28}
   \item \texttt  {FlatExtension}
     \subitem for IsManiplex, IsInt, \hyperpage{6}
   \item \texttt  {FlatRegularPolyhedra}
@@ -105,7 +110,7 @@
   \item \texttt  {IsCoverOf}
     \subitem for IsManiplex, IsManiplex, \hyperpage{31}
   \item \texttt  {IsDegenerate}
-    \subitem for IsManiplex, \hyperpage{11}
+    \subitem for IsManiplex, \hyperpage{12}
   \item \texttt  {IsEquivelar}
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {IsFacetBipartite}
@@ -141,7 +146,7 @@
   \item \texttt  {IsSubface}
     \subitem for IsFace,IsFace, \hyperpage{30}
   \item \texttt  {IsTight}
-    \subitem for IsManiplex and IsPolytopal, \hyperpage{11}
+    \subitem for IsManiplex and IsPolytopal, \hyperpage{12}
   \item \texttt  {IsVertexBipartite}
     \subitem for IsManiplex, \hyperpage{19}
   \item \texttt  {IsVertexFaithful}
@@ -190,15 +195,17 @@
   \item \texttt  {Petrial}
     \subitem for IsManiplex, \hyperpage{6}
   \item \texttt  {PetrieLength}
-    \subitem for IsManiplex, \hyperpage{12}
+    \subitem for IsManiplex, \hyperpage{13}
   \item \texttt  {Pgon}
     \subitem for IsInt, \hyperpage{14}
   \item \texttt  {PosetElementFromAtomList}
-    \subitem for IsList,IsInt, \hyperpage{29}
+    \subitem for IsList,IsInt, \hyperpage{30}
   \item \texttt  {PosetElementFromIndex}
-    \subitem for IsObject,IsInt, \hyperpage{29}
+    \subitem for IsObject,IsInt, \hyperpage{30}
   \item \texttt  {PosetElementFromListOfFlags}
     \subitem for IsList,IsInt, \hyperpage{29}
+  \item \texttt  {PosetElementWithOrder}
+    \subitem for IsObject,IsFunction, \hyperpage{29}
   \item \texttt  {PosetFromElements}
     \subitem for IsList, \hyperpage{25}
   \item \texttt  {PosetFromFaceListOfFlags}
@@ -222,13 +229,13 @@
   \indexspace
 
   \item \texttt  {RankedFaceListOfPoset}
-    \subitem for IsPoset, \hyperpage{29}
+    \subitem for IsPoset, \hyperpage{30}
   \item \texttt  {RankManiplex}
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {RankOfPoset}
     \subitem for IsPoset, \hyperpage{27}
   \item \texttt  {RankPosetElement}
-    \subitem for IsPosetElement, \hyperpage{28}
+    \subitem for IsPosetElement, \hyperpage{29}
   \item \texttt  {ReflexibleManiplex}
     \subitem for IsGroup, \hyperpage{20}
     \subitem for IsList, IsList, \hyperpage{20}
@@ -245,6 +252,7 @@
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {Section}
     \subitem for IsManiplex, IsInt, IsInt, \hyperpage{10}
+    \subitem for IsManiplex, IsInt, IsInt, IsInt, \hyperpage{10}
   \item \texttt  {Sections}
     \subitem for IsManiplex, IsInt, IsInt, \hyperpage{10}
   \item \texttt  {Simplex}
@@ -256,7 +264,7 @@
   \item \texttt  {SmallRegularPolyhedra}
     \subitem for IsInt, \hyperpage{8}
   \item \texttt  {SymmetryTypeGraph}
-    \subitem for IsManiplex, \hyperpage{11}
+    \subitem for IsManiplex, \hyperpage{12}
 
   \indexspace
 
@@ -281,15 +289,16 @@
 
   \item \texttt  {Vertex}, \hyperpage{14}
   \item \texttt  {VertexFigure}
-    \subitem for IsManiplex, \hyperpage{10}
+    \subitem for IsManiplex, \hyperpage{11}
+    \subitem for IsManiplex, IsInt, \hyperpage{11}
   \item \texttt  {VertexFigures}
-    \subitem for IsManiplex, \hyperpage{10}
+    \subitem for IsManiplex, \hyperpage{11}
 
   \indexspace
 
   \item \texttt  {ZigzagLength}
-    \subitem for IsManiplex, IsInt, \hyperpage{12}
+    \subitem for IsManiplex, IsInt, \hyperpage{13}
   \item \texttt  {ZigzagVector}
-    \subitem for IsManiplex, \hyperpage{12}
+    \subitem for IsManiplex, \hyperpage{13}
 
 \end{theindex}

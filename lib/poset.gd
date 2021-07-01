@@ -192,7 +192,13 @@ DeclareProperty("IsP2", IsPoset);
 #! gap> IsP2(poset);
 #! true
 #! @EndExampleSession
-
+#! Another nice example
+#! @BeginExampleSession
+#! gap> g:=AlternatingGroup(4);;a:=AllSubgroups(g);;poset:=PosetFromElements(a,IsSubgroup);
+#! A poset using the IsPosetOfIndices representation 
+#! gap> IsP2(poset);
+#! false
+#! @EndExampleSession
 
 
 #! @Section Working with posets
@@ -237,7 +243,7 @@ DeclareOperation("ConnectionGroupOfPoset",[IsPoset]);
 ##! @Description Gives a list of faces collected into lists ordered by increasing rank. 
 DeclareOperation("FaceListOfPoset",[IsPoset]);
 
-############# Face stuff #################
+############# Element stuff #################
 
 #! @Section Elements of posets, also known as faces.
 
@@ -248,7 +254,7 @@ DeclareOperation("FaceListOfPoset",[IsPoset]);
 #! @Description The rank of a poset element. Alternately `RankFace`(<A>IsPosetElement</A>).
 DeclareAttribute("RankPosetElement",IsPosetElement); 
 #the rank in the poset of the element
-DeclareSynonymAttr("RankFace",RankPosetElement);
+DeclareSynonymAttr("RankFace", RankPosetElement);
 
 #! @Arguments posetelement {face}
 #! @Returns `list`
@@ -268,6 +274,15 @@ DeclareAttribute("AtomList", IsPosetElement); #list of atoms
 #! 
 DeclareAttribute("Index", IsPosetElement); #face index, i.e., label from some list of unique identifiers
 
+#!
+DeclareAttribute("ElementOrderingFunction", IsPosetElement); #If the element knows how to compare itself to similar objects.
+#!
+DeclareAttribute("ElementObject", IsPosetElement); #If the element knows how to compare itself to similar objects it needs a place to store its data.
+
+#! @Arguments obj, func
+#! @Returns `IsFace`
+#! @Description Creates a `face` with <A>obj</A> and ordering function `func`.
+DeclareOperation("PosetElementWithOrder",[IsObject,IsFunction]);
 
 #! @Arguments list, n
 #! @Returns `IsPosetElement`
