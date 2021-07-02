@@ -46,6 +46,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7AFA3C077FD9583A">9.2-8 IsP2</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X8723519F84529E4C">9.2-9 IsP3</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X85F554347C5AEF30">9.2-10 IsFlagConnected</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X80F461FA7D8FEDC7">9.2-11 IsP4</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X83D63725789E745D">9.2-12 IsPolytope</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9.html#X8163385F7B822934">9.3 <span class="Heading">Working with posets</span></a>
 </span>
@@ -315,7 +317,7 @@ A poset using the IsPosetOfIndices representation
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">integer</code></p>
 
-<p>Given a <var class="Arg">poset</var>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later. NOT IMPLEMENTED YET.</p>
+<p>Given a <var class="Arg">poset</var>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.</p>
 
 <p><a id="X81269ACB7EF202C4" name="X81269ACB7EF202C4"></a></p>
 
@@ -368,6 +370,40 @@ false
 <h5>9.2-10 IsFlagConnected</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlagConnected</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X80F461FA7D8FEDC7" name="X80F461FA7D8FEDC7"></a></p>
+
+<h5>9.2-11 IsP4</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP4</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Determines whether a poset satisfies the diamond condition. May also be invoked using IsDiamondCondition.</p>
+
+<p><a id="X83D63725789E745D" name="X83D63725789E745D"></a></p>
+
+<h5>9.2-12 IsPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Determines whether a poset is an abstract polytope.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(Cube(3));</span>
+A poset using the IsPosetOfFlags representation with 28 faces.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytope(poset);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(poset);</span>
+[ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);</span>
+A poset using the IsPosetOfIndices representation 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytope(poset2);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(poset2);</span>
+[ "IsP1", "IsP2", "IsPolytope" ]
+</pre></div>
+
 <p><a id="X8163385F7B822934" name="X8163385F7B822934"></a></p>
 
 <h4>9.3 <span class="Heading">Working with posets</span></h4>

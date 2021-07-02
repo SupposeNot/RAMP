@@ -1912,7 +1912,7 @@ or not. }
 
 
  Given a \mbox{\texttt{\mdseries\slshape poset}}, returns the rank of the poset. Note: There may be hidden assumptions here to
-untangle later. NOT IMPLEMENTED YET. }
+untangle later. }
 
  
 
@@ -1987,6 +1987,52 @@ May also be called with command \texttt{IsStronglyFlagConnected}. }
 
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{IsP4 (for IsPoset)}}
+\logpage{[ 9, 2, 11 ]}\nobreak
+\hyperdef{L}{X80F461FA7D8FEDC7}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP4({\mdseries\slshape poset})\index{IsP4@\texttt{IsP4}!for IsPoset}
+\label{IsP4:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Determines whether a poset satisfies the diamond condition. May also be
+invoked using IsDiamondCondition. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsPolytope (for IsPoset)}}
+\logpage{[ 9, 2, 12 ]}\nobreak
+\hyperdef{L}{X83D63725789E745D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytope({\mdseries\slshape poset})\index{IsPolytope@\texttt{IsPolytope}!for IsPoset}
+\label{IsPolytope:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Determines whether a poset is an abstract polytope. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@poset:=PosetFromManiplex(Cube(3));|
+  A poset using the IsPosetOfFlags representation with 28 faces.
+  !gapprompt@gap>| !gapinput@IsPolytope(poset);|
+  true
+  !gapprompt@gap>| !gapinput@KnownPropertiesOfObject(poset);|
+  [ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ]
+  !gapprompt@gap>| !gapinput@poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);|
+  A poset using the IsPosetOfIndices representation 
+  !gapprompt@gap>| !gapinput@IsPolytope(poset2);|
+  false
+  !gapprompt@gap>| !gapinput@KnownPropertiesOfObject(poset2);|
+  [ "IsP1", "IsP2", "IsPolytope" ]
+\end{Verbatim}
  }
 
  
@@ -2483,7 +2529,6 @@ belongs to. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

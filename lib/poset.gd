@@ -175,7 +175,7 @@ DeclareOperation("ListIsP1Poset",[IsList]);
 
 #! @Arguments poset
 #! @Returns `integer`
-#! @Description Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later. NOT IMPLEMENTED YET.
+#! @Description Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
 DeclareOperation("RankOfPoset", [IsPoset]);
 
 
@@ -211,7 +211,31 @@ DeclareSynonymAttr("IsStronglyFlagConnected", IsP3);
 DeclareOperation("IsFlagConnected", [IsPoset]);
 
 
+#! @Arguments poset
+#! @Description Determines whether a poset satisfies the diamond condition. May also be invoked using IsDiamondCondition.
+DeclareProperty("IsP4", IsPoset);
 
+
+DeclareSynonymAttr("IsDiamondCondition", IsP4);
+
+
+#! @Arguments poset
+#! @Description Determines whether a poset is an abstract polytope.
+DeclareProperty("IsPolytope", IsPoset);
+#! @BeginExampleSession
+#! gap> poset:=PosetFromManiplex(Cube(3));
+#! A poset using the IsPosetOfFlags representation with 28 faces.
+#! gap> IsPolytope(poset);
+#! true
+#! gap> KnownPropertiesOfObject(poset);
+#! [ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ]
+#! gap> poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
+#! A poset using the IsPosetOfIndices representation 
+#! gap> IsPolytope(poset2);
+#! false
+#! gap> KnownPropertiesOfObject(poset2);
+#! [ "IsP1", "IsP2", "IsPolytope" ]
+#! @EndExampleSession
 #! @Section Working with posets
 
 #! @Arguments object1, object2

@@ -249,7 +249,7 @@
   [6XReturns:[106X  [33X[0;10Y[10Xinteger[110X[133X
   
   [33X[0;0YGiven  a  [3Xposet[103X,  returns  the  rank of the poset. Note: There may be hidden
-  assumptions here to untangle later. NOT IMPLEMENTED YET.[133X
+  assumptions here to untangle later.[133X
   
   [1X9.2-7 IsP1[101X
   
@@ -293,6 +293,36 @@
   [1X9.2-10 IsFlagConnected[101X
   
   [33X[1;0Y[29X[2XIsFlagConnected[102X( [3Xarg[103X ) [32X operation[133X
+  
+  [1X9.2-11 IsP4[101X
+  
+  [33X[1;0Y[29X[2XIsP4[102X( [3Xposet[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YDetermines  whether  a  poset  satisfies  the diamond condition. May also be
+  invoked using IsDiamondCondition.[133X
+  
+  [1X9.2-12 IsPolytope[101X
+  
+  [33X[1;0Y[29X[2XIsPolytope[102X( [3Xposet[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YDetermines whether a poset is an abstract polytope.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Cube(3));[127X[104X
+    [4X[28XA poset using the IsPosetOfFlags representation with 28 faces.[128X[104X
+    [4X[25Xgap>[125X [27XIsPolytope(poset);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(poset);[127X[104X
+    [4X[28X[ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ][128X[104X
+    [4X[25Xgap>[125X [27Xposet2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation [128X[104X
+    [4X[25Xgap>[125X [27XIsPolytope(poset2);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(poset2);[127X[104X
+    [4X[28X[ "IsP1", "IsP2", "IsPolytope" ][128X[104X
+  [4X[32X[104X
   
   
   [1X9.3 [33X[0;0YWorking with posets[133X[101X

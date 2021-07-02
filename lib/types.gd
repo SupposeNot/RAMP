@@ -15,7 +15,7 @@ DeclareGlobalFunction("ComputeAttr", [IsManiplex and IsManiplexInstructionsRep, 
 DeclareFilter("IsReflexibleManiplex");
 DeclareFilter("IsRotaryManiplex");
 DeclareFilter("IsRegularPolytope");
-DeclareFilter("IsPolytope");
+# DeclareFilter("IsPolytope");
 
 
 

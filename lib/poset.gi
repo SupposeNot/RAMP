@@ -66,13 +66,16 @@ InstallOtherMethod(Rank,
 InstallOtherMethod(Rank,
 	[IsPoset],
 	function(poset)
-	local fl,ranks,m,chains;
+	local fl,ranks,m,chains, len;
+	if HasRankPoset(poset) then return RankPoset(poset); fi;
 	chains:=MaximalChains(poset);
 	chains:=List(chains,Length);
-	if Length(DuplicateFreeList(chains))<>1 then return false; fi;
-# 	fl:=ElementsList(poset);
-# 	ranks:=DuplicateFreeList(List(fl,Rank));
-# 	m:=Maximum(ranks);
+	len:=Length(DuplicateFreeList(chains));
+	if len<>1 then 	
+		SetRankPoset(poset,false); 
+		return false; 
+	fi;
+	SetRankPoset(poset,chains[1]-2);
 	return chains[1]-2;
 	end);
 	
@@ -230,6 +233,60 @@ InstallMethod(IsP3,
 		return true;
 	else
 		SetIsP3(poset,false);
+		return false;
+	fi;
+	end);
+
+
+InstallMethod(IsP4,
+	[IsPoset],
+	function(poset)
+	local r, ranks, flags, i, faceslow, faceshigh, facesmid, facepairs, pair, mids;
+	if IsP1(poset)=false or IsP2(poset)=false then 
+		Print("Your poset isn't P1 or isn't P2.\n");
+		SetIsP4(poset,false);
+		return false;
+	fi;
+	r:=Rank(poset);
+	flags:=MaximalChains(poset);
+	if r=0 then 
+		SetIsP4(poset,true);
+		return true;
+	elif r=1 and Length(flags)=2 then
+		SetIsP4(poset,true);
+		return true;
+	elif r=1 and Length(flags)<>2 then
+		SetIsP4(poset,false);
+		return false;
+	fi;
+	ranks:=[0..r-1];
+	for i in [2..r-1] do
+		faceslow:=DuplicateFreeList(List(flags,x->x[i]));
+		faceshigh:=DuplicateFreeList(List(flags,x->x[i+2]));
+		facesmid:=DuplicateFreeList(List(flags,x->x[i+1]));
+		facepairs:=Cartesian(faceshigh,faceslow);
+		facepairs:=Filtered(facepairs,x->IsSubface(x[1],x[2]));
+		for pair in facepairs do
+			mids:=Filtered(facesmid,x-> IsSubface(pair[1],x) and IsSubface(x,pair[2]));
+			if Length(mids)<>2 then
+				SetIsP4(poset,false);
+				return false;
+			fi;
+#  			Print(mids,"\n\n");
+		od;
+	od;
+	SetIsP4(poset,true);
+	return true;
+	end);
+
+InstallMethod(IsPolytope,
+	[IsPoset],
+	function(poset)
+	local value;
+	if IsP1(poset) and IsP2(poset) and IsP3(poset) and IsP4(poset) then
+		SetIsPolytope(poset,true);
+		return true;
+	else SetIsPolytope(poset,false);
 		return false;
 	fi;
 	end);

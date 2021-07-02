@@ -245,7 +245,7 @@ Given <A>list</A>, comprised of sublists of faces ordered by rank, each face lis
  <Returns><Code>integer</Code>
 </Returns>
  <Description>
-Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later. NOT IMPLEMENTED YET.
+Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
  </Description>
 </ManSection>
 
@@ -303,6 +303,42 @@ Determines whether a poset is strongly flag connected (property P3' from ARP). M
 <P/>
  </Description>
 </ManSection>
+
+
+<ManSection>
+  <Prop Arg="poset" Name="IsP4" Label="for IsPoset"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Determines whether a poset satisfies the diamond condition. May also be invoked using IsDiamondCondition.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="poset" Name="IsPolytope" Label="for IsPoset"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Determines whether a poset is an abstract polytope.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> poset:=PosetFromManiplex(Cube(3));
+A poset using the IsPosetOfFlags representation with 28 faces.
+gap> IsPolytope(poset);
+true
+gap> KnownPropertiesOfObject(poset);
+[ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ]
+gap> poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
+A poset using the IsPosetOfIndices representation 
+gap> IsPolytope(poset2);
+false
+gap> KnownPropertiesOfObject(poset2);
+[ "IsP1", "IsP2", "IsPolytope" ]
+]]></Example>
 
 
 </Section>
