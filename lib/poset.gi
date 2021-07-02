@@ -186,29 +186,28 @@ InstallMethod(AdjacentFlags,
 	return flagsList;
 	end);
 
-# Incomplete
 InstallOtherMethod(IsFlagConnected,
 	[IsPoset],
 	function(poset)
-	local flags, pathends, i, ranks, f, temppathends;
-	if (not( IsP1(poset)) or not (IsP2(poset))) then return false; fi;
+	local flags, pathends, i, ranks, f, temppathends, newends;
+	if (not(IsP1(poset)) or not (IsP2(poset))) then return false; fi;
 	if Rank(poset)=false then return false; fi;
 	if Rank(poset)<=1 then return true; fi;
 	flags:=MaximalChains(poset);
-	pathends:=[flags[1]];
 	ranks:=[0..Rank(poset)-1];
+	pathends:=[];
 	temppathends:=[];
-	while Length(temppathends)<>Length(pathends) do
-		pathends:=DuplicateFreeList(Concatenation(temppathends,pathends));
-		for f in pathends do
+	newends:=[flags[1]];
+	while DuplicateFreeList(List(newends,x->x in pathends))<>[true] do
+		pathends:=DuplicateFreeList(Concatenation(newends,pathends));
+		temppathends:=newends;
+		newends:=[];
+		for f in temppathends do
 			for i in ranks do
-				Append(temppathends,AdjacentFlags(poset,f,i));
+				Append(newends,AdjacentFlags(poset,f,i));
 				od;
-				#temppathends:=DuplicateFreeList(temppathends);
-# 				Print(temppathends,"\n\n Iteration\n");
 			od;
-		temppathends:=DuplicateFreeList(temppathends);
-# 		Print(temppathends,"\n");
+		newends:=DuplicateFreeList(newends);
 		od;
 	return Length(flags)=Length(pathends);
 	end);
