@@ -171,8 +171,8 @@
   9 [33X[0;0YPosets[133X
     9.1 [33X[0;0YPoset constructors[133X
       9.1-1 PosetFromFaceListOfFlags
-      9.1-2 PosetOfConnectionGroup
-      9.1-3 PosetOfManiplex
+      9.1-2 PosetFromConnectionGroup
+      9.1-3 PosetFromManiplex
       9.1-4 PosetFromPartialOrder
       9.1-5 PosetFromElements
       9.1-6 PairCompareFlagsList
@@ -186,14 +186,18 @@
       9.2-6 RankOfPoset
       9.2-7 IsP1
       9.2-8 IsP2
+      9.2-9 IsP3
+      9.2-10 IsFlagConnected
     9.3 [33X[0;0YWorking with posets[133X
       9.3-1 AreIncidentFlagFaces
       9.3-2 FlagsAsListOfFacesFromPoset
       9.3-3 AdjacentFlag
-      9.3-4 ConnectionGeneratorOfPoset
-      9.3-5 ConnectionGroupOfPoset
-      9.3-6 FacesOfPosetAsBinaryRelationOnFaces
-      9.3-7 FaceListOfPoset
+      9.3-4 AdjacentFlags
+      9.3-5 EqualChains
+      9.3-6 ConnectionGeneratorOfPoset
+      9.3-7 ConnectionGroupOfPoset
+      9.3-8 FacesOfPosetAsBinaryRelationOnFaces
+      9.3-9 FaceListOfPoset
     9.4 [33X[0;0YElements of posets, also known as faces.[133X
       9.4-1 RankPosetElement
       9.4-2 FlagList

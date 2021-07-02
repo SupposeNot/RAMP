@@ -8,10 +8,12 @@
 
   \item \texttt  {AdjacentFlag}
     \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{28}
+  \item \texttt  {AdjacentFlags}
+    \subitem for IsPoset,IsList,IsInt, \hyperpage{28}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{6}
   \item \texttt  {AreIncidentFlagFaces}
-    \subitem for IsObject,IsObject, \hyperpage{27}
+    \subitem for IsObject,IsObject, \hyperpage{28}
   \item \texttt  {AtomList}
     \subitem for IsPosetElement, \hyperpage{29}
   \item \texttt  {AutomorphismGroup}
@@ -28,7 +30,7 @@
   \item \texttt  {ConnectionGroup}
     \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {ConnectionGroupOfPoset}
-    \subitem for IsPoset, \hyperpage{28}
+    \subitem for IsPoset, \hyperpage{29}
   \item \texttt  {CrossPolytope}
     \subitem for IsInt, \hyperpage{14}
   \item \texttt  {Cube}
@@ -50,9 +52,11 @@
 
   \item \texttt  {Edge}, \hyperpage{14}
   \item \texttt  {ElementObject}
-    \subitem for IsPosetElement, \hyperpage{29}
+    \subitem for IsPosetElement, \hyperpage{30}
   \item \texttt  {ElementOrderingFunction}
-    \subitem for IsPosetElement, \hyperpage{29}
+    \subitem for IsPosetElement, \hyperpage{30}
+  \item \texttt  {EqualChains}
+    \subitem for IsList,IsList, \hyperpage{28}
   \item \texttt  {EvenConnectionGroup}
     \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {ExtraRelators}
@@ -61,9 +65,9 @@
   \indexspace
 
   \item \texttt  {FaceListOfPoset}
-    \subitem for IsPoset, \hyperpage{28}
+    \subitem for IsPoset, \hyperpage{29}
   \item \texttt  {FacesOfPosetAsBinaryRelationOnFaces}
-    \subitem for IsPoset, \hyperpage{28}
+    \subitem for IsPoset, \hyperpage{29}
   \item \texttt  {Facet}
     \subitem for IsManiplex, \hyperpage{10}
     \subitem for IsManiplex, IsInt, \hyperpage{10}
@@ -117,6 +121,8 @@
     \subitem for IsManiplex, \hyperpage{19}
   \item \texttt  {IsFacetFaithful}
     \subitem for IsReflexibleManiplex, \hyperpage{22}
+  \item \texttt  {IsFlagConnected}
+    \subitem for IsPoset, \hyperpage{28}
   \item \texttt  {IsFlaggable}
     \subitem for IsPoset, \hyperpage{26}
   \item \texttt  {IsIOrientable}
@@ -128,6 +134,8 @@
   \item \texttt  {IsP1}
     \subitem for IsPoset, \hyperpage{27}
   \item \texttt  {IsP2}
+    \subitem for IsPoset, \hyperpage{27}
+  \item \texttt  {IsP3}
     \subitem for IsPoset, \hyperpage{27}
   \item \texttt  {IsPolytopal}
     \subitem for IsManiplex, \hyperpage{21}
@@ -203,19 +211,19 @@
   \item \texttt  {PosetElementFromIndex}
     \subitem for IsObject,IsInt, \hyperpage{30}
   \item \texttt  {PosetElementFromListOfFlags}
-    \subitem for IsList,IsInt, \hyperpage{29}
+    \subitem for IsList,IsInt, \hyperpage{30}
   \item \texttt  {PosetElementWithOrder}
-    \subitem for IsObject,IsFunction, \hyperpage{29}
+    \subitem for IsObject,IsFunction, \hyperpage{30}
+  \item \texttt  {PosetFromConnectionGroup}
+    \subitem for IsPermGroup, \hyperpage{24}
   \item \texttt  {PosetFromElements}
     \subitem for IsList, \hyperpage{25}
   \item \texttt  {PosetFromFaceListOfFlags}
     \subitem for IsList, \hyperpage{23}
+  \item \texttt  {PosetFromManiplex}
+    \subitem for IsManiplex, \hyperpage{24}
   \item \texttt  {PosetFromPartialOrder}
     \subitem for IsBinaryRelation, \hyperpage{24}
-  \item \texttt  {PosetOfConnectionGroup}
-    \subitem for IsPermGroup, \hyperpage{24}
-  \item \texttt  {PosetOfManiplex}
-    \subitem for IsManiplex, \hyperpage{24}
   \item \texttt  {PrismOver}
     \subitem for IsManiplex, \hyperpage{7}
   \item \texttt  {PyramidOver}

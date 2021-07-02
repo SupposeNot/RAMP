@@ -29,11 +29,11 @@ DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 #! @Arguments g
 #! @Returns `IsPosetOfFlags` with `IsP1`=true.
 #! @Description Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function includes the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
-DeclareOperation("PosetOfConnectionGroup",[IsPermGroup]);
+DeclareOperation("PosetFromConnectionGroup",[IsPermGroup]);
 #! @BeginExampleSession
 #! gap> g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);
 #! Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
-#! gap> PosetOfConnectionGroup(g);
+#! gap> PosetFromConnectionGroup(g);
 #! A poset using the IsPosetOfFlags representation with 8 faces.
 #! @EndExampleSession
 
@@ -42,11 +42,11 @@ DeclareOperation("PosetOfConnectionGroup",[IsPermGroup]);
 #! @Returns `IsPosetOfFlags` 
 #List of lists of faces, ordered by rank. Each face is a list of the flags it contains.
 #! @Description Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ item in the list because of how GAP indexes lists.
-DeclareOperation("PosetOfManiplex", [IsManiplex]);
+DeclareOperation("PosetFromManiplex", [IsManiplex]);
 #! @BeginExampleSession
 #! gap> p:=HemiCube(3);
 #! Regular 3-polytope of type [ 4, 3 ] with 24 flags
-#! gap> PosetOfManiplex(p);
+#! gap> PosetFromManiplex(p);
 #! A poset using the IsPosetOfFlags representation with 15 faces.
 #! @EndExampleSession
 
@@ -94,7 +94,7 @@ DeclareOperation("PosetFromElements",[IsList]);
 #! Here we have an example of how we can store a partially ordered set, and recover information about which objects are incident in the partial order.
 #! Another interesting example:
 #! @BeginExampleSession
-#! gap> poset:=PosetOfManiplex(HemiCube(3));
+#! gap> poset:=PosetFromManiplex(HemiCube(3));
 #! A poset using the IsPosetOfFlags representation with 15 faces.
 #! gap> rfl:=RankedFaceListOfPoset(poset);
 #! [ [ [  ], -1 ], [ [ 1, 6, 2, 9, 3, 13 ], 0 ], [ [ 4, 14, 16, 23, 11, 21 ], 0 ], [ [ 5, 22, 8, 17, 19, 20 ], 0 ], 
@@ -136,7 +136,7 @@ DeclareAttribute("RankPoset", IsPoset);
 #! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is `FlagsList`.
 DeclareAttribute("MaximalChains", IsPoset);
 #! @BeginExampleSession
-#! gap> poset:=PosetOfManiplex(HemiCube(3));
+#! gap> poset:=PosetFromManiplex(HemiCube(3));
 #! A poset using the IsPosetOfFlags representation with 15 faces.
 #! gap> rfl:=RankedFaceListOfPoset(poset);;
 #! gap> Apply(rfl,PosetElementFromListOfFlags);
@@ -188,7 +188,7 @@ DeclareProperty("IsP1", IsPoset);
 #! @Description Determines whether a poset has property P2 from ARP.
 DeclareProperty("IsP2", IsPoset);
 #! @BeginExampleSession
-#! gap> poset:=PosetOfManiplex(HemiCube(3)); 
+#! gap> poset:=PosetFromManiplex(HemiCube(3)); 
 #! gap> IsP2(poset);
 #! true
 #! @EndExampleSession
@@ -199,6 +199,17 @@ DeclareProperty("IsP2", IsPoset);
 #! gap> IsP2(poset);
 #! false
 #! @EndExampleSession
+
+#! @Arguments poset
+#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`.
+DeclareProperty("IsP3", IsPoset);
+
+
+DeclareSynonymAttr("IsStronglyFlagConnected", IsP3);
+
+#! Helper for IsP3
+DeclareOperation("IsFlagConnected", [IsPoset]);
+
 
 
 #! @Section Working with posets
@@ -220,6 +231,14 @@ DeclareOperation("FlagsAsListOfFacesFromPoset",[IsPoset]);
 #! You can replace <A>flag</A> with the integer corresponding to that flag.
 #! Appending `true` to the arguments will give the position of the flag instead of its description from `FlagsAsListOfFacesFromPoset`.
 DeclareOperation("AdjacentFlag",[IsPosetOfFlags,IsList,IsInt]);
+
+#Helper for flag connected
+#! @Arguments poset, flagaslistoffaces, adjacencyrank
+DeclareOperation("AdjacentFlags",[IsPoset,IsList,IsInt]);
+
+# Helper again
+#! @Arguments flag1, flag2
+DeclareOperation("EqualChains",[IsList,IsList]);
 
 #! @Arguments poset, i
 #! @Returns A permutation on the flags.
@@ -312,6 +331,7 @@ DeclareOperation("RankedFaceListOfPoset",[IsPoset]);
 #! @Description <A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. Subface will check to make sure <A>face2</A> is a subface of <A>face1</A>. 
 DeclareOperation("IsSubface", [IsFace,IsFace]);
 
+DeclareOperation("IsEqualFaces", [IsFace, IsFace]);
 
 ###To Do
 

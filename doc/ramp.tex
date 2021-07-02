@@ -1630,11 +1630,11 @@ include faces or ranks, this function doesn't know about about them! }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{PosetOfConnectionGroup (for IsPermGroup)}}
+\subsection{\textcolor{Chapter }{PosetFromConnectionGroup (for IsPermGroup)}}
 \logpage{[ 9, 1, 2 ]}\nobreak
-\hyperdef{L}{X7C7435EF7FC3AB13}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfConnectionGroup({\mdseries\slshape g})\index{PosetOfConnectionGroup@\texttt{PosetOfConnectionGroup}!for IsPermGroup}
-\label{PosetOfConnectionGroup:for IsPermGroup}
+\hyperdef{L}{X8720C4757EE12082}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromConnectionGroup({\mdseries\slshape g})\index{PosetFromConnectionGroup@\texttt{PosetFromConnectionGroup}!for IsPermGroup}
+\label{PosetFromConnectionGroup:for IsPermGroup}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsPosetOfFlags} with \texttt{IsP1}=true. 
@@ -1650,16 +1650,16 @@ maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ it
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);|
   Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
-  !gapprompt@gap>| !gapinput@PosetOfConnectionGroup(g);|
+  !gapprompt@gap>| !gapinput@PosetFromConnectionGroup(g);|
   A poset using the IsPosetOfFlags representation with 8 faces.
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{PosetOfManiplex (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{PosetFromManiplex (for IsManiplex)}}
 \logpage{[ 9, 1, 3 ]}\nobreak
-\hyperdef{L}{X7C15F3F8792500D7}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetOfManiplex({\mdseries\slshape mani})\index{PosetOfManiplex@\texttt{PosetOfManiplex}!for IsManiplex}
-\label{PosetOfManiplex:for IsManiplex}
+\hyperdef{L}{X7C4F3D307C5A7E7A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromManiplex({\mdseries\slshape mani})\index{PosetFromManiplex@\texttt{PosetFromManiplex}!for IsManiplex}
+\label{PosetFromManiplex:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsPosetOfFlags} 
@@ -1676,7 +1676,7 @@ that the $i$-faces correspond to the $i+1$ item in the list because of how GAP i
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@p:=HemiCube(3);|
   Regular 3-polytope of type [ 4, 3 ] with 24 flags
-  !gapprompt@gap>| !gapinput@PosetOfManiplex(p);|
+  !gapprompt@gap>| !gapinput@PosetFromManiplex(p);|
   A poset using the IsPosetOfFlags representation with 15 faces.
 \end{Verbatim}
  
@@ -1748,7 +1748,7 @@ list of faces corresponding to those indices, and the binary relation \mbox{\tex
 recover information about which objects are incident in the partial order.
 Another interesting example: 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@poset:=PosetOfManiplex(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@poset:=PosetFromManiplex(HemiCube(3));|
   A poset using the IsPosetOfFlags representation with 15 faces.
   !gapprompt@gap>| !gapinput@rfl:=RankedFaceListOfPoset(poset);|
   [ [ [  ], -1 ], [ [ 1, 6, 2, 9, 3, 13 ], 0 ], [ [ 4, 14, 16, 23, 11, 21 ], 0 ], [ [ 5, 22, 8, 17, 19, 20 ], 0 ], 
@@ -1818,7 +1818,7 @@ poset. Synonym function is \texttt{FlagsList}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@poset:=PosetOfManiplex(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@poset:=PosetFromManiplex(HemiCube(3));|
   A poset using the IsPosetOfFlags representation with 15 faces.
   !gapprompt@gap>| !gapinput@rfl:=RankedFaceListOfPoset(poset);;|
   !gapprompt@gap>| !gapinput@Apply(rfl,PosetElementFromListOfFlags);|
@@ -1946,7 +1946,7 @@ untangle later. NOT IMPLEMENTED YET. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@poset:=PosetOfManiplex(HemiCube(3)); |
+  !gapprompt@gap>| !gapinput@poset:=PosetFromManiplex(HemiCube(3)); |
   !gapprompt@gap>| !gapinput@IsP2(poset);|
   true
 \end{Verbatim}
@@ -1957,6 +1957,36 @@ untangle later. NOT IMPLEMENTED YET. }
   !gapprompt@gap>| !gapinput@IsP2(poset);|
   false
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsP3 (for IsPoset)}}
+\logpage{[ 9, 2, 9 ]}\nobreak
+\hyperdef{L}{X8723519F84529E4C}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP3({\mdseries\slshape poset})\index{IsP3@\texttt{IsP3}!for IsPoset}
+\label{IsP3:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Determines whether a poset is strongly flag connected (property P3' from ARP).
+May also be called with command \texttt{IsStronglyFlagConnected}. }
+
+ Helper for IsP3 
+
+\subsection{\textcolor{Chapter }{IsFlagConnected (for IsPoset)}}
+\logpage{[ 9, 2, 10 ]}\nobreak
+\hyperdef{L}{X85F554347C5AEF30}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlagConnected({\mdseries\slshape arg})\index{IsFlagConnected@\texttt{IsFlagConnected}!for IsPoset}
+\label{IsFlagConnected:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ 
+
+ }
+
  }
 
  
@@ -2016,8 +2046,36 @@ from \texttt{FlagsAsListOfFacesFromPoset}. }
 
  
 
-\subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}
+\subsection{\textcolor{Chapter }{AdjacentFlags (for IsPoset,IsList,IsInt)}}
 \logpage{[ 9, 3, 4 ]}\nobreak
+\hyperdef{L}{X7C94E895794BA41F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlags({\mdseries\slshape poset, flagaslistoffaces, adjacencyrank})\index{AdjacentFlags@\texttt{AdjacentFlags}!for IsPoset,IsList,IsInt}
+\label{AdjacentFlags:for IsPoset,IsList,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{EqualChains (for IsList,IsList)}}
+\logpage{[ 9, 3, 5 ]}\nobreak
+\hyperdef{L}{X7E1C59DF835343FE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EqualChains({\mdseries\slshape flag1, flag2})\index{EqualChains@\texttt{EqualChains}!for IsList,IsList}
+\label{EqualChains:for IsList,IsList}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}
+\logpage{[ 9, 3, 6 ]}\nobreak
 \hyperdef{L}{X84E3B63C8639771B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGeneratorOfPoset({\mdseries\slshape poset, i})\index{ConnectionGeneratorOfPoset@\texttt{ConnectionGeneratorOfPoset}!for IsPoset,IsInt}
 \label{ConnectionGeneratorOfPoset:for IsPoset,IsInt}
@@ -2032,7 +2090,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{ConnectionGroupOfPoset (for IsPoset)}}
-\logpage{[ 9, 3, 5 ]}\nobreak
+\logpage{[ 9, 3, 7 ]}\nobreak
 \hyperdef{L}{X83C849F67D807854}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroupOfPoset({\mdseries\slshape poset})\index{ConnectionGroupOfPoset@\texttt{ConnectionGroupOfPoset}!for IsPoset}
 \label{ConnectionGroupOfPoset:for IsPoset}
@@ -2047,7 +2105,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{FacesOfPosetAsBinaryRelationOnFaces (for IsPoset)}}
-\logpage{[ 9, 3, 6 ]}\nobreak
+\logpage{[ 9, 3, 8 ]}\nobreak
 \hyperdef{L}{X8380DB8B856E1761}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacesOfPosetAsBinaryRelationOnFaces({\mdseries\slshape poset})\index{FacesOfPosetAsBinaryRelationOnFaces@\texttt{FacesOfPosetAsBinaryRelationOnFaces}!for IsPoset}
 \label{FacesOfPosetAsBinaryRelationOnFaces:for IsPoset}
@@ -2062,7 +2120,7 @@ A binary relation on the integers 1 through $n$, where $n$ is the number of face
  
 
 \subsection{\textcolor{Chapter }{FaceListOfPoset (for IsPoset)}}
-\logpage{[ 9, 3, 7 ]}\nobreak
+\logpage{[ 9, 3, 9 ]}\nobreak
 \hyperdef{L}{X79F1837C835A5EFF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FaceListOfPoset({\mdseries\slshape poset})\index{FaceListOfPoset@\texttt{FaceListOfPoset}!for IsPoset}
 \label{FaceListOfPoset:for IsPoset}
@@ -2425,6 +2483,7 @@ belongs to. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

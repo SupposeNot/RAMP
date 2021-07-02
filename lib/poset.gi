@@ -66,11 +66,14 @@ InstallOtherMethod(Rank,
 InstallOtherMethod(Rank,
 	[IsPoset],
 	function(poset)
-	local fl,ranks,m;
-	fl:=ElementsList(poset);
-	ranks:=DuplicateFreeList(List(fl,Rank));
-	m:=Maximum(ranks);
-	return m;
+	local fl,ranks,m,chains;
+	chains:=MaximalChains(poset);
+	chains:=List(chains,Length);
+	if Length(DuplicateFreeList(chains))<>1 then return false; fi;
+# 	fl:=ElementsList(poset);
+# 	ranks:=DuplicateFreeList(List(fl,Rank));
+# 	m:=Maximum(ranks);
+	return chains[1]-2;
 	end);
 	
 
@@ -149,8 +152,91 @@ InstallMethod(IsP2,
 	fi;
 	end);
 
+InstallMethod(EqualChains,
+	[IsList,IsList],
+	function(flag1,flag2)
+	local pairs;
+	if Length(flag1)<>Length(flag2) then return false; fi;
+	pairs:=[1..Length(flag1)];
+	pairs:=List(pairs,x->IsEqualFaces(flag1[x],flag2[x]));
+	if DuplicateFreeList(pairs)=[true] then return true;
+		else
+		return false;
+		fi;
+	end);
 
-InstallMethod(PosetOfConnectionGroup, 
+InstallMethod( \=,
+	ReturnTrue,
+	[IsPosetElement, IsPosetElement],
+	function(p,q)
+	return IsEqualFaces(p,q);
+	end);
+
+InstallMethod(AdjacentFlags,
+	[IsPoset,IsList,IsInt],
+	function(poset,flagaslistoffaces,adjacencyrank)
+	local r,flag,flagsList,fixedranks;
+	if Rank(poset)=false then Print("Poset must be P1 and P2."); return; fi;
+	r:=adjacencyrank; flag:=flagaslistoffaces;
+	flagsList:=MaximalChains(poset);
+	fixedranks:=[1..Rank(poset)+2];
+	Remove(fixedranks,r+2);
+	flagsList:=Filtered(flagsList,x->EqualChains(x{fixedranks},flag{fixedranks}));
+	flagsList:=Filtered(flagsList,x->EqualChains(x,flag)=false);
+	return flagsList;
+	end);
+
+# Incomplete
+InstallOtherMethod(IsFlagConnected,
+	[IsPoset],
+	function(poset)
+	local flags, pathends, i, ranks, f, temppathends;
+	if (not( IsP1(poset)) or not (IsP2(poset))) then return false; fi;
+	if Rank(poset)=false then return false; fi;
+	if Rank(poset)<=1 then return true; fi;
+	flags:=MaximalChains(poset);
+	pathends:=[flags[1]];
+	ranks:=[0..Rank(poset)-1];
+	temppathends:=[];
+	while Length(temppathends)<>Length(pathends) do
+		pathends:=DuplicateFreeList(Concatenation(temppathends,pathends));
+		for f in pathends do
+			for i in ranks do
+				Append(temppathends,AdjacentFlags(poset,f,i));
+				od;
+				#temppathends:=DuplicateFreeList(temppathends);
+# 				Print(temppathends,"\n\n Iteration\n");
+			od;
+		temppathends:=DuplicateFreeList(temppathends);
+# 		Print(temppathends,"\n");
+		od;
+	return Length(flags)=Length(pathends);
+	end);
+
+InstallMethod(IsP3,
+	[IsPoset],
+	function(poset)
+	local maxChains,faces,facePairs,sections,list;
+	if Rank(poset)=false then return false; fi;
+	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
+	maxChains:=MaximalChains(poset);
+	faces:=ElementsList(poset);
+	facePairs:=Cartesian(faces,faces);
+	facePairs:=Filtered(facePairs,x->IsSubface(x[2],x[1]));
+	sections:=List(facePairs,x->Filtered(faces,y->IsSubface(x[2],y) and IsSubface(y,x[1])));
+	sections:=Filtered(sections,x->Length(x)<>1);
+	list:=List(sections,x->IsFlagConnected(PosetFromElements(x,IsSubface)));
+	if DuplicateFreeList(list)=[true] then
+		SetIsP3(poset,true);
+		return true;
+	else
+		SetIsP3(poset,false);
+		return false;
+	fi;
+	end);
+
+
+InstallMethod(PosetFromConnectionGroup, 
 	[IsPermGroup],
 	function(g)
 	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
@@ -178,7 +264,7 @@ InstallMethod(PosetOfConnectionGroup,
 
 
 	
-InstallMethod(PosetOfManiplex,
+InstallMethod(PosetFromManiplex,
 	[IsManiplex],
 	function(mani)
 	local posetList,conng,poset,flags,rank,gens,genIndexes,i;
@@ -672,10 +758,15 @@ InstallOtherMethod(PosetFromElements,
 	return poset;
 	end);
 
+InstallMethod(IsEqualFaces,
+	[IsPosetElement,IsPosetElement],
+	function(face1,face2);
+	return IsSubface(face1,face2) and IsSubface(face2,face1);
+	end);
 
 #Here's a sample of things you can do...
 #p:=PyramidOver(HemiCube(3));
-#pos:=PosetOfManiplex(p);;
+#pos:=PosetFromManiplex(p);;
 #cg:=ConnectionGroup(p);
 #flagList:=FlagsAsListOfFacesFromPoset(pos);;
 #flagList[4];
@@ -685,6 +776,6 @@ InstallOtherMethod(PosetFromElements,
 
 #If you want to play with the flaggable stuff... m44 below is the {4,4}_(1,0) map.
 #m44:=ReflexibleManiplex(Group([(1,8)(2,3)(4,5)(6,7),(1,2)(3,4)(5,6)(7,8),(1,4)(2,7)(3,6)(5,8)]);
-#m44pos:=PosetOfManiplex(m44);
+#m44pos:=PosetFromManiplex(m44);
 #IsFlaggablePoset(m44);
 #IsFlaggablePoset(pos);

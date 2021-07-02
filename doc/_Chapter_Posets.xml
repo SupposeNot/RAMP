@@ -43,7 +43,7 @@ gap> FaceListOfPoset(poset);
 
 
 <ManSection>
-  <Oper Arg="g" Name="PosetOfConnectionGroup" Label="for IsPermGroup"/>
+  <Oper Arg="g" Name="PosetFromConnectionGroup" Label="for IsPermGroup"/>
  <Returns><Code>IsPosetOfFlags</Code> with <Code>IsP1</Code>=true.
 </Returns>
  <Description>
@@ -55,13 +55,13 @@ Given a group, returns a poset with an internal representation as a list of face
 <Example><![CDATA[
 gap> g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);
 Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
-gap> PosetOfConnectionGroup(g);
+gap> PosetFromConnectionGroup(g);
 A poset using the IsPosetOfFlags representation with 8 faces.
 ]]></Example>
 
 
 <ManSection>
-  <Oper Arg="mani" Name="PosetOfManiplex" Label="for IsManiplex"/>
+  <Oper Arg="mani" Name="PosetFromManiplex" Label="for IsManiplex"/>
  <Returns><Code>IsPosetOfFlags</Code>
 </Returns>
  <Description>
@@ -73,7 +73,7 @@ Given a maniplex, returns a poset of the maniplex with an internal representatio
 <Example><![CDATA[
 gap> p:=HemiCube(3);
 Regular 3-polytope of type [ 4, 3 ] with 24 flags
-gap> PosetOfManiplex(p);
+gap> PosetFromManiplex(p);
 A poset using the IsPosetOfFlags representation with 15 faces.
 ]]></Example>
 
@@ -132,7 +132,7 @@ gap> ElementsList(poset){[2,6]};
  Here we have an example of how we can store a partially ordered set, and recover information about which objects are incident in the partial order.
  Another interesting example:
 <Example><![CDATA[
-gap> poset:=PosetOfManiplex(HemiCube(3));
+gap> poset:=PosetFromManiplex(HemiCube(3));
 A poset using the IsPosetOfFlags representation with 15 faces.
 gap> rfl:=RankedFaceListOfPoset(poset);
 [ [ [  ], -1 ], [ [ 1, 6, 2, 9, 3, 13 ], 0 ], [ [ 4, 14, 16, 23, 11, 21 ], 0 ], [ [ 5, 22, 8, 17, 19, 20 ], 0 ], 
@@ -186,7 +186,7 @@ Gives the list of maximal chains in a poset in terms of the elements of the pose
 
 
 <Example><![CDATA[
-gap> poset:=PosetOfManiplex(HemiCube(3));
+gap> poset:=PosetFromManiplex(HemiCube(3));
 A poset using the IsPosetOfFlags representation with 15 faces.
 gap> rfl:=RankedFaceListOfPoset(poset);;
 gap> Apply(rfl,PosetElementFromListOfFlags);
@@ -271,7 +271,7 @@ Determines whether a poset has property P2 from ARP.
 
 
 <Example><![CDATA[
-gap> poset:=PosetOfManiplex(HemiCube(3)); 
+gap> poset:=PosetFromManiplex(HemiCube(3)); 
 gap> IsP2(poset);
 true
 ]]></Example>
@@ -284,6 +284,25 @@ A poset using the IsPosetOfIndices representation
 gap> IsP2(poset);
 false
 ]]></Example>
+
+
+<ManSection>
+  <Prop Arg="poset" Name="IsP3" Label="for IsPoset"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>.
+ </Description>
+</ManSection>
+
+
+ Helper for IsP3
+<ManSection>
+  <Oper Arg="arg" Name="IsFlagConnected" Label="for IsPoset"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
 
 
 </Section>
@@ -320,6 +339,22 @@ Given a <A>poset</A>, this will give you a version of the list of flags in terms
 Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
  You can replace <A>flag</A> with the integer corresponding to that flag.
  Appending <Code>true</Code> to the arguments will give the position of the flag instead of its description from <Code>FlagsAsListOfFacesFromPoset</Code>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset, flagaslistoffaces, adjacencyrank" Name="AdjacentFlags" Label="for IsPoset,IsList,IsInt"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="flag1, flag2" Name="EqualChains" Label="for IsList,IsList"/>
+ <Description>
+<P/>
  </Description>
 </ManSection>
 
