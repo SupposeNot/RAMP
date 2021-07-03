@@ -238,6 +238,10 @@ DeclareProperty("IsPolytope", IsPoset);
 #! @EndExampleSession
 #! @Section Working with posets
 
+
+DeclareProperty("IsPrePolytope", IsPoset);
+
+
 #! @Arguments object1, object2
 #! @Returns `true` or `false`
 #! @Description Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.
@@ -273,7 +277,11 @@ DeclareOperation("ConnectionGeneratorOfPoset",[IsPoset,IsInt]);
 #! @Arguments poset
 #! @Returns `IsPermGroup`
 #! @Description Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
-DeclareOperation("ConnectionGroupOfPoset",[IsPoset]);
+DeclareAttribute("ConnectionGroup",IsPoset);
+
+#! @Arguments poset
+#! @Description Given a <A>poset</A>, gives the automorphism group of the poset as an action on the maximal chains.
+DeclareAttribute("AutomorphismGroup", IsPoset);
 
 ##! @Arguments poset
 ##! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.

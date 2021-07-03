@@ -43,8 +43,8 @@ InstallOtherMethod(ElementsList,
 	function(poset)
 	local list;
 	list:=RankedFaceListOfPoset(poset);
-	SetElementsList(poset,List(list,PosetElementFromListOfFlags));
-	return ElementsList(poset);
+# 	SetElementsList(poset,List(list,PosetElementFromListOfFlags));
+	return List(list,PosetElementFromListOfFlags);
 	end);
 
 InstallOtherMethod(Rank,
@@ -102,10 +102,12 @@ InstallMethod(IsP1,
 	function(poset)
 		local faceList;
 	faceList:=poset!.faces_list_by_rank;
-	if HasIsP1(poset) then return IsP1(poset); fi;
+# 	if HasIsP1(poset) then return IsP1(poset); fi;
 	if faceList[1]=[[]] and Length(faceList[Rank(poset)+2])=1 then
-	SetIsP1(poset,true);
-	return true;
+# 		SetIsP1(poset,true);
+		return true;
+	else
+		return false;
 	fi;
 	end);	
 
@@ -119,10 +121,10 @@ InstallOtherMethod(IsP1,
 	if DuplicateFreeList(List(faceList,x->HasAtomList(x)))=[true] then
 		atomicFaceList:=List(faceList,x->AtomList(x));
 		if [] in atomicFaceList and DuplicateFreeList(Concatenation(atomicFaceList)) in atomicFaceList then
-			SetIsP1(poset,true);
+# 			SetIsP1(poset,true);
 			return true; 
 		else 
-			SetIsP1(poset,false); 
+# 			SetIsP1(poset,false); 
 			return false;
 		fi;
 	elif HasPartialOrder(poset) then #if we only know we have a partial order...
@@ -130,10 +132,10 @@ InstallOtherMethod(IsP1,
 		sourceList:=Elements(Source(partialOrder));
 		successors:=Successors(partialOrder);
 		if Length(PositionsProperty(successors,x->x=sourceList))=1 and Length(PositionsProperty([1..Length(sourceList)],x->successors[x]=[x]))=1 then
-			SetIsP1(poset,true);
+# 			SetIsP1(poset,true);
 			return true;
 		else 
-			SetIsP1(poset,false); 
+# 			SetIsP1(poset,false); 
 			return false;
 		fi;
 	fi;
@@ -147,10 +149,10 @@ InstallMethod(IsP2,
 #	maxChains:=List(maxChains,x->Compacted(DuplicateFreeList(x)));
 	maxChains:=DuplicateFreeList(List(maxChains,Length));
 	if Length(maxChains)=1 then
-		SetIsP2(poset,true);
+# 		SetIsP2(poset,true);
 		return true;
 		else
-		SetIsP2(poset,false);
+# 		SetIsP2(poset,false);
 		return false;
 	fi;
 	end);
@@ -229,10 +231,10 @@ InstallMethod(IsP3,
 	sections:=Filtered(sections,x->Length(x)<>1);
 	list:=List(sections,x->IsFlagConnected(PosetFromElements(x,IsSubface)));
 	if DuplicateFreeList(list)=[true] then
-		SetIsP3(poset,true);
+# 		SetIsP3(poset,true);
 		return true;
 	else
-		SetIsP3(poset,false);
+# 		SetIsP3(poset,false);
 		return false;
 	fi;
 	end);
@@ -250,13 +252,13 @@ InstallMethod(IsP4,
 	r:=Rank(poset);
 	flags:=MaximalChains(poset);
 	if r=0 then 
-		SetIsP4(poset,true);
+# 		SetIsP4(poset,true);
 		return true;
 	elif r=1 and Length(flags)=2 then
-		SetIsP4(poset,true);
+# 		SetIsP4(poset,true);
 		return true;
 	elif r=1 and Length(flags)<>2 then
-		SetIsP4(poset,false);
+# 		SetIsP4(poset,false);
 		return false;
 	fi;
 	ranks:=[0..r-1];
@@ -269,13 +271,14 @@ InstallMethod(IsP4,
 		for pair in facepairs do
 			mids:=Filtered(facesmid,x-> IsSubface(pair[1],x) and IsSubface(x,pair[2]));
 			if Length(mids)<>2 then
-				SetIsP4(poset,false);
+# 				SetIsP4(poset,false);
 				return false;
 			fi;
 #  			Print(mids,"\n\n");
 		od;
+# 		Print(i,"\n");Is
 	od;
-	SetIsP4(poset,true);
+# 	SetIsP4(poset,true);
 	return true;
 	end);
 
@@ -284,13 +287,30 @@ InstallMethod(IsPolytope,
 	function(poset)
 	local value;
 	if IsP1(poset) and IsP2(poset) and IsP3(poset) and IsP4(poset) then
-		SetIsPolytope(poset,true);
+# 		SetIsPolytope(poset,true);
+		SetIsPrePolytope(poset,true);
 		return true;
-	else SetIsPolytope(poset,false);
+	else 
+		if IsP1(poset) and IsP2(poset) and IsP4(poset) then
+			Print("No, but it is a pre-polytope.\n");
+			SetIsPrePolytope(poset,true);
+		else 
+			SetIsPrePolytope(poset,false);
+		fi;
+# 		SetIsPolytope(poset,false);
 		return false;
 	fi;
 	end);
 
+InstallMethod(IsPrePolytope,
+	[IsPoset],
+	function(poset)
+	if IsP1(poset) and IsP2(poset) and IsP4(poset) then
+		return true;
+	else
+		return false;
+	fi;
+	end);
 
 InstallMethod(PosetFromConnectionGroup, 
 	[IsPermGroup],
@@ -487,7 +507,7 @@ InstallMethod(IsFlaggable,
 	end
 );
 
-InstallMethod(ConnectionGroupOfPoset,
+InstallMethod(ConnectionGroup,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local rank,facelist,flagsList,ranks,generators,x,newPoset;
@@ -504,8 +524,14 @@ InstallMethod(ConnectionGroupOfPoset,
 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
 	generators:=[1..Rank(poset)];
 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
+	SetConnectionGroup(poset,Group(generators));
 	return Group(generators);
 	end);
+
+# InstallMethod(AutomorphismGroup, 
+# 	[IsManiplex and IsManiplexConnGpRep],
+# 	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
+
 
 InstallMethod(ViewObj,
 	[IsPoset],
