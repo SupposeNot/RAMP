@@ -18,6 +18,13 @@ InstallGlobalFunction(AbstractRegularPolytope,
 	return p;
 	end);
 
+InstallGlobalFunction(AbstractRotaryPolytope,
+	function(args...)
+	local p;
+	p := CallFuncList(RotaryManiplex, args);
+	SetIsPolytopal(p, true);
+	return p;
+	end);
 
 # Modifies the permutation perm by adding k to each entry.
 InstallGlobalFunction(TranslatePerm,
@@ -84,6 +91,24 @@ InstallGlobalFunction(ParseStringCRels,
 	rels := ReplacedString(rels, "h2", "(r0 r1 r2 r1)");
 
 	old_names := List([0..n-1], i -> Concatenation("r", String(i)));
+	new_names := ["a","b","c","d","e","f","g","h","i"]{[1..n]};
+	for i in [1..n] do
+		rels := ReplacedString(rels, old_names[i], new_names[i]);
+	od;
+	f2 := FreeGroup(new_names);
+	parsed_rels := ParseRelators(GeneratorsOfGroup(f2), rels);
+	trans_rels := List(parsed_rels, r -> TranslateWord(r, f));
+	return trans_rels;
+	end);
+	
+InstallGlobalFunction(ParseRotGpRels,
+	function(rels, w)
+	local n, f, old_names, new_names, i, parsed_rels, trans_rels, f2;
+	n := Size(GeneratorsOfGroup(w));
+	if n > 9 then Error("Only works for n < 10"); fi;
+	f := FreeGroupOfFpGroup(w);
+
+	old_names := List([1..n], i -> Concatenation("s", String(i)));
 	new_names := ["a","b","c","d","e","f","g","h","i"]{[1..n]};
 	for i in [1..n] do
 		rels := ReplacedString(rels, old_names[i], new_names[i]);

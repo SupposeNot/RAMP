@@ -119,3 +119,24 @@ InstallMethod(RotaryManiplex,
 	return p;
 	end);
 
+# Usage: RotaryManiplex([4,6], "s2^-1 s1^2 = s1^5 s2^2");
+InstallMethod(RotaryManiplex,
+	[IsList, IsList],
+	function(sym, rels)
+	local n, w, rotgp, fam, p;
+	n := Size(sym)+1;
+	w := UniversalRotationGroup(sym);
+	if IsString(rels) then
+		rels := ParseRotGpRels(rels, w);
+	else # it's a "Tietze word" like [1, 2, -1, 2, 2]
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+	fi;
+	rotgp := FactorGroupFpGroupByRels(w, rels);
+	p := RotaryManiplex(rotgp);
+	if ValueOption("set_schlafli") = true then
+		SetSchlafliSymbol(p, sym);
+	fi;
+	
+	return p;
+	end);
+

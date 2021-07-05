@@ -245,6 +245,17 @@ InstallOtherMethod(Size,
 	end);
 	
 InstallOtherMethod(Size,
+	[IsManiplex and IsRotaryManiplexRotGpRep],
+	function(M)
+	local val;
+	val := 2 * Size(RotationGroup(M));
+	if HasDual(M) then
+		SetSize(Dual(M), val);
+	fi;
+	return val;
+	end);
+	
+InstallOtherMethod(Size,
 	[IsManiplex and IsManiplexQuotientRep],
 	function(M)
 	local val;
@@ -258,7 +269,17 @@ InstallOtherMethod(Size,
 InstallMethod(Size,
 	[IsManiplex and IsManiplexInstructionsRep],
 	function(M)
-	return ComputeAttr(M, Size);	
+	local val;
+	if IsManiplexInstructionsRep(M) then
+		val := ComputeAttr(M, Size);
+		if val <> fail then return val; fi;
+	fi;
+	
+	val := LargestMovedPoint(ConnectionGroup(M));
+	if HasDual(M) then
+		SetSize(Dual(M), val);
+	fi;
+	return val;
 	end);
 	
 InstallMethod(RankManiplex,

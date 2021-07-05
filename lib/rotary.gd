@@ -14,3 +14,6 @@ DeclareOperation("RotaryManiplex", [IsGroup]);
 
 #!
 DeclareOperation("RotaryManiplex", [IsList]);
+
+#!
+DeclareOperation("RotaryManiplex", [IsList, IsList]);
