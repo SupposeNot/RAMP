@@ -4,6 +4,7 @@
 # in the internal f-vector.
 # Eventually, if the user asks for the f-vector, we compute the number
 # of i-faces for each i that hasn't already been computed.
+# TODO: I think I can handle this more gracefully - see GAP ch. 85 "Function-Operation-Attribute triples"
 
 InstallMethod(NumberOfIFaces,
 	[IsManiplex, IsInt],
@@ -11,6 +12,10 @@ InstallMethod(NumberOfIFaces,
 	local g, n, ranks, MP;
 	n:=Rank(p);
 	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
+	if p!.fvec[i+1] <> fail then
+		return p!.fvec[i+1];
+	fi;
+
 	ranks:=[1..n];
 	Remove(ranks,i+1);
 	g:=ConnectionGroup(p);
@@ -18,8 +23,6 @@ InstallMethod(NumberOfIFaces,
 	return Size(Orbits(MP));
 	end);  	
 	
-# TODO: Deal more gracefully with infinite polytopes
-# This should also use the schlafli symbol if it is bound.
 InstallOtherMethod(NumberOfIFaces,
 	[IsReflexibleManiplex, IsInt],
 	function(p, i)
@@ -31,14 +34,12 @@ InstallOtherMethod(NumberOfIFaces,
 	fi;
 
 	g := AutomorphismGroup(p);
-	if n = 3 and HasSize(p) then
-		if (i = 1) then
-			num := Size(p)/4;
-		elif (i = 0) then
-			num := Size(p) / (2*SchlafliSymbol(p)[2]);
-		else # i = 2
-			num := Size(p) / (2*SchlafliSymbol(p)[1]);
-		fi;
+	if n = 3 and HasSize(p) and i = 1 then
+		num := Size(p)/4;	
+	elif n = 3 and HasSize(p) and i = 0 and SchlafliSymbol(p)[2] <> infinity then
+		num := Size(p) / (2*SchlafliSymbol(p)[2]);
+	elif n = 3 and HasSize(p) and i = 2 and SchlafliSymbol(p)[1] <> infinity then
+		num := Size(p) / (2*SchlafliSymbol(p)[1]);
 	else
 		J := [1..n];
 		Remove(J, i+1);

@@ -57,7 +57,7 @@ InstallMethod(AutomorphismGroup,
 	if Size(h2) = 2 * Size(g) then
 		# We have an orientably regular polytope
 		SetIsReflexible(M, true);
-		return h2;
+		return StandardizeSggi(h2);
 	else
 		# We have a chiral polytope
 		SetIsReflexible(M, false);

@@ -94,6 +94,18 @@ InstallGlobalFunction(ParseStringCRels,
 	return trans_rels;
 	end);
 	
+# Takes an sggi and converts it to an fp group, a quotient of the
+# universal sggi of the appropriate rank.
+InstallGlobalFunction(StandardizeSggi,
+	function(g)
+	local g2, rels, h;
+	g2 := Image(IsomorphismFpGroupByGenerators(g, GeneratorsOfGroup(g)));
+	rels := List(RelatorsOfFpGroup(g2), r -> TietzeWordAbstractWord(r));
+	h := FreeGroupOfFpGroup(UniversalSggi(Size(GeneratorsOfGroup(g))));
+	rels := List(rels, r -> AbstractWordTietzeWord(r, GeneratorsOfGroup(h)));
+	return FactorGroupFpGroupByRels(h, rels);
+	end);
+	
 InstallGlobalFunction(IsSameRank,
 	function(f1, f2)
 	return f1!.rank = f2!.rank;

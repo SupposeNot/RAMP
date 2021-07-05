@@ -7,6 +7,7 @@ DeclareGlobalFunction("MultPerm");
 
 DeclareGlobalFunction("TranslateWord");
 DeclareGlobalFunction("ParseStringCRels");
+DeclareGlobalFunction("StandardizeSggi");
 
 DeclareGlobalFunction("IsSameRank");
 
