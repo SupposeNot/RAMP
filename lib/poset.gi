@@ -220,6 +220,80 @@ InstallOtherMethod(IsFlagConnected,
 InstallMethod(IsP3,
 	[IsPoset],
 	function(poset)
+	local maxChains, r, ranks, i , j, truthList,cGens, overlap, overlapcomplement, nMC, orbit, repsList, compList;
+# 	if bool=false then Print("Using true might speed up this process"); return IsP3(poset); fi;
+	if Rank(poset)=false then return false; fi;
+	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
+ 	if IsP4(poset)=false then return IsP3(poset,true);fi;
+ 	Print("This is a pre-polytope, so I am using the connection group to help answer your question.\n");
+	maxChains:=MaximalChains(poset);
+	nMC:=Length(maxChains);
+	r:=Rank(poset);
+	truthList:=[];
+	cGens:=GeneratorsOfGroup(ConnectionGroup(poset));
+	repsList:=List(Orbits(AutomorphismGroup(poset)),First);
+	if Length(Orbits(ConnectionGroup(poset)))<>1 then return false;fi;
+	for i in repsList do
+		compList:=Difference([1..nMC],[i]);
+		for j in compList do
+			overlap:=PositionsProperty([1..r+2],x->maxChains[i][x]=maxChains[j][x]);
+			if overlap<>[1,r+2] then
+				overlapcomplement:=Intersection(Difference([1..r+2],overlap),[2..r+1])-1;
+				orbit:=Orbit(Group(cGens{overlapcomplement}),i);
+				Print([i,j,orbit],"\n");
+				if not (j in orbit) then
+					return false;
+				fi;
+			else
+				Print("Skipped ", i,", ", j,"\n");
+			fi;
+		od;
+	od;
+	return true;
+	end);
+
+InstallOtherMethod(IsP3,
+	[IsPoset,IsString],
+	function(poset,string)
+	local repsList, chainsLists, flag, chain, flagChain, flags, faces, face, gRanks, cGens, component, chainIntersection, ranks;
+	if string<>"Flaggable" then Print("If you have a string as an alternative second input, is must be the word Flaggable."); return; fi;
+# 	if Rank(poset)=false then return false; fi;
+# 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
+#  	if IsP4(poset)=false then return IsP3(poset,true);fi;
+#  	Print("This is a pre-polytope, so I am using the connection group to help answer your question.\n");
+	Print(AutomorphismGroup(poset),"\n");
+	repsList:=List(Orbits(AutomorphismGroup(poset)),First);
+	Print("Reps: ",repsList,"\n");
+	ranks:=[2..Rank(poset)+2];
+	chainsLists:=Filtered(Combinations(ranks),x->x<>[]);
+	Print("Number of chains to check each:", Length(chainsLists),"\n");
+	flags:=MaximalChains(poset);
+	faces:=ElementsList(poset);
+	cGens:=GeneratorsOfGroup(ConnectionGroup(poset));
+	if Length(Orbits(ConnectionGroup(poset)))<>1 then return false;fi;
+	for flag in repsList do
+		Print("Starting rep ", flag, "\n");
+		for chain in chainsLists do
+			Print("Starting chain ", chain, "\n");
+			flagChain:=flags[flag]{chain};
+			flagChain:=List(flagChain,face->PositionsProperty(flags,x->face in x));
+			gRanks:= Difference([1..Rank(poset)], Intersection(chain, [2..Rank(poset)+1])-1);
+			chainIntersection:=Intersection(flagChain);
+			if gRanks<>[] then
+				if IsSubset(Orbit(Group(cGens{gRanks}),flag),chainIntersection)=false then
+					Print([gRanks,flag,chain]);
+					return false; 
+					fi;
+				fi;
+			Print("Check complete.\n\n");
+			od;
+		od;
+	return true;
+	end);
+
+InstallOtherMethod(IsP3,
+	[IsPoset,IsBool],
+	function(poset,tvalue)
 	local maxChains,faces,facePairs,sections,list;
 	if Rank(poset)=false then return false; fi;
 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
@@ -231,10 +305,8 @@ InstallMethod(IsP3,
 	sections:=Filtered(sections,x->Length(x)<>1);
 	list:=List(sections,x->IsFlagConnected(PosetFromElements(x,IsSubface)));
 	if DuplicateFreeList(list)=[true] then
-# 		SetIsP3(poset,true);
 		return true;
 	else
-# 		SetIsP3(poset,false);
 		return false;
 	fi;
 	end);
@@ -334,6 +406,7 @@ InstallMethod(PosetFromConnectionGroup,
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList); 
 	SetIsP1(poset,true);
+	SetConnectionGroup(poset,conng);
 	return poset;
 	end);
 
@@ -399,6 +472,19 @@ InstallMethod(FlagsAsListOfFacesFromPoset,
 	return flagList;
 	end);	
 
+InstallMethod(FlagsAsListOfFacesFromPoset,
+	[IsPoset],
+	function(poset)
+	local faces, facesAsLists, flags, flagsAsLists;
+		faces:=ElementsList(poset);
+		flags:=MaximalChains(poset);
+		facesAsLists:=List(faces, x->PositionsProperty(flags,flag-> x in flag));
+		if IsP1(poset)=true then 
+			facesAsLists[PositionsProperty(faces,x->x=flags[1][1])[1]]:=[];
+			fi;
+		flagsAsLists:=List(flags,x->facesAsLists{PositionsProperty(faces,y->y in x)});
+		return flagsAsLists;
+	end);
 
 InstallMethod(AdjacentFlag,
 	[IsPosetOfFlags,IsList,IsInt],
@@ -413,7 +499,16 @@ InstallMethod(AdjacentFlag,
 	return Filtered(flags,x->(flag{ranks}=x{ranks} and flag<>x))[1];
 	end);
 
-
+InstallOtherMethod(AdjacentFlag,
+	[IsPoset,IsInt,IsInt],
+	function(poset,flag,i)
+	local n, ranks, flags;
+	if IsPrePolytope(poset)<>true then Print("I was expecting a pre-polytope.\n"); return; fi;
+	flags:=MaximalChains(poset);
+	n:=Rank(poset);
+	ranks:=[1..n];
+	i:=i+2;
+	end);
 
 InstallOtherMethod(AdjacentFlag,
 	[IsPosetOfFlags,IsInt,IsInt],
@@ -458,19 +553,19 @@ InstallOtherMethod(AdjacentFlag,
 	return Position(flags,found);
 	end);
 
-InstallMethod(ConnectionGeneratorOfPoset,
-	[IsPoset and IsPosetOfFlags,IsInt],
-	function(poset,i) # here i is the rank of the generator, e.g., 0 is the rank of the generator for 0-connections. Also note, the poset here MUST not be full.
-	local flagsList,nFlags,imagesList,flagPosition,iNeighbor,j;
-#	if IsFull(poset) then Print("ConnectionGeneratorOfPoset was given a full poset, and failed."); return; fi;
-	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-	nFlags:=Length(flagsList);
-	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
-	for j in [1..nFlags] do
-		iNeighbor:=AdjacentFlag(poset,j,i,true);
-		imagesList[j]:=iNeighbor;#Position(flagsList,iNeighbor);
-		od;
-	return PermutationOfImage(Transformation(imagesList));
+InstallOtherMethod(AdjacentFlag,
+	[IsPoset and IsP2, IsInt, IsInt, IsBool],
+	function(poset,flag,i,bool)
+	local n, ranks, flags, found;
+	if bool <> true then return AdjacentFlag(poset,flag,i);fi;
+	n:=Rank(poset);
+	ranks:=[1..n];
+	i:=i+1;
+	Remove(ranks,i);
+	flags:=List(MaximalChains(poset),x->x{[2..n+1]});
+	found:=PositionsProperty(flags,x->(flags[flag]{ranks}=x{ranks}));
+# 	found:=PositionsProperty(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
+	return Difference(found,[flag])[1];
 	end);
 
 
@@ -507,29 +602,95 @@ InstallMethod(IsFlaggable,
 	end
 );
 
-InstallMethod(ConnectionGroup,
-	[IsPoset and IsPosetOfFlags],
+InstallMethod(IsFlaggable,
+	[IsPoset],
 	function(poset)
-	local rank,facelist,flagsList,ranks,generators,x,newPoset;
-	if IsFlaggable(poset)=false then
-		Print("This poset is not flaggable, and this function only works for flaggable posets.");
-		return;
-	fi;
-	if IsP1(poset) then
-		ranks:=[2..Rank(poset)+1];
-	else
-		ranks:=[1..Rank(poset)];
-	fi;
-	facelist:=poset!.faces_list_by_rank{ranks};	
-	flagsList:=FlagsAsListOfFacesFromPoset(poset);
+	local flags, faces, facesaslists, flag, face, ranks, facesList;
+	if IsP1(poset)=false or IsP2(poset)=false then return false; fi;
+	ranks:=[2..Rank(poset)+1];
+	flags:=List(MaximalChains(poset),x->x{ranks});
+	faces:=ElementsList(poset);
+	facesaslists:=List(ElementsList(poset),face->PositionsProperty(flags,flag->face in flag));
+	facesList:=[];
+	for flag in flags do
+		facesList:=PositionsProperty(faces,x->x in flag);
+		if Length(Intersection(facesaslists{facesList}))<>1 then return false; fi;
+		od;
+	return true;
+	end);
+
+# Deprecated 7/4/21
+# InstallMethod(ConnectionGroup,
+# 	[IsPoset and IsPosetOfFlags],
+# 	function(poset)
+# 	local rank,facelist,flagsList,ranks,generators,x,newPoset;
+# 	if IsFlaggable(poset)=false then
+# 		Print("This poset is not flaggable, and this function only works for flaggable posets.");
+# 		return;
+# 	fi;
+# 	if IsP1(poset) then
+# 		ranks:=[2..Rank(poset)+1];
+# 	else
+# 		ranks:=[1..Rank(poset)];
+# 	fi;
+# 	facelist:=poset!.faces_list_by_rank{ranks};	
+# 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
+# 	generators:=[1..Rank(poset)];
+# 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
+# # 	SetConnectionGroup(poset,Group(generators));
+# 	return Group(generators);
+# 	end);
+
+
+# Deprecated 7/4/21
+# InstallMethod(ConnectionGeneratorOfPoset,
+# 	[IsPoset and IsPosetOfFlags,IsInt],
+# 	function(poset,i) # here i is the rank of the generator, e.g., 0 is the rank of the generator for 0-connections. Also note, the poset here MUST not be full.
+# 	local flagsList,nFlags,imagesList,flagPosition,iNeighbor,j;
+# #	if IsFull(poset) then Print("ConnectionGeneratorOfPoset was given a full poset, and failed."); return; fi;
+# 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
+# 	nFlags:=Length(flagsList);
+# 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
+# 	for j in [1..nFlags] do
+# 		iNeighbor:=AdjacentFlag(poset,j,i,true);
+# 		imagesList[j]:=iNeighbor;#Position(flagsList,iNeighbor);
+# 		od;
+# 	return PermutationOfImage(Transformation(imagesList));
+# 	end);
+
+
+InstallMethod(ConnectionGeneratorOfPoset,
+	[IsPoset,IsInt],
+	function(poset,i) # here i is the rank of the generator, e.g., 0 is the rank of the generator for 0-connections. Also note, the poset here MUST not be full.
+	local flagsList,nFlags,imagesList,flagPosition,iNeighbor,j;
+	flagsList:=MaximalChains(poset);
+	nFlags:=Length(flagsList);
+	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
+	for j in [1..nFlags] do
+		iNeighbor:=AdjacentFlag(poset,j,i,true);
+		imagesList[j]:=iNeighbor;#Position(flagsList,iNeighbor);
+		od;
+	return PermutationOfImage(Transformation(imagesList));
+	end);
+
+InstallMethod(ConnectionGroup,
+	[IsPoset],
+	function(poset)
+	local flags,generators;
+	if IsPrePolytope(poset)<>true then Print("This function was expecting a pre-polytope."); return; fi;
+	flags:=MaximalChains(poset);
 	generators:=[1..Rank(poset)];
 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
-	SetConnectionGroup(poset,Group(generators));
 	return Group(generators);
 	end);
 
-# InstallMethod(AutomorphismGroup, 
-# 	[IsManiplex and IsManiplexConnGpRep],
+InstallMethod(AutomorphismGroup, 
+	[IsPoset],
+	function(poset)
+	local g;
+	g:=ConnectionGroup(poset);
+	return Centralizer(SymmetricGroup(MovedPoints(g)),g);
+	end);
 # 	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
 
 
@@ -861,3 +1022,13 @@ InstallMethod(IsEqualFaces,
 #m44pos:=PosetFromManiplex(m44);
 #IsFlaggablePoset(m44);
 #IsFlaggablePoset(pos);
+
+
+
+# Some test objects:
+posetFM:=function(n) return PosetFromManiplex(PyramidOver(Cube(n)));end;
+posetFE:=function(n) return PosetFromElements(ElementsList(posetFM(n)),IsSubface);end;
+posetFG:=function(n) return PosetFromConnectionGroup(ConnectionGroup(posetFE(n))); end;
+# posetFM:=PosetFromManiplex(HemiCube(3));
+# posetFE:=PosetFromElements(ElementsList(posetFM),IsSubface);
+# posetFG:= PosetFromConnectionGroup(ConnectionGroup(posetFE));

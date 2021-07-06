@@ -153,7 +153,8 @@ DeclareAttribute("MaximalChains", IsPoset);
 DeclareSynonymAttr("FlagsList", MaximalChains);
 
 #! @Arguments poset
-#! @Description Checks or creates the value of the attribute IsFlaggable for an IsPoset. Point here is to see if the structure of the poset is sufficient to determine the flag graph.  For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
+#! @Description Checks or creates the value of the attribute `IsFlaggable` for an `IsPoset`. Point here is to see if the structure of the poset is sufficient to determine the flag graph.  For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
+#! Now also works with generic poset element types (not just `IsPosetOfFlags``).
 DeclareProperty("IsFlaggable",IsPoset);
 
 
@@ -201,7 +202,7 @@ DeclareProperty("IsP2", IsPoset);
 #! @EndExampleSession
 
 #! @Arguments poset
-#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`.
+#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time.
 DeclareProperty("IsP3", IsPoset);
 
 
@@ -249,8 +250,8 @@ DeclareOperation("AreIncidentFlagFaces",[IsObject,IsObject]);
 
 #! @Arguments poset
 #! @Returns `IsList`
-#a list of flags as a list of faces from <A>PosetFromFaceListOfFlags</A>.
-#! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face.
+#a list of flags as a list of faces from `PosetFromFaceListOfFlags`.
+#! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face. In other words, this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. 
 DeclareOperation("FlagsAsListOfFacesFromPoset",[IsPoset]); 
 
 #! @Arguments poset, flag, i
