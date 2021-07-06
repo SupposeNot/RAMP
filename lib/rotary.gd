@@ -17,3 +17,6 @@ DeclareOperation("RotaryManiplex", [IsList]);
 
 #!
 DeclareOperation("RotaryManiplex", [IsList, IsList]);
+
+#!
+DeclareOperation("EnantiomorphicForm", [IsRotaryManiplex]);

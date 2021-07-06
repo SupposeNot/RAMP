@@ -398,6 +398,7 @@ InstallMethod( PrintObj,
 # TODO: This is currently broken for rotary maniplexes
 # I really want orbs to be the action of the automorphism
 # group on the _flags_.
+# Wait until graph code is done
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(p)

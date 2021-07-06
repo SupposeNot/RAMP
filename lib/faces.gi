@@ -225,7 +225,7 @@ InstallMethod(SchlafliSymbol,
 	[IsManiplex and IsRotaryManiplexRotGpRep],
 	function(M)
 	local gens, n, sym;
-	gens := GeneratorsOfGroup(AutomorphismGroup(M));
+	gens := GeneratorsOfGroup(RotationGroup(M));
 	n := Rank(M);
 	sym := List(gens, x -> Order(x));
 	if HasDual(M) then

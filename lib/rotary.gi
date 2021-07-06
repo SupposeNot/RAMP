@@ -140,3 +140,39 @@ InstallMethod(RotaryManiplex,
 	return p;
 	end);
 
+InstallMethod(EnantiomorphicForm,
+	[IsRotaryManiplex],
+	function(M)
+	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2;
+	if HasIsReflexible(M) and IsReflexible(M) then return M; fi;
+	
+	rotgp := RotationGroup(M);
+	n := Rank(M);
+	standardRels := RelatorsOfFpGroup(UniversalRotationGroup(SchlafliSymbol(M)));
+	rels := RelatorsOfFpGroup(rotgp);
+	extraRels := Difference(rels, standardRels);
+	
+	# Now we change the relators by conjugating by r0.
+	# This changes s1 to s1^-1 and s2 to s1^2 s2, while fixing the other si.
+	Apply(extraRels, r -> TietzeWordAbstractWord(r));
+	newrels := [];
+	
+	for rel in extraRels do
+		newrel := [];
+		for i in rel do
+			if AbsoluteValue(i) = 1 then
+				Add(newrel, -i);
+			elif i = 2 then
+				Append(newrel, [1, 1, 2]);
+			elif i = -2 then
+				Append(newrel, [-2, -1, -1]);
+			else
+				Add(newrel, i);
+			fi;
+		od;
+		Add(newrels, newrel);
+	od;
+	
+	M2 := RotaryManiplex(SchlafliSymbol(M), newrels);
+	return M2;
+	end);
