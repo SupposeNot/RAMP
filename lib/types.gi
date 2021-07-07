@@ -14,6 +14,8 @@ InstallTrueMethod(IsManiplex and IsRotary, IsRotaryManiplex);
 #For posets
 InstallTrueMethod(IsPolytope, IsPoset and IsP1 and IsP2 and IsP3 and IsP4);
 InstallTrueMethod(IsPrePolytope, IsPoset and IsP1 and IsP2 and IsP4);
+InstallTrueMethod(IsPoset and IsP1 and IsP2 and IsP3 and IsP4,IsPolytope);
+InstallTrueMethod( IsPoset and IsP1 and IsP2 and IsP4, IsPrePolytope);
 
 InstallGlobalFunction(AddAttrComputer,
 	function(M, attr, computer)
