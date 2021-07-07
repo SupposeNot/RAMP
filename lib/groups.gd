@@ -40,6 +40,13 @@ DeclareAttribute("RotationGroup", IsManiplex);
 #! Not particularly robust at the moment.
 DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
 
+#! @Arguments M
+#! For a reflexible maniplex <A>M</A>, returns the relators
+#! needed to define its rotation group as a quotient of
+#! the rotation group of a string Coxeter group given by its Schlafli symbol.
+#! Not particularly robust at the moment.
+DeclareAttribute("ExtraRotRelators", IsRotaryManiplex);
+
 #! @Arguments G
 #! For an sggi <A>G</A>, returns whether the group is
 #! a string C group. It does not check whether <A>G</A>

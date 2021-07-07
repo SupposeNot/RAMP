@@ -200,6 +200,22 @@ InstallMethod(ExtraRelators,
 	return rels;
 	end);
 	
+InstallMethod(ExtraRotRelators,
+	[IsRotaryManiplex],
+	function(M)
+	local g, rels, type_rels, sym, i;
+	g := RotationGroup(M);
+	g := Image(IsomorphismFpGroupByGenerators(g, GeneratorsOfGroup(g)));
+	sym := SchlafliSymbol(M);
+	rels := List(RelatorsOfFpGroup(g));
+	rels := List(rels, r -> TietzeWordAbstractWord(r));
+	type_rels := RelatorsOfFpGroup(UniversalRotationGroup(SchlafliSymbol(M)));
+	type_rels := List(type_rels, r -> TietzeWordAbstractWord(r));
+	rels := Difference(rels, type_rels);
+	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
+	return rels;
+	end);
+	
 # TODO: Currently will fail for infinite groups.
 # I started coding something for this, but Intersection(g,h) where g is infinite
 # doesn't appear to work. Requires more thought...

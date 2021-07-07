@@ -38,6 +38,38 @@ InstallMethod(Dual,
 	end);
 
 InstallMethod(Dual,
+	[IsManiplex and IsRotaryManiplexRotGpRep],
+	function(p)
+	local g, rels, q, n, sym, newrels, relstr, attr, attrs, gens;
+	n := Rank(p);
+	g := RotationGroup(p);
+	
+	if HasSchlafliSymbol(p) and IsFpGroup(g) then
+		rels := ExtraRotRelators(p);
+		sym := SchlafliSymbol(p);
+		sym := Reversed(sym);
+		rels := List(rels, r -> TietzeWordAbstractWord(r));
+
+		# Change each s_i to s_{n-i}^{-1}
+		newrels := List(rels, r -> List(r, i -> (n - AbsoluteValue(i)) * (-SignInt(i))));
+		q := RotaryManiplex(sym, newrels);
+		
+		SetSchlafliSymbol(q, sym);
+	else
+		gens := List(GeneratorsOfGroup(g), x -> x^-1);
+		q := RotaryManiplex(Group(Reversed(gens)));
+	fi;
+
+	attrs := [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate];
+	for attr in attrs do
+		if Tester(attr)(p) then Setter(attr)(q, attr(p)); fi;
+	od;
+
+	SetDual(q, p);
+	return q;
+	end);
+
+InstallMethod(Dual,
 	[IsManiplex],
 	function(M)
 	local g, gens, Md, attrs, attr;
