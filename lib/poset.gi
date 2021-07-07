@@ -245,7 +245,7 @@ InstallMethod(IsP3,
 					return false;
 				fi;
 			else
-				Print("Skipped ", i,", ", j,"\n");
+# 				Print("Skipped ", i,", ", j,"\n");
 			fi;
 		od;
 	od;
@@ -261,12 +261,12 @@ InstallOtherMethod(IsP3,
 # 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
 #  	if IsP4(poset)=false then return IsP3(poset,true);fi;
 #  	Print("This is a pre-polytope, so I am using the connection group to help answer your question.\n");
-	Print(AutomorphismGroup(poset),"\n");
+# 	Print(AutomorphismGroup(poset),"\n");
 	repsList:=List(Orbits(AutomorphismGroup(poset)),First);
-	Print("Reps: ",repsList,"\n");
+# 	Print("Reps: ",repsList,"\n");
 	ranks:=[2..Rank(poset)+2];
 	chainsLists:=Filtered(Combinations(ranks),x->x<>[]);
-	Print("Number of chains to check each:", Length(chainsLists),"\n");
+# 	Print("Number of chains to check each:", Length(chainsLists),"\n");
 	flags:=MaximalChains(poset);
 	faces:=ElementsList(poset);
 	cGens:=GeneratorsOfGroup(ConnectionGroup(poset));
