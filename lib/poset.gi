@@ -240,7 +240,7 @@ InstallMethod(IsP3,
 			if overlap<>[1,r+2] then
 				overlapcomplement:=Intersection(Difference([1..r+2],overlap),[2..r+1])-1;
 				orbit:=Orbit(Group(cGens{overlapcomplement}),i);
-				Print([i,j,orbit],"\n");
+# 				Print([i,j,orbit],"\n");
 				if not (j in orbit) then
 					return false;
 				fi;
@@ -272,16 +272,16 @@ InstallOtherMethod(IsP3,
 	cGens:=GeneratorsOfGroup(ConnectionGroup(poset));
 	if Length(Orbits(ConnectionGroup(poset)))<>1 then return false;fi;
 	for flag in repsList do
-		Print("Starting rep ", flag, "\n");
+# 		Print("Starting rep ", flag, "\n");
 		for chain in chainsLists do
-			Print("Starting chain ", chain, "\n");
+# 			Print("Starting chain ", chain, "\n");
 			flagChain:=flags[flag]{chain};
 			flagChain:=List(flagChain,face->PositionsProperty(flags,x->face in x));
 			gRanks:= Difference([1..Rank(poset)], Intersection(chain, [2..Rank(poset)+1])-1);
 			chainIntersection:=Intersection(flagChain);
 			if gRanks<>[] then
 				if IsSubset(Orbit(Group(cGens{gRanks}),flag),chainIntersection)=false then
-					Print([gRanks,flag,chain]);
+# 					Print([gRanks,flag,chain]);
 					return false; 
 					fi;
 				fi;
@@ -359,7 +359,6 @@ InstallMethod(IsPolytope,
 	function(poset)
 	local value;
 	if IsP1(poset) and IsP2(poset) and IsP3(poset) and IsP4(poset) then
-# 		SetIsPolytope(poset,true);
 		SetIsPrePolytope(poset,true);
 		return true;
 	else 
@@ -369,7 +368,6 @@ InstallMethod(IsPolytope,
 		else 
 			SetIsPrePolytope(poset,false);
 		fi;
-# 		SetIsPolytope(poset,false);
 		return false;
 	fi;
 	end);

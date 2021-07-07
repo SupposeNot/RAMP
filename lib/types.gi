@@ -11,6 +11,10 @@ InstallTrueMethod(IsManiplex and IsRotary, IsRotaryManiplex);
 # InstallTrueMethod(IsRegularPolytope, IsPolytope and IsReflexible);
 # InstallTrueMethod(IsPolytope and IsReflexible, IsRegularPolytope);
 
+#For posets
+InstallTrueMethod(IsPolytope, IsPoset and IsP1 and IsP2 and IsP3 and IsP4);
+InstallTrueMethod(IsPrePolytope, IsPoset and IsP1 and IsP2 and IsP4);
+
 InstallGlobalFunction(AddAttrComputer,
 	function(M, attr, computer)
 	AddDictionary(M!.attr_computers, attr, computer);
