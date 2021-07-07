@@ -176,15 +176,11 @@ Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtom
 <Heading>Poset attributes</Heading>
 
 <ManSection>
-  <Attr Arg="poset" Name="MaximalChains" Label="for IsPoset"/>
+  <Prop Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
  <Returns><Code>list</Code> of flags as lists of poset elements.
 </Returns>
  <Description>
 Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is <Code>FlagsList</Code>.
- </Description>
-</ManSection>
-
-
 <Example><![CDATA[
 gap> poset:=PosetFromManiplex(HemiCube(3));
 A poset using the IsPosetOfFlags representation with 15 faces.
@@ -200,12 +196,8 @@ gap> List(last,Rank);
 ]]></Example>
 
 
-<ManSection>
-  <Prop Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
-Checks or creates the value of the attribute IsFlaggable for an IsPoset. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
+Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Code>IsPoset</Code>. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
+ Now also works with generic poset element types (not just <Code>IsPosetOfFlags</Code>).
  </Description>
 </ManSection>
 
@@ -215,7 +207,7 @@ Checks or creates the value of the attribute IsFlaggable for an IsPoset. Point h
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Checks if <A>poset</A> is atomic. <Code>Note, currently something that is not computed, just declared.</Code>
+Checks if <A>poset</A> is atomic.
  </Description>
 </ManSection>
 
@@ -291,7 +283,7 @@ false
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>.
+Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time.
  </Description>
 </ManSection>
 
@@ -362,7 +354,7 @@ Given two faces, will tell you if they are incident. Currently only supports fac
  <Returns><Code>IsList</Code>
 </Returns>
  <Description>
-Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face.
+Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face. In other words, this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags.
  </Description>
 </ManSection>
 
@@ -406,11 +398,19 @@ Given a <A>poset</A> and an integer <Math>i</Math>, this function will give you 
 
 
 <ManSection>
-  <Oper Arg="poset" Name="ConnectionGroupOfPoset" Label="for IsPoset"/>
+  <Attr Arg="poset" Name="ConnectionGroup" Label="for IsPoset"/>
  <Returns><Code>IsPermGroup</Code>
 </Returns>
  <Description>
 Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="AutomorphismGroup" Label="for IsPoset"/>
+ <Description>
+Given a <A>poset</A>, gives the automorphism group of the poset as an action on the maximal chains.
  </Description>
 </ManSection>
 
@@ -431,6 +431,16 @@ FacesOfPosetAsBinaryRelationOnFaces
 </Returns>
  <Description>
 Gives a list of faces collected into lists ordered by increasing rank.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="FacesByRankOfPoset" Label="for IsPoset"/>
+ <Returns><Code>list</Code>
+</Returns>
+ <Description>
+Gives lists of faces ordered by rank. Also sets the rank for each of the faces.
  </Description>
 </ManSection>
 
@@ -478,33 +488,6 @@ Gives the poset to which the face belongs (when present).
 </Returns>
  <Description>
 Description of <A>posetelement</A> n as a list of atoms (when present).
- </Description>
-</ManSection>
-
-
-<P/>
-<ManSection>
-  <Attr Arg="arg" Name="Index" Label="for IsPosetElement"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<P/>
-<ManSection>
-  <Attr Arg="arg" Name="ElementOrderingFunction" Label="for IsPosetElement"/>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<P/>
-<ManSection>
-  <Attr Arg="arg" Name="ElementObject" Label="for IsPosetElement"/>
- <Description>
-<P/>
  </Description>
 </ManSection>
 

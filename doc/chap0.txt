@@ -178,18 +178,17 @@
       9.1-6 PairCompareFlagsList
       9.1-7 PairCompareAtomsList
     9.2 [33X[0;0YPoset attributes[133X
-      9.2-1 MaximalChains
-      9.2-2 IsFlaggable
-      9.2-3 IsAtomic
-      9.2-4 PartialOrder
-      9.2-5 ListIsP1Poset
-      9.2-6 RankOfPoset
-      9.2-7 IsP1
-      9.2-8 IsP2
-      9.2-9 IsP3
-      9.2-10 IsFlagConnected
-      9.2-11 IsP4
-      9.2-12 IsPolytope
+      9.2-1 IsFlaggable
+      9.2-2 IsAtomic
+      9.2-3 PartialOrder
+      9.2-4 ListIsP1Poset
+      9.2-5 RankOfPoset
+      9.2-6 IsP1
+      9.2-7 IsP2
+      9.2-8 IsP3
+      9.2-9 IsFlagConnected
+      9.2-10 IsP4
+      9.2-11 IsPolytope
     9.3 [33X[0;0YWorking with posets[133X
       9.3-1 AreIncidentFlagFaces
       9.3-2 FlagsAsListOfFacesFromPoset
@@ -197,23 +196,22 @@
       9.3-4 AdjacentFlags
       9.3-5 EqualChains
       9.3-6 ConnectionGeneratorOfPoset
-      9.3-7 ConnectionGroupOfPoset
-      9.3-8 FacesOfPosetAsBinaryRelationOnFaces
-      9.3-9 FaceListOfPoset
+      9.3-7 ConnectionGroup
+      9.3-8 AutomorphismGroup
+      9.3-9 FacesOfPosetAsBinaryRelationOnFaces
+      9.3-10 FaceListOfPoset
+      9.3-11 FacesByRankOfPoset
     9.4 [33X[0;0YElements of posets, also known as faces.[133X
       9.4-1 RankPosetElement
       9.4-2 FlagList
       9.4-3 FromPoset
       9.4-4 AtomList
-      9.4-5 Index
-      9.4-6 ElementOrderingFunction
-      9.4-7 ElementObject
-      9.4-8 PosetElementWithOrder
-      9.4-9 PosetElementFromListOfFlags
-      9.4-10 PosetElementFromAtomList
-      9.4-11 PosetElementFromIndex
-      9.4-12 RankedFaceListOfPoset
-      9.4-13 IsSubface
+      9.4-5 PosetElementWithOrder
+      9.4-6 PosetElementFromListOfFlags
+      9.4-7 PosetElementFromAtomList
+      9.4-8 PosetElementFromIndex
+      9.4-9 RankedFaceListOfPoset
+      9.4-10 IsSubface
   10 [33X[0;0YComparing maniplexes[133X
     10.1 [33X[0;0YQuotients and covers[133X
       10.1-1 IsQuotientOf
@@ -226,6 +224,8 @@
       11.1-2 UniversalRotationGroup
       11.1-3 RotaryManiplex
       11.1-4 RotaryManiplex
+      11.1-5 RotaryManiplex
+      11.1-6 EnantiomorphicForm
   
   
   [32X

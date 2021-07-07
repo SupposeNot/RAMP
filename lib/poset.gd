@@ -133,7 +133,8 @@ DeclareAttribute("RankPoset", IsPoset);
 
 #! @Arguments poset
 #! @Returns `list` of flags as lists of poset elements.
-#! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is `FlagsList`.
+#! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is `FlagsList`. 
+# Tends to work faster (sometimes significantly) if the poset `HasPartialOrder`.
 DeclareAttribute("MaximalChains", IsPoset);
 #! @BeginExampleSession
 #! gap> poset:=PosetFromManiplex(HemiCube(3));
@@ -154,12 +155,12 @@ DeclareSynonymAttr("FlagsList", MaximalChains);
 
 #! @Arguments poset
 #! @Description Checks or creates the value of the attribute `IsFlaggable` for an `IsPoset`. Point here is to see if the structure of the poset is sufficient to determine the flag graph.  For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
-#! Now also works with generic poset element types (not just `IsPosetOfFlags``).
+#! Now also works with generic poset element types (not just `IsPosetOfFlags`).
 DeclareProperty("IsFlaggable",IsPoset);
 
 
 #! @Arguments poset
-#! @Description Checks if <A>poset</A> is atomic. `Note, currently something that is not computed, just declared.`
+#! @Description Checks if <A>poset</A> is atomic. 
 DeclareProperty("IsAtomic",IsPoset);
 
 #! @Arguments poset
@@ -295,6 +296,13 @@ DeclareAttribute("AutomorphismGroup", IsPoset);
 ##! @Description Gives a list of faces collected into lists ordered by increasing rank. 
 DeclareOperation("FaceListOfPoset",[IsPoset]);
 
+
+#! @Arguments poset
+#! @Returns `list`
+# #! @Description Gives lists of faces ordered by rank. Also sets the rank for each of the faces.
+DeclareOperation("FacesByRankOfPoset",[IsPoset]);
+
+
 ############# Element stuff #################
 
 #! @Section Elements of posets, also known as faces.
@@ -305,7 +313,8 @@ DeclareOperation("FaceListOfPoset",[IsPoset]);
 #! @Returns `true` or `false`
 #! @Description The rank of a poset element. Alternately `RankFace`(<A>IsPosetElement</A>).
 DeclareAttribute("RankPosetElement",IsPosetElement); 
-#the rank in the poset of the element
+
+
 DeclareSynonymAttr("RankFace", RankPosetElement);
 
 #! @Arguments posetelement {face}
@@ -323,13 +332,12 @@ DeclareAttribute("FromPoset",IsPosetElement); #Which poset the element belongs t
 #! @Description Description of <A>posetelement</A> n as a list of atoms (when present).
 DeclareAttribute("AtomList", IsPosetElement); #list of atoms
 
-#! 
 DeclareAttribute("Index", IsPosetElement); #face index, i.e., label from some list of unique identifiers
 
-#!
-DeclareAttribute("ElementOrderingFunction", IsPosetElement); #If the element knows how to compare itself to similar objects.
-#!
-DeclareAttribute("ElementObject", IsPosetElement); #If the element knows how to compare itself to similar objects it needs a place to store its data.
+DeclareAttribute("ElementOrderingFunction", IsPosetElement); 
+
+
+DeclareAttribute("ElementObject", IsPosetElement); 
 
 #! @Arguments obj, func
 #! @Returns `IsFace`

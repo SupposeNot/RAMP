@@ -751,6 +751,45 @@ InstallMethod(RankedFaceListOfPoset,
 	return list;
 	end);
 
+InstallMethod(FacesByRankOfPoset,
+	[IsPoset],
+	function(poset)
+	local faces, minface, facesByRank, ranks, face, maxface, tempfaces, newtempfaces, i;
+	faces:=ElementsList(poset);
+	if HasRankPosetElement(faces[1]) then
+		facesByRank:=[];
+		ranks:=DuplicateFreeList(List(faces,RankPosetElement));
+		Sort(ranks);
+		facesByRank:=List(ranks,x->Filtered(faces,y->RankPosetElement(y)=x));
+		return facesByRank;
+		fi;
+	if HasElementOrderingFunction(faces[1]) then
+		minface:=faces[1];
+		for face in faces do
+			if IsSubface(minface,face) then minface:=face; fi;
+		od;
+		maxface:=faces[1];
+		for face in faces do
+			if IsSubface(face,maxface) then maxface:=face; fi;
+		od;
+		facesByRank:=[[minface]];
+		tempfaces:=ShallowCopy(faces);
+		tempfaces:=tempfaces{PositionsProperty(tempfaces,x->x<>minface)};
+		i:=0;
+		SetRankPosetElement(minface,-1);
+		while tempfaces<>[] do
+			newtempfaces:=[1..Length(tempfaces)];
+			newtempfaces:=Filtered(newtempfaces, x->[x]=PositionsProperty(tempfaces, y->IsSubface(tempfaces[x],y)));
+			for face in newtempfaces do
+				SetRankPosetElement(tempfaces[face],i);
+				od;
+			Append(facesByRank,[tempfaces{newtempfaces}]);
+			tempfaces:=tempfaces{Difference([1..Length(tempfaces)],newtempfaces)};
+			i:=i+1;
+			od;
+		return facesByRank;
+		fi;
+	end);
 
 InstallMethod(MaximalChains,
 	[IsPoset],
@@ -788,11 +827,94 @@ InstallMethod(MaximalChains,
 	od;
 # 	Print("temp\n",tempflags,"\n new\n",newflags);
 	flags:=List(tempflags,x->faces{x});
-	SetMaximalChains(poset,flags);
+# 	SetMaximalChains(poset,flags);
 	return flags;
 	end);
 
+# InstallMethod(MaximalChains,
+# 	[IsPoset and HasPartialOrder],
+# 	function(poset)
+# 	local maxChains, PO, hasse, UR, nFaces, pairs, parents, children, flags, maxFaces, newflags, tempflags, i, j, top;
+# 	PO:=PartialOrder(poset);
+# 	hasse:=HasseDiagramBinaryRelation(PO);
+# 	UR:=AsList(UnderlyingRelation(hasse));
+# 	nFaces:=[1..Size(ElementsList(poset))];
+# 	UR:=Concatenation(UR,List(nFaces,x->DirectProductElement([x,x])));
+# 	pairs:=Cartesian(nFaces,nFaces);
+# 	pairs:=Filtered(pairs,x->DirectProductElement(x) in UR);
+# 	children:=List(nFaces,x->PositionsProperty(nFaces,y->[y,x] in pairs));
+# 	flags:=List(PositionsProperty(children,x->Length(x)=1),x->[x]);
+# 	parents:=List(nFaces,x->PositionsProperty(nFaces,y->[x,y] in pairs));
+# 	maxFaces:=PositionsProperty(parents,x->Length(x)=1);
+# 	newflags:=[]; tempflags:=[];
+# # 	Print(flags,"\n");
+# 	while DuplicateFreeList(List(flags,Last))<>maxFaces do
+# 		for i in flags do
+# 			top:=Last(i);
+# 			parents:=PositionsProperty(nFaces, x->[top,x] in pairs);
+# 			parents:=Filtered(parents,x->x<>top);
+# # 			Print(parents,"\n");
+# 			for j in parents do
+# 				children:=PositionsProperty(nFaces,x->[x,j] in pairs);
+# # 				Print(children,"\n");
+# 				if Intersection(children,parents)=[j] then 
+# 					Append(newflags,[Concatenation(i,[j])]);
+# 				fi;
+# 			od;
+# # 			Print(newflags,"\n");
+# # 			Print("New layer\n");
+# 		od;
+# 		Append(tempflags,Filtered(newflags,x->(Last(x) in maxFaces)));
+# 		flags:=newflags;
+# 		newflags:=[];
+# 	od;
+# 	maxChains:=List(flags, x->ElementsList(poset){x});
+# 	return maxChains;
+# 	end);
 
+InstallMethod(MaximalChains,
+	[IsPoset and HasPartialOrder],
+	function(poset)
+	local maxChains, PO, hasse, UR, nFaces, pairs, pairsPlus, parents, children, flags, maxFaces, newflags, tempflags, i, j, top, URplus, successors;
+	PO:=PartialOrder(poset);
+	hasse:=HasseDiagramBinaryRelation(PO);
+	UR:=AsList(UnderlyingRelation(hasse));
+	nFaces:=[1..Size(ElementsList(poset))];
+	URplus:=Concatenation(UR,List(nFaces,x->DirectProductElement([x,x])));
+# 	pairs:=Cartesian(nFaces,nFaces);
+# 	pairs:=Filtered(pairs,x->DirectProductElement(x) in UR);
+	pairsPlus:=Cartesian(nFaces,nFaces);
+	pairsPlus:=Filtered(pairsPlus,x->DirectProductElement(x) in URplus);
+	children:=List(nFaces,x->PositionsProperty(nFaces,y->[y,x] in pairsPlus));
+	flags:=List(PositionsProperty(children,x->Length(x)=1),x->[x]);
+	parents:=List(nFaces,x->PositionsProperty(nFaces,y->[x,y] in pairsPlus));
+	maxFaces:=PositionsProperty(parents,x->Length(x)=1);
+	newflags:=[]; # tempflags:=[];
+	successors:=Successors(hasse);
+	while DuplicateFreeList(List(flags,Last))<>maxFaces do
+		for i in flags do
+			newflags:=Concatenation(newflags, List(successors[Last(i)], x->Concatenation(i,[x])));
+			od;
+# 		Append(tempflags,Filtered(newflags,x->Last(x) in maxFaces));
+		flags:=newflags;
+		newflags:=[];
+		od;
+# 	while DuplicateFreeList(List(flags,Last))<>maxFaces do
+# 		for i in flags do
+# # 			Print(i,"\n");
+# 			top:=Last(i);
+# 			parents:=PositionsProperty(nFaces, x->[top,x] in pairs);
+# 			newflags:=Concatenation(newflags,List(parents,x->Concatenation(i,[x])));
+# 		od;
+# # 		Print(newflags,"\n");
+# 		Append(tempflags,Filtered(newflags,x->(Last(x) in maxFaces)));
+# 		flags:=newflags;
+# # 		Print(flags, " bigstep\n");
+# 		newflags:=[];
+# 	od;
+	maxChains:=List(flags, x->ElementsList(poset){x});
+	return maxChains;
+	end);
 
 InstallMethod(PosetElementFromListOfFlags,
  	[IsList,IsInt],
