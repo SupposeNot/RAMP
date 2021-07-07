@@ -432,13 +432,18 @@ InstallMethod(SymmetryTypeGraph,
 	return perms;
 	
 	end);
-	
+
+# After SymmetryTypeGraph is fixed, we probably want to cut out
+# the IsFinite line, since for some maniplexes, this will try to
+# calculate the size, which can be time-consuming.
 InstallMethod(NumberOfFlagOrbits,
 	[IsManiplex],
 	function(M)
 	local n;
-	if IsReflexibleManiplex(M) then 
+	if IsReflexibleManiplexAutGpRep(M) then 
 		n := 1; 
+	elif IsFinite(M) then
+		return Size(M) / Size(AutomorphismGroup(M));
 	else
 		n := LargestMovedPoint(Group(SymmetryTypeGraph(M)));
 		if n = 0 then n := 1; fi;
