@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 5: Groups</title>
+<title>GAP (RAMP) - Chapter 5: Families of Polytopes</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,102 +15,144 @@
 <body class="chap5"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap5_mj.html">[MathJax on]</a></p>
-<p><a id="X8716635F7951801B" name="X8716635F7951801B"></a></p>
-<div class="ChapSects"><a href="chap5.html#X8716635F7951801B">5 <span class="Heading">Groups</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X8716635F7951801B">5.1 <span class="Heading">Groups</span></a>
+<p><a id="X7BF24A5D7B3386D7" name="X7BF24A5D7B3386D7"></a></p>
+<div class="ChapSects"><a href="chap5.html#X7BF24A5D7B3386D7">5 <span class="Heading">Families of Polytopes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X7A281A1C7DCB2D96">5.1 <span class="Heading">Classical Polytopes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X78746F0385216D57">5.1-1 AutomorphismGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X837641127998923F">5.1-2 AutomorphismGroupFpGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D6651587DF3790A">5.1-3 AutomorphismGroupPermGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7815931C7E926F4F">5.1-4 ConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7CE8CFB183A4FFEE">5.1-5 EvenConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D194510834667C8">5.1-6 RotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D2CE6707B452C0D">5.1-7 ExtraRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X797752A88078CF22">5.1-8 ExtraRotRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X835FA8527E2442F4">5.1-9 IsStringC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X868FA75B794AE1AA">5.1-1 Vertex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7DA6B54B7F300B92">5.1-2 Edge</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8436B8097852EF9B">5.1-3 Pgon</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8306D0C17A6BDDCE">5.1-4 Cube</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X828C02F4861F0CD3">5.1-5 HemiCube</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X78DC5BA486C3288C">5.1-6 CrossPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7B0D84B87F00A73F">5.1-7 HemiCrossPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X82C75D12838D3FD0">5.1-8 Simplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7CCDE7817EC0E5B5">5.1-9 CubicTiling</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X81A6D8FE876EB3BE">5.1-10 Dodecahedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7A49325F782047CC">5.1-11 HemiDodecahedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X83E0EF8F7CCD6979">5.1-12 Icosahedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7CBB4FC88050D25F">5.1-13 HemiIcosahedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7C7194D3826A9287">5.1-14 24Cell</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X863C4F1D85F017B3">5.1-15 Hemi24Cell</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7A7A51CC878450C4">5.1-16 120Cell</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X80EBD6F28447F653">5.1-17 Hemi120Cell</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X82FCA8347D417FB6">5.1-18 600Cell</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X786D2F0A7BB97182">5.1-19 Hemi600Cell</a></span>
 </div></div>
 </div>
 
-<h3>5 <span class="Heading">Groups</span></h3>
+<h3>5 <span class="Heading">Families of Polytopes</span></h3>
 
-<p><a id="X8716635F7951801B" name="X8716635F7951801B"></a></p>
+<p><a id="X7A281A1C7DCB2D96" name="X7A281A1C7DCB2D96"></a></p>
 
-<h4>5.1 <span class="Heading">Groups</span></h4>
+<h4>5.1 <span class="Heading">Classical Polytopes</span></h4>
 
-<p><a id="X78746F0385216D57" name="X78746F0385216D57"></a></p>
+<p><a id="X868FA75B794AE1AA" name="X868FA75B794AE1AA"></a></p>
 
-<h5>5.1-1 AutomorphismGroup</h5>
+<h5>5.1-1 Vertex</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Vertex</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7DA6B54B7F300B92" name="X7DA6B54B7F300B92"></a></p>
 
-<p><a id="X837641127998923F" name="X837641127998923F"></a></p>
+<h5>5.1-2 Edge</h5>
 
-<h5>5.1-2 AutomorphismGroupFpGroup</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Edge</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X8436B8097852EF9B" name="X8436B8097852EF9B"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupFpGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var> as a finitely presented group.</p>
+<h5>5.1-3 Pgon</h5>
 
-<p><a id="X7D6651587DF3790A" name="X7D6651587DF3790A"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pgon</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X8306D0C17A6BDDCE" name="X8306D0C17A6BDDCE"></a></p>
 
-<h5>5.1-3 AutomorphismGroupPermGroup</h5>
+<h5>5.1-4 Cube</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupPermGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var> as a permutation group.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cube</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X828C02F4861F0CD3" name="X828C02F4861F0CD3"></a></p>
 
-<p><a id="X7815931C7E926F4F" name="X7815931C7E926F4F"></a></p>
+<h5>5.1-5 HemiCube</h5>
 
-<h5>5.1-4 ConnectionGroup</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HemiCube</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X78DC5BA486C3288C" name="X78DC5BA486C3288C"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the connection group of <var class="Arg">M</var> as a permutation group. We may eventually allow other types of connection groups.</p>
+<h5>5.1-6 CrossPolytope</h5>
 
-<p><a id="X7CE8CFB183A4FFEE" name="X7CE8CFB183A4FFEE"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CrossPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7B0D84B87F00A73F" name="X7B0D84B87F00A73F"></a></p>
 
-<h5>5.1-5 EvenConnectionGroup</h5>
+<h5>5.1-7 HemiCrossPolytope</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvenConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the even-word subgroup of the connection group of <var class="Arg">M</var> as a permutation group.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HemiCrossPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X82C75D12838D3FD0" name="X82C75D12838D3FD0"></a></p>
 
-<p><a id="X7D194510834667C8" name="X7D194510834667C8"></a></p>
+<h5>5.1-8 Simplex</h5>
 
-<h5>5.1-6 RotationGroup</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Simplex</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7CCDE7817EC0E5B5" name="X7CCDE7817EC0E5B5"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotationGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the rotation group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form.</p>
+<h5>5.1-9 CubicTiling</h5>
 
-<p><a id="X7D2CE6707B452C0D" name="X7D2CE6707B452C0D"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CubicTiling</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X81A6D8FE876EB3BE" name="X81A6D8FE876EB3BE"></a></p>
 
-<h5>5.1-7 ExtraRelators</h5>
+<h5>5.1-10 Dodecahedron</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its automorphism group as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dodecahedron</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7A49325F782047CC" name="X7A49325F782047CC"></a></p>
 
-<p><a id="X797752A88078CF22" name="X797752A88078CF22"></a></p>
+<h5>5.1-11 HemiDodecahedron</h5>
 
-<h5>5.1-8 ExtraRotRelators</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HemiDodecahedron</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X83E0EF8F7CCD6979" name="X83E0EF8F7CCD6979"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRotRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its rotation group as a quotient of the rotation group of a string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
+<h5>5.1-12 Icosahedron</h5>
 
-<p><a id="X835FA8527E2442F4" name="X835FA8527E2442F4"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Icosahedron</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7CBB4FC88050D25F" name="X7CBB4FC88050D25F"></a></p>
 
-<h5>5.1-9 IsStringC</h5>
+<h5>5.1-13 HemiIcosahedron</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringC</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>For an sggi <var class="Arg">G</var>, returns whether the group is a string C group. It does not check whether <var class="Arg">G</var> is an sggi.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HemiIcosahedron</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7C7194D3826A9287" name="X7C7194D3826A9287"></a></p>
 
+<h5>5.1-14 24Cell</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; 24Cell</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X863C4F1D85F017B3" name="X863C4F1D85F017B3"></a></p>
+
+<h5>5.1-15 Hemi24Cell</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hemi24Cell</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7A7A51CC878450C4" name="X7A7A51CC878450C4"></a></p>
+
+<h5>5.1-16 120Cell</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; 120Cell</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X80EBD6F28447F653" name="X80EBD6F28447F653"></a></p>
+
+<h5>5.1-17 Hemi120Cell</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hemi120Cell</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X82FCA8347D417FB6" name="X82FCA8347D417FB6"></a></p>
+
+<h5>5.1-18 600Cell</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; 600Cell</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X786D2F0A7BB97182" name="X786D2F0A7BB97182"></a></p>
+
+<h5>5.1-19 Hemi600Cell</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hemi600Cell</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

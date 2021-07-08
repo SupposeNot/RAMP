@@ -1,11 +1,11 @@
 # Dealing with graphs from maniplexes
+#! @Chapter Graphs for Maniplexes
+#! @Section Graphs for maniplexes functions
 
 #! @Arguments list, list
 #! @Returns `IsGraph`. Note this returns a directed graph.
-#! @Description: Given a list of vertices and a list of directed-edges (represented as ordered pairs), this outputs the directed graph with the appropriate vertex and directed-edge set.
-
+#! @Description Given a list of vertices and a list of directed-edges (represented as ordered pairs), this outputs the directed graph with the appropriate vertex and directed-edge set.
 DeclareOperation("DirectedGraphFromListOfEdges",[IsList,IsList]);
-
 #! Here we have a directed cycle on 3 vertices.
 #! @BeginExampleSession
 #! gap> g:= DirectedGraphFromListOfEdges([1,2,3],[[1,2],[2,3],[3,1]]);
@@ -19,10 +19,8 @@ DeclareOperation("DirectedGraphFromListOfEdges",[IsList,IsList]);
 
 #! @Arguments list, list
 #! @Returns `IsGraph`. Note this returns an undirected graph.
-#! @Description: Given a list of vertices and a list of (directed) edges (represented as ordered pairs), this outputs the simple underlying graph with the appropriate vertex and directed-edge set.
-
+#! @Description Given a list of vertices and a list of (directed) edges (represented as ordered pairs), this outputs the simple underlying graph with the appropriate vertex and directed-edge set.
 DeclareOperation("GraphFromListOfEdges",[IsList,IsList]);
-
 #! Here we have a simple complete graph on 4 vertices.
 #! @BeginExampleSession
 #! gap> g:= GraphFromListOfEdges([1,2,3,4],[[1,2],[2,3],[3,1], [1,4], [2,4], [3,4]]);
@@ -38,10 +36,8 @@ DeclareOperation("GraphFromListOfEdges",[IsList,IsList]);
 
 #! @Arguments group
 #! @Returns `IsGraph`. Note this returns an undirected graph.
-#! @Description: Given a group (assumed to be the connection group of a maniplex), this outputs the simple underlying flag graph.
-
+#! @Description Given a group (assumed to be the connection group of a maniplex), this outputs the simple underlying flag graph.
 DeclareOperation("UnlabeledFlagGraph",[IsGroup]);
-
 #! Here we build the flag graph for the cube from its connection group.
 #! @BeginExampleSession
 #! gap> g:= UnlabeledFlagGraph(ConnectionGroup(Cube(3)));
@@ -85,14 +81,12 @@ DeclareOperation("UnlabeledFlagGraph",[IsPolytope]);
 
 
 #! @Arguments group
-#! @Returns a triple [`IsGraph`, `IsList`, IsList`]. 
-#! @Description: Given a group (assumed to be the connection group of a maniplex), this outputs a triple [graph,list,list].
+#! @Returns a triple [`IsGraph`, `IsList`, `IsList`]. 
+#! @Description Given a group (assumed to be the connection group of a maniplex), this outputs a triple [graph,list,list].
 #! The graph is the unlabeled flag graph of the connection group.  
 #! The first list gives the undirected edges in the flag graphs.  
 #! The second list gives the labels for these edges.
-
 DeclareOperation("FlagGraphWithLabels",[IsGroup]);
-
 #! Here we again build the flag graph for the cube from its connection group, but this time keep track of labels of the edges.
 #! @BeginExampleSession
 #! gap> g:= FlagGraphWithLabels(ConnectionGroup(Cube(3)));
@@ -157,9 +151,8 @@ DeclareOperation("FlagGraphWithLabels",[IsPolytope]);
 
 #! @Arguments [group, int, int]
 #! @Returns `IsGraph`. Note this returns an undirected graph.
-#! @Description: Given a group (assumed to be the connection group of a maniplex), and two integers, this outputs the simple underlying graph given by incidences of faces of those ranks.
+#! @Description Given a group (assumed to be the connection group of a maniplex), and two integers, this outputs the simple underlying graph given by incidences of faces of those ranks.
 #! Note: There are no warnings yet to make sure that i,j are bounded by the rank.
-
 DeclareOperation("LayerGraph",[IsGroup, IsInt, IsInt]);
 
 #! Here we build the graph given by the 6 faces and 12 edges of a cube from its connection group.
@@ -194,11 +187,9 @@ DeclareOperation("LayerGraph",[IsPolytope, IsInt, IsInt]);
 
 #! @Arguments maniplex or polytope
 #! @Returns `IsGraph`. Note this returns an undirected graph.
-#! @Description: Given a maniplex or a polytope, this outputs the 0-1 skeleton.   The vertices are the 0-faces, and the edges are the 1-faces.
-
+#! @Description Given a maniplex or a polytope, this outputs the 0-1 skeleton.   The vertices are the 0-faces, and the edges are the 1-faces.
 DeclareOperation("Skeleton",[IsManiplex]);
 DeclareOperation("Skeleton",[IsPolytope]);
-
 #! Here we build the skeleton of the dodecahedron.
 #! @BeginExampleSession
 #! gap> g:= Skeleton(Dodecahedron());;
@@ -208,9 +199,8 @@ DeclareOperation("Skeleton",[IsPolytope]);
 
 #! @Arguments group
 #! @Returns `IsGraph`. Note this returns a directed graph.
-#! @Description: Given a group, assumed to be the connection group of a maniplex, this outputs the Hasse Diagram as a directed graph.  
+#! @Description Given a group, assumed to be the connection group of a maniplex, this outputs the Hasse Diagram as a directed graph.  
 #! Note: The unique minimal and maximal face are assumed.
-
 DeclareOperation("Hasse",[IsPolytope]);
 
 #! Here we build the Hasse Diagram of a 3-simplex from its representation as a maniplex.

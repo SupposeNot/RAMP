@@ -452,16 +452,6 @@ Given a <A>poset</A>, gives the automorphism group of the poset as an action on 
 
 
 <ManSection>
-  <Oper Arg="poset" Name="FacesOfPosetAsBinaryRelationOnFaces" Label="for IsPoset"/>
- <Returns>A binary relation on the integers 1 through <Math>n</Math>, where <Math>n</Math> is the number of faces of the full poset.
-</Returns>
- <Description>
-FacesOfPosetAsBinaryRelationOnFaces
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="poset" Name="FaceListOfPoset" Label="for IsPoset"/>
  <Returns><Code>list</Code>
 </Returns>

@@ -1,214 +1,34 @@
   
-  [1X3 [33X[0;0YCombinatorics and Structure[133X[101X
+  [1X3 [33X[0;0YDatabases[133X[101X
   
   
-  [1X3.1 [33X[0;0YFaces[133X[101X
+  [1X3.1 [33X[0;0YRegular polyhedra[133X[101X
   
-  [1X3.1-1 NumberOfIFaces[101X
+  [1X3.1-1 DegeneratePolyhedra[101X
   
-  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xmaxsize[103X ) [32X operation[133X
   
-  [33X[0;0YReturns The number of [3Xi[103X-faces of [3XM[103X.[133X
+  [33X[0;0YReturns  all  degenerate  polyhedra  (of  type {2, q} and {p, 2}) with up to
+  [3Xmaxsize[103X flags.[133X
   
-  [1X3.1-2 NumberOfVertices[101X
+  [1X3.1-2 FlatRegularPolyhedra[101X
   
-  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xmaxsize[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the number of vertices of [3XM[103X.[133X
+  [33X[0;0YReturns  all  nondegenerate flat regular polyhedra with up to [3Xmaxsize[103X flags.
+  Currently supports a maxsize of 4000 or less.[133X
   
-  [1X3.1-3 NumberOfEdges[101X
+  [1X3.1-3 SmallRegularPolyhedra[101X
   
-  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xmaxsize[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the number of edges of [3XM[103X.[133X
+  [33X[0;0YReturns all regular polyhedra with up to [3Xmaxsize[103X flags. Currently supports a
+  maxsize  of  4000  or  less.  You  can  also set options "nondegenerate" and
+  "nonflat".[133X
   
-  [1X3.1-4 NumberOfFacets[101X
-  
-  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the number of facets of [3XM[103X.[133X
-  
-  [1X3.1-5 NumberOfRidges[101X
-  
-  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the number of ridges ((n-2)-faces) of [3XM[103X.[133X
-  
-  [1X3.1-6 Fvector[101X
-  
-  [33X[1;0Y[29X[2XFvector[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the f-vector of [3XM[103X.[133X
-  
-  [1X3.1-7 Section[101X
-  
-  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the section F_j / F_i, where F_j is the j-face of the base flag of [3XM[103X
-  and F_i is the i-face of the base flag.[133X
-  
-  [1X3.1-8 Section[101X
-  
-  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X, [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the section F_j / F_i, where F_j is the j-face of flag number [3Xk[103X of [3XM[103X
-  and F_i is the i-face of the same flag.[133X
-  
-  [1X3.1-9 Sections[101X
-  
-  [33X[1;0Y[29X[2XSections[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  all sections of type F_j / F_i, where F_j is a j-face and F_i is an
-  incident i-face.[133X
-  
-  [1X3.1-10 Facets[101X
-  
-  [33X[1;0Y[29X[2XFacets[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  facet-types  of  [3XM[103X  (i.e.  the maniplexes corresponding to the
-  facets).[133X
-  
-  [1X3.1-11 Facet[101X
-  
-  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  facet  of  [3XM[103X  that  contains  the  flag number [3Xk[103X (that is, the
-  maniplex corresponding to the facet).[133X
-  
-  [1X3.1-12 Facet[101X
-  
-  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  facet  of [3XM[103X that contains flag number 1 (that is, the maniplex
-  corresponding to the facet).[133X
-  
-  [1X3.1-13 VertexFigures[101X
-  
-  [33X[1;0Y[29X[2XVertexFigures[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the types of vertex-figures of [3XM[103X (i.e. the maniplexes corresponding
-  to the vertex-figures).[133X
-  
-  [1X3.1-14 VertexFigure[101X
-  
-  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the vertex-figures of [3XM[103X that contains flag number [3Xk[103X.[133X
-  
-  [1X3.1-15 VertexFigure[101X
-  
-  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the vertex-figures of [3XM[103X that contains the base flag.[133X
-  
-  
-  [1X3.2 [33X[0;0YSchlafli symbol[133X[101X
-  
-  [1X3.2-1 SchlafliSymbol[101X
-  
-  [33X[1;0Y[29X[2XSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  Schlafli  symbol  of  the  maniplex [3XM[103X. Each entry is either an
-  integer  or  a set of integers, where entry number i shows the polygons that
-  we obtain as sections of (i+1)-faces over (i-2)-faces.[133X
-  
-  [1X3.2-2 IsEquivelar[101X
-  
-  [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Ythe the maniplex [3XM[103X is equivelar; i.e., whether its Schlafli Symbol
-            consists of integers at each position (no lists).[133X
-  
-  
-  [1X3.3 [33X[0;0YBasics[133X[101X
-  
-  [1X3.3-1 Size[101X
-  
-  [33X[1;0Y[29X[2XSize[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the number of flags of the maniplex [3XM[103X.[133X
-  
-  [1X3.3-2 RankManiplex[101X
-  
-  [33X[1;0Y[29X[2XRankManiplex[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the rank of the maniplex [3XM[103X.[133X
-  
-  [1X3.3-3 IsTight[101X
-  
-  [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether  the  polytope  [3XP[103X  is tight, meaning that it has a Schlafli
-  symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
-  minimum  possible.  This  property  doesn't make any sense for non-polytopal
-  maniplexes, which aren't constrained by this lower bound.[133X
-  
-  [1X3.3-4 IsDegenerate[101X
-  
-  [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
-  eventually want to include maniplexes with even smaller sections.[133X
-  
-  [1X3.3-5 SymmetryTypeGraph[101X
-  
-  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
-  group on Rank([3XM[103X) generators.[133X
-  
-  [1X3.3-6 NumberOfFlagOrbits[101X
-  
-  [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
-  
-  [1X3.3-7 IsReflexible[101X
-  
-  [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
-  
-  [1X3.3-8 IsChiral[101X
-  
-  [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
-  
-  [1X3.3-9 IsRotary[101X
-  
-  [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
-            reflexible or chiral.[133X
-  
-  [1X3.3-10 Description[101X
-  
-  [33X[1;0Y[29X[2XDescription[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  a  short name for the maniplex [3XM[103X, if one is available. For example,
-  Description(Simplex(3)) = "3-simplex".[133X
-  
-  
-  [1X3.4 [33X[0;0YZigzags and holes[133X[101X
-  
-  [1X3.4-1 ZigzagLength[101X
-  
-  [33X[1;0Y[29X[2XZigzagLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YThe  lengths of [3Xj[103X-zigzags of the 3-maniplex [3XM[103X. This corresponds to
-            the lengths of orbits under r0 (r1 r2)^j.[133X
-  
-  [1X3.4-2 ZigzagVector[101X
-  
-  [33X[1;0Y[29X[2XZigzagVector[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe  lengths of all zigzags of the 3-maniplex [3XM[103X. A rank 3 maniplex
-            of  type {p, q} has Floor(q/2) distinct zigzag lengths because the
-            j-zigzags are the same as the (q-j)-zigzags.[133X
-  
-  [1X3.4-3 PetrieLength[101X
-  
-  [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe length of the petrie polygons of the maniplex [3XM[103X.[133X
-  
-  [1X3.4-4 HoleLength[101X
-  
-  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X ) [32X attribute[133X
+  [4X[32X  Example  [32X[104X
+    [4X[28XL1 := SmallRegularPolyhedra(500);;[128X[104X
+    [4X[28XL2 := SmallRegularPolyhedra(1000 : nondegenerate);;[128X[104X
+    [4X[28XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[128X[104X
+  [4X[32X[104X
   
