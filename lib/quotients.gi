@@ -1,12 +1,51 @@
+# This checks some easily-calculated combinatorial properties
+# for whether p could be a function of q.
+InstallGlobalFunction(CouldBeQuotientOf,
+	function(p,q)
+	local i, k1, k2;
+	if Rank(p) <> Rank(q) then return false; fi;
+
+	if HasSize(p) and HasSize(q) then
+		if not(IsFinite(p)) and IsFinite(q) then
+			return false;
+		elif IsFinite(p) and not(IsInt(Size(q) / Size(p))) then
+			return false;
+		fi;
+	fi;
+
+	if HasIsOrientable(p) and IsOrientable(p) and HasIsOrientable(q) and not(IsOrientable(q)) then
+		return false;
+	fi;
+
+	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) and IsEquivelar(p) and IsEquivelar(q) then
+		for i in [1..Rank(p)-1] do
+			k1 := SchlafliSymbol(p)[i];
+			k2 := SchlafliSymbol(q)[i];
+			if k2 < k1 then 	# This also handles infinity
+				return false;
+			elif k1 < infinity and k2 < infinity and not(IsInt(k2/k1)) then
+				return false;
+			fi;
+		od;
+	fi;
+
+	# To add later...
+	# fvec p | fvec q? (Does this actually work??)
+	# facets p are quo of facets q?
+	
+	return true;
+	end);
+	
 
 # To determine if P is a quotient of Q, if they are both just generic polytopes,
 # then we try to find a homomorphism between their connection groups.
-# TODO: Optimize this by checking some easy algebraic invariants first.
+# TODO: This is broken! We want something more like an action homomorphism...
 InstallMethod(IsQuotientOf,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
+	if not(CouldBeQuotientOf(p,q)) then return false; fi;
 	g1 := ConnectionGroup(q);
 	g2 := ConnectionGroup(p);
 	hom := GroupHomomorphismByImages(g1, g2);
@@ -17,6 +56,7 @@ InstallMethod(IsQuotientOf,
 	ReturnTrue,
 	[IsManiplex and IsManiplexQuotientRep, IsManiplex and IsManiplexQuotientRep],
 	function(p,q)
+	if not(CouldBeQuotientOf(p,q)) then return false; fi;
 	if (p!.parent = q!.parent) and IsSubset(q!.subgroup, p!.subgroup) then
 		return true;
 	else
@@ -31,21 +71,7 @@ InstallMethod(IsQuotientOf,
 	[IsReflexibleManiplex, IsReflexibleManiplex],
 	function(p,q)
 	local g, rels, g1, g2, hom, k1, k2, i;
-	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) then
-		for i in [1..Rank(p)-1] do
-			k1 := SchlafliSymbol(p)[i];
-			k2 := SchlafliSymbol(q)[i];
-			if k2 < k1 then 	# This also handles infinity
-				return false;
-			elif k1 < infinity and k2 < infinity and not(IsInt(k2/k1)) then
-				return false;
-			fi;
-		od;
-	fi;
-
-	if HasSize(q) and HasSize(p) and IsFinite(q) and IsFinite(p) then
-		if not(IsInt(Size(q) / Size(p))) then return false; fi;
-	fi;
+	if not(CouldBeQuotientOf(p,q)) then return false; fi;
 
 	# TODO: This only logically works if they have Schlafli symbols that are known and computed
 	if IsSubset(ExtraRelators(q), ExtraRelators(p)) then return true; fi;
@@ -60,6 +86,31 @@ InstallMethod(IsQuotientOf,
 	else
 		g1 := AutomorphismGroup(q);
 		g2 := AutomorphismGroup(p);
+		hom := GroupHomomorphismByImages(g1, g2, GeneratorsOfGroup(g1), GeneratorsOfGroup(g2));
+		return (hom <> fail);
+	fi;
+	end);
+	
+InstallMethod(IsQuotientOf,
+	ReturnTrue,
+	[IsManiplex and IsRotaryManiplexRotGpRep, IsManiplex and IsRotaryManiplexRotGpRep],
+	function(p,q)
+	local g, rels, g1, g2, hom, k1, k2, i;
+	if not(CouldBeQuotientOf(p,q)) then return false; fi;
+
+	# TODO: This only logically works if they have Schlafli symbols that are known and computed
+	if IsSubset(ExtraRotRelators(q), ExtraRotRelators(p)) then return true; fi;
+	
+	if HasSize(p) and IsFinite(p) then
+		# add rels from q to p...
+		rels := RelatorsOfFpGroup(RotationGroup(q));
+		rels := List(rels, r -> TietzeWordAbstractWord(r));
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p))));
+		g := FactorGroupFpGroupByRels(RotationGroup(p), rels);
+		return (Size(g) = Size(RotationGroup(p)));
+	else
+		g1 := RotationGroup(q);
+		g2 := RotationGroup(p);
 		hom := GroupHomomorphismByImages(g1, g2, GeneratorsOfGroup(g1), GeneratorsOfGroup(g2));
 		return (hom <> fail);
 	fi;

@@ -1,6 +1,8 @@
 #! @Chapter Comparing maniplexes
 #! @Section Quotients and covers
 
+DeclareGlobalFunction("CouldBeQuotientOf");
+
 #! @Arguments M1, M2
 #! Returns whether <A>M1</A> is a quotient of <A>M2</A>.
 DeclareOperation("IsQuotientOf", [IsManiplex, IsManiplex]);
