@@ -148,7 +148,8 @@
       5.1-5 EvenConnectionGroup
       5.1-6 RotationGroup
       5.1-7 ExtraRelators
-      5.1-8 IsStringC
+      5.1-8 ExtraRotRelators
+      5.1-9 IsStringC
   6 [33X[0;0YProperties[133X
     6.1 [33X[0;0YOrientability[133X
       6.1-1 IsOrientable
@@ -178,29 +179,32 @@
       9.1-6 PairCompareFlagsList
       9.1-7 PairCompareAtomsList
     9.2 [33X[0;0YPoset attributes[133X
-      9.2-1 IsFlaggable
-      9.2-2 IsAtomic
-      9.2-3 PartialOrder
-      9.2-4 ListIsP1Poset
-      9.2-5 RankOfPoset
-      9.2-6 IsP1
-      9.2-7 IsP2
-      9.2-8 IsP3
-      9.2-9 IsFlagConnected
-      9.2-10 IsP4
-      9.2-11 IsPolytope
+      9.2-1 ElementsList
+      9.2-2 OrderingFunction
+      9.2-3 RankPoset
+      9.2-4 IsFlaggable
+      9.2-5 IsAtomic
+      9.2-6 PartialOrder
+      9.2-7 ListIsP1Poset
+      9.2-8 IsP1
+      9.2-9 IsP2
+      9.2-10 IsP3
+      9.2-11 IsFlagConnected
+      9.2-12 IsP4
+      9.2-13 IsPolytope
     9.3 [33X[0;0YWorking with posets[133X
-      9.3-1 AreIncidentFlagFaces
-      9.3-2 FlagsAsListOfFacesFromPoset
-      9.3-3 AdjacentFlag
-      9.3-4 AdjacentFlags
-      9.3-5 EqualChains
-      9.3-6 ConnectionGeneratorOfPoset
-      9.3-7 ConnectionGroup
-      9.3-8 AutomorphismGroup
-      9.3-9 FacesOfPosetAsBinaryRelationOnFaces
-      9.3-10 FaceListOfPoset
-      9.3-11 FacesByRankOfPoset
+      9.3-1 IsPrePolytope
+      9.3-2 AreIncidentElements
+      9.3-3 FlagsAsListOfFacesFromPoset
+      9.3-4 AdjacentFlag
+      9.3-5 AdjacentFlags
+      9.3-6 EqualChains
+      9.3-7 ConnectionGeneratorOfPoset
+      9.3-8 ConnectionGroup
+      9.3-9 AutomorphismGroup
+      9.3-10 FacesOfPosetAsBinaryRelationOnFaces
+      9.3-11 FaceListOfPoset
+      9.3-12 FacesByRankOfPoset
     9.4 [33X[0;0YElements of posets, also known as faces.[133X
       9.4-1 RankPosetElement
       9.4-2 FlagList

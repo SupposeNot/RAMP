@@ -74,6 +74,17 @@
 
 
 <ManSection>
+  <Attr Arg="M" Name="ExtraRotRelators" Label="for IsRotaryManiplex"/>
+ <Description>
+ For a reflexible maniplex <A>M</A>, returns the relators
+ needed to define its rotation group as a quotient of
+ the rotation group of a string Coxeter group given by its Schlafli symbol.
+ Not particularly robust at the moment.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Oper Arg="G" Name="IsStringC" Label="for IsGroup"/>
  <Description>
  For an sggi <A>G</A>, returns whether the group is
