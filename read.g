@@ -16,7 +16,6 @@ ReadPackage( "ramp", "lib/database.gi" );
 ReadPackage( "ramp", "lib/duality.gi" ); 
 ReadPackage( "ramp", "lib/faces.gi" ); 
 ReadPackage( "ramp", "lib/families.gi" ); 
-ReadPackage( "ramp", "lib/Graphs.gi" ); 
 ReadPackage( "ramp", "lib/groups.gi" ); 
 ReadPackage( "ramp", "lib/orientable.gi" ); 
 ReadPackage( "ramp", "lib/polytope.gi" );

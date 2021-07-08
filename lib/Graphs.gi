@@ -2,6 +2,7 @@
 InstallMethod(DirectedGraphFromListOfEdges,
 	[IsList,IsList],
 	function(Lv,Le)
+	local p;
 	return Graph( Group(()), Lv, OnPoints,
         function(x,y) return ([x,y] in Le); end,
         true );;
@@ -11,7 +12,9 @@ end);
 InstallMethod(GraphFromListOfEdges,
 	[IsList,IsList],
 	function(Lv,Le)
-return UnderlyingGraph(DirectedGraphFromListOfEdges(Lv,Le));
+	local p;
+	p:=UnderlyingGraph(DirectedGraphFromListOfEdges(Lv,Le));
+return p;
 end);
 
 
@@ -20,7 +23,7 @@ end);
 InstallMethod(UnlabeledFlagGraph,
 	[IsGroup],
 	function(c)
-	local M, Edges, g, i, j;
+	local M, Edges, g, i, j, p;
 	M:=Size(MovedPoints(c));
 	Edges:=[];
 	for g in GeneratorsOfGroup(c) do
@@ -32,20 +35,17 @@ InstallMethod(UnlabeledFlagGraph,
 	od;
 	od;
 	od;
-	return GraphFromListOfEdges([1..M],Edges);
+	p:=GraphFromListOfEdges([1..M],Edges);
+	return p;
 end);
 
 
 InstallMethod(UnlabeledFlagGraph,
 	[IsManiplex],
 	function(m)
-	return UnlabeledFlagGraph(ConnectionGroup(m));
-	end);
-
-InstallMethod(UnlabeledFlagGraph,
-	[IsPolytope],
-	function(p)
-	return UnlabeledFlagGraph(ConnectionGroup(p));
+	local p;
+	p:=UnlabeledFlagGraph(ConnectionGroup(m));
+	return p;
 	end);
 
 
@@ -74,15 +74,11 @@ end);
 InstallMethod(FlagGraphWithLabels,
 	[IsManiplex],
 	function(m)
-	return FlagGraphWithLabels(ConnectionGroup(m));
+	local p;
+	p:= FlagGraphWithLabels(ConnectionGroup(m));
+	return p;
 end);
 	
-
-InstallMethod(FlagGraphWithLabels,
-	[IsPolytope],
-	function(p)
-	return FlagGraphWithLabels(ConnectionGroup(p));
-end);
 
 
 
@@ -90,7 +86,7 @@ end);
 InstallMethod(LayerGraph,
 	[IsGroup,IsInt, IsInt],
 	function(c,i,j)
-	local n, ranksi, ranksj, iFaces, jFaces, Mi, Mj, I, a, b;
+	local n, ranksi, ranksj, iFaces, jFaces, Mi, Mj, I, a, b,p;
 	n:=Size(GeneratorsOfGroup(c));
 	ranksi:=[1..n];
 	Remove(ranksi,i+1);
@@ -109,23 +105,23 @@ InstallMethod(LayerGraph,
 	fi;
 	od;
 	od;
-	return UnderlyingGraph(Graph( Group(()), [1..Mi+Mj], OnPoints,
+	p:=UnderlyingGraph(Graph( Group(()), [1..Mi+Mj], OnPoints,
         function(x,y) return I[x][y]=1; end,
         true ));;
+	return p; 
+
 	end);  	
 
 
 InstallMethod(LayerGraph,
 	[IsManiplex,IsInt, IsInt],
 	function(m,i,j)
-	return LayerGraph(ConnectionGroup(m),i,j);
+	local p;
+	p:=LayerGraph(ConnectionGroup(m),i,j);
+	return p;
+	
 end);
 
-InstallMethod(LayerGraph,
-	[IsPolytope,IsInt, IsInt],
-	function(p,i,j)
-	return LayerGraph(ConnectionGroup(p),i,j);
-end);
 
 
 
@@ -133,21 +129,20 @@ end);
 InstallMethod(Skeleton,
 	[IsManiplex],
 	function(m)
-	return PointGraph(LayerGraph(m,0,1));
+	local p;
+	p:=PointGraph(LayerGraph(m,0,1));
+	return p;
+
 end);
 
-InstallMethod(Skeleton,
-	[IsPolytope],
-	function(p)
-	return PointGraph(LayerGraph(p,0,1));
-end);
+
 
 
 #Want to run this on just connection groups, but have to rebuild f-vectors on the fly.
 InstallMethod(Hasse,
-	[IsPolytope],
+	[IsManiplex],
 	function(m)
-	local  r, c, F0, Fr, Faces, i, FV, Ranks, ranksi;
+	local  r, c, F0, Fr, Faces, i, FV, Ranks, ranksi, p;
 	r:=Rank(m);
 	c:=ConnectionGroup(m);
 	F0:=MovedPoints(c);
@@ -165,10 +160,11 @@ InstallMethod(Hasse,
 	Append(Ranks, ListWithIdenticalEntries(FV[i],i));
 	od;
 	Append(Ranks,[r+1]);
-	return Graph( Group(()), [1..Size(Faces)], OnPoints,
+	p:=Graph( Group(()), [1..Size(Faces)], OnPoints,
         function(x,y) return 
 	(Size(Intersection(Faces[x],Faces[y])) > 0) and (Ranks[x] = Ranks[y] + 1); end,
         true );;
+	return p;
 end);
 
 

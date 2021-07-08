@@ -68,10 +68,9 @@ DeclareOperation("UnlabeledFlagGraph",[IsGroup]);
 
 
 
-#! This also works with a maniplex or polytope input. 
+#! This also works with a maniplex input. 
 
 DeclareOperation("UnlabeledFlagGraph",[IsManiplex]);
-DeclareOperation("UnlabeledFlagGraph",[IsPolytope]);
 
 #! Here we build the flag graph for the cube.
 #! @BeginExampleSession
@@ -137,10 +136,9 @@ DeclareOperation("FlagGraphWithLabels",[IsGroup]);
 #! @EndExampleSession
 
 
-#! This also works with a maniplex or polytope input. 
+#! This also works with a maniplex input. 
 
 DeclareOperation("FlagGraphWithLabels",[IsManiplex]);
-DeclareOperation("FlagGraphWithLabels",[IsPolytope]);
 
 #! Here we build the flag graph for the cube.
 #! @BeginExampleSession
@@ -173,10 +171,9 @@ DeclareOperation("LayerGraph",[IsGroup, IsInt, IsInt]);
 
 
 
-#! This also works with a maniplex or polytope input. 
+#! This also works with a maniplex  input. 
 
 DeclareOperation("LayerGraph",[IsManiplex, IsInt, IsInt]);
-DeclareOperation("LayerGraph",[IsPolytope, IsInt, IsInt]);
 
 #! Here we build the graph given by the 6 faces and 12 edges of a cube.
 #! @BeginExampleSession
@@ -185,11 +182,10 @@ DeclareOperation("LayerGraph",[IsPolytope, IsInt, IsInt]);
 
 
 
-#! @Arguments maniplex or polytope
+#! @Arguments maniplex 
 #! @Returns `IsGraph`. Note this returns an undirected graph.
-#! @Description Given a maniplex or a polytope, this outputs the 0-1 skeleton.   The vertices are the 0-faces, and the edges are the 1-faces.
+#! @Description Given a maniplex, this outputs the 0-1 skeleton.   The vertices are the 0-faces, and the edges are the 1-faces.
 DeclareOperation("Skeleton",[IsManiplex]);
-DeclareOperation("Skeleton",[IsPolytope]);
 #! Here we build the skeleton of the dodecahedron.
 #! @BeginExampleSession
 #! gap> g:= Skeleton(Dodecahedron());;
@@ -201,7 +197,7 @@ DeclareOperation("Skeleton",[IsPolytope]);
 #! @Returns `IsGraph`. Note this returns a directed graph.
 #! @Description Given a group, assumed to be the connection group of a maniplex, this outputs the Hasse Diagram as a directed graph.  
 #! Note: The unique minimal and maximal face are assumed.
-DeclareOperation("Hasse",[IsPolytope]);
+DeclareOperation("Hasse",[IsManiplex]);
 
 #! Here we build the Hasse Diagram of a 3-simplex from its representation as a maniplex.
 #! @BeginExampleSession
