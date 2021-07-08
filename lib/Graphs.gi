@@ -109,11 +109,6 @@ InstallMethod(LayerGraph,
 	return LayerGraph(ConnectionGroup(m),i,j);
 end);
 
-InstallMethod(LayerGraph,
-	[IsPolytope,IsInt, IsInt],
-	function(p,i,j)
-	return LayerGraph(ConnectionGroup(p),i,j);
-end);
 
 
 
