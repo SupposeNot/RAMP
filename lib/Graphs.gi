@@ -42,12 +42,6 @@ InstallMethod(UnlabeledFlagGraph,
 	return UnlabeledFlagGraph(ConnectionGroup(m));
 	end);
 
-InstallMethod(UnlabeledFlagGraph,
-	[IsPolytope],
-	function(p)
-	return UnlabeledFlagGraph(ConnectionGroup(p));
-	end);
-
 
 
 InstallMethod(FlagGraphWithLabels,
@@ -77,12 +71,6 @@ InstallMethod(FlagGraphWithLabels,
 	return FlagGraphWithLabels(ConnectionGroup(m));
 end);
 	
-
-InstallMethod(FlagGraphWithLabels,
-	[IsPolytope],
-	function(p)
-	return FlagGraphWithLabels(ConnectionGroup(p));
-end);
 
 
 
@@ -136,16 +124,12 @@ InstallMethod(Skeleton,
 	return PointGraph(LayerGraph(m,0,1));
 end);
 
-InstallMethod(Skeleton,
-	[IsPolytope],
-	function(p)
-	return PointGraph(LayerGraph(p,0,1));
-end);
+
 
 
 #Want to run this on just connection groups, but have to rebuild f-vectors on the fly.
 InstallMethod(Hasse,
-	[IsPolytope],
+	[IsManiplex],
 	function(m)
 	local  r, c, F0, Fr, Faces, i, FV, Ranks, ranksi;
 	r:=Rank(m);
