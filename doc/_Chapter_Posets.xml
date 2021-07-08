@@ -176,6 +176,30 @@ Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtom
 <Heading>Poset attributes</Heading>
 
 <ManSection>
+  <Attr Arg="poset" Name="ElementsList" Label="for IsPoset"/>
+ <Description>
+Will recover the list of faces of the poset, format may depend on <Emph>type</Emph> of representation of <Code>poset</Code>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="OrderingFunction" Label="for IsPoset"/>
+ <Description>
+<Code>OrderingFunction</Code> is an attribute of a poset which stores a function for ordering elements.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="RankPoset" Label="for IsPoset"/>
+ <Description>
+If the poset <Code>IsP1</Code>, ranks are assumed to run from <Math>-1</Math> to <Math>n</Math>, and function will return <Math>n</Math>. If <Code>IsP1(poset)=false</Code>, ranks are assumed to run from 1 to <Math>n</Math>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Prop Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
  <Returns><Code>list</Code> of flags as lists of poset elements.
 </Returns>
@@ -207,7 +231,7 @@ Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Co
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Checks if <A>poset</A> is atomic.
+Checks if <A>poset</A> is atomic. <Emph>Not a computed value.</Emph>
  </Description>
 </ManSection>
 
@@ -233,16 +257,6 @@ Given <A>list</A>, comprised of sublists of faces ordered by rank, each face lis
 
 
 <ManSection>
-  <Oper Arg="poset" Name="RankOfPoset" Label="for IsPoset"/>
- <Returns><Code>integer</Code>
-</Returns>
- <Description>
-Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Prop Arg="poset" Name="IsP1" Label="for IsPoset"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
@@ -250,6 +264,18 @@ Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden a
 Determines whether a poset has property P1 from ARP.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
+A poset using the IsPosetOfIndices representation 
+gap> IsP1(p);
+true
+gap> p2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);
+A poset using the IsPosetOfFlags representation with 3 faces.
+gap> IsP1(p2);
+false
+]]></Example>
 
 
 <ManSection>
@@ -283,7 +309,7 @@ false
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time.
+Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time. In fact, this is currently pretty slow in general. Being strongly flag connected (or in the case of posets that are P1 and P2, strongly connected) is a combinatorial explosion scenario.
  </Description>
 </ManSection>
 
@@ -340,11 +366,21 @@ gap> KnownPropertiesOfObject(poset2);
 <Heading>Working with posets</Heading>
 
 <ManSection>
-  <Oper Arg="object1, object2" Name="AreIncidentFlagFaces" Label="for IsObject,IsObject"/>
+  <Prop Arg="poset" Name="IsPrePolytope" Label="for IsPoset"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Determines whether a poset is an abstract pre-polytope.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="object1, object2" Name="AreIncidentElements" Label="for IsObject,IsObject"/>
  <Returns><Code>true</Code> or <Code>false</Code>
 </Returns>
  <Description>
-Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.
+Given two poset elements, will tell you if they are incident.
  </Description>
 </ManSection>
 
@@ -364,7 +400,7 @@ Given a <A>poset</A>, this will give you a version of the list of flags in terms
  <Returns><Code>flag(s)</Code>
 </Returns>
  <Description>
-Given a flag (represented as chains of faces comprised of lists of flags) and a poset and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
+Given a poset, a flag, and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
  You can replace <A>flag</A> with the integer corresponding to that flag.
  Appending <Code>true</Code> to the arguments will give the position of the flag instead of its description from <Code>FlagsAsListOfFacesFromPoset</Code>.
  </Description>
@@ -374,7 +410,7 @@ Given a flag (represented as chains of faces comprised of lists of flags) and a 
 <ManSection>
   <Oper Arg="poset, flagaslistoffaces, adjacencyrank" Name="AdjacentFlags" Label="for IsPoset,IsList,IsInt"/>
  <Description>
-<P/>
+If your poset isn't P4, there may be multiple adjacent maximal chains at a given rank. This function handles that case. May substitute <Code>IsInt</Code> for <Code>flagaslistoffaces</Code> corresponding to position of <Code>flag</Code> in list of maximal chains.
  </Description>
 </ManSection>
 
@@ -382,7 +418,7 @@ Given a flag (represented as chains of faces comprised of lists of flags) and a 
 <ManSection>
   <Oper Arg="flag1, flag2" Name="EqualChains" Label="for IsList,IsList"/>
  <Description>
-<P/>
+Determines whether two chains are equal.
  </Description>
 </ManSection>
 
@@ -402,7 +438,7 @@ Given a <A>poset</A> and an integer <Math>i</Math>, this function will give you 
  <Returns><Code>IsPermGroup</Code>
 </Returns>
  <Description>
-Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
+Given a <A>poset</A> that is <Code>IsPrePolytope</Code>, this function will give you the connection group.
  </Description>
 </ManSection>
 

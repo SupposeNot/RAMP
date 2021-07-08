@@ -1317,8 +1317,22 @@ robust at the moment. }
 
  
 
-\subsection{\textcolor{Chapter }{IsStringC (for IsGroup)}}
+\subsection{\textcolor{Chapter }{ExtraRotRelators (for IsRotaryManiplex)}}
 \logpage{[ 5, 1, 8 ]}\nobreak
+\hyperdef{L}{X797752A88078CF22}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRotRelators({\mdseries\slshape M})\index{ExtraRotRelators@\texttt{ExtraRotRelators}!for IsRotaryManiplex}
+\label{ExtraRotRelators:for IsRotaryManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ For a reflexible maniplex \mbox{\texttt{\mdseries\slshape M}}, returns the relators needed to define its rotation group as a quotient of
+the rotation group of a string Coxeter group given by its Schlafli symbol. Not
+particularly robust at the moment. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsStringC (for IsGroup)}}
+\logpage{[ 5, 1, 9 ]}\nobreak
 \hyperdef{L}{X835FA8527E2442F4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringC({\mdseries\slshape G})\index{IsStringC@\texttt{IsStringC}!for IsGroup}
 \label{IsStringC:for IsGroup}
@@ -1802,8 +1816,44 @@ Another interesting example:
 {
   
 
-\subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
+\subsection{\textcolor{Chapter }{ElementsList (for IsPoset)}}
 \logpage{[ 9, 2, 1 ]}\nobreak
+\hyperdef{L}{X8448C7067B0EF49D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ElementsList({\mdseries\slshape poset})\index{ElementsList@\texttt{ElementsList}!for IsPoset}
+\label{ElementsList:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Will recover the list of faces of the poset, format may depend on \emph{type} of representation of \texttt{poset}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{OrderingFunction (for IsPoset)}}
+\logpage{[ 9, 2, 2 ]}\nobreak
+\hyperdef{L}{X7C5580EC83A4955B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{OrderingFunction({\mdseries\slshape poset})\index{OrderingFunction@\texttt{OrderingFunction}!for IsPoset}
+\label{OrderingFunction:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ \texttt{OrderingFunction} is an attribute of a poset which stores a function for ordering elements. }
+
+ 
+
+\subsection{\textcolor{Chapter }{RankPoset (for IsPoset)}}
+\logpage{[ 9, 2, 3 ]}\nobreak
+\hyperdef{L}{X7C9B4AA77C73A761}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPoset({\mdseries\slshape poset})\index{RankPoset@\texttt{RankPoset}!for IsPoset}
+\label{RankPoset:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ If the poset \texttt{IsP1}, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If \texttt{IsP1(poset)=false}, ranks are assumed to run from 1 to $n$. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
+\logpage{[ 9, 2, 4 ]}\nobreak
 \hyperdef{L}{X842B0F7E81670077}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape poset})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
 \label{IsFlaggable:for IsPoset}
@@ -1838,7 +1888,7 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
  
 
 \subsection{\textcolor{Chapter }{IsAtomic (for IsPoset)}}
-\logpage{[ 9, 2, 2 ]}\nobreak
+\logpage{[ 9, 2, 5 ]}\nobreak
 \hyperdef{L}{X816460188169E650}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAtomic({\mdseries\slshape poset})\index{IsAtomic@\texttt{IsAtomic}!for IsPoset}
 \label{IsAtomic:for IsPoset}
@@ -1848,12 +1898,12 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
 
 
 
- Checks if \mbox{\texttt{\mdseries\slshape poset}} is atomic. }
+ Checks if \mbox{\texttt{\mdseries\slshape poset}} is atomic. \emph{Not a computed value.} }
 
  
 
 \subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
-\logpage{[ 9, 2, 3 ]}\nobreak
+\logpage{[ 9, 2, 6 ]}\nobreak
 \hyperdef{L}{X85A9CAA682FE56EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartialOrder({\mdseries\slshape poset})\index{PartialOrder@\texttt{PartialOrder}!for IsPoset}
 \label{PartialOrder:for IsPoset}
@@ -1869,7 +1919,7 @@ partial order to the \mbox{\texttt{\mdseries\slshape poset}}. \texttt{Note, curr
  
 
 \subsection{\textcolor{Chapter }{ListIsP1Poset (for IsList)}}
-\logpage{[ 9, 2, 4 ]}\nobreak
+\logpage{[ 9, 2, 7 ]}\nobreak
 \hyperdef{L}{X8455987F7E9A88FF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsP1Poset({\mdseries\slshape list})\index{ListIsP1Poset@\texttt{ListIsP1Poset}!for IsList}
 \label{ListIsP1Poset:for IsList}
@@ -1885,24 +1935,8 @@ or not. }
 
  
 
-\subsection{\textcolor{Chapter }{RankOfPoset (for IsPoset)}}
-\logpage{[ 9, 2, 5 ]}\nobreak
-\hyperdef{L}{X820BF50C79C6C6C0}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankOfPoset({\mdseries\slshape poset})\index{RankOfPoset@\texttt{RankOfPoset}!for IsPoset}
-\label{RankOfPoset:for IsPoset}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-\texttt{integer} 
-
-
-
- Given a \mbox{\texttt{\mdseries\slshape poset}}, returns the rank of the poset. Note: There may be hidden assumptions here to
-untangle later. }
-
- 
-
 \subsection{\textcolor{Chapter }{IsP1 (for IsPoset)}}
-\logpage{[ 9, 2, 6 ]}\nobreak
+\logpage{[ 9, 2, 8 ]}\nobreak
 \hyperdef{L}{X81269ACB7EF202C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP1({\mdseries\slshape poset})\index{IsP1@\texttt{IsP1}!for IsPoset}
 \label{IsP1:for IsPoset}
@@ -1915,9 +1949,20 @@ untangle later. }
  Determines whether a poset has property P1 from ARP. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);|
+  A poset using the IsPosetOfIndices representation 
+  !gapprompt@gap>| !gapinput@IsP1(p);|
+  true
+  !gapprompt@gap>| !gapinput@p2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);|
+  A poset using the IsPosetOfFlags representation with 3 faces.
+  !gapprompt@gap>| !gapinput@IsP1(p2);|
+  false
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsP2 (for IsPoset)}}
-\logpage{[ 9, 2, 7 ]}\nobreak
+\logpage{[ 9, 2, 9 ]}\nobreak
 \hyperdef{L}{X7AFA3C077FD9583A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP2({\mdseries\slshape poset})\index{IsP2@\texttt{IsP2}!for IsPoset}
 \label{IsP2:for IsPoset}
@@ -1945,7 +1990,7 @@ untangle later. }
  
 
 \subsection{\textcolor{Chapter }{IsP3 (for IsPoset)}}
-\logpage{[ 9, 2, 8 ]}\nobreak
+\logpage{[ 9, 2, 10 ]}\nobreak
 \hyperdef{L}{X8723519F84529E4C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP3({\mdseries\slshape poset})\index{IsP3@\texttt{IsP3}!for IsPoset}
 \label{IsP3:for IsPoset}
@@ -1956,12 +2001,15 @@ untangle later. }
 
 
  Determines whether a poset is strongly flag connected (property P3' from ARP).
-May also be called with command \texttt{IsStronglyFlagConnected}. If you are not working with a pre-polytope, expect this to take a LONG time. }
+May also be called with command \texttt{IsStronglyFlagConnected}. If you are not working with a pre-polytope, expect this to take a LONG time.
+In fact, this is currently pretty slow in general. Being strongly flag
+connected (or in the case of posets that are P1 and P2, strongly connected) is
+a combinatorial explosion scenario. }
 
  Helper for IsP3 
 
 \subsection{\textcolor{Chapter }{IsFlagConnected (for IsPoset)}}
-\logpage{[ 9, 2, 9 ]}\nobreak
+\logpage{[ 9, 2, 11 ]}\nobreak
 \hyperdef{L}{X85F554347C5AEF30}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlagConnected({\mdseries\slshape arg})\index{IsFlagConnected@\texttt{IsFlagConnected}!for IsPoset}
 \label{IsFlagConnected:for IsPoset}
@@ -1975,7 +2023,7 @@ May also be called with command \texttt{IsStronglyFlagConnected}. If you are not
  
 
 \subsection{\textcolor{Chapter }{IsP4 (for IsPoset)}}
-\logpage{[ 9, 2, 10 ]}\nobreak
+\logpage{[ 9, 2, 12 ]}\nobreak
 \hyperdef{L}{X80F461FA7D8FEDC7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP4({\mdseries\slshape poset})\index{IsP4@\texttt{IsP4}!for IsPoset}
 \label{IsP4:for IsPoset}
@@ -1991,7 +2039,7 @@ invoked using IsDiamondCondition. }
  
 
 \subsection{\textcolor{Chapter }{IsPolytope (for IsPoset)}}
-\logpage{[ 9, 2, 11 ]}\nobreak
+\logpage{[ 9, 2, 13 ]}\nobreak
 \hyperdef{L}{X83D63725789E745D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytope({\mdseries\slshape poset})\index{IsPolytope@\texttt{IsPolytope}!for IsPoset}
 \label{IsPolytope:for IsPoset}
@@ -2027,24 +2075,38 @@ invoked using IsDiamondCondition. }
 {
   
 
-\subsection{\textcolor{Chapter }{AreIncidentFlagFaces (for IsObject,IsObject)}}
+\subsection{\textcolor{Chapter }{IsPrePolytope (for IsPoset)}}
 \logpage{[ 9, 3, 1 ]}\nobreak
-\hyperdef{L}{X7C2B6B3379AFDDAC}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AreIncidentFlagFaces({\mdseries\slshape object1, object2})\index{AreIncidentFlagFaces@\texttt{AreIncidentFlagFaces}!for IsObject,IsObject}
-\label{AreIncidentFlagFaces:for IsObject,IsObject}
+\hyperdef{L}{X8085287683CCF81B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPrePolytope({\mdseries\slshape poset})\index{IsPrePolytope@\texttt{IsPrePolytope}!for IsPoset}
+\label{IsPrePolytope:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Determines whether a poset is an abstract pre-polytope. }
+
+ 
+
+\subsection{\textcolor{Chapter }{AreIncidentElements (for IsObject,IsObject)}}
+\logpage{[ 9, 3, 2 ]}\nobreak
+\hyperdef{L}{X84B2B67A805CD31D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AreIncidentElements({\mdseries\slshape object1, object2})\index{AreIncidentElements@\texttt{AreIncidentElements}!for IsObject,IsObject}
+\label{AreIncidentElements:for IsObject,IsObject}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{true} or \texttt{false} 
 
 
 
- Given two faces, will tell you if they are incident. Currently only supports
-faces as list of their incident flags. }
+ Given two poset elements, will tell you if they are incident. }
 
  
 
 \subsection{\textcolor{Chapter }{FlagsAsListOfFacesFromPoset (for IsPoset)}}
-\logpage{[ 9, 3, 2 ]}\nobreak
+\logpage{[ 9, 3, 3 ]}\nobreak
 \hyperdef{L}{X7B9029A4868E7138}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsListOfFacesFromPoset({\mdseries\slshape poset})\index{FlagsAsListOfFacesFromPoset@\texttt{FlagsAsListOfFacesFromPoset}!for IsPoset}
 \label{FlagsAsListOfFacesFromPoset:for IsPoset}
@@ -2062,7 +2124,7 @@ terms of its (enumerated) list of incident flags. }
  
 
 \subsection{\textcolor{Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}
-\logpage{[ 9, 3, 3 ]}\nobreak
+\logpage{[ 9, 3, 4 ]}\nobreak
 \hyperdef{L}{X7ACE88EC803EDE07}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlag({\mdseries\slshape poset, flag, i})\index{AdjacentFlag@\texttt{AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt}
 \label{AdjacentFlag:for IsPosetOfFlags,IsList,IsInt}
@@ -2072,43 +2134,39 @@ terms of its (enumerated) list of incident flags. }
 
 
 
- Given a flag (represented as chains of faces comprised of lists of flags) and
-a poset and a rank, this function will give you the \mbox{\texttt{\mdseries\slshape i}}-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than
+ Given a poset, a flag, and a rank, this function will give you the \mbox{\texttt{\mdseries\slshape i}}-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than
 the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. Appending \texttt{true} to the arguments will give the position of the flag instead of its description
 from \texttt{FlagsAsListOfFacesFromPoset}. }
 
  
 
 \subsection{\textcolor{Chapter }{AdjacentFlags (for IsPoset,IsList,IsInt)}}
-\logpage{[ 9, 3, 4 ]}\nobreak
+\logpage{[ 9, 3, 5 ]}\nobreak
 \hyperdef{L}{X7C94E895794BA41F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlags({\mdseries\slshape poset, flagaslistoffaces, adjacencyrank})\index{AdjacentFlags@\texttt{AdjacentFlags}!for IsPoset,IsList,IsInt}
 \label{AdjacentFlags:for IsPoset,IsList,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ If your poset isn't P4, there may be multiple adjacent maximal chains at a
+given rank. This function handles that case. May substitute \texttt{IsInt} for \texttt{flagaslistoffaces} corresponding to position of \texttt{flag} in list of maximal chains. }
 
  
 
 \subsection{\textcolor{Chapter }{EqualChains (for IsList,IsList)}}
-\logpage{[ 9, 3, 5 ]}\nobreak
+\logpage{[ 9, 3, 6 ]}\nobreak
 \hyperdef{L}{X7E1C59DF835343FE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EqualChains({\mdseries\slshape flag1, flag2})\index{EqualChains@\texttt{EqualChains}!for IsList,IsList}
 \label{EqualChains:for IsList,IsList}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Determines whether two chains are equal. }
 
  
 
 \subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}
-\logpage{[ 9, 3, 6 ]}\nobreak
+\logpage{[ 9, 3, 7 ]}\nobreak
 \hyperdef{L}{X84E3B63C8639771B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGeneratorOfPoset({\mdseries\slshape poset, i})\index{ConnectionGeneratorOfPoset@\texttt{ConnectionGeneratorOfPoset}!for IsPoset,IsInt}
 \label{ConnectionGeneratorOfPoset:for IsPoset,IsInt}
@@ -2123,7 +2181,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{ConnectionGroup (for IsPoset)}}
-\logpage{[ 9, 3, 7 ]}\nobreak
+\logpage{[ 9, 3, 8 ]}\nobreak
 \hyperdef{L}{X859C651184ED9424}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroup({\mdseries\slshape poset})\index{ConnectionGroup@\texttt{ConnectionGroup}!for IsPoset}
 \label{ConnectionGroup:for IsPoset}
@@ -2133,12 +2191,12 @@ A permutation on the flags.
 
 
 
- Given a \mbox{\texttt{\mdseries\slshape poset}} corresponding to a maniplex, this function will give you the connection group. }
+ Given a \mbox{\texttt{\mdseries\slshape poset}} that is \texttt{IsPrePolytope}, this function will give you the connection group. }
 
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroup (for IsPoset)}}
-\logpage{[ 9, 3, 8 ]}\nobreak
+\logpage{[ 9, 3, 9 ]}\nobreak
 \hyperdef{L}{X7C6813D27F0BD0F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroup({\mdseries\slshape poset})\index{AutomorphismGroup@\texttt{AutomorphismGroup}!for IsPoset}
 \label{AutomorphismGroup:for IsPoset}
@@ -2151,7 +2209,7 @@ chains. }
  
 
 \subsection{\textcolor{Chapter }{FacesOfPosetAsBinaryRelationOnFaces (for IsPoset)}}
-\logpage{[ 9, 3, 9 ]}\nobreak
+\logpage{[ 9, 3, 10 ]}\nobreak
 \hyperdef{L}{X8380DB8B856E1761}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacesOfPosetAsBinaryRelationOnFaces({\mdseries\slshape poset})\index{FacesOfPosetAsBinaryRelationOnFaces@\texttt{FacesOfPosetAsBinaryRelationOnFaces}!for IsPoset}
 \label{FacesOfPosetAsBinaryRelationOnFaces:for IsPoset}
@@ -2166,7 +2224,7 @@ A binary relation on the integers 1 through $n$, where $n$ is the number of face
  
 
 \subsection{\textcolor{Chapter }{FaceListOfPoset (for IsPoset)}}
-\logpage{[ 9, 3, 10 ]}\nobreak
+\logpage{[ 9, 3, 11 ]}\nobreak
 \hyperdef{L}{X79F1837C835A5EFF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FaceListOfPoset({\mdseries\slshape poset})\index{FaceListOfPoset@\texttt{FaceListOfPoset}!for IsPoset}
 \label{FaceListOfPoset:for IsPoset}
@@ -2181,7 +2239,7 @@ A binary relation on the integers 1 through $n$, where $n$ is the number of face
  
 
 \subsection{\textcolor{Chapter }{FacesByRankOfPoset (for IsPoset)}}
-\logpage{[ 9, 3, 11 ]}\nobreak
+\logpage{[ 9, 3, 12 ]}\nobreak
 \hyperdef{L}{X82CBC68480F222C7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacesByRankOfPoset({\mdseries\slshape poset})\index{FacesByRankOfPoset@\texttt{FacesByRankOfPoset}!for IsPoset}
 \label{FacesByRankOfPoset:for IsPoset}
@@ -2525,6 +2583,8 @@ belongs to. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

@@ -51,7 +51,7 @@ DeclareOperation("PosetFromManiplex", [IsManiplex]);
 #! @EndExampleSession
 
 
-#helper function for PosetFromPartialOrder
+#helper function for PosetFromPartialOrder, converts a binary relation to a binary relation on points.
 DeclareOperation("POConvertToBROnPoints",[IsBinaryRelation]);
 
 #! @Arguments partialOrder
@@ -123,12 +123,21 @@ DeclareOperation("PairCompareAtomsList",[IsList,IsList]);
 
 #! @Section Poset attributes
 
+#! @Arguments poset
+#! @Description Will recover the list of faces of the poset, format may depend on __type__ of representation of `poset`.
 DeclareAttribute("ElementsList", IsPoset); #for storing facelists
-DeclareSynonymAttr("FacesList", ElementsList);
-DeclareAttribute("OrderingFunction", IsPoset); #helpful for facelist info.
-# DeclareAttribute("Ranks", IsPoset,"mutable"); #for storing the list of ranks in the poset
-# for what it is worth, thinking about killing off the full versus not stuff. Just make the user make a NEW poset with all the stuff in it they want.
 
+
+DeclareSynonymAttr("FacesList", ElementsList);
+
+
+#! @Arguments poset
+#! @Description `OrderingFunction` is an attribute of a poset which stores a function for ordering elements.
+DeclareAttribute("OrderingFunction", IsPoset); #helpful for facelist info.
+
+
+#! @Arguments poset
+#! @Description If the poset `IsP1`, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If `IsP1(poset)=false`, ranks are assumed to run from 1 to $n$.
 DeclareAttribute("RankPoset", IsPoset);
 
 #! @Arguments poset
@@ -160,7 +169,7 @@ DeclareProperty("IsFlaggable",IsPoset);
 
 
 #! @Arguments poset
-#! @Description Checks if <A>poset</A> is atomic. 
+#! @Description Checks if <A>poset</A> is atomic. __Not a computed value.__ 
 DeclareProperty("IsAtomic",IsPoset);
 
 #! @Arguments poset
@@ -176,15 +185,19 @@ DeclareOperation("ListIsP1Poset",[IsList]);
 
 
 #! @Arguments poset
-#! @Returns `integer`
-#! @Description Given a <A>poset</A>, returns the rank of the poset. Note: There may be hidden assumptions here to untangle later.
-DeclareOperation("RankOfPoset", [IsPoset]);
-
-
-
-#! @Arguments poset
 #! @Description Determines whether a poset has property P1 from ARP.
 DeclareProperty("IsP1", IsPoset);
+#! @BeginExampleSession
+#! gap> p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
+#! A poset using the IsPosetOfIndices representation 
+#! gap> IsP1(p);
+#! true
+#! gap> p2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);
+#! A poset using the IsPosetOfFlags representation with 3 faces.
+#! gap> IsP1(p2);
+#! false
+#! @EndExampleSession
+
 
 #! @Arguments poset
 #! @Description Determines whether a poset has property P2 from ARP.
@@ -203,7 +216,7 @@ DeclareProperty("IsP2", IsPoset);
 #! @EndExampleSession
 
 #! @Arguments poset
-#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time.
+#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time. In fact, this is currently pretty slow in general. Being strongly flag connected (or in the case of posets that are P1 and P2, strongly connected) is a combinatorial explosion scenario.
 DeclareProperty("IsP3", IsPoset);
 
 
@@ -240,14 +253,17 @@ DeclareProperty("IsPolytope", IsPoset);
 #! @EndExampleSession
 #! @Section Working with posets
 
-
+#! @Arguments poset
+#! @Description Determines whether a poset is an abstract pre-polytope.
 DeclareProperty("IsPrePolytope", IsPoset);
 
 
 #! @Arguments object1, object2
 #! @Returns `true` or `false`
-#! @Description Given two faces, will tell you if they are incident. Currently only supports faces as list of their incident flags.
-DeclareOperation("AreIncidentFlagFaces",[IsObject,IsObject]);
+#! @Description Given two poset elements, will tell you if they are incident. 
+DeclareOperation("AreIncidentElements",[IsObject,IsObject]);
+
+DeclareSynonym("AreIncidentFaces",AreIncidentElements);
 
 #! @Arguments poset
 #! @Returns `IsList`
@@ -257,17 +273,19 @@ DeclareOperation("FlagsAsListOfFacesFromPoset",[IsPoset]);
 
 #! @Arguments poset, flag, i
 #! @Returns `flag(s)`
-#! @Description Given a flag (represented as chains of faces comprised of lists of flags) and a poset  and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
+#! @Description Given a poset, a flag, and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
 #! You can replace <A>flag</A> with the integer corresponding to that flag.
 #! Appending `true` to the arguments will give the position of the flag instead of its description from `FlagsAsListOfFacesFromPoset`.
 DeclareOperation("AdjacentFlag",[IsPosetOfFlags,IsList,IsInt]);
 
 #Helper for flag connected
 #! @Arguments poset, flagaslistoffaces, adjacencyrank
+#! @Description If your poset isn't P4, there may be multiple adjacent maximal chains at a given rank. This function handles that case. May substitute `IsInt` for `flagaslistoffaces` corresponding to position of `flag` in list of maximal chains.
 DeclareOperation("AdjacentFlags",[IsPoset,IsList,IsInt]);
 
 # Helper again
 #! @Arguments flag1, flag2
+#! @Description Determines whether two chains are equal.
 DeclareOperation("EqualChains",[IsList,IsList]);
 
 #! @Arguments poset, i
@@ -278,17 +296,17 @@ DeclareOperation("ConnectionGeneratorOfPoset",[IsPoset,IsInt]);
 
 #! @Arguments poset
 #! @Returns `IsPermGroup`
-#! @Description Given a <A>poset</A> corresponding to a maniplex, this function will give you the connection group.
+#! @Description Given a <A>poset</A> that is `IsPrePolytope`, this function will give you the connection group.
 DeclareAttribute("ConnectionGroup",IsPoset);
 
 #! @Arguments poset
 #! @Description Given a <A>poset</A>, gives the automorphism group of the poset as an action on the maximal chains.
 DeclareAttribute("AutomorphismGroup", IsPoset);
 
-##! @Arguments poset
-##! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
-##! @Description FacesOfPosetAsBinaryRelationOnFaces 
-#DeclareOperation("FacesOfPosetAsBinaryRelationOnFaces",[IsPoset]);
+## ! @Arguments poset
+## ! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
+## ! @Description FacesOfPosetAsBinaryRelationOnFaces 
+# DeclareOperation("FacesOfPosetAsBinaryRelationOnFaces",[IsPoset]);
 
 
 ##! @Arguments poset

@@ -29,7 +29,7 @@ InstallMethod(PosetFromPartialOrder,
 	[IsBinaryRelation],
 	function(reln)
 	local fam, poset, myreln, n;
-	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order.");fi;
+	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order."); return; fi;
 	myreln:=POConvertToBROnPoints(reln);
 	n:=Length(Successors(myreln));
 # 	fam:=NewFamily("Poset From Partial Order", IsPoset);
@@ -189,6 +189,17 @@ InstallMethod(AdjacentFlags,
 	flagsList:=Filtered(flagsList,x->EqualChains(x{fixedranks},flag{fixedranks}));
 	flagsList:=Filtered(flagsList,x->EqualChains(x,flag)=false);
 	return flagsList;
+	end);
+
+InstallOtherMethod(AdjacentFlags,
+	[IsPoset,IsInt,IsInt],
+	function(poset,flag,adjacencyrank)
+	local ranks,flags;
+	if Rank(poset)=false then Print("Poset must be P1 and P2."); return; fi;
+	ranks:=[1..Rank(poset)+2];
+	Remove(ranks,adjacencyrank+2);
+	flags:=MaximalChains(poset);
+	return Filtered(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x));
 	end);
 
 InstallOtherMethod(IsFlagConnected,
@@ -405,6 +416,7 @@ InstallMethod(PosetFromConnectionGroup,
 	poset:=PosetFromFaceListOfFlags(posetList); 
 	SetIsP1(poset,true);
 	SetConnectionGroup(poset,conng);
+# 	if IsStringC(conng) then SetIsPolytope(poset,true);fi; #Can't do this... that just says MRC is reflexible polytope.
 	return poset;
 	end);
 
@@ -427,24 +439,32 @@ InstallMethod(PosetFromManiplex,
 	Add(posetList,[[]],1);
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList);
-	SetIsP1(poset,true);
+	if IsPolytopal(mani) then 
+		SetIsPolytope(poset,true);
+		else
+		SetIsP1(poset,true);
+		fi;
 	return poset;
 	end);	
 
-InstallMethod(AreIncidentFlagFaces,
-	[IsList,IsList],
-	function(list1,list2)
-	if list1=[] or list2=[] then
-		return true;
-	elif Intersection(list1,list2)=[] then
-		return false;
-	else
-		return true;
-	fi;
-	return "Was unable to evaluate for some reason.\n";
-	end);	
-	
+# Deprecated 7/7/21
+# InstallOtherMethod(AreIncidentFaces,
+# 	[IsList,IsList],
+# 	function(list1,list2)
+# 	if list1=[] or list2=[] then
+# 		return true;
+# 	elif Intersection(list1,list2)=[] then
+# 		return false;
+# 	else
+# 		return true;
+# 	fi;
+# 	return "Was unable to evaluate for some reason.\n";
+# 	end);	
 
+
+InstallMethod(AreIncidentElements,
+	[IsObject,IsObject],
+	{face1,face2}->IsSubface(face1,face2) or IsSubface(face2,face1));
 
 InstallMethod(FlagsAsListOfFacesFromPoset,
 	[IsPoset and IsPosetOfFlags],
@@ -504,8 +524,10 @@ InstallOtherMethod(AdjacentFlag,
 	if IsPrePolytope(poset)<>true then Print("I was expecting a pre-polytope.\n"); return; fi;
 	flags:=MaximalChains(poset);
 	n:=Rank(poset);
-	ranks:=[1..n];
+	ranks:=[1..n+2];
 	i:=i+2;
+	Remove(ranks,i);
+	return Filtered(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
 	end);
 
 InstallOtherMethod(AdjacentFlag,
