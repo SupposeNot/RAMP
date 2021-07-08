@@ -1,8 +1,5 @@
 ### RAMP -- Research Assistant for Maniplexes and Polytopes ###
 
-# TODO
-# Store petrie rel
-
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
 # free group. So the first time we create one in a given rank, we save it and use it again later.
 InstallValue(UNIVERSAL_SGGI_FREE_GROUPS, []);
@@ -92,6 +89,18 @@ InstallMethod(IsPolytopal,
 	function(M)
 	local ispoly;
 	ispoly := IsStringC(AutomorphismGroup(M));
+	if HasDual(M) then
+		SetIsPolytopal(Dual(M), ispoly);
+	fi;
+	return ispoly;
+	end);
+
+# Currently assumes "nice" maniplexes
+InstallMethod(IsPolytopal,
+	[IsManiplex and IsRotaryManiplexRotGpRep],
+	function(M)
+	local ispoly;
+	ispoly := IsStringCPlus(RotationGroup(M));
 	if HasDual(M) then
 		SetIsPolytopal(Dual(M), ispoly);
 	fi;
