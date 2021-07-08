@@ -61,3 +61,9 @@ DeclareAttribute("ExtraRotRelators", IsRotaryManiplex);
 #! a string C group. It does not check whether <A>G</A>
 #! is an sggi.
 DeclareOperation("IsStringC", [IsGroup]);
+
+#! @Arguments G
+#! For a "string rotation group" <A>G</A>, returns whether the group is
+#! a string C+ group. It does not check whether <A>G</A>
+#! is a string rotation group.
+DeclareOperation("IsStringCPlus", [IsGroup]);
