@@ -248,10 +248,11 @@ InstallMethod(IsP3,
 		compList:=Difference([1..nMC],[i]);
 		for j in compList do
 			overlap:=PositionsProperty([1..r+2],x->maxChains[i][x]=maxChains[j][x]);
+# 			Print(overlap,"\n");
 			if overlap<>[1,r+2] then
 				overlapcomplement:=Intersection(Difference([1..r+2],overlap),[2..r+1])-1;
 				orbit:=Orbit(Group(cGens{overlapcomplement}),i);
-# 				Print([i,j,orbit],"\n");
+#  				Print([i,j,orbit],"\n");
 				if not (j in orbit) then
 					return false;
 				fi;
@@ -329,7 +330,7 @@ InstallMethod(IsP4,
 	local r, ranks, flags, i, faceslow, faceshigh, facesmid, facepairs, pair, mids;
 	if IsP1(poset)=false or IsP2(poset)=false then 
 		Print("Your poset isn't P1 or isn't P2.\n");
-		SetIsP4(poset,false);
+# 		SetIsP4(poset,false);
 		return false;
 	fi;
 	r:=Rank(poset);
@@ -345,7 +346,8 @@ InstallMethod(IsP4,
 		return false;
 	fi;
 	ranks:=[0..r-1];
-	for i in [2..r-1] do
+# 	for i in [2..r-1] do
+	for i in [2..r] do
 		faceslow:=DuplicateFreeList(List(flags,x->x[i]));
 		faceshigh:=DuplicateFreeList(List(flags,x->x[i+2]));
 		facesmid:=DuplicateFreeList(List(flags,x->x[i+1]));
@@ -357,9 +359,9 @@ InstallMethod(IsP4,
 # 				SetIsP4(poset,false);
 				return false;
 			fi;
-#  			Print(mids,"\n\n");
+#  			Print(pair,", ", mids,"\n\n");
 		od;
-# 		Print(i,"\n");Is
+# 		Print(i,"\n");
 	od;
 # 	SetIsP4(poset,true);
 	return true;
@@ -396,7 +398,7 @@ InstallMethod(IsPrePolytope,
 InstallMethod(PosetFromConnectionGroup, 
 	[IsPermGroup],
 	function(g)
-	local conng,poset,posetList,flags,rank,gens,genIndexes,i;
+	local conng, poset, posetList, flags, rank, gens, genIndexes, i, j, faces, chains;
 	rank:=Length(GeneratorsOfGroup(g));
 	if IsPermGroup(g)=true then 
 		conng:=g;
@@ -415,6 +417,13 @@ InstallMethod(PosetFromConnectionGroup,
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList); 
 	SetIsP1(poset,true);
+	faces:=RankedFaceListOfPoset(poset);
+	chains:=ShallowCopy(flags);
+	for i in flags do
+		chains[i]:=Concatenation([[[],-1]],Filtered(faces,x->i in x[1]));
+		chains[i]:=List(chains[i],PosetElementFromListOfFlags);
+		od;
+	SetMaximalChains(poset,chains);
 	SetConnectionGroup(poset,conng);
 # 	if IsStringC(conng) then SetIsPolytope(poset,true);fi; #Can't do this... that just says MRC is reflexible polytope.
 	return poset;
