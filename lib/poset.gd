@@ -303,6 +303,10 @@ DeclareAttribute("ConnectionGroup",IsPoset);
 #! @Description Given a <A>poset</A>, gives the automorphism group of the poset as an action on the maximal chains.
 DeclareAttribute("AutomorphismGroup", IsPoset);
 
+#! @Arguments poset
+#! @Description Given a <A>poset</A>, gives the automorphism group of the poset as an action on the elements.
+DeclareAttribute("AutomorphismGroupOnElements", IsPoset);
+
 ## ! @Arguments poset
 ## ! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
 ## ! @Description FacesOfPosetAsBinaryRelationOnFaces 
@@ -319,6 +323,10 @@ DeclareOperation("FaceListOfPoset",[IsPoset]);
 #! @Returns `list`
 # #! @Description Gives lists of faces ordered by rank. Also sets the rank for each of the faces.
 DeclareOperation("FacesByRankOfPoset",[IsPoset]);
+
+#! @Arguments poset
+#! @Returns directed graph
+DeclareOperation("HasseDiagramOfPoset",[IsPoset]);
 
 
 ############# Element stuff #################
@@ -397,6 +405,5 @@ DeclareOperation("IsEqualFaces", [IsFace, IsFace]);
 #! @Arguments poset1, poset2
 #! @Returns `true` or `false`
 #! @Description Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic.
-
 
 

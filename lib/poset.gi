@@ -11,7 +11,6 @@ InstallMethod(PosetFromFaceListOfFlags,
 	return(poset);
 	end);
 
-
 InstallMethod(POConvertToBROnPoints,
 	[IsBinaryRelation],
 	function(reln)
@@ -395,6 +394,14 @@ InstallMethod(IsPrePolytope,
 	fi;
 	end);
 
+InstallMethod(AutomorphismGroupOnElements,
+	[IsPoset and HasPartialOrder],
+	poset -> AutGroupGraph(HasseDiagramOfPoset(poset)));
+# 
+# InstallMethod(RotationGroup,
+# 	[IsManiplex and IsRotaryManiplexRotGpRep],
+# 	M -> M!.rot_gp);
+
 InstallMethod(PosetFromConnectionGroup, 
 	[IsPermGroup],
 	function(g)
@@ -469,6 +476,19 @@ InstallMethod(PosetFromManiplex,
 # 	fi;
 # 	return "Was unable to evaluate for some reason.\n";
 # 	end);	
+
+InstallMethod(HasseDiagramOfPoset,
+	[IsPoset and HasPartialOrder],
+	function(poset)
+	local po, hasseBR, underlyingBR, edges, nodes;
+	po:=PartialOrder(poset);
+	hasseBR:=HasseDiagramBinaryRelation(po);
+	underlyingBR:=UnderlyingRelation(hasseBR);
+	edges:=List(AsList(underlyingBR),AsList);
+	nodes:=DuplicateFreeList(Concatenation(edges));
+	return DirectedGraphFromListOfEdges(nodes,edges);
+	end);
+
 
 
 InstallMethod(AreIncidentElements,
