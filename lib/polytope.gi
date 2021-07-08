@@ -481,7 +481,7 @@ InstallMethod(IsRotary,
 	[IsManiplex],
 	function(M)
 	local val;
-	val := IsReflexible or IsChiral;
+	val := IsReflexible(M) or IsChiral(M);
 	if HasDual(M) then
 		SetIsRotary(Dual(M), val);
 	fi;

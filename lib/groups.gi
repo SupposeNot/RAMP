@@ -178,6 +178,19 @@ InstallMethod(EvenConnectionGroup,
 	return Group(newgens);
 	end);
 
+InstallMethod(ChiralityGroup,
+	[IsRotaryManiplex],
+	function(M)
+	local g, M2, extra_rels, h;
+	if IsReflexible(M) then return TrivialGroup(IsFpGroup); fi;
+	g := RotationGroup(M);
+	M2 := EnantiomorphicForm(M);
+	extra_rels := ExtraRotRelators(M2);
+	extra_rels := List(extra_rels, r -> ElementOfFpGroup(FamilyObj(g.1), r));
+	h := Subgroup(g, extra_rels);
+	return h;
+	end);
+
 	
 # Returns a list of relators that are necessary to
 # define the automorphism group of M as a quotient of the string
