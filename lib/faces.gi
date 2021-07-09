@@ -11,12 +11,24 @@
 InstallMethod(NumberOfIFaces,
 	[IsManiplex, IsInt],
 	function(p,i)
-	local g, n, ranks, MP;
+	local g, n, ranks, MP, fvec;
 	n:=Rank(p);
 	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
-	if p!.fvec[i+1] <> fail then
+	if IsBound(p!.fvec) and p!.fvec[i+1] <> fail then
 		return p!.fvec[i+1];
 	fi;
+
+	# For maniplexes built out of others, we can try computing the fvector.
+	# This is typically less expensive then using the connection group.
+	if IsManiplexInstructionsRep(p) then
+		fvec := ComputeAttr(p, Fvector);
+		if fvec <> fail then 
+			p!.fvec := fvec;
+			SetFvector(p, fvec);
+			return fvec[i+1];
+		fi;
+	fi;
+
 
 	ranks:=[1..n];
 	Remove(ranks,i+1);
