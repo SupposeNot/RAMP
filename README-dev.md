@@ -228,3 +228,85 @@ to testall.g.
 	
 When you are ready to push your code, first start a fresh GAP session and run TEST_RAMP() to make sure
 that everything still works. 
+
+	
+# InstructionsRep #
+
+One of the most flexible representations for a maniplex is IsManiplexInstructionsRep. This represents a maniplex
+as a formal pair of (operation, arg-list). In particular, a maniplex with this representation might not know
+its connection group, automorphism group, or poset.
+	
+Let's make a new minimal example. Suppose we wanted to implement the truncation of a maniplex. We could
+do something like:
+
+	DeclareOperation("Truncation", [IsManiplex]);
+	
+	InstallMethod(Truncation,
+	[IsManiplex],
+	function(M)
+	local trunc;
+	
+	trunc := Maniplex(Truncation, [M]);
+	...
+
+So far, the maniplex we created doesn't know how to compute anything about itself. In general, the truncation
+of an n-maniplex M has n times as many flags as M. We might not know the size of M right now, so
+instead, we will just give the Truncation of M a function that lets it compute its size later.
+First we make a definition for convenience:
+	
+	trunc!.base := M;
+	
+It will be clearer in a moment why we did this. Now we add an "attribute computer" for Size:
+	
+	AddAttrComputer(trunc, Size,
+	function(M2)
+	return Rank(M2!.base) * Size(M2!.base);
+	end);
+
+Note that I called the input M2 -- I could have called it M, but I wanted to draw attention
+to the fact that we are not talking about the input to Truncation. (In fact, M2 here is standing
+in for the output of Truncation.)
+	
+Let's suppose that for now, this is all we code, and so we have our function return trunc;.
+	
+Now let's go look at how Size is implemented in polytope.gi. The generic version looks like this:
+	
+	InstallMethod(Size,
+		[IsManiplex],
+		function(M)
+		local val;
+		if IsManiplexInstructionsRep(M) then
+			val := ComputeAttr(M, Size);
+			if val <> fail then return val; fi;
+		fi;
+
+		val := LargestMovedPoint(ConnectionGroup(M));
+		...
+		return val;
+		end);
+
+Many attributes have a similar idiom, such as SchlafliSymbol:
+	
+	InstallMethod(SchlafliSymbol,
+		[IsManiplex],
+		function(M)
+		local n, g, i, sym, gens, h, orbs, sections;
+
+		if IsManiplexInstructionsRep(M) then
+			sym := ComputeAttr(M, SchlafliSymbol);
+			if sym <> fail then return sym; fi;
+		fi;
+
+		(calculate in another way...)
+	
+So, at the beginning of the generic version of various attribute calculators, we
+1. Check whether the maniplex is InstructionsRep
+2. If it is, we attempt to delegate the calculation to the Attribute Computer that is stored.
+3. If that fails, then we fall back to the default calculation.
+	
+**You probably want your operation to provide a way of building the Flag Graph or Poset.**
+Most of the default methods for maniplexes use one or the other, so without those, you
+won't get very far. For example, the Truncation method we've built so far can only tell
+you the size of the truncation and absolutely nothing else. So we would want to add an
+attribute computer for the connection group probably. This will fail for infinite
+maniplexes, but that is to be expected.
