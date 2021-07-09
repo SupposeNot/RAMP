@@ -65,6 +65,27 @@ DeclareOperation("VertexFigure", [IsManiplex, IsInt]);
 DeclareAttribute("VertexFigure", IsManiplex);
 
 
+
+#! @Chapter Combinatorics and Structure
+#! @Section Flatness
+
+#! @BeginGroup IsFlat
+#! @GroupTitle IsFlat
+
+#! @Arguments M
+#! In the first form, returns true if every vertex of the maniplex <A>M</A> is incident
+#! to every facet.
+DeclareProperty("IsFlat", IsManiplex);
+
+#! @Arguments M, i, j
+#! In the second form, returns true if every i-face of the maniplex <A>M</A> is
+#! incident to every j-face.
+DeclareOperation("IsFlat", [IsManiplex, IsInt, IsInt]);
+
+#! @EndGroup
+
+
+
 #! @Chapter Combinatorics and Structure
 #! @Section Schlafli symbol
 

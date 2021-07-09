@@ -6,6 +6,8 @@
 # of i-faces for each i that hasn't already been computed.
 # TODO: I think I can handle this more gracefully - see GAP ch. 85 "Function-Operation-Attribute triples"
 
+##### NUMBER OF FACES, FVECTOR, ETC #####
+
 InstallMethod(NumberOfIFaces,
 	[IsManiplex, IsInt],
 	function(p,i)
@@ -95,6 +97,12 @@ InstallMethod(Fvector,
 	od;
 	return fvec;
 	end);
+
+
+
+##### FACETS, VERTEX-FIGURES, AND SECTIONS #####
+
+
 
 InstallMethod(Section,
 	[IsReflexibleManiplex, IsInt, IsInt],
@@ -206,6 +214,33 @@ InstallMethod(VertexFigure,
 	function(M)
 	return VertexFigure(M, 1);
 	end);
+
+
+
+
+##### FLATNESS #####
+
+
+InstallMethod(IsFlat,
+	[IsManiplex, IsInt, IsInt],
+	function(M, i, j)
+	local g;
+	g := LayerGraph(M, i, j);
+	
+	# M is (i,j)-flat if the layer graph is a complete bipartite
+	# graph, which is true iff it has diameter <= 2.
+	return (Diameter(g) <= 2);
+	end);
+
+InstallMethod(IsFlat,
+	[IsManiplex],
+	M -> IsFlat(M, 0, Rank(M)-1));
+
+
+
+
+##### SCHLAFLI SYMBOL #####
+
 	
 InstallMethod(SchlafliSymbol,
 	[IsReflexibleManiplex],
