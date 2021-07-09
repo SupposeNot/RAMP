@@ -79,8 +79,8 @@
     [4X[28X     -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, -48 ] )[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis  also  works  with a maniplex or polytope input. Here we build the flag
-  graph for the cube.[133X
+  [33X[0;0YThis  also works with a maniplex input. Here we build the flag graph for the
+  cube.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg:= UnlabeledFlagGraph(Cube(3));[127X[104X
@@ -147,8 +147,8 @@
     [4X[28X     2, 3, 1, 2, 1, 2 ] ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis  also  works  with a maniplex or polytope input. Here we build the flag
-  graph for the cube.[133X
+  [33X[0;0YThis  also works with a maniplex input. Here we build the flag graph for the
+  cube.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg:= FlagGraphWithLabels(Cube(3));[127X[104X
@@ -182,8 +182,8 @@
     [4X[28X     -12, -13, -14, -15, -16, -17, -18 ] )[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis  also  works with a maniplex or polytope input. Here we build the graph
-  given by the 6 faces and 12 edges of a cube.[133X
+  [33X[0;0YThis  also works with a maniplex input. Here we build the graph given by the
+  6 faces and 12 edges of a cube.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg:= LayerGraph(Cube(3),2,1);;[127X[104X
@@ -191,15 +191,11 @@
   
   [1X1.1-6 Skeleton[101X
   
-  [33X[1;0Y[29X[2XSkeleton[102X( [3Xmaniplex[103X, [3Xor[103X, [3Xpolytope[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSkeleton[102X( [3Xmaniplex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
   
-  [33X[0;0YGiven  a maniplex or a polytope, this outputs the 0-1 skeleton. The vertices
-  are the 0-faces, and the edges are the 1-faces.[133X
-  
-  [1X1.1-7 Skeleton[101X
-  
-  [33X[1;0Y[29X[2XSkeleton[102X( [3Xarg[103X ) [32X operation[133X
+  [33X[0;0YGiven  a  maniplex,  this  outputs  the  0-1  skeleton. The vertices are the
+  0-faces, and the edges are the 1-faces.[133X
   
   [33X[0;0YHere we build the skeleton of the dodecahedron.[133X
   
@@ -207,7 +203,7 @@
     [4X[25Xgap>[125X [27Xg:= Skeleton(Dodecahedron());;[127X[104X
   [4X[32X[104X
   
-  [1X1.1-8 Hasse[101X
+  [1X1.1-7 Hasse[101X
   
   [33X[1;0Y[29X[2XHasse[102X( [3Xgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns a directed graph.[133X

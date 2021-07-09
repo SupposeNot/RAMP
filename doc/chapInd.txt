@@ -5,6 +5,10 @@
   [2X120Cell[102X 5.1-16 
   [2X24Cell[102X 5.1-14 
   [2X600Cell[102X 5.1-18 
+  [2XAbstractPolytope[102X 12.2-1 
+  [2XAbstractRegularPolytope[102X 12.2-2 
+  [2XAbstractRotaryPolytope[102X 12.2-3 
+  [2XAddOrAppend[102X 12.2-4 
   [2XAdjacentFlag[102X, for IsPosetOfFlags,IsList,IsInt 10.3-4 
   [2XAdjacentFlags[102X, for IsPoset,IsList,IsInt 10.3-5 
   [2XAmalgamate[102X, for IsManiplex, IsManiplex 2.1-8 
@@ -13,6 +17,7 @@
   [2XAutomorphismGroup[102X, for IsManiplex 6.1-1 
       for IsPoset 10.3-9 
   [2XAutomorphismGroupFpGroup[102X, for IsManiplex 6.1-2 
+  [2XAutomorphismGroupOnElements[102X, for IsPoset 10.3-10 
   [2XAutomorphismGroupPermGroup[102X, for IsManiplex 6.1-3 
   [2XChiralityGroup[102X, for IsRotaryManiplex 6.1-7 
   [2XConnectionGeneratorOfPoset[102X, for IsPoset,IsInt 10.3-7 
@@ -33,8 +38,8 @@
   [2XEvenConnectionGroup[102X, for IsManiplex 6.1-5 
   [2XExtraRelators[102X, for IsReflexibleManiplex 6.1-8 
   [2XExtraRotRelators[102X, for IsRotaryManiplex 6.1-9 
-  [2XFaceListOfPoset[102X, for IsPoset 10.3-10 
-  [2XFacesByRankOfPoset[102X, for IsPoset 10.3-11 
+  [2XFaceListOfPoset[102X, for IsPoset 10.3-11 
+  [2XFacesByRankOfPoset[102X, for IsPoset 10.3-12 
   [2XFacet[102X, for IsManiplex 4.1-12 
       for IsManiplex, IsInt 4.1-11 
   [2XFacets[102X, for IsManiplex 4.1-10 
@@ -47,7 +52,8 @@
   [2XFromPoset[102X, for IsPosetElement 10.4-3 
   [2XFvector[102X, for IsManiplex 4.1-6 
   [2XGraphFromListOfEdges[102X, for IsList,IsList 1.1-2 
-  [2XHasse[102X, for IsPolytope 1.1-8 
+  [2XHasse[102X, for IsManiplex 1.1-7 
+  [2XHasseDiagramOfPoset[102X, for IsPoset 10.3-13 
   [2XHemi120Cell[102X 5.1-17 
   [2XHemi24Cell[102X 5.1-15 
   [2XHemi600Cell[102X 5.1-19 
@@ -82,6 +88,7 @@
   [2XIsSelfDual[102X, for IsManiplex 2.2-2 
   [2XIsSelfPetrial[102X, for IsManiplex 2.2-4 
   [2XIsStringC[102X, for IsGroup 6.1-10 
+  [2XIsStringCPlus[102X, for IsGroup 6.1-11 
   [2XIsSubface[102X, for IsFace,IsFace 10.4-10 
   [2XIsTight[102X, for IsManiplex and IsPolytopal 4.3-3 
   [2XIsVertexBipartite[102X, for IsManiplex 7.1-3 
@@ -135,7 +142,6 @@
   [2XSimplex[102X, for IsInt 5.1-8 
   [2XSize[102X, for IsManiplex 4.3-1 
   [2XSkeleton[102X, for IsManiplex 1.1-6 
-      for IsPolytope 1.1-7 
   [2XSmallestRegularCover[102X, for IsManiplex 11.1-4 
   [2XSmallRegularPolyhedra[102X, for IsInt 3.1-3 
   [2XSymmetryTypeGraph[102X, for IsManiplex 4.3-5 

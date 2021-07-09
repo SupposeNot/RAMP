@@ -34,8 +34,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X791AEF1C7AA7138C">1.1-4 FlagGraphWithLabels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X809815D08250B57F">1.1-5 LayerGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7BB443CD832DAC12">1.1-6 Skeleton</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7F87AF637C76C4FE">1.1-7 Skeleton</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E3C5D9287BA8360">1.1-8 Hasse</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A0FB13C7EF68CBB">1.1-7 Hasse</a></span>
 </div></div>
 </div>
 
@@ -124,7 +123,7 @@ rec(
      -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, -48 ] )
 </pre></div>
 
-<p>This also works with a maniplex or polytope input. Here we build the flag graph for the cube.</p>
+<p>This also works with a maniplex input. Here we build the flag graph for the cube.</p>
 
 
 <div class="example"><pre>
@@ -191,7 +190,7 @@ rec(
      2, 3, 1, 2, 1, 2 ] ]
 </pre></div>
 
-<p>This also works with a maniplex or polytope input. Here we build the flag graph for the cube.</p>
+<p>This also works with a maniplex input. Here we build the flag graph for the cube.</p>
 
 
 <div class="example"><pre>
@@ -225,7 +224,7 @@ rec(
      -12, -13, -14, -15, -16, -17, -18 ] )
 </pre></div>
 
-<p>This also works with a maniplex or polytope input. Here we build the graph given by the 6 faces and 12 edges of a cube.</p>
+<p>This also works with a maniplex input. Here we build the graph given by the 6 faces and 12 edges of a cube.</p>
 
 
 <div class="example"><pre>
@@ -236,16 +235,11 @@ rec(
 
 <h5>1.1-6 Skeleton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Skeleton</code>( <var class="Arg">maniplex</var>, <var class="Arg">or</var>, <var class="Arg">polytope</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Skeleton</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
 
-<p>Given a maniplex or a polytope, this outputs the 0-1 skeleton. The vertices are the 0-faces, and the edges are the 1-faces.</p>
+<p>Given a maniplex, this outputs the 0-1 skeleton. The vertices are the 0-faces, and the edges are the 1-faces.</p>
 
-<p><a id="X7F87AF637C76C4FE" name="X7F87AF637C76C4FE"></a></p>
-
-<h5>1.1-7 Skeleton</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Skeleton</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Here we build the skeleton of the dodecahedron.</p>
 
 
@@ -253,9 +247,9 @@ rec(
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= Skeleton(Dodecahedron());;</span>
 </pre></div>
 
-<p><a id="X7E3C5D9287BA8360" name="X7E3C5D9287BA8360"></a></p>
+<p><a id="X7A0FB13C7EF68CBB" name="X7A0FB13C7EF68CBB"></a></p>
 
-<h5>1.1-8 Hasse</h5>
+<h5>1.1-7 Hasse</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hasse</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns a directed graph.</p>

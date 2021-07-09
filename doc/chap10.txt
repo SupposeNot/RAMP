@@ -424,20 +424,32 @@
   [33X[0;0YGiven a [3Xposet[103X, gives the automorphism group of the poset as an action on the
   maximal chains.[133X
   
-  [1X10.3-10 FaceListOfPoset[101X
+  [1X10.3-10 AutomorphismGroupOnElements[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismGroupOnElements[102X( [3Xposet[103X ) [32X attribute[133X
+  
+  [33X[0;0YGiven a [3Xposet[103X, gives the automorphism group of the poset as an action on the
+  elements.[133X
+  
+  [1X10.3-11 FaceListOfPoset[101X
   
   [33X[1;0Y[29X[2XFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
   [33X[0;0YGives a list of faces collected into lists ordered by increasing rank.[133X
   
-  [1X10.3-11 FacesByRankOfPoset[101X
+  [1X10.3-12 FacesByRankOfPoset[101X
   
   [33X[1;0Y[29X[2XFacesByRankOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
   [33X[0;0YGives  lists  of  faces  ordered by rank. Also sets the rank for each of the
   faces.[133X
+  
+  [1X10.3-13 HasseDiagramOfPoset[101X
+  
+  [33X[1;0Y[29X[2XHasseDiagramOfPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ydirected graph[133X
   
   
   [1X10.4 [33X[0;0YElements of posets, also known as faces.[133X[101X

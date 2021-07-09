@@ -62,8 +62,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84E3B63C8639771B">10.3-7 ConnectionGeneratorOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X859C651184ED9424">10.3-8 ConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C6813D27F0BD0F8">10.3-9 AutomorphismGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X79F1837C835A5EFF">10.3-10 FaceListOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82CBC68480F222C7">10.3-11 FacesByRankOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X80C2783D7FD60E56">10.3-10 AutomorphismGroupOnElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X79F1837C835A5EFF">10.3-11 FaceListOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82CBC68480F222C7">10.3-12 FacesByRankOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7AE5050E7F6182C8">10.3-13 HasseDiagramOfPoset</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X86FBAB3E8056F479">10.4 <span class="Heading">Elements of posets, also known as faces.</span></a>
 </span>
@@ -500,9 +502,16 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Given a <var class="Arg">poset</var>, gives the automorphism group of the poset as an action on the maximal chains.</p>
 
+<p><a id="X80C2783D7FD60E56" name="X80C2783D7FD60E56"></a></p>
+
+<h5>10.3-10 AutomorphismGroupOnElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnElements</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Given a <var class="Arg">poset</var>, gives the automorphism group of the poset as an action on the elements.</p>
+
 <p><a id="X79F1837C835A5EFF" name="X79F1837C835A5EFF"></a></p>
 
-<h5>10.3-10 FaceListOfPoset</h5>
+<h5>10.3-11 FaceListOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
@@ -511,12 +520,19 @@ false
 
 <p><a id="X82CBC68480F222C7" name="X82CBC68480F222C7"></a></p>
 
-<h5>10.3-11 FacesByRankOfPoset</h5>
+<h5>10.3-12 FacesByRankOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacesByRankOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
 
 <p>Gives lists of faces ordered by rank. Also sets the rank for each of the faces.</p>
+
+<p><a id="X7AE5050E7F6182C8" name="X7AE5050E7F6182C8"></a></p>
+
+<h5>10.3-13 HasseDiagramOfPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HasseDiagramOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: directed graph</p>
 
 <p><a id="X86FBAB3E8056F479" name="X86FBAB3E8056F479"></a></p>
 

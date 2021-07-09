@@ -86,7 +86,7 @@ rec(
 ]]></Example>
 
 
- This also works with a maniplex or polytope input. 
+ This also works with a maniplex input. 
  Here we build the flag graph for the cube.
 <Example><![CDATA[
 gap> g:= UnlabeledFlagGraph(Cube(3));
@@ -156,7 +156,7 @@ gap> g:= FlagGraphWithLabels(ConnectionGroup(Cube(3)));
 ]]></Example>
 
 
- This also works with a maniplex or polytope input. 
+ This also works with a maniplex input. 
  Here we build the flag graph for the cube.
 <Example><![CDATA[
 gap> g:= FlagGraphWithLabels(Cube(3));
@@ -191,7 +191,7 @@ rec(
 ]]></Example>
 
 
- This also works with a maniplex or polytope input. 
+ This also works with a maniplex  input. 
  Here we build the graph given by the 6 faces and 12 edges of a cube.
 <Example><![CDATA[
 gap> g:= LayerGraph(Cube(3),2,1);;
@@ -199,19 +199,11 @@ gap> g:= LayerGraph(Cube(3),2,1);;
 
 
 <ManSection>
-  <Oper Arg="maniplex or polytope" Name="Skeleton" Label="for IsManiplex"/>
+  <Oper Arg="maniplex" Name="Skeleton" Label="for IsManiplex"/>
  <Returns><Code>IsGraph</Code>. Note this returns an undirected graph.
 </Returns>
  <Description>
-Given a maniplex or a polytope, this outputs the 0-1 skeleton. The vertices are the 0-faces, and the edges are the 1-faces.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="arg" Name="Skeleton" Label="for IsPolytope"/>
- <Description>
-<P/>
+Given a maniplex, this outputs the 0-1 skeleton. The vertices are the 0-faces, and the edges are the 1-faces.
  </Description>
 </ManSection>
 
@@ -223,7 +215,7 @@ gap> g:= Skeleton(Dodecahedron());;
 
 
 <ManSection>
-  <Oper Arg="group" Name="Hasse" Label="for IsPolytope"/>
+  <Oper Arg="group" Name="Hasse" Label="for IsManiplex"/>
  <Returns><Code>IsGraph</Code>. Note this returns a directed graph.
 </Returns>
  <Description>

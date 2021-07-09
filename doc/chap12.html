@@ -32,6 +32,14 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7C4F288287BD75D6">12.1-5 RotaryManiplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7E64776382984E5A">12.1-6 EnantiomorphicForm</a></span>
 </div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap12.html#X84BB54A287D5B233">12.2 <span class="Heading">ramp automatic generated documentation of global functions</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7D63A6087BD7F5F8">12.2-1 AbstractPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7C2837FB8174C8DC">12.2-2 AbstractRegularPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X79AB055B7DDFB160">12.2-3 AbstractRotaryPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X829B5DA779342A28">12.2-4 AddOrAppend</a></span>
+</div></div>
 </div>
 
 <h3>12 <span class="Heading">ramp automatic generated documentation</span></h3>
@@ -74,6 +82,38 @@
 <h5>12.1-6 EnantiomorphicForm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnantiomorphicForm</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X84BB54A287D5B233" name="X84BB54A287D5B233"></a></p>
+
+<h4>12.2 <span class="Heading">ramp automatic generated documentation of global functions</span></h4>
+
+<p><a id="X7D63A6087BD7F5F8" name="X7D63A6087BD7F5F8"></a></p>
+
+<h5>12.2-1 AbstractPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">Maniplex(args)</code> and marks the output as polytopal.</p>
+
+<p><a id="X7C2837FB8174C8DC" name="X7C2837FB8174C8DC"></a></p>
+
+<h5>12.2-2 AbstractRegularPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRegularPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">ReflexibleManiplex(args)</code> and marks the output as polytopal. Also available as <code class="code">ARP(args)</code>.</p>
+
+<p><a id="X79AB055B7DDFB160" name="X79AB055B7DDFB160"></a></p>
+
+<h5>12.2-3 AbstractRotaryPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRotaryPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">RotaryManiplex(args)</code> and marks the output as polytopal.</p>
+
+<p><a id="X829B5DA779342A28" name="X829B5DA779342A28"></a></p>
+
+<h5>12.2-4 AddOrAppend</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>
+
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap11.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapInd.html">[Next Chapter]</a>&nbsp;  </div>
 

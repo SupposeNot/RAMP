@@ -452,6 +452,14 @@ Given a <A>poset</A>, gives the automorphism group of the poset as an action on 
 
 
 <ManSection>
+  <Attr Arg="poset" Name="AutomorphismGroupOnElements" Label="for IsPoset"/>
+ <Description>
+Given a <A>poset</A>, gives the automorphism group of the poset as an action on the elements.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Oper Arg="poset" Name="FaceListOfPoset" Label="for IsPoset"/>
  <Returns><Code>list</Code>
 </Returns>
@@ -467,6 +475,16 @@ Gives a list of faces collected into lists ordered by increasing rank.
 </Returns>
  <Description>
 Gives lists of faces ordered by rank. Also sets the rank for each of the faces.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="HasseDiagramOfPoset" Label="for IsPoset"/>
+ <Returns>directed graph
+</Returns>
+ <Description>
+<P/>
  </Description>
 </ManSection>
 
