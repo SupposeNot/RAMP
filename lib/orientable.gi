@@ -39,9 +39,20 @@ InstallMethod(IsVertexBipartite,
 	return IsIOrientable(M, [0]);
 	end);
 	
+InstallMethod(IsVertexBipartite,
+	[IsManiplex],
+	function(M)
+	return IsBipartite(Skeleton(M));
+	end);
+	
 InstallMethod(IsFacetBipartite,
 	[IsReflexibleManiplex],
 	function(M)
 	return IsIOrientable(M, [Rank(M)-1]);
 	end);
 	
+InstallMethod(IsFacetBipartite,
+	[IsManiplex],
+	function(M)
+	return IsBipartite(Skeleton(Dual(M)));
+	end);
