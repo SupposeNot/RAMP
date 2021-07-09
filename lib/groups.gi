@@ -124,7 +124,8 @@ InstallMethod(ConnectionGroup,
 	function(M)
 	local g;
 	g := AutomorphismGroup(M);
-	return Image(RegularActionHomomorphism(g));
+	return Action(g, g, OnLeftInverse, "surjective");
+	# return Image(RegularActionHomomorphism(g));
 	end);
 	
 InstallMethod(ConnectionGroup,
