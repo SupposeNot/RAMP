@@ -270,7 +270,7 @@ Dependencies := rec(
   # insensitive, exact version denoted with '=' prepended to version string.
   # without these, the package will not load
   # NeededOtherPackages := [["GAPDoc", "1.5"]],
-  NeededOtherPackages := [["GAPDoc", "1.5"]],
+  NeededOtherPackages := [["GAPDoc", "1.5"],["GRAPE", "4.8"]],
 
   # list of pairs [package name, version] as above,
   # these package are will be loaded if they are available,
