@@ -242,6 +242,12 @@ InstallMethod(Maniplex,
 	return M2;
 	end);
 	
+InstallMethod(Maniplex,
+	[IsFunction, IsList],
+	function(oper, inputs)
+	return Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexInstructionsRep), rec( operation := oper, args := inputs, attr_computers := NewDictionary(Size, true) ));
+	end);
+	
 InstallOtherMethod(Size,
 	[IsReflexibleManiplex],
 	function(M)
@@ -276,7 +282,7 @@ InstallOtherMethod(Size,
 	end);
 
 InstallMethod(Size,
-	[IsManiplex and IsManiplexInstructionsRep],
+	[IsManiplex],
 	function(M)
 	local val;
 	if IsManiplexInstructionsRep(M) then

@@ -204,9 +204,8 @@ InstallMethod(Medial,
 	
 	if Rank(p) <> 3 then Error("Medial only defined for rank 3."); fi;
 
-	dict := NewDictionary(Size, true);
-	
-	Med := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexInstructionsRep), rec( operation := Medial, base := p, attr_computers := dict ));
+	Med := Maniplex(Medial, [p]);
+	Med!.base := p;
 
 	SetRankManiplex(Med, 3);
 	

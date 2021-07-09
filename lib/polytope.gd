@@ -58,7 +58,7 @@ DeclareOperation("Maniplex", [IsGroup]);
 
 DeclareOperation("Maniplex", [IsReflexibleManiplex, IsGroup]);
 
-
+DeclareOperation("Maniplex", [IsFunction, IsList]);
 
 #! @Arguments M
 #! Returns whether the maniplex <A>M</A> is a polytope.
