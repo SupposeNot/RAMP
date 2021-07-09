@@ -29,8 +29,18 @@ InstallMethod(IsIOrientable,
 	rels := RelatorsOfFpGroup(AutomorphismGroup(M));
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
 	# Translate I since tietze words are 1-based instead of 0-based
-	I := List(I, i -> i+1);
+	I := I+1;
 	return ForAll(rels, r -> Number(r, i -> i in I) mod 2 = 0);
+	end);
+
+InstallMethod(IsIOrientable,
+	[IsManiplex, IsList],
+	function(M, I)
+	local g;
+	g := FlagGraphWithLabels(M);
+
+	# QuotientByLabel has edge labels that are offset by 1.
+	return(IsBipartite(QuotientByLabel(g[1], g[2], g[3], I+1)));
 	end);
 
 InstallMethod(IsVertexBipartite,
