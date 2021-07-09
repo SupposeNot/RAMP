@@ -1,7 +1,7 @@
 # This checks some easily-calculated combinatorial properties
 # for whether p could be a function of q.
-InstallGlobalFunction(CouldBeQuotientOf,
-	function(p,q)
+InstallGlobalFunction(CouldBeQuotient,
+	function(q,p)
 	local i, k1, k2;
 	if Rank(p) <> Rank(q) then return false; fi;
 
@@ -40,23 +40,23 @@ InstallGlobalFunction(CouldBeQuotientOf,
 # To determine if P is a quotient of Q, if they are both just generic polytopes,
 # then we try to find a homomorphism between their connection groups.
 # TODO: This is broken! We want something more like an action homomorphism...
-InstallMethod(IsQuotientOf,
+InstallMethod(IsQuotient,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
-	function(p,q)
+	function(q,p)
 	local g, rels, g1, g2, hom, k1, k2, i;
-	if not(CouldBeQuotientOf(p,q)) then return false; fi;
+	if not(CouldBeQuotient(q,p)) then return false; fi;
 	g1 := ConnectionGroup(q);
 	g2 := ConnectionGroup(p);
 	hom := GroupHomomorphismByImages(g1, g2);
 	return (hom <> fail);
 	end);
 
-InstallMethod(IsQuotientOf,
+InstallMethod(IsQuotient,
 	ReturnTrue,
 	[IsManiplex and IsManiplexQuotientRep, IsManiplex and IsManiplexQuotientRep],
-	function(p,q)
-	if not(CouldBeQuotientOf(p,q)) then return false; fi;
+	function(q,p)
+	if not(CouldBeQuotient(q,p)) then return false; fi;
 	if (p!.parent = q!.parent) and IsSubset(q!.subgroup, p!.subgroup) then
 		return true;
 	else
@@ -66,12 +66,12 @@ InstallMethod(IsQuotientOf,
 	
 # This determines whether the regular polytope P is a quotient of the regular polytope Q,
 # assuming that we have presentations for both of their groups.
-InstallMethod(IsQuotientOf,
+InstallMethod(IsQuotient,
 	ReturnTrue,
 	[IsReflexibleManiplex, IsReflexibleManiplex],
-	function(p,q)
+	function(q,p)
 	local g, rels, g1, g2, hom, k1, k2, i;
-	if not(CouldBeQuotientOf(p,q)) then return false; fi;
+	if not(CouldBeQuotient(q,p)) then return false; fi;
 
 	# TODO: This only logically works if they have Schlafli symbols that are known and computed
 	if IsSubset(ExtraRelators(q), ExtraRelators(p)) then return true; fi;
@@ -91,12 +91,12 @@ InstallMethod(IsQuotientOf,
 	fi;
 	end);
 	
-InstallMethod(IsQuotientOf,
+InstallMethod(IsQuotient,
 	ReturnTrue,
 	[IsManiplex and IsRotaryManiplexRotGpRep, IsManiplex and IsRotaryManiplexRotGpRep],
-	function(p,q)
+	function(q,p)
 	local g, rels, newrels, p2, g1, g2, g3, hom1, hom2, k1, k2, i;
-	if not(CouldBeQuotientOf(p,q)) then return false; fi;
+	if not(CouldBeQuotient(q,p)) then return false; fi;
 
 	# TODO: This only logically works if they have Schlafli symbols that are known and computed
 	if IsSubset(ExtraRotRelators(q), ExtraRotRelators(p)) then return true; fi;
@@ -128,14 +128,14 @@ InstallMethod(IsQuotientOf,
 	fi;
 	end);
 	
-InstallMethod(IsCoverOf,
+InstallMethod(IsCover,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
-	return IsQuotientOf(q,p);
+	return IsQuotient(q,p);
 	end);
 
-InstallMethod(IsIsomorphicTo,
+InstallMethod(IsIsomorphicManiplex,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
@@ -145,14 +145,14 @@ InstallMethod(IsIsomorphicTo,
 		if Tester(att)(p) and Tester(att)(q) and att(p) <> att(q) then return false; fi;
 	od;
 	
-	# This optimization is disabled until IsQuotientOf is fixed...
+	# This optimization is disabled until IsQuotient is fixed...
 	#if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
 		# At this point, we know that p and q are the same size and finite.
-	#	val := IsQuotientOf(p,q);
+	#	val := IsQuotient(p,q);
 	#else
-	#	val := (IsQuotientOf(p,q) and IsCoverOf(p,q));
+	#	val := (IsQuotient(p,q) and IsCover(p,q));
 	#fi;
-	val := (IsQuotientOf(p,q) and IsCoverOf(p,q));
+	val := (IsQuotient(p,q) and IsCover(p,q));
 
 	
 	if val then
@@ -183,7 +183,7 @@ InstallMethod( \=,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
-	return IsIsomorphicTo(p,q);
+	return IsIsomorphicManiplex(p,q);
 	end);
 
 InstallMethod(SmallestRegularCover,
