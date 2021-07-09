@@ -7,8 +7,6 @@ InstallMethod(AutomorphismGroup,
 	[IsManiplex and IsReflexibleManiplexAutGpRep],
 	M -> M!.aut_gp);
 
-# BROKEN
-# Need to find another approach.
 InstallMethod(AutomorphismGroup,
 	[IsManiplex and IsRotaryManiplexRotGpRep],
 	function(M)

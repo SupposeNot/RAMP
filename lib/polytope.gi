@@ -457,7 +457,7 @@ InstallMethod(NumberOfFlagOrbits,
 	local n;
 	if IsReflexibleManiplexAutGpRep(M) then 
 		n := 1; 
-	elif IsFinite(M) then
+	elif Size(M) < infinity then
 		return Size(M) / Size(AutomorphismGroup(M));
 	else
 		n := LargestMovedPoint(Group(SymmetryTypeGraph(M)));
@@ -468,6 +468,17 @@ InstallMethod(NumberOfFlagOrbits,
 		SetNumberOfFlagOrbits(Dual(M), n);
 	fi;
 	return n;
+	end);
+
+InstallMethod(FlagOrbitRepresentatives,
+	[IsManiplex],
+	function(M)
+	local g;
+	if IsReflexible(M) then
+		return [1];
+	else
+		Error("Not yet implemented for non-reflexible things. Waiting for labeled graph code.");
+	fi;
 	end);
 
 InstallMethod(IsReflexible,

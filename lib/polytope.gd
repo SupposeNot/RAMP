@@ -106,6 +106,10 @@ DeclareAttribute("SymmetryTypeGraph", IsManiplex);
 DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
 
 #! @Arguments M
+#! Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
+DeclareAttribute("FlagOrbitRepresentatives", IsManiplex);
+
+#! @Arguments M
 #! @Returns Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
 DeclareProperty("IsReflexible", IsManiplex);
 
