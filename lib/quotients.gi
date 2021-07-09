@@ -95,24 +95,36 @@ InstallMethod(IsQuotientOf,
 	ReturnTrue,
 	[IsManiplex and IsRotaryManiplexRotGpRep, IsManiplex and IsRotaryManiplexRotGpRep],
 	function(p,q)
-	local g, rels, g1, g2, hom, k1, k2, i;
+	local g, rels, newrels, p2, g1, g2, g3, hom1, hom2, k1, k2, i;
 	if not(CouldBeQuotientOf(p,q)) then return false; fi;
 
 	# TODO: This only logically works if they have Schlafli symbols that are known and computed
 	if IsSubset(ExtraRotRelators(q), ExtraRotRelators(p)) then return true; fi;
 	
+	# We have to check both p and the enantiomorphic form of p
+	p2 := EnantiomorphicForm(p);
+	
 	if HasSize(p) and IsFinite(p) then
 		# add rels from q to p...
 		rels := RelatorsOfFpGroup(RotationGroup(q));
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p))));
-		g := FactorGroupFpGroupByRels(RotationGroup(p), rels);
-		return (Size(g) = Size(RotationGroup(p)));
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p))));
+		g := FactorGroupFpGroupByRels(RotationGroup(p), newrels);
+		if Size(g) = Size(RotationGroup(p)) then
+			return true;
+		fi;
+		
+		# Now try the enantiomorphic form
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p2))));
+		g := FactorGroupFpGroupByRels(RotationGroup(p2), rels);
+		return (Size(g) = Size(RotationGroup(p2)));
 	else
 		g1 := RotationGroup(q);
 		g2 := RotationGroup(p);
-		hom := GroupHomomorphismByImages(g1, g2, GeneratorsOfGroup(g1), GeneratorsOfGroup(g2));
-		return (hom <> fail);
+		g3 := RotationGroup(p2);
+		hom1 := GroupHomomorphismByImages(g1, g2, GeneratorsOfGroup(g1), GeneratorsOfGroup(g2));
+		hom2 := GroupHomomorphismByImages(g1, g3, GeneratorsOfGroup(g1), GeneratorsOfGroup(g3));
+		return (hom1 <> fail or hom2 <> fail);
 	fi;
 	end);
 	
