@@ -169,6 +169,25 @@ end);
 
 
 
+InstallMethod(QuotientByLabel,
+	[IsObject,IsList, IsList, IsList],
+	function(g,ed,lab,ks)
+	local Rel, i, Q, E2, V2, gnew;	
+	Rel:=[];
+	for i in [1..Size(ed)] do
+		if not (lab[i] in ks) then
+			Add(Rel,ed[i]);
+		fi;
+	od;
+	Q:=UnderlyingGraph(QuotientGraph(g,Rel));
+	E2:=DirectedEdges(Q);
+	V2:=Vertices(Q);
+	for i in V2 do
+		RemoveSet(E2,[i,i]);
+	od;
+	gnew:=GraphFromListOfEdges(V2,E2);
+	return gnew;
+end);
 
 
 
