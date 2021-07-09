@@ -198,7 +198,6 @@ DeclareOperation("Skeleton",[IsManiplex]);
 #! @Description Given a group, assumed to be the connection group of a maniplex, this outputs the Hasse Diagram as a directed graph.  
 #! Note: The unique minimal and maximal face are assumed.
 DeclareOperation("Hasse",[IsManiplex]);
-
 #! Here we build the Hasse Diagram of a 3-simplex from its representation as a maniplex.
 #! @BeginExampleSession
 #! gap> Hasse(Simplex(3));
@@ -213,3 +212,26 @@ DeclareOperation("Hasse",[IsManiplex]);
 #!  schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, 
 #!      -12, -13, -14, -15, -16 ] )
 #! @EndExampleSession
+
+
+#! @Arguments object,list, list, list
+#! @Returns `IsGraph`. Note this returns an undirected graph.
+#! @Description Given a graph, its edges, and its edge labels, and a sublist of labels, this creates the underlying simple graph of the quotient identifying vertices connected by labels not in the sublist.
+DeclareOperation("QuotientByLabel", [IsObject,IsList, IsList, IsList]);
+#! Here we start with the flag graph of the 3-cube (with edge labels 1,2,3), and identify any vertices not connected by edge by edges of label 1.   We can then check that this new graph is bipartite. 
+#! @BeginExampleSession
+#! gap> P:=Cube(3);;
+#! gap> f:=FlagGraphWithLabels(P);;
+#! gap> g:=f[1];;
+#! gap> ed:=f[2];;
+#! gap> lab:=f[3];  #Note This triple is to be replace by a single object.
+#! [ 3, 2, 1, 3, 1, 2, 1, 2, 3, 2, 1, 3, 2, 1, 1, 3, 2, 2, 3, 1, 3, 1, 2, 3, 2, 1, 1, 2, 2, 3, 1, 3, 1, 2, 
+#!   3, 1, 2, 1, 3, 2, 2, 1, 2, 2, 3, 1, 1, 3, 1, 3, 3, 2, 1, 2, 1, 3, 3, 1, 3, 2, 2, 2, 2, 3, 3, 1, 3, 1, 1, 3, 2, 3 ]
+#! gap> Q:=QuotientByLabel(g,ed,lab,[1]);
+#!rec( adjacencies := [ [ 5, 6, 8 ], [ 3, 4, 7 ], [ 2, 6, 8 ], [ 2, 5, 8 ], [ 1, 4, 7 ], [ 1, 3, 7 ], [ 2, 5, 6 ], [ 1, 3, 4 ] ], group := Group(()), isGraph := true, 
+#!  isSimple := true, names := [ 1 .. 8 ], order := 8, representatives := [ 1, 2, 3, 4, 5, 6, 7, 8 ], schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8 ] )
+#! gap> IsBipartite(Q);
+#! true
+#! @EndExampleSession
+
+
