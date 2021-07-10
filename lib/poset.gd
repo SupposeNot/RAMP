@@ -307,6 +307,8 @@ DeclareAttribute("AutomorphismGroup", IsPoset);
 #! @Description Given a <A>poset</A>, gives the automorphism group of the poset as an action on the elements.
 DeclareAttribute("AutomorphismGroupOnElements", IsPoset);
 
+DeclareOperation("AGOfPoset", [IsPoset]);
+
 ## ! @Arguments poset
 ## ! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
 ## ! @Description FacesOfPosetAsBinaryRelationOnFaces 

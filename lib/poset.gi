@@ -397,10 +397,8 @@ InstallMethod(IsPrePolytope,
 InstallMethod(AutomorphismGroupOnElements,
 	[IsPoset and HasPartialOrder],
 	poset -> AutGroupGraph(HasseDiagramOfPoset(poset)));
-# 
-# InstallMethod(RotationGroup,
-# 	[IsManiplex and IsRotaryManiplexRotGpRep],
-# 	M -> M!.rot_gp);
+
+
 
 InstallMethod(PosetFromConnectionGroup, 
 	[IsPermGroup],
@@ -478,18 +476,44 @@ InstallMethod(PosetFromManiplex,
 # 	end);	
 
 InstallMethod(HasseDiagramOfPoset,
-	[IsPoset and HasPartialOrder],
+# 	[IsPoset and HasPartialOrder],
+	[IsPoset],
 	function(poset)
 	local po, hasseBR, underlyingBR, edges, nodes;
 	po:=PartialOrder(poset);
 	hasseBR:=HasseDiagramBinaryRelation(po);
 	underlyingBR:=UnderlyingRelation(hasseBR);
 	edges:=List(AsList(underlyingBR),AsList);
-	nodes:=DuplicateFreeList(Concatenation(edges));
+# 	Print(edges);
+	nodes:=Set(Concatenation(edges));
 	return DirectedGraphFromListOfEdges(nodes,edges);
 	end);
 
+InstallOtherMethod(PartialOrder,
+	[IsPoset],
+	function(poset)
+	local faceList, workingList, po;
+	faceList:=ElementsList(poset);
+	if DuplicateFreeList(List(faceList,HasFlagList))=[true] then
+		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
+		return POConvertToBROnPoints(po);
+	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
+		workingList:=List(faceList,x->[AtomList(x),Rank(x)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
+		return POConvertToBROnPoints(po);
+	else
+		Print("ya got me doc! You might try including a partial ordering function.");
+	fi;	
+	end);
 
+# InstallMethod(HasseDiagramOfPoset,
+# 	[IsPoset],
+# 	function(poset)
+# 	local flags, faces;
+# 	po:=PartialOrder(poset);
+# 	
+# 	end);
 
 InstallMethod(AreIncidentElements,
 	[IsObject,IsObject],
@@ -733,14 +757,35 @@ InstallMethod(ConnectionGroup,
 	return Group(generators);
 	end);
 
-InstallMethod(AutomorphismGroup, 
+# InstallMethod(AutomorphismGroup, 
+# 	[IsPoset],
+# 	function(poset)
+# 	local g;
+# 	g:=ConnectionGroup(poset);
+# 	return Centralizer(SymmetricGroup(MovedPoints(g)),g);
+# 	end);
+
+InstallMethod(AutomorphismGroup,
 	[IsPoset],
 	function(poset)
-	local g;
-	g:=ConnectionGroup(poset);
-	return Centralizer(SymmetricGroup(MovedPoints(g)),g);
+	local faces, chains, newChains, AGFaces, AGFacesGens, AGFlags, AGFlagGens, po, i;
+	faces:=ElementsList(poset);
+	chains:=MaximalChains(poset);
+	newChains:=[1..Length(chains)];
+	Apply(newChains, x->List(chains[x],y->Position(faces,y)));
+	if HasPartialOrder(poset)=false then po:=PartialOrder(poset);fi;
+	if HasAutomorphismGroupOnElements(poset)=false then 
+		AGFaces:=AutomorphismGroupOnElements(poset);
+		SetAutomorphismGroupOnElements(poset,AGFaces);
+		fi;
+	AGFaces:=AutomorphismGroupOnElements(poset);	
+	AGFacesGens:=GeneratorsOfGroup(AGFaces);
+	AGFlagGens:=[1..Length(AGFacesGens)];
+	for i in AGFlagGens do
+		AGFlagGens[i]:=PermListList([1..Length(newChains)], List(newChains,x-> Position(newChains,List(x,y->y^AGFacesGens[i]))));
+		od;
+	return Group(AGFlagGens);
 	end);
-# 	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
 
 
 InstallMethod(ViewObj,
