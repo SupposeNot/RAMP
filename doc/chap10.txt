@@ -163,21 +163,29 @@
     [4X[28X[ -1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X10.1-6 PairCompareFlagsList[101X
+  
+  [1X10.1-6 [33X[0;0YHelper functions[133X[101X
+  
+  [33X[0;0YThe  functions  PairCompareFlagsList  and  PairCompareAtomsList  are used in
+  poset construction.[133X
+  
+  [1X10.1-7 PairCompareFlagsList[101X
   
   [33X[1;0Y[29X[2XPairCompareFlagsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YFunction  assumes  [3Xlist1[103X  and  [3Xlist2[103X  are  of the form [[10XlistOfFlags[110X,[10Xi[110X] where
-  [10XlistOfFlags[110X is a list of flags in the face and [10Xi[110X is the rank of the face.[133X
+  [10XlistOfFlags[110X  is  a  list of flags in the face and [10Xi[110X is the rank of the face.
+  Allows comparison of HasFlagList elements.[133X
   
-  [1X10.1-7 PairCompareAtomsList[101X
+  [1X10.1-8 PairCompareAtomsList[101X
   
   [33X[1;0Y[29X[2XPairCompareAtomsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YFunction  assumes  [3Xlist1[103X  and  [3Xlist2[103X are of the form [10X[listOfAtoms,int][110X where
-  [10XlistOfAtoms[110X is a list of flags in the face and [10Xint[110X is the rank of the face.[133X
+  [10XlistOfAtoms[110X  is a list of flags in the face and [10Xint[110X is the rank of the face.
+  Allows comparison of HasAtomList elements.[133X
   
   
   [1X10.2 [33X[0;0YPoset attributes[133X[101X
@@ -364,6 +372,13 @@
   
   [33X[0;0YDetermines  whether  [3Xposet1[103X  and [3Xposet2[103X are isomorphic by checking to see if
   their Hasse diagrams are isomorphic.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ),  PosetFromManiplex( PrismOver (PyramidOver( Cube(2) ) ) ) );[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27X IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ), PosetFromManiplex( PyramidOver( PrismOver( Cube(2) ) ) ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X10.3-2 PosetIsomorphism[101X
   

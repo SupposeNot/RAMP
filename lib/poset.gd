@@ -110,15 +110,18 @@ DeclareOperation("PosetFromElements",[IsList]);
 #! [ -1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3 ]
 #! @EndExampleSession
 
-#Helper functions for PosetFromElements
+#! @Subsection Helper functions
+#! The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
+
+
 #! @Arguments list1, list2
 #! @Returns `true` or `false`
-#! @Description Function assumes <A>list1</A> and <A>list2</A> are of the form [`listOfFlags`,`i`] where `listOfFlags` is a list of flags in the face and `i` is the rank of the face.
+#! @Description Function assumes <A>list1</A> and <A>list2</A> are of the form [`listOfFlags`,`i`] where `listOfFlags` is a list of flags in the face and `i` is the rank of the face. Allows comparison of HasFlagList elements.
 DeclareOperation("PairCompareFlagsList",[IsList,IsList]);
 
 #! @Arguments list1, list2
 #! @Returns `true` or `false`
-#! @Description Function assumes <A>list1</A> and <A>list2</A> are of the form `[listOfAtoms,int]` where `listOfAtoms` is a list of flags in the face and `int` is the rank of the face.
+#! @Description Function assumes <A>list1</A> and <A>list2</A> are of the form `[listOfAtoms,int]` where `listOfAtoms` is a list of flags in the face and `int` is the rank of the face. Allows comparison of HasAtomList elements.
 DeclareOperation("PairCompareAtomsList",[IsList,IsList]);
 
 #! @Section Poset attributes
@@ -260,12 +263,16 @@ DeclareProperty("IsPrePolytope", IsPoset);
 #! @Section Working with posets
 
 
-
-
 #! @Arguments poset1, poset2
 #! @Returns `true` or `false`
 #! @Description Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic by checking to see if their Hasse diagrams are isomorphic.
 DeclareOperation("IsIsomorphicPoset",[IsPoset,IsPoset]);
+#! @BeginExampleSession
+#! gap>  IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ),  PosetFromManiplex( PrismOver (PyramidOver( Cube(2) ) ) ) );
+#! false
+#! gap>  IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ), PosetFromManiplex( PyramidOver( PrismOver( Cube(2) ) ) ) );
+#! true
+#! @EndExampleSession
 
 #! @Arguments poset1, poset2
 #! @Returns map on face indices

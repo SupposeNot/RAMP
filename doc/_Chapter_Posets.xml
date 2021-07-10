@@ -149,12 +149,19 @@ gap>  List(FacesList(pos2),x->Rank(x));
 ]]></Example>
 
 
+<Subsection Label="Chapter_Posets_Section_Poset_constructors_Subsection_Helper_functions">
+<Heading>Helper functions</Heading>
+
+ The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
+</Subsection>
+
+
 <ManSection>
   <Oper Arg="list1, list2" Name="PairCompareFlagsList" Label="for IsList,IsList"/>
  <Returns><Code>true</Code> or <Code>false</Code>
 </Returns>
  <Description>
-Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlags</Code>,<Code>i</Code>] where <Code>listOfFlags</Code> is a list of flags in the face and <Code>i</Code> is the rank of the face.
+Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlags</Code>,<Code>i</Code>] where <Code>listOfFlags</Code> is a list of flags in the face and <Code>i</Code> is the rank of the face. Allows comparison of HasFlagList elements.
  </Description>
 </ManSection>
 
@@ -164,7 +171,7 @@ Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlag
  <Returns><Code>true</Code> or <Code>false</Code>
 </Returns>
  <Description>
-Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtoms,int]</Code> where <Code>listOfAtoms</Code> is a list of flags in the face and <Code>int</Code> is the rank of the face.
+Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtoms,int]</Code> where <Code>listOfAtoms</Code> is a list of flags in the face and <Code>int</Code> is the rank of the face. Allows comparison of HasAtomList elements.
  </Description>
 </ManSection>
 
@@ -383,6 +390,14 @@ Determines whether a poset is an abstract pre-polytope.
 Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic by checking to see if their Hasse diagrams are isomorphic.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap>  IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ),  PosetFromManiplex( PrismOver (PyramidOver( Cube(2) ) ) ) );
+false
+gap>  IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ), PosetFromManiplex( PyramidOver( PrismOver( Cube(2) ) ) ) );
+true
+]]></Example>
 
 
 <ManSection>

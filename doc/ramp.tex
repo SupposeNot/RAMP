@@ -2150,9 +2150,17 @@ Another interesting example:
   [ -1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3 ]
 \end{Verbatim}
  
+\subsection{\textcolor{Chapter }{Helper functions}}\label{Chapter_Posets_Section_Poset_constructors_Subsection_Helper_functions}
+\logpage{[ 10, 1, 6 ]}
+\hyperdef{L}{X7BD4785D8488BAD5}{}
+{
+  The functions PairCompareFlagsList and PairCompareAtomsList are used in poset
+construction. }
+
+ 
 
 \subsection{\textcolor{Chapter }{PairCompareFlagsList (for IsList,IsList)}}
-\logpage{[ 10, 1, 6 ]}\nobreak
+\logpage{[ 10, 1, 7 ]}\nobreak
 \hyperdef{L}{X803B663D81503640}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareFlagsList({\mdseries\slshape list1, list2})\index{PairCompareFlagsList@\texttt{PairCompareFlagsList}!for IsList,IsList}
 \label{PairCompareFlagsList:for IsList,IsList}
@@ -2162,12 +2170,12 @@ Another interesting example:
 
 
 
- Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form [\texttt{listOfFlags},\texttt{i}] where \texttt{listOfFlags} is a list of flags in the face and \texttt{i} is the rank of the face. }
+ Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form [\texttt{listOfFlags},\texttt{i}] where \texttt{listOfFlags} is a list of flags in the face and \texttt{i} is the rank of the face. Allows comparison of HasFlagList elements. }
 
  
 
 \subsection{\textcolor{Chapter }{PairCompareAtomsList (for IsList,IsList)}}
-\logpage{[ 10, 1, 7 ]}\nobreak
+\logpage{[ 10, 1, 8 ]}\nobreak
 \hyperdef{L}{X862FE5C38230BD0A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareAtomsList({\mdseries\slshape list1, list2})\index{PairCompareAtomsList@\texttt{PairCompareAtomsList}!for IsList,IsList}
 \label{PairCompareAtomsList:for IsList,IsList}
@@ -2177,7 +2185,7 @@ Another interesting example:
 
 
 
- Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form \texttt{[listOfAtoms,int]} where \texttt{listOfAtoms} is a list of flags in the face and \texttt{int} is the rank of the face. }
+ Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form \texttt{[listOfAtoms,int]} where \texttt{listOfAtoms} is a list of flags in the face and \texttt{int} is the rank of the face. Allows comparison of HasAtomList elements. }
 
  }
 
@@ -2475,6 +2483,13 @@ invoked using IsDiamondCondition. }
 
  Determines whether \mbox{\texttt{\mdseries\slshape poset1}} and \mbox{\texttt{\mdseries\slshape poset2}} are isomorphic by checking to see if their Hasse diagrams are isomorphic. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@ IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ),  PosetFromManiplex( PrismOver (PyramidOver( Cube(2) ) ) ) );|
+  false
+  !gapprompt@gap>| !gapinput@ IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ), PosetFromManiplex( PyramidOver( PrismOver( Cube(2) ) ) ) );|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{PosetIsomorphism (for IsPoset,IsPoset)}}
@@ -3070,7 +3085,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

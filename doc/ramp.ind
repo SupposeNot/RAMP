@@ -11,9 +11,9 @@
   \item \texttt  {AbstractRotaryPolytope}, \hyperpage{40}
   \item \texttt  {AddOrAppend}, \hyperpage{40}
   \item \texttt  {AdjacentFlag}
-    \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{34}
+    \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{35}
   \item \texttt  {AdjacentFlags}
-    \subitem for IsPoset,IsList,IsInt, \hyperpage{34}
+    \subitem for IsPoset,IsList,IsInt, \hyperpage{35}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{11}
   \item \texttt  {AreIncidentElements}
@@ -77,9 +77,9 @@
   \indexspace
 
   \item \texttt  {FaceListOfPoset}
-    \subitem for IsPoset, \hyperpage{35}
+    \subitem for IsPoset, \hyperpage{36}
   \item \texttt  {FacesByRankOfPoset}
-    \subitem for IsPoset, \hyperpage{35}
+    \subitem for IsPoset, \hyperpage{36}
   \item \texttt  {Facet}
     \subitem for IsManiplex, \hyperpage{15}
     \subitem for IsManiplex, IsInt, \hyperpage{15}
@@ -114,7 +114,7 @@
   \item \texttt  {Hasse}
     \subitem for IsManiplex, \hyperpage{8}
   \item \texttt  {HasseDiagramOfPoset}
-    \subitem for IsPoset, \hyperpage{35}
+    \subitem for IsPoset, \hyperpage{36}
   \item \texttt  {Hemi120Cell}, \hyperpage{21}
   \item \texttt  {Hemi24Cell}, \hyperpage{20}
   \item \texttt  {Hemi600Cell}, \hyperpage{21}
@@ -162,7 +162,7 @@
   \item \texttt  {IsP1}
     \subitem for IsPoset, \hyperpage{32}
   \item \texttt  {IsP2}
-    \subitem for IsPoset, \hyperpage{32}
+    \subitem for IsPoset, \hyperpage{33}
   \item \texttt  {IsP3}
     \subitem for IsPoset, \hyperpage{33}
   \item \texttt  {IsP4}
@@ -238,7 +238,7 @@
   \item \texttt  {PairCompareAtomsList}
     \subitem for IsList,IsList, \hyperpage{31}
   \item \texttt  {PairCompareFlagsList}
-    \subitem for IsList,IsList, \hyperpage{30}
+    \subitem for IsList,IsList, \hyperpage{31}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{32}
   \item \texttt  {Petrial}
@@ -248,13 +248,13 @@
   \item \texttt  {Pgon}
     \subitem for IsInt, \hyperpage{19}
   \item \texttt  {PosetElementFromAtomList}
-    \subitem for IsList,IsInt, \hyperpage{36}
+    \subitem for IsList,IsInt, \hyperpage{37}
   \item \texttt  {PosetElementFromIndex}
     \subitem for IsObject,IsInt, \hyperpage{37}
   \item \texttt  {PosetElementFromListOfFlags}
-    \subitem for IsList,IsInt, \hyperpage{36}
+    \subitem for IsList,IsInt, \hyperpage{37}
   \item \texttt  {PosetElementWithOrder}
-    \subitem for IsObject,IsFunction, \hyperpage{36}
+    \subitem for IsObject,IsFunction, \hyperpage{37}
   \item \texttt  {PosetFromConnectionGroup}
     \subitem for IsPermGroup, \hyperpage{29}
   \item \texttt  {PosetFromElements}
