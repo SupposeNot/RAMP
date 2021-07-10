@@ -49,12 +49,13 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85F554347C5AEF30">10.2-11 IsFlagConnected</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X80F461FA7D8FEDC7">10.2-12 IsP4</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83D63725789E745D">10.2-13 IsPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8085287683CCF81B">10.2-14 IsPrePolytope</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X8163385F7B822934">10.3 <span class="Heading">Working with posets</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8085287683CCF81B">10.3-1 IsPrePolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84B2B67A805CD31D">10.3-2 AreIncidentElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X80A2785B7D079FD1">10.3-1 IsIsomorphicPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8340F2597BD837A5">10.3-2 PosetIsomorphism</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7B9029A4868E7138">10.3-3 FlagsAsListOfFacesFromPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7ACE88EC803EDE07">10.3-4 AdjacentFlag</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C94E895794BA41F">10.3-5 AdjacentFlags</a></span>
@@ -74,12 +75,21 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X819B1AEF84E08B4D">10.4-2 FlagList</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84A507EE81E5B3A3">10.4-3 FromPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X878F991183754744">10.4-4 AtomList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X81CE0D9C872BE42B">10.4-5 PosetElementWithOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C74F3CE7933DA03">10.4-6 PosetElementFromListOfFlags</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85E6D20180DA4C3E">10.4-7 PosetElementFromAtomList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E36DF06841444FE">10.4-8 PosetElementFromIndex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A80223E83EF52E8">10.4-9 RankedFaceListOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X79BFF531809785A3">10.4-10 IsSubface</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X85445BE07F161F88">10.5 <span class="Heading">Element Constructors</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X81CE0D9C872BE42B">10.5-1 PosetElementWithOrder</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C74F3CE7933DA03">10.5-2 PosetElementFromListOfFlags</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85E6D20180DA4C3E">10.5-3 PosetElementFromAtomList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E36DF06841444FE">10.5-4 PosetElementFromIndex</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X874169E2825654E9">10.6 <span class="Heading">Element operations</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A80223E83EF52E8">10.6-1 RankedFaceListOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X79BFF531809785A3">10.6-2 IsSubface</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84B2B67A805CD31D">10.6-3 AreIncidentElements</a></span>
 </div></div>
 </div>
 
@@ -423,27 +433,36 @@ false
 [ "IsP1", "IsP2", "IsPolytope" ]
 </pre></div>
 
-<p><a id="X8163385F7B822934" name="X8163385F7B822934"></a></p>
-
-<h4>10.3 <span class="Heading">Working with posets</span></h4>
-
 <p><a id="X8085287683CCF81B" name="X8085287683CCF81B"></a></p>
 
-<h5>10.3-1 IsPrePolytope</h5>
+<h5>10.2-14 IsPrePolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPrePolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p>Determines whether a poset is an abstract pre-polytope.</p>
 
-<p><a id="X84B2B67A805CD31D" name="X84B2B67A805CD31D"></a></p>
+<p><a id="X8163385F7B822934" name="X8163385F7B822934"></a></p>
 
-<h5>10.3-2 AreIncidentElements</h5>
+<h4>10.3 <span class="Heading">Working with posets</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreIncidentElements</code>( <var class="Arg">object1</var>, <var class="Arg">object2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X80A2785B7D079FD1" name="X80A2785B7D079FD1"></a></p>
+
+<h5>10.3-1 IsIsomorphicPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicPoset</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Given two poset elements, will tell you if they are incident.</p>
+<p>Determines whether <var class="Arg">poset1</var> and <var class="Arg">poset2</var> are isomorphic by checking to see if their Hasse diagrams are isomorphic.</p>
+
+<p><a id="X8340F2597BD837A5" name="X8340F2597BD837A5"></a></p>
+
+<h5>10.3-2 PosetIsomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetIsomorphism</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: map on face indices</p>
+
+<p>When <var class="Arg">poset1</var> and <var class="Arg">poset2</var> are isomorphic, will give you a map from the faces of <var class="Arg">poset1</var> to the faces of <var class="Arg">poset2</var>.</p>
 
 <p><a id="X7B9029A4868E7138" name="X7B9029A4868E7138"></a></p>
 
@@ -574,9 +593,13 @@ false
 
 <p>Description of <var class="Arg">posetelement</var> n as a list of atoms (when present).</p>
 
+<p><a id="X85445BE07F161F88" name="X85445BE07F161F88"></a></p>
+
+<h4>10.5 <span class="Heading">Element Constructors</span></h4>
+
 <p><a id="X81CE0D9C872BE42B" name="X81CE0D9C872BE42B"></a></p>
 
-<h5>10.4-5 PosetElementWithOrder</h5>
+<h5>10.5-1 PosetElementWithOrder</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementWithOrder</code>( <var class="Arg">obj</var>, <var class="Arg">func</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFace</code></p>
@@ -585,7 +608,7 @@ false
 
 <p><a id="X7C74F3CE7933DA03" name="X7C74F3CE7933DA03"></a></p>
 
-<h5>10.4-6 PosetElementFromListOfFlags</h5>
+<h5>10.5-2 PosetElementFromListOfFlags</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromListOfFlags</code>( <var class="Arg">list</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsPosetElement</code></p>
@@ -594,7 +617,7 @@ false
 
 <p><a id="X85E6D20180DA4C3E" name="X85E6D20180DA4C3E"></a></p>
 
-<h5>10.4-7 PosetElementFromAtomList</h5>
+<h5>10.5-3 PosetElementFromAtomList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromAtomList</code>( <var class="Arg">list</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFace</code></p>
@@ -603,16 +626,20 @@ false
 
 <p><a id="X7E36DF06841444FE" name="X7E36DF06841444FE"></a></p>
 
-<h5>10.4-8 PosetElementFromIndex</h5>
+<h5>10.5-4 PosetElementFromIndex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromIndex</code>( <var class="Arg">obj</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFace</code></p>
 
 <p>Creates a <code class="code">face</code> with index <var class="Arg">obj</var> at rank <var class="Arg">n</var>. If an IsPoset object is appended to will tell the element what poset it belongs to.</p>
 
+<p><a id="X874169E2825654E9" name="X874169E2825654E9"></a></p>
+
+<h4>10.6 <span class="Heading">Element operations</span></h4>
+
 <p><a id="X7A80223E83EF52E8" name="X7A80223E83EF52E8"></a></p>
 
-<h5>10.4-9 RankedFaceListOfPoset</h5>
+<h5>10.6-1 RankedFaceListOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankedFaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
@@ -621,12 +648,21 @@ false
 
 <p><a id="X79BFF531809785A3" name="X79BFF531809785A3"></a></p>
 
-<h5>10.4-10 IsSubface</h5>
+<h5>10.6-2 IsSubface</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubface</code>( [<var class="Arg">face1</var>, <var class="Arg">face1</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p><var class="Arg">face1</var> and <var class="Arg">face2</var> are IsFace or IsPosetElement. Subface will check to make sure <var class="Arg">face2</var> is a subface of <var class="Arg">face1</var>.</p>
+
+<p><a id="X84B2B67A805CD31D" name="X84B2B67A805CD31D"></a></p>
+
+<h5>10.6-3 AreIncidentElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreIncidentElements</code>( <var class="Arg">object1</var>, <var class="Arg">object2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Given two poset elements, will tell you if they are incident.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11.html">[Next Chapter]</a>&nbsp;  </div>

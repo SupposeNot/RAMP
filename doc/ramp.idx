@@ -5,8 +5,8 @@
 \indexentry{FlagGraphWithLabels@\texttt  {FlagGraphWithLabels}!for IsGroup|hyperpage}{6}
 \indexentry{LayerGraph@\texttt  {LayerGraph}!for IsGroup, IsInt, IsInt|hyperpage}{7}
 \indexentry{Skeleton@\texttt  {Skeleton}!for IsManiplex|hyperpage}{8}
-\indexentry{Skeleton@\texttt  {Skeleton}!for IsPolytope|hyperpage}{8}
-\indexentry{Hasse@\texttt  {Hasse}!for IsPolytope|hyperpage}{8}
+\indexentry{Hasse@\texttt  {Hasse}!for IsManiplex|hyperpage}{8}
+\indexentry{QuotientByLabel@\texttt  {QuotientByLabel}!for IsObject,IsList, IsList, IsList|hyperpage}{9}
 \indexentry{UniversalPolytope@\texttt  {UniversalPolytope}!for IsInt|hyperpage}{10}
 \indexentry{FlatRegularPolyhedron@\texttt  {FlatRegularPolyhedron}!for IsInt, IsInt, IsInt, IsInt|hyperpage}{10}
 \indexentry{QuotientPolytope@\texttt  {QuotientPolytope}!for IsManiplex, IsList|hyperpage}{10}
@@ -40,18 +40,21 @@
 \indexentry{VertexFigures@\texttt  {VertexFigures}!for IsManiplex|hyperpage}{16}
 \indexentry{VertexFigure@\texttt  {VertexFigure}!for IsManiplex, IsInt|hyperpage}{16}
 \indexentry{VertexFigure@\texttt  {VertexFigure}!for IsManiplex|hyperpage}{16}
+\indexentry{IsFlat@\texttt  {IsFlat}!for IsManiplex|hyperpage}{16}
+\indexentry{IsFlat@\texttt  {IsFlat}!for IsManiplex, IsInt, IsInt|hyperpage}{16}
 \indexentry{SchlafliSymbol@\texttt  {SchlafliSymbol}!for IsManiplex|hyperpage}{16}
 \indexentry{IsEquivelar@\texttt  {IsEquivelar}!for IsManiplex|hyperpage}{16}
-\indexentry{Size@\texttt  {Size}!for IsManiplex|hyperpage}{16}
-\indexentry{RankManiplex@\texttt  {RankManiplex}!for IsManiplex|hyperpage}{16}
+\indexentry{Size@\texttt  {Size}!for IsManiplex|hyperpage}{17}
+\indexentry{RankManiplex@\texttt  {RankManiplex}!for IsManiplex|hyperpage}{17}
 \indexentry{IsTight@\texttt  {IsTight}!for IsManiplex and IsPolytopal|hyperpage}{17}
 \indexentry{IsDegenerate@\texttt  {IsDegenerate}!for IsManiplex|hyperpage}{17}
 \indexentry{SymmetryTypeGraph@\texttt  {SymmetryTypeGraph}!for IsManiplex|hyperpage}{17}
 \indexentry{NumberOfFlagOrbits@\texttt  {NumberOfFlagOrbits}!for IsManiplex|hyperpage}{17}
+\indexentry{FlagOrbitRepresentatives@\texttt  {FlagOrbitRepresentatives}!for IsManiplex|hyperpage}{17}
 \indexentry{IsReflexible@\texttt  {IsReflexible}!for IsManiplex|hyperpage}{17}
-\indexentry{IsChiral@\texttt  {IsChiral}!for IsManiplex|hyperpage}{17}
-\indexentry{IsRotary@\texttt  {IsRotary}!for IsManiplex|hyperpage}{17}
-\indexentry{Description@\texttt  {Description}!for IsManiplex|hyperpage}{17}
+\indexentry{IsChiral@\texttt  {IsChiral}!for IsManiplex|hyperpage}{18}
+\indexentry{IsRotary@\texttt  {IsRotary}!for IsManiplex|hyperpage}{18}
+\indexentry{Description@\texttt  {Description}!for IsManiplex|hyperpage}{18}
 \indexentry{ZigzagLength@\texttt  {ZigzagLength}!for IsManiplex, IsInt|hyperpage}{18}
 \indexentry{ZigzagVector@\texttt  {ZigzagVector}!for IsManiplex|hyperpage}{18}
 \indexentry{PetrieLength@\texttt  {PetrieLength}!for IsManiplex|hyperpage}{18}
@@ -85,6 +88,7 @@
 \indexentry{ExtraRelators@\texttt  {ExtraRelators}!for IsReflexibleManiplex|hyperpage}{23}
 \indexentry{ExtraRotRelators@\texttt  {ExtraRotRelators}!for IsRotaryManiplex|hyperpage}{23}
 \indexentry{IsStringC@\texttt  {IsStringC}!for IsGroup|hyperpage}{23}
+\indexentry{IsStringCPlus@\texttt  {IsStringCPlus}!for IsGroup|hyperpage}{23}
 \indexentry{IsOrientable@\texttt  {IsOrientable}!for IsManiplex|hyperpage}{24}
 \indexentry{IsIOrientable@\texttt  {IsIOrientable}!for IsManiplex, IsList|hyperpage}{24}
 \indexentry{IsVertexBipartite@\texttt  {IsVertexBipartite}!for IsManiplex|hyperpage}{24}
@@ -120,29 +124,33 @@
 \indexentry{IsP4@\texttt  {IsP4}!for IsPoset|hyperpage}{33}
 \indexentry{IsPolytope@\texttt  {IsPolytope}!for IsPoset|hyperpage}{33}
 \indexentry{IsPrePolytope@\texttt  {IsPrePolytope}!for IsPoset|hyperpage}{34}
-\indexentry{AreIncidentElements@\texttt  {AreIncidentElements}!for IsObject,IsObject|hyperpage}{34}
+\indexentry{IsIsomorphicPoset@\texttt  {IsIsomorphicPoset}!for IsPoset,IsPoset|hyperpage}{34}
+\indexentry{PosetIsomorphism@\texttt  {PosetIsomorphism}!for IsPoset,IsPoset|hyperpage}{34}
 \indexentry{FlagsAsListOfFacesFromPoset@\texttt  {FlagsAsListOfFacesFromPoset}!for IsPoset|hyperpage}{34}
 \indexentry{AdjacentFlag@\texttt  {AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt|hyperpage}{34}
 \indexentry{AdjacentFlags@\texttt  {AdjacentFlags}!for IsPoset,IsList,IsInt|hyperpage}{34}
-\indexentry{EqualChains@\texttt  {EqualChains}!for IsList,IsList|hyperpage}{34}
+\indexentry{EqualChains@\texttt  {EqualChains}!for IsList,IsList|hyperpage}{35}
 \indexentry{ConnectionGeneratorOfPoset@\texttt  {ConnectionGeneratorOfPoset}!for IsPoset,IsInt|hyperpage}{35}
 \indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsPoset|hyperpage}{35}
 \indexentry{AutomorphismGroup@\texttt  {AutomorphismGroup}!for IsPoset|hyperpage}{35}
+\indexentry{AutomorphismGroupOnElements@\texttt  {AutomorphismGroupOnElements}!for IsPoset|hyperpage}{35}
 \indexentry{FaceListOfPoset@\texttt  {FaceListOfPoset}!for IsPoset|hyperpage}{35}
 \indexentry{FacesByRankOfPoset@\texttt  {FacesByRankOfPoset}!for IsPoset|hyperpage}{35}
-\indexentry{RankPosetElement@\texttt  {RankPosetElement}!for IsPosetElement|hyperpage}{35}
-\indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{35}
+\indexentry{HasseDiagramOfPoset@\texttt  {HasseDiagramOfPoset}!for IsPoset|hyperpage}{35}
+\indexentry{RankPosetElement@\texttt  {RankPosetElement}!for IsPosetElement|hyperpage}{36}
+\indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{36}
 \indexentry{FromPoset@\texttt  {FromPoset}!for IsPosetElement|hyperpage}{36}
 \indexentry{AtomList@\texttt  {AtomList}!for IsPosetElement|hyperpage}{36}
 \indexentry{PosetElementWithOrder@\texttt  {PosetElementWithOrder}!for IsObject,IsFunction|hyperpage}{36}
 \indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsInt|hyperpage}{36}
 \indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList,IsInt|hyperpage}{36}
-\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject,IsInt|hyperpage}{36}
-\indexentry{RankedFaceListOfPoset@\texttt  {RankedFaceListOfPoset}!for IsPoset|hyperpage}{36}
+\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject,IsInt|hyperpage}{37}
+\indexentry{RankedFaceListOfPoset@\texttt  {RankedFaceListOfPoset}!for IsPoset|hyperpage}{37}
 \indexentry{IsSubface@\texttt  {IsSubface}!for IsFace,IsFace|hyperpage}{37}
-\indexentry{IsQuotientOf@\texttt  {IsQuotientOf}!for IsManiplex, IsManiplex|hyperpage}{38}
-\indexentry{IsCoverOf@\texttt  {IsCoverOf}!for IsManiplex, IsManiplex|hyperpage}{38}
-\indexentry{IsIsomorphicTo@\texttt  {IsIsomorphicTo}!for IsManiplex, IsManiplex|hyperpage}{38}
+\indexentry{AreIncidentElements@\texttt  {AreIncidentElements}!for IsObject,IsObject|hyperpage}{37}
+\indexentry{IsQuotient@\texttt  {IsQuotient}!for IsManiplex, IsManiplex|hyperpage}{38}
+\indexentry{IsCover@\texttt  {IsCover}!for IsManiplex, IsManiplex|hyperpage}{38}
+\indexentry{IsIsomorphicManiplex@\texttt  {IsIsomorphicManiplex}!for IsManiplex, IsManiplex|hyperpage}{38}
 \indexentry{SmallestRegularCover@\texttt  {SmallestRegularCover}!for IsManiplex|hyperpage}{38}
 \indexentry{UniversalRotationGroup@\texttt  {UniversalRotationGroup}!for IsInt|hyperpage}{39}
 \indexentry{UniversalRotationGroup@\texttt  {UniversalRotationGroup}!for IsList|hyperpage}{39}
@@ -150,3 +158,7 @@
 \indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsList|hyperpage}{39}
 \indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsList, IsList|hyperpage}{39}
 \indexentry{EnantiomorphicForm@\texttt  {EnantiomorphicForm}!for IsRotaryManiplex|hyperpage}{39}
+\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{40}
+\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{40}
+\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{40}
+\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{40}

@@ -347,22 +347,31 @@
     [4X[28X[ "IsP1", "IsP2", "IsPolytope" ][128X[104X
   [4X[32X[104X
   
-  
-  [1X10.3 [33X[0;0YWorking with posets[133X[101X
-  
-  [1X10.3-1 IsPrePolytope[101X
+  [1X10.2-14 IsPrePolytope[101X
   
   [33X[1;0Y[29X[2XIsPrePolytope[102X( [3Xposet[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YDetermines whether a poset is an abstract pre-polytope.[133X
   
-  [1X10.3-2 AreIncidentElements[101X
   
-  [33X[1;0Y[29X[2XAreIncidentElements[102X( [3Xobject1[103X, [3Xobject2[103X ) [32X operation[133X
+  [1X10.3 [33X[0;0YWorking with posets[133X[101X
+  
+  [1X10.3-1 IsIsomorphicPoset[101X
+  
+  [33X[1;0Y[29X[2XIsIsomorphicPoset[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YGiven two poset elements, will tell you if they are incident.[133X
+  [33X[0;0YDetermines  whether  [3Xposet1[103X  and [3Xposet2[103X are isomorphic by checking to see if
+  their Hasse diagrams are isomorphic.[133X
+  
+  [1X10.3-2 PosetIsomorphism[101X
+  
+  [33X[1;0Y[29X[2XPosetIsomorphism[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymap on face indices[133X
+  
+  [33X[0;0YWhen [3Xposet1[103X and [3Xposet2[103X are isomorphic, will give you a map from the faces of
+  [3Xposet1[103X to the faces of [3Xposet2[103X.[133X
   
   [1X10.3-3 FlagsAsListOfFacesFromPoset[101X
   
@@ -482,14 +491,17 @@
   
   [33X[0;0YDescription of [3Xposetelement[103X n as a list of atoms (when present).[133X
   
-  [1X10.4-5 PosetElementWithOrder[101X
+  
+  [1X10.5 [33X[0;0YElement Constructors[133X[101X
+  
+  [1X10.5-1 PosetElementWithOrder[101X
   
   [33X[1;0Y[29X[2XPosetElementWithOrder[102X( [3Xobj[103X, [3Xfunc[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
   
   [33X[0;0YCreates a [10Xface[110X with [3Xobj[103X and ordering function [10Xfunc[110X.[133X
   
-  [1X10.4-6 PosetElementFromListOfFlags[101X
+  [1X10.5-2 PosetElementFromListOfFlags[101X
   
   [33X[1;0Y[29X[2XPosetElementFromListOfFlags[102X( [3Xlist[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsPosetElement[110X[133X
@@ -498,7 +510,7 @@
   IsPoset  object is appended to the input will tell the element what poset it
   belongs to.[133X
   
-  [1X10.4-7 PosetElementFromAtomList[101X
+  [1X10.5-3 PosetElementFromAtomList[101X
   
   [33X[1;0Y[29X[2XPosetElementFromAtomList[102X( [3Xlist[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
@@ -506,7 +518,7 @@
   [33X[0;0YCreates  a  [10Xface[110X  with  [3Xlist[103X  of  atoms  at  rank [3Xn[103X. If an IsPoset object is
   appended to the input will tell the element what poset it belongs to.[133X
   
-  [1X10.4-8 PosetElementFromIndex[101X
+  [1X10.5-4 PosetElementFromIndex[101X
   
   [33X[1;0Y[29X[2XPosetElementFromIndex[102X( [3Xobj[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
@@ -514,18 +526,28 @@
   [33X[0;0YCreates a [10Xface[110X with index [3Xobj[103X at rank [3Xn[103X. If an IsPoset object is appended to
   will tell the element what poset it belongs to.[133X
   
-  [1X10.4-9 RankedFaceListOfPoset[101X
+  
+  [1X10.6 [33X[0;0YElement operations[133X[101X
+  
+  [1X10.6-1 RankedFaceListOfPoset[101X
   
   [33X[1;0Y[29X[2XRankedFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
   [33X[0;0YGives a list of [[3Xface[103X,[3Xrank[103X] pairs for all the faces of [3Xposet[103X.[133X
   
-  [1X10.4-10 IsSubface[101X
+  [1X10.6-2 IsSubface[101X
   
   [33X[1;0Y[29X[2XIsSubface[102X( [[3Xface1[103X, [3Xface1[103X] ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0Y[3Xface1[103X  and  [3Xface2[103X  are  IsFace or IsPosetElement. Subface will check to make
   sure [3Xface2[103X is a subface of [3Xface1[103X.[133X
+  
+  [1X10.6-3 AreIncidentElements[101X
+  
+  [33X[1;0Y[29X[2XAreIncidentElements[102X( [3Xobject1[103X, [3Xobject2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YGiven two poset elements, will tell you if they are incident.[133X
   

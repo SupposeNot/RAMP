@@ -132,6 +132,27 @@
 </Section>
 
 
+<Section Label="Chapter_Combinatorics_and_Structure_Section_Flatness">
+<Heading>Flatness</Heading>
+
+<ManSection Label="IsFlat">
+<Heading>IsFlat</Heading>
+  <Prop Arg="M" Name="IsFlat" Label="for IsManiplex"/>
+  <Oper Arg="M, i, j" Name="IsFlat" Label="for IsManiplex, IsInt, IsInt"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ In the first form, returns true if every vertex of the maniplex <A>M</A> is incident
+ to every facet.
+ In the second form, returns true if every i-face of the maniplex <A>M</A> is
+ incident to every j-face.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Combinatorics_and_Structure_Section_Schlafli_symbol">
 <Heading>Schlafli symbol</Heading>
 
@@ -219,6 +240,14 @@
  <Description>
  Returns the number of orbits of the automorphism group of <A>M</A>
  on its flags.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="FlagOrbitRepresentatives" Label="for IsManiplex"/>
+ <Description>
+ Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
  </Description>
 </ManSection>
 

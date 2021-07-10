@@ -102,9 +102,23 @@
   [33X[0;0YReturns the vertex-figures of [3XM[103X that contains the base flag.[133X
   
   
-  [1X4.2 [33X[0;0YSchlafli symbol[133X[101X
+  [1X4.2 [33X[0;0YFlatness[133X[101X
   
-  [1X4.2-1 SchlafliSymbol[101X
+  
+  [1X4.2-1 [33X[0;0YIsFlat[133X[101X
+  
+  [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YIn  the  first  form,  returns  true  if  every  vertex of the maniplex [3XM[103X is
+  incident to every facet. In the second form, returns true if every i-face of
+  the maniplex [3XM[103X is incident to every j-face.[133X
+  
+  
+  [1X4.3 [33X[0;0YSchlafli symbol[133X[101X
+  
+  [1X4.3-1 SchlafliSymbol[101X
   
   [33X[1;0Y[29X[2XSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
   
@@ -112,28 +126,28 @@
   integer  or  a set of integers, where entry number i shows the polygons that
   we obtain as sections of (i+1)-faces over (i-2)-faces.[133X
   
-  [1X4.2-2 IsEquivelar[101X
+  [1X4.3-2 IsEquivelar[101X
   
   [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Ythe the maniplex [3XM[103X is equivelar; i.e., whether its Schlafli Symbol
             consists of integers at each position (no lists).[133X
   
   
-  [1X4.3 [33X[0;0YBasics[133X[101X
+  [1X4.4 [33X[0;0YBasics[133X[101X
   
-  [1X4.3-1 Size[101X
+  [1X4.4-1 Size[101X
   
   [33X[1;0Y[29X[2XSize[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the number of flags of the maniplex [3XM[103X.[133X
   
-  [1X4.3-2 RankManiplex[101X
+  [1X4.4-2 RankManiplex[101X
   
   [33X[1;0Y[29X[2XRankManiplex[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the rank of the maniplex [3XM[103X.[133X
   
-  [1X4.3-3 IsTight[101X
+  [1X4.4-3 IsTight[101X
   
   [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
@@ -143,7 +157,7 @@
   minimum  possible.  This  property  doesn't make any sense for non-polytopal
   maniplexes, which aren't constrained by this lower bound.[133X
   
-  [1X4.3-4 IsDegenerate[101X
+  [1X4.4-4 IsDegenerate[101X
   
   [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
@@ -151,36 +165,42 @@
   [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
   eventually want to include maniplexes with even smaller sections.[133X
   
-  [1X4.3-5 SymmetryTypeGraph[101X
+  [1X4.4-5 SymmetryTypeGraph[101X
   
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
   group on Rank([3XM[103X) generators.[133X
   
-  [1X4.3-6 NumberOfFlagOrbits[101X
+  [1X4.4-6 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
   
-  [1X4.3-7 IsReflexible[101X
+  [1X4.4-7 FlagOrbitRepresentatives[101X
+  
+  [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns one flag from each orbit under the action of AutomorphismGroup([3XM[103X).[133X
+  
+  [1X4.4-8 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
   
-  [1X4.3-8 IsChiral[101X
+  [1X4.4-9 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
   
-  [1X4.3-9 IsRotary[101X
+  [1X4.4-10 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
             reflexible or chiral.[133X
   
-  [1X4.3-10 Description[101X
+  [1X4.4-11 Description[101X
   
   [33X[1;0Y[29X[2XDescription[102X( [3XM[103X ) [32X attribute[133X
   
@@ -188,27 +208,27 @@
   Description(Simplex(3)) = "3-simplex".[133X
   
   
-  [1X4.4 [33X[0;0YZigzags and holes[133X[101X
+  [1X4.5 [33X[0;0YZigzags and holes[133X[101X
   
-  [1X4.4-1 ZigzagLength[101X
+  [1X4.5-1 ZigzagLength[101X
   
   [33X[1;0Y[29X[2XZigzagLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YThe  lengths of [3Xj[103X-zigzags of the 3-maniplex [3XM[103X. This corresponds to
             the lengths of orbits under r0 (r1 r2)^j.[133X
   
-  [1X4.4-2 ZigzagVector[101X
+  [1X4.5-2 ZigzagVector[101X
   
   [33X[1;0Y[29X[2XZigzagVector[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YThe  lengths of all zigzags of the 3-maniplex [3XM[103X. A rank 3 maniplex
             of  type {p, q} has Floor(q/2) distinct zigzag lengths because the
             j-zigzags are the same as the (q-j)-zigzags.[133X
   
-  [1X4.4-3 PetrieLength[101X
+  [1X4.5-3 PetrieLength[101X
   
   [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YThe length of the petrie polygons of the maniplex [3XM[103X.[133X
   
-  [1X4.4-4 HoleLength[101X
+  [1X4.5-4 HoleLength[101X
   
   [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X ) [32X attribute[133X
   

@@ -67,6 +67,7 @@
       1.1-5 LayerGraph
       1.1-6 Skeleton
       1.1-7 Hasse
+      1.1-8 QuotientByLabel
   2 [33X[0;0YConstructions[133X
     2.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
       2.1-1 UniversalPolytope
@@ -108,25 +109,28 @@
       4.1-13 VertexFigures
       4.1-14 VertexFigure
       4.1-15 VertexFigure
-    4.2 [33X[0;0YSchlafli symbol[133X
-      4.2-1 SchlafliSymbol
-      4.2-2 IsEquivelar
-    4.3 [33X[0;0YBasics[133X
-      4.3-1 Size
-      4.3-2 RankManiplex
-      4.3-3 IsTight
-      4.3-4 IsDegenerate
-      4.3-5 SymmetryTypeGraph
-      4.3-6 NumberOfFlagOrbits
-      4.3-7 IsReflexible
-      4.3-8 IsChiral
-      4.3-9 IsRotary
-      4.3-10 Description
-    4.4 [33X[0;0YZigzags and holes[133X
-      4.4-1 ZigzagLength
-      4.4-2 ZigzagVector
-      4.4-3 PetrieLength
-      4.4-4 HoleLength
+    4.2 [33X[0;0YFlatness[133X
+      4.2-1 [33X[0;0YIsFlat[133X
+    4.3 [33X[0;0YSchlafli symbol[133X
+      4.3-1 SchlafliSymbol
+      4.3-2 IsEquivelar
+    4.4 [33X[0;0YBasics[133X
+      4.4-1 Size
+      4.4-2 RankManiplex
+      4.4-3 IsTight
+      4.4-4 IsDegenerate
+      4.4-5 SymmetryTypeGraph
+      4.4-6 NumberOfFlagOrbits
+      4.4-7 FlagOrbitRepresentatives
+      4.4-8 IsReflexible
+      4.4-9 IsChiral
+      4.4-10 IsRotary
+      4.4-11 Description
+    4.5 [33X[0;0YZigzags and holes[133X
+      4.5-1 ZigzagLength
+      4.5-2 ZigzagVector
+      4.5-3 PetrieLength
+      4.5-4 HoleLength
   5 [33X[0;0YFamilies of Polytopes[133X
     5.1 [33X[0;0YClassical Polytopes[133X
       5.1-1 Vertex
@@ -203,9 +207,10 @@
       10.2-11 IsFlagConnected
       10.2-12 IsP4
       10.2-13 IsPolytope
+      10.2-14 IsPrePolytope
     10.3 [33X[0;0YWorking with posets[133X
-      10.3-1 IsPrePolytope
-      10.3-2 AreIncidentElements
+      10.3-1 IsIsomorphicPoset
+      10.3-2 PosetIsomorphism
       10.3-3 FlagsAsListOfFacesFromPoset
       10.3-4 AdjacentFlag
       10.3-5 AdjacentFlags
@@ -222,17 +227,20 @@
       10.4-2 FlagList
       10.4-3 FromPoset
       10.4-4 AtomList
-      10.4-5 PosetElementWithOrder
-      10.4-6 PosetElementFromListOfFlags
-      10.4-7 PosetElementFromAtomList
-      10.4-8 PosetElementFromIndex
-      10.4-9 RankedFaceListOfPoset
-      10.4-10 IsSubface
+    10.5 [33X[0;0YElement Constructors[133X
+      10.5-1 PosetElementWithOrder
+      10.5-2 PosetElementFromListOfFlags
+      10.5-3 PosetElementFromAtomList
+      10.5-4 PosetElementFromIndex
+    10.6 [33X[0;0YElement operations[133X
+      10.6-1 RankedFaceListOfPoset
+      10.6-2 IsSubface
+      10.6-3 AreIncidentElements
   11 [33X[0;0YComparing maniplexes[133X
     11.1 [33X[0;0YQuotients and covers[133X
-      11.1-1 IsQuotientOf
-      11.1-2 IsCoverOf
-      11.1-3 IsIsomorphicTo
+      11.1-1 IsQuotient
+      11.1-2 IsCover
+      11.1-3 IsIsomorphicManiplex
       11.1-4 SmallestRegularCover
   12 [33X[0;0Yramp automatic generated documentation[133X
     12.1 [33X[0;0Yramp automatic generated documentation of methods[133X

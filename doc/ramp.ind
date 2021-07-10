@@ -6,6 +6,10 @@
 
   \indexspace
 
+  \item \texttt  {AbstractPolytope}, \hyperpage{40}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{40}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{40}
+  \item \texttt  {AddOrAppend}, \hyperpage{40}
   \item \texttt  {AdjacentFlag}
     \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{34}
   \item \texttt  {AdjacentFlags}
@@ -13,7 +17,7 @@
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{11}
   \item \texttt  {AreIncidentElements}
-    \subitem for IsObject,IsObject, \hyperpage{34}
+    \subitem for IsObject,IsObject, \hyperpage{37}
   \item \texttt  {AtomList}
     \subitem for IsPosetElement, \hyperpage{36}
   \item \texttt  {AutomorphismGroup}
@@ -21,6 +25,8 @@
     \subitem for IsPoset, \hyperpage{35}
   \item \texttt  {AutomorphismGroupFpGroup}
     \subitem for IsManiplex, \hyperpage{22}
+  \item \texttt  {AutomorphismGroupOnElements}
+    \subitem for IsPoset, \hyperpage{35}
   \item \texttt  {AutomorphismGroupPermGroup}
     \subitem for IsManiplex, \hyperpage{22}
 
@@ -45,7 +51,7 @@
   \item \texttt  {DegeneratePolyhedra}
     \subitem for IsInt, \hyperpage{13}
   \item \texttt  {Description}
-    \subitem for IsManiplex, \hyperpage{17}
+    \subitem for IsManiplex, \hyperpage{18}
   \item \texttt  {DirectedGraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{5}
   \item \texttt  {Dodecahedron}, \hyperpage{20}
@@ -60,7 +66,7 @@
   \item \texttt  {EnantiomorphicForm}
     \subitem for IsRotaryManiplex, \hyperpage{39}
   \item \texttt  {EqualChains}
-    \subitem for IsList,IsList, \hyperpage{34}
+    \subitem for IsList,IsList, \hyperpage{35}
   \item \texttt  {EvenConnectionGroup}
     \subitem for IsManiplex, \hyperpage{22}
   \item \texttt  {ExtraRelators}
@@ -82,7 +88,9 @@
   \item \texttt  {FlagGraphWithLabels}
     \subitem for IsGroup, \hyperpage{6}
   \item \texttt  {FlagList}
-    \subitem for IsPosetElement, \hyperpage{35}
+    \subitem for IsPosetElement, \hyperpage{36}
+  \item \texttt  {FlagOrbitRepresentatives}
+    \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {FlagsAsListOfFacesFromPoset}
     \subitem for IsPoset, \hyperpage{34}
   \item \texttt  {FlatExtension}
@@ -104,7 +112,9 @@
   \indexspace
 
   \item \texttt  {Hasse}
-    \subitem for IsPolytope, \hyperpage{8}
+    \subitem for IsManiplex, \hyperpage{8}
+  \item \texttt  {HasseDiagramOfPoset}
+    \subitem for IsPoset, \hyperpage{35}
   \item \texttt  {Hemi120Cell}, \hyperpage{21}
   \item \texttt  {Hemi24Cell}, \hyperpage{20}
   \item \texttt  {Hemi600Cell}, \hyperpage{21}
@@ -123,8 +133,8 @@
   \item \texttt  {IsAtomic}
     \subitem for IsPoset, \hyperpage{32}
   \item \texttt  {IsChiral}
-    \subitem for IsManiplex, \hyperpage{17}
-  \item \texttt  {IsCoverOf}
+    \subitem for IsManiplex, \hyperpage{18}
+  \item \texttt  {IsCover}
     \subitem for IsManiplex, IsManiplex, \hyperpage{38}
   \item \texttt  {IsDegenerate}
     \subitem for IsManiplex, \hyperpage{17}
@@ -138,10 +148,15 @@
     \subitem for IsPoset, \hyperpage{33}
   \item \texttt  {IsFlaggable}
     \subitem for IsPoset, \hyperpage{31}
+  \item \texttt  {IsFlat}
+    \subitem for IsManiplex, \hyperpage{16}
+    \subitem for IsManiplex, IsInt, IsInt, \hyperpage{16}
   \item \texttt  {IsIOrientable}
     \subitem for IsManiplex, IsList, \hyperpage{24}
-  \item \texttt  {IsIsomorphicTo}
+  \item \texttt  {IsIsomorphicManiplex}
     \subitem for IsManiplex, IsManiplex, \hyperpage{38}
+  \item \texttt  {IsIsomorphicPoset}
+    \subitem for IsPoset,IsPoset, \hyperpage{34}
   \item \texttt  {IsOrientable}
     \subitem for IsManiplex, \hyperpage{24}
   \item \texttt  {IsP1}
@@ -158,17 +173,19 @@
     \subitem for IsPoset, \hyperpage{33}
   \item \texttt  {IsPrePolytope}
     \subitem for IsPoset, \hyperpage{34}
-  \item \texttt  {IsQuotientOf}
+  \item \texttt  {IsQuotient}
     \subitem for IsManiplex, IsManiplex, \hyperpage{38}
   \item \texttt  {IsReflexible}
     \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {IsRotary}
-    \subitem for IsManiplex, \hyperpage{17}
+    \subitem for IsManiplex, \hyperpage{18}
   \item \texttt  {IsSelfDual}
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {IsSelfPetrial}
     \subitem for IsManiplex, \hyperpage{11}
   \item \texttt  {IsStringC}
+    \subitem for IsGroup, \hyperpage{23}
+  \item \texttt  {IsStringCPlus}
     \subitem for IsGroup, \hyperpage{23}
   \item \texttt  {IsSubface}
     \subitem for IsFace,IsFace, \hyperpage{37}
@@ -233,7 +250,7 @@
   \item \texttt  {PosetElementFromAtomList}
     \subitem for IsList,IsInt, \hyperpage{36}
   \item \texttt  {PosetElementFromIndex}
-    \subitem for IsObject,IsInt, \hyperpage{36}
+    \subitem for IsObject,IsInt, \hyperpage{37}
   \item \texttt  {PosetElementFromListOfFlags}
     \subitem for IsList,IsInt, \hyperpage{36}
   \item \texttt  {PosetElementWithOrder}
@@ -248,6 +265,8 @@
     \subitem for IsManiplex, \hyperpage{29}
   \item \texttt  {PosetFromPartialOrder}
     \subitem for IsBinaryRelation, \hyperpage{29}
+  \item \texttt  {PosetIsomorphism}
+    \subitem for IsPoset,IsPoset, \hyperpage{34}
   \item \texttt  {PrismOver}
     \subitem for IsManiplex, \hyperpage{12}
   \item \texttt  {PyramidOver}
@@ -255,19 +274,21 @@
 
   \indexspace
 
+  \item \texttt  {QuotientByLabel}
+    \subitem for IsObject,IsList, IsList, IsList, \hyperpage{9}
   \item \texttt  {QuotientPolytope}
     \subitem for IsManiplex, IsList, \hyperpage{10}
 
   \indexspace
 
   \item \texttt  {RankedFaceListOfPoset}
-    \subitem for IsPoset, \hyperpage{36}
+    \subitem for IsPoset, \hyperpage{37}
   \item \texttt  {RankManiplex}
-    \subitem for IsManiplex, \hyperpage{16}
+    \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {RankPoset}
     \subitem for IsPoset, \hyperpage{31}
   \item \texttt  {RankPosetElement}
-    \subitem for IsPosetElement, \hyperpage{35}
+    \subitem for IsPosetElement, \hyperpage{36}
   \item \texttt  {ReflexibleManiplex}
     \subitem for IsGroup, \hyperpage{25}
     \subitem for IsList, IsList, \hyperpage{25}
@@ -291,10 +312,9 @@
   \item \texttt  {Simplex}
     \subitem for IsInt, \hyperpage{20}
   \item \texttt  {Size}
-    \subitem for IsManiplex, \hyperpage{16}
+    \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {Skeleton}
     \subitem for IsManiplex, \hyperpage{8}
-    \subitem for IsPolytope, \hyperpage{8}
   \item \texttt  {SmallestRegularCover}
     \subitem for IsManiplex, \hyperpage{38}
   \item \texttt  {SmallRegularPolyhedra}

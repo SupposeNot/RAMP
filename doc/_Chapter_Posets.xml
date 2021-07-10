@@ -359,12 +359,6 @@ gap> KnownPropertiesOfObject(poset2);
 ]]></Example>
 
 
-</Section>
-
-
-<Section Label="Chapter_Posets_Section_Working_with_posets">
-<Heading>Working with posets</Heading>
-
 <ManSection>
   <Prop Arg="poset" Name="IsPrePolytope" Label="for IsPoset"/>
  <Returns><C>true</C> or <C>false</C>
@@ -375,12 +369,28 @@ Determines whether a poset is an abstract pre-polytope.
 </ManSection>
 
 
+</Section>
+
+
+<Section Label="Chapter_Posets_Section_Working_with_posets">
+<Heading>Working with posets</Heading>
+
 <ManSection>
-  <Oper Arg="object1, object2" Name="AreIncidentElements" Label="for IsObject,IsObject"/>
+  <Oper Arg="poset1, poset2" Name="IsIsomorphicPoset" Label="for IsPoset,IsPoset"/>
  <Returns><Code>true</Code> or <Code>false</Code>
 </Returns>
  <Description>
-Given two poset elements, will tell you if they are incident.
+Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic by checking to see if their Hasse diagrams are isomorphic.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset1, poset2" Name="PosetIsomorphism" Label="for IsPoset,IsPoset"/>
+ <Returns>map on face indices
+</Returns>
+ <Description>
+When <A>poset1</A> and <A>poset2</A> are isomorphic, will give you a map from the faces of <A>poset1</A> to the faces of <A>poset2</A>.
  </Description>
 </ManSection>
 
@@ -536,6 +546,12 @@ Description of <A>posetelement</A> n as a list of atoms (when present).
 </ManSection>
 
 
+</Section>
+
+
+<Section Label="Chapter_Posets_Section_Element_Constructors">
+<Heading>Element Constructors</Heading>
+
 <ManSection>
   <Oper Arg="obj, func" Name="PosetElementWithOrder" Label="for IsObject,IsFunction"/>
  <Returns><Code>IsFace</Code>
@@ -576,6 +592,12 @@ Creates a <Code>face</Code> with index <A>obj</A> at rank <A>n</A>. If an IsPose
 </ManSection>
 
 
+</Section>
+
+
+<Section Label="Chapter_Posets_Section_Element_operations">
+<Heading>Element operations</Heading>
+
 <ManSection>
   <Oper Arg="poset" Name="RankedFaceListOfPoset" Label="for IsPoset"/>
  <Returns><Code>list</Code>
@@ -592,6 +614,16 @@ Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A
 </Returns>
  <Description>
 <A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. Subface will check to make sure <A>face2</A> is a subface of <A>face1</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="object1, object2" Name="AreIncidentElements" Label="for IsObject,IsObject"/>
+ <Returns><Code>true</Code> or <Code>false</Code>
+</Returns>
+ <Description>
+Given two poset elements, will tell you if they are incident.
  </Description>
 </ManSection>
 

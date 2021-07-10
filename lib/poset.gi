@@ -1223,6 +1223,25 @@ InstallMethod(IsEqualFaces,
 	return IsSubface(face1,face2) and IsSubface(face2,face1);
 	end);
 
+
+InstallMethod(IsIsomorphicPoset,
+	[IsPoset,IsPoset],
+	function(poset1,poset2)
+	local h1, h2;
+	h1:=HasseDiagramOfPoset(poset1);
+	h2:=HasseDiagramOfPoset(poset2);
+	return IsIsomorphicGraph(h1,h2);
+	end);
+
+InstallMethod(PosetIsomorphism,
+	[IsPoset,IsPoset],
+	function(poset1,poset2)
+	local h1,h2;
+	h1:=HasseDiagramOfPoset(poset1);
+	h2:=HasseDiagramOfPoset(poset2);
+	return GraphIsomorphism(h1,h2);
+	end);
+
 #Here's a sample of things you can do...
 #p:=PyramidOver(HemiCube(3));
 #pos:=PosetFromManiplex(p);;

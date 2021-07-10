@@ -32,6 +32,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X809815D08250B57F">1.1-5 LayerGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7BB443CD832DAC12">1.1-6 Skeleton</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7A0FB13C7EF68CBB">1.1-7 Hasse</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X860AACCF860A3F66">1.1-8 QuotientByLabel</a></span>
 </div></div>
 </div>
 
@@ -268,6 +269,33 @@ rec(
      15, 16 ], 
  schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, 
      -12, -13, -14, -15, -16 ] )
+</pre></div>
+
+<p><a id="X860AACCF860A3F66" name="X860AACCF860A3F66"></a></p>
+
+<h5>1.1-8 QuotientByLabel</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientByLabel</code>( <var class="Arg">object</var>, <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
+
+<p>Given a graph, its edges, and its edge labels, and a sublist of labels, this creates the underlying simple graph of the quotient identifying vertices connected by labels not in the sublist.</p>
+
+<p>Here we start with the flag graph of the 3-cube (with edge labels 1,2,3), and identify any vertices not connected by edge by edges of label 1. We can then check that this new graph is bipartite.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Cube(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=FlagGraphWithLabels(P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=f[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ed:=f[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">lab:=f[3];  #Note This triple is to be replace by a single object.</span>
+[ 3, 2, 1, 3, 1, 2, 1, 2, 3, 2, 1, 3, 2, 1, 1, 3, 2, 2, 3, 1, 3, 1, 2, 3, 2, 1, 1, 2, 2, 3, 1, 3, 1, 2, 
+  3, 1, 2, 1, 3, 2, 2, 1, 2, 2, 3, 1, 1, 3, 1, 3, 3, 2, 1, 2, 1, 3, 3, 1, 3, 2, 2, 2, 2, 3, 3, 1, 3, 1, 1, 3, 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q:=QuotientByLabel(g,ed,lab,[1]);</span>
+rec( adjacencies := [ [ 5, 6, 8 ], [ 3, 4, 7 ], [ 2, 6, 8 ], [ 2, 5, 8 ], [ 1, 4, 7 ], [ 1, 3, 7 ], [ 2, 5, 6 ], [ 1, 3, 4 ] ], group := Group(()), isGraph := true, 
+ isSimple := true, names := [ 1 .. 8 ], order := 8, representatives := [ 1, 2, 3, 4, 5, 6, 7, 8 ], schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsBipartite(Q);</span>
+true
 </pre></div>
 
 

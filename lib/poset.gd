@@ -251,19 +251,26 @@ DeclareProperty("IsPolytope", IsPoset);
 #! gap> KnownPropertiesOfObject(poset2);
 #! [ "IsP1", "IsP2", "IsPolytope" ]
 #! @EndExampleSession
-#! @Section Working with posets
 
 #! @Arguments poset
 #! @Description Determines whether a poset is an abstract pre-polytope.
 DeclareProperty("IsPrePolytope", IsPoset);
 
 
-#! @Arguments object1, object2
-#! @Returns `true` or `false`
-#! @Description Given two poset elements, will tell you if they are incident. 
-DeclareOperation("AreIncidentElements",[IsObject,IsObject]);
+#! @Section Working with posets
 
-DeclareSynonym("AreIncidentFaces",AreIncidentElements);
+
+
+
+#! @Arguments poset1, poset2
+#! @Returns `true` or `false`
+#! @Description Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic by checking to see if their Hasse diagrams are isomorphic.
+DeclareOperation("IsIsomorphicPoset",[IsPoset,IsPoset]);
+
+#! @Arguments poset1, poset2
+#! @Returns map on face indices
+#! @Description When <A>poset1</A> and <A>poset2</A> are isomorphic, will give you a map from the faces of <A>poset1</A> to the faces of <A>poset2</A>.
+DeclareOperation("PosetIsomorphism",[IsPoset,IsPoset]);
 
 #! @Arguments poset
 #! @Returns `IsList`
@@ -366,6 +373,8 @@ DeclareAttribute("ElementOrderingFunction", IsPosetElement);
 
 DeclareAttribute("ElementObject", IsPosetElement); 
 
+#! @Section Element Constructors
+
 #! @Arguments obj, func
 #! @Returns `IsFace`
 #! @Description Creates a `face` with <A>obj</A> and ordering function `func`.
@@ -387,6 +396,9 @@ DeclareOperation("PosetElementFromAtomList",[IsList,IsInt]);
 #! @Description Creates a `face` with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
 DeclareOperation("PosetElementFromIndex",[IsObject,IsInt]);
 
+
+#! @Section Element operations
+
 #! @Arguments poset
 #! @Returns `list`
 #! @Description Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>.
@@ -401,10 +413,16 @@ DeclareOperation("IsSubface", [IsFace,IsFace]);
 
 DeclareOperation("IsEqualFaces", [IsFace, IsFace]);
 
+
+#! @Arguments object1, object2
+#! @Returns `true` or `false`
+#! @Description Given two poset elements, will tell you if they are incident. 
+DeclareOperation("AreIncidentElements",[IsObject,IsObject]);
+
+DeclareSynonym("AreIncidentFaces",AreIncidentElements);
+
 ###To Do
 
-#! @Arguments poset1, poset2
-#! @Returns `true` or `false`
-#! @Description Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic.
+
 
 
