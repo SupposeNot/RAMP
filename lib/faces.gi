@@ -13,7 +13,12 @@ InstallMethod(NumberOfIFaces,
 	function(p,i)
 	local g, n, ranks, MP, fvec;
 	n:=Rank(p);
-	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
+	if i = -1 or i = n then
+		return 1;
+	elif i < 0 or i > n-1 then 
+		Error("<i> must be between -1 and n"); 
+	fi;
+	
 	if IsBound(p!.fvec) and p!.fvec[i+1] <> fail then
 		return p!.fvec[i+1];
 	fi;
@@ -42,7 +47,12 @@ InstallOtherMethod(NumberOfIFaces,
 	function(p, i)
 	local g, h, sym, n, J, num;
 	n := Rank(p);
-	if i < 0 or i > n-1 then Error("<i> must be between 0 and n-1"); fi;
+	if i = -1 or i = n then
+		return 1;
+	elif i < 0 or i > n-1 then 
+		Error("<i> must be between -1 and n"); 
+	fi;
+	
 	if p!.fvec[i+1] <> fail then
 		return p!.fvec[i+1];
 	fi;
@@ -117,32 +127,54 @@ InstallMethod(Fvector,
 
 
 InstallMethod(Section,
-	[IsReflexibleManiplex, IsInt, IsInt],
-	function(M, j, i)
-	local n, sym, g, h, s, q;
-	n := Rank(M);
-	g := AutomorphismGroup(M);
-	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
-	q := ReflexibleManiplex(h);
-	if HasSchlafliSymbol(M) then
-		SetSchlafliSymbol(q, SchlafliSymbol(M){[i+2..j-1]});
-	fi;
-	return q;
-	end);
-	
-InstallMethod(Section,
 	[IsManiplex, IsInt, IsInt, IsInt],
 	function(M, j, i, k)
-	local g, n, h, o, newgens, q;
+	local g, n, h, o, newgens, q, sym, M2;
 	n := Rank(M);
-	g := ConnectionGroup(M);
-	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
-	# Get the connected component of the graph with k in it...
-	o := Orbit(h, k);
-	# Then restrict the permutations to only act on that orbit...
-	newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
-	q := Maniplex(Group(newgens));
-	return q;
+
+	if j > n then
+		Error("j must be < n+1.\n");
+	elif i < -1 then
+		Error("i must be > -2.\n");
+	elif j <= i then
+		Error("j must be > i.\n");
+	fi;
+	
+	if j-i = 1 then
+		return UniversalPolytope(0);
+	elif j-i = 2 then
+		return UniversalPolytope(1);
+	fi;
+
+	if IsReflexibleManiplex(M) then
+		sym := SchlafliSymbol(M){[i+2..j-1]};
+		
+		# Universal polytopes have universal sections
+		if HasExtraRelators(M) and IsEmpty(ExtraRelators(M)) then
+			M2 := ReflexibleManiplex(sym);
+			if HasIsPolytopal(M) and IsPolytopal(M) then
+				SetIsPolytopal(M2, true);
+			fi;
+			return M2;
+		fi;
+		
+		g := AutomorphismGroup(M);
+		h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+		q := ReflexibleManiplex(h);
+		if HasSchlafliSymbol(M) then
+			SetSchlafliSymbol(q, SchlafliSymbol(M){[i+2..j-1]});
+		fi;
+		return q;
+	else
+		g := ConnectionGroup(M);
+		h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+		# Get the connected component of the graph with k in it...
+		o := Orbit(h, k);
+		# Then restrict the permutations to only act on that orbit...
+		newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
+		q := Maniplex(Group(newgens));
+		return q;
+	fi;
 	end);
 
 InstallMethod(Section,
