@@ -208,6 +208,7 @@ InstallMethod(Medial,
 	Med!.base := p;
 
 	SetRankManiplex(Med, 3);
+	SetDescription(Med, Concatenation("Medial(", Description(p), ")"));
 	
 	AddAttrComputer(Med, Size,
 		function(M)
@@ -257,6 +258,8 @@ InstallMethod(Medial,
 
 		return Group([s0,s1,s2]);
 		end);
+	
+	if HasIsPolytopal(p) and IsPolytopal(p) then SetIsPolytopal(Med, true); fi;
 	
 	return Med;
 	end);

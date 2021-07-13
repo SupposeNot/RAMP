@@ -158,6 +158,11 @@ InstallMethod(Section,
 			return M2;
 		fi;
 		
+		# Polytopes have polygonal rank 2 sections
+		if HasIsPolytopal(M) and IsPolytopal(M) and j-i = 3 then
+			return Pgon(sym[1]);
+		fi;
+		
 		g := AutomorphismGroup(M);
 		h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
 		q := ReflexibleManiplex(h);
@@ -171,6 +176,12 @@ InstallMethod(Section,
 		# Get the connected component of the graph with k in it...
 		o := Orbit(h, k);
 		# Then restrict the permutations to only act on that orbit...
+		
+		# Polytopes have polygonal rank 2 sections
+		if HasIsPolytopal(M) and IsPolytopal(M) and j-i = 3 then
+			return Pgon(Size(o)/2);
+		fi;
+
 		newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
 		q := Maniplex(Group(newgens));
 		return q;
@@ -192,21 +203,7 @@ InstallMethod(Sections,
 InstallMethod(Sections,
 	[IsManiplex, IsInt, IsInt],
 	function(M, j, i)
-	local g, n, h, orbs, orb, newgens, sections;
-	n := Rank(M);
-	g := ConnectionGroup(M);
-	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
-	orbs := Orbits(h);
-	sections := [];
-	for orb in orbs do
-		newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, orb));
-		Add(sections, Maniplex(Group(newgens)));
-	od;
-	
-	# This might be terribly slow...
-	sections := Unique(sections);
-
-	return sections;
+	return Unique(List(FlagOrbitRepresentatives(M), k -> Section(M,j,i,k)));
 	end);
 
 
