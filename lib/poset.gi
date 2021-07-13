@@ -788,28 +788,80 @@ InstallMethod(AutomorphismGroup,
 	end);
 
 
-InstallMethod(ViewObj,
-	[IsPoset],
+InstallMethod(DisplayString,
+	[IsPosetOfFlags],
 	function(poset)
-	local faces;
-	Print("A poset ");
-	if IsPosetOfIndices(poset) then Print("using the IsPosetOfIndices representation ");fi;
-	if HasRankPoset(poset) then Print("of rank ",Rank(poset));fi;
-	if IsPosetOfFlags(poset) then 
-		Print("using the IsPosetOfFlags representation ");
-		faces:=Concatenation(ShallowCopy(poset!.faces_list_by_rank));
-		Print("with ",Length(faces)," faces.");
+	local string, ranks, n, shift, i;
+	string:="This is a poset of rank ";
+	Append(string,String(Rank(poset)));
+	Append(string, Concatenation(" with ", String(Size(ElementsList(poset))), " elements"));
+	if HasMaximalChains(poset) then
+		Append(string, Concatenation(" and ", String(Size(MaximalChains(poset)))," flags"));
+		fi;
+	Append(string,".\n");
+	if HasIsPolytope(poset) then
+		if IsPolytope(poset) then Append(string, "It is a polytope.\n");fi;
+	elif HasIsPrePolytope(poset) then
+		if IsPrePolytope(poset) then Append(string, "It is  pre-polytope.\n");fi;
 	fi;
+	return string;
+	end);
+	
+# InstallMethod(Display,
+# 	[IsPosetOfFlags],
+# 	function(p)
+# 	Print(DisplayString(p));
+# 	end);	
+
+# InstallMethod(ViewString,
+# 	[IsPosetOfFlags],
+# 	function(poset)
+# 	local string, ranks, n, shift, i;
+# 	string:="A poset of rank ";
+# 	Append(string,String(Rank(poset)));
+# 	Append(string, Concatenation(" with ", String(Size(ElementsList(poset))), " elements using the IsPosetOfFlags representation."));
+# 	return string;
+# 	end);
+
+InstallMethod(PrintString,
+	[IsPosetOfFlags],
+	function(poset)
+	local string;
+	string:= Concatenation("PosetFromFaceListOfFlags(", String(poset!.faces_list_by_rank), ");");
+	return string;
 	end);
 
-InstallMethod(PrintObj,
+InstallMethod(ViewString,
 	[IsPoset],
 	function(poset)
-	ViewObj(poset);
-	Print("\n");
-	if IsPosetOfFlags(poset) then Print("List of faces in terms of incident flags, collected by rank:\n", poset!.faces_list_by_rank);fi;
+	local faces, string;
+	string:="A poset";
+	if HasRankPoset(poset) then Append(string,Concatenation(" of rank ",String(Rank(poset))));fi;
+	if HasElementsList(poset) then Append(string, Concatenation(" on ", String(Size(ElementsList(poset))), " elements"));fi;
+	if IsPosetOfIndices(poset) then Append(string," using the IsPosetOfIndices representation");fi;
+# 	Append(string,".\n");
+	return string;
 	end);
 
+InstallMethod(PrintString,
+	[IsPosetOfIndices and HasElementsList],
+	function(poset)
+	local string, successors, PO, els;
+	els:=List(ElementsList(poset),ElementObject);
+	PO:=ElementOrderingFunction(ElementsList(poset)[1]);
+	string:=Concatenation("PosetFromElements(",String(els),",",String(PO),")");
+	return string;
+	end);
+
+InstallMethod(PrintString,
+	[IsPosetOfIndices],
+	function(poset)
+	local string, successors,PO;
+	successors:=Successors(PartialOrder(poset));
+# 	PO:=BinaryRelationOnPoints(successors);
+	string:=Concatenation( "PosetFromPartialOrder( BinaryRelationOnPoints(", String(successors), "))");
+	return string;
+	end);
 
 #####Todo
 # InstallMethod(FacesOfPosetAsBinaryRelationOnFaces,
@@ -1052,24 +1104,42 @@ InstallOtherMethod(PosetElementFromListOfFlags,
 
 InstallMethod(Rank,[IsFace],RankFace);
 
+	
+
+InstallMethod(DisplayString,
+	[IsFace],
+	function(face)
+	local string, elobj;
+	string:="An element of a poset";
+	if HasElementObject(face) then
+		elobj:=ElementObject(face);
+		if HasRankPosetElement(elobj) then Append(string, Concatenation(" of Rank=", String(RankPosetElement(elobj))));fi;
+		if HasFlagList(elobj) then Append(string, Concatenation(" corr. to flags: ", String(FlagList(elobj))));fi;
+		if HasAtomList(elobj) then Append(string, Concatenation(" made up of atoms: ", String(AtomList(elobj))));fi;
+		if HasIndex(elobj) then Append(string,Concatenation(" with index=",String(elobj!.IndexAndRank))); fi;
+	else
+		if HasRankPosetElement(face) then Append(string, Concatenation(" of Rank=", String(RankPosetElement(face))));fi;
+		if HasFlagList(face) then Append(string, Concatenation(" corr. to flags: ", String(FlagList(face))));fi;
+		if HasAtomList(face) then Append(string, Concatenation(" made up of atoms: ", String(AtomList(face))));fi;
+		if HasIndex(face) then Append(string,Concatenation(" with index=",String(face!.IndexAndRank))); fi;
+	fi;
+	Append(string,".\n");
+	return string;
+	end);
+
+
 InstallMethod(ViewObj,
 	[IsFace],
 	function(face)
-	Print("An element of a poset.");
-	end);
-	
-
-InstallMethod(PrintObj,
-	[IsFace],
-	function(face)
-	ViewObj(face);
-	if HasRankFace(face) then Print(" Rank of element=", Rank(face));fi;
-	if HasFlagList(face) then Print("\n with flags: ", FlagList(face));fi;
-	if HasAtomList(face) then Print("\n made up of atoms: ", AtomList(face));fi;
-	if HasIndex(face) then Print("\n with index=",face!.IndexAndRank); fi;
+	Display(face);
 	end);
 
-# InstallMethod("IsP1")
+# InstallMethod(PrintString,
+# 	[IsFace],
+# 	function(face)
+# 	return DisplayString(face);
+# 	end);
+
 
 
 InstallMethod(IsSubface,
@@ -1264,6 +1334,7 @@ InstallMethod(PosetIsomorphism,
 posetFM:=function(n) return PosetFromManiplex(PyramidOver(Cube(n)));end;
 posetFE:=function(n) return PosetFromElements(ElementsList(posetFM(n)),IsSubface);end;
 posetFG:=function(n) return PosetFromConnectionGroup(ConnectionGroup(posetFE(n))); end;
+# posetFA:=function() return 
 # posetFM:=PosetFromManiplex(HemiCube(3));
 # posetFE:=PosetFromElements(ElementsList(posetFM),IsSubface);
 # posetFG:= PosetFromConnectionGroup(ConnectionGroup(posetFE));
