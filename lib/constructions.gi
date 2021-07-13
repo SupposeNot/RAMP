@@ -23,6 +23,7 @@ InstallMethod( UniversalPolytope,
 		SetFvector(p, List([1..n], i -> infinity));
 		SetSchlafliSymbol(p, List([1..n-1], i -> infinity));
 	fi;
+	SetDescription(p, Concatenation("UniversalPolytope(", String(n), ")"));
 	return p;
 	end);
 	

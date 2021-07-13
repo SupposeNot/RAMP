@@ -143,7 +143,29 @@ InstallMethod(ReflexibleManiplex,
 	fi;
 	n := Size(sym)+1;
 
-	if n = 2 then return Pgon(sym[1]); fi;
+	if n = 1 then
+		return UniversalPolytope(1);
+	elif n = 2 then 
+		return Pgon(sym[1]); 
+	elif ForAll(sym, i -> i = 3) then
+		return Simplex(n);
+	elif sym[1] = 4 and ForAll(sym{[2..n-1]}, i -> i = 3) then
+		return Cube(n);
+	elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
+		return CrossPolytope(n);
+	elif sym[1] = 4 and sym[n-1] = 4 and ForAll(sym{[2..n-2]}, i -> i = 3) then
+		return CubicTiling(n);
+	elif sym = [3,5] then
+		return Icosahedron();
+	elif sym = [5,3] then
+		return Dodecahedron();
+	elif sym = [3,4,3] then
+		return 24Cell();
+	elif sym = [5,3,3] then
+		return 120Cell();
+	elif sym = [3,3,5] then
+		return 600Cell();
+	fi;
 
 	w := UniversalSggi(sym);
 	p := ReflexibleManiplex(w);
@@ -373,9 +395,8 @@ InstallMethod(IsFacetFaithful,
 	c := Core(g,h);
 	return (Size(c) = 1);
 	end);
-	
-InstallMethod(DisplayString,
-	[IsManiplex],
+
+InstallGlobalFunction(MANIPLEX_STRING,
 	function(p)
 	local str;
 	str := "";
@@ -406,6 +427,12 @@ InstallMethod(DisplayString,
 	return str;
 	end);
 	
+InstallMethod(DisplayString,
+	[IsManiplex],
+	function(p)
+	return MANIPLEX_STRING(p);
+	end);
+	
 	
 InstallMethod( PrintString,
 	[IsManiplex],
@@ -413,7 +440,7 @@ InstallMethod( PrintString,
 	if HasDescription(M) then
 		return Description(M);
 	else
-		TryNextMethod();
+		return MANIPLEX_STRING(M);
 	fi;
 	#ViewObj(p);
 	#Print("\n");

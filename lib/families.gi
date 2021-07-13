@@ -29,11 +29,24 @@ InstallMethod(Pgon,
 InstallMethod(Cube,
 	[IsInt],
 	function(n)
-	local sym, p;
+	local sym, p, g;
+	if n < 0 then
+		Error("n must be at least 0.\n");
+	elif n = 0 then
+		return UniversalPolytope(0);
+	elif n = 1 then
+		return UniversalPolytope(1);
+	elif n = 2 then
+		return Pgon(4);
+	fi;
+	
 	sym := List([1..n-1], i -> 3);
-	if Size(sym) > 0 then sym[1] := 4; fi;
-	p := AbstractRegularPolytope(sym);
+	sym[1] := 4;
+	g := UniversalSggi(sym);
+	p := AbstractRegularPolytope(g);
+	SetSchlafliSymbol(p, sym);
 	SetDescription(p, Concatenation("Cube(", String(n), ")"));
+	SetExtraRelators(p, []);
 	return p;
 	end);
 	
@@ -57,11 +70,23 @@ InstallMethod(HemiCube,
 InstallMethod(CrossPolytope,
 	[IsInt],
 	function(n)
-	local sym, p;
+	local sym, p, g;
+	if n < 0 then
+		Error("n must be at least 0.\n");
+	elif n = 0 then
+		return UniversalPolytope(0);
+	elif n = 1 then
+		return UniversalPolytope(1);
+	elif n = 2 then
+		return Pgon(4);
+	fi;
 	sym := List([1..n-1], i -> 3);
 	sym[n-1] := 4;
-	p := AbstractRegularPolytope(sym);
+	g := UniversalSggi(sym);
+	p := AbstractRegularPolytope(g);
+	SetSchlafliSymbol(p, sym);
 	SetDescription(p, Concatenation("CrossPolytope(", String(n), ")"));
+	SetExtraRelators(p, []);
 	return p;
 	end);
 
@@ -84,24 +109,39 @@ InstallMethod(HemiCrossPolytope,
 InstallMethod(Simplex,
 	[IsInt],
 	function(n)
-	local sym, p;
+	local sym, p, g;
 	sym := List([1..n-1], i -> 3);
-	p := AbstractRegularPolytope(sym);
+	if n < 0 then
+		Error("n must be at least 0.\n");
+	elif n = 0 then
+		return UniversalPolytope(0);
+	elif n = 1 then
+		return UniversalPolytope(1);
+	elif n = 2 then
+		return Pgon(3);
+	fi;
+	g := UniversalSggi(sym);
+	p := AbstractRegularPolytope(g);
 	SetDescription(p, Concatenation("Simplex(", String(n), ")"));
+	SetSchlafliSymbol(p, sym);
+	SetExtraRelators(p, []);
 	return p;
 	end);
 	
 InstallMethod(CubicTiling,
 	[IsInt],
 	function(n)
-	local sym, p;
+	local sym, p, g;
 	if n < 3 then
 		Error("n must be 3 or more");
 	fi;
 	sym := List([1..n-1], i -> 3);
 	sym[1] := 4;
 	sym[n-1] := 4;
-	p := AbstractRegularPolytope(sym);
+	g := UniversalSggi(sym);
+	p := AbstractRegularPolytope(g);
+	SetSchlafliSymbol(p, sym);
+	SetExtraRelators(p, []);
 	SetDescription(p, Concatenation("CubicTiling(", String(n), ")"));
 	return p;
 	end);
@@ -109,7 +149,13 @@ InstallMethod(CubicTiling,
 InstallMethod(Dodecahedron,
 	[],
 	function()
-	return AbstractRegularPolytope([5,3]);
+	local g, p;
+	g := UniversalSggi([5,3]);
+	p := AbstractRegularPolytope(g);
+	SetDescription(p, "Dodecahedron()");
+	SetSchlafliSymbol(p, [5,3]);
+	SetExtraRelators(p, []);
+	return p;
 	end);
 InstallMethod(HemiDodecahedron,
 	[],
@@ -119,7 +165,13 @@ InstallMethod(HemiDodecahedron,
 InstallMethod(Icosahedron,
 	[],
 	function()
-	return AbstractRegularPolytope([3,5]);
+	local g, p;
+	g := UniversalSggi([3,5]);
+	p := AbstractRegularPolytope(g);
+	SetDescription(p, "Icosahedron()");
+	SetSchlafliSymbol(p, [3,5]);
+	SetExtraRelators(p, []);
+	return p;
 	end);
 InstallMethod(HemiIcosahedron,
 	[],
@@ -129,7 +181,13 @@ InstallMethod(HemiIcosahedron,
 InstallMethod(24Cell,
 	[],
 	function()
-	return AbstractRegularPolytope([3,4,3]);
+	local g, p;
+	g := UniversalSggi([3,4,3]);
+	p := AbstractRegularPolytope(g);
+	SetDescription(p, "24Cell");
+	SetSchlafliSymbol(p, [3,4,3]);
+	SetExtraRelators(p, []);
+	return p;
 	end);
 InstallMethod(Hemi24Cell,
 	[],
@@ -139,7 +197,13 @@ InstallMethod(Hemi24Cell,
 InstallMethod(120Cell,
 	[],
 	function()
-	return AbstractRegularPolytope([5,3,3]);
+	local g, p;
+	g := UniversalSggi([5,3,3]);
+	p := AbstractRegularPolytope(g);
+	SetDescription(p, "120Cell()");
+	SetSchlafliSymbol(p, [5,3,3]);
+	SetExtraRelators(p, []);
+	return p;
 	end);
 InstallMethod(Hemi120Cell,
 	[],
@@ -149,7 +213,13 @@ InstallMethod(Hemi120Cell,
 InstallMethod(600Cell,
 	[],
 	function()
-	return AbstractRegularPolytope([3,3,5]);
+	local g, p;
+	g := UniversalSggi([3,3,5]);
+	p := AbstractRegularPolytope(g);
+	SetDescription(p, "600Cell()");
+	SetSchlafliSymbol(p, [3,3,5]);
+	SetExtraRelators(p, []);
+	return p;
 	end);
 InstallMethod(Hemi600Cell,
 	[],

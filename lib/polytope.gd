@@ -150,3 +150,4 @@ DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 
 
 
+DeclareGlobalFunction("MANIPLEX_STRING");
