@@ -142,6 +142,9 @@ InstallMethod(ReflexibleManiplex,
 		Error("Each entry of the Schlafli symbol must be a positive integer at least 2.");
 	fi;
 	n := Size(sym)+1;
+
+	if n = 2 then return Pgon(sym[1]); fi;
+
 	w := UniversalSggi(sym);
 	p := ReflexibleManiplex(w);
 	SetSchlafliSymbol(p, sym);
@@ -371,43 +374,52 @@ InstallMethod(IsFacetFaithful,
 	return (Size(c) = 1);
 	end);
 	
-InstallMethod( ViewObj,
+InstallMethod(DisplayString,
 	[IsManiplex],
 	function(p)
-	if HasDescription(p) then
-		Print(Description(p));
-		Print("\n");
-	fi;
+	local str;
+	str := "";
 	if IsReflexibleManiplex(p) then
 		if HasIsPolytopal(p) and IsPolytopal(p) then
-			Print("Regular ");
+			Append(str, "regular ");
 		else
-			Print("Reflexible ");
+			Append(str, "reflexible ");
 		fi;
 	fi;
 	
 	if HasIsPolytopal(p) and not(IsPolytopal(p)) then
-		Print("nonpolytopal ");
+		Append(str, "nonpolytopal ");
 	fi;
 	
-	Print(String(Rank(p)));
+	Append(str, String(Rank(p)));
 	if HasIsPolytopal(p) and IsPolytopal(p) then
-		Print("-polytope");
+		Append(str, "-polytope");
 	else
-		Print("-maniplex");
+		Append(str, "-maniplex");
 	fi;
-	if HasSchlafliSymbol(p) then Print(Concatenation(" of type ", String(SchlafliSymbol(p)))); fi;
-	if HasSize(p) then Print(Concatenation(" with ", String(Size(p)), " flags")); fi;
+	if HasSchlafliSymbol(p) then 
+		Append(str, Concatenation(" of type ", String(SchlafliSymbol(p))));
+	fi;
+	if HasSize(p) then 
+		Append(str, Concatenation(" with ", String(Size(p)), " flags")); 
+	fi;
+	return str;
 	end);
-
-InstallMethod( PrintObj,
-	[IsReflexibleManiplex],
-	function(p)
-	ViewObj(p);
-	Print("\n");
-	if IsFpGroup(AutomorphismGroup(p)) then
-		Print("Defining relations: ", RelatorsOfFpGroup(AutomorphismGroup(p)));
+	
+	
+InstallMethod( PrintString,
+	[IsManiplex],
+	function(M)
+	if HasDescription(M) then
+		return Description(M);
+	else
+		TryNextMethod();
 	fi;
+	#ViewObj(p);
+	#Print("\n");
+	#if IsFpGroup(AutomorphismGroup(p)) then
+	#	Print("Defining relations: ", RelatorsOfFpGroup(AutomorphismGroup(p)));
+	#fi;
 	end);
 	
 # TODO: This is currently broken for rotary maniplexes
@@ -473,11 +485,13 @@ InstallMethod(NumberOfFlagOrbits,
 InstallMethod(FlagOrbitRepresentatives,
 	[IsManiplex],
 	function(M)
-	local g;
+	local ag;
 	if IsReflexible(M) then
 		return [1];
 	else
-		Error("Not yet implemented for non-reflexible things. Waiting for labeled graph code.");
+		# This should eventually just use the symmetry type graph.
+		ag := AutomorphismGroupOnFlags(M);
+		return List(Orbits(ag), o -> First(o));
 	fi;
 	end);
 

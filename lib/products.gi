@@ -52,7 +52,7 @@ InstallMethod(PyramidOver,
 		SetIsPolytopal(q, IsPolytopal(p));
 	fi;
 	if HasDescription(p) then
-		SetDescription(q, Concatenation("Pyramid over ", Description(p)));
+		SetDescription(q, Concatenation("PyramidOver(", Description(p), ")"));
 	fi;
 	return q;
 	end);
@@ -103,7 +103,7 @@ InstallMethod(PrismOver,
 		SetIsPolytopal(q, IsPolytopal(p));
 	fi;
 	if HasDescription(p) then
-		SetDescription(q, Concatenation("Prism over ", Description(p)));
+		SetDescription(q, Concatenation("PrismOver(", Description(p), ")"));
 	fi;
 	return q;
 	end);

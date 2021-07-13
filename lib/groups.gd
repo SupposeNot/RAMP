@@ -18,6 +18,11 @@ DeclareAttribute("AutomorphismGroupFpGroup", IsManiplex);
 DeclareAttribute("AutomorphismGroupPermGroup", IsManiplex);
 
 #! @Arguments M
+#! Returns the automorphism group of <A>M</A> as a
+#! permutation group action on the flags of <A>M</A>.
+DeclareAttribute("AutomorphismGroupOnFlags", IsManiplex);
+
+#! @Arguments M
 #! Returns the connection group of <A>M</A> as a
 #! permutation group. We may eventually allow other types
 #! of connection groups.

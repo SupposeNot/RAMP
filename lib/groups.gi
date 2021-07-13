@@ -1,6 +1,6 @@
 
 InstallMethod(AutomorphismGroup, 
-	[IsManiplex and IsManiplexConnGpRep],
+	[IsManiplex],
 	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
 	
 InstallMethod(AutomorphismGroup, 
@@ -99,6 +99,10 @@ InstallMethod(AutomorphismGroupPermGroup,
 		return Image(IsomorphismPermGroup(g));
 	fi;
 	end);
+	
+InstallMethod(AutomorphismGroupOnFlags, 
+	[IsManiplex],
+	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
 	
 InstallMethod(RotationGroup,
 	[IsManiplex and IsRotaryManiplexRotGpRep],
