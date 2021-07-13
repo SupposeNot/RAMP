@@ -110,7 +110,8 @@ DeclareOperation("PosetFromElements",[IsList]);
 #! [ -1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3 ]
 #! @EndExampleSession
 
-#! @Subsection Helper functions
+#! @BeginGroup Helper functions
+#! @GroupTitle Helper functions for special partial orders
 #! The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
 
 
@@ -123,31 +124,23 @@ DeclareOperation("PairCompareFlagsList",[IsList,IsList]);
 #! @Returns `true` or `false`
 #! @Description Function assumes <A>list1</A> and <A>list2</A> are of the form `[listOfAtoms,int]` where `listOfAtoms` is a list of flags in the face and `int` is the rank of the face. Allows comparison of HasAtomList elements.
 DeclareOperation("PairCompareAtomsList",[IsList,IsList]);
+#! @EndGroup 
+
 
 #! @Section Poset attributes
 
-#! @Arguments poset
-#! @Description Will recover the list of faces of the poset, format may depend on __type__ of representation of `poset`.
-DeclareAttribute("ElementsList", IsPoset); #for storing facelists
-
-
-DeclareSynonymAttr("FacesList", ElementsList);
+#! Posets have many properties we might be interested in. Here's a few.
 
 
 #! @Arguments poset
-#! @Description `OrderingFunction` is an attribute of a poset which stores a function for ordering elements.
-DeclareAttribute("OrderingFunction", IsPoset); #helpful for facelist info.
-
-
-#! @Arguments poset
-#! @Description If the poset `IsP1`, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If `IsP1(poset)=false`, ranks are assumed to run from 1 to $n$.
-DeclareAttribute("RankPoset", IsPoset);
-
-#! @Arguments poset
-#! @Returns `list` of flags as lists of poset elements.
 #! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is `FlagsList`. 
-# Tends to work faster (sometimes significantly) if the poset `HasPartialOrder`.
+#! Tends to work faster (sometimes significantly) if the poset `HasPartialOrder`.
 DeclareAttribute("MaximalChains", IsPoset);
+#! Synonym is `FlagsList`.
+
+
+DeclareSynonymAttr("FlagsList", MaximalChains);
+
 #! @BeginExampleSession
 #! gap> poset:=PosetFromManiplex(HemiCube(3));
 #! A poset using the IsPosetOfFlags representation with 15 faces.
@@ -163,7 +156,26 @@ DeclareAttribute("MaximalChains", IsPoset);
 #! @EndExampleSession
 
 
-DeclareSynonymAttr("FlagsList", MaximalChains);
+#! @Arguments poset
+#! @Description If the poset `IsP1`, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If `IsP1(poset)=false`, ranks are assumed to run from 1 to $n$.
+DeclareAttribute("RankPoset", IsPoset);
+
+#! @BeginGroup elements
+#! @Arguments poset
+#! @Description Will recover the list of faces of the poset, format may depend on __type__ of representation of `poset`.
+#! * We also have `FacesList` as a synonym for this command.
+DeclareAttribute("ElementsList", IsPoset); #for storing facelists
+
+
+DeclareSynonymAttr("FacesList", ElementsList);
+#! @EndGroup
+
+#! @Arguments poset
+#! @Description `OrderingFunction` is an attribute of a poset which stores a function for ordering elements.
+DeclareAttribute("OrderingFunction", IsPoset); #helpful for facelist info.
+
+
+
 
 #! @Arguments poset
 #! @Description Checks or creates the value of the attribute `IsFlaggable` for an `IsPoset`. Point here is to see if the structure of the poset is sufficient to determine the flag graph.  For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
@@ -219,18 +231,20 @@ DeclareProperty("IsP2", IsPoset);
 #! @EndExampleSession
 
 #! @Arguments poset
-#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time. In fact, this is currently pretty slow in general. Being strongly flag connected (or in the case of posets that are P1 and P2, strongly connected) is a combinatorial explosion scenario.
+#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time.
 DeclareProperty("IsP3", IsPoset);
 
 
 DeclareSynonymAttr("IsStronglyFlagConnected", IsP3);
 
 #! Helper for IsP3
+#! @Arguments poset
+#! @Description Determines whether a poset is flag connected.
 DeclareOperation("IsFlagConnected", [IsPoset]);
 
 
 #! @Arguments poset
-#! @Description Determines whether a poset satisfies the diamond condition. May also be invoked using IsDiamondCondition.
+#! @Description Determines whether a poset satisfies the diamond condition. May also be invoked using `IsDiamondCondition`.
 DeclareProperty("IsP4", IsPoset);
 
 
@@ -424,6 +438,7 @@ DeclareOperation("IsEqualFaces", [IsFace, IsFace]);
 #! @Arguments object1, object2
 #! @Returns `true` or `false`
 #! @Description Given two poset elements, will tell you if they are incident. 
+#! * Synonym function: `AreIncidentFaces`.
 DeclareOperation("AreIncidentElements",[IsObject,IsObject]);
 
 DeclareSynonym("AreIncidentFaces",AreIncidentElements);

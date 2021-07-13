@@ -2150,34 +2150,14 @@ Another interesting example:
   [ -1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3 ]
 \end{Verbatim}
  
-\subsection{\textcolor{Chapter }{Helper functions}}\label{Chapter_Posets_Section_Poset_constructors_Subsection_Helper_functions}
+\subsection{\textcolor{Chapter }{Helper functions for special partial orders}}\label{Helper_functions}
 \logpage{[ 10, 1, 6 ]}
-\hyperdef{L}{X7BD4785D8488BAD5}{}
+\hyperdef{L}{X82DB1F987C68B392}{}
 {
-  The functions PairCompareFlagsList and PairCompareAtomsList are used in poset
-construction. }
-
- 
-
-\subsection{\textcolor{Chapter }{PairCompareFlagsList (for IsList,IsList)}}
-\logpage{[ 10, 1, 7 ]}\nobreak
-\hyperdef{L}{X803B663D81503640}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareFlagsList({\mdseries\slshape list1, list2})\index{PairCompareFlagsList@\texttt{PairCompareFlagsList}!for IsList,IsList}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareFlagsList({\mdseries\slshape list1, list2})\index{PairCompareFlagsList@\texttt{PairCompareFlagsList}!for IsList,IsList}
 \label{PairCompareFlagsList:for IsList,IsList}
 }\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-\texttt{true} or \texttt{false} 
-
-
-
- Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form [\texttt{listOfFlags},\texttt{i}] where \texttt{listOfFlags} is a list of flags in the face and \texttt{i} is the rank of the face. Allows comparison of HasFlagList elements. }
-
- 
-
-\subsection{\textcolor{Chapter }{PairCompareAtomsList (for IsList,IsList)}}
-\logpage{[ 10, 1, 8 ]}\nobreak
-\hyperdef{L}{X862FE5C38230BD0A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareAtomsList({\mdseries\slshape list1, list2})\index{PairCompareAtomsList@\texttt{PairCompareAtomsList}!for IsList,IsList}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareAtomsList({\mdseries\slshape list1, list2})\index{PairCompareAtomsList@\texttt{PairCompareAtomsList}!for IsList,IsList}
 \label{PairCompareAtomsList:for IsList,IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -2185,7 +2165,9 @@ construction. }
 
 
 
- Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form \texttt{[listOfAtoms,int]} where \texttt{listOfAtoms} is a list of flags in the face and \texttt{int} is the rank of the face. Allows comparison of HasAtomList elements. }
+ The functions PairCompareFlagsList and PairCompareAtomsList are used in poset
+construction. Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form [\texttt{listOfFlags},\texttt{i}] where \texttt{listOfFlags} is a list of flags in the face and \texttt{i} is the rank of the face. Allows comparison of HasFlagList elements. Function
+assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form \texttt{[listOfAtoms,int]} where \texttt{listOfAtoms} is a list of flags in the face and \texttt{int} is the rank of the face. Allows comparison of HasAtomList elements. }
 
  }
 
@@ -2194,57 +2176,20 @@ construction. }
 \logpage{[ 10, 2, 0 ]}
 \hyperdef{L}{X859F4CD47E3311AD}{}
 {
-  
+  Posets have many properties we might be interested in. Here's a few. 
 
-\subsection{\textcolor{Chapter }{ElementsList (for IsPoset)}}
+\subsection{\textcolor{Chapter }{MaximalChains (for IsPoset)}}
 \logpage{[ 10, 2, 1 ]}\nobreak
-\hyperdef{L}{X8448C7067B0EF49D}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ElementsList({\mdseries\slshape poset})\index{ElementsList@\texttt{ElementsList}!for IsPoset}
-\label{ElementsList:for IsPoset}
+\hyperdef{L}{X81E0832F7B92DB7A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaximalChains({\mdseries\slshape poset})\index{MaximalChains@\texttt{MaximalChains}!for IsPoset}
+\label{MaximalChains:for IsPoset}
 }\hfill{\scriptsize (attribute)}}\\
-
-
- Will recover the list of faces of the poset, format may depend on \emph{type} of representation of \texttt{poset}. }
-
- 
-
-\subsection{\textcolor{Chapter }{OrderingFunction (for IsPoset)}}
-\logpage{[ 10, 2, 2 ]}\nobreak
-\hyperdef{L}{X7C5580EC83A4955B}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{OrderingFunction({\mdseries\slshape poset})\index{OrderingFunction@\texttt{OrderingFunction}!for IsPoset}
-\label{OrderingFunction:for IsPoset}
-}\hfill{\scriptsize (attribute)}}\\
-
-
- \texttt{OrderingFunction} is an attribute of a poset which stores a function for ordering elements. }
-
- 
-
-\subsection{\textcolor{Chapter }{RankPoset (for IsPoset)}}
-\logpage{[ 10, 2, 3 ]}\nobreak
-\hyperdef{L}{X7C9B4AA77C73A761}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPoset({\mdseries\slshape poset})\index{RankPoset@\texttt{RankPoset}!for IsPoset}
-\label{RankPoset:for IsPoset}
-}\hfill{\scriptsize (attribute)}}\\
-
-
- If the poset \texttt{IsP1}, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If \texttt{IsP1(poset)=false}, ranks are assumed to run from 1 to $n$. }
-
- 
-
-\subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
-\logpage{[ 10, 2, 4 ]}\nobreak
-\hyperdef{L}{X842B0F7E81670077}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape poset})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
-\label{IsFlaggable:for IsPoset}
-}\hfill{\scriptsize (property)}}\\
-\textbf{\indent Returns:\ }
-\texttt{list} of flags as lists of poset elements. 
-
 
 
  Gives the list of maximal chains in a poset in terms of the elements of the
-poset. Synonym function is \texttt{FlagsList}. 
+poset. Synonym function is \texttt{FlagsList}. Tends to work faster (sometimes significantly) if the poset \texttt{HasPartialOrder}. }
+
+ Synonym is \texttt{FlagsList}. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@poset:=PosetFromManiplex(HemiCube(3));|
   A poset using the IsPosetOfFlags representation with 15 faces.
@@ -2258,6 +2203,60 @@ poset. Synonym function is \texttt{FlagsList}.
   !gapprompt@gap>| !gapinput@List(last,Rank);|
   [ -1, 0, 1, 2, 3 ]
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{RankPoset (for IsPoset)}}
+\logpage{[ 10, 2, 2 ]}\nobreak
+\hyperdef{L}{X7C9B4AA77C73A761}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPoset({\mdseries\slshape poset})\index{RankPoset@\texttt{RankPoset}!for IsPoset}
+\label{RankPoset:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ If the poset \texttt{IsP1}, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If \texttt{IsP1(poset)=false}, ranks are assumed to run from 1 to $n$. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ElementsList (for IsPoset)}}
+\logpage{[ 10, 2, 3 ]}\nobreak
+\label{elements}
+\hyperdef{L}{X8448C7067B0EF49D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ElementsList({\mdseries\slshape poset})\index{ElementsList@\texttt{ElementsList}!for IsPoset}
+\label{ElementsList:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Will recover the list of faces of the poset, format may depend on \emph{type} of representation of \texttt{poset}. 
+\begin{itemize}
+\item  We also have \texttt{FacesList} as a synonym for this command. 
+\end{itemize}
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{OrderingFunction (for IsPoset)}}
+\logpage{[ 10, 2, 4 ]}\nobreak
+\hyperdef{L}{X7C5580EC83A4955B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{OrderingFunction({\mdseries\slshape poset})\index{OrderingFunction@\texttt{OrderingFunction}!for IsPoset}
+\label{OrderingFunction:for IsPoset}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ \texttt{OrderingFunction} is an attribute of a poset which stores a function for ordering elements. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
+\logpage{[ 10, 2, 5 ]}\nobreak
+\hyperdef{L}{X842B0F7E81670077}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape poset})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
+\label{IsFlaggable:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
  Checks or creates the value of the attribute \texttt{IsFlaggable} for an \texttt{IsPoset}. Point here is to see if the structure of the poset is sufficient to
 determine the flag graph. For IsPosetOfFlags this is another way of saying
 that the intersection of the faces (thought of as collections of flags)
@@ -2268,7 +2267,7 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
  
 
 \subsection{\textcolor{Chapter }{IsAtomic (for IsPoset)}}
-\logpage{[ 10, 2, 5 ]}\nobreak
+\logpage{[ 10, 2, 6 ]}\nobreak
 \hyperdef{L}{X816460188169E650}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAtomic({\mdseries\slshape poset})\index{IsAtomic@\texttt{IsAtomic}!for IsPoset}
 \label{IsAtomic:for IsPoset}
@@ -2283,7 +2282,7 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
  
 
 \subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
-\logpage{[ 10, 2, 6 ]}\nobreak
+\logpage{[ 10, 2, 7 ]}\nobreak
 \hyperdef{L}{X85A9CAA682FE56EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartialOrder({\mdseries\slshape poset})\index{PartialOrder@\texttt{PartialOrder}!for IsPoset}
 \label{PartialOrder:for IsPoset}
@@ -2299,7 +2298,7 @@ partial order to the \mbox{\texttt{\mdseries\slshape poset}}. \texttt{Note, curr
  
 
 \subsection{\textcolor{Chapter }{ListIsP1Poset (for IsList)}}
-\logpage{[ 10, 2, 7 ]}\nobreak
+\logpage{[ 10, 2, 8 ]}\nobreak
 \hyperdef{L}{X8455987F7E9A88FF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsP1Poset({\mdseries\slshape list})\index{ListIsP1Poset@\texttt{ListIsP1Poset}!for IsList}
 \label{ListIsP1Poset:for IsList}
@@ -2316,7 +2315,7 @@ or not. }
  
 
 \subsection{\textcolor{Chapter }{IsP1 (for IsPoset)}}
-\logpage{[ 10, 2, 8 ]}\nobreak
+\logpage{[ 10, 2, 9 ]}\nobreak
 \hyperdef{L}{X81269ACB7EF202C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP1({\mdseries\slshape poset})\index{IsP1@\texttt{IsP1}!for IsPoset}
 \label{IsP1:for IsPoset}
@@ -2342,7 +2341,7 @@ or not. }
  
 
 \subsection{\textcolor{Chapter }{IsP2 (for IsPoset)}}
-\logpage{[ 10, 2, 9 ]}\nobreak
+\logpage{[ 10, 2, 10 ]}\nobreak
 \hyperdef{L}{X7AFA3C077FD9583A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP2({\mdseries\slshape poset})\index{IsP2@\texttt{IsP2}!for IsPoset}
 \label{IsP2:for IsPoset}
@@ -2370,7 +2369,7 @@ or not. }
  
 
 \subsection{\textcolor{Chapter }{IsP3 (for IsPoset)}}
-\logpage{[ 10, 2, 10 ]}\nobreak
+\logpage{[ 10, 2, 11 ]}\nobreak
 \hyperdef{L}{X8723519F84529E4C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP3({\mdseries\slshape poset})\index{IsP3@\texttt{IsP3}!for IsPoset}
 \label{IsP3:for IsPoset}
@@ -2381,29 +2380,24 @@ or not. }
 
 
  Determines whether a poset is strongly flag connected (property P3' from ARP).
-May also be called with command \texttt{IsStronglyFlagConnected}. If you are not working with a pre-polytope, expect this to take a LONG time.
-In fact, this is currently pretty slow in general. Being strongly flag
-connected (or in the case of posets that are P1 and P2, strongly connected) is
-a combinatorial explosion scenario. }
+May also be called with command \texttt{IsStronglyFlagConnected}. If you are not working with a pre-polytope, expect this to take a LONG time. }
 
  Helper for IsP3 
 
 \subsection{\textcolor{Chapter }{IsFlagConnected (for IsPoset)}}
-\logpage{[ 10, 2, 11 ]}\nobreak
+\logpage{[ 10, 2, 12 ]}\nobreak
 \hyperdef{L}{X85F554347C5AEF30}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlagConnected({\mdseries\slshape arg})\index{IsFlagConnected@\texttt{IsFlagConnected}!for IsPoset}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlagConnected({\mdseries\slshape poset})\index{IsFlagConnected@\texttt{IsFlagConnected}!for IsPoset}
 \label{IsFlagConnected:for IsPoset}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Determines whether a poset is flag connected. }
 
  
 
 \subsection{\textcolor{Chapter }{IsP4 (for IsPoset)}}
-\logpage{[ 10, 2, 12 ]}\nobreak
+\logpage{[ 10, 2, 13 ]}\nobreak
 \hyperdef{L}{X80F461FA7D8FEDC7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP4({\mdseries\slshape poset})\index{IsP4@\texttt{IsP4}!for IsPoset}
 \label{IsP4:for IsPoset}
@@ -2414,12 +2408,12 @@ a combinatorial explosion scenario. }
 
 
  Determines whether a poset satisfies the diamond condition. May also be
-invoked using IsDiamondCondition. }
+invoked using \texttt{IsDiamondCondition}. }
 
  
 
 \subsection{\textcolor{Chapter }{IsPolytope (for IsPoset)}}
-\logpage{[ 10, 2, 13 ]}\nobreak
+\logpage{[ 10, 2, 14 ]}\nobreak
 \hyperdef{L}{X83D63725789E745D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytope({\mdseries\slshape poset})\index{IsPolytope@\texttt{IsPolytope}!for IsPoset}
 \label{IsPolytope:for IsPoset}
@@ -2449,7 +2443,7 @@ invoked using IsDiamondCondition. }
  
 
 \subsection{\textcolor{Chapter }{IsPrePolytope (for IsPoset)}}
-\logpage{[ 10, 2, 14 ]}\nobreak
+\logpage{[ 10, 2, 15 ]}\nobreak
 \hyperdef{L}{X8085287683CCF81B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPrePolytope({\mdseries\slshape poset})\index{IsPrePolytope@\texttt{IsPrePolytope}!for IsPoset}
 \label{IsPrePolytope:for IsPoset}
@@ -2855,7 +2849,11 @@ belongs to. }
 
 
 
- Given two poset elements, will tell you if they are incident. }
+ Given two poset elements, will tell you if they are incident. 
+\begin{itemize}
+\item  Synonym function: \texttt{AreIncidentFaces}. 
+\end{itemize}
+ }
 
  }
 
@@ -3085,6 +3083,7 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

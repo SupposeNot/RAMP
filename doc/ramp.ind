@@ -147,7 +147,7 @@
   \item \texttt  {IsFlagConnected}
     \subitem for IsPoset, \hyperpage{33}
   \item \texttt  {IsFlaggable}
-    \subitem for IsPoset, \hyperpage{31}
+    \subitem for IsPoset, \hyperpage{32}
   \item \texttt  {IsFlat}
     \subitem for IsManiplex, \hyperpage{16}
     \subitem for IsManiplex, IsInt, IsInt, \hyperpage{16}
@@ -208,6 +208,8 @@
 
   \item \texttt  {Maniplex}
     \subitem for IsGroup, \hyperpage{26}
+  \item \texttt  {MaximalChains}
+    \subitem for IsPoset, \hyperpage{31}
   \item \texttt  {MaxVertexFaithfulQuotient}
     \subitem for IsReflexibleManiplex, \hyperpage{27}
   \item \texttt  {Medial}
@@ -231,14 +233,14 @@
   \indexspace
 
   \item \texttt  {OrderingFunction}
-    \subitem for IsPoset, \hyperpage{31}
+    \subitem for IsPoset, \hyperpage{32}
 
   \indexspace
 
   \item \texttt  {PairCompareAtomsList}
-    \subitem for IsList,IsList, \hyperpage{31}
+    \subitem for IsList,IsList, \hyperpage{30}
   \item \texttt  {PairCompareFlagsList}
-    \subitem for IsList,IsList, \hyperpage{31}
+    \subitem for IsList,IsList, \hyperpage{30}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{32}
   \item \texttt  {Petrial}

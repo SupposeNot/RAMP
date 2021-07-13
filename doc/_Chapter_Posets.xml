@@ -149,28 +149,15 @@ gap>  List(FacesList(pos2),x->Rank(x));
 ]]></Example>
 
 
-<Subsection Label="Chapter_Posets_Section_Poset_constructors_Subsection_Helper_functions">
-<Heading>Helper functions</Heading>
-
- The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
-</Subsection>
-
-
-<ManSection>
+<ManSection Label="Helper_functions">
+<Heading>Helper functions for special partial orders</Heading>
   <Oper Arg="list1, list2" Name="PairCompareFlagsList" Label="for IsList,IsList"/>
- <Returns><Code>true</Code> or <Code>false</Code>
-</Returns>
- <Description>
-Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlags</Code>,<Code>i</Code>] where <Code>listOfFlags</Code> is a list of flags in the face and <Code>i</Code> is the rank of the face. Allows comparison of HasFlagList elements.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="list1, list2" Name="PairCompareAtomsList" Label="for IsList,IsList"/>
  <Returns><Code>true</Code> or <Code>false</Code>
 </Returns>
  <Description>
+ The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
+Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlags</Code>,<Code>i</Code>] where <Code>listOfFlags</Code> is a list of flags in the face and <Code>i</Code> is the rank of the face. Allows comparison of HasFlagList elements.
 Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtoms,int]</Code> where <Code>listOfAtoms</Code> is a list of flags in the face and <Code>int</Code> is the rank of the face. Allows comparison of HasAtomList elements.
  </Description>
 </ManSection>
@@ -182,36 +169,17 @@ Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtom
 <Section Label="Chapter_Posets_Section_Poset_attributes">
 <Heading>Poset attributes</Heading>
 
+ Posets have many properties we might be interested in. Here's a few.
 <ManSection>
-  <Attr Arg="poset" Name="ElementsList" Label="for IsPoset"/>
- <Description>
-Will recover the list of faces of the poset, format may depend on <Emph>type</Emph> of representation of <Code>poset</Code>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="poset" Name="OrderingFunction" Label="for IsPoset"/>
- <Description>
-<Code>OrderingFunction</Code> is an attribute of a poset which stores a function for ordering elements.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="poset" Name="RankPoset" Label="for IsPoset"/>
- <Description>
-If the poset <Code>IsP1</Code>, ranks are assumed to run from <Math>-1</Math> to <Math>n</Math>, and function will return <Math>n</Math>. If <Code>IsP1(poset)=false</Code>, ranks are assumed to run from 1 to <Math>n</Math>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
- <Returns><Code>list</Code> of flags as lists of poset elements.
-</Returns>
+  <Attr Arg="poset" Name="MaximalChains" Label="for IsPoset"/>
  <Description>
 Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is <Code>FlagsList</Code>.
+ Tends to work faster (sometimes significantly) if the poset <Code>HasPartialOrder</Code>.
+ </Description>
+</ManSection>
+
+
+ Synonym is <Code>FlagsList</Code>.
 <Example><![CDATA[
 gap> poset:=PosetFromManiplex(HemiCube(3));
 A poset using the IsPosetOfFlags representation with 15 faces.
@@ -227,6 +195,40 @@ gap> List(last,Rank);
 ]]></Example>
 
 
+<ManSection>
+  <Attr Arg="poset" Name="RankPoset" Label="for IsPoset"/>
+ <Description>
+If the poset <Code>IsP1</Code>, ranks are assumed to run from <Math>-1</Math> to <Math>n</Math>, and function will return <Math>n</Math>. If <Code>IsP1(poset)=false</Code>, ranks are assumed to run from 1 to <Math>n</Math>.
+ </Description>
+</ManSection>
+
+
+<ManSection Label="elements">
+  <Attr Arg="poset" Name="ElementsList" Label="for IsPoset"/>
+ <Description>
+Will recover the list of faces of the poset, format may depend on <Emph>type</Emph> of representation of <Code>poset</Code>.
+<List>
+<Item>
+We also have <Code>FacesList</Code> as a synonym for this command.
+</Item>
+</List>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="OrderingFunction" Label="for IsPoset"/>
+ <Description>
+<Code>OrderingFunction</Code> is an attribute of a poset which stores a function for ordering elements.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
 Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Code>IsPoset</Code>. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
  Now also works with generic poset element types (not just <Code>IsPosetOfFlags</Code>).
  </Description>
@@ -316,16 +318,16 @@ false
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time. In fact, this is currently pretty slow in general. Being strongly flag connected (or in the case of posets that are P1 and P2, strongly connected) is a combinatorial explosion scenario.
+Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time.
  </Description>
 </ManSection>
 
 
  Helper for IsP3
 <ManSection>
-  <Oper Arg="arg" Name="IsFlagConnected" Label="for IsPoset"/>
+  <Oper Arg="poset" Name="IsFlagConnected" Label="for IsPoset"/>
  <Description>
-<P/>
+Determines whether a poset is flag connected.
  </Description>
 </ManSection>
 
@@ -335,7 +337,7 @@ Determines whether a poset is strongly flag connected (property P3' from ARP). M
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset satisfies the diamond condition. May also be invoked using IsDiamondCondition.
+Determines whether a poset satisfies the diamond condition. May also be invoked using <Code>IsDiamondCondition</Code>.
  </Description>
 </ManSection>
 
@@ -639,6 +641,11 @@ Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A
 </Returns>
  <Description>
 Given two poset elements, will tell you if they are incident.
+<List>
+<Item>
+Synonym function: <Code>AreIncidentFaces</Code>.
+</Item>
+</List>
  </Description>
 </ManSection>
 
