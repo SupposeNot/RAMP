@@ -211,7 +211,11 @@ InstallMethod(Sections,
 InstallMethod(Facets,
 	[IsManiplex],
 	function(M)
-	local n;
+	local n, val;
+	if IsManiplexInstructionsRep(M) then
+		val := ComputeAttr(M, Facets);
+		if val <> fail then return val; fi;
+	fi;
 	n := Rank(M);
 	return Sections(M, n-1, -1);
 	end);

@@ -2,109 +2,188 @@
 InstallMethod(PyramidOver,
 	[IsManiplex],
 	function(p)
-	local n, k, flagNum, i, j, t, r_t, perms, thisFlag, nextFlag, conn, newConn, s, q;
-	conn := ConnectionGroup(p);
+	local n, pyr, SizeComputer, IsPolytopalComputer, ConnectionGroupComputer, FacetsComputer;
 	n := Rank(p);
-	k := Size(p);
 
-	# The number of flags in the pyramid over P, where P is an n-polytope with k flags,
-	# is (n+2)*k. These flags naturally occur in n+2 "layers" in the pyramid.
-	# We will use j as the layer number (from -1 to n) and i as the flag number
-	# within that layer. (In the view of a pyramid as a product, j records when we
-	# increment the second flag instead of the first one.)
-	# This function lets us translate from this logical division of flags to a
-	# flag number from 1 to (n+2)*k.
-	flagNum := function(i, j)
-		return (i-1)*(n+2) + j+2;
+	pyr := Maniplex(PyramidOver, [p]);
+	pyr!.base := p;
+
+	SetRankManiplex(pyr, n+1);
+	SetDescription(pyr, Concatenation("PyramidOver(", PrintString(p), ")"));
+
+	SizeComputer := function(M)
+		return Size(M!.base) * (1 + Rank(M));
 		end;
-	perms := [];
-	
-	for t in [0..n] do
-		r_t := ();
-		
-		# We go through every flag and see where r_t should send it, building r_t as we go.
-		for i in [1..k] do
-			for j in [-1..n] do
-				thisFlag := flagNum(i,j);
-				if (thisFlag^r_t = thisFlag) then
-					# We haven't matched thisFlag yet.
-					# What flag is t-adjacent to (i, j)?
-					if (t < j) then
-						s := GeneratorsOfGroup(conn)[t+1];
-						nextFlag := flagNum(i^s,j);
-					elif (t = j) then
-						nextFlag := flagNum(i, j-1);
-					elif (t = j+1) then
-						nextFlag := flagNum(i, j+1);
-					else
-						s := GeneratorsOfGroup(conn)[t];
-						nextFlag := flagNum(i^s,j);
-					fi;
-					r_t := r_t * (thisFlag, nextFlag);
-				fi;
-			od;
-		od;
-		perms[t+1] := r_t;	# Indices are off by one because GAP lists are 1-indexed.
-	od;
-	newConn := Group(perms);
-	q := Maniplex(newConn);
+	if HasSize(p) then
+		SetSize(pyr, SizeComputer(pyr));
+	else
+		AddAttrComputer(pyr, Size, SizeComputer);
+	fi;
+
+	IsPolytopalComputer := function(M)
+		return IsPolytopal(M!.base);
+		end;
 	if HasIsPolytopal(p) then
-		SetIsPolytopal(q, IsPolytopal(p));
+		SetIsPolytopal(pyr, IsPolytopal(p));
+	else
+		AddAttrComputer(pyr, IsPolytopal, IsPolytopalComputer);	
 	fi;
-	if HasDescription(p) then
-		SetDescription(q, Concatenation("PyramidOver(", Description(p), ")"));
+
+	ConnectionGroupComputer := function(M)
+		local flagNum, perms, s, t, r_t, i, j, k, thisFlag, nextFlag, conn;
+		
+		# The number of flags in the pyramid over P, where P is an n-polytope with k flags,
+		# is (n+2)*k. These flags naturally occur in n+2 "layers" in the pyramid.
+		# We will use j as the layer number (from -1 to n) and i as the flag number
+		# within that layer. (In the view of a pyramid as a product, j records when we
+		# increment the second flag instead of the first one.)
+		# This function lets us translate from this logical division of flags to a
+		# flag number from 1 to (n+2)*k.
+		flagNum := function(i, j)
+			return (i-1)*(n+2) + j+2;
+			end;
+		perms := [];
+		conn := ConnectionGroup(M!.base);
+		k := Size(M!.base);
+		
+		for t in [0..n] do
+			r_t := ();
+			
+			# We go through every flag and see where r_t should send it, building r_t as we go.
+			for i in [1..k] do
+				for j in [-1..n] do
+					thisFlag := flagNum(i,j);
+					if (thisFlag^r_t = thisFlag) then
+						# We haven't matched thisFlag yet.
+						# What flag is t-adjacent to (i, j)?
+						if (t < j) then
+							s := GeneratorsOfGroup(conn)[t+1];
+							nextFlag := flagNum(i^s,j);
+						elif (t = j) then
+							nextFlag := flagNum(i, j-1);
+						elif (t = j+1) then
+							nextFlag := flagNum(i, j+1);
+						else
+							s := GeneratorsOfGroup(conn)[t];
+							nextFlag := flagNum(i^s,j);
+						fi;
+						r_t := r_t * (thisFlag, nextFlag);
+					fi;
+				od;
+			od;
+			perms[t+1] := r_t;	# Indices are off by one because GAP lists are 1-indexed.
+		od;
+		return Group(perms);
+		end;
+	if HasConnectionGroup(p) then
+		SetConnectionGroup(pyr, ConnectionGroupComputer(pyr));
+	else
+		AddAttrComputer(pyr, ConnectionGroup, ConnectionGroupComputer);	
 	fi;
-	return q;
+
+	FacetsComputer := function(M)
+		local facs;
+		facs := List(Facets(M!.base), F -> PyramidOver(F));
+		Add(facs, M!.base);
+		return Unique(facs);
+		end;
+	if HasFacets(p) then
+		SetFacets(pyr, FacetsComputer(pyr));
+	else
+		AddAttrComputer(pyr, Facets, FacetsComputer);		
+	fi;
+		
+	return pyr;
 	end);
 
 InstallMethod(PrismOver,
 	[IsManiplex],
 	function(p)
-	local n, k, flagNum, i, t, r_t, d, thisFlag, perm, perms, newConn, conn, s, q;
-	conn := ConnectionGroup(p);
+	local n, prism, SizeComputer, IsPolytopalComputer, ConnectionGroupComputer, FacetsComputer;
 	n := Rank(p);
-	k := Size(p);
-	flagNum := function(i, j, d, k)
-		return i + j*k + (d-1)*2*k;
+
+	prism := Maniplex(PrismOver, [p]);
+	prism!.base := p;
+
+	SetRankManiplex(prism, n+1);
+	SetDescription(prism, Concatenation("PrismOver(", PrintString(p), ")"));
+
+	SizeComputer := function(M)
+		return 2 * Size(M!.base) * Rank(M);
 		end;
-	perms := [];
-	for t in [0..n] do
-		r_t := ();
-		for i in [1..k] do
-			for d in [1..n+1] do
-				thisFlag := flagNum(i, 0, d, k);
-				# Only add a new perm if thisFlag isn't already matched
-				if (thisFlag^(r_t) = thisFlag) then
-					if (t < d-1) then
-						s := GeneratorsOfGroup(conn)[t+1];
-						r_t := r_t * (flagNum(i,0,d,k), flagNum(i^s, 0, d, k));
-						r_t := r_t * (flagNum(i,1,d,k), flagNum(i^s, 1, d, k));
-					fi;
-					if (t > d) then
-						s := GeneratorsOfGroup(conn)[t];
-						r_t := r_t * (flagNum(i,0,d,k), flagNum(i^s, 0, d, k));
-						r_t := r_t * (flagNum(i,1,d,k), flagNum(i^s, 1, d, k));
-					fi;
-					if (t = d-1 and t = 0) then
-						r_t := r_t * (flagNum(i,0,d,k), flagNum(i,1,d,k));
-					fi;
-					if (t = d-1 and t > 0) then
-						r_t := r_t * (flagNum(i,0,d,k), flagNum(i,0,d-1,k));
-						r_t := r_t * (flagNum(i,1,d,k), flagNum(i,1,d-1,k));
-					fi;
-				fi;
-			od;
-		od;
-		perms[t+1] := r_t;
-	od;
-	newConn := Group(perms);
-	q := Maniplex(newConn);
+	if HasSize(p) then
+		SetSize(prism, SizeComputer(prism));
+	else
+		AddAttrComputer(prism, Size, SizeComputer);
+	fi;
+
+	IsPolytopalComputer := function(M)
+		return IsPolytopal(M!.base);
+		end;
 	if HasIsPolytopal(p) then
-		SetIsPolytopal(q, IsPolytopal(p));
+		SetIsPolytopal(prism, IsPolytopal(p));
+	else
+		AddAttrComputer(prism, IsPolytopal, IsPolytopalComputer);	
 	fi;
-	if HasDescription(p) then
-		SetDescription(q, Concatenation("PrismOver(", Description(p), ")"));
+
+	ConnectionGroupComputer := function(M)
+		local n, k, flagNum, i, t, r_t, d, thisFlag, perm, perms, conn, s, q;
+		conn := ConnectionGroup(M!.base);
+		n := Rank(M!.base);
+		k := Size(M!.base);
+		flagNum := function(i, j, d, k)
+			return i + j*k + (d-1)*2*k;
+			end;
+		perms := [];
+		for t in [0..n] do
+			r_t := ();
+			for i in [1..k] do
+				for d in [1..n+1] do
+					thisFlag := flagNum(i, 0, d, k);
+					# Only add a new perm if thisFlag isn't already matched
+					if (thisFlag^(r_t) = thisFlag) then
+						if (t < d-1) then
+							s := GeneratorsOfGroup(conn)[t+1];
+							r_t := r_t * (flagNum(i,0,d,k), flagNum(i^s, 0, d, k));
+							r_t := r_t * (flagNum(i,1,d,k), flagNum(i^s, 1, d, k));
+						fi;
+						if (t > d) then
+							s := GeneratorsOfGroup(conn)[t];
+							r_t := r_t * (flagNum(i,0,d,k), flagNum(i^s, 0, d, k));
+							r_t := r_t * (flagNum(i,1,d,k), flagNum(i^s, 1, d, k));
+						fi;
+						if (t = d-1 and t = 0) then
+							r_t := r_t * (flagNum(i,0,d,k), flagNum(i,1,d,k));
+						fi;
+						if (t = d-1 and t > 0) then
+							r_t := r_t * (flagNum(i,0,d,k), flagNum(i,0,d-1,k));
+							r_t := r_t * (flagNum(i,1,d,k), flagNum(i,1,d-1,k));
+						fi;
+					fi;
+				od;
+			od;
+			perms[t+1] := r_t;
+		od;
+		return Group(perms);
+		end;
+	if HasConnectionGroup(p) then
+		SetSize(prism, ConnectionGroupComputer(prism));
+	else
+		AddAttrComputer(prism, ConnectionGroup, ConnectionGroupComputer);
 	fi;
-	return q;
+		
+	FacetsComputer := function(M)
+		local facs;
+		facs := List(Facets(M!.base), F -> PrismOver(F));
+		Add(facs, M!.base);
+		return Unique(facs);
+		end;
+	if HasFacets(p) then
+		SetFacets(prism, FacetsComputer(prism));
+	else
+		AddAttrComputer(prism, Facets, FacetsComputer);		
+	fi;
+	
+	return prism;
 	end);
 	
