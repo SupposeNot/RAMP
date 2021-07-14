@@ -116,6 +116,7 @@ InstallMethod(RotaryManiplex,
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, 2*Size(w));
 	SetExtraRelators(p, []);
+	SetDescription(p, Concatenation("RotaryManiplex(", String(sym), ")"));
 	return p;
 	end);
 
@@ -123,12 +124,14 @@ InstallMethod(RotaryManiplex,
 InstallMethod(RotaryManiplex,
 	[IsList, IsList],
 	function(sym, rels)
-	local n, w, rotgp, fam, p;
+	local n, w, rotgp, fam, p, desc;
 	n := Size(sym)+1;
 	w := UniversalRotationGroup(sym);
 	if IsString(rels) then
+		desc := Concatenation("RotaryManiplex(", String(sym), ", \"", String(rels), "\")");
 		rels := ParseRotGpRels(rels, w);
 	else # it's a "Tietze word" like [1, 2, -1, 2, 2]
+		desc := Concatenation("RotaryManiplex(", String(sym), ", ", String(rels), ")");
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
 	rotgp := FactorGroupFpGroupByRels(w, rels);
@@ -136,6 +139,7 @@ InstallMethod(RotaryManiplex,
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
 	fi;
+	SetDescription(p, desc);
 	
 	return p;
 	end);
