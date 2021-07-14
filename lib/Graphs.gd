@@ -235,3 +235,87 @@ DeclareOperation("QuotientByLabel", [IsObject,IsList, IsList, IsList]);
 #! @EndExampleSession
 
 
+#! @Arguments list, list, list
+#! @Returns `IsEdgeLabeledGraph`. 
+#! @Description Given a list of vertices, a list of edges, and a list of edge labels, this represents the edge labeled (multi)-graph with those parameters.   Semi-edges are represented by a singleton in the edge list.  Loops are represented by edges [i,i]
+DeclareOperation("EdgeLabeledGraphFromEdges",[IsList, IsList,IsList]);
+#! Here we have an edge labeled cycle graph with 6 vertices and edges alternating in labels 0,1.
+#! @BeginExampleSession
+#! V:=[1..6];;
+#! Edges:=[[1,2],[2,3],[3,4],[4,5],[5,6],[6,1]];;
+#! L:=[0,1,0,1,0,1];;
+#! gamma:=EdgeLabeledGraphFromEdges(V,Edges,L);
+#! @EndExampleSession
+
+
+#! @Arguments group
+#! @Returns `IsEdgeLabeledGraph`. 
+#! @Description Given group, assumed to be a connection group, output the labeled flag graph.  The input could also be a maniplex, then the connection group is calculated.
+DeclareOperation("FlagGraph",[IsGroup]);
+#! Here we have the flag graph of the 3-simplex from its connection group.  
+#! @BeginExampleSession
+#! C:=ConnectionGroup(Simplex(3));;
+#! gamma:=FlagGraph(C);
+#! @EndExampleSession
+
+DeclareOperation("FlagGraph",[IsManiplex]);
+
+
+#! @Arguments edge-labeled-graph
+#! @Returns `IsGraph`. 
+#! @Description Given an edge labeled (multi) graph, it returns the underlying simple graph, with semi-edges, loops, and muliple-edges removed.
+DeclareOperation("UnlabeledSimpleGraph",[IsEdgeLabeledGraph]);
+#! Here we have underlying simple graph for the flag graph of the cube. 
+#! @BeginExampleSession
+#! gamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));
+#! @EndExampleSession
+
+
+#! @Arguments edge-labeled-graph
+#! @Returns `IsGroup`. 
+#! @Description Given an edge labeled (multi) graph, it returns automorphism group (preserving the labels).  Note, for now the labels are assumed to be [1..n].
+#! Note This tends to be very slow.  I would like to look for a way to go back and forth between flag automorphisms and poset automorphisms, as the latter are much faster to compute.
+DeclareOperation("EdgeLabelPreservingAutomorphismGroup",[IsEdgeLabeledGraph]);
+#! Here we have the automorphism group of the flag graph of the cube.
+#! @BeginExampleSession
+#! g:=EdgeLabelPreservingAutomorphismGroup(FlagGraph(Cube(3)));;
+#! Size(g);
+#! @EndExampleSession
+
+
+
+#! @Arguments edge-labeled-graph
+#! @Returns `IsEdgeLabeledGraph `. 
+#! @Description Given an edge labeled (multi) graph, it returns another edge labeled graph where semi-edges, loops, and multiple edges are removed.  Note only the "first" edge label is retained if there are multiple edges.
+DeclareOperation("Simple",[IsEdgeLabeledGraph]);
+
+
+
+
+
+
+#! @Arguments edge-labeled-graph
+#! @Returns `IsGraph`. 
+#! @Description Given an edge labeled (multi) graph and a list of labels, it returns connected components of the graph using edges in the list of labels. Note if the second argument is not used, it is assumed to be an empty list, and the connected components of the original graph are returned.
+DeclareOperation("ConnectedComponents",[IsEdgeLabeledGraph, IsList]);
+#! Here we see that each connected component of the flag graph of the cube (which has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.
+#! @BeginExampleSession
+#! gamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);
+#! @EndExampleSession
+
+DeclareOperation("ConnectedComponents",[IsEdgeLabeledGraph]);
+
+
+#! @Arguments group
+#! @Returns `IsEdgeLabeledGraph `. 
+#! @Description Given a group, it returns the permutation representation graph for that group.  When the group is a string C-group this is also called a CPR graph.  The labels of the edges are [1...r] where r is the number of generators of the group.
+DeclareOperation("PRGraph",[IsGroup]);
+#! Here we see the CPR graph of the automorphism group of a cube (acting on its 8 vertices).
+#! @BeginExampleSession
+#! G:=AutomorphismGroup(Cube(3));
+#! H:=Group(G.2,G.3);
+#! phi:=FactorCosetAction(G,H);
+#! G2:=Range(phi);
+#! gamma:=PRGraph(G2);
+#! @EndExampleSession
+
