@@ -5,8 +5,8 @@
 <Heading>Products of Posets and Digraphs</Heading>
 
  This uses the work of Gleason and Hubard.
-<Section Label="Chapter_Products_of_Posets_and_Digraphs_Section_Methods_from___Products_of_abstract_polytopes__">
-<Heading>Methods from   Products of abstract polytopes  </Heading>
+<Section Label="Chapter_Products_of_Posets_and_Digraphs_Section_Construction_methods">
+<Heading>Construction methods</Heading>
 
  Anyone know how to link stuff?
 <ManSection>
@@ -18,6 +18,20 @@ Given two posets, this forms the join product.
  If given two partial orders, returns the join product binary relation of the partial orders. Appending <Code>true</Code> in this case will force is to return a BinaryRelationOnPoints.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Cube(2));
+A poset
+gap> rel:=BinaryRelationOnPoints([[1,2],[2]]);
+Binary Relation on 2 points
+gap> p1:=PosetFromPartialOrder(rel);
+A poset using the IsPosetOfIndices representation
+gap> j:=JoinProduct(p,p1);
+A poset using the IsPosetOfIndices representation
+gap> IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));
+true
+]]></Example>
 
 
 </Section>

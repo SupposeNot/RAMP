@@ -19,7 +19,7 @@ ReadPackage( "ramp", "lib/orientable.gd" );
 ReadPackage( "ramp", "lib/polytope.gd" ); 
 ReadPackage( "ramp", "lib/poset.gd" );
 ReadPackage( "ramp", "lib/products.gd" );
-# ReadPackage( "ramp", "lib/productsGH.gd");
+ReadPackage( "ramp", "lib/productsGH.gd");
 ReadPackage( "ramp", "lib/quotients.gd" );
 ReadPackage( "ramp", "lib/rotary.gd" );
 ReadPackage( "ramp", "lib/tomotope.gd" );

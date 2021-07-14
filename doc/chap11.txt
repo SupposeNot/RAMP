@@ -4,7 +4,7 @@
   [33X[0;0YThis uses the work of Gleason and Hubard.[133X
   
   
-  [1X11.1 [33X[0;0YMethods from Products of abstract polytopes[133X[101X
+  [1X11.1 [33X[0;0YConstruction methods[133X[101X
   
   [33X[0;0YAnyone know how to link stuff?[133X
   
@@ -16,4 +16,17 @@
   [33X[0;0YGiven  two posets, this forms the join product. If given two partial orders,
   returns  the  join  product binary relation of the partial orders. Appending
   [10Xtrue[110X in this case will force is to return a BinaryRelationOnPoints.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(2));[127X[104X
+    [4X[28XA poset[128X[104X
+    [4X[25Xgap>[125X [27Xrel:=BinaryRelationOnPoints([[1,2],[2]]);[127X[104X
+    [4X[28XBinary Relation on 2 points[128X[104X
+    [4X[25Xgap>[125X [27Xp1:=PosetFromPartialOrder(rel);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
+    [4X[25Xgap>[125X [27Xj:=JoinProduct(p,p1);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   

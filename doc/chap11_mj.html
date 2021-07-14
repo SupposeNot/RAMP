@@ -25,7 +25,7 @@
 <p id="mathjaxlink" class="pcenter"><a href="chap11.html">[MathJax off]</a></p>
 <p><a id="X85B4AB907E78ADD1" name="X85B4AB907E78ADD1"></a></p>
 <div class="ChapSects"><a href="chap11_mj.html#X85B4AB907E78ADD1">11 <span class="Heading">Products of Posets and Digraphs</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11_mj.html#X835EE948870B7D41">11.1 <span class="Heading">Methods from   Products of abstract polytopes  </span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11_mj.html#X7B9C137879BB5529">11.1 <span class="Heading">Construction methods</span></a>
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X87B984FB860BDF3F">11.1-1 JoinProduct</a></span>
@@ -36,9 +36,9 @@
 
 <p>This uses the work of Gleason and Hubard.</p>
 
-<p><a id="X835EE948870B7D41" name="X835EE948870B7D41"></a></p>
+<p><a id="X7B9C137879BB5529" name="X7B9C137879BB5529"></a></p>
 
-<h4>11.1 <span class="Heading">Methods from   Products of abstract polytopes  </span></h4>
+<h4>11.1 <span class="Heading">Construction methods</span></h4>
 
 <p>Anyone know how to link stuff?</p>
 
@@ -50,6 +50,20 @@
 <p>Returns: poset</p>
 
 <p>Given two posets, this forms the join product. If given two partial orders, returns the join product binary relation of the partial orders. Appending <code class="code">true</code> in this case will force is to return a BinaryRelationOnPoints.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Cube(2));</span>
+A poset
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rel:=BinaryRelationOnPoints([[1,2],[2]]);</span>
+Binary Relation on 2 points
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p1:=PosetFromPartialOrder(rel);</span>
+A poset using the IsPosetOfIndices representation
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">j:=JoinProduct(p,p1);</span>
+A poset using the IsPosetOfIndices representation
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));</span>
+true
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap10_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap12_mj.html">[Next Chapter]</a>&nbsp;  </div>

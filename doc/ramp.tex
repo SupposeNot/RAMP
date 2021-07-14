@@ -2877,9 +2877,9 @@ belongs to. }
 \hyperdef{L}{X85B4AB907E78ADD1}{}
 {
   This uses the work of Gleason and Hubard. 
-\section{\textcolor{Chapter }{Methods from Products of abstract polytopes }}\label{Chapter_Products_of_Posets_and_Digraphs_Section_Methods_from___Products_of_abstract_polytopes__}
+\section{\textcolor{Chapter }{Construction methods}}\label{Chapter_Products_of_Posets_and_Digraphs_Section_Construction_methods}
 \logpage{[ 11, 1, 0 ]}
-\hyperdef{L}{X835EE948870B7D41}{}
+\hyperdef{L}{X7B9C137879BB5529}{}
 {
   Anyone know how to link stuff? 
 
@@ -2897,6 +2897,19 @@ poset
  Given two posets, this forms the join product. If given two partial orders,
 returns the join product binary relation of the partial orders. Appending \texttt{true} in this case will force is to return a BinaryRelationOnPoints. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=PosetFromManiplex(Cube(2));|
+  A poset
+  !gapprompt@gap>| !gapinput@rel:=BinaryRelationOnPoints([[1,2],[2]]);|
+  Binary Relation on 2 points
+  !gapprompt@gap>| !gapinput@p1:=PosetFromPartialOrder(rel);|
+  A poset using the IsPosetOfIndices representation
+  !gapprompt@gap>| !gapinput@j:=JoinProduct(p,p1);|
+  A poset using the IsPosetOfIndices representation
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));|
+  true
+\end{Verbatim}
  }
 
  }
@@ -3125,7 +3138,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
