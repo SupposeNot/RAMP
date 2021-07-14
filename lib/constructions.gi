@@ -209,9 +209,7 @@ InstallMethod(Medial,
 	Med!.base := p;
 
 	SetRankManiplex(Med, 3);
-	if HasDescription(p) then
-		SetDescription(Med, Concatenation("Medial(", Description(p), ")"));
-	fi;
+	SetDescription(Med, Concatenation("Medial(", String(p), ")"));
 
 	SizeComputer := function(M)
 		return 2 * Size(M!.base);

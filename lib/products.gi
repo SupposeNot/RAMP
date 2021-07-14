@@ -5,11 +5,23 @@ InstallMethod(PyramidOver,
 	local n, pyr, SizeComputer, IsPolytopalComputer, ConnectionGroupComputer, FacetsComputer;
 	n := Rank(p);
 
+	if n = 0 then
+		return UniversalPolytope(1);
+	elif n = 1 then
+		return Pgon(3);
+	elif p = Simplex(n) then
+		return Simplex(n+1);
+	fi;
+
 	pyr := Maniplex(PyramidOver, [p]);
 	pyr!.base := p;
 
 	SetRankManiplex(pyr, n+1);
-	SetDescription(pyr, Concatenation("PyramidOver(", PrintString(p), ")"));
+	if n = 2 and IsEvenInt(Size(p)) and Size(p) >= 4 and p = Pgon(Size(p)/2) then
+		SetDescription(pyr, Concatenation("Pyramid(", String(Size(p)/2), ")"));
+	else
+		SetDescription(pyr, Concatenation("PyramidOver(", String(p), ")"));	
+	fi;
 
 	SizeComputer := function(M)
 		return Size(M!.base) * (1 + Rank(M));
@@ -96,17 +108,33 @@ InstallMethod(PyramidOver,
 	return pyr;
 	end);
 
+InstallMethod(Pyramid,
+	[IsInt],
+	k -> PyramidOver(Pgon(k)));
+
 InstallMethod(PrismOver,
 	[IsManiplex],
 	function(p)
 	local n, prism, SizeComputer, IsPolytopalComputer, ConnectionGroupComputer, FacetsComputer;
 	n := Rank(p);
 
+	if n = 0 then
+		return UniversalPolytope(1);
+	elif n = 1 then
+		return Pgon(4);
+	elif p = Cube(n) then
+		return Cube(n+1);
+	fi;
+
 	prism := Maniplex(PrismOver, [p]);
 	prism!.base := p;
 
 	SetRankManiplex(prism, n+1);
-	SetDescription(prism, Concatenation("PrismOver(", PrintString(p), ")"));
+	if n = 2 and IsEvenInt(Size(p)) and Size(p) >= 4 and p = Pgon(Size(p)/2) then
+		SetDescription(prism, Concatenation("Prism(", String(Size(p)/2), ")"));
+	else
+		SetDescription(prism, Concatenation("PrismOver(", String(p), ")"));	
+	fi;
 
 	SizeComputer := function(M)
 		return 2 * Size(M!.base) * Rank(M);
@@ -187,3 +215,7 @@ InstallMethod(PrismOver,
 	return prism;
 	end);
 	
+InstallMethod(Prism,
+	[IsInt],
+	k -> PrismOver(Pgon(k)));
+
