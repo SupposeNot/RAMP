@@ -441,6 +441,15 @@ InstallMethod(PosetFromManiplex,
 	[IsManiplex],
 	function(mani)
 	local posetList,conng,poset,flags,rank,gens,genIndexes,i;
+	if Rank(mani) in [0,1] then 
+		if Rank(mani)=0 then 
+			posetList:=[ [ [  ] ],[ [ 1 ] ] ];
+		else posetList:=[ [ [  ] ],[ [ 1 ],[ 2 ] ],[ [ 1, 2 ] ] ];
+		fi;
+		poset:=PosetFromFaceListOfFlags(posetList);
+		SetIsPolytope(poset,true);
+		return poset;
+	fi;
 	conng:=ConnectionGroup(mani);
 	rank:=Length(GeneratorsOfGroup(conng));
 	flags:=MovedPoints(conng);
@@ -751,6 +760,7 @@ InstallMethod(ConnectionGroup,
 	function(poset)
 	local flags,generators;
 	if IsPrePolytope(poset)<>true then Print("This function was expecting a pre-polytope."); return; fi;
+	if Rank(poset)=0 then return TrivialGroup();fi;
 	flags:=MaximalChains(poset);
 	generators:=[1..Rank(poset)];
 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
