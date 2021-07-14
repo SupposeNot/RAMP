@@ -6,11 +6,9 @@ InstallMethod(JoinProduct,
 	elements:=Cartesian(Source(order1),Source(order2));
  	order:={inp1,inp2}->[inp1[1],inp2[1]] in order1 and [inp1[2],inp2[2]] in order2;
 	po:=PartialOrderByOrderingFunction(Domain(elements),order);
-# 	po:=POConvertToBROnPoints(po);
 	return PosetFromPartialOrder(po);
 	end);	
 	
-
 InstallOtherMethod(JoinProduct,
 	[IsBinaryRelation, IsBinaryRelation],
 	function(order1, order2)
