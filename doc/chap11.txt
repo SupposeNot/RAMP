@@ -1,31 +1,19 @@
   
-  [1X11 [33X[0;0YComparing maniplexes[133X[101X
+  [1X11 [33X[0;0YProducts of Posets and Digraphs[133X[101X
+  
+  [33X[0;0YThis uses the work of Gleason and Hubard.[133X
   
   
-  [1X11.1 [33X[0;0YQuotients and covers[133X[101X
+  [1X11.1 [33X[0;0YMethods from Products of abstract polytopes[133X[101X
   
-  [1X11.1-1 IsQuotient[101X
+  [33X[0;0YAnyone know how to link stuff?[133X
   
-  [33X[1;0Y[29X[2XIsQuotient[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [1X11.1-1 JoinProduct[101X
   
-  [33X[0;0YReturns whether [3XM1[103X is a quotient of [3XM2[103X.[133X
+  [33X[1;0Y[29X[2XJoinProduct[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yposet[133X
   
-  [1X11.1-2 IsCover[101X
-  
-  [33X[1;0Y[29X[2XIsCover[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns whether [3XM1[103X is a cover of [3XM2[103X.[133X
-  
-  [1X11.1-3 IsIsomorphicManiplex[101X
-  
-  [33X[1;0Y[29X[2XIsIsomorphicManiplex[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns whether [3XM1[103X is isomorphic to [3XM2[103X.[133X
-  
-  [1X11.1-4 SmallestRegularCover[101X
-  
-  [33X[1;0Y[29X[2XSmallestRegularCover[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  smallest  regular  cover  of  [3XM[103X,  which  is the maniplex whose
-  automorphism group is the connection group of [3XM[103X.[133X
+  [33X[0;0YGiven  two posets, this forms the join product. If given two partial orders,
+  returns  the  join  product binary relation of the partial orders. Appending
+  [10Xtrue[110X in this case will force is to return a BinaryRelationOnPoints.[133X
   

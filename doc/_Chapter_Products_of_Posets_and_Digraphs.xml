@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Products_of_Posets_and_Digraphs">
+<Heading>Products of Posets and Digraphs</Heading>
+
+ This uses the work of Gleason and Hubard.
+<Section Label="Chapter_Products_of_Posets_and_Digraphs_Section_Methods_from___Products_of_abstract_polytopes__">
+<Heading>Methods from   Products of abstract polytopes  </Heading>
+
+ Anyone know how to link stuff?
+<ManSection>
+  <Oper Arg="poset1, poset2" Name="JoinProduct" Label="for IsPoset,IsPoset"/>
+ <Returns>poset
+</Returns>
+ <Description>
+Given two posets, this forms the join product.
+ If given two partial orders, returns the join product binary relation of the partial orders. Appending <Code>true</Code> in this case will force is to return a BinaryRelationOnPoints.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

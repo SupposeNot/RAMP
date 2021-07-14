@@ -6,10 +6,10 @@
 
   \indexspace
 
-  \item \texttt  {AbstractPolytope}, \hyperpage{40}
-  \item \texttt  {AbstractRegularPolytope}, \hyperpage{40}
-  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{40}
-  \item \texttt  {AddOrAppend}, \hyperpage{40}
+  \item \texttt  {AbstractPolytope}, \hyperpage{41}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{41}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{41}
+  \item \texttt  {AddOrAppend}, \hyperpage{41}
   \item \texttt  {AdjacentFlag}
     \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{35}
   \item \texttt  {AdjacentFlags}
@@ -27,6 +27,8 @@
     \subitem for IsManiplex, \hyperpage{22}
   \item \texttt  {AutomorphismGroupOnElements}
     \subitem for IsPoset, \hyperpage{35}
+  \item \texttt  {AutomorphismGroupOnFlags}
+    \subitem for IsManiplex, \hyperpage{22}
   \item \texttt  {AutomorphismGroupPermGroup}
     \subitem for IsManiplex, \hyperpage{22}
 
@@ -64,11 +66,11 @@
   \item \texttt  {ElementsList}
     \subitem for IsPoset, \hyperpage{31}
   \item \texttt  {EnantiomorphicForm}
-    \subitem for IsRotaryManiplex, \hyperpage{39}
+    \subitem for IsRotaryManiplex, \hyperpage{40}
   \item \texttt  {EqualChains}
     \subitem for IsList,IsList, \hyperpage{35}
   \item \texttt  {EvenConnectionGroup}
-    \subitem for IsManiplex, \hyperpage{22}
+    \subitem for IsManiplex, \hyperpage{23}
   \item \texttt  {ExtraRelators}
     \subitem for IsReflexibleManiplex, \hyperpage{23}
   \item \texttt  {ExtraRotRelators}
@@ -135,7 +137,7 @@
   \item \texttt  {IsChiral}
     \subitem for IsManiplex, \hyperpage{18}
   \item \texttt  {IsCover}
-    \subitem for IsManiplex, IsManiplex, \hyperpage{38}
+    \subitem for IsManiplex, IsManiplex, \hyperpage{39}
   \item \texttt  {IsDegenerate}
     \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {IsEquivelar}
@@ -154,7 +156,7 @@
   \item \texttt  {IsIOrientable}
     \subitem for IsManiplex, IsList, \hyperpage{24}
   \item \texttt  {IsIsomorphicManiplex}
-    \subitem for IsManiplex, IsManiplex, \hyperpage{38}
+    \subitem for IsManiplex, IsManiplex, \hyperpage{39}
   \item \texttt  {IsIsomorphicPoset}
     \subitem for IsPoset,IsPoset, \hyperpage{34}
   \item \texttt  {IsOrientable}
@@ -174,7 +176,7 @@
   \item \texttt  {IsPrePolytope}
     \subitem for IsPoset, \hyperpage{34}
   \item \texttt  {IsQuotient}
-    \subitem for IsManiplex, IsManiplex, \hyperpage{38}
+    \subitem for IsManiplex, IsManiplex, \hyperpage{39}
   \item \texttt  {IsReflexible}
     \subitem for IsManiplex, \hyperpage{17}
   \item \texttt  {IsRotary}
@@ -195,6 +197,11 @@
     \subitem for IsManiplex, \hyperpage{24}
   \item \texttt  {IsVertexFaithful}
     \subitem for IsReflexibleManiplex, \hyperpage{27}
+
+  \indexspace
+
+  \item \texttt  {JoinProduct}
+    \subitem for IsPoset,IsPoset, \hyperpage{38}
 
   \indexspace
 
@@ -296,9 +303,9 @@
     \subitem for IsList, IsList, \hyperpage{25}
     \subitem for IsString, \hyperpage{26}
   \item \texttt  {RotaryManiplex}
-    \subitem for IsGroup, \hyperpage{39}
-    \subitem for IsList, \hyperpage{39}
-    \subitem for IsList, IsList, \hyperpage{39}
+    \subitem for IsGroup, \hyperpage{40}
+    \subitem for IsList, \hyperpage{40}
+    \subitem for IsList, IsList, \hyperpage{40}
   \item \texttt  {RotationGroup}
     \subitem for IsManiplex, \hyperpage{23}
 
@@ -318,7 +325,7 @@
   \item \texttt  {Skeleton}
     \subitem for IsManiplex, \hyperpage{8}
   \item \texttt  {SmallestRegularCover}
-    \subitem for IsManiplex, \hyperpage{38}
+    \subitem for IsManiplex, \hyperpage{39}
   \item \texttt  {SmallRegularPolyhedra}
     \subitem for IsInt, \hyperpage{13}
   \item \texttt  {SymmetryTypeGraph}
@@ -337,8 +344,8 @@
   \item \texttt  {UniversalPolytope}
     \subitem for IsInt, \hyperpage{10}
   \item \texttt  {UniversalRotationGroup}
-    \subitem for IsInt, \hyperpage{39}
-    \subitem for IsList, \hyperpage{39}
+    \subitem for IsInt, \hyperpage{40}
+    \subitem for IsList, \hyperpage{40}
   \item \texttt  {UniversalSggi}
     \subitem for IsInt, \hyperpage{25}
     \subitem for IsList, \hyperpage{25}

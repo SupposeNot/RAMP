@@ -23,28 +23,35 @@
   
   [33X[0;0YReturns the automorphism group of [3XM[103X as a permutation group.[133X
   
-  [1X6.1-4 ConnectionGroup[101X
+  [1X6.1-4 AutomorphismGroupOnFlags[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismGroupOnFlags[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  automorphism  group  of [3XM[103X as a permutation group action on the
+  flags of [3XM[103X.[133X
+  
+  [1X6.1-5 ConnectionGroup[101X
   
   [33X[1;0Y[29X[2XConnectionGroup[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the connection group of [3XM[103X as a permutation group. We may eventually
   allow other types of connection groups.[133X
   
-  [1X6.1-5 EvenConnectionGroup[101X
+  [1X6.1-6 EvenConnectionGroup[101X
   
   [33X[1;0Y[29X[2XEvenConnectionGroup[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the even-word subgroup of the connection group of [3XM[103X as a permutation
   group.[133X
   
-  [1X6.1-6 RotationGroup[101X
+  [1X6.1-7 RotationGroup[101X
   
   [33X[1;0Y[29X[2XRotationGroup[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns  the  rotation group of [3XM[103X. This group is not guaranteed to be in any
   particular form.[133X
   
-  [1X6.1-7 ChiralityGroup[101X
+  [1X6.1-8 ChiralityGroup[101X
   
   [33X[1;0Y[29X[2XChiralityGroup[102X( [3XM[103X ) [32X attribute[133X
   
@@ -53,7 +60,7 @@
   its  maximal  reflexible  quotient.  In  particular,  the chirality group is
   trivial if and only if [3XM[103X is reflexible.[133X
   
-  [1X6.1-8 ExtraRelators[101X
+  [1X6.1-9 ExtraRelators[101X
   
   [33X[1;0Y[29X[2XExtraRelators[102X( [3XM[103X ) [32X attribute[133X
   
@@ -61,7 +68,7 @@
   automorphism  group  as  a quotient of the string Coxeter group given by its
   Schlafli symbol. Not particularly robust at the moment.[133X
   
-  [1X6.1-9 ExtraRotRelators[101X
+  [1X6.1-10 ExtraRotRelators[101X
   
   [33X[1;0Y[29X[2XExtraRotRelators[102X( [3XM[103X ) [32X attribute[133X
   
@@ -69,14 +76,14 @@
   rotation group as a quotient of the rotation group of a string Coxeter group
   given by its Schlafli symbol. Not particularly robust at the moment.[133X
   
-  [1X6.1-10 IsStringC[101X
+  [1X6.1-11 IsStringC[101X
   
   [33X[1;0Y[29X[2XIsStringC[102X( [3XG[103X ) [32X operation[133X
   
   [33X[0;0YFor  an  sggi  [3XG[103X, returns whether the group is a string C group. It does not
   check whether [3XG[103X is an sggi.[133X
   
-  [1X6.1-11 IsStringCPlus[101X
+  [1X6.1-12 IsStringCPlus[101X
   
   [33X[1;0Y[29X[2XIsStringCPlus[102X( [3XG[103X ) [32X operation[133X
   

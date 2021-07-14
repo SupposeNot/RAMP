@@ -35,6 +35,15 @@
 
 
 <ManSection>
+  <Attr Arg="M" Name="AutomorphismGroupOnFlags" Label="for IsManiplex"/>
+ <Description>
+ Returns the automorphism group of <A>M</A> as a
+ permutation group action on the flags of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Attr Arg="M" Name="ConnectionGroup" Label="for IsManiplex"/>
  <Description>
  Returns the connection group of <A>M</A> as a

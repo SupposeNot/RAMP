@@ -157,14 +157,15 @@
       6.1-1 AutomorphismGroup
       6.1-2 AutomorphismGroupFpGroup
       6.1-3 AutomorphismGroupPermGroup
-      6.1-4 ConnectionGroup
-      6.1-5 EvenConnectionGroup
-      6.1-6 RotationGroup
-      6.1-7 ChiralityGroup
-      6.1-8 ExtraRelators
-      6.1-9 ExtraRotRelators
-      6.1-10 IsStringC
-      6.1-11 IsStringCPlus
+      6.1-4 AutomorphismGroupOnFlags
+      6.1-5 ConnectionGroup
+      6.1-6 EvenConnectionGroup
+      6.1-7 RotationGroup
+      6.1-8 ChiralityGroup
+      6.1-9 ExtraRelators
+      6.1-10 ExtraRotRelators
+      6.1-11 IsStringC
+      6.1-12 IsStringCPlus
   7 [33X[0;0YProperties[133X
     7.1 [33X[0;0YOrientability[133X
       7.1-1 IsOrientable
@@ -236,25 +237,28 @@
       10.6-1 RankedFaceListOfPoset
       10.6-2 IsSubface
       10.6-3 AreIncidentElements
-  11 [33X[0;0YComparing maniplexes[133X
-    11.1 [33X[0;0YQuotients and covers[133X
-      11.1-1 IsQuotient
-      11.1-2 IsCover
-      11.1-3 IsIsomorphicManiplex
-      11.1-4 SmallestRegularCover
-  12 [33X[0;0Yramp automatic generated documentation[133X
-    12.1 [33X[0;0Yramp automatic generated documentation of methods[133X
-      12.1-1 UniversalRotationGroup
-      12.1-2 UniversalRotationGroup
-      12.1-3 RotaryManiplex
-      12.1-4 RotaryManiplex
-      12.1-5 RotaryManiplex
-      12.1-6 EnantiomorphicForm
-    12.2 [33X[0;0Yramp automatic generated documentation of global functions[133X
-      12.2-1 AbstractPolytope
-      12.2-2 AbstractRegularPolytope
-      12.2-3 AbstractRotaryPolytope
-      12.2-4 AddOrAppend
+  11 [33X[0;0YProducts of Posets and Digraphs[133X
+    11.1 [33X[0;0YMethods from Products of abstract polytopes[133X
+      11.1-1 JoinProduct
+  12 [33X[0;0YComparing maniplexes[133X
+    12.1 [33X[0;0YQuotients and covers[133X
+      12.1-1 IsQuotient
+      12.1-2 IsCover
+      12.1-3 IsIsomorphicManiplex
+      12.1-4 SmallestRegularCover
+  13 [33X[0;0Yramp automatic generated documentation[133X
+    13.1 [33X[0;0Yramp automatic generated documentation of methods[133X
+      13.1-1 UniversalRotationGroup
+      13.1-2 UniversalRotationGroup
+      13.1-3 RotaryManiplex
+      13.1-4 RotaryManiplex
+      13.1-5 RotaryManiplex
+      13.1-6 EnantiomorphicForm
+    13.2 [33X[0;0Yramp automatic generated documentation of global functions[133X
+      13.2-1 AbstractPolytope
+      13.2-2 AbstractRegularPolytope
+      13.2-3 AbstractRotaryPolytope
+      13.2-4 AddOrAppend
   
   
   [32X

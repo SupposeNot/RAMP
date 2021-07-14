@@ -37,11 +37,13 @@
 \makelabel{ramp:Elements of posets, also known as faces.}{10.4}{X86FBAB3E8056F479}
 \makelabel{ramp:Element Constructors}{10.5}{X85445BE07F161F88}
 \makelabel{ramp:Element operations}{10.6}{X874169E2825654E9}
-\makelabel{ramp:Comparing maniplexes}{11}{X7A3CC7F9873E02BF}
-\makelabel{ramp:Quotients and covers}{11.1}{X7CD5138B85A97590}
-\makelabel{ramp:ramp automatic generated documentation}{12}{X7CFFADAB8780AAA2}
-\makelabel{ramp:ramp automatic generated documentation of methods}{12.1}{X7C78352D81F80B4B}
-\makelabel{ramp:ramp automatic generated documentation of global functions}{12.2}{X84BB54A287D5B233}
+\makelabel{ramp:Products of Posets and Digraphs}{11}{X85B4AB907E78ADD1}
+\makelabel{ramp:Methods from Products of abstract polytopes}{11.1}{X835EE948870B7D41}
+\makelabel{ramp:Comparing maniplexes}{12}{X7A3CC7F9873E02BF}
+\makelabel{ramp:Quotients and covers}{12.1}{X7CD5138B85A97590}
+\makelabel{ramp:ramp automatic generated documentation}{13}{X7CFFADAB8780AAA2}
+\makelabel{ramp:ramp automatic generated documentation of methods}{13.1}{X7C78352D81F80B4B}
+\makelabel{ramp:ramp automatic generated documentation of global functions}{13.2}{X84BB54A287D5B233}
 \makelabel{ramp:Index}{Ind}{X83A0356F839C696F}
 \makelabel{ramp:License}{}{X81488B807F2A1CF1}
 \makelabel{ramp:DirectedGraphFromListOfEdges for islist,islist}{1.1.1}{X7FB3733D81739F2C}
@@ -126,14 +128,15 @@
 \makelabel{ramp:AutomorphismGroup for ismaniplex}{6.1.1}{X78746F0385216D57}
 \makelabel{ramp:AutomorphismGroupFpGroup for ismaniplex}{6.1.2}{X837641127998923F}
 \makelabel{ramp:AutomorphismGroupPermGroup for ismaniplex}{6.1.3}{X7D6651587DF3790A}
-\makelabel{ramp:ConnectionGroup for ismaniplex}{6.1.4}{X7815931C7E926F4F}
-\makelabel{ramp:EvenConnectionGroup for ismaniplex}{6.1.5}{X7CE8CFB183A4FFEE}
-\makelabel{ramp:RotationGroup for ismaniplex}{6.1.6}{X7D194510834667C8}
-\makelabel{ramp:ChiralityGroup for isrotarymaniplex}{6.1.7}{X7FDCA212782DC0E3}
-\makelabel{ramp:ExtraRelators for isreflexiblemaniplex}{6.1.8}{X7D2CE6707B452C0D}
-\makelabel{ramp:ExtraRotRelators for isrotarymaniplex}{6.1.9}{X797752A88078CF22}
-\makelabel{ramp:IsStringC for isgroup}{6.1.10}{X835FA8527E2442F4}
-\makelabel{ramp:IsStringCPlus for isgroup}{6.1.11}{X8445AFAB7CF3F319}
+\makelabel{ramp:AutomorphismGroupOnFlags for ismaniplex}{6.1.4}{X810F4F4A864B1B39}
+\makelabel{ramp:ConnectionGroup for ismaniplex}{6.1.5}{X7815931C7E926F4F}
+\makelabel{ramp:EvenConnectionGroup for ismaniplex}{6.1.6}{X7CE8CFB183A4FFEE}
+\makelabel{ramp:RotationGroup for ismaniplex}{6.1.7}{X7D194510834667C8}
+\makelabel{ramp:ChiralityGroup for isrotarymaniplex}{6.1.8}{X7FDCA212782DC0E3}
+\makelabel{ramp:ExtraRelators for isreflexiblemaniplex}{6.1.9}{X7D2CE6707B452C0D}
+\makelabel{ramp:ExtraRotRelators for isrotarymaniplex}{6.1.10}{X797752A88078CF22}
+\makelabel{ramp:IsStringC for isgroup}{6.1.11}{X835FA8527E2442F4}
+\makelabel{ramp:IsStringCPlus for isgroup}{6.1.12}{X8445AFAB7CF3F319}
 \makelabel{ramp:IsOrientable for ismaniplex}{7.1.1}{X7DCAF9D27F36EBD3}
 \makelabel{ramp:IsIOrientable for ismaniplex, islist}{7.1.2}{X79F849DD7F778616}
 \makelabel{ramp:IsVertexBipartite for ismaniplex}{7.1.3}{X877609AB7ABD24AC}
@@ -194,17 +197,18 @@
 \makelabel{ramp:RankedFaceListOfPoset for isposet}{10.6.1}{X7A80223E83EF52E8}
 \makelabel{ramp:IsSubface for isface,isface}{10.6.2}{X79BFF531809785A3}
 \makelabel{ramp:AreIncidentElements for isobject,isobject}{10.6.3}{X84B2B67A805CD31D}
-\makelabel{ramp:IsQuotient for ismaniplex, ismaniplex}{11.1.1}{X7B4CC6757C463F20}
-\makelabel{ramp:IsCover for ismaniplex, ismaniplex}{11.1.2}{X845044F47ACF897C}
-\makelabel{ramp:IsIsomorphicManiplex for ismaniplex, ismaniplex}{11.1.3}{X7B1006697C002741}
-\makelabel{ramp:SmallestRegularCover for ismaniplex}{11.1.4}{X879C71E784C41B77}
-\makelabel{ramp:UniversalRotationGroup for isint}{12.1.1}{X8056E3557E06EFF6}
-\makelabel{ramp:UniversalRotationGroup for islist}{12.1.2}{X7D6042317A76FDC3}
-\makelabel{ramp:RotaryManiplex for isgroup}{12.1.3}{X84662FEC86F981A0}
-\makelabel{ramp:RotaryManiplex for islist}{12.1.4}{X85D4214883208895}
-\makelabel{ramp:RotaryManiplex for islist, islist}{12.1.5}{X7C4F288287BD75D6}
-\makelabel{ramp:EnantiomorphicForm for isrotarymaniplex}{12.1.6}{X7E64776382984E5A}
-\makelabel{ramp:AbstractPolytope}{12.2.1}{X7D63A6087BD7F5F8}
-\makelabel{ramp:AbstractRegularPolytope}{12.2.2}{X7C2837FB8174C8DC}
-\makelabel{ramp:AbstractRotaryPolytope}{12.2.3}{X79AB055B7DDFB160}
-\makelabel{ramp:AddOrAppend}{12.2.4}{X829B5DA779342A28}
+\makelabel{ramp:JoinProduct for isposet,isposet}{11.1.1}{X87B984FB860BDF3F}
+\makelabel{ramp:IsQuotient for ismaniplex, ismaniplex}{12.1.1}{X7B4CC6757C463F20}
+\makelabel{ramp:IsCover for ismaniplex, ismaniplex}{12.1.2}{X845044F47ACF897C}
+\makelabel{ramp:IsIsomorphicManiplex for ismaniplex, ismaniplex}{12.1.3}{X7B1006697C002741}
+\makelabel{ramp:SmallestRegularCover for ismaniplex}{12.1.4}{X879C71E784C41B77}
+\makelabel{ramp:UniversalRotationGroup for isint}{13.1.1}{X8056E3557E06EFF6}
+\makelabel{ramp:UniversalRotationGroup for islist}{13.1.2}{X7D6042317A76FDC3}
+\makelabel{ramp:RotaryManiplex for isgroup}{13.1.3}{X84662FEC86F981A0}
+\makelabel{ramp:RotaryManiplex for islist}{13.1.4}{X85D4214883208895}
+\makelabel{ramp:RotaryManiplex for islist, islist}{13.1.5}{X7C4F288287BD75D6}
+\makelabel{ramp:EnantiomorphicForm for isrotarymaniplex}{13.1.6}{X7E64776382984E5A}
+\makelabel{ramp:AbstractPolytope}{13.2.1}{X7D63A6087BD7F5F8}
+\makelabel{ramp:AbstractRegularPolytope}{13.2.2}{X7C2837FB8174C8DC}
+\makelabel{ramp:AbstractRotaryPolytope}{13.2.3}{X79AB055B7DDFB160}
+\makelabel{ramp:AddOrAppend}{13.2.4}{X829B5DA779342A28}
