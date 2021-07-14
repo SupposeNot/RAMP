@@ -23,7 +23,7 @@ InstallMethod( UniversalPolytope,
 		SetFvector(p, List([1..n], i -> infinity));
 		SetSchlafliSymbol(p, List([1..n-1], i -> infinity));
 	fi;
-	SetDescription(p, Concatenation("UniversalPolytope(", String(n), ")"));
+	SetString(p, Concatenation("UniversalPolytope(", String(n), ")"));
 	return p;
 	end);
 	
@@ -209,9 +209,7 @@ InstallMethod(Medial,
 	Med!.base := p;
 
 	SetRankManiplex(Med, 3);
-	if HasDescription(p) then
-		SetDescription(Med, Concatenation("Medial(", Description(p), ")"));
-	fi;
+	SetString(Med, Concatenation("Medial(", String(p), ")"));
 
 	SizeComputer := function(M)
 		return 2 * Size(M!.base);

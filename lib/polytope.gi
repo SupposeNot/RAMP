@@ -172,6 +172,8 @@ InstallMethod(ReflexibleManiplex,
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
+	SetIsPolytopal(p, true);
+	SetString(p, Concatenation("AbstractRegularPolytope(", String(sym), ")"));
 	return p;
 	end);
 
@@ -179,21 +181,24 @@ InstallMethod(ReflexibleManiplex,
 InstallMethod(ReflexibleManiplex,
 	[IsList, IsList],
 	function(sym, rels)
-	local n, w, autgp, fam, p;
+	local n, w, autgp, fam, p, newrels, desc;
 	n := Size(sym)+1;
 	w := UniversalSggi(sym);
 	if IsString(rels) then
-		rels := ParseStringCRels(rels, w);
+		newrels := ParseStringCRels(rels, w);
+		desc := Concatenation("ReflexibleManiplex(", String(sym), ", \"", String(rels), "\")");
 	else
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+		desc := Concatenation("ReflexibleManiplex(", String(sym), ", ", String(rels), ")");
 	fi;
-	autgp := FactorGroupFpGroupByRels(w, rels);
+	autgp := FactorGroupFpGroupByRels(w, newrels);
 	p := ReflexibleManiplex(autgp);
-	SetExtraRelators(p, rels);
+	SetExtraRelators(p, newrels);
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
 	fi;
-	
+
+	SetString(p, desc);
 	return p;
 	end);
 
@@ -232,6 +237,8 @@ InstallOtherMethod(ReflexibleManiplex,
 	else
 		Error("Cannot parse name.");
 	fi;
+
+	SetString(p, Concatenation("ReflexibleManiplex(", name, ")"));
 	
 	return p;
 	end);
@@ -434,19 +441,10 @@ InstallMethod(DisplayString,
 	end);
 	
 	
-InstallMethod( PrintString,
+InstallMethod(String,
 	[IsManiplex],
 	function(M)
-	if HasDescription(M) then
-		return Description(M);
-	else
-		return MANIPLEX_STRING(M);
-	fi;
-	#ViewObj(p);
-	#Print("\n");
-	#if IsFpGroup(AutomorphismGroup(p)) then
-	#	Print("Defining relations: ", RelatorsOfFpGroup(AutomorphismGroup(p)));
-	#fi;
+	return MANIPLEX_STRING(M);
 	end);
 	
 # TODO: This is currently broken for rotary maniplexes

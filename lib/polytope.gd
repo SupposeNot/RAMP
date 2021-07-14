@@ -123,10 +123,6 @@ DeclareProperty("IsChiral", IsManiplex);
 DeclareProperty("IsRotary", IsManiplex);
 
 
-#! @Arguments M
-#! Returns a short name for the maniplex <A>M</A>, if one is available.
-#! For example, Description(Simplex(3)) = "3-simplex".
-DeclareAttribute("Description", IsManiplex);
 
 
 #! @Chapter Actions

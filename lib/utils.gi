@@ -15,6 +15,9 @@ InstallGlobalFunction(AbstractRegularPolytope,
 	local p;
 	p := CallFuncList(ReflexibleManiplex, args);
 	SetIsPolytopal(p, true);
+	if HasString(p) then
+		p!.String := ReplacedString(String(p), "ReflexibleManiplex", "AbstractRegularPolytope");
+	fi;
 	return p;
 	end);
 
@@ -23,6 +26,9 @@ InstallGlobalFunction(AbstractRotaryPolytope,
 	local p;
 	p := CallFuncList(RotaryManiplex, args);
 	SetIsPolytopal(p, true);
+	if HasString(p) then
+		p!.String := ReplacedString(String(p), "RotaryManiplex", "AbstractRotaryPolytope");
+	fi;
 	return p;
 	end);
 
