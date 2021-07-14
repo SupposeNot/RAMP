@@ -35,3 +35,8 @@ DeclareCategory("IsPosetElement",IsObject);
 DeclareSynonym("IsFace",IsPosetElement);
 DeclareRepresentation("IsElementOfPoset",IsAttributeStoringRep,[]);
 DeclareSynonym("IsFaceOfPoset",IsElementOfPoset);
+
+
+#Edge Labeled Graph stuff
+DeclareCategory("IsEdgeLabeledGraph", IsObject);
+DeclareRepresentation("IsEdgeLabeledGraphListRep", IsComponentObjectRep and IsAttributeStoringRep,["vertices","edges","labels"]);
