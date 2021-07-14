@@ -193,6 +193,167 @@ end);
 
 
 
+InstallMethod(EdgeLabeledGraphFromEdges,
+	[IsList, IsList, IsList],
+	function(listv,liste,listl)
+	local fam, egraph;
+	egraph:=Objectify(NewType(EdgeLabeledGraphFamily, IsEdgeLabeledGraph and IsEdgeLabeledGraphListRep), rec(vertices:=listv, edges:=liste, labels:=listl));
+	return(egraph);
+	end);
+
+
+InstallMethod( ViewObj,
+	[IsEdgeLabeledGraph],
+	function(p)
+	if HasDescription(p) then
+		Print(Description(p));
+		Print("\n");
+	fi;
+	Print(Concatenation("Edge labeled graph with ", String(Size(p!.vertices)), " vertices, and labels ", String(Set(p!.labels))));
+	end);
+
+
+InstallMethod(FlagGraph,
+	[IsGroup],
+	function(g)
+	local all;
+	all:= FlagGraphWithLabels(g);
+	return(EdgeLabeledGraphFromEdges(Vertices(all[1]),all[2],all[3]));
+	end);
+
+
+InstallMethod(FlagGraph,
+	[IsManiplex],
+	function(m)
+	local c, all;
+	c:=ConnectionGroup(m);
+	all:= FlagGraphWithLabels(c);
+	return(EdgeLabeledGraphFromEdges(Vertices(all[1]),all[2],all[3]));
+	end);
+
+
+InstallMethod(UnlabeledSimpleGraph,
+	[IsEdgeLabeledGraph],
+	function(f)
+	local i,start;
+	start:=f!.edges;
+	for i in start do
+		if Size(Set(i)) <> 2 then
+		Remove(start,i);
+		fi;
+	od;
+	return GraphFromListOfEdges(f!.vertices,start);
+	end);
+
+
+#Note this is complicated and slow. Looking for better answers here.  
+#It should give the correct action on the flags.
+InstallMethod(EdgeLabelPreservingAutomorphismGroup,
+	[IsEdgeLabeledGraph],
+	function(f)
+	local newV, sorted, r, sv, newE, i, j, k, l, colors, sortedl, ci, gamma, A, newG, M, gens, H;
+	newV:=[1..Size(Set(f!.labels))*Size(f!.vertices)];
+	sortedl:=Set(f!.labels);
+	r:=Size(sortedl);
+	sv:=Size(f!.vertices);
+	newE:=[];	
+	for i in [1..sv] do
+		for j in [1..r-1] do
+			Add(newE,[(j-1)*sv+i , j*sv+i]);
+		od;
+		Add(newE, [i,(r-1)*sv+i]);	
+	od;
+	for k in [1..Size(f!.edges)] do
+		l:=f!.labels[k];
+		Add(newE,[(l-1)*sv+f!.edges[k][1],(l-1)*sv+f!.edges[k][2]]);
+	od;
+	colors:=[];
+	for i in [1..r] do
+		ci:=[];
+		for j in [1..sv] do
+			Add(ci,(i-1)*sv+j);
+		od;
+		Add(colors,ci);
+	od;
+	gamma:=GraphFromListOfEdges(newV,newE);
+	A:= AutGroupGraph( gamma, colors );
+	newG:=[];
+	M:=Size(MovedPoints(A));
+	gens:=GeneratorsOfGroup(A);
+	for i in gens do
+		Add(newG,RestrictedPerm(i,[1..Int(M/r)]));
+	od;
+	H:=Group(newG);
+	return H;
+	end);
+
+
+InstallMethod(Simple,
+	[IsEdgeLabeledGraph],
+	function(f)
+	local ed, l, good, i ;
+	ed:=f!.edges;
+	l:=f!.labels;
+	good:=[1];
+	SortParallel(ed,l);
+	for i in [2..Size(ed)] do
+		if Size(ed[i]) = 2 and (not ed[i] = ed[i-1]) then
+			Add(good,i);
+		fi;
+	od;
+	return EdgeLabeledGraphFromEdges(f!.vertices,ed{good},l{good});
+	end);
+
+
+InstallMethod(ConnectedComponents,
+	[IsEdgeLabeledGraph],
+	function(f)
+	local f2, f3 ;
+	f2:=Simple(f);
+	f3:=GraphFromListOfEdges(f2!.vertices,f2!.edges);
+	return ConnectedComponents(f3);
+	end);
+
+
+InstallMethod(ConnectedComponents,
+	[IsEdgeLabeledGraph, IsList],
+	function(f,bad)
+	local f2, good, ed, l, i, f3 ;
+	f2:=Simple(f);	
+	good:=[];
+	ed:=f2!.edges;
+	l:=f2!.labels;
+	for i in [1..Size(ed)] do
+		if not (l[i] in bad) then
+		Add(good,i);
+		fi;
+	od;
+	f3:=GraphFromListOfEdges(f2!.vertices,ed{good});
+	return ConnectedComponents(f3);
+	end);
+		
+
+InstallMethod(PRGraph,
+	[IsGroup],
+	function(g)
+	local gens, V, labels, edges, r, i, j ;
+	gens:=GeneratorsOfGroup(g);
+	V:=MovedPoints(g);
+	labels:=[];
+	edges:=[];
+	for r in [1..Size(gens)] do
+	for i in [1..Size(V)-1] do
+	for j in [i+1..Size(V)] do
+		if i^gens[r] = j then
+			Add(labels,r);
+			Add(edges, [i,j]);
+		fi;
+	od;
+	od;
+	od;
+	return EdgeLabeledGraphFromEdges(V,edges,labels);
+	end);
+
 
 
 
