@@ -116,7 +116,7 @@ InstallMethod(RotaryManiplex,
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, 2*Size(w));
 	SetExtraRelators(p, []);
-	SetDescription(p, Concatenation("RotaryManiplex(", String(sym), ")"));
+	SetString(p, Concatenation("RotaryManiplex(", String(sym), ")"));
 	return p;
 	end);
 
@@ -139,7 +139,7 @@ InstallMethod(RotaryManiplex,
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
 	fi;
-	SetDescription(p, desc);
+	SetString(p, desc);
 	
 	return p;
 	end);

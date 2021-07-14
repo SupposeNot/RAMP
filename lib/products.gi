@@ -18,9 +18,9 @@ InstallMethod(PyramidOver,
 
 	SetRankManiplex(pyr, n+1);
 	if n = 2 and IsEvenInt(Size(p)) and Size(p) >= 4 and p = Pgon(Size(p)/2) then
-		SetDescription(pyr, Concatenation("Pyramid(", String(Size(p)/2), ")"));
+		SetString(pyr, Concatenation("Pyramid(", String(Size(p)/2), ")"));
 	else
-		SetDescription(pyr, Concatenation("PyramidOver(", String(p), ")"));	
+		SetString(pyr, Concatenation("PyramidOver(", String(p), ")"));	
 	fi;
 
 	SizeComputer := function(M)
@@ -131,9 +131,9 @@ InstallMethod(PrismOver,
 
 	SetRankManiplex(prism, n+1);
 	if n = 2 and IsEvenInt(Size(p)) and Size(p) >= 4 and p = Pgon(Size(p)/2) then
-		SetDescription(prism, Concatenation("Prism(", String(Size(p)/2), ")"));
+		SetString(prism, Concatenation("Prism(", String(Size(p)/2), ")"));
 	else
-		SetDescription(prism, Concatenation("PrismOver(", String(p), ")"));	
+		SetString(prism, Concatenation("PrismOver(", String(p), ")"));	
 	fi;
 
 	SizeComputer := function(M)

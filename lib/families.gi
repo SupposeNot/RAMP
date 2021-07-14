@@ -19,7 +19,7 @@ InstallMethod(Pgon,
 		Error("Number of sides must be at least 2.\n");
 	fi;
 	p := AbstractRegularPolytope(UniversalSggi([n]));
-	SetDescription(p, Concatenation("Pgon(", String(n), ")"));
+	SetString(p, Concatenation("Pgon(", String(n), ")"));
 	SetSchlafliSymbol(p, [n]);
 	SetSize(p, 2*n);
 	SetExtraRelators(p, []);
@@ -45,7 +45,7 @@ InstallMethod(Cube,
 	g := UniversalSggi(sym);
 	p := AbstractRegularPolytope(g);
 	SetSchlafliSymbol(p, sym);
-	SetDescription(p, Concatenation("Cube(", String(n), ")"));
+	SetString(p, Concatenation("Cube(", String(n), ")"));
 	SetExtraRelators(p, []);
 	return p;
 	end);
@@ -62,7 +62,7 @@ InstallMethod(HemiCube,
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
 	SetSchlafliSymbol(p, SchlafliSymbol(Cube(n)));
-	SetDescription(p, Concatenation("HemiCube(", String(n), ")"));
+	SetString(p, Concatenation("HemiCube(", String(n), ")"));
 	return p;
 	end);
 	
@@ -85,7 +85,7 @@ InstallMethod(CrossPolytope,
 	g := UniversalSggi(sym);
 	p := AbstractRegularPolytope(g);
 	SetSchlafliSymbol(p, sym);
-	SetDescription(p, Concatenation("CrossPolytope(", String(n), ")"));
+	SetString(p, Concatenation("CrossPolytope(", String(n), ")"));
 	SetExtraRelators(p, []);
 	return p;
 	end);
@@ -102,7 +102,7 @@ InstallMethod(HemiCrossPolytope,
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
 	SetSchlafliSymbol(p, SchlafliSymbol(CrossPolytope(n)));
-	SetDescription(p, Concatenation("HemiCrossPolytope(", String(n), ")"));
+	SetString(p, Concatenation("HemiCrossPolytope(", String(n), ")"));
 	return p;
 	end);
 	
@@ -122,7 +122,7 @@ InstallMethod(Simplex,
 	fi;
 	g := UniversalSggi(sym);
 	p := AbstractRegularPolytope(g);
-	SetDescription(p, Concatenation("Simplex(", String(n), ")"));
+	SetString(p, Concatenation("Simplex(", String(n), ")"));
 	SetSchlafliSymbol(p, sym);
 	SetExtraRelators(p, []);
 	return p;
@@ -142,7 +142,7 @@ InstallMethod(CubicTiling,
 	p := AbstractRegularPolytope(g);
 	SetSchlafliSymbol(p, sym);
 	SetExtraRelators(p, []);
-	SetDescription(p, Concatenation("CubicTiling(", String(n), ")"));
+	SetString(p, Concatenation("CubicTiling(", String(n), ")"));
 	return p;
 	end);
 	
@@ -152,7 +152,7 @@ InstallMethod(Dodecahedron,
 	local g, p;
 	g := UniversalSggi([5,3]);
 	p := AbstractRegularPolytope(g);
-	SetDescription(p, "Dodecahedron()");
+	SetString(p, "Dodecahedron()");
 	SetSchlafliSymbol(p, [5,3]);
 	SetExtraRelators(p, []);
 	return p;
@@ -168,7 +168,7 @@ InstallMethod(Icosahedron,
 	local g, p;
 	g := UniversalSggi([3,5]);
 	p := AbstractRegularPolytope(g);
-	SetDescription(p, "Icosahedron()");
+	SetString(p, "Icosahedron()");
 	SetSchlafliSymbol(p, [3,5]);
 	SetExtraRelators(p, []);
 	return p;
@@ -184,7 +184,7 @@ InstallMethod(24Cell,
 	local g, p;
 	g := UniversalSggi([3,4,3]);
 	p := AbstractRegularPolytope(g);
-	SetDescription(p, "24Cell");
+	SetString(p, "24Cell");
 	SetSchlafliSymbol(p, [3,4,3]);
 	SetExtraRelators(p, []);
 	return p;
@@ -200,7 +200,7 @@ InstallMethod(120Cell,
 	local g, p;
 	g := UniversalSggi([5,3,3]);
 	p := AbstractRegularPolytope(g);
-	SetDescription(p, "120Cell()");
+	SetString(p, "120Cell()");
 	SetSchlafliSymbol(p, [5,3,3]);
 	SetExtraRelators(p, []);
 	return p;
@@ -216,7 +216,7 @@ InstallMethod(600Cell,
 	local g, p;
 	g := UniversalSggi([3,3,5]);
 	p := AbstractRegularPolytope(g);
-	SetDescription(p, "600Cell()");
+	SetString(p, "600Cell()");
 	SetSchlafliSymbol(p, [3,3,5]);
 	SetExtraRelators(p, []);
 	return p;

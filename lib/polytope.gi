@@ -173,7 +173,7 @@ InstallMethod(ReflexibleManiplex,
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
 	SetIsPolytopal(p, true);
-	SetDescription(p, Concatenation("AbstractRegularPolytope(", String(sym), ")"));
+	SetString(p, Concatenation("AbstractRegularPolytope(", String(sym), ")"));
 	return p;
 	end);
 
@@ -198,7 +198,7 @@ InstallMethod(ReflexibleManiplex,
 		SetSchlafliSymbol(p, sym);
 	fi;
 
-	SetDescription(p, desc);
+	SetString(p, desc);
 	return p;
 	end);
 
@@ -238,7 +238,7 @@ InstallOtherMethod(ReflexibleManiplex,
 		Error("Cannot parse name.");
 	fi;
 
-	SetDescription(p, Concatenation("ReflexibleManiplex(", name, ")"));
+	SetString(p, Concatenation("ReflexibleManiplex(", name, ")"));
 	
 	return p;
 	end);
@@ -444,11 +444,7 @@ InstallMethod(DisplayString,
 InstallMethod(String,
 	[IsManiplex],
 	function(M)
-	if HasDescription(M) then
-		return Description(M);
-	else
-		return MANIPLEX_STRING(M);
-	fi;
+	return MANIPLEX_STRING(M);
 	end);
 	
 # TODO: This is currently broken for rotary maniplexes
