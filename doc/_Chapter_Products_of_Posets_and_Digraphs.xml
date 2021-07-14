@@ -15,7 +15,7 @@
 </Returns>
  <Description>
 Given two posets, this forms the join product.
- If given two partial orders, returns the join product binary relation of the partial orders. Appending <Code>true</Code> in this case will force is to return a BinaryRelationOnPoints.
+ If given two partial orders, returns the join product of the partial orders.
  </Description>
 </ManSection>
 
@@ -30,6 +30,28 @@ A poset using the IsPosetOfIndices representation
 gap> j:=JoinProduct(p,p1);
 A poset using the IsPosetOfIndices representation
 gap> IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="polytope1, polytope2" Name="CartesianProduct" Label="for IsPolytope,IsPolytope"/>
+ <Returns>polytope
+</Returns>
+ <Description>
+Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p1:=PosetFromManiplex(Edge());
+A poset
+gap> p2:=PosetFromManiplex(Simplex(2));
+A poset
+gap> c:=CartesianProduct(p1,p2);
+A poset using the IsPosetOfIndices representation
+gap> IsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));
 true
 ]]></Example>
 

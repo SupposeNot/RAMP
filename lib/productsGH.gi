@@ -24,33 +24,7 @@ InstallMethod(JoinProduct,
 	return PosetFromPartialOrder(po);
 	end);	
 
-# InstallOtherMethod(JoinProduct,
-# 	[IsPoset, IsPoset, IsBool],
-# 	function(poset1, poset2, bool)
-# 	local elements, pairs, order1, order2, order, inp1, inp2, po;
-# 	order1:=AsBinaryRelationOnPoints(PartialOrder(poset1));
-# 	order2:=AsBinaryRelationOnPoints(PartialOrder(poset2));
-# 	Print("Found ordering functions.\n");
-# 	elements:=Cartesian(Source(order1),Source(order2));
-# 	Print("Found product elements.\n");
-#  	order:={inp1,inp2}->[inp1[1],inp2[1]] in order1 and [inp1[2],inp2[2]] in order2;
-#  	Print("Constructed order function.\n");
-# 	po:=PartialOrderByOrderingFunction(Domain(elements),order);
-# 	Print("Calculated PO.\n");
-# 	po:=AsBinaryRelationOnPoints(po);
-# 	Print("Calculated PO.\n");
-# 	return PosetFromPartialOrder(po);
-# 	end);		
-	
-# InstallOtherMethod(JoinProduct,
-# 	[IsBinaryRelation, IsBinaryRelation],
-# 	function(order1, order2)
-# 	local elements, order, inp1, inp2, po;
-# 	elements:=Cartesian(Source(order1),Source(order2));
-#  	order:={inp1,inp2}->[inp1[1],inp2[1]] in order1 and [inp1[2],inp2[2]] in order2;
-# 	po:=PartialOrderByOrderingFunction(Domain(elements),order);
-# 	return po;
-# 	end);
+
 
 InstallOtherMethod(JoinProduct,
 	[IsBinaryRelation, IsBinaryRelation],
@@ -70,4 +44,59 @@ InstallOtherMethod(JoinProduct,
 		od;
 	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
 	return po;
+	end);
+
+InstallMethod(CartesianProduct,
+	[IsPolytope,IsPolytope],
+	function(poset1,poset2)
+	local elements, pairs, order1, order2, order, suc1, suc2, n1, n2, list, temp, po, n, i, j;
+	order1:=PartialOrder(poset1);
+	order2:=PartialOrder(poset2);
+	suc1:= ShallowCopy( Successors( ReflexiveClosureBinaryRelation( HasseDiagramBinaryRelation( order1 ) ) ) );
+	Remove(suc1,1);
+	suc2:= ShallowCopy( Successors( ReflexiveClosureBinaryRelation( HasseDiagramBinaryRelation( order2) ) ) );
+	Remove(suc2, 1);
+# 	Print("Found successors.\n");
+	n1:=Length(suc1);n2:=Length(suc2);
+	list:=[1..(n1)*(n2)];
+	for i in [1..n1] do #Note... this assumes that the item in position one is the empty set... which it SHOULD be.
+		for j in [1..n2] do
+			temp:=Cartesian(suc1[i],suc2[j]);
+			list[(i-1)*n2+j]:=List(temp, x->(x[1]-1)*n2+x[2]);
+			od;
+		od;
+	n:=Minimum(DuplicateFreeList(Concatenation(list)))-2;
+	list:=list-n;
+	Add(list,[1..Length(list)+1],1);
+# 	return list;
+	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
+	return PosetFromPartialOrder(po);
+	end);
+	
+InstallOtherMethod(CartesianProduct,
+	[IsPoset,IsPoset],
+	function(poset1,poset2)
+	local elements, pairs, order1, order2, order, suc1, suc2, n1, n2, list, temp, po, n, i, j;
+	if IsP1(poset1)=false or IsP1(poset2)=false then return fail; fi;
+	order1:=PartialOrder(poset1);
+	order2:=PartialOrder(poset2);
+	suc1:= ShallowCopy( Successors( ReflexiveClosureBinaryRelation( HasseDiagramBinaryRelation( order1 ) ) ) );
+	Remove(suc1,1);
+	suc2:= ShallowCopy( Successors( ReflexiveClosureBinaryRelation( HasseDiagramBinaryRelation( order2) ) ) );
+	Remove(suc2, 1);
+# 	Print("Found successors.\n");
+	n1:=Length(suc1);n2:=Length(suc2);
+	list:=[1..(n1)*(n2)];
+	for i in [1..n1] do #Note... this assumes that the item in position one is the empty set... which it SHOULD be.
+		for j in [1..n2] do
+			temp:=Cartesian(suc1[i],suc2[j]);
+			list[(i-1)*n2+j]:=List(temp, x->(x[1]-1)*n2+x[2]);
+			od;
+		od;
+	n:=Minimum(DuplicateFreeList(Concatenation(list)))-2;
+	list:=list-n;
+	Add(list,[1..Length(list)+1],1);
+# 	return list;
+	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
+	return PosetFromPartialOrder(po);
 	end);

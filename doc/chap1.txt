@@ -257,3 +257,118 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [1X1.1-9 EdgeLabeledGraphFromEdges[101X
+  
+  [33X[1;0Y[29X[2XEdgeLabeledGraphFromEdges[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
+  
+  [33X[0;0YGiven  a  list of vertices, a list of edges, and a list of edge labels, this
+  represents  the edge labeled (multi)-graph with those parameters. Semi-edges
+  are  represented  by  a singleton in the edge list. Loops are represented by
+  edges [i,i][133X
+  
+  [33X[0;0YHere  we  have  an  edge  labeled  cycle  graph  with  6  vertices and edges
+  alternating in labels 0,1.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28XV:=[1..6];;[128X[104X
+    [4X[28XEdges:=[[1,2],[2,3],[3,4],[4,5],[5,6],[6,1]];;[128X[104X
+    [4X[28XL:=[0,1,0,1,0,1];;[128X[104X
+    [4X[28Xgamma:=EdgeLabeledGraphFromEdges(V,Edges,L);[128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-10 FlagGraph[101X
+  
+  [33X[1;0Y[29X[2XFlagGraph[102X( [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
+  
+  [33X[0;0YGiven  group,  assumed  to  be  a  connection group, output the labeled flag
+  graph.  The  input  could  also  be a maniplex, then the connection group is
+  calculated.[133X
+  
+  [33X[0;0YHere we have the flag graph of the 3-simplex from its connection group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28XC:=ConnectionGroup(Simplex(3));;[128X[104X
+    [4X[28Xgamma:=FlagGraph(C);[128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-11 UnlabeledSimpleGraph[101X
+  
+  [33X[1;0Y[29X[2XUnlabeledSimpleGraph[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
+  
+  [33X[0;0YGiven an edge labeled (multi) graph, it returns the underlying simple graph,
+  with semi-edges, loops, and muliple-edges removed.[133X
+  
+  [33X[0;0YHere we have underlying simple graph for the flag graph of the cube.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28Xgamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));[128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-12 EdgeLabelPreservingAutomorphismGroup[101X
+  
+  [33X[1;0Y[29X[2XEdgeLabelPreservingAutomorphismGroup[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsGroup[110X.[133X
+  
+  [33X[0;0YGiven   an  edge  labeled  (multi)  graph,  it  returns  automorphism  group
+  (preserving  the labels). Note, for now the labels are assumed to be [1..n].
+  Note  This  tends to be very slow. I would like to look for a way to go back
+  and  forth between flag automorphisms and poset automorphisms, as the latter
+  are much faster to compute.[133X
+  
+  [33X[0;0YHere we have the automorphism group of the flag graph of the cube.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28Xg:=EdgeLabelPreservingAutomorphismGroup(FlagGraph(Cube(3)));;[128X[104X
+    [4X[28XSize(g);[128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-13 Simple[101X
+  
+  [33X[1;0Y[29X[2XSimple[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph [110X.[133X
+  
+  [33X[0;0YGiven  an  edge labeled (multi) graph, it returns another edge labeled graph
+  where  semi-edges,  loops,  and  multiple  edges  are removed. Note only the
+  "first" edge label is retained if there are multiple edges.[133X
+  
+  [1X1.1-14 ConnectedComponents[101X
+  
+  [33X[1;0Y[29X[2XConnectedComponents[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
+  
+  [33X[0;0YGiven  an  edge  labeled  (multi)  graph  and  a  list of labels, it returns
+  connected components of the graph using edges in the list of labels. Note if
+  the  second argument is not used, it is assumed to be an empty list, and the
+  connected components of the original graph are returned.[133X
+  
+  [33X[0;0YHere  we  see  that  each  connected component of the flag graph of the cube
+  (which has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28Xgamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);[128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-15 PRGraph[101X
+  
+  [33X[1;0Y[29X[2XPRGraph[102X( [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph [110X.[133X
+  
+  [33X[0;0YGiven  a  group,  it  returns  the permutation representation graph for that
+  group.  When  the group is a string C-group this is also called a CPR graph.
+  The  labels  of the edges are [1...r] where r is the number of generators of
+  the group.[133X
+  
+  [33X[0;0YHere we see the CPR graph of the automorphism group of a cube (acting on its
+  8 vertices).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28XG:=AutomorphismGroup(Cube(3));[128X[104X
+    [4X[28XH:=Group(G.2,G.3);[128X[104X
+    [4X[28Xphi:=FactorCosetAction(G,H);[128X[104X
+    [4X[28XG2:=Range(phi);[128X[104X
+    [4X[28Xgamma:=PRGraph(G2);[128X[104X
+  [4X[32X[104X
+  

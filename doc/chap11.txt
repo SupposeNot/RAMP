@@ -14,8 +14,7 @@
   [6XReturns:[106X  [33X[0;10Yposet[133X
   
   [33X[0;0YGiven  two posets, this forms the join product. If given two partial orders,
-  returns  the  join  product binary relation of the partial orders. Appending
-  [10Xtrue[110X in this case will force is to return a BinaryRelationOnPoints.[133X
+  returns the join product of the partial orders.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(2));[127X[104X
@@ -27,6 +26,25 @@
     [4X[25Xgap>[125X [27Xj:=JoinProduct(p,p1);[127X[104X
     [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
     [4X[25Xgap>[125X [27XIsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X11.1-2 CartesianProduct[101X
+  
+  [33X[1;0Y[29X[2XCartesianProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolytope[133X
+  
+  [33X[0;0YGiven  two  polytopes,  forms the cartesian product of the polytopes. Should
+  also work if you give it any two posets.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Edge());[127X[104X
+    [4X[28XA poset[128X[104X
+    [4X[25Xgap>[125X [27Xp2:=PosetFromManiplex(Simplex(2));[127X[104X
+    [4X[28XA poset[128X[104X
+    [4X[25Xgap>[125X [27Xc:=CartesianProduct(p1,p2);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   

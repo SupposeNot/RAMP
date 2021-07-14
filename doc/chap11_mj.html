@@ -29,6 +29,7 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X87B984FB860BDF3F">11.1-1 JoinProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X840F596A7EB8BC45">11.1-2 CartesianProduct</a></span>
 </div></div>
 </div>
 
@@ -49,7 +50,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: poset</p>
 
-<p>Given two posets, this forms the join product. If given two partial orders, returns the join product binary relation of the partial orders. Appending <code class="code">true</code> in this case will force is to return a BinaryRelationOnPoints.</p>
+<p>Given two posets, this forms the join product. If given two partial orders, returns the join product of the partial orders.</p>
 
 
 <div class="example"><pre>
@@ -62,6 +63,27 @@ A poset using the IsPosetOfIndices representation
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">j:=JoinProduct(p,p1);</span>
 A poset using the IsPosetOfIndices representation
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));</span>
+true
+</pre></div>
+
+<p><a id="X840F596A7EB8BC45" name="X840F596A7EB8BC45"></a></p>
+
+<h5>11.1-2 CartesianProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: polytope</p>
+
+<p>Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p1:=PosetFromManiplex(Edge());</span>
+A poset
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p2:=PosetFromManiplex(Simplex(2));</span>
+A poset
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=CartesianProduct(p1,p2);</span>
+A poset using the IsPosetOfIndices representation
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));</span>
 true
 </pre></div>
 
