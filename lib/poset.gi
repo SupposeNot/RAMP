@@ -31,7 +31,6 @@ InstallMethod(PosetFromPartialOrder,
 	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order."); return; fi;
 	myreln:=POConvertToBROnPoints(reln);
 	n:=Length(Successors(myreln));
-# 	fam:=NewFamily("Poset From Partial Order", IsPoset);
 	poset:=Objectify(NewType(PosetFamily, IsPoset and IsPosetOfIndices), rec(domain:=[1..n]));
 	SetPartialOrder(poset,myreln);
 	return(poset);
@@ -42,7 +41,6 @@ InstallOtherMethod(ElementsList,
 	function(poset)
 	local list;
 	list:=RankedFaceListOfPoset(poset);
-# 	SetElementsList(poset,List(list,PosetElementFromListOfFlags));
 	return List(list,PosetElementFromListOfFlags);
 	end);
 
@@ -101,9 +99,7 @@ InstallMethod(IsP1,
 	function(poset)
 		local faceList;
 	faceList:=poset!.faces_list_by_rank;
-# 	if HasIsP1(poset) then return IsP1(poset); fi;
 	if faceList[1]=[[]] and Length(faceList[Rank(poset)+2])=1 then
-# 		SetIsP1(poset,true);
 		return true;
 	else
 		return false;
@@ -120,10 +116,8 @@ InstallOtherMethod(IsP1,
 	if DuplicateFreeList(List(faceList,x->HasAtomList(x)))=[true] then
 		atomicFaceList:=List(faceList,x->AtomList(x));
 		if [] in atomicFaceList and DuplicateFreeList(Concatenation(atomicFaceList)) in atomicFaceList then
-# 			SetIsP1(poset,true);
 			return true; 
 		else 
-# 			SetIsP1(poset,false); 
 			return false;
 		fi;
 	elif HasPartialOrder(poset) then #if we only know we have a partial order...
@@ -131,10 +125,8 @@ InstallOtherMethod(IsP1,
 		sourceList:=Elements(Source(partialOrder));
 		successors:=Successors(partialOrder);
 		if Length(PositionsProperty(successors,x->x=sourceList))=1 and Length(PositionsProperty([1..Length(sourceList)],x->successors[x]=[x]))=1 then
-# 			SetIsP1(poset,true);
 			return true;
 		else 
-# 			SetIsP1(poset,false); 
 			return false;
 		fi;
 	fi;
@@ -145,13 +137,10 @@ InstallMethod(IsP2,
 	function(poset)
 	local maxChains;
 	maxChains:=MaximalChains(poset);
-#	maxChains:=List(maxChains,x->Compacted(DuplicateFreeList(x)));
 	maxChains:=DuplicateFreeList(List(maxChains,Length));
 	if Length(maxChains)=1 then
-# 		SetIsP2(poset,true);
 		return true;
 		else
-# 		SetIsP2(poset,false);
 		return false;
 	fi;
 	end);
@@ -231,7 +220,6 @@ InstallMethod(IsP3,
 	[IsPoset],
 	function(poset)
 	local maxChains, r, ranks, i , j, truthList,cGens, overlap, overlapcomplement, nMC, orbit, repsList, compList;
-# 	if bool=false then Print("Using true might speed up this process"); return IsP3(poset); fi;
 	if Rank(poset)=false then return false; fi;
 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
  	if IsP4(poset)=false then return IsP3(poset,true);fi;
@@ -268,35 +256,25 @@ InstallOtherMethod(IsP3,
 	function(poset,string)
 	local repsList, chainsLists, flag, chain, flagChain, flags, faces, face, gRanks, cGens, component, chainIntersection, ranks;
 	if string<>"Flaggable" then Print("If you have a string as an alternative second input, is must be the word Flaggable."); return; fi;
-# 	if Rank(poset)=false then return false; fi;
-# 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
-#  	if IsP4(poset)=false then return IsP3(poset,true);fi;
-#  	Print("This is a pre-polytope, so I am using the connection group to help answer your question.\n");
-# 	Print(AutomorphismGroup(poset),"\n");
+
 	repsList:=List(Orbits(AutomorphismGroup(poset)),First);
-# 	Print("Reps: ",repsList,"\n");
 	ranks:=[2..Rank(poset)+2];
 	chainsLists:=Filtered(Combinations(ranks),x->x<>[]);
-# 	Print("Number of chains to check each:", Length(chainsLists),"\n");
 	flags:=MaximalChains(poset);
 	faces:=ElementsList(poset);
 	cGens:=GeneratorsOfGroup(ConnectionGroup(poset));
 	if Length(Orbits(ConnectionGroup(poset)))<>1 then return false;fi;
 	for flag in repsList do
-# 		Print("Starting rep ", flag, "\n");
 		for chain in chainsLists do
-# 			Print("Starting chain ", chain, "\n");
 			flagChain:=flags[flag]{chain};
 			flagChain:=List(flagChain,face->PositionsProperty(flags,x->face in x));
 			gRanks:= Difference([1..Rank(poset)], Intersection(chain, [2..Rank(poset)+1])-1);
 			chainIntersection:=Intersection(flagChain);
 			if gRanks<>[] then
 				if IsSubset(Orbit(Group(cGens{gRanks}),flag),chainIntersection)=false then
-# 					Print([gRanks,flag,chain]);
 					return false; 
 					fi;
 				fi;
-			Print("Check complete.\n\n");
 			od;
 		od;
 	return true;
@@ -329,23 +307,18 @@ InstallMethod(IsP4,
 	local r, ranks, flags, i, faceslow, faceshigh, facesmid, facepairs, pair, mids;
 	if IsP1(poset)=false or IsP2(poset)=false then 
 		Print("Your poset isn't P1 or isn't P2.\n");
-# 		SetIsP4(poset,false);
 		return false;
 	fi;
 	r:=Rank(poset);
 	flags:=MaximalChains(poset);
 	if r=0 then 
-# 		SetIsP4(poset,true);
 		return true;
 	elif r=1 and Length(flags)=2 then
-# 		SetIsP4(poset,true);
 		return true;
 	elif r=1 and Length(flags)<>2 then
-# 		SetIsP4(poset,false);
 		return false;
 	fi;
 	ranks:=[0..r-1];
-# 	for i in [2..r-1] do
 	for i in [2..r] do
 		faceslow:=DuplicateFreeList(List(flags,x->x[i]));
 		faceshigh:=DuplicateFreeList(List(flags,x->x[i+2]));
@@ -355,14 +328,10 @@ InstallMethod(IsP4,
 		for pair in facepairs do
 			mids:=Filtered(facesmid,x-> IsSubface(pair[1],x) and IsSubface(x,pair[2]));
 			if Length(mids)<>2 then
-# 				SetIsP4(poset,false);
 				return false;
 			fi;
-#  			Print(pair,", ", mids,"\n\n");
 		od;
-# 		Print(i,"\n");
 	od;
-# 	SetIsP4(poset,true);
 	return true;
 	end);
 
@@ -430,7 +399,6 @@ InstallMethod(PosetFromConnectionGroup,
 		od;
 	SetMaximalChains(poset,chains);
 	SetConnectionGroup(poset,conng);
-# 	if IsStringC(conng) then SetIsPolytope(poset,true);fi; #Can't do this... that just says MRC is reflexible polytope.
 	return poset;
 	end);
 
@@ -470,22 +438,8 @@ InstallMethod(PosetFromManiplex,
 	return poset;
 	end);	
 
-# Deprecated 7/7/21
-# InstallOtherMethod(AreIncidentFaces,
-# 	[IsList,IsList],
-# 	function(list1,list2)
-# 	if list1=[] or list2=[] then
-# 		return true;
-# 	elif Intersection(list1,list2)=[] then
-# 		return false;
-# 	else
-# 		return true;
-# 	fi;
-# 	return "Was unable to evaluate for some reason.\n";
-# 	end);	
 
 InstallMethod(HasseDiagramOfPoset,
-# 	[IsPoset and HasPartialOrder],
 	[IsPoset],
 	function(poset)
 	local po, hasseBR, underlyingBR, edges, nodes;
@@ -493,7 +447,6 @@ InstallMethod(HasseDiagramOfPoset,
 	hasseBR:=HasseDiagramBinaryRelation(po);
 	underlyingBR:=UnderlyingRelation(hasseBR);
 	edges:=List(AsList(underlyingBR),AsList);
-# 	Print(edges);
 	nodes:=Set(Concatenation(edges));
 	return DirectedGraphFromListOfEdges(nodes,edges);
 	end);
@@ -516,13 +469,6 @@ InstallOtherMethod(PartialOrder,
 	fi;	
 	end);
 
-# InstallMethod(HasseDiagramOfPoset,
-# 	[IsPoset],
-# 	function(poset)
-# 	local flags, faces;
-# 	po:=PartialOrder(poset);
-# 	
-# 	end);
 
 InstallMethod(AreIncidentElements,
 	[IsObject,IsObject],
@@ -701,44 +647,7 @@ InstallMethod(IsFlaggable,
 	return true;
 	end);
 
-# Deprecated 7/4/21
-# InstallMethod(ConnectionGroup,
-# 	[IsPoset and IsPosetOfFlags],
-# 	function(poset)
-# 	local rank,facelist,flagsList,ranks,generators,x,newPoset;
-# 	if IsFlaggable(poset)=false then
-# 		Print("This poset is not flaggable, and this function only works for flaggable posets.");
-# 		return;
-# 	fi;
-# 	if IsP1(poset) then
-# 		ranks:=[2..Rank(poset)+1];
-# 	else
-# 		ranks:=[1..Rank(poset)];
-# 	fi;
-# 	facelist:=poset!.faces_list_by_rank{ranks};	
-# 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-# 	generators:=[1..Rank(poset)];
-# 	Apply(generators,x->ConnectionGeneratorOfPoset(poset,x-1));
-# # 	SetConnectionGroup(poset,Group(generators));
-# 	return Group(generators);
-# 	end);
 
-
-# Deprecated 7/4/21
-# InstallMethod(ConnectionGeneratorOfPoset,
-# 	[IsPoset and IsPosetOfFlags,IsInt],
-# 	function(poset,i) # here i is the rank of the generator, e.g., 0 is the rank of the generator for 0-connections. Also note, the poset here MUST not be full.
-# 	local flagsList,nFlags,imagesList,flagPosition,iNeighbor,j;
-# #	if IsFull(poset) then Print("ConnectionGeneratorOfPoset was given a full poset, and failed."); return; fi;
-# 	flagsList:=FlagsAsListOfFacesFromPoset(poset);
-# 	nFlags:=Length(flagsList);
-# 	imagesList:=[1..nFlags]; #Where we will store the list of places flags go.
-# 	for j in [1..nFlags] do
-# 		iNeighbor:=AdjacentFlag(poset,j,i,true);
-# 		imagesList[j]:=iNeighbor;#Position(flagsList,iNeighbor);
-# 		od;
-# 	return PermutationOfImage(Transformation(imagesList));
-# 	end);
 
 
 InstallMethod(ConnectionGeneratorOfPoset,
@@ -767,13 +676,7 @@ InstallMethod(ConnectionGroup,
 	return Group(generators);
 	end);
 
-# InstallMethod(AutomorphismGroup, 
-# 	[IsPoset],
-# 	function(poset)
-# 	local g;
-# 	g:=ConnectionGroup(poset);
-# 	return Centralizer(SymmetricGroup(MovedPoints(g)),g);
-# 	end);
+
 
 InstallMethod(AutomorphismGroup,
 	[IsPoset],
@@ -817,21 +720,6 @@ InstallMethod(DisplayString,
 	return string;
 	end);
 	
-# InstallMethod(Display,
-# 	[IsPosetOfFlags],
-# 	function(p)
-# 	Print(DisplayString(p));
-# 	end);	
-
-# InstallMethod(ViewString,
-# 	[IsPosetOfFlags],
-# 	function(poset)
-# 	local string, ranks, n, shift, i;
-# 	string:="A poset of rank ";
-# 	Append(string,String(Rank(poset)));
-# 	Append(string, Concatenation(" with ", String(Size(ElementsList(poset))), " elements using the IsPosetOfFlags representation."));
-# 	return string;
-# 	end);
 
 InstallMethod(PrintString,
 	[IsPosetOfFlags],
@@ -873,16 +761,6 @@ InstallMethod(PrintString,
 	return string;
 	end);
 
-#####Todo
-# InstallMethod(FacesOfPosetAsBinaryRelationOnFaces,
-# 	[IsPoset and IsPosetOfFlags],
-# 	function(poset)
-# 	local n,faces,faceIndices;
-# 	faces:=ShallowCopy(poset!.faces_list_by_rank);
-# 	n:=Length(Concatenation(poset!.faces_list_by_rank));
-# 	
-# 	end);
-
 
 InstallMethod(FaceListOfPoset,
 	[IsPoset and IsPosetOfFlags],
@@ -891,7 +769,6 @@ InstallMethod(FaceListOfPoset,
 	if IsPosetOfFlags(poset)=true then return poset!.faces_list_by_rank; fi;
 	return;
 	end);
-
 
 
 InstallMethod(RankedFaceListOfPoset,
@@ -951,15 +828,11 @@ InstallMethod(MaximalChains,
 	[IsPoset],
 	function(poset)
 	local faces, ranks, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags, tempflags, order;
-#	if IsP1(poset)=false then Print("Sorry, I need a P1 poset."); return; fi;
 	faces:=ShallowCopy(ElementsList(poset));
-#	if HasElementObject(faces[1]) then 
-# 	ranks:=DuplicateFreeList(List(ElementsList(poset),Rank));
 	listofchildren:=List(faces,x->PositionsProperty(faces,y->IsSubface(x,y)));
 	flags:=List(PositionsProperty(listofchildren,x->Length(x)=1),x->[x]);
 	listofparents:=List(faces,x->PositionsProperty(faces,y->IsSubface(y,x)));
 	maxFaces:=PositionsProperty(listofparents,x->Length(x)=1);
-# 	Print(maxFaces);
 	newflags:=[];
 	tempflags:=[];
 	while  DuplicateFreeList(List(flags,Last))<>maxFaces do
@@ -973,60 +846,16 @@ InstallMethod(MaximalChains,
 					Append(newflags,[Concatenation(i,[j])]);
 				fi;
 			od;
-# 			Print(newflags,"\n");
-# 			Print("New Layer\n");
 		od;
 		Append(tempflags,Filtered(newflags,x->(Last(x) in maxFaces)));
 		flags:=newflags;
-# 		Print(flags,"\n");
 		newflags:=[];
 	od;
-# 	Print("temp\n",tempflags,"\n new\n",newflags);
 	flags:=List(tempflags,x->faces{x});
-# 	SetMaximalChains(poset,flags);
 	return flags;
 	end);
 
-# InstallMethod(MaximalChains,
-# 	[IsPoset and HasPartialOrder],
-# 	function(poset)
-# 	local maxChains, PO, hasse, UR, nFaces, pairs, parents, children, flags, maxFaces, newflags, tempflags, i, j, top;
-# 	PO:=PartialOrder(poset);
-# 	hasse:=HasseDiagramBinaryRelation(PO);
-# 	UR:=AsList(UnderlyingRelation(hasse));
-# 	nFaces:=[1..Size(ElementsList(poset))];
-# 	UR:=Concatenation(UR,List(nFaces,x->DirectProductElement([x,x])));
-# 	pairs:=Cartesian(nFaces,nFaces);
-# 	pairs:=Filtered(pairs,x->DirectProductElement(x) in UR);
-# 	children:=List(nFaces,x->PositionsProperty(nFaces,y->[y,x] in pairs));
-# 	flags:=List(PositionsProperty(children,x->Length(x)=1),x->[x]);
-# 	parents:=List(nFaces,x->PositionsProperty(nFaces,y->[x,y] in pairs));
-# 	maxFaces:=PositionsProperty(parents,x->Length(x)=1);
-# 	newflags:=[]; tempflags:=[];
-# # 	Print(flags,"\n");
-# 	while DuplicateFreeList(List(flags,Last))<>maxFaces do
-# 		for i in flags do
-# 			top:=Last(i);
-# 			parents:=PositionsProperty(nFaces, x->[top,x] in pairs);
-# 			parents:=Filtered(parents,x->x<>top);
-# # 			Print(parents,"\n");
-# 			for j in parents do
-# 				children:=PositionsProperty(nFaces,x->[x,j] in pairs);
-# # 				Print(children,"\n");
-# 				if Intersection(children,parents)=[j] then 
-# 					Append(newflags,[Concatenation(i,[j])]);
-# 				fi;
-# 			od;
-# # 			Print(newflags,"\n");
-# # 			Print("New layer\n");
-# 		od;
-# 		Append(tempflags,Filtered(newflags,x->(Last(x) in maxFaces)));
-# 		flags:=newflags;
-# 		newflags:=[];
-# 	od;
-# 	maxChains:=List(flags, x->ElementsList(poset){x});
-# 	return maxChains;
-# 	end);
+
 
 InstallMethod(MaximalChains,
 	[IsPoset and HasPartialOrder],
@@ -1037,8 +866,6 @@ InstallMethod(MaximalChains,
 	UR:=AsList(UnderlyingRelation(hasse));
 	nFaces:=[1..Size(ElementsList(poset))];
 	URplus:=Concatenation(UR,List(nFaces,x->DirectProductElement([x,x])));
-# 	pairs:=Cartesian(nFaces,nFaces);
-# 	pairs:=Filtered(pairs,x->DirectProductElement(x) in UR);
 	pairsPlus:=Cartesian(nFaces,nFaces);
 	pairsPlus:=Filtered(pairsPlus,x->DirectProductElement(x) in URplus);
 	children:=List(nFaces,x->PositionsProperty(nFaces,y->[y,x] in pairsPlus));
@@ -1051,23 +878,9 @@ InstallMethod(MaximalChains,
 		for i in flags do
 			newflags:=Concatenation(newflags, List(successors[Last(i)], x->Concatenation(i,[x])));
 			od;
-# 		Append(tempflags,Filtered(newflags,x->Last(x) in maxFaces));
 		flags:=newflags;
 		newflags:=[];
 		od;
-# 	while DuplicateFreeList(List(flags,Last))<>maxFaces do
-# 		for i in flags do
-# # 			Print(i,"\n");
-# 			top:=Last(i);
-# 			parents:=PositionsProperty(nFaces, x->[top,x] in pairs);
-# 			newflags:=Concatenation(newflags,List(parents,x->Concatenation(i,[x])));
-# 		od;
-# # 		Print(newflags,"\n");
-# 		Append(tempflags,Filtered(newflags,x->(Last(x) in maxFaces)));
-# 		flags:=newflags;
-# # 		Print(flags, " bigstep\n");
-# 		newflags:=[];
-# 	od;
 	maxChains:=List(flags, x->ElementsList(poset){x});
 	return maxChains;
 	end);
@@ -1076,7 +889,6 @@ InstallMethod(PosetElementFromListOfFlags,
  	[IsList,IsInt],
  	function(list,n)
 	local fam, face;
-# 	fam:=NewFamily("Face Using Flags Description", IsFace);
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
 	SetRankFace(face,n);
@@ -1092,7 +904,6 @@ InstallOtherMethod(PosetElementFromListOfFlags,
 	else
 		Print("I expected a list of the form [list of flags, IsInt].");return;
 	fi;
-# 	fam:=NewFamily("Face Using Flags Description", IsFace);
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
 	SetRankFace(face,rank);
@@ -1103,7 +914,6 @@ InstallOtherMethod(PosetElementFromListOfFlags,
  	[IsList,IsInt,IsPoset],
  	function(list,n,poset)
 	local fam, face;
-# 	fam:=NewFamily("Face Using Flags Description", IsFace);
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
 	SetRankFace(face,n);
@@ -1144,11 +954,6 @@ InstallMethod(ViewObj,
 	Display(face);
 	end);
 
-# InstallMethod(PrintString,
-# 	[IsFace],
-# 	function(face)
-# 	return DisplayString(face);
-# 	end);
 
 
 
@@ -1166,7 +971,6 @@ InstallMethod(PosetElementFromAtomList,
  	[IsList,IsInt],
  	function(list,n)
 	local fam, face;
-# 	fam:=NewFamily("Face as list of atoms", IsFace);
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetAtomList(face,list);
 	SetRankFace(face,n);
@@ -1185,7 +989,6 @@ InstallMethod(PosetElementFromIndex,
  	[IsObject,IsInt],
  	function(index,n)
 	local fam, face;
-# 	fam:=NewFamily("Face an indexed object", IsFace);
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetIndex(face,index);
 	SetRankFace(face,n);
@@ -1196,7 +999,6 @@ InstallOtherMethod(PosetElementFromIndex,
  	[IsObject,IsInt,IsPoset],
  	function(index,n,pos)
 	local fam, face;
-# 	fam:=NewFamily("Face as list of atoms", IsFace);
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetIndex(face,index);
 	SetRankFace(face,n);
