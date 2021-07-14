@@ -36,12 +36,52 @@ InstallMethod(PosetFromPartialOrder,
 	return(poset);
 	end);
 
+
+
 InstallOtherMethod(ElementsList,
 	[IsPosetOfFlags],
 	function(poset)
 	local list;
 	list:=RankedFaceListOfPoset(poset);
 	return List(list,PosetElementFromListOfFlags);
+	end);
+
+InstallOtherMethod(ElementsList,
+	[IsPoset and HasPartialOrder],
+	function(poset)
+	local elms, succ, n, checkList, ranks, i, j, li, x;
+# 	if IsP2(poset)=false then Print("Only works for P2 posets."); return fail; fi;
+	elms:=ShallowCopy(AsList(Source(PartialOrder(poset))));
+ 	succ:=ShallowCopy(Successors(HasseDiagramBinaryRelation(PartialOrder(poset))));
+ 	Apply(succ,AsList);
+ 	n:=Maximum(AsList(Source(PartialOrder(poset))));
+ 	if PositionsProperty(succ,x->x=[])<>[n] then return fail;fi;
+ 	if PositionsProperty(Successors(PartialOrder(poset)),x->x=[1..n])<>[1] then return fail;fi;
+ 	Remove(succ,1);
+ 	ranks:=[[n]];
+ 	checkList:=DuplicateFreeList(Flat(ranks));
+ 	i:=1;
+ 	while checkList<>[2..n] do
+#  		Print([i,ranks[i]],"\n");
+ 		li:=PositionsProperty(succ,x->Intersection(x,ranks[i])<>[])+1;
+#  		Print([i,li],"\n");
+ 		Add(ranks,li);
+#  		Print([i,ranks],"\n");
+ 		i:=i+1;
+ 		checkList:=DuplicateFreeList(Flat(ranks));
+ 		Sort(checkList);
+#  		Print(checkList,"\n");
+ 		Sleep(1);
+ 		od;
+ 	ranks:=Reversed(ranks);
+ 	Add(ranks,[1],1);
+ 	elms:=[];
+ 	for i in [1..Length(ranks)] do
+		for j in [1..Length(ranks[i])] do
+			Append(elms,[PosetElementFromIndex(ranks[i][j],i-2)]);
+		od;
+	od;
+	return elms;
 	end);
 
 InstallOtherMethod(Rank,
@@ -827,7 +867,7 @@ InstallMethod(FacesByRankOfPoset,
 InstallMethod(MaximalChains,
 	[IsPoset],
 	function(poset)
-	local faces, ranks, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags, tempflags, order;
+	local faces, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags, tempflags, order;
 	faces:=ShallowCopy(ElementsList(poset));
 	listofchildren:=List(faces,x->PositionsProperty(faces,y->IsSubface(x,y)));
 	flags:=List(PositionsProperty(listofchildren,x->Length(x)=1),x->[x]);
@@ -936,12 +976,12 @@ InstallMethod(DisplayString,
 		if HasRankPosetElement(elobj) then Append(string, Concatenation(" of Rank=", String(RankPosetElement(elobj))));fi;
 		if HasFlagList(elobj) then Append(string, Concatenation(" corr. to flags: ", String(FlagList(elobj))));fi;
 		if HasAtomList(elobj) then Append(string, Concatenation(" made up of atoms: ", String(AtomList(elobj))));fi;
-		if HasIndex(elobj) then Append(string,Concatenation(" with index=",String(elobj!.IndexAndRank))); fi;
+		if HasIndex(elobj) then Append(string,Concatenation(" with index=",String(Index(elobj)))); fi;
 	else
 		if HasRankPosetElement(face) then Append(string, Concatenation(" of Rank=", String(RankPosetElement(face))));fi;
 		if HasFlagList(face) then Append(string, Concatenation(" corr. to flags: ", String(FlagList(face))));fi;
 		if HasAtomList(face) then Append(string, Concatenation(" made up of atoms: ", String(AtomList(face))));fi;
-		if HasIndex(face) then Append(string,Concatenation(" with index=",String(face!.IndexAndRank))); fi;
+		if HasIndex(face) then Append(string,Concatenation(" with index=",String(Index(face)))); fi;
 	fi;
 	Append(string,".\n");
 	return string;
