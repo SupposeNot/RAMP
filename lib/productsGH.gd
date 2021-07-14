@@ -8,7 +8,7 @@
 #! @Arguments poset1, poset2
 #! @Returns poset
 #! @Description Given two posets, this forms the join product.
-#! If given two partial orders, returns the join product binary relation of the partial orders. Appending `true` in this case will force is to return a BinaryRelationOnPoints.
+#! If given two partial orders, returns the join product of the partial orders.
 DeclareOperation("JoinProduct", [IsPoset,IsPoset]);
 #! @BeginExampleSession
 #! gap> p:=PosetFromManiplex(Cube(2));
