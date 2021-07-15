@@ -5,6 +5,7 @@ DeclareRepresentation("IsReflexibleManiplexAutGpRep", IsComponentObjectRep and I
 DeclareRepresentation("IsRotaryManiplexRotGpRep", IsComponentObjectRep and IsAttributeStoringRep, ["rot_gp", "fvec"]);
 DeclareRepresentation("IsManiplexQuotientRep", IsComponentObjectRep and IsAttributeStoringRep, ["parent", "subgroup"]);
 DeclareRepresentation("IsManiplexInstructionsRep", IsComponentObjectRep and IsAttributeStoringRep, ["operation", "attr_computers"]);
+DeclareRepresentation("IsManiplexPosetRep", IsComponentObjectRep and IsAttributeStoringRep, ["poset", "fvec"]);
 
 DeclareGlobalFunction("AddAttrComputer", [IsManiplex and IsManiplexInstructionsRep, IsAttribute, IsFunction]);
 DeclareGlobalFunction("ComputeAttr", [IsManiplex and IsManiplexInstructionsRep, IsAttribute]);

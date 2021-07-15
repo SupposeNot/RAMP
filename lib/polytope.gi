@@ -279,6 +279,16 @@ InstallMethod(Maniplex,
 	function(oper, inputs)
 	return Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexInstructionsRep), rec( operation := oper, args := inputs, attr_computers := NewDictionary(Size, true) ));
 	end);
+
+InstallMethod(Maniplex,
+	[IsPoset],
+	function(P)
+	local M, n;
+	n := Rank(P);
+	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexPosetRep), rec( poset := P, fvec := List([1..n], i -> fail))); 
+	SetRankManiplex(M, n);
+	return M;
+	end);
 	
 InstallOtherMethod(Size,
 	[IsReflexibleManiplex],
