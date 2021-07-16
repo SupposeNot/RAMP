@@ -126,6 +126,20 @@ DeclareOperation("PairCompareFlagsList",[IsList,IsList]);
 DeclareOperation("PairCompareAtomsList",[IsList,IsList]);
 #! @EndGroup 
 
+#! @Arguments poset
+#! @Returns dual
+#! @Description Given a <A>poset</A>, will construct a poset isomorphic to the dual of <A>poset</A>.
+DeclareOperation("DualPoset",[IsPoset]);
+#! @BeginExampleSession
+#! gap> p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;
+#! gap> IsIsomorphicPoset(DualPoset(DualPoset(p)),p);
+#! true
+#! gap> IsIsomorphicPoset(DualPoset(p),c);
+#! true
+#! gap> IsIsomorphicPoset(DualPoset(p),p);
+#! false
+#! @EndExampleSession
+
 
 #! @Section Poset attributes
 

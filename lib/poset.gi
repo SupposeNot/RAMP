@@ -777,7 +777,8 @@ InstallMethod(ViewString,
 	if HasRankPoset(poset) then Append(string,Concatenation(" of rank ",String(Rank(poset))));fi;
 	if HasElementsList(poset) then Append(string, Concatenation(" on ", String(Size(ElementsList(poset))), " elements"));fi;
 	if IsPosetOfIndices(poset) then Append(string," using the IsPosetOfIndices representation");fi;
-# 	Append(string,".\n");
+	if IsPosetOfFlags(poset) then Append(string, " using the IsPosetOfFlags representation");fi;
+	Append(string,".\n");
 	return string;
 	end);
 
@@ -1163,6 +1164,27 @@ InstallMethod(PosetIsomorphism,
 	h2:=HasseDiagramOfPoset(poset2);
 	return GraphIsomorphism(h1,h2);
 	end);
+
+
+InstallMethod(DualPoset,
+	[IsPoset],
+	function(poset)
+	local order, points, suc, pairs, i, x, l, newOrder, pos;
+	order:=PartialOrder(poset);
+	pairs:=ShallowCopy(HasseDiagramBinaryRelation( order ));
+	pairs:=ShallowCopy(AsList(UnderlyingRelation(pairs)));
+	Apply(pairs, AsList);
+	suc:=[];
+	for i in [1..DegreeOfBinaryRelation(order)] do
+		pos:=PositionsProperty(pairs, x->x[2]=i);
+		l:=List(pairs{pos},x->x[1]);
+# 		Print(l,"\n");
+		Append(suc,[l]);
+	od;
+	newOrder:=ReflexiveClosureBinaryRelation( TransitiveClosureBinaryRelation( BinaryRelationOnPoints(suc)));
+	return PosetFromPartialOrder(newOrder);
+	end);
+
 
 #Here's a sample of things you can do...
 #p:=PyramidOver(HemiCube(3));
