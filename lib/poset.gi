@@ -78,7 +78,7 @@ InstallOtherMethod(ElementsList,
  	elms:=[];
  	for i in [1..Length(ranks)] do
 		for j in [1..Length(ranks[i])] do
-			Append(elms,[PosetElementFromIndex(ranks[i][j],i-2)]);
+			Append(elms,[PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset))]);
 		od;
 	od;
 	return elms;
@@ -778,7 +778,7 @@ InstallMethod(ViewString,
 	if HasElementsList(poset) then Append(string, Concatenation(" on ", String(Size(ElementsList(poset))), " elements"));fi;
 	if IsPosetOfIndices(poset) then Append(string," using the IsPosetOfIndices representation");fi;
 	if IsPosetOfFlags(poset) then Append(string, " using the IsPosetOfFlags representation");fi;
-	Append(string,".\n");
+	Append(string,".");
 	return string;
 	end);
 
@@ -989,13 +989,19 @@ InstallMethod(DisplayString,
 	end);
 
 
-InstallMethod(ViewObj,
+# InstallMethod(ViewObj,
+# 	[IsFace],
+# 	function(face)
+# 	Display(face);
+# 	end);
+
+InstallMethod(ViewString,
 	[IsFace],
 	function(face)
-	Display(face);
+	local string, type;
+	string:="An element of a poset.";
+	return string;
 	end);
-
-
 
 
 InstallMethod(IsSubface,
@@ -1067,8 +1073,9 @@ InstallOtherMethod(IsSubface,
 	function(face1, face2)
 	local order;
 	if ElementOrderingFunction(face1)<>ElementOrderingFunction(face2) then Print("Faces have different ordering functions."); return; fi;
+	if HasElementObject(face1)=false or HasElementObject(face2)=false then Print("Elements don't both seem to have ElementObjects.");fi;
 	order:=ElementOrderingFunction(face1);
-	return order(ElementObject(face1), ElementObject(face2));
+	return [ElementObject(face1), ElementObject(face2)] in order;
 	end);	
 
 InstallMethod(PairCompareFlagsList,
@@ -1116,6 +1123,16 @@ InstallMethod(PosetElementWithOrder,
 	SetElementOrderingFunction(face,func);
 	return face;
 	end);
+
+InstallMethod(PosetElementWithPartialOrder,
+	[IsObject, IsBinaryRelation],
+	function(obj, func)
+	local face;
+	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset),rec());
+	SetElementObject(face,obj);
+	SetElementOrderingFunction(face,func);
+	return face;
+	end);	
 
 InstallOtherMethod(PosetFromElements,
 	[IsList,IsFunction],

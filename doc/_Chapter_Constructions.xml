@@ -148,7 +148,14 @@
   <Oper Arg="M" Name="PyramidOver" Label="for IsManiplex"/>
  <Description>
  Returns the pyramid over <A>M</A>.
- Currently only works for finite maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k" Name="Pyramid" Label="for IsInt"/>
+ <Description>
+ Returns the pyramid over a <A>k</A>-gon.
  </Description>
 </ManSection>
 
@@ -157,7 +164,14 @@
   <Oper Arg="M" Name="PrismOver" Label="for IsManiplex"/>
  <Description>
  Returns the prism over <A>M</A>.
- Currently only works for finite maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k" Name="Prism" Label="for IsInt"/>
+ <Description>
+ Returns the prism over a <A>k</A>-gon.
  </Description>
 </ManSection>
 

@@ -178,6 +178,23 @@
   is  a  list  of  flags  in  the face and [10Xint[110X is the rank of the face. Allows
   comparison of HasAtomList elements.[133X
   
+  [1X10.1-7 DualPoset[101X
+  
+  [33X[1;0Y[29X[2XDualPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ydual[133X
+  
+  [33X[0;0YGiven a [3Xposet[103X, will construct a poset isomorphic to the dual of [3Xposet[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;[127X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(DualPoset(DualPoset(p)),p);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(DualPoset(p),c);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(DualPoset(p),p);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
   
   [1X10.2 [33X[0;0YPoset attributes[133X[101X
   
@@ -541,6 +558,13 @@
   
   [33X[0;0YCreates a [10Xface[110X with index [3Xobj[103X at rank [3Xn[103X. If an IsPoset object is appended to
   will tell the element what poset it belongs to.[133X
+  
+  [1X10.5-5 PosetElementWithPartialOrder[101X
+  
+  [33X[1;0Y[29X[2XPosetElementWithPartialOrder[102X( [3Xobj[103X, [3Xorder[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
+  
+  [33X[0;0YCreates a [10Xface[110X with index [3Xobj[103X and BinaryRelation [3Xorder[103X on [3Xobj[103X.[133X
   
   
   [1X10.6 [33X[0;0YElement operations[133X[101X

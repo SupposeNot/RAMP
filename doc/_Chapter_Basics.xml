@@ -74,6 +74,32 @@ Returns the regular polytope with the given symbolic name.
 
 
 <ManSection>
+  <Oper Arg="M, G" Name="Maniplex" Label="for IsReflexibleManiplex, IsGroup"/>
+ <Description>
+ Given a reflexible maniplex <A>M</A> and a subgroup <A>G</A> of the flag-stabilizer
+ of the base flag of <A>M</A>, returns the maniplex <A>M/G</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="F, inputs" Name="Maniplex" Label="for IsFunction, IsList"/>
+ <Description>
+ Constructs a formal polytope, represented by an operation <A>F</A> and
+ a list of arguments <A>inputs</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="P" Name="Maniplex" Label="for IsPoset"/>
+ <Description>
+ Returns a maniplex with poset <A>P</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>

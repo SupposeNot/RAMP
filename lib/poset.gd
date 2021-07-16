@@ -431,6 +431,10 @@ DeclareOperation("PosetElementFromAtomList",[IsList,IsInt]);
 #! @Description Creates a `face` with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
 DeclareOperation("PosetElementFromIndex",[IsObject,IsInt]);
 
+#! @Arguments obj, order
+#! @Returns `IsFace`
+#! @Description Creates a `face` with index <A>obj</A> and BinaryRelation <A>order</A> on <A>obj</A>. 
+DeclareOperation("PosetElementWithPartialOrder",[IsObject, IsBinaryRelation]);
 
 #! @Section Element operations
 

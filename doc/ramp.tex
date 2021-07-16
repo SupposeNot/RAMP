@@ -837,19 +837,43 @@ Whether this polytope is isomorphic to its Petrial.
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns the pyramid over \mbox{\texttt{\mdseries\slshape M}}. Currently only works for finite maniplexes. }
+ Returns the pyramid over \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Pyramid (for IsInt)}}
+\logpage{[ 2, 3, 2 ]}\nobreak
+\hyperdef{L}{X80EEFF7F7FE1B752}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape k})\index{Pyramid@\texttt{Pyramid}!for IsInt}
+\label{Pyramid:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the pyramid over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
 
  
 
 \subsection{\textcolor{Chapter }{PrismOver (for IsManiplex)}}
-\logpage{[ 2, 3, 2 ]}\nobreak
+\logpage{[ 2, 3, 3 ]}\nobreak
 \hyperdef{L}{X7C7D6F558335CFD0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PrismOver({\mdseries\slshape M})\index{PrismOver@\texttt{PrismOver}!for IsManiplex}
 \label{PrismOver:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns the prism over \mbox{\texttt{\mdseries\slshape M}}. Currently only works for finite maniplexes. }
+ Returns the prism over \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Prism (for IsInt)}}
+\logpage{[ 2, 3, 4 ]}\nobreak
+\hyperdef{L}{X86E5C03286E992CA}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape k})\index{Prism@\texttt{Prism}!for IsInt}
+\label{Prism:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the prism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
 
  }
 
@@ -1326,18 +1350,6 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
  }
-
- 
-
-\subsection{\textcolor{Chapter }{Description (for IsManiplex)}}
-\logpage{[ 4, 4, 11 ]}\nobreak
-\hyperdef{L}{X7A093ABC7851D5A8}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Description({\mdseries\slshape M})\index{Description@\texttt{Description}!for IsManiplex}
-\label{Description:for IsManiplex}
-}\hfill{\scriptsize (attribute)}}\\
-
-
- Returns a short name for the maniplex \mbox{\texttt{\mdseries\slshape M}}, if one is available. For example, Description(Simplex(3)) = "3-simplex". }
 
  }
 
@@ -2060,8 +2072,44 @@ that the Schlafli symbol is correct. }
 
  
 
-\subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Maniplex (for IsReflexibleManiplex, IsGroup)}}
 \logpage{[ 8, 1, 6 ]}\nobreak
+\hyperdef{L}{X80B9127679FEBEAE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape M, G})\index{Maniplex@\texttt{Maniplex}!for IsReflexibleManiplex, IsGroup}
+\label{Maniplex:for IsReflexibleManiplex, IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given a reflexible maniplex \mbox{\texttt{\mdseries\slshape M}} and a subgroup \mbox{\texttt{\mdseries\slshape G}} of the flag-stabilizer of the base flag of \mbox{\texttt{\mdseries\slshape M}}, returns the maniplex \mbox{\texttt{\mdseries\slshape M/G}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Maniplex (for IsFunction, IsList)}}
+\logpage{[ 8, 1, 7 ]}\nobreak
+\hyperdef{L}{X81DA2F5185E38D67}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape F, inputs})\index{Maniplex@\texttt{Maniplex}!for IsFunction, IsList}
+\label{Maniplex:for IsFunction, IsList}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Constructs a formal polytope, represented by an operation \mbox{\texttt{\mdseries\slshape F}} and a list of arguments \mbox{\texttt{\mdseries\slshape inputs}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Maniplex (for IsPoset)}}
+\logpage{[ 8, 1, 8 ]}\nobreak
+\hyperdef{L}{X864C043380FB58D4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsPoset}
+\label{Maniplex:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns a maniplex with poset \mbox{\texttt{\mdseries\slshape P}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
+\logpage{[ 8, 1, 9 ]}\nobreak
 \hyperdef{L}{X79DD94037E0FACD4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
 \label{IsPolytopal:for IsManiplex}
@@ -2338,6 +2386,31 @@ Another interesting example:
 construction. Function assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form [\texttt{listOfFlags},\texttt{i}] where \texttt{listOfFlags} is a list of flags in the face and \texttt{i} is the rank of the face. Allows comparison of HasFlagList elements. Function
 assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slshape list2}} are of the form \texttt{[listOfAtoms,int]} where \texttt{listOfAtoms} is a list of flags in the face and \texttt{int} is the rank of the face. Allows comparison of HasAtomList elements. }
 
+ 
+
+\subsection{\textcolor{Chapter }{DualPoset (for IsPoset)}}
+\logpage{[ 10, 1, 7 ]}\nobreak
+\hyperdef{L}{X878F761878BCB6B9}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DualPoset({\mdseries\slshape poset})\index{DualPoset@\texttt{DualPoset}!for IsPoset}
+\label{DualPoset:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+dual 
+
+
+
+ Given a \mbox{\texttt{\mdseries\slshape poset}}, will construct a poset isomorphic to the dual of \mbox{\texttt{\mdseries\slshape poset}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;|
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(DualPoset(DualPoset(p)),p);|
+  true
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(DualPoset(p),c);|
+  true
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(DualPoset(p),p);|
+  false
+\end{Verbatim}
  }
 
  
@@ -2968,6 +3041,21 @@ poset it belongs to. }
  Creates a \texttt{face} with index \mbox{\texttt{\mdseries\slshape obj}} at rank \mbox{\texttt{\mdseries\slshape n}}. If an IsPoset object is appended to will tell the element what poset it
 belongs to. }
 
+ 
+
+\subsection{\textcolor{Chapter }{PosetElementWithPartialOrder (for IsObject, IsBinaryRelation)}}
+\logpage{[ 10, 5, 5 ]}\nobreak
+\hyperdef{L}{X8141EB127AA1FFE1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementWithPartialOrder({\mdseries\slshape obj, order})\index{PosetElementWithPartialOrder@\texttt{PosetElementWithPartialOrder}!for IsObject, IsBinaryRelation}
+\label{PosetElementWithPartialOrder:for IsObject, IsBinaryRelation}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFace} 
+
+
+
+ Creates a \texttt{face} with index \mbox{\texttt{\mdseries\slshape obj}} and BinaryRelation \mbox{\texttt{\mdseries\slshape order}} on \mbox{\texttt{\mdseries\slshape obj}}. }
+
  }
 
  
@@ -3322,7 +3410,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

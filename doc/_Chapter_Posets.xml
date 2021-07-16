@@ -163,6 +163,27 @@ Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtom
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="poset" Name="DualPoset" Label="for IsPoset"/>
+ <Returns>dual
+</Returns>
+ <Description>
+Given a <A>poset</A>, will construct a poset isomorphic to the dual of <A>poset</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;
+gap> IsIsomorphicPoset(DualPoset(DualPoset(p)),p);
+true
+gap> IsIsomorphicPoset(DualPoset(p),c);
+true
+gap> IsIsomorphicPoset(DualPoset(p),p);
+false
+]]></Example>
+
+
 </Section>
 
 
@@ -605,6 +626,16 @@ Creates a <Code>face</Code> with <A>list</A> of atoms at rank <A>n</A>. If an Is
 </Returns>
  <Description>
 Creates a <Code>face</Code> with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="obj, order" Name="PosetElementWithPartialOrder" Label="for IsObject, IsBinaryRelation"/>
+ <Returns><Code>IsFace</Code>
+</Returns>
+ <Description>
+Creates a <Code>face</Code> with index <A>obj</A> and BinaryRelation <A>order</A> on <A>obj</A>.
  </Description>
 </ManSection>
 

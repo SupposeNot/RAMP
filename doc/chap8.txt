@@ -58,7 +58,27 @@
   [33X[0;0YReturns  a  maniplex  with  connection  group  [3XG[103X, where [3XG[103X is assumed to be a
   permutation group on the flags.[133X
   
-  [1X8.1-6 IsPolytopal[101X
+  [1X8.1-6 Maniplex[101X
+  
+  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XG[103X ) [32X operation[133X
+  
+  [33X[0;0YGiven a reflexible maniplex [3XM[103X and a subgroup [3XG[103X of the flag-stabilizer of the
+  base flag of [3XM[103X, returns the maniplex [3XM/G[103X.[133X
+  
+  [1X8.1-7 Maniplex[101X
+  
+  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
+  
+  [33X[0;0YConstructs  a  formal  polytope, represented by an operation [3XF[103X and a list of
+  arguments [3Xinputs[103X.[133X
+  
+  [1X8.1-8 Maniplex[101X
+  
+  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns a maniplex with poset [3XP[103X.[133X
+  
+  [1X8.1-9 IsPolytopal[101X
   
   [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X

@@ -75,7 +75,9 @@
 \makelabel{ramp:Petrial for ismaniplex}{2.2.3}{X7E6D0732862D6BA3}
 \makelabel{ramp:IsSelfPetrial for ismaniplex}{2.2.4}{X78FDB0047E3388A5}
 \makelabel{ramp:PyramidOver for ismaniplex}{2.3.1}{X80A4156A8423CAF8}
-\makelabel{ramp:PrismOver for ismaniplex}{2.3.2}{X7C7D6F558335CFD0}
+\makelabel{ramp:Pyramid for isint}{2.3.2}{X80EEFF7F7FE1B752}
+\makelabel{ramp:PrismOver for ismaniplex}{2.3.3}{X7C7D6F558335CFD0}
+\makelabel{ramp:Prism for isint}{2.3.4}{X86E5C03286E992CA}
 \makelabel{ramp:DegeneratePolyhedra for isint}{3.1.1}{X856D5CE8798775FE}
 \makelabel{ramp:FlatRegularPolyhedra for isint}{3.1.2}{X82DC20587F569351}
 \makelabel{ramp:SmallRegularPolyhedra for isint}{3.1.3}{X7BF512FB7EA9F274}
@@ -108,7 +110,6 @@
 \makelabel{ramp:IsReflexible for ismaniplex}{4.4.8}{X7E4E689F86171C78}
 \makelabel{ramp:IsChiral for ismaniplex}{4.4.9}{X7D74CD997C7FF39D}
 \makelabel{ramp:IsRotary for ismaniplex}{4.4.10}{X7DACFE5483893523}
-\makelabel{ramp:Description for ismaniplex}{4.4.11}{X7A093ABC7851D5A8}
 \makelabel{ramp:ZigzagLength for ismaniplex, isint}{4.5.1}{X7D0AAD597CDE5697}
 \makelabel{ramp:ZigzagVector for ismaniplex}{4.5.2}{X7FC09F34870E6CDE}
 \makelabel{ramp:PetrieLength for ismaniplex}{4.5.3}{X7C4A38D780F6AECD}
@@ -154,7 +155,10 @@
 \makelabel{ramp:ReflexibleManiplex for islist, islist}{8.1.3}{X7A50E3AA7F5A9E55}
 \makelabel{ramp:ReflexibleManiplex for isstring}{8.1.4}{X8209E4587808FE97}
 \makelabel{ramp:Maniplex for isgroup}{8.1.5}{X84CE00BB87E71848}
-\makelabel{ramp:IsPolytopal for ismaniplex}{8.1.6}{X79DD94037E0FACD4}
+\makelabel{ramp:Maniplex for isreflexiblemaniplex, isgroup}{8.1.6}{X80B9127679FEBEAE}
+\makelabel{ramp:Maniplex for isfunction, islist}{8.1.7}{X81DA2F5185E38D67}
+\makelabel{ramp:Maniplex for isposet}{8.1.8}{X864C043380FB58D4}
+\makelabel{ramp:IsPolytopal for ismaniplex}{8.1.9}{X79DD94037E0FACD4}
 \makelabel{ramp:IsVertexFaithful for isreflexiblemaniplex}{9.1.1}{X785DE0A9842AAEA1}
 \makelabel{ramp:IsFacetFaithful for isreflexiblemaniplex}{9.1.2}{X78CDF48E7CDED1AB}
 \makelabel{ramp:MaxVertexFaithfulQuotient for isreflexiblemaniplex}{9.1.3}{X856543F87E52DDC6}
@@ -165,6 +169,7 @@
 \makelabel{ramp:PosetFromElements for islist}{10.1.5}{X79F9C24086F95EC9}
 \makelabel{ramp:PairCompareFlagsList for islist,islist}{10.1.6}{X82DB1F987C68B392}
 \makelabel{ramp:PairCompareAtomsList for islist,islist}{10.1.6}{X82DB1F987C68B392}
+\makelabel{ramp:DualPoset for isposet}{10.1.7}{X878F761878BCB6B9}
 \makelabel{ramp:MaximalChains for isposet}{10.2.1}{X81E0832F7B92DB7A}
 \makelabel{ramp:RankPoset for isposet}{10.2.2}{X7C9B4AA77C73A761}
 \makelabel{ramp:ElementsList for isposet}{10.2.3}{X8448C7067B0EF49D}
@@ -201,6 +206,7 @@
 \makelabel{ramp:PosetElementFromListOfFlags for islist,isint}{10.5.2}{X7C74F3CE7933DA03}
 \makelabel{ramp:PosetElementFromAtomList for islist,isint}{10.5.3}{X85E6D20180DA4C3E}
 \makelabel{ramp:PosetElementFromIndex for isobject,isint}{10.5.4}{X7E36DF06841444FE}
+\makelabel{ramp:PosetElementWithPartialOrder for isobject, isbinaryrelation}{10.5.5}{X8141EB127AA1FFE1}
 \makelabel{ramp:RankedFaceListOfPoset for isposet}{10.6.1}{X7A80223E83EF52E8}
 \makelabel{ramp:IsSubface for isface,isface}{10.6.2}{X79BFF531809785A3}
 \makelabel{ramp:AreIncidentElements for isobject,isobject}{10.6.3}{X84B2B67A805CD31D}

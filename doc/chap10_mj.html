@@ -35,6 +35,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X79F9C24086F95EC9">10.1-5 PosetFromElements</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X82DB1F987C68B392">10.1-6 <span class="Heading">Helper functions for special partial orders</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X878F761878BCB6B9">10.1-7 DualPoset</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10_mj.html#X859F4CD47E3311AD">10.2 <span class="Heading">Poset attributes</span></a>
 </span>
@@ -87,6 +88,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X7C74F3CE7933DA03">10.5-2 PosetElementFromListOfFlags</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X85E6D20180DA4C3E">10.5-3 PosetElementFromAtomList</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X7E36DF06841444FE">10.5-4 PosetElementFromIndex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X8141EB127AA1FFE1">10.5-5 PosetElementWithPartialOrder</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10_mj.html#X874169E2825654E9">10.6 <span class="Heading">Element operations</span></a>
 </span>
@@ -253,6 +255,26 @@ A poset using the IsPosetOfIndices representation
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p>The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction. Function assumes <var class="Arg">list1</var> and <var class="Arg">list2</var> are of the form [<code class="code">listOfFlags</code>,<code class="code">i</code>] where <code class="code">listOfFlags</code> is a list of flags in the face and <code class="code">i</code> is the rank of the face. Allows comparison of HasFlagList elements. Function assumes <var class="Arg">list1</var> and <var class="Arg">list2</var> are of the form <code class="code">[listOfAtoms,int]</code> where <code class="code">listOfAtoms</code> is a list of flags in the face and <code class="code">int</code> is the rank of the face. Allows comparison of HasAtomList elements.</p>
+
+<p><a id="X878F761878BCB6B9" name="X878F761878BCB6B9"></a></p>
+
+<h5>10.1-7 DualPoset</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DualPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: dual</p>
+
+<p>Given a <var class="Arg">poset</var>, will construct a poset isomorphic to the dual of <var class="Arg">poset</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(DualPoset(DualPoset(p)),p);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(DualPoset(p),c);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(DualPoset(p),p);</span>
+false
+</pre></div>
 
 <p><a id="X859F4CD47E3311AD" name="X859F4CD47E3311AD"></a></p>
 
@@ -653,6 +675,15 @@ true
 <p>Returns: <code class="code">IsFace</code></p>
 
 <p>Creates a <code class="code">face</code> with index <var class="Arg">obj</var> at rank <var class="Arg">n</var>. If an IsPoset object is appended to will tell the element what poset it belongs to.</p>
+
+<p><a id="X8141EB127AA1FFE1" name="X8141EB127AA1FFE1"></a></p>
+
+<h5>10.5-5 PosetElementWithPartialOrder</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementWithPartialOrder</code>( <var class="Arg">obj</var>, <var class="Arg">order</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsFace</code></p>
+
+<p>Creates a <code class="code">face</code> with index <var class="Arg">obj</var> and BinaryRelation <var class="Arg">order</var> on <var class="Arg">obj</var>.</p>
 
 <p><a id="X874169E2825654E9" name="X874169E2825654E9"></a></p>
 
