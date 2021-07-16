@@ -170,6 +170,11 @@ InstallMethod(ConnectionGroup,
 	function(M)
 	return ComputeAttr(M, ConnectionGroup);
 	end);
+InstallMethod(ConnectionGroup,
+	[IsManiplex and IsManiplexPosetRep],
+	function(M)
+	return ConnectionGroup(M!.poset);
+	end);
 
 InstallMethod(EvenConnectionGroup,
 	[IsManiplex],

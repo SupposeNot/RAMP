@@ -70,6 +70,49 @@ InstallMethod(Dual,
 	end);
 
 InstallMethod(Dual,
+	[IsManiplex and IsManiplexInstructionsRep],
+	function(M)
+	local Md, attr, f, g;
+	
+	Md := Maniplex(Dual, [M]);
+	Md!.base := M;
+	SetRankManiplex(Md, Rank(M));
+	
+	# This really unusual construction is to avoid some variable scope
+	# issues I was running into...
+	f := attr -> (M -> attr(M!.base));
+	for attr in [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate] do
+		if Tester(attr)(M) then
+			Setter(attr)(Md, attr(M));
+		else
+			AddAttrComputer(Md, attr, f(attr));
+		fi;
+	od;
+
+	g := attr -> (M -> Reversed(attr(M!.base)));
+	for attr in [Fvector, SchlafliSymbol] do
+		if Tester(attr)(M) then
+			Setter(attr)(Md, Reversed(attr(M)));
+		else
+			AddAttrComputer(Md, attr, g(attr));
+		fi;
+	od;
+	
+	if HasConnectionGroup(M) then
+		SetConnectionGroup(Md, Group(Reversed(GeneratorsOfGroup(ConnectionGroup(M)))));
+	else
+		AddAttrComputer(Md, ConnectionGroup, M -> Group(Reversed(GeneratorsOfGroup(ConnectionGroup(M!.base)))));
+	fi;
+	
+	SetString(Md, Concatenation("Dual(", String(M), ")"));
+
+	SetDual(Md, M);
+
+	return Md;
+	end);
+	
+	
+InstallMethod(Dual,
 	[IsManiplex],
 	function(M)
 	local g, gens, Md, attrs, attr;
@@ -77,9 +120,12 @@ InstallMethod(Dual,
 	gens := GeneratorsOfGroup(g);
 	Md := Maniplex(Group(Reversed(gens)));
 
-	attrs := [Size, IsPolytopal, NumberOfFlagOrbits, IsTight, IsDegenerate];
-	for attr in attrs do
+	for attr in [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate] do
 		if Tester(attr)(M) then Setter(attr)(Md, attr(M)); fi;
+	od;
+
+	for attr in [SchlafliSymbol, Fvector] do
+		if Tester(attr)(M) then Setter(attr)(Md, Reversed(attr(M))); fi;
 	od;
 	
 	SetDual(Md, M);

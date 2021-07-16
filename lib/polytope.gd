@@ -56,9 +56,19 @@ DeclareOperation("ReflexibleManiplex", [IsString]);
 #! is assumed to be a permutation group on the flags.
 DeclareOperation("Maniplex", [IsGroup]);
 
+#! @Arguments M, G
+#! Given a reflexible maniplex <A>M</A> and a subgroup <A>G</A> of the flag-stabilizer
+#! of the base flag of <A>M</A>, returns the maniplex <A>M/G</A>.
 DeclareOperation("Maniplex", [IsReflexibleManiplex, IsGroup]);
 
+#! @Arguments F, inputs
+#! Constructs a formal polytope, represented by an operation <A>F</A> and
+#! a list of arguments <A>inputs</A>.
 DeclareOperation("Maniplex", [IsFunction, IsList]);
+
+#! @Arguments P
+#! Returns a maniplex with poset <A>P</A>.
+DeclareOperation("Maniplex", [IsPoset]);
 
 #! @Arguments M
 #! Returns whether the maniplex <A>M</A> is a polytope.
