@@ -46,24 +46,27 @@ InstallOtherMethod(ElementsList,
 	return List(list,PosetElementFromListOfFlags);
 	end);
 
+
 InstallOtherMethod(ElementsList,
 	[IsPoset and HasPartialOrder],
 	function(poset)
-	local elms, succ, n, checkList, ranks, i, j, li, x;
+	local elms, succ, n, checkList, ranks, i, j, li, x, po, posmin, posmax, min, pelm, perm;
 # 	if IsP2(poset)=false then Print("Only works for P2 posets."); return fail; fi;
-	elms:=ShallowCopy(AsList(Source(PartialOrder(poset))));
- 	succ:=ShallowCopy(Successors(HasseDiagramBinaryRelation(PartialOrder(poset))));
+	po:=PartialOrder(poset);
+	elms:=AsList(ShallowCopy(Source(po)));
+ 	succ:=ShallowCopy(Successors(HasseDiagramBinaryRelation(po)));
  	Apply(succ,AsList);
- 	n:=Maximum(AsList(Source(PartialOrder(poset))));
- 	if PositionsProperty(succ,x->x=[])<>[n] then return fail;fi;
- 	if PositionsProperty(Successors(PartialOrder(poset)),x->x=[1..n])<>[1] then return fail;fi;
- 	Remove(succ,1);
- 	ranks:=[[n]];
+ 	n:=Maximum(elms);
+#  	if PositionsProperty(succ,x->x=[])<>[n] then return fail;fi;
+#  	if PositionsProperty(Successors(PartialOrder(poset)),x->x=[1..n])<>[1] then return fail;fi;
+ 	posmax:=PositionProperty(succ,x->x=[]);
+#  	posmin:=PositionsProperty(succ,x->x=[n]);
+ 	ranks:=[[posmax]];
  	checkList:=DuplicateFreeList(Flat(ranks));
  	i:=1;
- 	while checkList<>[2..n] do
+ 	while Length(checkList)<n-1 do
 #  		Print([i,ranks[i]],"\n");
- 		li:=PositionsProperty(succ,x->Intersection(x,ranks[i])<>[])+1;
+ 		li:=PositionsProperty(succ,x->Intersection(x,ranks[i])<>[]);
 #  		Print([i,li],"\n");
  		Add(ranks,li);
 #  		Print([i,ranks],"\n");
@@ -73,16 +76,71 @@ InstallOtherMethod(ElementsList,
 #  		Print(checkList,"\n");
  		Sleep(1);
  		od;
+ 	posmin:=Difference([1..n],checkList)[1];
+ 	Add(ranks,[posmin]);
  	ranks:=Reversed(ranks);
- 	Add(ranks,[1],1);
+#  	Print(ranks,"\n");
+#  	Print("min",posmin,"\n");
+#  	Print("ranks", ranks,"\n");
+#  	if min<posmax then 
+#  		Add(ranks,[1..n],posmin); 
+# 	 	Add(ranks,[],posmax)
+#  	Print("ranks", ranks,"\n"); 	
  	elms:=[];
  	for i in [1..Length(ranks)] do
 		for j in [1..Length(ranks[i])] do
-			Append(elms,[PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset))]);
+			pelm:=PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset));
+# 			Print(ranks[i][j],",",i,",",j,"\n");
+			SetIndex(pelm,ranks[i][j]);
+			Append(elms,[pelm]);
 		od;
 	od;
+	perm:=PermListList([1..n],List(elms,Index));
+	elms:=Permuted(elms,perm);
+# 	elms:=List([1..n],x->elms[PositionProperty(elms,y->Index(y)=x)]);
 	return elms;
 	end);
+
+# InstallOtherMethod(ElementsList,
+# 	[IsPoset and HasPartialOrder],
+# 	function(poset)
+# 	local elms, succ, n, checkList, ranks, i, j, li, x, pelm;
+# # 	if IsP2(poset)=false then Print("Only works for P2 posets."); return fail; fi;
+# 	elms:=ShallowCopy(AsList(Source(PartialOrder(poset))));
+#  	succ:=ShallowCopy(Successors(HasseDiagramBinaryRelation(PartialOrder(poset))));
+#  	Apply(succ,AsList);
+#  	n:=Maximum(AsList(Source(PartialOrder(poset))));
+#  	if PositionsProperty(succ,x->x=[])<>[n] then return fail;fi;
+#  	if PositionsProperty(Successors(PartialOrder(poset)),x->x=[1..n])<>[1] then return fail;fi;
+#  	Remove(succ,1);
+#  	ranks:=[[n]];
+#  	checkList:=DuplicateFreeList(Flat(ranks));
+#  	i:=1;
+#  	while checkList<>[2..n] do
+# #  		Print([i,ranks[i]],"\n");
+#  		li:=PositionsProperty(succ,x->Intersection(x,ranks[i])<>[])+1;
+# #  		Print([i,li],"\n");
+#  		Add(ranks,li);
+# #  		Print([i,ranks],"\n");
+#  		i:=i+1;
+#  		checkList:=DuplicateFreeList(Flat(ranks));
+#  		Sort(checkList);
+# #  		Print(checkList,"\n");
+# #  		Sleep(1);
+#  		od;
+#  	ranks:=Reversed(ranks);
+#  	Add(ranks,[1],1);
+#  	elms:=[];
+#  	for i in [1..Length(ranks)] do
+# 		for j in [1..Length(ranks[i])] do
+# 			pelm:=PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset));
+# 			SetIndex(pelm,ranks[i][j]);
+# 			Append(elms,[pelm]);
+# # 			Append(elms,[PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset))]);
+# 		od;
+# 	od;
+# 	return elms;
+# 	end);
 
 InstallOtherMethod(Rank,
 	[IsPoset and IsPosetOfFlags],
@@ -150,7 +208,7 @@ InstallOtherMethod(IsP1,
 	[IsPoset and IsPosetOfIndices],
 	function(poset)
 	local faceList,atomicFaceList, partialOrder,successors, sourceList;
-	if HasIsP1(poset) then return IsP1(poset); fi;
+# 	if HasIsP1(poset) then return IsP1(poset); fi;
 	faceList:=ElementsList(poset);
 	#for handling the case when all the elements have an atomic description
 	if DuplicateFreeList(List(faceList,x->HasAtomList(x)))=[true] then
@@ -1075,8 +1133,19 @@ InstallOtherMethod(IsSubface,
 	if ElementOrderingFunction(face1)<>ElementOrderingFunction(face2) then Print("Faces have different ordering functions."); return; fi;
 	if HasElementObject(face1)=false or HasElementObject(face2)=false then Print("Elements don't both seem to have ElementObjects.");fi;
 	order:=ElementOrderingFunction(face1);
-	return [ElementObject(face1), ElementObject(face2)] in order;
+	return order(ElementObject(face1), ElementObject(face2));
+# 	return [ElementObject(face1), ElementObject(face2)] in order;
 	end);	
+
+InstallOtherMethod(IsSubface,
+	[IsFace and HasElementBR, IsFace and HasElementBR],
+	function(face1,face2)
+	local order;
+	if ElementBR(face1)<>ElementBR(face2) then Print("Faces don't have the same binary relation on them.");return;fi;
+	if HasIndex(face1)=false or HasIndex(face2)=false then Print("Elements don't seem to both have indices.");return;fi;
+	order:=ElementBR(face1);
+	return [Index(face2),Index(face1)] in order;
+	end);
 
 InstallMethod(PairCompareFlagsList,
 	[IsList,IsList],
@@ -1130,7 +1199,8 @@ InstallMethod(PosetElementWithPartialOrder,
 	local face;
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset),rec());
 	SetElementObject(face,obj);
-	SetElementOrderingFunction(face,func);
+	SetElementBR(face,func);
+# 	SetElementOrderingFunction(face,func);
 	return face;
 	end);	
 
@@ -1199,7 +1269,7 @@ InstallMethod(DualPoset,
 		Append(suc,[l]);
 	od;
 	newOrder:=ReflexiveClosureBinaryRelation( TransitiveClosureBinaryRelation( BinaryRelationOnPoints(suc)));
-	return PosetFromPartialOrder(newOrder);
+	return PosetFromPartialOrder(AsBinaryRelationOnPoints(newOrder));
 	end);
 
 

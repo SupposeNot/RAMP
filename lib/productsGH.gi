@@ -76,14 +76,18 @@ InstallMethod(CartesianProduct,
 InstallOtherMethod(CartesianProduct,
 	[IsPoset,IsPoset],
 	function(poset1,poset2)
-	local elements, pairs, order1, order2, order, suc1, suc2, n1, n2, list, temp, po, n, i, j;
+	local elements, pairs, order1, order2, order, suc1, suc2, n1, n2, list, temp, po, n, i, j, posMin1, posMin2;
 	if IsP1(poset1)=false or IsP1(poset2)=false then return fail; fi;
 	order1:=PartialOrder(poset1);
 	order2:=PartialOrder(poset2);
+	posMin1:=PositionProperty(Successors(order1),x->x=AsList(Source(order1)));
+	posMin2:=PositionProperty(Successors(order2),x->x=AsList(Source(order2)));
 	suc1:= ShallowCopy( Successors( ReflexiveClosureBinaryRelation( HasseDiagramBinaryRelation( order1 ) ) ) );
-	Remove(suc1,1);
+# 	Print(suc1,"\n");
+	Remove(suc1,posMin1);
+# 	Print(suc1,"\n");
 	suc2:= ShallowCopy( Successors( ReflexiveClosureBinaryRelation( HasseDiagramBinaryRelation( order2) ) ) );
-	Remove(suc2, 1);
+	Remove(suc2, posMin2);
 # 	Print("Found successors.\n");
 	n1:=Length(suc1);n2:=Length(suc2);
 	list:=[1..(n1)*(n2)];
@@ -99,4 +103,10 @@ InstallOtherMethod(CartesianProduct,
 # 	return list;
 	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
 	return PosetFromPartialOrder(po);
+	end);
+	
+InstallMethod(DirectSumOfPosets,
+	[IsPoset,IsPoset],
+	function(poset1, poset2)
+	return DualPoset(CartesianProduct(DualPoset(poset1),DualPoset(poset2)));
 	end);

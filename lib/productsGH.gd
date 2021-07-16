@@ -39,3 +39,8 @@ DeclareOperation("CartesianProduct",[IsPolytope,IsPolytope]);
 #! gap> IsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));
 #! true
 #! @EndExampleSession
+
+#! @Arguments polytope1, polytope2
+#! @Returns polytope
+#! @Description Given two polytopes, forms the direct sum of the polytopes. 
+DeclareOperation("DirectSumOfPosets",[IsPoset,IsPoset]);

@@ -405,6 +405,7 @@ DeclareAttribute("Index", IsPosetElement); #face index, i.e., label from some li
 
 DeclareAttribute("ElementOrderingFunction", IsPosetElement); 
 
+DeclareAttribute("ElementBR", IsPosetElement);
 
 DeclareAttribute("ElementObject", IsPosetElement); 
 
