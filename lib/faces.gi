@@ -129,7 +129,7 @@ InstallMethod(Fvector,
 InstallMethod(Section,
 	[IsManiplex, IsInt, IsInt, IsInt],
 	function(M, j, i, k)
-	local g, n, h, o, newgens, q, sym, M2;
+	local g, n, h, o, newgens, q, sym, M2, newconn;
 	n := Rank(M);
 
 	if j > n then
@@ -183,7 +183,10 @@ InstallMethod(Section,
 		fi;
 
 		newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
-		q := Maniplex(Group(newgens));
+		newconn := Group(newgens);
+		# Retranslate the flags to be 1..N
+		newconn := Action(newconn, MovedPoints(newconn));		
+		q := Maniplex(newconn);
 		return q;
 	fi;
 	end);
