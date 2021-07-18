@@ -28,7 +28,9 @@ InstallMethod(PosetFromPartialOrder,
 	[IsBinaryRelation],
 	function(reln)
 	local fam, poset, myreln, n;
-	if IsPartialOrderBinaryRelation(reln)=false then Print("Sorry, that's not a partial order."); return; fi;
+	if IsPartialOrderBinaryRelation(reln)=false then Error("Sorry, that's not a partial order.\n");
+# 	return; 
+		fi;
 	myreln:=POConvertToBROnPoints(reln);
 	n:=Length(Successors(myreln));
 	poset:=Objectify(NewType(PosetFamily, IsPoset and IsPosetOfIndices), rec(domain:=[1..n]));
@@ -162,7 +164,7 @@ InstallOtherMethod(Rank,
 	[IsPoset],
 	function(poset)
 	local fl,ranks,m,chains, len;
-	if HasRankPoset(poset) then return RankPoset(poset); fi;
+# 	if HasRankPoset(poset) then return RankPoset(poset); fi;
 	chains:=MaximalChains(poset);
 	chains:=List(chains,Length);
 	len:=Length(DuplicateFreeList(chains));
@@ -187,7 +189,7 @@ InstallMethod(ListIsP1Poset,
 	else
 		return false;
 	fi;
-	Print("Something went wrong");
+	Error("Something went wrong.\n");
 	return;
 	end);
 
@@ -267,7 +269,9 @@ InstallMethod(AdjacentFlags,
 	[IsPoset,IsList,IsInt],
 	function(poset,flagaslistoffaces,adjacencyrank)
 	local r,flag,flagsList,fixedranks;
-	if Rank(poset)=false then Print("Poset must be P1 and P2."); return; fi;
+	if Rank(poset)=false then Error("Poset must be P1 and P2."); 
+# 	return; 
+		fi;
 	r:=adjacencyrank; flag:=flagaslistoffaces;
 	flagsList:=MaximalChains(poset);
 	fixedranks:=[1..Rank(poset)+2];
@@ -281,7 +285,9 @@ InstallOtherMethod(AdjacentFlags,
 	[IsPoset,IsInt,IsInt],
 	function(poset,flag,adjacencyrank)
 	local ranks,flags;
-	if Rank(poset)=false then Print("Poset must be P1 and P2."); return; fi;
+	if Rank(poset)=false then Error("Poset must be P1 and P2."); 
+# 	return; 
+		fi;
 	ranks:=[1..Rank(poset)+2];
 	Remove(ranks,adjacencyrank+2);
 	flags:=MaximalChains(poset);
@@ -321,7 +327,7 @@ InstallMethod(IsP3,
 	if Rank(poset)=false then return false; fi;
 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
  	if IsP4(poset)=false then return IsP3(poset,true);fi;
- 	Print("This is a pre-polytope, so I am using the connection group to help answer your question.\n");
+#  	Print("This is a pre-polytope, so I am using the connection group to help answer your question.\n");
 	maxChains:=MaximalChains(poset);
 	nMC:=Length(maxChains);
 	r:=Rank(poset);
@@ -353,8 +359,9 @@ InstallOtherMethod(IsP3,
 	[IsPoset,IsString],
 	function(poset,string)
 	local repsList, chainsLists, flag, chain, flagChain, flags, faces, face, gRanks, cGens, component, chainIntersection, ranks;
-	if string<>"Flaggable" then Print("If you have a string as an alternative second input, is must be the word Flaggable."); return; fi;
-
+	if string<>"Flaggable" then Error("If you have a string as an alternative second input, it must be the word Flaggable."); 
+# 		return; 
+		fi;
 	repsList:=List(Orbits(AutomorphismGroup(poset)),First);
 	ranks:=[2..Rank(poset)+2];
 	chainsLists:=Filtered(Combinations(ranks),x->x<>[]);
@@ -627,7 +634,9 @@ InstallOtherMethod(AdjacentFlag,
 	[IsPoset,IsInt,IsInt],
 	function(poset,flag,i)
 	local n, ranks, flags;
-	if IsPrePolytope(poset)<>true then Print("I was expecting a pre-polytope.\n"); return; fi;
+	if IsPrePolytope(poset)<>true then Error("I was expecting a pre-polytope.\n"); 
+# 		return; 
+		fi;
 	flags:=MaximalChains(poset);
 	n:=Rank(poset);
 	ranks:=[1..n+2];
@@ -766,7 +775,9 @@ InstallMethod(ConnectionGroup,
 	[IsPoset],
 	function(poset)
 	local flags,generators;
-	if IsPrePolytope(poset)<>true then Print("This function was expecting a pre-polytope."); return; fi;
+	if IsPrePolytope(poset)<>true then Error("This function was expecting a pre-polytope."); 
+# 		return; 
+		fi;
 	if Rank(poset)=0 then return TrivialGroup();fi;
 	flags:=MaximalChains(poset);
 	generators:=[1..Rank(poset)];
@@ -1001,7 +1012,8 @@ InstallOtherMethod(PosetElementFromListOfFlags,
 	if IsList(listrank[1]) and IsInt(listrank[2]) then 
 		list:=listrank[1]; rank:=listrank[2];
 	else
-		Print("I expected a list of the form [list of flags, IsInt].");return;
+		Error("I expected a list of the form [list of flags, IsInt].");
+# 		return;
 	fi;
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
@@ -1133,7 +1145,7 @@ InstallOtherMethod(IsSubface,
 		if Rank(face1)>=Rank(face2) and Tuple([Index(face1),Index(face2)]) in po then return true;
 		else return false;
 		fi;
-	else Print("No partial order found for elements of this poset.");
+	else Error("No partial order found for elements of this poset.");
 	fi;
 	end); #Not sure this works yet... Have to build up the right kind of object.
 
@@ -1141,8 +1153,11 @@ InstallOtherMethod(IsSubface,
 	[IsFace and HasElementOrderingFunction, IsFace and HasElementOrderingFunction],
 	function(face1, face2)
 	local order;
-	if ElementOrderingFunction(face1)<>ElementOrderingFunction(face2) then Print("Faces have different ordering functions."); return; fi;
-	if HasElementObject(face1)=false or HasElementObject(face2)=false then Print("Elements don't both seem to have ElementObjects.");fi;
+	if ElementOrderingFunction(face1)<>ElementOrderingFunction(face2) then Error("Faces have different ordering functions."); 
+# 		return; 
+		fi;
+	if HasElementObject(face1)=false or HasElementObject(face2)=false then Error("Elements don't both seem to have ElementObjects.");
+		fi;
 	order:=ElementOrderingFunction(face1);
 	return order(ElementObject(face1), ElementObject(face2));
 # 	return [ElementObject(face1), ElementObject(face2)] in order;
@@ -1152,8 +1167,12 @@ InstallOtherMethod(IsSubface,
 	[IsFace and HasElementBR, IsFace and HasElementBR],
 	function(face1,face2)
 	local order;
-	if ElementBR(face1)<>ElementBR(face2) then Print("Faces don't have the same binary relation on them.");return;fi;
-	if HasIndex(face1)=false or HasIndex(face2)=false then Print("Elements don't seem to both have indices.");return;fi;
+	if ElementBR(face1)<>ElementBR(face2) then Error("Faces don't have the same binary relation on them.");
+# 		return;
+		fi;
+	if HasIndex(face1)=false or HasIndex(face2)=false then Error("Elements don't seem to both have indices.");
+		return;
+		fi;
 	order:=ElementBR(face1);
 	return [Index(face2),Index(face1)] in order;
 	end);
@@ -1219,7 +1238,7 @@ InstallOtherMethod(PosetFromElements,
 	[IsList,IsFunction],
 	function(faceList,orderFunc)
 	local nFaceList,workingList,pairs,tuplesList,po,i,j, poset;
-	if Size(faceList)=infinity then Print("This only works for finite lists of poset elements."); fi;
+	if Size(faceList)=infinity then Error("This only works for finite lists of poset elements."); fi;
 	nFaceList:=Length(faceList);
 	tuplesList:=List([1..nFaceList],x->[]);
 	for i in [1..nFaceList] do

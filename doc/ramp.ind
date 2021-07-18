@@ -6,16 +6,18 @@
 
   \indexspace
 
-  \item \texttt  {AbstractPolytope}, \hyperpage{45}
-  \item \texttt  {AbstractRegularPolytope}, \hyperpage{45}
-  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{45}
-  \item \texttt  {AddOrAppend}, \hyperpage{45}
+  \item \texttt  {AbstractPolytope}, \hyperpage{46}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{46}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{46}
+  \item \texttt  {AddOrAppend}, \hyperpage{46}
   \item \texttt  {AdjacentFlag}
     \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{37}
   \item \texttt  {AdjacentFlags}
     \subitem for IsPoset,IsList,IsInt, \hyperpage{37}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{13}
+  \item \texttt  {Antiprism}
+    \subitem for IsPoset, \hyperpage{42}
   \item \texttt  {AreIncidentElements}
     \subitem for IsObject,IsObject, \hyperpage{40}
   \item \texttt  {AtomList}
@@ -76,7 +78,7 @@
   \item \texttt  {ElementsList}
     \subitem for IsPoset, \hyperpage{34}
   \item \texttt  {EnantiomorphicForm}
-    \subitem for IsRotaryManiplex, \hyperpage{44}
+    \subitem for IsRotaryManiplex, \hyperpage{45}
   \item \texttt  {EqualChains}
     \subitem for IsList,IsList, \hyperpage{37}
   \item \texttt  {EvenConnectionGroup}
@@ -149,7 +151,7 @@
   \item \texttt  {IsChiral}
     \subitem for IsManiplex, \hyperpage{20}
   \item \texttt  {IsCover}
-    \subitem for IsManiplex, IsManiplex, \hyperpage{43}
+    \subitem for IsManiplex, IsManiplex, \hyperpage{44}
   \item \texttt  {IsDegenerate}
     \subitem for IsManiplex, \hyperpage{19}
   \item \texttt  {IsEquivelar}
@@ -168,7 +170,7 @@
   \item \texttt  {IsIOrientable}
     \subitem for IsManiplex, IsList, \hyperpage{26}
   \item \texttt  {IsIsomorphicManiplex}
-    \subitem for IsManiplex, IsManiplex, \hyperpage{43}
+    \subitem for IsManiplex, IsManiplex, \hyperpage{44}
   \item \texttt  {IsIsomorphicPoset}
     \subitem for IsPoset,IsPoset, \hyperpage{36}
   \item \texttt  {IsOrientable}
@@ -188,7 +190,7 @@
   \item \texttt  {IsPrePolytope}
     \subitem for IsPoset, \hyperpage{36}
   \item \texttt  {IsQuotient}
-    \subitem for IsManiplex, IsManiplex, \hyperpage{43}
+    \subitem for IsManiplex, IsManiplex, \hyperpage{44}
   \item \texttt  {IsReflexible}
     \subitem for IsManiplex, \hyperpage{19}
   \item \texttt  {IsRotary}
@@ -326,9 +328,9 @@
     \subitem for IsList, IsList, \hyperpage{27}
     \subitem for IsString, \hyperpage{28}
   \item \texttt  {RotaryManiplex}
-    \subitem for IsGroup, \hyperpage{44}
-    \subitem for IsList, \hyperpage{44}
-    \subitem for IsList, IsList, \hyperpage{44}
+    \subitem for IsGroup, \hyperpage{45}
+    \subitem for IsList, \hyperpage{45}
+    \subitem for IsList, IsList, \hyperpage{45}
   \item \texttt  {RotationGroup}
     \subitem for IsManiplex, \hyperpage{25}
 
@@ -350,7 +352,7 @@
   \item \texttt  {Skeleton}
     \subitem for IsManiplex, \hyperpage{8}
   \item \texttt  {SmallestRegularCover}
-    \subitem for IsManiplex, \hyperpage{43}
+    \subitem for IsManiplex, \hyperpage{44}
   \item \texttt  {SmallRegularPolyhedra}
     \subitem for IsInt, \hyperpage{15}
   \item \texttt  {SymmetryTypeGraph}
@@ -371,8 +373,8 @@
   \item \texttt  {UniversalPolytope}
     \subitem for IsInt, \hyperpage{12}
   \item \texttt  {UniversalRotationGroup}
-    \subitem for IsInt, \hyperpage{44}
-    \subitem for IsList, \hyperpage{44}
+    \subitem for IsInt, \hyperpage{45}
+    \subitem for IsList, \hyperpage{45}
   \item \texttt  {UniversalSggi}
     \subitem for IsInt, \hyperpage{27}
     \subitem for IsList, \hyperpage{27}

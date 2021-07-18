@@ -104,6 +104,28 @@ true
 ]]></Example>
 
 
+<ManSection>
+  <Oper Arg="polytope" Name="Antiprism" Label="for IsPoset"/>
+ <Returns>poset
+</Returns>
+ <Description>
+Given a <A>polytope</A> (actually, should work for any poset), will return the antiprism of the <A>polytope</A> (poset).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Pgon(3));;
+gap> a:=Antiprism(p);;
+gap> IsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));
+true
+gap> p:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;
+gap> d:=DualPoset(p);;ad:=Antiprism(d);;
+gap> IsIsomorphicPoset(a,ad);
+true
+]]></Example>
+
+
 </Section>
 
 

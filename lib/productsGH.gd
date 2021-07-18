@@ -75,11 +75,18 @@ DeclareOperation("TopologicalProduct",[IsPoset,IsPoset]);
 #! @EndExampleSession
 
 
-#The following is a helper function.
-DeclareOperation("DownShifter112358",[IsInt,IsInt,IsInt]);
-
 
 #! @Arguments polytope
 #! @Returns poset
-#! @Description Given a <A>polytope</A> (actually, might work for any poset), will return the antiprism of the polytope.
+#! @Description Given a <A>polytope</A> (actually, should work for any poset), will return the antiprism of the <A>polytope</A> (poset).
 DeclareOperation("Antiprism",[IsPoset]);
+#! @BeginExampleSession
+#! gap> p:=PosetFromManiplex(Pgon(3));;
+#! gap> a:=Antiprism(p);;
+#! gap> IsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));
+#! true
+#! gap> p:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;
+#! gap> d:=DualPoset(p);;ad:=Antiprism(d);;
+#! gap> IsIsomorphicPoset(a,ad);
+#! true
+#! @EndExampleSession

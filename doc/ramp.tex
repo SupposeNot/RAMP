@@ -3238,6 +3238,32 @@ product of a triangle with itself gives us the torus $\{4,4\}_{(3,0)}$ with 72 f
   !gapprompt@gap>| !gapinput@IsIsomorphicPoset(torus,tp);|
   true
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Antiprism (for IsPoset)}}
+\logpage{[ 11, 1, 5 ]}\nobreak
+\hyperdef{L}{X78FB044D7B9F5DB6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape polytope})\index{Antiprism@\texttt{Antiprism}!for IsPoset}
+\label{Antiprism:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+poset 
+
+
+
+ Given a \mbox{\texttt{\mdseries\slshape polytope}} (actually, should work for any poset), will return the antiprism of the \mbox{\texttt{\mdseries\slshape polytope}} (poset). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=PosetFromManiplex(Pgon(3));;|
+  !gapprompt@gap>| !gapinput@a:=Antiprism(p);;|
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));|
+  true
+  !gapprompt@gap>| !gapinput@p:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;|
+  !gapprompt@gap>| !gapinput@d:=DualPoset(p);;ad:=Antiprism(d);;|
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(a,ad);|
+  true
+\end{Verbatim}
  }
 
  }
@@ -3466,7 +3492,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

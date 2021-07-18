@@ -91,3 +91,22 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [1X11.1-5 Antiprism[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3Xpolytope[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yposet[133X
+  
+  [33X[0;0YGiven  a  [3Xpolytope[103X  (actually,  should  work for any poset), will return the
+  antiprism of the [3Xpolytope[103X (poset).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));;[127X[104X
+    [4X[25Xgap>[125X [27Xa:=Antiprism(p);;[127X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;[127X[104X
+    [4X[25Xgap>[125X [27Xd:=DualPoset(p);;ad:=Antiprism(d);;[127X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(a,ad);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
