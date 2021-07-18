@@ -1302,6 +1302,10 @@ InstallMethod(DualPoset,
 	return PosetFromPartialOrder(AsBinaryRelationOnPoints(newOrder));
 	end);
 
+InstallOtherMethod(IsSelfDual,
+	[IsPoset],
+	p->IsIsomorphicPoset(p,DualPoset(p)));
+
 
 #Here's a sample of things you can do...
 #p:=PyramidOver(HemiCube(3));

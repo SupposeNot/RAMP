@@ -8,6 +8,7 @@ DeclareAttribute("Dual", IsManiplex);
 
 #! @Arguments P
 #! @Returns Whether this polytope is isomorphic to its dual.
+#! @Description Also works for IsPoset objects.
 DeclareProperty("IsSelfDual", IsManiplex);
 
 #! @Arguments P
