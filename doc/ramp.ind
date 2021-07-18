@@ -35,7 +35,7 @@
   \indexspace
 
   \item \texttt  {CartesianProduct}
-    \subitem for IsPolytope,IsPolytope, \hyperpage{41}
+    \subitem for IsPoset,IsPoset, \hyperpage{41}
   \item \texttt  {ChiralityGroup}
     \subitem for IsRotaryManiplex, \hyperpage{25}
   \item \texttt  {ConnectedComponents}
@@ -58,6 +58,8 @@
     \subitem for IsInt, \hyperpage{15}
   \item \texttt  {DirectedGraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{5}
+  \item \texttt  {DirectSumOfPosets}
+    \subitem for IsPoset,IsPoset, \hyperpage{42}
   \item \texttt  {Dodecahedron}, \hyperpage{22}
   \item \texttt  {Dual}
     \subitem for IsManiplex, \hyperpage{13}
@@ -356,6 +358,8 @@
 
   \indexspace
 
+  \item \texttt  {TopologicalProduct}
+    \subitem for IsPoset,IsPoset, \hyperpage{42}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{13}
 

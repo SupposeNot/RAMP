@@ -29,7 +29,9 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X87B984FB860BDF3F">11.1-1 JoinProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X840F596A7EB8BC45">11.1-2 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X80F7AC5385F572D2">11.1-2 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X8124A8217B62E4D9">11.1-3 DirectSumOfPosets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X7D5144DE79A8E5BF">11.1-4 TopologicalProduct</a></span>
 </div></div>
 </div>
 
@@ -66,7 +68,7 @@ A poset using the IsPosetOfIndices representation
 true
 </pre></div>
 
-<p><a id="X840F596A7EB8BC45" name="X840F596A7EB8BC45"></a></p>
+<p><a id="X80F7AC5385F572D2" name="X80F7AC5385F572D2"></a></p>
 
 <h5>11.1-2 CartesianProduct</h5>
 
@@ -84,6 +86,53 @@ A poset
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=CartesianProduct(p1,p2);</span>
 A poset using the IsPosetOfIndices representation
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));</span>
+true
+</pre></div>
+
+<p><a id="X8124A8217B62E4D9" name="X8124A8217B62E4D9"></a></p>
+
+<h5>11.1-3 DirectSumOfPosets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfPosets</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: polytope</p>
+
+<p>Given two polytopes, forms the direct sum of the polytopes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p1:=PosetFromManiplex(Cube(2));;p2:=PosetFromManiplex(Edge());;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ds:=DirectSumOfPosets(p1,p2);</span>
+A poset using the IsPosetOfIndices representation.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(ds,PosetFromManiplex(CrossPolytope(3)));</span>
+true
+</pre></div>
+
+<p><a id="X7D5144DE79A8E5BF" name="X7D5144DE79A8E5BF"></a></p>
+
+<h5>11.1-4 TopologicalProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: polytope</p>
+
+<p>Given two polytopes, forms the topological product of the polytopes.</p>
+
+<p>Here we demonstrate that the topological product (as expected) when taking the product of a triangle with itself gives us the torus <span class="SimpleMath">\(\{4,4\}_{(3,0)}\)</span> with 72 flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Pgon(3));</span>
+A poset using the IsPosetOfFlags representation.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tp:=TopologicalProduct(p,p);</span>
+A poset using the IsPosetOfIndices representation.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := (5,6);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := (1,2)(3,5)(4,6);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := (2,3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">torus:=PosetFromManiplex(ReflexibleManiplex(poly));</span>
+A poset using the IsPosetOfFlags representation.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(p,tp);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(torus,tp);</span>
 true
 </pre></div>
 

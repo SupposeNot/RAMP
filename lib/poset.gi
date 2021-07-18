@@ -1056,8 +1056,19 @@ InstallMethod(DisplayString,
 InstallMethod(ViewString,
 	[IsFace],
 	function(face)
-	local string, type;
-	string:="An element of a poset.";
+	local string, elobj;
+	string:="An element of a poset";
+	if HasElementObject(face) then
+		elobj:=ElementObject(face);
+		if HasFlagList(elobj) then Append(string, " made up of flags");fi;
+		if HasAtomList(elobj) then Append(string, " made up of atoms");fi;
+		if HasIndex(elobj) then Append(string," with index"); fi;
+	else
+		if HasFlagList(face) then Append(string, " made of flags");fi;
+		if HasAtomList(face) then Append(string, " made up of atoms");fi;
+		if HasIndex(face) then Append(string," with index"); fi;
+	fi;
+	Append(string,".");
 	return string;
 	end);
 

@@ -48,3 +48,46 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [1X11.1-3 DirectSumOfPosets[101X
+  
+  [33X[1;0Y[29X[2XDirectSumOfPosets[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolytope[133X
+  
+  [33X[0;0YGiven two polytopes, forms the direct sum of the polytopes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Cube(2));;p2:=PosetFromManiplex(Edge());;[127X[104X
+    [4X[25Xgap>[125X [27Xds:=DirectSumOfPosets(p1,p2);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation.[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(ds,PosetFromManiplex(CrossPolytope(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X11.1-4 TopologicalProduct[101X
+  
+  [33X[1;0Y[29X[2XTopologicalProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolytope[133X
+  
+  [33X[0;0YGiven two polytopes, forms the topological product of the polytopes.[133X
+  
+  [33X[0;0YHere  we  demonstrate that the topological product (as expected) when taking
+  the  product  of  a  triangle with itself gives us the torus [23X\{4,4\}_{(3,0)}[123X
+  with 72 flags.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));[127X[104X
+    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
+    [4X[25Xgap>[125X [27Xtp:=TopologicalProduct(p,p);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation.[128X[104X
+    [4X[25Xgap>[125X [27Xs0 := (5,6);;[127X[104X
+    [4X[25Xgap>[125X [27Xs1 := (1,2)(3,5)(4,6);;[127X[104X
+    [4X[25Xgap>[125X [27Xs2 := (2,3);;[127X[104X
+    [4X[25Xgap>[125X [27Xpoly := Group([s0,s1,s2]);;[127X[104X
+    [4X[25Xgap>[125X [27Xtorus:=PosetFromManiplex(ReflexibleManiplex(poly));[127X[104X
+    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(p,tp);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(torus,tp);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
