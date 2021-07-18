@@ -17,6 +17,7 @@ InstallMethod(Pgon,
 	local p;
 	if n < 2 then
 		Error("Number of sides must be at least 2.\n");
+		return fail;
 	fi;
 	p := AbstractRegularPolytope(UniversalSggi([n]));
 	SetString(p, Concatenation("Pgon(", String(n), ")"));
@@ -32,6 +33,7 @@ InstallMethod(Cube,
 	local sym, p, g;
 	if n < 0 then
 		Error("n must be at least 0.\n");
+		return fail;
 	elif n = 0 then
 		return UniversalPolytope(0);
 	elif n = 1 then
@@ -56,6 +58,7 @@ InstallMethod(HemiCube,
 	local p;
 	if n < 3 then
 		Error("Rank must be at least 3.\n");
+		return fail;
 	fi;
 	p := QuotientPolytope(Cube(n), PetrieRelation(n, n));
 	SetIsPolytopal(p, true);
@@ -73,6 +76,7 @@ InstallMethod(CrossPolytope,
 	local sym, p, g;
 	if n < 0 then
 		Error("n must be at least 0.\n");
+		return fail;
 	elif n = 0 then
 		return UniversalPolytope(0);
 	elif n = 1 then
@@ -96,6 +100,7 @@ InstallMethod(HemiCrossPolytope,
 	local p;
 	if n < 3 then
 		Error("Rank must be at least 3.\n");
+		return fail;
 	fi;
 	p := QuotientPolytope(CrossPolytope(n), PetrieRelation(n, n));
 	SetIsPolytopal(p, true);
@@ -113,6 +118,7 @@ InstallMethod(Simplex,
 	sym := List([1..n-1], i -> 3);
 	if n < 0 then
 		Error("n must be at least 0.\n");
+		return fail;
 	elif n = 0 then
 		return UniversalPolytope(0);
 	elif n = 1 then
@@ -132,12 +138,13 @@ InstallMethod(CubicTiling,
 	[IsInt],
 	function(n)
 	local sym, p, g;
-	if n < 3 then
-		Error("n must be 3 or more");
+	if n < 2 then
+		Error("n must be 2 or more.\n");
+		return fail;
 	fi;
-	sym := List([1..n-1], i -> 3);
+	sym := List([1..n], i -> 3);
 	sym[1] := 4;
-	sym[n-1] := 4;
+	sym[n] := 4;
 	g := UniversalSggi(sym);
 	p := AbstractRegularPolytope(g);
 	SetSchlafliSymbol(p, sym);
