@@ -351,6 +351,13 @@ InstallMethod(PRGraph,
 	end);
 
 
+InstallMethod(CPRGraphFromGroups,
+	[IsGroup,IsGroup],
+	function(g,h)
+	return PRGraph(Range(FactorCosetAction(g,h)));
+	end);
+
+
 
 
 
