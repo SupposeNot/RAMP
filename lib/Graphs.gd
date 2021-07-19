@@ -296,7 +296,7 @@ DeclareOperation("Simple",[IsEdgeLabeledGraph]);
 
 #! @Arguments edge-labeled-graph
 #! @Returns `IsGraph`. 
-#! @Description Given an edge labeled (multi) graph and a list of labels, it returns connected components of the graph using edges in the list of labels. Note if the second argument is not used, it is assumed to be an empty list, and the connected components of the original graph are returned.
+#! @Description Given an edge labeled (multi) graph and a list of labels, it returns connected components of the graph not using edges in the list of labels. Note if the second argument is not used, it is assumed to be an empty list, and the connected components of the original graph are returned.
 DeclareOperation("ConnectedComponents",[IsEdgeLabeledGraph, IsList]);
 #! Here we see that each connected component of the flag graph of the cube (which has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.
 #! @BeginExampleSession
