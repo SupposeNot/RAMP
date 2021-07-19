@@ -192,3 +192,37 @@ InstallMethod(SmallestRegularCover,
 	return ReflexibleManiplex(Image(RegularActionHomomorphism(ConnectionGroup(p))));
 	end);
 	
+InstallMethod(QuotientManiplex,
+	[IsReflexibleManiplex, IsString],
+	function(M, relStr)
+	local g, h, rels;
+	g := AutomorphismGroupFpGroup(M);
+	rels := ParseStringCRels(relStr, g);
+	rels := List(rels, r -> ElementOfFpGroup(FamilyObj(g.1), r));
+	h := Subgroup(g, rels);
+	return Maniplex(M, h);
+	end);
+	
+InstallOtherMethod(\/,
+	[IsReflexibleManiplex, IsString],
+	function(M, relStr)
+	return QuotientManiplex(M, relStr);
+	end);
+	
+# Accepts either a list of Tietze words like [1, 2, 3, 2]
+# or a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4"
+InstallMethod(ReflexibleQuotientManiplex,
+	[IsReflexibleManiplex, IsList],
+	function(p, rels)
+	local g, w, h, q;
+	g := AutomorphismGroup(p);
+	if IsString(rels) then
+		rels := ParseStringCRels(rels, g);
+	else
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
+	fi;
+	h := FactorGroupFpGroupByRels(g, rels);
+	q := ReflexibleManiplex(h);
+	return q;
+	end);
+	

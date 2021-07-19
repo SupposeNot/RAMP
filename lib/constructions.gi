@@ -27,23 +27,6 @@ InstallMethod( UniversalPolytope,
 	return p;
 	end);
 	
-# Accepts either a list of Tietze words like [1, 2, 3, 2]
-# or a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4"
-InstallMethod(QuotientPolytope,
-	[IsReflexibleManiplex, IsList],
-	function(p, rels)
-	local g, w, h, q;
-	g := AutomorphismGroup(p);
-	if IsString(rels) then
-		rels := ParseStringCRels(rels, g);
-	else
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
-	fi;
-	h := FactorGroupFpGroupByRels(g, rels);
-	q := ReflexibleManiplex(h);
-	return q;
-	end);
-	
 InstallMethod(UniversalExtension,
 	[IsReflexibleManiplex],
 	function(p)
@@ -128,7 +111,7 @@ InstallMethod(FlatExtension,
 	local g, n, rels, f2, g2, p2, sym;
 	g := AutomorphismGroup(p);
 	n := Rank(p);
-	p2 := QuotientPolytope(UniversalExtension(p, k), [[n-1, n, n+1, n, n+1, n-1, n+1, n, n+1, n]]);
+	p2 := ReflexibleQuotientManiplex(UniversalExtension(p, k), [[n-1, n, n+1, n, n+1, n-1, n+1, n, n+1, n]]);
 
 	if HasSize(p) then SetSize(p2, k*Size(p)); fi;
 

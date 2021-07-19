@@ -60,7 +60,7 @@ InstallMethod(HemiCube,
 		Error("Rank must be at least 3.\n");
 		return fail;
 	fi;
-	p := QuotientPolytope(Cube(n), PetrieRelation(n, n));
+	p := ReflexibleQuotientManiplex(Cube(n), PetrieRelation(n, n));
 	SetIsPolytopal(p, true);
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));
@@ -102,7 +102,7 @@ InstallMethod(HemiCrossPolytope,
 		Error("Rank must be at least 3.\n");
 		return fail;
 	fi;
-	p := QuotientPolytope(CrossPolytope(n), PetrieRelation(n, n));
+	p := ReflexibleQuotientManiplex(CrossPolytope(n), PetrieRelation(n, n));
 	SetIsPolytopal(p, true);
 	SetSize(p, 2^(n-1) * Factorial(n));
 	SetSize(AutomorphismGroup(p), Size(p));

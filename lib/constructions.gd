@@ -13,12 +13,6 @@ DeclareOperation("UniversalPolytope", [IsInt]);
 #! that the output makes sense.
 DeclareOperation("FlatRegularPolyhedron", [IsInt, IsInt, IsInt, IsInt]);
 
-#! @Arguments M, rels
-#! Returns the quotient of <A>M</A> by <A>rels</A>, which may be given
-#! as either a list of Tietze words, such as [[1,2,1,0,1,2,1,0]] or as
-#! a string like "(r0 r1 r2 r1)^2, (r0 r1 r2)^4".
-DeclareOperation("QuotientPolytope", [IsManiplex, IsList]);
-
 #! @Arguments M
 #! Returns the universal extension of <A>M</A>, i.e. the maniplex with facets
 #! isomorphic to <A>M</A> that covers all other maniplexes with facets

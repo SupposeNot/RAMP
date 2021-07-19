@@ -495,6 +495,17 @@ InstallMethod(SymmetryTypeGraph,
 	
 	end);
 
+InstallMethod(NumberOfFlagOrbits,
+	[IsManiplex and IsManiplexQuotientRep],
+	function(M)
+	local n, g, h;
+	g := AutomorphismGroup(M!.parent);
+	h := M!.subgroup;
+	n := Normalizer(g, h);
+	return Index(g, n);
+	end);
+	
+	
 # After SymmetryTypeGraph is fixed, we probably want to cut out
 # the IsFinite line, since for some maniplexes, this will try to
 # calculate the size, which can be time-consuming.

@@ -1,31 +1,112 @@
   
-  [1X12 [33X[0;0YComparing maniplexes[133X[101X
+  [1X12 [33X[0;0YProducts of Posets and Digraphs[133X[101X
+  
+  [33X[0;0YThis uses the work of Gleason and Hubard.[133X
   
   
-  [1X12.1 [33X[0;0YQuotients and covers[133X[101X
+  [1X12.1 [33X[0;0YConstruction methods[133X[101X
   
-  [1X12.1-1 IsQuotient[101X
+  [33X[0;0YAnyone know how to link stuff?[133X
   
-  [33X[1;0Y[29X[2XIsQuotient[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [1X12.1-1 JoinProduct[101X
   
-  [33X[0;0YReturns whether [3XM1[103X is a quotient of [3XM2[103X.[133X
+  [33X[1;0Y[29X[2XJoinProduct[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yposet[133X
   
-  [1X12.1-2 IsCover[101X
+  [33X[0;0YGiven  two posets, this forms the join product. If given two partial orders,
+  returns the join product of the partial orders.[133X
   
-  [33X[1;0Y[29X[2XIsCover[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(2));[127X[104X
+    [4X[28XA poset[128X[104X
+    [4X[25Xgap>[125X [27Xrel:=BinaryRelationOnPoints([[1,2],[2]]);[127X[104X
+    [4X[28XBinary Relation on 2 points[128X[104X
+    [4X[25Xgap>[125X [27Xp1:=PosetFromPartialOrder(rel);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
+    [4X[25Xgap>[125X [27Xj:=JoinProduct(p,p1);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
-  [33X[0;0YReturns whether [3XM1[103X is a cover of [3XM2[103X.[133X
+  [1X12.1-2 CartesianProduct[101X
   
-  [1X12.1-3 IsIsomorphicManiplex[101X
+  [33X[1;0Y[29X[2XCartesianProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolytope[133X
   
-  [33X[1;0Y[29X[2XIsIsomorphicManiplex[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [33X[0;0YGiven  two  polytopes,  forms the cartesian product of the polytopes. Should
+  also work if you give it any two posets.[133X
   
-  [33X[0;0YReturns whether [3XM1[103X is isomorphic to [3XM2[103X.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Edge());[127X[104X
+    [4X[28XA poset[128X[104X
+    [4X[25Xgap>[125X [27Xp2:=PosetFromManiplex(Simplex(2));[127X[104X
+    [4X[28XA poset[128X[104X
+    [4X[25Xgap>[125X [27Xc:=CartesianProduct(p1,p2);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
-  [1X12.1-4 SmallestRegularCover[101X
+  [1X12.1-3 DirectSumOfPosets[101X
   
-  [33X[1;0Y[29X[2XSmallestRegularCover[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XDirectSumOfPosets[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolytope[133X
   
-  [33X[0;0YReturns  the  smallest  regular  cover  of  [3XM[103X,  which  is the maniplex whose
-  automorphism group is the connection group of [3XM[103X.[133X
+  [33X[0;0YGiven two polytopes, forms the direct sum of the polytopes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Cube(2));;p2:=PosetFromManiplex(Edge());;[127X[104X
+    [4X[25Xgap>[125X [27Xds:=DirectSumOfPosets(p1,p2);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation.[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(ds,PosetFromManiplex(CrossPolytope(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X12.1-4 TopologicalProduct[101X
+  
+  [33X[1;0Y[29X[2XTopologicalProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolytope[133X
+  
+  [33X[0;0YGiven two polytopes, forms the topological product of the polytopes.[133X
+  
+  [33X[0;0YHere  we  demonstrate that the topological product (as expected) when taking
+  the  product  of  a  triangle with itself gives us the torus [23X\{4,4\}_{(3,0)}[123X
+  with 72 flags.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));[127X[104X
+    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
+    [4X[25Xgap>[125X [27Xtp:=TopologicalProduct(p,p);[127X[104X
+    [4X[28XA poset using the IsPosetOfIndices representation.[128X[104X
+    [4X[25Xgap>[125X [27Xs0 := (5,6);;[127X[104X
+    [4X[25Xgap>[125X [27Xs1 := (1,2)(3,5)(4,6);;[127X[104X
+    [4X[25Xgap>[125X [27Xs2 := (2,3);;[127X[104X
+    [4X[25Xgap>[125X [27Xpoly := Group([s0,s1,s2]);;[127X[104X
+    [4X[25Xgap>[125X [27Xtorus:=PosetFromManiplex(ReflexibleManiplex(poly));[127X[104X
+    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(p,tp);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(torus,tp);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X12.1-5 Antiprism[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3Xpolytope[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yposet[133X
+  
+  [33X[0;0YGiven  a  [3Xpolytope[103X  (actually,  should  work for any poset), will return the
+  antiprism of the [3Xpolytope[103X (poset).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));;[127X[104X
+    [4X[25Xgap>[125X [27Xa:=Antiprism(p);;[127X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;[127X[104X
+    [4X[25Xgap>[125X [27Xd:=DualPoset(p);;ad:=Antiprism(d);;[127X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(a,ad);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   

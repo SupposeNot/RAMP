@@ -79,13 +79,12 @@
     2.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
       2.1-1 UniversalPolytope
       2.1-2 FlatRegularPolyhedron
-      2.1-3 QuotientPolytope
+      2.1-3 UniversalExtension
       2.1-4 UniversalExtension
-      2.1-5 UniversalExtension
-      2.1-6 TrivialExtension
-      2.1-7 FlatExtension
-      2.1-8 Amalgamate
-      2.1-9 Medial
+      2.1-5 TrivialExtension
+      2.1-6 FlatExtension
+      2.1-7 Amalgamate
+      2.1-8 Medial
     2.2 [33X[0;0YDuality[133X
       2.2-1 Dual
       2.2-2 IsSelfDual
@@ -174,108 +173,117 @@
       6.1-10 ExtraRotRelators
       6.1-11 IsStringC
       6.1-12 IsStringCPlus
-  7 [33X[0;0YProperties[133X
-    7.1 [33X[0;0YOrientability[133X
-      7.1-1 IsOrientable
-      7.1-2 IsIOrientable
-      7.1-3 IsVertexBipartite
-      7.1-4 IsFacetBipartite
-  8 [33X[0;0YBasics[133X
-    8.1 [33X[0;0YConstructors[133X
-      8.1-1 [33X[0;0YUniversalSggi[133X
-      8.1-2 ReflexibleManiplex
-      8.1-3 ReflexibleManiplex
-      8.1-4 ReflexibleManiplex
-      8.1-5 Maniplex
-      8.1-6 Maniplex
-      8.1-7 Maniplex
-      8.1-8 Maniplex
-      8.1-9 IsPolytopal
-  9 [33X[0;0YActions[133X
-    9.1 [33X[0;0YFaithfulness[133X
-      9.1-1 IsVertexFaithful
-      9.1-2 IsFacetFaithful
-      9.1-3 MaxVertexFaithfulQuotient
-  10 [33X[0;0YPosets[133X
-    10.1 [33X[0;0YPoset constructors[133X
-      10.1-1 PosetFromFaceListOfFlags
-      10.1-2 PosetFromConnectionGroup
-      10.1-3 PosetFromManiplex
-      10.1-4 PosetFromPartialOrder
-      10.1-5 PosetFromElements
-      10.1-6 [33X[0;0YHelper functions for special partial orders[133X
-      10.1-7 DualPoset
-    10.2 [33X[0;0YPoset attributes[133X
-      10.2-1 MaximalChains
-      10.2-2 RankPoset
-      10.2-3 ElementsList
-      10.2-4 OrderingFunction
-      10.2-5 IsFlaggable
-      10.2-6 IsAtomic
-      10.2-7 PartialOrder
-      10.2-8 ListIsP1Poset
-      10.2-9 IsP1
-      10.2-10 IsP2
-      10.2-11 IsP3
-      10.2-12 IsFlagConnected
-      10.2-13 IsP4
-      10.2-14 IsPolytope
-      10.2-15 IsPrePolytope
-    10.3 [33X[0;0YWorking with posets[133X
-      10.3-1 IsIsomorphicPoset
-      10.3-2 PosetIsomorphism
-      10.3-3 FlagsAsListOfFacesFromPoset
-      10.3-4 AdjacentFlag
-      10.3-5 AdjacentFlags
-      10.3-6 EqualChains
-      10.3-7 ConnectionGeneratorOfPoset
-      10.3-8 ConnectionGroup
-      10.3-9 AutomorphismGroup
-      10.3-10 AutomorphismGroupOnElements
-      10.3-11 FaceListOfPoset
-      10.3-12 FacesByRankOfPoset
-      10.3-13 HasseDiagramOfPoset
-    10.4 [33X[0;0YElements of posets, also known as faces.[133X
-      10.4-1 RankPosetElement
-      10.4-2 FlagList
-      10.4-3 FromPoset
-      10.4-4 AtomList
-    10.5 [33X[0;0YElement Constructors[133X
-      10.5-1 PosetElementWithOrder
-      10.5-2 PosetElementFromListOfFlags
-      10.5-3 PosetElementFromAtomList
-      10.5-4 PosetElementFromIndex
-      10.5-5 PosetElementWithPartialOrder
-    10.6 [33X[0;0YElement operations[133X
-      10.6-1 RankedFaceListOfPoset
-      10.6-2 IsSubface
-      10.6-3 AreIncidentElements
-  11 [33X[0;0YProducts of Posets and Digraphs[133X
-    11.1 [33X[0;0YConstruction methods[133X
-      11.1-1 JoinProduct
-      11.1-2 CartesianProduct
-      11.1-3 DirectSumOfPosets
-      11.1-4 TopologicalProduct
-      11.1-5 Antiprism
-  12 [33X[0;0YComparing maniplexes[133X
-    12.1 [33X[0;0YQuotients and covers[133X
-      12.1-1 IsQuotient
-      12.1-2 IsCover
-      12.1-3 IsIsomorphicManiplex
-      12.1-4 SmallestRegularCover
-  13 [33X[0;0Yramp automatic generated documentation[133X
-    13.1 [33X[0;0Yramp automatic generated documentation of methods[133X
-      13.1-1 UniversalRotationGroup
-      13.1-2 UniversalRotationGroup
-      13.1-3 RotaryManiplex
-      13.1-4 RotaryManiplex
-      13.1-5 RotaryManiplex
-      13.1-6 EnantiomorphicForm
-    13.2 [33X[0;0Yramp automatic generated documentation of global functions[133X
-      13.2-1 AbstractPolytope
-      13.2-2 AbstractRegularPolytope
-      13.2-3 AbstractRotaryPolytope
-      13.2-4 AddOrAppend
+  7 [33X[0;0YMixing of Maniplexes[133X
+    7.1 [33X[0;0YMixing of Maniplexes functions[133X
+      7.1-1 Mix
+      7.1-2 Mix
+      7.1-3 Mix
+      7.1-4 CtoL
+      7.1-5 FlagMix
+  8 [33X[0;0YProperties[133X
+    8.1 [33X[0;0YOrientability[133X
+      8.1-1 IsOrientable
+      8.1-2 IsIOrientable
+      8.1-3 IsVertexBipartite
+      8.1-4 IsFacetBipartite
+  9 [33X[0;0YBasics[133X
+    9.1 [33X[0;0YConstructors[133X
+      9.1-1 [33X[0;0YUniversalSggi[133X
+      9.1-2 ReflexibleManiplex
+      9.1-3 ReflexibleManiplex
+      9.1-4 ReflexibleManiplex
+      9.1-5 Maniplex
+      9.1-6 Maniplex
+      9.1-7 Maniplex
+      9.1-8 Maniplex
+      9.1-9 IsPolytopal
+  10 [33X[0;0YActions[133X
+    10.1 [33X[0;0YFaithfulness[133X
+      10.1-1 IsVertexFaithful
+      10.1-2 IsFacetFaithful
+      10.1-3 MaxVertexFaithfulQuotient
+  11 [33X[0;0YPosets[133X
+    11.1 [33X[0;0YPoset constructors[133X
+      11.1-1 PosetFromFaceListOfFlags
+      11.1-2 PosetFromConnectionGroup
+      11.1-3 PosetFromManiplex
+      11.1-4 PosetFromPartialOrder
+      11.1-5 PosetFromElements
+      11.1-6 [33X[0;0YHelper functions for special partial orders[133X
+      11.1-7 DualPoset
+    11.2 [33X[0;0YPoset attributes[133X
+      11.2-1 MaximalChains
+      11.2-2 RankPoset
+      11.2-3 ElementsList
+      11.2-4 OrderingFunction
+      11.2-5 IsFlaggable
+      11.2-6 IsAtomic
+      11.2-7 PartialOrder
+      11.2-8 ListIsP1Poset
+      11.2-9 IsP1
+      11.2-10 IsP2
+      11.2-11 IsP3
+      11.2-12 IsFlagConnected
+      11.2-13 IsP4
+      11.2-14 IsPolytope
+      11.2-15 IsPrePolytope
+    11.3 [33X[0;0YWorking with posets[133X
+      11.3-1 IsIsomorphicPoset
+      11.3-2 PosetIsomorphism
+      11.3-3 FlagsAsListOfFacesFromPoset
+      11.3-4 AdjacentFlag
+      11.3-5 AdjacentFlags
+      11.3-6 EqualChains
+      11.3-7 ConnectionGeneratorOfPoset
+      11.3-8 ConnectionGroup
+      11.3-9 AutomorphismGroup
+      11.3-10 AutomorphismGroupOnElements
+      11.3-11 FaceListOfPoset
+      11.3-12 FacesByRankOfPoset
+      11.3-13 HasseDiagramOfPoset
+    11.4 [33X[0;0YElements of posets, also known as faces.[133X
+      11.4-1 RankPosetElement
+      11.4-2 FlagList
+      11.4-3 FromPoset
+      11.4-4 AtomList
+    11.5 [33X[0;0YElement Constructors[133X
+      11.5-1 PosetElementWithOrder
+      11.5-2 PosetElementFromListOfFlags
+      11.5-3 PosetElementFromAtomList
+      11.5-4 PosetElementFromIndex
+      11.5-5 PosetElementWithPartialOrder
+    11.6 [33X[0;0YElement operations[133X
+      11.6-1 RankedFaceListOfPoset
+      11.6-2 IsSubface
+      11.6-3 AreIncidentElements
+  12 [33X[0;0YProducts of Posets and Digraphs[133X
+    12.1 [33X[0;0YConstruction methods[133X
+      12.1-1 JoinProduct
+      12.1-2 CartesianProduct
+      12.1-3 DirectSumOfPosets
+      12.1-4 TopologicalProduct
+      12.1-5 Antiprism
+  13 [33X[0;0YComparing maniplexes[133X
+    13.1 [33X[0;0YQuotients and covers[133X
+      13.1-1 IsQuotient
+      13.1-2 IsCover
+      13.1-3 IsIsomorphicManiplex
+      13.1-4 SmallestRegularCover
+      13.1-5 QuotientManiplex
+      13.1-6 ReflexibleQuotientManiplex
+  14 [33X[0;0Yramp automatic generated documentation[133X
+    14.1 [33X[0;0Yramp automatic generated documentation of methods[133X
+      14.1-1 UniversalRotationGroup
+      14.1-2 UniversalRotationGroup
+      14.1-3 RotaryManiplex
+      14.1-4 RotaryManiplex
+      14.1-5 RotaryManiplex
+      14.1-6 EnantiomorphicForm
+    14.2 [33X[0;0Yramp automatic generated documentation of global functions[133X
+      14.2-1 AbstractPolytope
+      14.2-2 AbstractRegularPolytope
+      14.2-3 AbstractRotaryPolytope
+      14.2-4 AddOrAppend
   
   
   [32X
