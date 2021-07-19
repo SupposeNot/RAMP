@@ -139,7 +139,7 @@
   
   [33X[1;0Y[29X[2XSize[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns the number of flags of the maniplex [3XM[103X.[133X
+  [33X[0;0YReturns the number of flags of the maniplex [3XM[103X. Synonym: [10XNumberOfFlags[110X.[133X
   
   [1X3.4-2 RankManiplex[101X
   
@@ -223,5 +223,14 @@
   
   [1X3.5-4 HoleLength[101X
   
-  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths  of  [3Xj[103X-holes of the 3-maniplex [3XM[103X. This corresponds to
+            the lengths of orbits under r0 (r1 r2)^(j-1) r2.[133X
+  
+  [1X3.5-5 HoleVector[101X
+  
+  [33X[1;0Y[29X[2XHoleVector[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths of all zigzags of the 3-maniplex [3XM[103X. A rank 3 maniplex
+            of  type {p, q} has Floor(q/2) distinct zigzag lengths because the
+            j-zigzags are the same as the (q-j)-zigzags.[133X
   

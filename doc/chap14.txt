@@ -18,17 +18,43 @@
   
   [1X14.1-3 RotaryManiplex[101X
   
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xarg[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xg[103X ) [32X operation[133X
+  
+  [33X[0;0YGiven  a  group  g  (which  should  be a string rotation group), returns the
+  rotary  maniplex  with  that rotation group, where the privileged generators
+  are those returned by GeneratorsOfGroup(g).[133X
   
   [1X14.1-4 RotaryManiplex[101X
   
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xarg[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  the  universal  rotary  maniplex  (in  fact, regular polytope) with
+  Schlafli symbol [3Xsym[103X.[133X
   
   [1X14.1-5 RotaryManiplex[101X
   
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsymbol[103X, [3Xrelations[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  the  rotary  maniplex  with  the given Schlafli symbol and with the
+  given  relations.  The  relations  are  given by a string that refers to the
+  generators s1, s2, etc. For example:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := RotaryManiplex([4,4], "(s2^-1 s1)^6");;[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
+  one  given. This may not be the correct Schlafli symbol, since the relations
+  may  cause  a  collapse,  so  this  should only be used if you know that the
+  Schlafli symbol is correct.[133X
   
   [1X14.1-6 EnantiomorphicForm[101X
   
-  [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3Xarg[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YThe [13Xenantiomorphic form[113X of a rotary maniplex is the same maniplex, but where
+  we  choose  the new base flag to be one of the flags that is adjacent to the
+  original  base  flag.  If  M  is reflexible, then this choice has no effect.
+  Otherwise, if M is chiral, then the enantiomorphic form gives us a different
+  presentation for the rotation group.[133X
   

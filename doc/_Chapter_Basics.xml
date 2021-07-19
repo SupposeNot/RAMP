@@ -22,8 +22,17 @@
   <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
  <Description>
 Given a group g (which should be a string C-group),
- returns the abstract regular polytope with that automorphism group,
+ returns the reflexible maniplex with that automorphism group,
  where the privileged generators are those returned by GeneratorsOfGroup(g).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="sym" Name="ReflexibleManiplex" Label="for IsList"/>
+ <Description>
+ Returns the universal reflexible maniplex (in fact, regular polytope)
+ with Schlafli symbol <A>sym</A>.
  </Description>
 </ManSection>
 
@@ -31,7 +40,7 @@ Given a group g (which should be a string C-group),
 <ManSection>
   <Oper Arg="symbol, relations" Name="ReflexibleManiplex" Label="for IsList, IsList"/>
  <Description>
-Returns an abstract regular polytope with the given Schlafli
+Returns the reflexible maniplex with the given Schlafli
  symbol and with the given relations.
  The formatting of the relations is quite flexible. All of the following work:
 <Example><![CDATA[
@@ -105,6 +114,7 @@ Returns the regular polytope with the given symbolic name.
 </Returns>
  <Description>
  Returns whether the maniplex <A>M</A> is a polytope.
+ Currently only implemented for reflexible maniplexes.
  </Description>
 </ManSection>
 

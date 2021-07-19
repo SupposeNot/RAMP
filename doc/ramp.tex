@@ -582,9 +582,9 @@ edge label is retained if there are multiple edges. }
 
 
  Given an edge labeled (multi) graph and a list of labels, it returns connected
-components of the graph using edges in the list of labels. Note if the second
-argument is not used, it is assumed to be an empty list, and the connected
-components of the original graph are returned. }
+components of the graph not using edges in the list of labels. Note if the
+second argument is not used, it is assumed to be an empty list, and the
+connected components of the original graph are returned. }
 
  Here we see that each connected component of the flag graph of the cube (which
 has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle. 
@@ -673,23 +673,36 @@ second form, returns the Coxeter Group with Schlafli symbol sym. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- Given a group g (which should be a string C-group), returns the abstract
-regular polytope with that automorphism group, where the privileged generators
-are those returned by GeneratorsOfGroup(g). }
+ Given a group g (which should be a string C-group), returns the reflexible
+maniplex with that automorphism group, where the privileged generators are
+those returned by GeneratorsOfGroup(g). }
+
+ 
+
+\subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsList)}}
+\logpage{[ 2, 1, 3 ]}\nobreak
+\hyperdef{L}{X872407AC7E91F409}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape sym})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList}
+\label{ReflexibleManiplex:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the universal reflexible maniplex (in fact, regular polytope) with
+Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. }
 
  
 
 \subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsList, IsList)}}
-\logpage{[ 2, 1, 3 ]}\nobreak
+\logpage{[ 2, 1, 4 ]}\nobreak
 \hyperdef{L}{X7A50E3AA7F5A9E55}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape symbol, relations})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList, IsList}
 \label{ReflexibleManiplex:for IsList, IsList}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns an abstract regular polytope with the given Schlafli symbol and with
-the given relations. The formatting of the relations is quite flexible. All of
-the following work: 
+ Returns the reflexible maniplex with the given Schlafli symbol and with the
+given relations. The formatting of the relations is quite flexible. All of the
+following work: 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
   q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
@@ -703,7 +716,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsString)}}
-\logpage{[ 2, 1, 4 ]}\nobreak
+\logpage{[ 2, 1, 5 ]}\nobreak
 \hyperdef{L}{X8209E4587808FE97}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape name})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsString}
 \label{ReflexibleManiplex:for IsString}
@@ -721,7 +734,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsGroup)}}
-\logpage{[ 2, 1, 5 ]}\nobreak
+\logpage{[ 2, 1, 6 ]}\nobreak
 \hyperdef{L}{X84CE00BB87E71848}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape G})\index{Maniplex@\texttt{Maniplex}!for IsGroup}
 \label{Maniplex:for IsGroup}
@@ -733,7 +746,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsReflexibleManiplex, IsGroup)}}
-\logpage{[ 2, 1, 6 ]}\nobreak
+\logpage{[ 2, 1, 7 ]}\nobreak
 \hyperdef{L}{X80B9127679FEBEAE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape M, G})\index{Maniplex@\texttt{Maniplex}!for IsReflexibleManiplex, IsGroup}
 \label{Maniplex:for IsReflexibleManiplex, IsGroup}
@@ -745,7 +758,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsFunction, IsList)}}
-\logpage{[ 2, 1, 7 ]}\nobreak
+\logpage{[ 2, 1, 8 ]}\nobreak
 \hyperdef{L}{X81DA2F5185E38D67}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape F, inputs})\index{Maniplex@\texttt{Maniplex}!for IsFunction, IsList}
 \label{Maniplex:for IsFunction, IsList}
@@ -757,7 +770,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsPoset)}}
-\logpage{[ 2, 1, 8 ]}\nobreak
+\logpage{[ 2, 1, 9 ]}\nobreak
 \hyperdef{L}{X864C043380FB58D4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsPoset}
 \label{Maniplex:for IsPoset}
@@ -769,7 +782,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
-\logpage{[ 2, 1, 9 ]}\nobreak
+\logpage{[ 2, 1, 10 ]}\nobreak
 \hyperdef{L}{X79DD94037E0FACD4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
 \label{IsPolytopal:for IsManiplex}
@@ -779,7 +792,7 @@ that the Schlafli symbol is correct. }
 
 
 
- Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is a polytope. }
+ Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is a polytope. Currently only implemented for reflexible maniplexes. }
 
  }
 
@@ -1060,7 +1073,7 @@ position (no lists).
 }\hfill{\scriptsize (attribute)}}\\
 
 
- Returns the number of flags of the maniplex \mbox{\texttt{\mdseries\slshape M}}. }
+ Returns the number of flags of the maniplex \mbox{\texttt{\mdseries\slshape M}}. Synonym: \texttt{NumberOfFlags}. }
 
  
 
@@ -1261,12 +1274,35 @@ The length of the petrie polygons of the maniplex \mbox{\texttt{\mdseries\slshap
 
  
 
-\subsection{\textcolor{Chapter }{HoleLength (for IsReflexibleManiplex)}}
+\subsection{\textcolor{Chapter }{HoleLength (for IsManiplex, IsInt)}}
 \logpage{[ 3, 5, 4 ]}\nobreak
-\hyperdef{L}{X80E7C3038595F54B}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleLength({\mdseries\slshape M})\index{HoleLength@\texttt{HoleLength}!for IsReflexibleManiplex}
-\label{HoleLength:for IsReflexibleManiplex}
+\hyperdef{L}{X80FF41567B259CC1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleLength({\mdseries\slshape M, j})\index{HoleLength@\texttt{HoleLength}!for IsManiplex, IsInt}
+\label{HoleLength:for IsManiplex, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+The lengths of \mbox{\texttt{\mdseries\slshape j}}-holes of the 3-maniplex \mbox{\texttt{\mdseries\slshape M}}. This corresponds to the lengths of orbits under r0 (r1
+r2)\texttt{\symbol{94}}(j-1) r2. 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{HoleVector (for IsManiplex)}}
+\logpage{[ 3, 5, 5 ]}\nobreak
+\hyperdef{L}{X7EE84DCF7EFC02C6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleVector({\mdseries\slshape M})\index{HoleVector@\texttt{HoleVector}!for IsManiplex}
+\label{HoleVector:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+The lengths of all zigzags of the 3-maniplex \mbox{\texttt{\mdseries\slshape M}}. A rank 3 maniplex of type \texttt{\symbol{123}}p, q\texttt{\symbol{125}} has
+Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the
+(q-j)-zigzags. 
+
 
 
  
@@ -1590,8 +1626,6 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 {
   
 
- 
-
 \subsection{\textcolor{Chapter }{Vertex}}
 \logpage{[ 6, 1, 1 ]}\nobreak
 \hyperdef{L}{X868FA75B794AE1AA}{}
@@ -1600,11 +1634,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the universal 0-polytope. }
 
  
 
@@ -1616,9 +1646,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the universal 1-polytope. }
 
  
 
@@ -1630,9 +1658,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the p-gon. }
 
  
 
@@ -1644,9 +1670,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the n-cube. }
 
  
 
@@ -1658,9 +1682,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the n-hemi-cube. }
 
  
 
@@ -1672,9 +1694,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the n-cross-polytope. }
 
  
 
@@ -1686,9 +1706,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the n-hemi-cross-polytope. }
 
  
 
@@ -1700,9 +1718,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the n-simplex. }
 
  
 
@@ -1714,11 +1730,8 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the rank n+1 polytope; the tiling of E\texttt{\symbol{94}}n by
+n-cubes. }
 
  
 
@@ -1730,11 +1743,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the dodecahedron, \texttt{\symbol{123}}5, 3\texttt{\symbol{125}}. }
 
  
 
@@ -1746,11 +1755,8 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the hemi-dodecahedron, \texttt{\symbol{123}}5,
+3\texttt{\symbol{125}}{\textunderscore}5. }
 
  
 
@@ -1762,11 +1768,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the icosahedron, \texttt{\symbol{123}}3, 5\texttt{\symbol{125}}. }
 
  
 
@@ -1778,11 +1780,8 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the hemi-icosahedron, \texttt{\symbol{123}}3,
+5\texttt{\symbol{125}}{\textunderscore}5. }
 
  
 
@@ -1794,11 +1793,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the 24-cell, \texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}. }
 
  
 
@@ -1810,11 +1805,8 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the hemi-24-cell, \texttt{\symbol{123}}3, 4,
+3\texttt{\symbol{125}}{\textunderscore}6. }
 
  
 
@@ -1826,11 +1818,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}. }
 
  
 
@@ -1842,11 +1830,8 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the hemi-120-cell, \texttt{\symbol{123}}5, 3,
+3\texttt{\symbol{125}}{\textunderscore}15. }
 
  
 
@@ -1858,11 +1843,7 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
-
- 
+ Returns the 600-cell, \texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}. }
 
  
 
@@ -1874,9 +1855,8 @@ with up to \mbox{\texttt{\mdseries\slshape maxsize}} flags. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the hemi-600-cell, \texttt{\symbol{123}}3, 3,
+5\texttt{\symbol{125}}{\textunderscore}15. }
 
  }
 
@@ -3507,56 +3487,64 @@ generated by r0 r1 r2 r1 and r1 r0 r1 r2. }
 \subsection{\textcolor{Chapter }{RotaryManiplex (for IsGroup)}}
 \logpage{[ 14, 1, 3 ]}\nobreak
 \hyperdef{L}{X84662FEC86F981A0}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape arg})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsGroup}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape g})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsGroup}
 \label{RotaryManiplex:for IsGroup}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Given a group g (which should be a string rotation group), returns the rotary
+maniplex with that rotation group, where the privileged generators are those
+returned by GeneratorsOfGroup(g). }
 
  
 
 \subsection{\textcolor{Chapter }{RotaryManiplex (for IsList)}}
 \logpage{[ 14, 1, 4 ]}\nobreak
 \hyperdef{L}{X85D4214883208895}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape arg})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape sym})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList}
 \label{RotaryManiplex:for IsList}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the universal rotary maniplex (in fact, regular polytope) with
+Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. }
 
  
 
 \subsection{\textcolor{Chapter }{RotaryManiplex (for IsList, IsList)}}
 \logpage{[ 14, 1, 5 ]}\nobreak
 \hyperdef{L}{X7C4F288287BD75D6}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape arg1, arg2})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList, IsList}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape symbol, relations})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList, IsList}
 \label{RotaryManiplex:for IsList, IsList}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ Returns the rotary maniplex with the given Schlafli symbol and with the given
+relations. The relations are given by a string that refers to the generators
+s1, s2, etc. For example: 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;|
+\end{Verbatim}
+ If the option set{\textunderscore}schlafli is set, then we set the Schlafli
+symbol to the one given. This may not be the correct Schlafli symbol, since
+the relations may cause a collapse, so this should only be used if you know
+that the Schlafli symbol is correct. }
 
  
 
 \subsection{\textcolor{Chapter }{EnantiomorphicForm (for IsRotaryManiplex)}}
 \logpage{[ 14, 1, 6 ]}\nobreak
 \hyperdef{L}{X7E64776382984E5A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EnantiomorphicForm({\mdseries\slshape arg})\index{EnantiomorphicForm@\texttt{EnantiomorphicForm}!for IsRotaryManiplex}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EnantiomorphicForm({\mdseries\slshape M})\index{EnantiomorphicForm@\texttt{EnantiomorphicForm}!for IsRotaryManiplex}
 \label{EnantiomorphicForm:for IsRotaryManiplex}
 }\hfill{\scriptsize (operation)}}\\
 
 
- 
-
- }
+ The \emph{enantiomorphic form} of a rotary maniplex is the same maniplex, but where we choose the new base
+flag to be one of the flags that is adjacent to the original base flag. If M
+is reflexible, then this choice has no effect. Otherwise, if M is chiral, then
+the enantiomorphic form gives us a different presentation for the rotation
+group. }
 
  }
 
@@ -3698,7 +3686,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

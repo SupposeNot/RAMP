@@ -353,7 +353,7 @@ Given an edge labeled (multi) graph, it returns another edge labeled graph where
  <Returns><Code>IsGraph</Code>.
 </Returns>
  <Description>
-Given an edge labeled (multi) graph and a list of labels, it returns connected components of the graph using edges in the list of labels. Note if the second argument is not used, it is assumed to be an empty list, and the connected components of the original graph are returned.
+Given an edge labeled (multi) graph and a list of labels, it returns connected components of the graph not using edges in the list of labels. Note if the second argument is not used, it is assumed to be an empty list, and the connected components of the original graph are returned.
  </Description>
 </ManSection>
 

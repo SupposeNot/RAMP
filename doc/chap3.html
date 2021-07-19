@@ -73,7 +73,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7D0AAD597CDE5697">3.5-1 ZigzagLength</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FC09F34870E6CDE">3.5-2 ZigzagVector</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7C4A38D780F6AECD">3.5-3 PetrieLength</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X80E7C3038595F54B">3.5-4 HoleLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X80FF41567B259CC1">3.5-4 HoleLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7EE84DCF7EFC02C6">3.5-5 HoleVector</a></span>
 </div></div>
 </div>
 
@@ -229,7 +230,7 @@
 <h5>3.4-1 Size</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of flags of the maniplex <var class="Arg">M</var>.</p>
+<p>Returns the number of flags of the maniplex <var class="Arg">M</var>. Synonym: <code class="code">NumberOfFlags</code>.</p>
 
 <p><a id="X79C21A557E80B021" name="X79C21A557E80B021"></a></p>
 
@@ -323,11 +324,20 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The length of the petrie polygons of the maniplex <var class="Arg">M</var>.</p>
 
-<p><a id="X80E7C3038595F54B" name="X80E7C3038595F54B"></a></p>
+<p><a id="X80FF41567B259CC1" name="X80FF41567B259CC1"></a></p>
 
 <h5>3.5-4 HoleLength</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of <var class="Arg">j</var>-holes of the 3-maniplex <var class="Arg">M</var>. This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.</p>
+
+<p><a id="X7EE84DCF7EFC02C6" name="X7EE84DCF7EFC02C6"></a></p>
+
+<h5>3.5-5 HoleVector</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>. A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
 

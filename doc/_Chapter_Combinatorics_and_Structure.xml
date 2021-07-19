@@ -188,6 +188,7 @@
   <Attr Arg="M" Name="Size" Label="for IsManiplex"/>
  <Description>
  Returns the number of flags of the maniplex <A>M</A>.
+ Synonym: <Code>NumberOfFlags</Code>.
  </Description>
 </ManSection>
 
@@ -320,7 +321,20 @@
 
 
 <ManSection>
-  <Attr Arg="M" Name="HoleLength" Label="for IsReflexibleManiplex"/>
+  <Oper Arg="M, j" Name="HoleLength" Label="for IsManiplex, IsInt"/>
+ <Returns>The lengths of <A>j</A>-holes of the 3-maniplex <A>M</A>.  This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="HoleVector" Label="for IsManiplex"/>
+ <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.  A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
+  because the j-zigzags are the same as the (q-j)-zigzags.
+</Returns>
  <Description>
 <P/>
  </Description>

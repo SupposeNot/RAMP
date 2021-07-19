@@ -7,20 +7,18 @@
 <Section Label="Chapter_Families_of_Polytopes_Section_Classical_Polytopes">
 <Heading>Classical Polytopes</Heading>
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Vertex" />
  <Description>
-<P/>
+ Returns the universal 0-polytope.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Edge" />
  <Description>
-<P/>
+ Returns the universal 1-polytope.
  </Description>
 </ManSection>
 
@@ -28,7 +26,7 @@
 <ManSection>
   <Oper Arg="p" Name="Pgon" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the p-gon.
  </Description>
 </ManSection>
 
@@ -36,7 +34,7 @@
 <ManSection>
   <Oper Arg="n" Name="Cube" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the n-cube.
  </Description>
 </ManSection>
 
@@ -44,7 +42,7 @@
 <ManSection>
   <Oper Arg="n" Name="HemiCube" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the n-hemi-cube.
  </Description>
 </ManSection>
 
@@ -52,7 +50,7 @@
 <ManSection>
   <Oper Arg="n" Name="CrossPolytope" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the n-cross-polytope.
  </Description>
 </ManSection>
 
@@ -60,7 +58,7 @@
 <ManSection>
   <Oper Arg="n" Name="HemiCrossPolytope" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the n-hemi-cross-polytope.
  </Description>
 </ManSection>
 
@@ -68,7 +66,7 @@
 <ManSection>
   <Oper Arg="n" Name="Simplex" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the n-simplex.
  </Description>
 </ManSection>
 
@@ -76,97 +74,87 @@
 <ManSection>
   <Oper Arg="n" Name="CubicTiling" Label="for IsInt"/>
  <Description>
-<P/>
+ Returns the rank n+1 polytope; the tiling of E^n by n-cubes.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Dodecahedron" />
  <Description>
-<P/>
+ Returns the dodecahedron, {5, 3}.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="HemiDodecahedron" />
  <Description>
-<P/>
+ Returns the hemi-dodecahedron, {5, 3}_5.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Icosahedron" />
  <Description>
-<P/>
+ Returns the icosahedron, {3, 5}.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="HemiIcosahedron" />
  <Description>
-<P/>
+ Returns the hemi-icosahedron, {3, 5}_5.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="24Cell" />
  <Description>
-<P/>
+ Returns the 24-cell, {3, 4, 3}.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Hemi24Cell" />
  <Description>
-<P/>
+ Returns the hemi-24-cell, {3, 4, 3}_6.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="120Cell" />
  <Description>
-<P/>
+ Returns the 120-cell, {5, 3, 3}.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Hemi120Cell" />
  <Description>
-<P/>
+ Returns the hemi-120-cell, {5, 3, 3}_15.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="600Cell" />
  <Description>
-<P/>
+ Returns the 600-cell, {3, 3, 5}.
  </Description>
 </ManSection>
 
 
-<P/>
 <ManSection>
   <Oper Arg="" Name="Hemi600Cell" />
  <Description>
-<P/>
+ Returns the hemi-600-cell, {3, 3, 5}_15.
  </Description>
 </ManSection>
 
