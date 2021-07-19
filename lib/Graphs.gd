@@ -319,3 +319,9 @@ DeclareOperation("PRGraph",[IsGroup]);
 #! gamma:=PRGraph(G2);
 #! @EndExampleSession
 
+
+#! @Arguments group, subgroup
+#! @Returns `IsEdgeLabeledGraph`. 
+#! @Description Given a group and a subgroup.  Returns the graph of the action of the first group on cosets of the subgroup.
+DeclareOperation("CPRGraphFromGroups",[IsGroup,IsGroup]);
+
