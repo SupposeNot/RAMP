@@ -154,7 +154,7 @@ InstallMethod(ReflexibleManiplex,
 	elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
 		return CrossPolytope(n);
 	elif sym[1] = 4 and sym[n-1] = 4 and ForAll(sym{[2..n-2]}, i -> i = 3) then
-		return CubicTiling(n);
+		return CubicTiling(n-1);
 	elif sym = [3,5] then
 		return Icosahedron();
 	elif sym = [5,3] then
