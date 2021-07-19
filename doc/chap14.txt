@@ -32,34 +32,3 @@
   
   [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3Xarg[103X ) [32X operation[133X
   
-  
-  [1X14.2 [33X[0;0Yramp automatic generated documentation of global functions[133X[101X
-  
-  [1X14.2-1 AbstractPolytope[101X
-  
-  [33X[1;0Y[29X[2XAbstractPolytope[102X( [3Xargs[103X ) [32X function[133X
-  
-  [33X[0;0YCalls [10XManiplex(args)[110X and marks the output as polytopal.[133X
-  
-  [1X14.2-2 AbstractRegularPolytope[101X
-  
-  [33X[1;0Y[29X[2XAbstractRegularPolytope[102X( [3Xargs[103X ) [32X function[133X
-  
-  [33X[0;0YCalls  [10XReflexibleManiplex(args)[110X  and  marks  the  output  as polytopal. Also
-  available as [10XARP(args)[110X.[133X
-  
-  [1X14.2-3 AbstractRotaryPolytope[101X
-  
-  [33X[1;0Y[29X[2XAbstractRotaryPolytope[102X( [3Xargs[103X ) [32X function[133X
-  
-  [33X[0;0YCalls [10XRotaryManiplex(args)[110X and marks the output as polytopal.[133X
-  
-  [1X14.2-4 AddOrAppend[101X
-  
-  [33X[1;0Y[29X[2XAddOrAppend[102X( [3XL[103X, [3Xx[103X ) [32X function[133X
-  
-  [33X[0;0YGiven  a  list  [3XL[103X  and  an object [3Xx[103X, this calls Append(L, x) if x is a list;
-  otherwise  it  calls  Add(L,  x).  Note  that  since  strings are internally
-  represented  as lists, AddOrAppend(L, "foo") will append the characters 'f',
-  'o', 'o'.[133X
-  

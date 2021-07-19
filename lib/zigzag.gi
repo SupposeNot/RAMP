@@ -89,10 +89,57 @@ InstallMethod(PetrieLength,
 	
 	
 InstallMethod(HoleLength,
-	[IsReflexibleManiplex],
-	function(p)
-	local g;
-	g := AutomorphismGroup(p);
-	return Order(g.1*g.2*g.3*g.2);
+	[IsReflexibleManiplex, IsInt],
+	function(M, j)
+	local G;
+	if Rank(M) <> 3 then
+		Error("j-holes are only defined for 3-maniplexes.\n");
+	fi;
+	
+	# This is probably faster to compute with a permutation group if we
+	# have it. If not, then just use what we have.
+	if HasAutomorphismGroupPermGroup(M) then
+		G := AutomorphismGroupPermGroup(M);
+	else
+		G := AutomorphismGroup(M);
+	fi;
+	return Order(G.1 * (G.2 * G.3)^(j-1) * G.2);
+	end);
+	
+InstallMethod(HoleLength,
+	[IsManiplex, IsInt],
+	function(M, j)
+	local G, hole, hgp, orbs;
+	if Rank(M) <> 3 then
+		Error("j-holes are only defined for 3-maniplexes.\n");
+	fi;
+
+	G := ConnectionGroup(M);
+	hole := G.1 * (G.2 * G.3)^(j-1) * G.2;
+	hgp := Subgroup(G, [hole]);
+	orbs := Set(OrbitLengths(hgp));
+	
+	if Size(orbs) = 1 then
+		return orbs[1];
+	else
+		return orbs;
+	fi;
+	end);
+	
+InstallMethod(HoleVector,
+	[IsManiplex],
+	function(M)
+	local lens, k, q;
+	if Rank(M) <> 3 then
+		Error("hole vectors are only defined for 3-maniplexes.\n");
+	fi;
+	if IsInt(SchlafliSymbol(M)[2]) then
+		q := SchlafliSymbol(M)[2];
+	else
+		q := Maximum(SchlafliSymbol(M)[2]);
+	fi;
+	k := Int((q+1) / 2);
+	lens := List([2..k], i -> HoleLength(M, i));
+	return lens;
 	end);
 	

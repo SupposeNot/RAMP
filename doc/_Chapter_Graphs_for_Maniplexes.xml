@@ -384,6 +384,16 @@ gamma:=PRGraph(G2);
 ]]></Example>
 
 
+<ManSection>
+  <Oper Arg="group, subgroup" Name="CPRGraphFromGroups" Label="for IsGroup,IsGroup"/>
+ <Returns><Code>IsEdgeLabeledGraph</Code>.
+</Returns>
+ <Description>
+Given a group and a subgroup. Returns the graph of the action of the first group on cosets of the subgroup.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

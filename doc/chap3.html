@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 3: Databases</title>
+<title>GAP (RAMP) - Chapter 3: Combinatorics and Structure</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,61 +15,324 @@
 <body class="chap3"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap3_mj.html">[MathJax on]</a></p>
-<p><a id="X7EB183C3780A475B" name="X7EB183C3780A475B"></a></p>
-<div class="ChapSects"><a href="chap3.html#X7EB183C3780A475B">3 <span class="Heading">Databases</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X8062E376879531A7">3.1 <span class="Heading">Regular polyhedra</span></a>
+<p><a id="X8153E7658330D710" name="X8153E7658330D710"></a></p>
+<div class="ChapSects"><a href="chap3.html#X8153E7658330D710">3 <span class="Heading">Combinatorics and Structure</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X872AD1E785C7EB03">3.1 <span class="Heading">Faces</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X856D5CE8798775FE">3.1-1 DegeneratePolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X82DC20587F569351">3.1-2 FlatRegularPolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7BF512FB7EA9F274">3.1-3 SmallRegularPolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86085A967E396035">3.1-1 NumberOfIFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7C126944873D2461">3.1-2 NumberOfVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86CDC9B38792B038">3.1-3 NumberOfEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7DE9F1057B309554">3.1-4 NumberOfFacets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7C5446247FD63F28">3.1-5 NumberOfRidges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X816A47B879737629">3.1-6 Fvector</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7CDDC432804AF30B">3.1-7 Section</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7F11B08F7D74DBF1">3.1-8 Section</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X80D7EF0E7A838F19">3.1-9 Sections</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78D48A797A8A981C">3.1-10 Facets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X844C665A82993B2D">3.1-11 Facet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86F8A85C83C04F3B">3.1-12 Facet</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FB4AE2779695BB4">3.1-13 VertexFigures</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78A494BA79FE90C5">3.1-14 VertexFigure</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7B18EFD87B76AF0E">3.1-15 VertexFigure</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X877E841E7FBCEAAE">3.2 <span class="Heading">Flatness</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7D54E1CF809FEB0E">3.2-1 <span class="Heading">IsFlat</span></a>
+</span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X8052D0A68676A82C">3.3 <span class="Heading">Schlafli symbol</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FA0B161838A442A">3.3-1 SchlafliSymbol</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7E9CCE9D794DC285">3.3-2 IsEquivelar</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X868F7BAB7AC2EEBC">3.4 <span class="Heading">Basics</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7C2ADC507F19E2E3">3.4-1 Size</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X79C21A557E80B021">3.4-2 RankManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X851696FD81A25FF7">3.4-3 IsTight</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8483BE798579B521">3.4-4 IsDegenerate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X856ED1E7866152A0">3.4-5 SymmetryTypeGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X78060E3A788D2D3C">3.4-6 NumberOfFlagOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X852C679D8338AB53">3.4-7 FlagOrbitRepresentatives</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7E4E689F86171C78">3.4-8 IsReflexible</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7D74CD997C7FF39D">3.4-9 IsChiral</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7DACFE5483893523">3.4-10 IsRotary</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X780FC00678185849">3.5 <span class="Heading">Zigzags and holes</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7D0AAD597CDE5697">3.5-1 ZigzagLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FC09F34870E6CDE">3.5-2 ZigzagVector</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7C4A38D780F6AECD">3.5-3 PetrieLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X80E7C3038595F54B">3.5-4 HoleLength</a></span>
 </div></div>
 </div>
 
-<h3>3 <span class="Heading">Databases</span></h3>
+<h3>3 <span class="Heading">Combinatorics and Structure</span></h3>
 
-<p><a id="X8062E376879531A7" name="X8062E376879531A7"></a></p>
+<p><a id="X872AD1E785C7EB03" name="X872AD1E785C7EB03"></a></p>
 
-<h4>3.1 <span class="Heading">Regular polyhedra</span></h4>
+<h4>3.1 <span class="Heading">Faces</span></h4>
 
-<p><a id="X856D5CE8798775FE" name="X856D5CE8798775FE"></a></p>
+<p><a id="X86085A967E396035" name="X86085A967E396035"></a></p>
 
-<h5>3.1-1 DegeneratePolyhedra</h5>
+<h5>3.1-1 NumberOfIFaces</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DegeneratePolyhedra</code>( <var class="Arg">maxsize</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns all degenerate polyhedra (of type {2, q} and {p, 2}) with up to <var class="Arg">maxsize</var> flags.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfIFaces</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns The number of <var class="Arg">i</var>-faces of <var class="Arg">M</var>.</p>
 
-<p><a id="X82DC20587F569351" name="X82DC20587F569351"></a></p>
+<p><a id="X7C126944873D2461" name="X7C126944873D2461"></a></p>
 
-<h5>3.1-2 FlatRegularPolyhedra</h5>
+<h5>3.1-2 NumberOfVertices</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedra</code>( <var class="Arg">maxsize</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns all nondegenerate flat regular polyhedra with up to <var class="Arg">maxsize</var> flags. Currently supports a maxsize of 4000 or less.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfVertices</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of vertices of <var class="Arg">M</var>.</p>
 
-<p><a id="X7BF512FB7EA9F274" name="X7BF512FB7EA9F274"></a></p>
+<p><a id="X86CDC9B38792B038" name="X86CDC9B38792B038"></a></p>
 
-<h5>3.1-3 SmallRegularPolyhedra</h5>
+<h5>3.1-3 NumberOfEdges</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegularPolyhedra</code>( <var class="Arg">maxsize</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns all regular polyhedra with up to <var class="Arg">maxsize</var> flags. Currently supports a maxsize of 4000 or less. You can also set options "nondegenerate" and "nonflat".</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfEdges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of edges of <var class="Arg">M</var>.</p>
 
+<p><a id="X7DE9F1057B309554" name="X7DE9F1057B309554"></a></p>
 
-<div class="example"><pre>
-L1 := SmallRegularPolyhedra(500);;
-L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
-L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
-</pre></div>
+<h5>3.1-4 NumberOfFacets</h5>
 
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFacets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of facets of <var class="Arg">M</var>.</p>
+
+<p><a id="X7C5446247FD63F28" name="X7C5446247FD63F28"></a></p>
+
+<h5>3.1-5 NumberOfRidges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfRidges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of ridges ((n-2)-faces) of <var class="Arg">M</var>.</p>
+
+<p><a id="X816A47B879737629" name="X816A47B879737629"></a></p>
+
+<h5>3.1-6 Fvector</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Fvector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the f-vector of <var class="Arg">M</var>.</p>
+
+<p><a id="X7CDDC432804AF30B" name="X7CDDC432804AF30B"></a></p>
+
+<h5>3.1-7 Section</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the section F_j / F_i, where F_j is the j-face of the base flag of <var class="Arg">M</var> and F_i is the i-face of the base flag.</p>
+
+<p><a id="X7F11B08F7D74DBF1" name="X7F11B08F7D74DBF1"></a></p>
+
+<h5>3.1-8 Section</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the section F_j / F_i, where F_j is the j-face of flag number <var class="Arg">k</var> of <var class="Arg">M</var> and F_i is the i-face of the same flag.</p>
+
+<p><a id="X80D7EF0E7A838F19" name="X80D7EF0E7A838F19"></a></p>
+
+<h5>3.1-9 Sections</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sections</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.</p>
+
+<p><a id="X78D48A797A8A981C" name="X78D48A797A8A981C"></a></p>
+
+<h5>3.1-10 Facets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the facet-types of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the facets).</p>
+
+<p><a id="X844C665A82993B2D" name="X844C665A82993B2D"></a></p>
+
+<h5>3.1-11 Facet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the facet of <var class="Arg">M</var> that contains the flag number <var class="Arg">k</var> (that is, the maniplex corresponding to the facet).</p>
+
+<p><a id="X86F8A85C83C04F3B" name="X86F8A85C83C04F3B"></a></p>
+
+<h5>3.1-12 Facet</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the facet of <var class="Arg">M</var> that contains flag number 1 (that is, the maniplex corresponding to the facet).</p>
+
+<p><a id="X7FB4AE2779695BB4" name="X7FB4AE2779695BB4"></a></p>
+
+<h5>3.1-13 VertexFigures</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigures</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the types of vertex-figures of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the vertex-figures).</p>
+
+<p><a id="X78A494BA79FE90C5" name="X78A494BA79FE90C5"></a></p>
+
+<h5>3.1-14 VertexFigure</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the vertex-figures of <var class="Arg">M</var> that contains flag number <var class="Arg">k</var>.</p>
+
+<p><a id="X7B18EFD87B76AF0E" name="X7B18EFD87B76AF0E"></a></p>
+
+<h5>3.1-15 VertexFigure</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the vertex-figures of <var class="Arg">M</var> that contains the base flag.</p>
+
+<p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
+
+<h4>3.2 <span class="Heading">Flatness</span></h4>
+
+<p><a id="X7D54E1CF809FEB0E" name="X7D54E1CF809FEB0E"></a></p>
+
+<h5>3.2-1 <span class="Heading">IsFlat</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>In the first form, returns true if every vertex of the maniplex <var class="Arg">M</var> is incident to every facet. In the second form, returns true if every i-face of the maniplex <var class="Arg">M</var> is incident to every j-face.</p>
+
+<p><a id="X8052D0A68676A82C" name="X8052D0A68676A82C"></a></p>
+
+<h4>3.3 <span class="Heading">Schlafli symbol</span></h4>
+
+<p><a id="X7FA0B161838A442A" name="X7FA0B161838A442A"></a></p>
+
+<h5>3.3-1 SchlafliSymbol</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the Schlafli symbol of the maniplex <var class="Arg">M</var>. Each entry is either an integer or a set of integers, where entry number i shows the polygons that we obtain as sections of (i+1)-faces over (i-2)-faces.</p>
+
+<p><a id="X7E9CCE9D794DC285" name="X7E9CCE9D794DC285"></a></p>
+
+<h5>3.3-2 IsEquivelar</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivelar</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: the the maniplex <var class="Arg">M</var> is equivelar; i.e., whether its Schlafli Symbol consists of integers at each position (no lists).</p>
+
+<p><a id="X868F7BAB7AC2EEBC" name="X868F7BAB7AC2EEBC"></a></p>
+
+<h4>3.4 <span class="Heading">Basics</span></h4>
+
+<p><a id="X7C2ADC507F19E2E3" name="X7C2ADC507F19E2E3"></a></p>
+
+<h5>3.4-1 Size</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of flags of the maniplex <var class="Arg">M</var>.</p>
+
+<p><a id="X79C21A557E80B021" name="X79C21A557E80B021"></a></p>
+
+<h5>3.4-2 RankManiplex</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankManiplex</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the rank of the maniplex <var class="Arg">M</var>.</p>
+
+<p><a id="X851696FD81A25FF7" name="X851696FD81A25FF7"></a></p>
+
+<h5>3.4-3 IsTight</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
+
+<p><a id="X8483BE798579B521" name="X8483BE798579B521"></a></p>
+
+<h5>3.4-4 IsDegenerate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
+
+<p><a id="X856ED1E7866152A0" name="X856ED1E7866152A0"></a></p>
+
+<h5>3.4-5 SymmetryTypeGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var>, encoded as a permutation group on Rank(<var class="Arg">M</var>) generators.</p>
+
+<p><a id="X78060E3A788D2D3C" name="X78060E3A788D2D3C"></a></p>
+
+<h5>3.4-6 NumberOfFlagOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
+
+<p><a id="X852C679D8338AB53" name="X852C679D8338AB53"></a></p>
+
+<h5>3.4-7 FlagOrbitRepresentatives</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+<p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
+
+<h5>3.4-8 IsReflexible</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
+
+<p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
+
+<h5>3.4-9 IsChiral</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is chrial.</p>
+
+<p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
+
+<h5>3.4-10 IsRotary</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
+
+<p><a id="X780FC00678185849" name="X780FC00678185849"></a></p>
+
+<h4>3.5 <span class="Heading">Zigzags and holes</span></h4>
+
+<p><a id="X7D0AAD597CDE5697" name="X7D0AAD597CDE5697"></a></p>
+
+<h5>3.5-1 ZigzagLength</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of <var class="Arg">j</var>-zigzags of the 3-maniplex <var class="Arg">M</var>. This corresponds to the lengths of orbits under r0 (r1 r2)^j.</p>
+
+<p><a id="X7FC09F34870E6CDE" name="X7FC09F34870E6CDE"></a></p>
+
+<h5>3.5-2 ZigzagVector</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>. A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+
+<p><a id="X7C4A38D780F6AECD" name="X7C4A38D780F6AECD"></a></p>
+
+<h5>3.5-3 PetrieLength</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The length of the petrie polygons of the maniplex <var class="Arg">M</var>.</p>
+
+<p><a id="X80E7C3038595F54B" name="X80E7C3038595F54B"></a></p>
+
+<h5>3.5-4 HoleLength</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

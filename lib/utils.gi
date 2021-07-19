@@ -87,15 +87,18 @@ InstallGlobalFunction(ParseStringCRels,
 	# For polyhedra, zj = r0 (r1 r2)^j.
 	# For now, we just replace z1.
 	# TODO: Handle z2 etc and higher rank.
-	rels := ReplacedString(rels, "z1", "(r0 r1 r2)");
-	rels := ReplacedString(rels, "z2", "(r0 (r1 r2)^2)");
-	rels := ReplacedString(rels, "z3", "(r0 (r1 r2)^3)");
-
-	rels := ReplacedString(rels, "Z3", "(r2 (r1 r0)^3)");
-
-
-	rels := ReplacedString(rels, "h2", "(r0 r1 r2 r1)");
-
+	i := 1;
+	while 'z' in rels do
+		rels := ReplacedString(rels, Concatenation("z", String(i)), Concatenation("(r0 (r1 r2)^", String(i), ")"));
+		i := i + 1;
+	od;
+	
+	i := 2;
+	while 'h' in rels do
+		rels := ReplacedString(rels, Concatenation("h", String(i)), Concatenation("(r0 r1 (r2 r1)^", String(i-1), ")"));
+		i := i + 1;
+	od;
+	
 	old_names := List([0..n-1], i -> Concatenation("r", String(i)));
 	new_names := ["a","b","c","d","e","f","g","h","i"]{[1..n]};
 	for i in [1..n] do

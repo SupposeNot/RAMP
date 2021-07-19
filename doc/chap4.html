@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 4: Combinatorics and Structure</title>
+<title>GAP (RAMP) - Chapter 4: Constructions</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,324 +15,176 @@
 <body class="chap4"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap5.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap4_mj.html">[MathJax on]</a></p>
-<p><a id="X8153E7658330D710" name="X8153E7658330D710"></a></p>
-<div class="ChapSects"><a href="chap4.html#X8153E7658330D710">4 <span class="Heading">Combinatorics and Structure</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X872AD1E785C7EB03">4.1 <span class="Heading">Faces</span></a>
+<p><a id="X836F56D77AA04554" name="X836F56D77AA04554"></a></p>
+<div class="ChapSects"><a href="chap4.html#X836F56D77AA04554">4 <span class="Heading">Constructions</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X871C2D73829F1FC1">4.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X86085A967E396035">4.1-1 NumberOfIFaces</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7C126944873D2461">4.1-2 NumberOfVertices</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X86CDC9B38792B038">4.1-3 NumberOfEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7DE9F1057B309554">4.1-4 NumberOfFacets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7C5446247FD63F28">4.1-5 NumberOfRidges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X816A47B879737629">4.1-6 Fvector</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7CDDC432804AF30B">4.1-7 Section</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7F11B08F7D74DBF1">4.1-8 Section</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X80D7EF0E7A838F19">4.1-9 Sections</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X78D48A797A8A981C">4.1-10 Facets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X844C665A82993B2D">4.1-11 Facet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X86F8A85C83C04F3B">4.1-12 Facet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7FB4AE2779695BB4">4.1-13 VertexFigures</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X78A494BA79FE90C5">4.1-14 VertexFigure</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7B18EFD87B76AF0E">4.1-15 VertexFigure</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X808AEA5281D52911">4.1-1 UniversalPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X800E07C686CF3EA7">4.1-2 FlatRegularPolyhedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8582D0CF7EA1CB34">4.1-3 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X78B4610E7DE67E32">4.1-4 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X84BB6B21853173FD">4.1-5 TrivialExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7A5853E278A83D74">4.1-6 FlatExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X790F22D47CD222EB">4.1-7 Amalgamate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X840BC19484E0E9CC">4.1-8 Medial</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X877E841E7FBCEAAE">4.2 <span class="Heading">Flatness</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X87FD993F7F6F2FAB">4.2 <span class="Heading">Duality</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D54E1CF809FEB0E">4.2-1 <span class="Heading">IsFlat</span></a>
-</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D62BD3E7F941F5B">4.2-1 Dual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7FF8B96C83DA60CB">4.2-2 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E6D0732862D6BA3">4.2-3 Petrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X78FDB0047E3388A5">4.2-4 IsSelfPetrial</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X8052D0A68676A82C">4.3 <span class="Heading">Schlafli symbol</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X86CE352C7851221F">4.3 <span class="Heading">Products</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7FA0B161838A442A">4.3-1 SchlafliSymbol</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E9CCE9D794DC285">4.3-2 IsEquivelar</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X868F7BAB7AC2EEBC">4.4 <span class="Heading">Basics</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7C2ADC507F19E2E3">4.4-1 Size</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X79C21A557E80B021">4.4-2 RankManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X851696FD81A25FF7">4.4-3 IsTight</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8483BE798579B521">4.4-4 IsDegenerate</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X856ED1E7866152A0">4.4-5 SymmetryTypeGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X78060E3A788D2D3C">4.4-6 NumberOfFlagOrbits</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X852C679D8338AB53">4.4-7 FlagOrbitRepresentatives</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E4E689F86171C78">4.4-8 IsReflexible</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D74CD997C7FF39D">4.4-9 IsChiral</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7DACFE5483893523">4.4-10 IsRotary</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X780FC00678185849">4.5 <span class="Heading">Zigzags and holes</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D0AAD597CDE5697">4.5-1 ZigzagLength</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7FC09F34870E6CDE">4.5-2 ZigzagVector</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7C4A38D780F6AECD">4.5-3 PetrieLength</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X80E7C3038595F54B">4.5-4 HoleLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X80A4156A8423CAF8">4.3-1 PyramidOver</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X80EEFF7F7FE1B752">4.3-2 Pyramid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7C7D6F558335CFD0">4.3-3 PrismOver</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X86E5C03286E992CA">4.3-4 Prism</a></span>
 </div></div>
 </div>
 
-<h3>4 <span class="Heading">Combinatorics and Structure</span></h3>
+<h3>4 <span class="Heading">Constructions</span></h3>
 
-<p><a id="X872AD1E785C7EB03" name="X872AD1E785C7EB03"></a></p>
+<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
 
-<h4>4.1 <span class="Heading">Faces</span></h4>
+<h4>4.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
 
-<p><a id="X86085A967E396035" name="X86085A967E396035"></a></p>
+<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
 
-<h5>4.1-1 NumberOfIFaces</h5>
+<h5>4.1-1 UniversalPolytope</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfIFaces</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns The number of <var class="Arg">i</var>-faces of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal polytope of rank <var class="Arg">n</var>.</p>
 
-<p><a id="X7C126944873D2461" name="X7C126944873D2461"></a></p>
+<p><a id="X800E07C686CF3EA7" name="X800E07C686CF3EA7"></a></p>
 
-<h5>4.1-2 NumberOfVertices</h5>
+<h5>4.1-2 FlatRegularPolyhedron</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfVertices</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of vertices of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedron</code>( <var class="Arg">p</var>, <var class="Arg">q</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the flat regular polyhedron with automorphism group [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function does not currently validate the inputs to make sure that the output makes sense.</p>
 
-<p><a id="X86CDC9B38792B038" name="X86CDC9B38792B038"></a></p>
+<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
 
-<h5>4.1-3 NumberOfEdges</h5>
+<h5>4.1-3 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfEdges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of edges of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
 
-<p><a id="X7DE9F1057B309554" name="X7DE9F1057B309554"></a></p>
+<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
 
-<h5>4.1-4 NumberOfFacets</h5>
+<h5>4.1-4 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFacets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of facets of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
 
-<p><a id="X7C5446247FD63F28" name="X7C5446247FD63F28"></a></p>
+<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
 
-<h5>4.1-5 NumberOfRidges</h5>
+<h5>4.1-5 TrivialExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfRidges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of ridges ((n-2)-faces) of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M/</var>, 2}.</p>
 
-<p><a id="X816A47B879737629" name="X816A47B879737629"></a></p>
+<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
 
-<h5>4.1-6 Fvector</h5>
+<h5>4.1-6 FlatExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Fvector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the f-vector of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in "Flat Extensions of Abstract Polytopes".) Currently only defined for reflexible maniplexes.</p>
 
-<p><a id="X7CDDC432804AF30B" name="X7CDDC432804AF30B"></a></p>
+<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
 
-<h5>4.1-7 Section</h5>
+<h5>4.1-7 Amalgamate</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the section F_j / F_i, where F_j is the j-face of the base flag of <var class="Arg">M</var> and F_i is the i-face of the base flag.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
 
-<p><a id="X7F11B08F7D74DBF1" name="X7F11B08F7D74DBF1"></a></p>
+<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
 
-<h5>4.1-8 Section</h5>
+<h5>4.1-8 Medial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the section F_j / F_i, where F_j is the j-face of flag number <var class="Arg">k</var> of <var class="Arg">M</var> and F_i is the i-face of the same flag.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
 
-<p><a id="X80D7EF0E7A838F19" name="X80D7EF0E7A838F19"></a></p>
+<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
 
-<h5>4.1-9 Sections</h5>
+<h4>4.2 <span class="Heading">Duality</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sections</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.</p>
+<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
 
-<p><a id="X78D48A797A8A981C" name="X78D48A797A8A981C"></a></p>
+<h5>4.2-1 Dual</h5>
 
-<h5>4.1-10 Facets</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the facet-types of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the facets).</p>
+<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
 
-<p><a id="X844C665A82993B2D" name="X844C665A82993B2D"></a></p>
+<h5>4.2-2 IsSelfDual</h5>
 
-<h5>4.1-11 Facet</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this polytope is isomorphic to its dual.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the facet of <var class="Arg">M</var> that contains the flag number <var class="Arg">k</var> (that is, the maniplex corresponding to the facet).</p>
+<p>Also works for IsPoset objects.</p>
 
-<p><a id="X86F8A85C83C04F3B" name="X86F8A85C83C04F3B"></a></p>
+<p><a id="X7E6D0732862D6BA3" name="X7E6D0732862D6BA3"></a></p>
 
-<h5>4.1-12 Facet</h5>
+<h5>4.2-3 Petrial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the facet of <var class="Arg">M</var> that contains flag number 1 (that is, the maniplex corresponding to the facet).</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Petrial (Petrie dual) of <var class="Arg">P</var>. Note that this is not necessarily a polytope.</p>
 
-<p><a id="X7FB4AE2779695BB4" name="X7FB4AE2779695BB4"></a></p>
+<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
-<h5>4.1-13 VertexFigures</h5>
+<h5>4.2-4 IsSelfPetrial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigures</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the types of vertex-figures of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the vertex-figures).</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this polytope is isomorphic to its Petrial.</p>
 
-<p><a id="X78A494BA79FE90C5" name="X78A494BA79FE90C5"></a></p>
+<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
 
-<h5>4.1-14 VertexFigure</h5>
+<h4>4.3 <span class="Heading">Products</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the vertex-figures of <var class="Arg">M</var> that contains flag number <var class="Arg">k</var>.</p>
+<p><a id="X80A4156A8423CAF8" name="X80A4156A8423CAF8"></a></p>
 
-<p><a id="X7B18EFD87B76AF0E" name="X7B18EFD87B76AF0E"></a></p>
+<h5>4.3-1 PyramidOver</h5>
 
-<h5>4.1-15 VertexFigure</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PyramidOver</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over <var class="Arg">M</var>.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the vertex-figures of <var class="Arg">M</var> that contains the base flag.</p>
+<p><a id="X80EEFF7F7FE1B752" name="X80EEFF7F7FE1B752"></a></p>
 
-<p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
+<h5>4.3-2 Pyramid</h5>
 
-<h4>4.2 <span class="Heading">Flatness</span></h4>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
 
-<p><a id="X7D54E1CF809FEB0E" name="X7D54E1CF809FEB0E"></a></p>
+<p><a id="X7C7D6F558335CFD0" name="X7C7D6F558335CFD0"></a></p>
 
-<h5>4.2-1 <span class="Heading">IsFlat</span></h5>
+<h5>4.3-3 PrismOver</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrismOver</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over <var class="Arg">M</var>.</p>
 
-<p>In the first form, returns true if every vertex of the maniplex <var class="Arg">M</var> is incident to every facet. In the second form, returns true if every i-face of the maniplex <var class="Arg">M</var> is incident to every j-face.</p>
+<p><a id="X86E5C03286E992CA" name="X86E5C03286E992CA"></a></p>
 
-<p><a id="X8052D0A68676A82C" name="X8052D0A68676A82C"></a></p>
+<h5>4.3-4 Prism</h5>
 
-<h4>4.3 <span class="Heading">Schlafli symbol</span></h4>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over a <var class="Arg">k</var>-gon.</p>
 
-<p><a id="X7FA0B161838A442A" name="X7FA0B161838A442A"></a></p>
-
-<h5>4.3-1 SchlafliSymbol</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the Schlafli symbol of the maniplex <var class="Arg">M</var>. Each entry is either an integer or a set of integers, where entry number i shows the polygons that we obtain as sections of (i+1)-faces over (i-2)-faces.</p>
-
-<p><a id="X7E9CCE9D794DC285" name="X7E9CCE9D794DC285"></a></p>
-
-<h5>4.3-2 IsEquivelar</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivelar</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: the the maniplex <var class="Arg">M</var> is equivelar; i.e., whether its Schlafli Symbol consists of integers at each position (no lists).</p>
-
-<p><a id="X868F7BAB7AC2EEBC" name="X868F7BAB7AC2EEBC"></a></p>
-
-<h4>4.4 <span class="Heading">Basics</span></h4>
-
-<p><a id="X7C2ADC507F19E2E3" name="X7C2ADC507F19E2E3"></a></p>
-
-<h5>4.4-1 Size</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of flags of the maniplex <var class="Arg">M</var>.</p>
-
-<p><a id="X79C21A557E80B021" name="X79C21A557E80B021"></a></p>
-
-<h5>4.4-2 RankManiplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankManiplex</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the rank of the maniplex <var class="Arg">M</var>.</p>
-
-<p><a id="X851696FD81A25FF7" name="X851696FD81A25FF7"></a></p>
-
-<h5>4.4-3 IsTight</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
-
-<p><a id="X8483BE798579B521" name="X8483BE798579B521"></a></p>
-
-<h5>4.4-4 IsDegenerate</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
-
-<p><a id="X856ED1E7866152A0" name="X856ED1E7866152A0"></a></p>
-
-<h5>4.4-5 SymmetryTypeGraph</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var>, encoded as a permutation group on Rank(<var class="Arg">M</var>) generators.</p>
-
-<p><a id="X78060E3A788D2D3C" name="X78060E3A788D2D3C"></a></p>
-
-<h5>4.4-6 NumberOfFlagOrbits</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
-
-<p><a id="X852C679D8338AB53" name="X852C679D8338AB53"></a></p>
-
-<h5>4.4-7 FlagOrbitRepresentatives</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
-
-<p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
-
-<h5>4.4-8 IsReflexible</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
-
-<p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
-
-<h5>4.4-9 IsChiral</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the maniplex <var class="Arg">M</var> is chrial.</p>
-
-<p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
-
-<h5>4.4-10 IsRotary</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
-
-<p><a id="X780FC00678185849" name="X780FC00678185849"></a></p>
-
-<h4>4.5 <span class="Heading">Zigzags and holes</span></h4>
-
-<p><a id="X7D0AAD597CDE5697" name="X7D0AAD597CDE5697"></a></p>
-
-<h5>4.5-1 ZigzagLength</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of <var class="Arg">j</var>-zigzags of the 3-maniplex <var class="Arg">M</var>. This corresponds to the lengths of orbits under r0 (r1 r2)^j.</p>
-
-<p><a id="X7FC09F34870E6CDE" name="X7FC09F34870E6CDE"></a></p>
-
-<h5>4.5-2 ZigzagVector</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>. A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
-
-<p><a id="X7C4A38D780F6AECD" name="X7C4A38D780F6AECD"></a></p>
-
-<h5>4.5-3 PetrieLength</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The length of the petrie polygons of the maniplex <var class="Arg">M</var>.</p>
-
-<p><a id="X80E7C3038595F54B" name="X80E7C3038595F54B"></a></p>
-
-<h5>4.5-4 HoleLength</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap5.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

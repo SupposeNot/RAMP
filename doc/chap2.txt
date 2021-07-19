@@ -1,115 +1,87 @@
   
-  [1X2 [33X[0;0YConstructions[133X[101X
+  [1X2 [33X[0;0YBasics[133X[101X
   
   
-  [1X2.1 [33X[0;0YExtensions, amalgamations, and quotients[133X[101X
-  
-  [1X2.1-1 UniversalPolytope[101X
-  
-  [33X[1;0Y[29X[2XUniversalPolytope[102X( [3Xn[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the universal polytope of rank [3Xn[103X.[133X
-  
-  [1X2.1-2 FlatRegularPolyhedron[101X
-  
-  [33X[1;0Y[29X[2XFlatRegularPolyhedron[102X( [3Xp[103X, [3Xq[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the flat regular polyhedron with automorphism group [p, q] / (r2 r1
-  r0  r1 = (r0 r1)^i (r1 r2)^j). This function does not currently validate the
-  inputs to make sure that the output makes sense.[133X
-  
-  [1X2.1-3 UniversalExtension[101X
-  
-  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  universal  extension  of  [3XM[103X,  i.e.  the  maniplex  with facets
-  isomorphic  to  [3XM[103X that covers all other maniplexes with facets isomorphic to
-  [3XM[103X. Currently only defined for reflexible maniplexes.[133X
-  
-  [1X2.1-4 UniversalExtension[101X
-  
-  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  universal extension of [3XM[103X with last entry of Schlafli symbol [3Xk[103X.
-  Currently only defined for reflexible maniplexes.[133X
-  
-  [1X2.1-5 TrivialExtension[101X
-  
-  [33X[1;0Y[29X[2XTrivialExtension[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the trivial extension of [3XM[103X, also known as {[3XM/[103X, 2}.[133X
-  
-  [1X2.1-6 FlatExtension[101X
-  
-  [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  flat  extension of [3XM[103X with last entry of Schlafli symbol [3Xk[103X. (As
-  defined  in "Flat Extensions of Abstract Polytopes".) Currently only defined
-  for reflexible maniplexes.[133X
-  
-  [1X2.1-7 Amalgamate[101X
-  
-  [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X are
-  compatible. Currently only defined for reflexible maniplexes.[133X
-  
-  [1X2.1-8 Medial[101X
-  
-  [33X[1;0Y[29X[2XMedial[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven a 3-maniplex [3XM[103X, returns its medial.[133X
+  [1X2.1 [33X[0;0YConstructors[133X[101X
   
   
-  [1X2.2 [33X[0;0YDuality[133X[101X
+  [1X2.1-1 [33X[0;0YUniversalSggi[133X[101X
   
-  [1X2.2-1 Dual[101X
+  [33X[1;0Y[29X[2XUniversalSggi[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XUniversalSggi[102X( [3Xsym[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe maniplex that is dual to [3XM[103X.[133X
+  [33X[0;0YIn  the  first  form,  returns the universal Coxeter Group of rank n. In the
+  second form, returns the Coxeter Group with Schlafli symbol sym.[133X
   
-  [1X2.2-2 IsSelfDual[101X
+  [1X2.1-2 ReflexibleManiplex[101X
   
-  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its dual.[133X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
   
-  [33X[0;0YAlso works for IsPoset objects.[133X
+  [33X[0;0YGiven  a  group  g  (which should be a string C-group), returns the abstract
+  regular   polytope  with  that  automorphism  group,  where  the  privileged
+  generators are those returned by GeneratorsOfGroup(g).[133X
   
-  [1X2.2-3 Petrial[101X
+  [1X2.1-3 ReflexibleManiplex[101X
   
-  [33X[1;0Y[29X[2XPetrial[102X( [3XP[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XP[103X. Note that this is not necessarily
-            a polytope.[133X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsymbol[103X, [3Xrelations[103X ) [32X operation[133X
   
-  [1X2.2-4 IsSelfPetrial[101X
+  [33X[0;0YReturns an abstract regular polytope with the given Schlafli symbol and with
+  the  given relations. The formatting of the relations is quite flexible. All
+  of the following work:[133X
   
-  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its Petrial.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[28Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");[128X[104X
+    [4X[28Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[128X[104X
+    [4X[28Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");[128X[104X
+  [4X[32X[104X
   
+  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
+  one  given. This may not be the correct Schlafli symbol, since the relations
+  may  cause  a  collapse,  so  this  should only be used if you know that the
+  Schlafli symbol is correct.[133X
   
-  [1X2.3 [33X[0;0YProducts[133X[101X
+  [1X2.1-4 ReflexibleManiplex[101X
   
-  [1X2.3-1 PyramidOver[101X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XPyramidOver[102X( [3XM[103X ) [32X operation[133X
+  [33X[0;0YReturns  the  regular  polytope  with  the  given  symbolic  name. Examples:
+  ReflexibleManiplex("{3,3,3}");  ReflexibleManiplex("{4,3}_3"); If the option
+  set_schlafli  is set, then we set the Schlafli symbol to the one given. This
+  may  not  be  the  correct  Schlafli symbol, since the relations may cause a
+  collapse,  so  this should only be used if you know that the Schlafli symbol
+  is correct.[133X
   
-  [33X[0;0YReturns the pyramid over [3XM[103X.[133X
+  [1X2.1-5 Maniplex[101X
   
-  [1X2.3-2 Pyramid[101X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
+  [33X[0;0YReturns  a  maniplex  with  connection  group  [3XG[103X, where [3XG[103X is assumed to be a
+  permutation group on the flags.[133X
   
-  [33X[0;0YReturns the pyramid over a [3Xk[103X-gon.[133X
+  [1X2.1-6 Maniplex[101X
   
-  [1X2.3-3 PrismOver[101X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XG[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XPrismOver[102X( [3XM[103X ) [32X operation[133X
+  [33X[0;0YGiven a reflexible maniplex [3XM[103X and a subgroup [3XG[103X of the flag-stabilizer of the
+  base flag of [3XM[103X, returns the maniplex [3XM/G[103X.[133X
   
-  [33X[0;0YReturns the prism over [3XM[103X.[133X
+  [1X2.1-7 Maniplex[101X
   
-  [1X2.3-4 Prism[101X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
+  [33X[0;0YConstructs  a  formal  polytope, represented by an operation [3XF[103X and a list of
+  arguments [3Xinputs[103X.[133X
   
-  [33X[0;0YReturns the prism over a [3Xk[103X-gon.[133X
+  [1X2.1-8 Maniplex[101X
+  
+  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns a maniplex with poset [3XP[103X.[133X
+  
+  [1X2.1-9 IsPolytopal[101X
+  
+  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns whether the maniplex [3XM[103X is a polytope.[133X
   

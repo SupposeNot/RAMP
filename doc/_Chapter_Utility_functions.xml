@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Utility_functions">
+<Heading>Utility functions</Heading>
+
+<Section Label="Chapter_Utility_functions_Section_Utility_functions">
+<Heading>Utility functions</Heading>
+
+<ManSection>
+  <Func Arg="args" Name="AbstractPolytope" />
+ <Description>
+Calls <Code>Maniplex(args)</Code> and marks the output as polytopal.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="args" Name="AbstractRegularPolytope" />
+ <Description>
+Calls <Code>ReflexibleManiplex(args)</Code> and marks the output as polytopal.
+ Also available as <Code>ARP(args)</Code>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="args" Name="AbstractRotaryPolytope" />
+ <Description>
+Calls <Code>RotaryManiplex(args)</Code> and marks the output as polytopal.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="perm, k" Name="TranslatePerm" />
+ <Description>
+ Returns a new permutation obtained from <A>perm</A> by adding k
+ to each moved point.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="perm, multiplier, offset" Name="MultPerm" />
+ <Description>
+ Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), 
+ ..., with <A>multiplier</A> terms, and returns the result.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="rels, g" Name="ParseStringCRels" />
+ <Description>
+ This helper function is used in several maniplex constructors.
+ Given a string <A>rels</A> that represents relations in an sggi, and an sggi g,
+ returns a list of elements of g represented by <A>rels</A>. 
+<Example><![CDATA[
+g := AutomorphismGroup(CubicTiling(2));;
+rels := "(r0 r1 r2 r1)^6";;
+newrels := ParseStringCRels(rels, g);
+[ (r0*r1*r2*r1)^6 ]
+]]></Example>
+
+
+ For convenience, you may use z1, z2, etc and h1, h2, etc in relations,
+ where zj means r0 (r1 r2)^j and hj means r0 (r1 r2)^j-1 r1.
+ (That is, the former is the word corresponding to j-zigzags of a polyhedron,
+ and the latter corresponds to j-holes.)
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="rels, g" Name="ParseRotGpRels" />
+ <Description>
+ This helper function is used in several maniplex constructors.
+ It is analogous to ParseStringCRels, but for rotation groups instead.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="L, x" Name="AddOrAppend" />
+ <Description>
+ Given a list <A>L</A> and an object <A>x</A>, this calls
+ Append(L, x) if x is a list; otherwise it calls Add(L, x).
+ Note that since strings are internally represented as lists,
+ AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+
