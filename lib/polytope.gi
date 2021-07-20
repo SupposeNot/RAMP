@@ -463,7 +463,7 @@ InstallMethod(String,
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(m)
-	local c, gamma, vert, ed, lab, labnew, A, O, vertnew, ednew, r, i ,j, k , t;
+	local c, gamma, vert, ed, lab, labnew, A, O, vertnew, ednew, trips, edfixed, labfixed, r, i ,j, k , t;
 	c:=ConnectionGroup(m);
 	gamma:=FlagGraph(m);
 	vert:=gamma!.vertices;
@@ -481,24 +481,33 @@ InstallMethod(SymmetryTypeGraph,
 		for k in [1..Size(ed)] do
 			t:=ed[k];
 			if (t[1] in O[i]) and (t[2] in O[j]) then
-			if not ( [i,j] in ednew) then
 				Add(ednew,[i,j]);
 				Add(labnew, lab[k]);
-			fi;
 			fi;
 		od;
 	od;	
 	od;
-	od;	
-	Apply(ednew, i -> Set(i)); 
-	return EdgeLabeledGraphFromEdges(vertnew,ednew,labnew);
+	od;
+	trips:=[];
+	for i in [1..Size(ednew)] do
+	Add(trips,[ednew[i][1],ednew[i][2],labnew[i]]);
+	od;
+	trips:=Set(trips);
+	edfixed:=[];
+	labfixed:=[];
+	for i in [1..Size(trips)] do
+	Add(edfixed,[trips[i][1],trips[i][2]]);
+	Add(labfixed,trips[i][3]);
+	od;
+	Apply(edfixed, i -> Set(i)); 
+	return EdgeLabeledGraphFromEdges(vertnew,edfixed,labfixed);
 end);
 
 
 InstallOtherMethod(SymmetryTypeGraph,
 	[IsManiplex,IsGroup],
 	function(m,A)
-	local c, gamma, vert, ed, lab, labnew, O, vertnew, ednew, r, i ,j, k , t;
+	local c, gamma, vert, ed, lab, labnew, O, vertnew, ednew, trips, edfixed, labfixed, r, i ,j, k , t;
 	c:=ConnectionGroup(m);
 	gamma:=FlagGraph(m);
 	vert:=gamma!.vertices;
@@ -508,25 +517,34 @@ InstallOtherMethod(SymmetryTypeGraph,
 	O:=Orbits(A);		
 	vertnew:=[1..Size(O)];
 	ednew:=[];
-
 	for r in Set(lab) do
 	for i in [1..Size(O)] do
 	for j in [i..Size(O)] do
 		for k in [1..Size(ed)] do
 			t:=ed[k];
 			if (t[1] in O[i]) and (t[2] in O[j]) then
-			if not ( [i,j] in ednew) then
 				Add(ednew,[i,j]);
 				Add(labnew, lab[k]);
-			fi;
 			fi;
 		od;
 	od;	
 	od;
-	od;	
-	Apply(ednew, i -> Set(i)); 
-	return EdgeLabeledGraphFromEdges(vertnew,ednew,labnew);
+	od;
+	trips:=[];
+	for i in [1..Size(ednew)] do
+	Add(trips,[ednew[i][1],ednew[i][2],labnew[i]]);
+	od;
+	trips:=Set(trips);
+	edfixed:=[];
+	labfixed:=[];
+	for i in [1..Size(trips)] do
+	Add(edfixed,[trips[i][1],trips[i][2]]);
+	Add(labfixed,trips[i][3]);
+	od;
+	Apply(edfixed, i -> Set(i)); 
+	return EdgeLabeledGraphFromEdges(vertnew,edfixed,labfixed);
 end);
+
 
 
 # TODO: This is currently broken for rotary maniplexes
