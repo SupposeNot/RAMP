@@ -457,43 +457,115 @@ InstallMethod(String,
 	return MANIPLEX_STRING(M);
 	end);
 	
+	
+
+
+InstallMethod(SymmetryTypeGraph,
+	[IsManiplex],
+	function(m)
+	local c, gamma, vert, ed, lab, labnew, A, O, vertnew, ednew, r, i ,j, k , t;
+	c:=ConnectionGroup(m);
+	gamma:=FlagGraph(m);
+	vert:=gamma!.vertices;
+	ed:=gamma!.edges;
+	lab:=gamma!.labels;
+	labnew:=[];
+	A:=EdgeLabelPreservingAutomorphismGroup(gamma);
+	O:=Orbits(A);		
+	vertnew:=[1..Size(O)];
+	ednew:=[];
+
+	for r in Set(lab) do
+	for i in [1..Size(O)] do
+	for j in [i..Size(O)] do
+		for k in [1..Size(ed)] do
+			t:=ed[k];
+			if (t[1] in O[i]) and (t[2] in O[j]) then
+			if not ( [i,j] in ednew) then
+				Add(ednew,[i,j]);
+				Add(labnew, lab[k]);
+			fi;
+			fi;
+		od;
+	od;	
+	od;
+	od;	
+	Apply(ednew, i -> Set(i)); 
+	return EdgeLabeledGraphFromEdges(vertnew,ednew,labnew);
+end);
+
+
+InstallOtherMethod(SymmetryTypeGraph,
+	[IsManiplex,IsGroup],
+	function(m,A)
+	local c, gamma, vert, ed, lab, labnew, O, vertnew, ednew, r, i ,j, k , t;
+	c:=ConnectionGroup(m);
+	gamma:=FlagGraph(m);
+	vert:=gamma!.vertices;
+	ed:=gamma!.edges;
+	lab:=gamma!.labels;
+	labnew:=[];
+	O:=Orbits(A);		
+	vertnew:=[1..Size(O)];
+	ednew:=[];
+
+	for r in Set(lab) do
+	for i in [1..Size(O)] do
+	for j in [i..Size(O)] do
+		for k in [1..Size(ed)] do
+			t:=ed[k];
+			if (t[1] in O[i]) and (t[2] in O[j]) then
+			if not ( [i,j] in ednew) then
+				Add(ednew,[i,j]);
+				Add(labnew, lab[k]);
+			fi;
+			fi;
+		od;
+	od;	
+	od;
+	od;	
+	Apply(ednew, i -> Set(i)); 
+	return EdgeLabeledGraphFromEdges(vertnew,ednew,labnew);
+end);
+
+
 # TODO: This is currently broken for rotary maniplexes
 # I really want orbs to be the action of the automorphism
 # group on the _flags_.
 # Wait until graph code is done
-InstallMethod(SymmetryTypeGraph,
-	[IsManiplex],
-	function(p)
-	local ag, cg, orbs, k, perms, i, r, rp, orb, new_orb;
-	if IsReflexibleManiplex(p) then
-		return List([1..Rank(p)], i -> ());
-	fi;
-	
-	ag := AutomorphismGroupPermGroup(p);
-	orbs := List(Orbits(ag), o -> Set(o));
-	k := Size(orbs);
-	cg := ConnectionGroup(p);
-	perms := [];
-	
-	# There is probably a built-in way to get this, but I'm not finding it today
-	for r in GeneratorsOfGroup(cg) do
-		rp := ();
-		for i in [1..k] do
-			# Next line prevents me from adding (a, b) and (b, a) to rp, which would cancel out.
-			if i^rp = i then
-				orb := orbs[i];
-				new_orb := OnSets(orb, r);
-				if new_orb <> orb then
-					rp := rp * (i, Position(orbs, new_orb));
-				fi;
-			fi;
-		od;
-		Add(perms, rp);
-	od;
-
-	return perms;
-	
-	end);
+# InstallMethod(SymmetryTypeGraph,
+#	[IsManiplex],
+#	function(p)
+#	local ag, cg, orbs, k, perms, i, r, rp, orb, new_orb;
+#	if IsReflexibleManiplex(p) then
+#		return List([1..Rank(p)], i -> ());
+#	fi;
+#	
+#	ag := AutomorphismGroupPermGroup(p);
+#	orbs := List(Orbits(ag), o -> Set(o));
+#	k := Size(orbs);
+#	cg := ConnectionGroup(p);
+#	perms := [];
+#	
+#	# There is probably a built-in way to get this, but I'm not finding it today
+#	for r in GeneratorsOfGroup(cg) do
+#		rp := ();
+#		for i in [1..k] do
+#			# Next line prevents me from adding (a, b) and (b, a) to rp, which would cancel out.
+#			if i^rp = i then
+#				orb := orbs[i];
+#				new_orb := OnSets(orb, r);
+#				if new_orb <> orb then
+#					rp := rp * (i, Position(orbs, new_orb));
+#				fi;
+#			fi;
+#		od;
+#		Add(perms, rp);
+#	od;
+#
+#	return perms;
+#	
+#	end);
 
 InstallMethod(NumberOfFlagOrbits,
 	[IsManiplex and IsManiplexQuotientRep],
