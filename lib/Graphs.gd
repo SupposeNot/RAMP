@@ -146,6 +146,11 @@ DeclareOperation("FlagGraphWithLabels",[IsManiplex]);
 #! @EndExampleSession
 
 
+DeclareOperation("Vertices",[IsEdgeLabeledGraph]);
+DeclareOperation("Edges",[IsEdgeLabeledGraph]);
+DeclareOperation("Labels",[IsEdgeLabeledGraph]);
+
+
 
 #! @Arguments [group, int, int]
 #! @Returns `IsGraph`. Note this returns an undirected graph.
