@@ -12,6 +12,10 @@ DeclareOperation("Cuboctahedron",[]);
 DeclareOperation("TruncatedTetrahedron",[]);
 
 
+
+#! @Chapter Families of Polytopes
+#! @Section Uniform Polyhedra
+
 #! @Arguments
 #! @Returns maniplex
 #! @Description Constructs the truncated octahedron.
@@ -54,7 +58,23 @@ DeclareOperation("SmallRhombicosidodecahedron",[]);
 
 #! @Arguments
 #! @Returns maniplex
-#! @Description Constructs the small rhombicosidodecahedron.
+#! @Description Constructs the great rhombicosidodecahedron.
 DeclareOperation("GreatRhombicosidodecahedron",[]);
 
+
+#! @Arguments
+#! @Returns maniplex
+#! @Description Constructs the small snub dodecahedron.
+DeclareOperation("SnubDodecahedron",[]);
+
+
+#! @Arguments
+#! @Returns maniplex
+#! @Description Constructs the truncated dodecahedron.
+DeclareOperation("TruncatedDodecahedron",[]);
+
+#! @Arguments
+#! @Returns maniplex
+#! @Description Constructs the great rhombicuboctahedron.
+DeclareOperation("GreatRhombicuboctahedron",[]);
 

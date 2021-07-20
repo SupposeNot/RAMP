@@ -25,5 +25,6 @@ ReadPackage( "ramp", "lib/quotients.gd" );
 ReadPackage( "ramp", "lib/rotary.gd" );
 ReadPackage( "ramp", "lib/tomotope.gd" );
 ReadPackage( "ramp", "lib/toroids.gd" );
+ReadPackage( "ramp", "lib/uniform_polyhedra.gd" );
 ReadPackage( "ramp", "lib/utils.gd" );
 ReadPackage( "ramp", "lib/zigzag.gd" );

@@ -28,6 +28,7 @@ ReadPackage( "ramp", "lib/quotients.gi" );
 ReadPackage( "ramp", "lib/rotary.gi" );
 ReadPackage( "ramp", "lib/tomotope.gi" );
 ReadPackage( "ramp", "lib/toroids.gi" );
+ReadPackage( "ramp", "lib/uniform_polyhedra.gi" );
 ReadPackage( "ramp", "lib/zigzag.gi" );
 
 #E  read.g . . . . . . . . . . . . . . . . . . . . . . . . . . . .  ends here
