@@ -37,19 +37,30 @@ InstallGlobalFunction(CouldBeQuotient,
 	end);
 	
 
-# To determine if P is a quotient of Q, if they are both just generic polytopes,
-# then we try to find a homomorphism between their connection groups.
-# TODO: This is broken! We want something more like an action homomorphism...
 InstallMethod(IsQuotient,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(q,p)
-	local g, rels, g1, g2, hom, k1, k2, i;
+	local g1, g2, hom, s1, s2, i, flags, phi;
 	if not(CouldBeQuotient(q,p)) then return false; fi;
 	g1 := ConnectionGroup(q);
 	g2 := ConnectionGroup(p);
 	hom := GroupHomomorphismByImages(g1, g2);
-	return (hom <> fail);
+	if hom = fail then
+		return false;
+	else
+		# Now we look for flags of p and q such that the stabilizer of the flag of
+		# q is contained in the stabilizer of the flag of p.
+		# WLOG we can use flag 1 in q.
+		flags := FlagOrbitRepresentatives(p);
+		s1 := Stabilizer(g1, 1);
+		for phi in flags do
+			if IsSubset(PreImage(hom, Stabilizer(g2, phi)), s1) then
+				return true;
+			fi;
+		od;
+		return false;
+	fi;
 	end);
 
 InstallMethod(IsQuotient,
@@ -145,15 +156,12 @@ InstallMethod(IsIsomorphicManiplex,
 		if Tester(att)(p) and Tester(att)(q) and att(p) <> att(q) then return false; fi;
 	od;
 	
-	# This optimization is disabled until IsQuotient is fixed...
-	#if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
+	if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
 		# At this point, we know that p and q are the same size and finite.
-	#	val := IsQuotient(p,q);
-	#else
-	#	val := (IsQuotient(p,q) and IsCover(p,q));
-	#fi;
-	val := (IsQuotient(p,q) and IsCover(p,q));
-
+		val := IsQuotient(p,q);
+	else
+		val := (IsQuotient(p,q) and IsCover(p,q));
+	fi;
 	
 	if val then
 		# p and q might have different knowledge about their properties --

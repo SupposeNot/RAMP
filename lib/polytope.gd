@@ -19,14 +19,17 @@ DeclareOperation("UniversalSggi", [IsList]);
 
 #! @Arguments g
 #! @Description Given a group g (which should be a string C-group),
-#! returns the abstract regular polytope with that automorphism group,
+#! returns the reflexible maniplex with that automorphism group,
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
 DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
+#! @Arguments sym
+#! Returns the universal reflexible maniplex (in fact, regular polytope)
+#! with Schlafli symbol <A>sym</A>.
 DeclareOperation("ReflexibleManiplex", [IsList]);
 
 #! @Arguments symbol, relations
-#! @Description Returns an abstract regular polytope with the given Schlafli
+#! @Description Returns the reflexible maniplex with the given Schlafli
 #! symbol and with the given relations.
 #! The formatting of the relations is quite flexible. All of the following work:
 #! @BeginExampleSession
@@ -72,6 +75,7 @@ DeclareOperation("Maniplex", [IsPoset]);
 
 #! @Arguments M
 #! Returns whether the maniplex <A>M</A> is a polytope.
+#! Currently only implemented for reflexible maniplexes.
 DeclareProperty("IsPolytopal", IsManiplex);
 
 
@@ -81,6 +85,7 @@ DeclareProperty("IsPolytopal", IsManiplex);
 
 #! @Arguments M
 #! Returns the number of flags of the maniplex <A>M</A>.
+#! Synonym: `NumberOfFlags`.
 DeclareAttribute("Size", IsManiplex);
 
 DeclareSynonymAttr("NumberOfFlags", Size);

@@ -162,8 +162,7 @@ InstallMethod(ConnectionGroup,
 	local g, h, c;
 	g := AutomorphismGroup(M!.parent);
 	h := M!.subgroup;
-	c := Core(g, h);
-	return g / c;	
+	return Image(FactorCosetAction(g, h));
 	end);
 InstallMethod(ConnectionGroup,
 	[IsManiplex and IsManiplexInstructionsRep],
