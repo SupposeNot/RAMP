@@ -26,7 +26,10 @@ DeclareAttribute("AutomorphismGroupOnFlags", IsManiplex);
 #! Returns the connection group of <A>M</A> as a
 #! permutation group. We may eventually allow other types
 #! of connection groups.
+#! Synonym: MonodromyGroup
 DeclareAttribute("ConnectionGroup", IsManiplex);
+
+DeclareSynonymAttr("MonodromyGroup", ConnectionGroup);
 
 #! @Arguments M
 #! Returns the even-word subgroup of the connection group of <A>M</A> as a
