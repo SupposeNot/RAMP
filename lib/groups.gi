@@ -126,7 +126,11 @@ InstallMethod(ConnectionGroup,
 	function(M)
 	local g;
 	g := AutomorphismGroup(M);
-	return Action(g, g, OnLeftInverse, "surjective");
+	if Size(g) = infinity then
+		return fail;
+	else
+		return Action(g, g, OnLeftInverse, "surjective");
+	fi;
 	# return Image(RegularActionHomomorphism(g));
 	end);
 	
@@ -137,6 +141,8 @@ InstallMethod(ConnectionGroup,
 	g := AutomorphismGroup(M);
 	if IsReflexible(M) then
 		return Image(RegularActionHomomorphism(g));
+	elif Size(g) = infinity then
+		return fail;
 	else
 		# A chiral polytope has a flag-stabilizer K that is normal in W+ but not W.
 		# So we find the flag-stabilizer, and then use it to build the connection group.
@@ -167,7 +173,11 @@ InstallMethod(ConnectionGroup,
 InstallMethod(ConnectionGroup,
 	[IsManiplex and IsManiplexInstructionsRep],
 	function(M)
-	return ComputeAttr(M, ConnectionGroup);
+	if Size(M) = infinity then
+		return fail;
+	else
+		return ComputeAttr(M, ConnectionGroup);
+	fi;
 	end);
 InstallMethod(ConnectionGroup,
 	[IsManiplex and IsManiplexPosetRep],

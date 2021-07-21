@@ -45,6 +45,7 @@ InstallMethod(IsQuotient,
 	if not(CouldBeQuotient(q,p)) then return false; fi;
 	g1 := ConnectionGroup(q);
 	g2 := ConnectionGroup(p);
+	if g1 = fail or g2 = fail then return fail; fi;
 	hom := GroupHomomorphismByImages(g1, g2);
 	if hom = fail then
 		return false;
