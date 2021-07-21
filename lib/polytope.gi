@@ -608,8 +608,7 @@ InstallMethod(NumberOfFlagOrbits,
 	elif Size(M) < infinity then
 		return Size(M) / Size(AutomorphismGroup(M));
 	else
-		n := LargestMovedPoint(Group(SymmetryTypeGraph(M)));
-		if n = 0 then n := 1; fi;
+		n := Size(Vertices(SymmetryTypeGraph(M)));
 	fi;
 	
 	if HasDual(M) then
@@ -645,8 +644,9 @@ InstallMethod(IsReflexible,
 InstallMethod(IsChiral,
 	[IsManiplex],
 	function(M)
-	local val;
-	val := ForAll(SymmetryTypeGraph(M), r -> r = (1,2));
+	local stg, val;
+	stg := SymmetryTypeGraph(M);
+	val := Size(Vertices(stg)) = 2 and ForAll(Edges(stg), e -> Size(e) = 2);
 	if HasDual(M) then
 		SetIsChiral(Dual(M), val);
 	fi;	

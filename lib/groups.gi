@@ -18,7 +18,7 @@ InstallMethod(AutomorphismGroup,
 	# group is just the rotation group.
 	
 	n := Rank(M);
-	g := RotationGroup(M);
+	g := Image(IsomorphismFpGroup(RotationGroup(M)));
 	gens := List([1..n-1], i -> Concatenation("s", String(i)));
 	Add(gens, "r0");
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r, FreeGeneratorsOfFpGroup(g)));

@@ -79,7 +79,7 @@ InstallMethod(IsQuotient,
 # assuming that we have presentations for both of their groups.
 InstallMethod(IsQuotient,
 	ReturnTrue,
-	[IsReflexibleManiplex, IsReflexibleManiplex],
+	[IsManiplex and IsReflexibleManiplexAutGpRep, IsManiplex and IsReflexibleManiplexAutGpRep],
 	function(q,p)
 	local g, rels, g1, g2, hom, k1, k2, i;
 	if not(CouldBeQuotient(q,p)) then return false; fi;

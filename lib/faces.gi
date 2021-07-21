@@ -232,7 +232,6 @@ InstallMethod(Facet,
 	end);
 	
 # TODO: Handle some special cases:
-# 1. The facets of a universal coxeter group are a universal coxeter group.
 # 2. If P is finite, then try guessing a presentation for the facets.
 #	This will give something that might properly cover the facets -- compare size.
 InstallMethod(Facet,
