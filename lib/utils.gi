@@ -83,6 +83,12 @@ InstallGlobalFunction(ParseStringCRels,
 	if n > 9 then Error("Only works for n < 10"); fi;
 	f := FreeGroupOfFpGroup(w);
 
+	i := 1;
+	while 's' in rels do
+		rels := ReplacedString(rels, Concatenation("s", String(i)), Concatenation("(r", String(i-1), " r", String(i), ")"));
+		i := i + 1;
+	od;
+
 	# We also support using zj to mean the j-zigzag.
 	# For polyhedra, zj = r0 (r1 r2)^j.
 	i := 1;
@@ -91,7 +97,7 @@ InstallGlobalFunction(ParseStringCRels,
 		i := i + 1;
 	od;
 	
-	i := 2;
+	i := 1;
 	while 'h' in rels do
 		rels := ReplacedString(rels, Concatenation("h", String(i)), Concatenation("(r0 r1 (r2 r1)^", String(i-1), ")"));
 		i := i + 1;
