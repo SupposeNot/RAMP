@@ -1,43 +1,30 @@
 
 # I used this at some point to save some polytopes to a file.
 # Keeping it here in case we want to crib off it later.
-#SavePolytopes := function(polys, filename)
+# SavePolytopes := function(polys, filename)
 #	local stream, i, j, p, F, rels, datastring, id, flats, sym, g, s1, s2, nonflats, pd, pp, invars, duals, done, pdp, ppd, pdpd;
 #	stream := OutputTextFile(filename, false);
-#	done := NewDictionary(polys[1], false, polys);
 #
-#	# First, write all the parameters for flat orientable polyhedra
-#	flats := Filtered(polys, p -> IsTight(p) and IsOrientable(p));
-#	WriteAll(stream, "flats\n");
-#	for p in flats do
-#		# Find the relation s2^-1 * s1 = s1^i s2^j that holds.
-#		sym := SchlafliSymbol(p);
-#		g := AutomorphismGroup(p);
-#		for i in [1..sym[1]] do
-#			for j in [1..sym[2]] do
-#				s1 := g.1*g.2;
-#				s2 := g.2*g.3;
-#				if s2^-1*s1 = s1^i*s2^j then
-#					WriteAll(stream, Concatenation(String(sym[1]), ",", String(sym[2]), ",", String(i), ",", String(j), "\n"));
-#				fi;
-#			od;
-#		od;
-#	od;
-#
-#	nonflats := Filtered(polys, p -> not(IsTight(p) and IsOrientable(p)));
-#	WriteAll(stream, "nonflats\n");
-#	for p in nonflats do
-#		g := AutomorphismGroup(p);
-#		
+#	for p in polys5 do
 #		WriteAll(stream, String(SchlafliSymbol(p)));
 #		WriteAll(stream, ", ");
 #		WriteAll(stream, String(PetrieLength(p)));
 #		WriteAll(stream, ", ");
 #		WriteAll(stream, String(Size(p)));
 #		WriteAll(stream, ", ");
-#		rels := ExtraRelators(p);
-#		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(UniversalSggi(3))));
+#		rels := List(ExtraRelators(p), r -> String(r));
 #		WriteAll(stream, String(rels));
+#		if IsSelfDual(p) then
+#			WriteAll(stream, ", SD");
+#		else
+#			WriteAll(stream, ", NSD");
+#		fi;
+#		if SchlafliSymbol(p)[2] = PetrieLength(p) and p = Dual(Petrial(Dual(p))) then
+#			WriteAll(stream, ", SO");
+#		else
+#			WriteAll(stream, ", NSO");
+#		fi;
+#		
 #		WriteAll(stream, "\n");
 #		# And write some other stuff
 #	od;
@@ -45,17 +32,30 @@
 #	CloseStream(stream);
 #	end;
 
-InstallMethod(DegeneratePolyhedra,
-	[IsInt],
-	function(maxsize)
-	local polys, k, p;
+InstallGlobalFunction(DegeneratePolyhedra,
+	function(sizerange)
+	local polys, k, p, minsize, maxsize;
+
+	if IsInt(sizerange) then
+		minsize := 1;
+		maxsize := sizerange;
+	else
+		minsize := sizerange[1];
+		maxsize := Last(sizerange);
+	fi;
+
 	polys := [];
-	if maxsize >= 8 then
+	if minsize <= 8 and maxsize >= 8 then
 		p := AbstractRegularPolytope([2,2]);
 		SetSize(p, 8);
 		Add(polys, p);
 	fi;
-	k := 3;
+	if minsize > 12 then
+		k := Int((minsize+3)/4);
+	else
+		k := 3;
+	fi;
+	
 	while 4*k <= maxsize do
 		p := AbstractRegularPolytope([2,k]);
 		SetSize(p, 4*k);
@@ -69,17 +69,36 @@ InstallMethod(DegeneratePolyhedra,
 	return polys;
 	end);
 
-InstallMethod(FlatRegularPolyhedra,
-	[IsInt],
-	function(maxsize)
-	local polys, p, q, k, r, poly, D, rampPath, filename, stream, params, flatpolystr;
+InstallGlobalFunction(FlatRegularPolyhedra,
+	function(sizerange)
+	local polys, p, q, k, r, poly, D, rampPath, filename, stream, params, flatpolystr, minsize, maxsize;
 	polys := [];
 
+	if IsInt(sizerange) then
+		minsize := 1;
+		maxsize := sizerange;
+	else
+		minsize := sizerange[1];
+		maxsize := Last(sizerange);
+	fi;
+	
 	# If p and q are even, then FlatRegularPolyhedron(p, q, -1, 1) works.
 	# (from Minimal Equivelar Polytopes Thm. 6.3)
-	p := 4;
+
+	# we restrict q <= p
+	# So for a given p, the largest we make is size 2p^2
+	# so we want 2p^2 >= minsize
+	# p^2 >= minsize/2
+	# p >= sqrt(minsize/2)
+	p := Maximum(4, RootInt(Int(minsize/2)));
+	if not(IsEvenInt(p)) then p := p + 1; fi;
+	
 	while 8*p <= maxsize do
-		q := 4;
+		# 2pq >= minsize
+		# q >= minsize/2p
+		# and q must be even...
+		# set q/2 = Int(minsize/(4*p))
+		q := Maximum(4, 2 * (1 + Int((minsize-1)/(4*p))));
 		while q <= p and 2*p*q <= maxsize do
 			Add(polys, FlatRegularPolyhedron(p,q,-1,1));
 			if q <> p then
@@ -95,7 +114,7 @@ InstallMethod(FlatRegularPolyhedra,
 	p := 3;
 	while 12*p <= maxsize do
 		for q in Filtered(DivisorsInt(2*p), n -> IsEvenInt(n) and n > 2) do
-			if 2*p*q <= maxsize then
+			if 2*p*q <= maxsize and minsize <= 2*p*q then
 				Add(polys, FlatRegularPolyhedron(p, q, -1, -3));
 				Add(polys, FlatRegularPolyhedron(q, p, 3, 1));
 			fi;
@@ -124,7 +143,7 @@ InstallMethod(FlatRegularPolyhedra,
 		return poly;
 		end;
 
-	k := 1;
+	k := 1 + Int((minsize-1)/24);
 	while 24*k <= maxsize do
 		poly := D(4, 3*k, 2, 1, 3, 2);
 		Add(polys, poly);
@@ -139,7 +158,10 @@ InstallMethod(FlatRegularPolyhedra,
 	
 	k := 1;
 	while 48*k <= maxsize do
-		r := 3;
+		r := Maximum(3, 1 + Int((minsize-1)/(48*k)));
+		# 48rk >= minsize
+		# r >= minsize/(48*k)
+		# r := 1 + Int((minsize-1)/(48*k));
 		while 48*r*k <= maxsize do
 			if (r mod 4) = 1 then
 				poly := D(4*r, 6*k, 3*r-1, 1+3*k, 1+2*r, 2);
@@ -165,13 +187,17 @@ InstallMethod(FlatRegularPolyhedra,
 		flatpolystr := Concatenation("FlatRegularPolyhedron(", params, ")");
 		poly := EvalString(flatpolystr);
 		if Size(poly) <= maxsize then
-			Add(polys, poly);
+			if Size(poly) >= minsize then Add(polys, poly); fi;
 		else
 			break;
 		fi;
 		params := ReadLine(stream);
 	od;
 	
+	if ValueOption("nondegenerate") <> true then
+		Append(polys, DegeneratePolyhedra(sizerange));
+	fi;
+
 	return polys;
 	end);
 
@@ -203,27 +229,30 @@ InstallMethod(FlatRegularPolyhedra,
 #	return;
 #	end;
 
-# TODO: Split flat polyhedra into a separate file, and add an option to exclude them if desired.
-# TODO: Optimize the handling of flat polyhedra. There are some choices of i and j that always work, so I don't
-#	really need to store these - I can easily make them on the fly.
 # WARNING: The exact interface (arguments and their order etc) may change as we figure out
 # better ways to store and query the data...
-InstallMethod(SmallRegularPolyhedra,
-	[IsInt],
-	function(maxsize)
-	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens;
+InstallGlobalFunction(SmallRegularPolyhedra,
+	function(sizerange)
+	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens, minsize, maxsize;
 	rampPath := DirectoriesLibrary("pkg/ramp/lib");
 	filename := Filename(rampPath, "regularPolyhedra.txt");
 	stream := InputTextFile(filename);
+	if IsInt(sizerange) then
+		minsize := 1;
+		maxsize := sizerange;
+	else
+		minsize := sizerange[1];
+		maxsize := Last(sizerange);
+	fi;
 	polys := [];
 	toobig := false;
 	
-	if ValueOption("nondegenerate") <> true and ValueOption("nonflat") <> true then
-		polys := DegeneratePolyhedra(maxsize);
-	fi;
+	#if ValueOption("nondegenerate") <> true and ValueOption("nonflat") <> true then
+	#	polys := DegeneratePolyhedra(sizerange);
+	#fi;
 
 	if ValueOption("nonflat") <> true then
-		Append(polys, FlatRegularPolyhedra(maxsize));
+		Append(polys, FlatRegularPolyhedra(sizerange));
 	fi;
 	
 	toobig := false;
@@ -238,7 +267,7 @@ InstallMethod(SmallRegularPolyhedra,
 		
 		if flagnum > maxsize then
 			toobig := true;
-		else
+		elif flagnum >= minsize then
 			p := AbstractRegularPolytope(sym, rels);
 			SetSize(p, flagnum);
 			SetSize(AutomorphismGroup(p), flagnum);

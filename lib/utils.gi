@@ -85,8 +85,6 @@ InstallGlobalFunction(ParseStringCRels,
 
 	# We also support using zj to mean the j-zigzag.
 	# For polyhedra, zj = r0 (r1 r2)^j.
-	# For now, we just replace z1.
-	# TODO: Handle z2 etc and higher rank.
 	i := 1;
 	while 'z' in rels do
 		rels := ReplacedString(rels, Concatenation("z", String(i)), Concatenation("(r0 (r1 r2)^", String(i), ")"));

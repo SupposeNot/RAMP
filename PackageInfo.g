@@ -17,8 +17,8 @@
 SetPackageInfo( rec(
 	PackageName := "RAMP",
 	Subtitle := "The Research Assistant for Maniplexes and Polytopes",
-	Version := "0.3",
-	Date := "28/07/2020",
+	Version := "0.5",
+	Date := "21/07/2021",
 
 ## Optional: license of the package, as an SPDX short-form identifiers;
 ## see <https://spdx.org/ids> for an explanation what an SPDX ID is, and
@@ -333,7 +333,7 @@ AutoDoc := rec(
   TitlePage := rec(
     Copyright := """
       <Index>License</Index>
-      &copyright; 1997-2020 by Gabe Cunningham, Mark Mixer, and Gordon Williams<P/>
+      &copyright; 1997-2021 by Gabe Cunningham, Mark Mixer, and Gordon Williams<P/>
       &RAMP; package is free software;
       you can redistribute it and/or modify it under the terms of the
       <URL Text="GNU General Public License">http://www.fsf.org/licenses/gpl.html</URL>
