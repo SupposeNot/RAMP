@@ -130,23 +130,23 @@ InstallMethod(FlatExtension,
 InstallMethod(FlatRegularPolyhedron,
 	[IsInt, IsInt, IsInt, IsInt],
 	function(p,q,i,j)
-	local g, poly;
+	local g, poly, relstr;
 	
 	# Normalize i and j to have small absolute value
 	# This makes some later computations faster
 	if i > p/2 then i := i - p; fi;
 	if j > q/2 then j := j - q; fi;
-	g := UniversalSggi([p,q]);
-	
+
 	# We only need one of these two relations, but having both may make some computations faster.
-	g := FactorGroupFpGroupByRels(g, [g.3*g.2*g.1*g.2*(g.3*g.2)^j*(g.2*g.1)^i, g.2*g.3*g.2*g.1*(g.2*g.3)^j*(g.1*g.2)^i]);
-	poly := AbstractRegularPolytope(g);
+	relstr := Concatenation("r2 r1 r0 r1 (r2 r1)^", String(j), " (r1 r0)^", String(i), ", r1 r2 r1 r0 (r1 r2)^", String(j), " (r0 r1)^", String(i));
+	poly := AbstractRegularPolytope([p,q], relstr);
 	
 	# Now we assume that the values of p, q, i, j really do yield a flat polyhedron of type {p, q}.
 	SetSize(poly, 2*p*q);
 	SetSize(AutomorphismGroup(poly), 2*p*q);
 	SetFvector(poly, [q, p*q/2, p]);
 	SetSchlafliSymbol(poly, [p,q]);
+	poly!.String := Concatenation("FlatRegularPolyhedron(", String(p), ",", String(q), ",", String(i), ",", String(j), ")");
 	return poly;
 	end);
 	
