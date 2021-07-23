@@ -552,7 +552,7 @@ InstallMethod(HasseDiagramOfPoset,
 	hasseBR:=HasseDiagramBinaryRelation(po);
 	underlyingBR:=UnderlyingRelation(hasseBR);
 	edges:=List(AsList(underlyingBR),AsList);
-	nodes:=Set(Union(Source(po),Range(po)));
+	nodes:=Set(Source(po));
 # 	nodes:=Set(Concatenation(edges));
 	return DirectedGraphFromListOfEdges(nodes,edges);
 	end);
