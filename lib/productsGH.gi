@@ -99,7 +99,7 @@ InstallMethod(CartesianProduct,
 		od;
 	n:=Minimum(DuplicateFreeList(Concatenation(list)))-2;
 	list:=list-n;
-	Print(list);
+# 	Print(list);
 	Add(list,[1..Length(list)+1],1);
 # 	return list;
 	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
