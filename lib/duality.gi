@@ -142,7 +142,7 @@ _PETRIAL_REL := function(r)
 	local i, new_r;
 	new_r := [];
 	for i in r do
-		if i = 1 then
+		if AbsInt(i) = 1 then
 			Append(new_r, [1,3]);
 		else
 			Add(new_r, i);

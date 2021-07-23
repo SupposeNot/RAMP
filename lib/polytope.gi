@@ -88,7 +88,11 @@ InstallMethod(IsPolytopal,
 	[IsReflexibleManiplex],
 	function(M)
 	local ispoly;
-	ispoly := IsStringC(AutomorphismGroup(M));
+	if Size(M) < 2*Product(SchlafliSymbol(M)) then
+		ispoly := false;
+	else
+		ispoly := IsStringC(AutomorphismGroup(M));
+	fi;
 	if HasDual(M) then
 		SetIsPolytopal(Dual(M), ispoly);
 	fi;
@@ -291,7 +295,7 @@ InstallMethod(Maniplex,
 	end);
 	
 InstallOtherMethod(Size,
-	[IsReflexibleManiplex],
+	[IsManiplex and IsReflexibleManiplexAutGpRep],
 	function(M)
 	local val;
 	val := Size(AutomorphismGroup(M));

@@ -266,7 +266,7 @@ InstallMethod(IsStringC,
 	if HasIsFinite(vfig) and IsFinite(vfig) and HasIsFinite(facet) and IsFinite(facet) and HasIsFinite(medial) and IsFinite(medial) then
 		return (Size(medial) = Size(Intersection(vfig, facet)));
 	else
-		return IsSubset(Intersection(vfig, facet), medial);
+		return IsSubset(medial, Intersection(vfig, facet));
 	fi;
 	end);
 
