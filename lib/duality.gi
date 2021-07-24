@@ -165,3 +165,18 @@ InstallMethod(IsSelfPetrial,
 	return p = Petrial(p);
 	end);
 
+InstallMethod(DirectDerivates,
+	[IsManiplex],
+	function(M)
+	local Md, Mp, Mdp, Mpd, Mdpd;
+	Md := Dual(M);
+	Mp := Petrial(M);
+	Mdp := Petrial(Md);
+	Mpd := Dual(Mp);
+	Mdpd := Dual(Mdp);
+	if ValueOption("polytopal") = true then
+		return Filtered(Unique([M, Md, Mp, Mdp, Mpd, Mdpd]), p -> IsPolytopal(p));
+	else
+		return Unique([M, Md, Mp, Mdp, Mpd, Mdpd]);
+	fi;
+	end);

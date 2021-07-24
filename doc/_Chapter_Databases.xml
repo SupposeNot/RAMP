@@ -8,7 +8,7 @@
 <Heading>Regular polyhedra</Heading>
 
 <ManSection>
-  <Oper Arg="maxsize" Name="DegeneratePolyhedra" Label="for IsInt"/>
+  <Func Arg="maxsize" Name="DegeneratePolyhedra" />
  <Description>
  Returns all degenerate polyhedra (of type {2, q} and {p, 2})
  with up to <A>maxsize</A> flags.
@@ -17,7 +17,7 @@
 
 
 <ManSection>
-  <Oper Arg="maxsize" Name="FlatRegularPolyhedra" Label="for IsInt"/>
+  <Func Arg="maxsize" Name="FlatRegularPolyhedra" />
  <Description>
  Returns all nondegenerate flat regular polyhedra with up to <A>maxsize</A> flags.
  Currently supports a maxsize of 4000 or less.
@@ -26,9 +26,9 @@
 
 
 <ManSection>
-  <Oper Arg="maxsize" Name="SmallRegularPolyhedra" Label="for IsInt"/>
+  <Func Arg="sizerange" Name="SmallRegularPolyhedra" />
  <Description>
- Returns all regular polyhedra with up to <A>maxsize</A> flags.
+ Returns all regular polyhedra with sizes in <A>sizerange</A> flags.
  Currently supports a maxsize of 4000 or less.
  You can also set options "nondegenerate" and "nonflat".
 <Example><![CDATA[

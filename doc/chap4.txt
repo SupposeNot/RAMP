@@ -86,6 +86,14 @@
   [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XP[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its Petrial.[133X
   
+  [1X4.2-5 DirectDerivates[101X
+  
+  [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns a list of the [13Xdirect derivates[113X of [3XM[103X, which are the images of M under
+  duality  and Petriality. If the option 'polytopal' is set, then only returns
+  those direct derivates that are polytopal.[133X
+  
   
   [1X4.3 [33X[0;0YProducts[133X[101X
   

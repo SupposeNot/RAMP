@@ -22,3 +22,9 @@ DeclareSynonymAttr("PetrieDual", Petrial);
 #! @Returns Whether this polytope is isomorphic to its Petrial.
 DeclareProperty("IsSelfPetrial", IsManiplex);
 
+#! @Arguments M
+#! Returns a list of the __direct derivates__ of <A>M</A>, which are
+#! the images of M under duality and Petriality.
+#! If the option 'polytopal' is set, then only returns those direct
+#! derivates that are polytopal.
+DeclareOperation("DirectDerivates", [IsManiplex]);

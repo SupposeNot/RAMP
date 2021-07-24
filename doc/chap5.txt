@@ -6,25 +6,25 @@
   
   [1X5.1-1 DegeneratePolyhedra[101X
   
-  [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xmaxsize[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xmaxsize[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  degenerate  polyhedra  (of  type {2, q} and {p, 2}) with up to
   [3Xmaxsize[103X flags.[133X
   
   [1X5.1-2 FlatRegularPolyhedra[101X
   
-  [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xmaxsize[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xmaxsize[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  nondegenerate flat regular polyhedra with up to [3Xmaxsize[103X flags.
   Currently supports a maxsize of 4000 or less.[133X
   
   [1X5.1-3 SmallRegularPolyhedra[101X
   
-  [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xmaxsize[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   
-  [33X[0;0YReturns all regular polyhedra with up to [3Xmaxsize[103X flags. Currently supports a
-  maxsize  of  4000  or  less.  You  can  also set options "nondegenerate" and
-  "nonflat".[133X
+  [33X[0;0YReturns  all  regular  polyhedra  with  sizes  in [3Xsizerange[103X flags. Currently
+  supports a maxsize of 4000 or less. You can also set options "nondegenerate"
+  and "nonflat".[133X
   
   [4X[32X  Example  [32X[104X
     [4X[28XL1 := SmallRegularPolyhedra(500);;[128X[104X
