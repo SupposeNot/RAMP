@@ -138,19 +138,6 @@ InstallMethod(IsSelfDual,
 	return p = Dual(p);
 	end);
 
-_PETRIAL_REL := function(r)
-	local i, new_r;
-	new_r := [];
-	for i in r do
-		if AbsInt(i) = 1 then
-			Append(new_r, [1,3]);
-		else
-			Add(new_r, i);
-		fi;
-	od;
-	return new_r;
-	end;
-	
 # WARNING: Currently only working as intended for polyhedra.
 InstallMethod(Petrial,
 	[IsReflexibleManiplex],
@@ -158,14 +145,14 @@ InstallMethod(Petrial,
 	local g, rels, q, n, sym, pet;
 	g := AutomorphismGroup(p);
 	sym := ShallowCopy(SchlafliSymbol(p));
-	rels := ExtraRelators(p);
+	rels := List(ExtraRelators(p), String);
 	
 	pet := Order(g.1*g.2*g.3);
-	rels := List(rels, r -> _PETRIAL_REL(TietzeWordAbstractWord(r)));
-	Add(rels, Flat(ListWithIdenticalEntries(sym[1], [1, 2, 3])));
+	rels := List(rels, r -> ReplacedString(r, "r0", "(r0 r2)"));
+	Add(rels, Concatenation("z1^", String(sym[1])));
 	
 	sym[1] := pet;
-	q := ReflexibleManiplex(sym, rels);
+	q := ReflexibleManiplex(sym, JoinStringsWithSeparator(rels));
 	SetSize(q, Size(p));
 	SetSchlafliSymbol(q, sym);
 	SetPetrial(q, p);
