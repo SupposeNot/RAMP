@@ -153,12 +153,16 @@ InstallMethod(FlatRegularPolyhedron,
 # TODO: Check for compatibility.
 # Results not guaranteed to be correct for incompatible polytopes
 InstallMethod(Amalgamate, 
-	IsSameRank,
+	ReturnTrue,
 	[IsReflexibleManiplex, IsReflexibleManiplex],
 	function(p,q)
 	local a, g, h, n, rels, q_rels, f2, g2, sym;
 	g := AutomorphismGroup(p);
 	n := Rank(p);
+	if Rank(q) <> n then
+		Error("p and q must be the same rank.\n");
+	fi;
+	
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	q_rels := List(RelatorsOfFpGroup(AutomorphismGroup(q)), r -> TietzeWordAbstractWord(r));
 	# shift the relations of q "right" by one

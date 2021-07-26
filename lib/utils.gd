@@ -54,8 +54,6 @@ DeclareGlobalFunction("ParseRotGpRels");
 
 DeclareGlobalFunction("StandardizeSggi");
 
-DeclareGlobalFunction("IsSameRank");
-
 #! @Arguments L, x
 #! Given a list <A>L</A> and an object <A>x</A>, this calls
 #! Append(L, x) if x is a list; otherwise it calls Add(L, x).

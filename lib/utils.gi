@@ -144,11 +144,6 @@ InstallGlobalFunction(StandardizeSggi,
 	return FactorGroupFpGroupByRels(h, rels);
 	end);
 	
-InstallGlobalFunction(IsSameRank,
-	function(f1, f2)
-	return f1!.rank = f2!.rank;
-	end);
-
 InstallGlobalFunction(AddOrAppend,
 	function(list, eltOrList)
 	if IsList(eltOrList) then
