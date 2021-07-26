@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 8: Mixing of Maniplexes</title>
+<title>GAP (RAMP) - Chapter 8: Groups</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -20,79 +20,115 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap8_mj.html">[MathJax on]</a></p>
-<p><a id="X7CB85C4182EF7F87" name="X7CB85C4182EF7F87"></a></p>
-<div class="ChapSects"><a href="chap8.html#X7CB85C4182EF7F87">8 <span class="Heading">Mixing of Maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X7EE6BE9E7BB852DC">8.1 <span class="Heading">Mixing of Maniplexes functions</span></a>
+<p><a id="X8716635F7951801B" name="X8716635F7951801B"></a></p>
+<div class="ChapSects"><a href="chap8.html#X8716635F7951801B">8 <span class="Heading">Groups</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X8716635F7951801B">8.1 <span class="Heading">Groups</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7AE60EBC7BA2392A">8.1-1 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X79E9662F7D4043A1">8.1-2 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8441A4DC7C59EDB5">8.1-3 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7CD7AB1C7DF21CFE">8.1-4 CtoL</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X853A36497F3AF41E">8.1-5 FlagMix</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X78746F0385216D57">8.1-1 AutomorphismGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X837641127998923F">8.1-2 AutomorphismGroupFpGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D6651587DF3790A">8.1-3 AutomorphismGroupPermGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X810F4F4A864B1B39">8.1-4 AutomorphismGroupOnFlags</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7815931C7E926F4F">8.1-5 ConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7CE8CFB183A4FFEE">8.1-6 EvenConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D194510834667C8">8.1-7 RotationGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7FDCA212782DC0E3">8.1-8 ChiralityGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D2CE6707B452C0D">8.1-9 ExtraRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X797752A88078CF22">8.1-10 ExtraRotRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X835FA8527E2442F4">8.1-11 IsStringC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8445AFAB7CF3F319">8.1-12 IsStringCPlus</a></span>
 </div></div>
 </div>
 
-<h3>8 <span class="Heading">Mixing of Maniplexes</span></h3>
+<h3>8 <span class="Heading">Groups</span></h3>
 
-<p><a id="X7EE6BE9E7BB852DC" name="X7EE6BE9E7BB852DC"></a></p>
+<p><a id="X8716635F7951801B" name="X8716635F7951801B"></a></p>
 
-<h4>8.1 <span class="Heading">Mixing of Maniplexes functions</span></h4>
+<h4>8.1 <span class="Heading">Groups</span></h4>
 
-<p><a id="X7AE60EBC7BA2392A" name="X7AE60EBC7BA2392A"></a></p>
+<p><a id="X78746F0385216D57" name="X78746F0385216D57"></a></p>
 
-<h5>8.1-1 Mix</h5>
+<h5>8.1-1 AutomorphismGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">permgroup</var>, <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsGroup </code>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the automorphism group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form.</p>
 
-<p>Given two (permutation) groups returns the mix of those groups. Note, also works with FPgroups.</p>
+<p><a id="X837641127998923F" name="X837641127998923F"></a></p>
 
-<p>Here we build the mix of the connection groups of a 3-cube and an edge.</p>
+<h5>8.1-2 AutomorphismGroupFpGroup</h5>
 
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupFpGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the automorphism group of <var class="Arg">M</var> as a finitely presented group.</p>
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g1:=ConnectionGroup(Cube(3));</span>
-&lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2:=ConnectionGroup(Edge());</span>
-Group([ (1,2) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Mix(g1,g2);</span>
-&lt;permutation group with 3 generators&gt;
-</pre></div>
+<p><a id="X7D6651587DF3790A" name="X7D6651587DF3790A"></a></p>
 
-<p><a id="X79E9662F7D4043A1" name="X79E9662F7D4043A1"></a></p>
+<h5>8.1-3 AutomorphismGroupPermGroup</h5>
 
-<h5>8.1-2 Mix</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupPermGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the automorphism group of <var class="Arg">M</var> as a permutation group.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">fpgroup</var>, <var class="Arg">fpgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the Mix of two Finitely Presented groups gp and gq.</p>
+<p><a id="X810F4F4A864B1B39" name="X810F4F4A864B1B39"></a></p>
 
-<p><a id="X8441A4DC7C59EDB5" name="X8441A4DC7C59EDB5"></a></p>
+<h5>8.1-4 AutomorphismGroupOnFlags</h5>
 
-<h5>8.1-3 Mix</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnFlags</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the automorphism group of <var class="Arg">M</var> as a permutation group action on the flags of <var class="Arg">M</var>.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsReflexibleManiplex </code>.</p>
+<p><a id="X7815931C7E926F4F" name="X7815931C7E926F4F"></a></p>
 
-<p>Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups</p>
+<h5>8.1-5 ConnectionGroup</h5>
 
-<p><a id="X7CD7AB1C7DF21CFE" name="X7CD7AB1C7DF21CFE"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the connection group of <var class="Arg">M</var> as a permutation group. We may eventually allow other types of connection groups. Synonym: MonodromyGroup</p>
 
-<h5>8.1-4 CtoL</h5>
+<p><a id="X7CE8CFB183A4FFEE" name="X7CE8CFB183A4FFEE"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CtoL</code>( <var class="Arg">int</var>, <var class="Arg">int</var>, <var class="Arg">int</var>, <var class="Arg">int</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsInteger </code>.</p>
+<h5>8.1-6 EvenConnectionGroup</h5>
 
-<p>CtoL Returns an integer between 1 and N*M associated with the pair [a,b]. LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M. a should range between 1 and N, and b should range between 1 and M N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix Functions are inverses.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvenConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the even-word subgroup of the connection group of <var class="Arg">M</var> as a permutation group.</p>
 
-<p><a id="X853A36497F3AF41E" name="X853A36497F3AF41E"></a></p>
+<p><a id="X7D194510834667C8" name="X7D194510834667C8"></a></p>
 
-<h5>8.1-5 FlagMix</h5>
+<h5>8.1-7 RotationGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagMix</code>( <var class="Arg">permgroup</var>, <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsManiplex </code>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotationGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the rotation group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form.</p>
 
-<p>Given two (permutation) groups gp, gg this returns the maniplex of the "flag" mix of two maniplexes with connection groups gp and gq.</p>
+<p><a id="X7FDCA212782DC0E3" name="X7FDCA212782DC0E3"></a></p>
+
+<h5>8.1-8 ChiralityGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChiralityGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the chirality group of the rotary maniplex <var class="Arg">M</var>. This is the kernel of the group epimorphism from the rotation group of <var class="Arg">M</var> to the rotation group of its maximal reflexible quotient. In particular, the chirality group is trivial if and only if <var class="Arg">M</var> is reflexible.</p>
+
+<p><a id="X7D2CE6707B452C0D" name="X7D2CE6707B452C0D"></a></p>
+
+<h5>8.1-9 ExtraRelators</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its automorphism group as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
+
+<p><a id="X797752A88078CF22" name="X797752A88078CF22"></a></p>
+
+<h5>8.1-10 ExtraRotRelators</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRotRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its rotation group as a quotient of the rotation group of a string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
+
+<p><a id="X835FA8527E2442F4" name="X835FA8527E2442F4"></a></p>
+
+<h5>8.1-11 IsStringC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringC</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>For an sggi <var class="Arg">G</var>, returns whether the group is a string C group. It does not check whether <var class="Arg">G</var> is an sggi.</p>
+
+<p><a id="X8445AFAB7CF3F319" name="X8445AFAB7CF3F319"></a></p>
+
+<h5>8.1-12 IsStringCPlus</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringCPlus</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>For a "string rotation group" <var class="Arg">G</var>, returns whether the group is a string C+ group. It does not check whether <var class="Arg">G</var> is a string rotation group.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9.html">[Next Chapter]</a>&nbsp;  </div>

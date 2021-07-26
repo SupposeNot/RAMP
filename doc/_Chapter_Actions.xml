@@ -4,6 +4,68 @@
 <Chapter Label="Chapter_Actions">
 <Heading>Actions</Heading>
 
+<Section Label="Chapter_Actions_Section_Flag_orbits">
+<Heading>Flag orbits</Heading>
+
+<ManSection>
+  <Attr Arg="M" Name="SymmetryTypeGraph" Label="for IsManiplex"/>
+ <Description>
+ Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
+ a permutation group on Rank(<A>M</A>) generators.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="NumberOfFlagOrbits" Label="for IsManiplex"/>
+ <Description>
+ Returns the number of orbits of the automorphism group of <A>M</A>
+ on its flags.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="FlagOrbitRepresentatives" Label="for IsManiplex"/>
+ <Description>
+ Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsReflexible" Label="for IsManiplex"/>
+ <Returns>Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsChiral" Label="for IsManiplex"/>
+ <Returns>Whether the maniplex <A>M</A> is chrial.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsRotary" Label="for IsManiplex"/>
+ <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is  either reflexible or chiral.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Actions_Section_Faithfulness">
 <Heading>Faithfulness</Heading>
 

@@ -168,12 +168,54 @@
 
 
 <ManSection>
+  <Attr Arg="M" Name="PseudoSchlafliSymbol" Label="for IsManiplex"/>
+ <Description>
+ Sometimes when we make a maniplex, we know that the
+ Schlafli symbol must be a quotient of some symbol.
+ This most frequently happens because we start with a
+ maniplex with a given Schlafli symbol and then take a
+ quotient of it. In this case, we store the given
+ Schlafli symbol and call it a <Emph>pseudo-Schlafli symbol</Emph>
+ of <A>M</A>. Note that whenever we compute the actual
+ Schlafli symbol of <A>M</A>, we update the pseudo-Schlafli
+ symbol to match.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Prop Arg="M" Name="IsEquivelar" Label="for IsManiplex"/>
  <Returns>the the maniplex <A>M</A> is equivelar; i.e.,  whether its Schlafli Symbol consists of integers at each
   position (no lists).
 </Returns>
  <Description>
 <P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the maniplex <A>M</A> has any sections that
+ are digons. We may eventually want to include maniplexes with
+ even smaller sections.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="P" Name="IsTight" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+ Returns whether the polytope <A>P</A> is tight, meaning that
+ it has a Schlafli symbol {k_1, ..., k_{n-1}} and has
+ 2 k_1 ... k_{n-1} flags, which is the minimum possible.
+ This property doesn't make any sense for non-polytopal maniplexes, which
+ aren't constrained by this lower bound.
  </Description>
 </ManSection>
 
@@ -197,88 +239,6 @@
   <Attr Arg="M" Name="RankManiplex" Label="for IsManiplex"/>
  <Description>
  Returns the rank of the maniplex <A>M</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="P" Name="IsTight" Label="for IsManiplex and IsPolytopal"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
- Returns whether the polytope <A>P</A> is tight, meaning that
- it has a Schlafli symbol {k_1, ..., k_{n-1}} and has
- 2 k_1 ... k_{n-1} flags, which is the minimum possible.
- This property doesn't make any sense for non-polytopal maniplexes, which
- aren't constrained by this lower bound.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
- Returns whether the maniplex <A>M</A> has any sections that
- are digons. We may eventually want to include maniplexes with
- even smaller sections.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="M" Name="SymmetryTypeGraph" Label="for IsManiplex"/>
- <Description>
- Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
- a permutation group on Rank(<A>M</A>) generators.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="M" Name="NumberOfFlagOrbits" Label="for IsManiplex"/>
- <Description>
- Returns the number of orbits of the automorphism group of <A>M</A>
- on its flags.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="M" Name="FlagOrbitRepresentatives" Label="for IsManiplex"/>
- <Description>
- Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="M" Name="IsReflexible" Label="for IsManiplex"/>
- <Returns>Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
-</Returns>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="M" Name="IsChiral" Label="for IsManiplex"/>
- <Returns>Whether the maniplex <A>M</A> is chrial.
-</Returns>
- <Description>
-<P/>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Prop Arg="M" Name="IsRotary" Label="for IsManiplex"/>
- <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is  either reflexible or chiral.
-</Returns>
- <Description>
-<P/>
  </Description>
 </ManSection>
 

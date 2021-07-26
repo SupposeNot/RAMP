@@ -94,51 +94,6 @@ DeclareSynonymAttr("NumberOfFlags", Size);
 #! Returns the rank of the maniplex <A>M</A>.
 DeclareAttribute("RankManiplex", IsManiplex);
 
-#! @Arguments P
-#! Returns whether the polytope <A>P</A> is tight, meaning that
-#! it has a Schlafli symbol {k_1, ..., k_{n-1}} and has
-#! 2 k_1 ... k_{n-1} flags, which is the minimum possible.
-#! This property doesn't make any sense for non-polytopal maniplexes, which
-#! aren't constrained by this lower bound.
-DeclareProperty("IsTight", IsManiplex and IsPolytopal);
-
-#! @Arguments M
-#! Returns whether the maniplex <A>M</A> has any sections that
-#! are digons. We may eventually want to include maniplexes with
-#! even smaller sections.
-DeclareProperty("IsDegenerate", IsManiplex);
-
-# Symmetry Type Graphs
-
-#! @Arguments M
-#! Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
-#! a permutation group on Rank(<A>M</A>) generators.
-DeclareAttribute("SymmetryTypeGraph", IsManiplex);
-
-#! @Arguments M
-#! Returns the number of orbits of the automorphism group of <A>M</A>
-#! on its flags.
-DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
-
-#! @Arguments M
-#! Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
-DeclareAttribute("FlagOrbitRepresentatives", IsManiplex);
-
-#! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
-DeclareProperty("IsReflexible", IsManiplex);
-
-#! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is chrial.
-DeclareProperty("IsChiral", IsManiplex);
-
-#! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is rotary; i.e., whether it is 
-#! either reflexible or chiral.
-DeclareProperty("IsRotary", IsManiplex);
-
-
-
 
 #! @Chapter Actions
 #! @Section Faithfulness

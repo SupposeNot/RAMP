@@ -371,3 +371,30 @@ InstallMethod(IsEquivelar,
 # Every reflexible and rotary maniplex is equivelar
 InstallTrueMethod(IsEquivelar, IsReflexible);
 InstallTrueMethod(IsEquivelar, IsRotary);
+
+
+InstallMethod(IsDegenerate,
+	[IsReflexibleManiplex],
+	function(M)
+	local val;
+	val := (2 in SchlafliSymbol(M));
+	if HasDual(M) then
+		SetIsDegenerate(Dual(M), val);
+	fi;
+	return val;
+	end);
+
+InstallMethod(IsTight,
+	[IsManiplex],
+	function(M)
+	local val;
+	if not(IsEquivelar(M)) or not(IsPolytopal(M)) then
+		Error("Tightness is only well-defined for equivelar polytopes.\n");
+	fi;
+	val := (Size(M) = 2*Product(SchlafliSymbol(M)));
+	if HasDual(M) then
+		SetIsTight(Dual(M), val);
+	fi;
+	return val;
+	end);
+	

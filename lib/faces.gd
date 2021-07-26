@@ -114,3 +114,19 @@ DeclareAttribute("PseudoSchlafliSymbol", IsManiplex);
 #! position (no lists).
 DeclareProperty("IsEquivelar", IsManiplex);
 
+#! @Arguments M
+#! Returns whether the maniplex <A>M</A> has any sections that
+#! are digons. We may eventually want to include maniplexes with
+#! even smaller sections.
+DeclareProperty("IsDegenerate", IsManiplex);
+
+#! @Arguments P
+#! Returns whether the polytope <A>P</A> is tight, meaning that
+#! it has a Schlafli symbol {k_1, ..., k_{n-1}} and has
+#! 2 k_1 ... k_{n-1} flags, which is the minimum possible.
+#! This property doesn't make any sense for non-polytopal maniplexes, which
+#! aren't constrained by this lower bound.
+DeclareProperty("IsTight", IsManiplex);
+
+
+

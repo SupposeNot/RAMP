@@ -54,21 +54,16 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7FA0B161838A442A">3.3-1 SchlafliSymbol</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E9CCE9D794DC285">3.3-2 IsEquivelar</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X78447BE8877668EA">3.3-2 PseudoSchlafliSymbol</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E9CCE9D794DC285">3.3-3 IsEquivelar</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8483BE798579B521">3.3-4 IsDegenerate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8088FFB2851334AB">3.3-5 IsTight</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X868F7BAB7AC2EEBC">3.4 <span class="Heading">Basics</span></a>
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C2ADC507F19E2E3">3.4-1 Size</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X79C21A557E80B021">3.4-2 RankManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X851696FD81A25FF7">3.4-3 IsTight</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8483BE798579B521">3.4-4 IsDegenerate</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X856ED1E7866152A0">3.4-5 SymmetryTypeGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X78060E3A788D2D3C">3.4-6 NumberOfFlagOrbits</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X852C679D8338AB53">3.4-7 FlagOrbitRepresentatives</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E4E689F86171C78">3.4-8 IsReflexible</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7D74CD997C7FF39D">3.4-9 IsChiral</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7DACFE5483893523">3.4-10 IsRotary</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X780FC00678185849">3.5 <span class="Heading">Zigzags and holes</span></a>
 </span>
@@ -217,12 +212,37 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the Schlafli symbol of the maniplex <var class="Arg">M</var>. Each entry is either an integer or a set of integers, where entry number i shows the polygons that we obtain as sections of (i+1)-faces over (i-2)-faces.</p>
 
+<p><a id="X78447BE8877668EA" name="X78447BE8877668EA"></a></p>
+
+<h5>3.3-2 PseudoSchlafliSymbol</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PseudoSchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Sometimes when we make a maniplex, we know that the Schlafli symbol must be a quotient of some symbol. This most frequently happens because we start with a maniplex with a given Schlafli symbol and then take a quotient of it. In this case, we store the given Schlafli symbol and call it a <em>pseudo-Schlafli symbol</em> of <var class="Arg">M</var>. Note that whenever we compute the actual Schlafli symbol of <var class="Arg">M</var>, we update the pseudo-Schlafli symbol to match.</p>
+
 <p><a id="X7E9CCE9D794DC285" name="X7E9CCE9D794DC285"></a></p>
 
-<h5>3.3-2 IsEquivelar</h5>
+<h5>3.3-3 IsEquivelar</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivelar</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: the the maniplex <var class="Arg">M</var> is equivelar; i.e., whether its Schlafli Symbol consists of integers at each position (no lists).</p>
+
+<p><a id="X8483BE798579B521" name="X8483BE798579B521"></a></p>
+
+<h5>3.3-4 IsDegenerate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
+
+<p><a id="X8088FFB2851334AB" name="X8088FFB2851334AB"></a></p>
+
+<h5>3.3-5 IsTight</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
 
 <p><a id="X868F7BAB7AC2EEBC" name="X868F7BAB7AC2EEBC"></a></p>
 
@@ -241,66 +261,6 @@
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankManiplex</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the rank of the maniplex <var class="Arg">M</var>.</p>
-
-<p><a id="X851696FD81A25FF7" name="X851696FD81A25FF7"></a></p>
-
-<h5>3.4-3 IsTight</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
-
-<p><a id="X8483BE798579B521" name="X8483BE798579B521"></a></p>
-
-<h5>3.4-4 IsDegenerate</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
-
-<p><a id="X856ED1E7866152A0" name="X856ED1E7866152A0"></a></p>
-
-<h5>3.4-5 SymmetryTypeGraph</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var>, encoded as a permutation group on Rank(<var class="Arg">M</var>) generators.</p>
-
-<p><a id="X78060E3A788D2D3C" name="X78060E3A788D2D3C"></a></p>
-
-<h5>3.4-6 NumberOfFlagOrbits</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
-
-<p><a id="X852C679D8338AB53" name="X852C679D8338AB53"></a></p>
-
-<h5>3.4-7 FlagOrbitRepresentatives</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
-
-<p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
-
-<h5>3.4-8 IsReflexible</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
-
-<p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
-
-<h5>3.4-9 IsChiral</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the maniplex <var class="Arg">M</var> is chrial.</p>
-
-<p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
-
-<h5>3.4-10 IsRotary</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
 
 <p><a id="X780FC00678185849" name="X780FC00678185849"></a></p>
 

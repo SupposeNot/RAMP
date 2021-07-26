@@ -24,14 +24,15 @@
 \makelabel{ramp:Families of Polytopes}{6}{X7BF24A5D7B3386D7}
 \makelabel{ramp:Classical Polytopes}{6.1}{X7A281A1C7DCB2D96}
 \makelabel{ramp:Uniform Polyhedra}{6.2}{X8708502981F8565A}
-\makelabel{ramp:Groups}{7}{X8716635F7951801B}
-\makelabel{ramp:Groups}{7.1}{X8716635F7951801B}
-\makelabel{ramp:Mixing of Maniplexes}{8}{X7CB85C4182EF7F87}
-\makelabel{ramp:Mixing of Maniplexes functions}{8.1}{X7EE6BE9E7BB852DC}
-\makelabel{ramp:Properties}{9}{X871597447BB998A1}
-\makelabel{ramp:Orientability}{9.1}{X861E4BAD800B2785}
-\makelabel{ramp:Actions}{10}{X833C5DA683E4EA15}
-\makelabel{ramp:Faithfulness}{10.1}{X83355D207F38F997}
+\makelabel{ramp:Actions}{7}{X833C5DA683E4EA15}
+\makelabel{ramp:Flag orbits}{7.1}{X7BE5F0217862DBEF}
+\makelabel{ramp:Faithfulness}{7.2}{X83355D207F38F997}
+\makelabel{ramp:Groups}{8}{X8716635F7951801B}
+\makelabel{ramp:Groups}{8.1}{X8716635F7951801B}
+\makelabel{ramp:Mixing of Maniplexes}{9}{X7CB85C4182EF7F87}
+\makelabel{ramp:Mixing of Maniplexes functions}{9.1}{X7EE6BE9E7BB852DC}
+\makelabel{ramp:Properties}{10}{X871597447BB998A1}
+\makelabel{ramp:Orientability}{10.1}{X861E4BAD800B2785}
 \makelabel{ramp:Posets}{11}{X79540DAB85902432}
 \makelabel{ramp:Poset constructors}{11.1}{X87ED175B85A4C5B7}
 \makelabel{ramp:Helper functions for special partial orders}{11.1.6}{X82DB1F987C68B392}
@@ -95,17 +96,12 @@
 \makelabel{ramp:IsFlat for ismaniplex}{3.2.1}{X7D54E1CF809FEB0E}
 \makelabel{ramp:IsFlat for ismaniplex, isint, isint}{3.2.1}{X7D54E1CF809FEB0E}
 \makelabel{ramp:SchlafliSymbol for ismaniplex}{3.3.1}{X7FA0B161838A442A}
-\makelabel{ramp:IsEquivelar for ismaniplex}{3.3.2}{X7E9CCE9D794DC285}
+\makelabel{ramp:PseudoSchlafliSymbol for ismaniplex}{3.3.2}{X78447BE8877668EA}
+\makelabel{ramp:IsEquivelar for ismaniplex}{3.3.3}{X7E9CCE9D794DC285}
+\makelabel{ramp:IsDegenerate for ismaniplex}{3.3.4}{X8483BE798579B521}
+\makelabel{ramp:IsTight for ismaniplex}{3.3.5}{X8088FFB2851334AB}
 \makelabel{ramp:Size for ismaniplex}{3.4.1}{X7C2ADC507F19E2E3}
 \makelabel{ramp:RankManiplex for ismaniplex}{3.4.2}{X79C21A557E80B021}
-\makelabel{ramp:IsTight for ismaniplex and ispolytopal}{3.4.3}{X851696FD81A25FF7}
-\makelabel{ramp:IsDegenerate for ismaniplex}{3.4.4}{X8483BE798579B521}
-\makelabel{ramp:SymmetryTypeGraph for ismaniplex}{3.4.5}{X856ED1E7866152A0}
-\makelabel{ramp:NumberOfFlagOrbits for ismaniplex}{3.4.6}{X78060E3A788D2D3C}
-\makelabel{ramp:FlagOrbitRepresentatives for ismaniplex}{3.4.7}{X852C679D8338AB53}
-\makelabel{ramp:IsReflexible for ismaniplex}{3.4.8}{X7E4E689F86171C78}
-\makelabel{ramp:IsChiral for ismaniplex}{3.4.9}{X7D74CD997C7FF39D}
-\makelabel{ramp:IsRotary for ismaniplex}{3.4.10}{X7DACFE5483893523}
 \makelabel{ramp:ZigzagLength for ismaniplex, isint}{3.5.1}{X7D0AAD597CDE5697}
 \makelabel{ramp:ZigzagVector for ismaniplex}{3.5.2}{X7FC09F34870E6CDE}
 \makelabel{ramp:PetrieLength for ismaniplex}{3.5.3}{X7C4A38D780F6AECD}
@@ -162,30 +158,36 @@
 \makelabel{ramp:SnubDodecahedron}{6.2.10}{X874B90BD82EA1192}
 \makelabel{ramp:TruncatedDodecahedron}{6.2.11}{X79A2DEE48126C748}
 \makelabel{ramp:GreatRhombicuboctahedron}{6.2.12}{X7D08FB508708D8B2}
-\makelabel{ramp:AutomorphismGroup for ismaniplex}{7.1.1}{X78746F0385216D57}
-\makelabel{ramp:AutomorphismGroupFpGroup for ismaniplex}{7.1.2}{X837641127998923F}
-\makelabel{ramp:AutomorphismGroupPermGroup for ismaniplex}{7.1.3}{X7D6651587DF3790A}
-\makelabel{ramp:AutomorphismGroupOnFlags for ismaniplex}{7.1.4}{X810F4F4A864B1B39}
-\makelabel{ramp:ConnectionGroup for ismaniplex}{7.1.5}{X7815931C7E926F4F}
-\makelabel{ramp:EvenConnectionGroup for ismaniplex}{7.1.6}{X7CE8CFB183A4FFEE}
-\makelabel{ramp:RotationGroup for ismaniplex}{7.1.7}{X7D194510834667C8}
-\makelabel{ramp:ChiralityGroup for isrotarymaniplex}{7.1.8}{X7FDCA212782DC0E3}
-\makelabel{ramp:ExtraRelators for isreflexiblemaniplex}{7.1.9}{X7D2CE6707B452C0D}
-\makelabel{ramp:ExtraRotRelators for isrotarymaniplex}{7.1.10}{X797752A88078CF22}
-\makelabel{ramp:IsStringC for isgroup}{7.1.11}{X835FA8527E2442F4}
-\makelabel{ramp:IsStringCPlus for isgroup}{7.1.12}{X8445AFAB7CF3F319}
-\makelabel{ramp:Mix for ispermgroup, ispermgroup}{8.1.1}{X7AE60EBC7BA2392A}
-\makelabel{ramp:Mix for isfpgroup, isfpgroup}{8.1.2}{X79E9662F7D4043A1}
-\makelabel{ramp:Mix for isreflexiblemaniplex, isreflexiblemaniplex}{8.1.3}{X8441A4DC7C59EDB5}
-\makelabel{ramp:CtoL for isint,isint,isint,isint}{8.1.4}{X7CD7AB1C7DF21CFE}
-\makelabel{ramp:FlagMix for ismaniplex, ismaniplex}{8.1.5}{X853A36497F3AF41E}
-\makelabel{ramp:IsOrientable for ismaniplex}{9.1.1}{X7DCAF9D27F36EBD3}
-\makelabel{ramp:IsIOrientable for ismaniplex, islist}{9.1.2}{X79F849DD7F778616}
-\makelabel{ramp:IsVertexBipartite for ismaniplex}{9.1.3}{X877609AB7ABD24AC}
-\makelabel{ramp:IsFacetBipartite for ismaniplex}{9.1.4}{X7BD9E8A87D6E8FAB}
-\makelabel{ramp:IsVertexFaithful for isreflexiblemaniplex}{10.1.1}{X785DE0A9842AAEA1}
-\makelabel{ramp:IsFacetFaithful for isreflexiblemaniplex}{10.1.2}{X78CDF48E7CDED1AB}
-\makelabel{ramp:MaxVertexFaithfulQuotient for isreflexiblemaniplex}{10.1.3}{X856543F87E52DDC6}
+\makelabel{ramp:SymmetryTypeGraph for ismaniplex}{7.1.1}{X856ED1E7866152A0}
+\makelabel{ramp:NumberOfFlagOrbits for ismaniplex}{7.1.2}{X78060E3A788D2D3C}
+\makelabel{ramp:FlagOrbitRepresentatives for ismaniplex}{7.1.3}{X852C679D8338AB53}
+\makelabel{ramp:IsReflexible for ismaniplex}{7.1.4}{X7E4E689F86171C78}
+\makelabel{ramp:IsChiral for ismaniplex}{7.1.5}{X7D74CD997C7FF39D}
+\makelabel{ramp:IsRotary for ismaniplex}{7.1.6}{X7DACFE5483893523}
+\makelabel{ramp:IsVertexFaithful for isreflexiblemaniplex}{7.2.1}{X785DE0A9842AAEA1}
+\makelabel{ramp:IsFacetFaithful for isreflexiblemaniplex}{7.2.2}{X78CDF48E7CDED1AB}
+\makelabel{ramp:MaxVertexFaithfulQuotient for isreflexiblemaniplex}{7.2.3}{X856543F87E52DDC6}
+\makelabel{ramp:AutomorphismGroup for ismaniplex}{8.1.1}{X78746F0385216D57}
+\makelabel{ramp:AutomorphismGroupFpGroup for ismaniplex}{8.1.2}{X837641127998923F}
+\makelabel{ramp:AutomorphismGroupPermGroup for ismaniplex}{8.1.3}{X7D6651587DF3790A}
+\makelabel{ramp:AutomorphismGroupOnFlags for ismaniplex}{8.1.4}{X810F4F4A864B1B39}
+\makelabel{ramp:ConnectionGroup for ismaniplex}{8.1.5}{X7815931C7E926F4F}
+\makelabel{ramp:EvenConnectionGroup for ismaniplex}{8.1.6}{X7CE8CFB183A4FFEE}
+\makelabel{ramp:RotationGroup for ismaniplex}{8.1.7}{X7D194510834667C8}
+\makelabel{ramp:ChiralityGroup for isrotarymaniplex}{8.1.8}{X7FDCA212782DC0E3}
+\makelabel{ramp:ExtraRelators for isreflexiblemaniplex}{8.1.9}{X7D2CE6707B452C0D}
+\makelabel{ramp:ExtraRotRelators for isrotarymaniplex}{8.1.10}{X797752A88078CF22}
+\makelabel{ramp:IsStringC for isgroup}{8.1.11}{X835FA8527E2442F4}
+\makelabel{ramp:IsStringCPlus for isgroup}{8.1.12}{X8445AFAB7CF3F319}
+\makelabel{ramp:Mix for ispermgroup, ispermgroup}{9.1.1}{X7AE60EBC7BA2392A}
+\makelabel{ramp:Mix for isfpgroup, isfpgroup}{9.1.2}{X79E9662F7D4043A1}
+\makelabel{ramp:Mix for isreflexiblemaniplex, isreflexiblemaniplex}{9.1.3}{X8441A4DC7C59EDB5}
+\makelabel{ramp:CtoL for isint,isint,isint,isint}{9.1.4}{X7CD7AB1C7DF21CFE}
+\makelabel{ramp:FlagMix for ismaniplex, ismaniplex}{9.1.5}{X853A36497F3AF41E}
+\makelabel{ramp:IsOrientable for ismaniplex}{10.1.1}{X7DCAF9D27F36EBD3}
+\makelabel{ramp:IsIOrientable for ismaniplex, islist}{10.1.2}{X79F849DD7F778616}
+\makelabel{ramp:IsVertexBipartite for ismaniplex}{10.1.3}{X877609AB7ABD24AC}
+\makelabel{ramp:IsFacetBipartite for ismaniplex}{10.1.4}{X7BD9E8A87D6E8FAB}
 \makelabel{ramp:PosetFromFaceListOfFlags for islist}{11.1.1}{X7D495B407CDFAEA2}
 \makelabel{ramp:PosetFromConnectionGroup for ispermgroup}{11.1.2}{X8720C4757EE12082}
 \makelabel{ramp:PosetFromManiplex for ismaniplex}{11.1.3}{X7C4F3D307C5A7E7A}

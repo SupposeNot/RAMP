@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 10: Actions</title>
+<title>GAP (RAMP) - Chapter 10: Properties</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -23,47 +23,57 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap10.html">[MathJax off]</a></p>
-<p><a id="X833C5DA683E4EA15" name="X833C5DA683E4EA15"></a></p>
-<div class="ChapSects"><a href="chap10_mj.html#X833C5DA683E4EA15">10 <span class="Heading">Actions</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10_mj.html#X83355D207F38F997">10.1 <span class="Heading">Faithfulness</span></a>
+<p><a id="X871597447BB998A1" name="X871597447BB998A1"></a></p>
+<div class="ChapSects"><a href="chap10_mj.html#X871597447BB998A1">10 <span class="Heading">Properties</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10_mj.html#X861E4BAD800B2785">10.1 <span class="Heading">Orientability</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X785DE0A9842AAEA1">10.1-1 IsVertexFaithful</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X78CDF48E7CDED1AB">10.1-2 IsFacetFaithful</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X856543F87E52DDC6">10.1-3 MaxVertexFaithfulQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X7DCAF9D27F36EBD3">10.1-1 IsOrientable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X79F849DD7F778616">10.1-2 IsIOrientable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X877609AB7ABD24AC">10.1-3 IsVertexBipartite</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X7BD9E8A87D6E8FAB">10.1-4 IsFacetBipartite</a></span>
 </div></div>
 </div>
 
-<h3>10 <span class="Heading">Actions</span></h3>
+<h3>10 <span class="Heading">Properties</span></h3>
 
-<p><a id="X83355D207F38F997" name="X83355D207F38F997"></a></p>
+<p><a id="X861E4BAD800B2785" name="X861E4BAD800B2785"></a></p>
 
-<h4>10.1 <span class="Heading">Faithfulness</span></h4>
+<h4>10.1 <span class="Heading">Orientability</span></h4>
 
-<p><a id="X785DE0A9842AAEA1" name="X785DE0A9842AAEA1"></a></p>
+<p><a id="X7DCAF9D27F36EBD3" name="X7DCAF9D27F36EBD3"></a></p>
 
-<h5>10.1-1 IsVertexFaithful</h5>
+<h5>10.1-1 IsOrientable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsOrientable</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is vertex-faithful; i.e., whether the action of the automorphism group on the vertices is faithful.</p>
+<p>A polytope is orientable if its flag graph is bipartite. Currently only implemented for regular polytopes.</p>
 
-<p><a id="X78CDF48E7CDED1AB" name="X78CDF48E7CDED1AB"></a></p>
+<p><a id="X79F849DD7F778616" name="X79F849DD7F778616"></a></p>
 
-<h5>10.1-2 IsFacetFaithful</h5>
+<h5>10.1-2 IsIOrientable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIOrientable</code>( <var class="Arg">p</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>For a subset I of {0, ..., n-1}, a polytope if I-orientable if every closed path in its flag graph contains an even number of edges with colors in I. Currently only implemented for regular polytopes.</p>
+
+<p><a id="X877609AB7ABD24AC" name="X877609AB7ABD24AC"></a></p>
+
+<h5>10.1-3 IsVertexBipartite</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexBipartite</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is facet-faithful; i.e., whether the action of the automorphism group on the facets is faithful.</p>
+<p>A polytope is vertex-bipartite if its 1-skeleton is bipartite. This is equivalent to being I-orientable for I = {0}.</p>
 
-<p><a id="X856543F87E52DDC6" name="X856543F87E52DDC6"></a></p>
+<p><a id="X7BD9E8A87D6E8FAB" name="X7BD9E8A87D6E8FAB"></a></p>
 
-<h5>10.1-3 MaxVertexFaithfulQuotient</h5>
+<h5>10.1-4 IsFacetBipartite</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxVertexFaithfulQuotient</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the maximal vertex-faithful reflexible maniplex covered by <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetBipartite</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>A polytope is facet-bipartite if the 1-skeleton of its dual is bipartite. This is equivalent to being I-orientable for I = {n-1}.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11_mj.html">[Next Chapter]</a>&nbsp;  </div>

@@ -126,11 +126,40 @@
   integer  or  a set of integers, where entry number i shows the polygons that
   we obtain as sections of (i+1)-faces over (i-2)-faces.[133X
   
-  [1X3.3-2 IsEquivelar[101X
+  [1X3.3-2 PseudoSchlafliSymbol[101X
+  
+  [33X[1;0Y[29X[2XPseudoSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YSometimes  when we make a maniplex, we know that the Schlafli symbol must be
+  a  quotient  of  some  symbol. This most frequently happens because we start
+  with a maniplex with a given Schlafli symbol and then take a quotient of it.
+  In   this   case,  we  store  the  given  Schlafli  symbol  and  call  it  a
+  [13Xpseudo-Schlafli  symbol[113X  of  [3XM[103X.  Note  that  whenever  we compute the actual
+  Schlafli symbol of [3XM[103X, we update the pseudo-Schlafli symbol to match.[133X
+  
+  [1X3.3-3 IsEquivelar[101X
   
   [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Ythe the maniplex [3XM[103X is equivelar; i.e., whether its Schlafli Symbol
             consists of integers at each position (no lists).[133X
+  
+  [1X3.3-4 IsDegenerate[101X
+  
+  [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
+  eventually want to include maniplexes with even smaller sections.[133X
+  
+  [1X3.3-5 IsTight[101X
+  
+  [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  the  polytope  [3XP[103X  is tight, meaning that it has a Schlafli
+  symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
+  minimum  possible.  This  property  doesn't make any sense for non-polytopal
+  maniplexes, which aren't constrained by this lower bound.[133X
   
   
   [1X3.4 [33X[0;0YBasics[133X[101X
@@ -146,59 +175,6 @@
   [33X[1;0Y[29X[2XRankManiplex[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the rank of the maniplex [3XM[103X.[133X
-  
-  [1X3.4-3 IsTight[101X
-  
-  [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether  the  polytope  [3XP[103X  is tight, meaning that it has a Schlafli
-  symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
-  minimum  possible.  This  property  doesn't make any sense for non-polytopal
-  maniplexes, which aren't constrained by this lower bound.[133X
-  
-  [1X3.4-4 IsDegenerate[101X
-  
-  [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
-  eventually want to include maniplexes with even smaller sections.[133X
-  
-  [1X3.4-5 SymmetryTypeGraph[101X
-  
-  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
-  group on Rank([3XM[103X) generators.[133X
-  
-  [1X3.4-6 NumberOfFlagOrbits[101X
-  
-  [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
-  
-  [1X3.4-7 FlagOrbitRepresentatives[101X
-  
-  [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns one flag from each orbit under the action of AutomorphismGroup([3XM[103X).[133X
-  
-  [1X3.4-8 IsReflexible[101X
-  
-  [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
-  
-  [1X3.4-9 IsChiral[101X
-  
-  [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
-  
-  [1X3.4-10 IsRotary[101X
-  
-  [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
-            reflexible or chiral.[133X
   
   
   [1X3.5 [33X[0;0YZigzags and holes[133X[101X
