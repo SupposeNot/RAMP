@@ -97,6 +97,18 @@ DeclareOperation("IsFlat", [IsManiplex, IsInt, IsInt]);
 DeclareAttribute("SchlafliSymbol", IsManiplex);
 
 #! @Arguments M
+#! Sometimes when we make a maniplex, we know that the
+#! Schlafli symbol must be a quotient of some symbol.
+#! This most frequently happens because we start with a
+#! maniplex with a given Schlafli symbol and then take a
+#! quotient of it. In this case, we store the given
+#! Schlafli symbol and call it a __pseudo-Schlafli symbol__
+#! of <A>M</A>. Note that whenever we compute the actual
+#! Schlafli symbol of <A>M</A>, we update the pseudo-Schlafli
+#! symbol to match.
+DeclareAttribute("PseudoSchlafliSymbol", IsManiplex);
+
+#! @Arguments M
 #! @Returns the the maniplex <A>M</A> is equivelar; i.e.,
 #! whether its Schlafli Symbol consists of integers at each
 #! position (no lists).

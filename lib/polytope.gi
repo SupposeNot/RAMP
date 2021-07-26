@@ -96,6 +96,11 @@ InstallMethod(IsPolytopal,
 	if HasDual(M) then
 		SetIsPolytopal(Dual(M), ispoly);
 	fi;
+	
+	if ispoly then
+		M!.String := ReplacedString(M!.String, "ReflexibleManiplex", "AbstractRegularPolytope");
+	fi;
+	
 	return ispoly;
 	end);
 
@@ -186,6 +191,7 @@ InstallMethod(ReflexibleManiplex,
 	[IsList, IsList],
 	function(sym, rels)
 	local n, w, autgp, fam, p, newrels, desc;
+	if rels = [] then return AbstractRegularPolytope(sym); fi;
 	n := Size(sym)+1;
 	w := UniversalSggi(sym);
 	if IsString(rels) then
@@ -200,6 +206,8 @@ InstallMethod(ReflexibleManiplex,
 	SetExtraRelators(p, newrels);
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
+	else
+		SetPseudoSchlafliSymbol(p, sym);
 	fi;
 
 	SetString(p, desc);

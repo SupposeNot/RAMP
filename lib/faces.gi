@@ -349,7 +349,17 @@ InstallMethod(SchlafliSymbol,
 	if HasDual(M) then
 		SetSchlafliSymbol(Dual(M), Reversed(sym));
 	fi;
+	M!.PseudoSchlafliSymbol := sym;
 	return sym;
+	end);
+
+# Some constructors will set the pseudo-Schlafli symbol
+# of an object. Otherwise, we just compute the actual
+# Schlafli symbol.
+InstallMethod(PseudoSchlafliSymbol,
+	[IsManiplex],
+	function(M)
+	return SchlafliSymbol(M);
 	end);
 	
 InstallMethod(IsEquivelar,

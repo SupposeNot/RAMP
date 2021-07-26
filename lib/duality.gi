@@ -9,9 +9,9 @@ InstallMethod(Dual,
 	local g, rels, q, n, sym, newrels, relstr, attr, attrs, gens;
 	n := Rank(p);
 	
-	if HasSchlafliSymbol(p) and HasAutomorphismGroupFpGroup(p) then
+	if HasAutomorphismGroupFpGroup(p) then
 		rels := ExtraRelators(p);
-		sym := SchlafliSymbol(p);
+		sym := PseudoSchlafliSymbol(p);
 		sym := Reversed(sym);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
 		
@@ -21,8 +21,8 @@ InstallMethod(Dual,
 		newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(p)))));
 		relstr := JoinStringsWithSeparator(newrels, ",");
 		q := ReflexibleManiplex(sym, relstr);
-		
-		SetSchlafliSymbol(q, sym);
+
+		if HasSchlafliSymbol(p) then SetSchlafliSymbol(q, sym); fi;
 	else
 		gens := GeneratorsOfGroup(AutomorphismGroup(p));
 		q := ReflexibleManiplex(Group(Reversed(gens)));
@@ -32,6 +32,10 @@ InstallMethod(Dual,
 	for attr in attrs do
 		if Tester(attr)(p) then Setter(attr)(q, attr(p)); fi;
 	od;
+
+	if HasIsPolytopal(p) and IsPolytopal(p) then
+		q!.String := ReplacedString(q!.String, "ReflexibleManiplex", "AbstractRegularPolytope");
+	fi;
 
 	SetDual(q, p);
 	return q;
