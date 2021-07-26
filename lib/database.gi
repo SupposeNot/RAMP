@@ -201,6 +201,35 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	return polys;
 	end);
 
+InstallGlobalFunction(RegularToroidalPolyhedra44,
+	function(sizerange)
+	local polys, minsize, maxsize, t, p;
+	polys := [];
+
+	if IsInt(sizerange) then
+		minsize := 1;
+		maxsize := sizerange;
+	else
+		minsize := sizerange[1];
+		maxsize := Last(sizerange);
+	fi;
+	
+	# ARP([4,4], "h2^t") is {4,4}_(t,0), with 8t^2 flags.
+	# ARP([4,4], "z1^2t") is {4,4}_(t,t), with 16t^2 flags.
+	t := 2;
+	while 8*t^2 <= maxsize do
+		if 8*t^2 >= minsize then
+			Add(polys, ARP([4,4], Concatenation("h2^", String(t))));
+		fi;
+		if 16*t^2 >= minsize and 16*t^2 <= maxsize then
+			Add(polys, ARP([4,4], Concatenation("z1^", String(2*t))));
+		fi;
+		t := t + 1;
+	od;
+	
+	return polys;
+	end);
+
 # Keeping this here for now in case I need to crib off of it later
 # Rewrite := function()
 #	local p, q, i, j, f1, f2, rampPath, filename, desc, paramstr, params, sym, petrie, flagnum, rels;
@@ -233,7 +262,7 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 # better ways to store and query the data...
 InstallGlobalFunction(SmallRegularPolyhedra,
 	function(sizerange)
-	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens, minsize, maxsize;
+	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens, minsize, maxsize, toruspolys;
 	rampPath := DirectoriesLibrary("pkg/ramp/lib");
 	filename := Filename(rampPath, "regularPolyhedra.txt");
 	stream := InputTextFile(filename);
@@ -254,6 +283,15 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	if ValueOption("nonflat") <> true then
 		Append(polys, FlatRegularPolyhedra(sizerange));
 	fi;
+	
+	# The smallest polyhedron of type {4,4} is flat, and so already included or excluded
+	# by the above. So we nudge the sizerange up a bit.
+	toruspolys := Flat(List(RegularToroidalPolyhedra44([Maximum(33, minsize)..maxsize]), DirectDerivates));
+	for p in toruspolys do
+		SetIsPolytopal(p, true);
+		p!.String := ReplacedString(p!.String, "ReflexibleManiplex", "AbstractRegularPolytope");
+	od;
+	Append(polys, toruspolys);
 	
 	toobig := false;
 	paramstr := ReadLine(stream);

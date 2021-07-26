@@ -2,15 +2,24 @@
 #! @Chapter Databases
 #! @Section Regular polyhedra
 
-#! @Arguments maxsize
-#! Returns all degenerate polyhedra (of type {2, q} and {p, 2})
-#! with up to <A>maxsize</A> flags.
+#! @Arguments sizerange
+#! Returns all degenerate polyhedra (of type {2, q} and {p, 2}) with 
+#! sizes in <A>sizerange</A>. Also accepts a single integer
+#! __maxsize__ as input to indicate a sizerange of [1..maxsize].
 DeclareGlobalFunction("DegeneratePolyhedra");
 
-#! @Arguments maxsize
-#! Returns all nondegenerate flat regular polyhedra with up to <A>maxsize</A> flags.
+#! @Arguments sizerange
+#! Returns all nondegenerate flat regular polyhedra with 
+#! sizes in <A>sizerange</A>. Also accepts a single integer
+#! __maxsize__ as input to indicate a sizerange of [1..maxsize].
 #! Currently supports a maxsize of 4000 or less.
 DeclareGlobalFunction("FlatRegularPolyhedra");
+
+#! @Arguments sizerange
+#! Returns all regular toroidal polyhedra of type {4,4}
+#! with sizes in <A>sizerange</A>. Also accepts a single integer
+#! __maxsize__ as input to indicate a sizerange of [1..maxsize].
+DeclareGlobalFunction("RegularToroidalPolyhedra44");
 
 #! @Arguments sizerange
 #! Returns all regular polyhedra with sizes in <A>sizerange</A> flags.
