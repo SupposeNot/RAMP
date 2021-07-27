@@ -230,6 +230,40 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 	return polys;
 	end);
 
+InstallGlobalFunction(RegularToroidalPolyhedra36,
+	function(sizerange)
+	local polys, minsize, maxsize, t, p;
+	polys := [];
+
+	if IsInt(sizerange) then
+		minsize := 1;
+		maxsize := sizerange;
+	else
+		minsize := sizerange[1];
+		maxsize := Last(sizerange);
+	fi;
+
+	# The smallest polyhedron of type {3, 6} has 36 flags.
+	minsize := Maximum(36, minsize);
+	
+	# ARP([3,6], "z1^2t") is {3,6}_(t,0) with t^2 vertices and 12t^2 flags.
+	# ARP([3,6], "z2^2t") is {3,6}_(t,t) with 3t^2 vertices and 36t^2 flags.
+	t := 1;
+	while 12*t^2 <= maxsize do
+		if 12*t^2 >= minsize then
+			Add(polys, ARP([3,6], Concatenation("z1^", String(2*t))));
+		fi;
+		if 36*t^2 >= minsize and 36*t^2 <= maxsize then
+			Add(polys, ARP([3,6], Concatenation("z2^", String(2*t))));
+		fi;
+		t := t + 1;
+	od;
+	
+	SortBy(polys, Size);
+	
+	return polys;
+	end);
+
 # Keeping this here for now in case I need to crib off of it later
 # Rewrite := function()
 #	local p, q, i, j, f1, f2, rampPath, filename, desc, paramstr, params, sym, petrie, flagnum, rels;
@@ -287,6 +321,17 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	# The smallest polyhedron of type {4,4} is flat, and so already included or excluded
 	# by the above. So we nudge the sizerange up a bit.
 	toruspolys := Flat(List(RegularToroidalPolyhedra44([Maximum(33, minsize)..maxsize]), DirectDerivates));
+	for p in toruspolys do
+		SetIsPolytopal(p, true);
+		p!.String := ReplacedString(p!.String, "ReflexibleManiplex", "AbstractRegularPolytope");
+	od;
+	Append(polys, toruspolys);
+	
+	# The smallest polyhedron of type {3,6} is flat, and so already included or excluded
+	# by the above. Also, the next-smallest one has the cube and octahedron among its direct derivates,
+	# and we want to handle those separately. So we nudge the sizerange up a bit.
+	toruspolys := Flat(List(RegularToroidalPolyhedra36([Maximum(49, minsize)..maxsize]), DirectDerivates));
+	toruspolys := Filtered(toruspolys, p -> not(IsTight(p)));
 	for p in toruspolys do
 		SetIsPolytopal(p, true);
 		p!.String := ReplacedString(p!.String, "ReflexibleManiplex", "AbstractRegularPolytope");

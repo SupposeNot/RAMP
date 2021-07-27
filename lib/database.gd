@@ -22,6 +22,12 @@ DeclareGlobalFunction("FlatRegularPolyhedra");
 DeclareGlobalFunction("RegularToroidalPolyhedra44");
 
 #! @Arguments sizerange
+#! Returns all regular toroidal polyhedra of type {3,6}
+#! with sizes in <A>sizerange</A>. Also accepts a single integer
+#! __maxsize__ as input to indicate a sizerange of [1..maxsize].
+DeclareGlobalFunction("RegularToroidalPolyhedra36");
+
+#! @Arguments sizerange
 #! Returns all regular polyhedra with sizes in <A>sizerange</A> flags.
 #! Currently supports a maxsize of 4000 or less.
 #! You can also set options "nondegenerate" and "nonflat".
