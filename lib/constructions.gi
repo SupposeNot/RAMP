@@ -217,27 +217,17 @@ InstallMethod(Medial,
 	SetRankManiplex(Med, 3);
 	SetString(Med, Concatenation("Medial(", String(p), ")"));
 
-	SizeComputer := function(M)
-		return 2 * Size(M!.base);
-		end;
-	if HasSize(p) then
-		SetSize(Med, SizeComputer(Med));
-	else
-		AddAttrComputer(Med, Size, SizeComputer);
-	fi;
-	
-	FvectorComputer := function(M)
+	AddAttrComputer(Med, Size, M -> 2*Size(M!.base) : prereqs := [Size]);
+	AddAttrComputer(Med, IsPolytopal, M -> IsPolytopal(M!.base) : prereqs := [IsPolytopal]);
+	AddAttrComputer(Med, Fvector, 
+		function(M)
 		local fvec;
 		fvec := Fvector(M!.base);
 		return [fvec[2], 2 * fvec[2], fvec[1] + fvec[3]];
-		end;
-	if HasFvector(p) then
-		SetFvector(Med, FvectorComputer(Med));
-	else
-		AddAttrComputer(Med, Fvector, FvectorComputer);
-	fi;
-
-	SchlafliSymbolComputer := function(M)
+		end :
+		prereqs := [Fvector]);
+	AddAttrComputer(Med, SchlafliSymbol, 
+		function(M)
 		local sch, pset;
 		sch := SchlafliSymbol(M!.base);
 		pset := [];
@@ -246,14 +236,10 @@ InstallMethod(Medial,
 		pset := Set(pset);
 		if Size(pset) = 1 then pset := pset[1]; fi;
 		return [pset, 4];
-		end;
-	if HasSchlafliSymbol(p) then
-		SetSchlafliSymbol(Med, SchlafliSymbolComputer(Med));
-	else
-		AddAttrComputer(Med, SchlafliSymbol, SchlafliSymbolComputer);
-	fi;
-
-	ConnectionGroupComputer := function(M)
+		end :
+		prereqs := [SchlafliSymbol]);
+	AddAttrComputer(Med, ConnectionGroup, 
+		function(M)
 		local cg, n, r0, r1, r2, s0, s1, s2;
 		cg := ConnectionGroup(M!.base);
 		n := Size(M!.base);
@@ -275,14 +261,8 @@ InstallMethod(Medial,
 		s2 := MultPerm((1,n+1), n, 1);
 
 		return Group([s0,s1,s2]);
-		end;
-	if HasConnectionGroup(p) then
-		SetConnectionGroup(Med, ConnectionGroupComputer(Med));
-	else
-		AddAttrComputer(Med, ConnectionGroup, ConnectionGroupComputer);
-	fi;
+		end :
+		prereqs := [ConnectionGroup]);
 
-	if HasIsPolytopal(p) and IsPolytopal(p) then SetIsPolytopal(Med, true); fi;
-	
 	return Med;
 	end);

@@ -200,7 +200,7 @@ InstallMethod(Section,
 InstallMethod(Sections,
 	[IsReflexibleManiplex, IsInt, IsInt],
 	function(M, j, i)
-	return [Section(M,j,i)];
+	return [Section(M,j,i,1)];
 	end);
 	
 InstallMethod(Sections,
@@ -294,7 +294,7 @@ InstallMethod(IsFlat,
 
 	
 InstallMethod(SchlafliSymbol,
-	[IsReflexibleManiplex],
+	[IsManiplex and IsReflexibleManiplexAutGpRep],
 	function(M)
 	local gens, n, sym;
 	gens := GeneratorsOfGroup(AutomorphismGroup(M));
