@@ -93,14 +93,63 @@ InstallMethod(TrivialExtension,
 InstallMethod(TrivialExtension,
 	[IsManiplex],
 	function(M)
-	local c, cgens, N, r, newgens;
-	c := ConnectionGroup(M);
-	cgens := GeneratorsOfGroup(c);
-	N := LargestMovedPoint(c);
-	r := MultPerm((1,N+1), N, 1);
-	newgens := List(cgens, x -> MultPerm(x, 2, N));
-	Add(newgens, r);
-	return Maniplex(Group(newgens));
+	local ext, IsPolytopalComputer, SchlafliSymbolComputer, ConnectionGroupComputer, FvectorComputer;
+	
+	ext := Maniplex(TrivialExtension, [M]);
+	ext!.base := M;
+
+	SetRankManiplex(ext, Rank(M) + 1);
+
+	if HasSize(M) then
+		SetSize(ext, 2*Size(M));
+	else
+		AddAttrComputer(ext, Size, M -> 2*Size(M!.base));
+	fi;
+
+	IsPolytopalComputer := function(M)
+		return IsPolytopal(M!.base);
+		end;
+	if HasIsPolytopal(M) then
+		SetIsPolytopal(ext, IsPolytopal(M));
+	else
+		AddAttrComputer(ext, IsPolytopal, IsPolytopalComputer);	
+	fi;
+
+	SetFacets(ext, [M]);
+
+	SchlafliSymbolComputer := function(M)
+		return Concatenation(SchlafliSymbol(M!.base), [2]);
+		end;
+	if HasSchlafliSymbol(M) then
+		SetSchlafliSymbol(ext, SchlafliSymbolComputer(ext));
+	else
+		AddAttrComputer(ext, SchlafliSymbol, SchlafliSymbolComputer);
+	fi;
+
+	ConnectionGroupComputer := function(M)
+		local c, cgens, N, r, newgens;
+		c := ConnectionGroup(M!.base);
+		cgens := GeneratorsOfGroup(c);
+		N := LargestMovedPoint(c);
+		r := MultPerm((1,N+1), N, 1);
+		newgens := List(cgens, x -> MultPerm(x, 2, N));
+		Add(newgens, r);
+		return Group(newgens);
+		end;
+	AddAttrComputer(ext, ConnectionGroup, ConnectionGroupComputer);
+
+	FvectorComputer := function(M)
+		return Concatenation(Fvector(M!.base), [2]);
+		end;
+	if HasFvector(M) then
+		SetFvector(ext, FvectorComputer(ext));
+	else
+		AddAttrComputer(ext, Fvector, FvectorComputer);
+	fi;
+	
+	SetString(ext, Concatenation("TrivialExtension(", String(M), ")"));
+	
+	return ext;
 	end);
 
 # TODO: Enforce that last entry of SchlafliSymbol(p) is even.
