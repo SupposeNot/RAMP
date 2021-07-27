@@ -21,9 +21,18 @@ InstallTrueMethod(IsPrePolytope, IsPoset and IsP1 and IsP2 and IsP4);
 InstallTrueMethod(IsPoset and IsP1 and IsP2 and IsP3 and IsP4,IsPolytope);
 InstallTrueMethod( IsPoset and IsP1 and IsP2 and IsP4, IsPrePolytope);
 
+# When we add an attribute computer, we can optionally pass in a list of
+# "prerequisite attributes" of the base. Then, if the base already has
+# values for those attributes, we just run the attribute computer right away.
 InstallGlobalFunction(AddAttrComputer,
 	function(M, attr, computer)
-	AddDictionary(M!.attr_computers, attr, computer);
+	local prereqs;
+	prereqs := ValueOption("prereqs");
+	if prereqs <> fail and ForAll(prereqs, p -> Tester(p)(M!.base)) then
+		Setter(attr)(M, computer(M));
+	else
+		AddDictionary(M!.attr_computers, attr, computer);
+	fi;
 	end);
 
 # What if the attribute doesn't have a computer?	

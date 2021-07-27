@@ -261,6 +261,13 @@ InstallMethod(Maniplex,
 	function(g)
 	local n, fam, p;
 	n := Size(GeneratorsOfGroup(g));
+	if n = 0 then
+		return UniversalPolytope(0);
+	elif n = 1 then
+		return UniversalPolytope(1);
+	elif n = 2 and NrMovedPoints(g.1) = NrMovedPoints(g) and NrMovedPoints(g) >= 4 then
+		return Pgon(NrMovedPoints(g) / 2);
+	fi;
 	
 	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail) ));
 	

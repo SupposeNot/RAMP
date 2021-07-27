@@ -99,34 +99,16 @@ InstallMethod(TrivialExtension,
 	ext!.base := M;
 
 	SetRankManiplex(ext, Rank(M) + 1);
-
-	if HasSize(M) then
-		SetSize(ext, 2*Size(M));
-	else
-		AddAttrComputer(ext, Size, M -> 2*Size(M!.base));
-	fi;
-
-	IsPolytopalComputer := function(M)
-		return IsPolytopal(M!.base);
-		end;
-	if HasIsPolytopal(M) then
-		SetIsPolytopal(ext, IsPolytopal(M));
-	else
-		AddAttrComputer(ext, IsPolytopal, IsPolytopalComputer);	
-	fi;
-
 	SetFacets(ext, [M]);
+	SetString(ext, Concatenation("TrivialExtension(", String(M), ")"));
 
-	SchlafliSymbolComputer := function(M)
-		return Concatenation(SchlafliSymbol(M!.base), [2]);
-		end;
-	if HasSchlafliSymbol(M) then
-		SetSchlafliSymbol(ext, SchlafliSymbolComputer(ext));
-	else
-		AddAttrComputer(ext, SchlafliSymbol, SchlafliSymbolComputer);
-	fi;
-
-	ConnectionGroupComputer := function(M)
+	AddAttrComputer(ext, Size, M -> 2*Size(M!.base) : prereqs := [Size]);
+	AddAttrComputer(ext, IsPolytopal, M -> IsPolytopal(M!.base) : prereqs := [IsPolytopal]);
+	AddAttrComputer(ext, SchlafliSymbol, M -> Concatenation(SchlafliSymbol(M!.base), [2]) : prereqs := [SchlafliSymbol]);
+	AddAttrComputer(ext, Fvector, M -> Concatenation(Fvector(M!.base), [2]) : prereqs := [Fvector]);
+	AddAttrComputer(ext, VertexFigures, M -> List(VertexFigures(M!.base), TrivialExtension) : prereqs := [VertexFigures]);
+	AddAttrComputer(ext, ConnectionGroup, 
+		function(M)
 		local c, cgens, N, r, newgens;
 		c := ConnectionGroup(M!.base);
 		cgens := GeneratorsOfGroup(c);
@@ -135,20 +117,8 @@ InstallMethod(TrivialExtension,
 		newgens := List(cgens, x -> MultPerm(x, 2, N));
 		Add(newgens, r);
 		return Group(newgens);
-		end;
-	AddAttrComputer(ext, ConnectionGroup, ConnectionGroupComputer);
-
-	FvectorComputer := function(M)
-		return Concatenation(Fvector(M!.base), [2]);
-		end;
-	if HasFvector(M) then
-		SetFvector(ext, FvectorComputer(ext));
-	else
-		AddAttrComputer(ext, Fvector, FvectorComputer);
-	fi;
-	
-	SetString(ext, Concatenation("TrivialExtension(", String(M), ")"));
-	
+		end);
+		
 	return ext;
 	end);
 

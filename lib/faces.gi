@@ -243,7 +243,11 @@ InstallMethod(Facet,
 InstallMethod(VertexFigures,
 	[IsManiplex],
 	function(M)
-	local n;
+	local n, val;
+	if IsManiplexInstructionsRep(M) then
+		val := ComputeAttr(M, VertexFigures);
+		if val <> fail then return val; fi;
+	fi;
 	n := Rank(M);
 	return Sections(M, n, 0);
 	end);
