@@ -93,7 +93,7 @@ InstallMethod(TrivialExtension,
 InstallMethod(TrivialExtension,
 	[IsManiplex],
 	function(M)
-	local ext, IsPolytopalComputer, SchlafliSymbolComputer, ConnectionGroupComputer, FvectorComputer;
+	local ext;
 	
 	ext := Maniplex(TrivialExtension, [M]);
 	ext!.base := M;
@@ -207,7 +207,7 @@ InstallMethod(Amalgamate,
 InstallMethod(Medial,
 	[IsManiplex],
 	function(p)
-	local dict, Med, SizeComputer, FvectorComputer, SchlafliSymbolComputer, ConnectionGroupComputer;
+	local dict, Med;
 	
 	if Rank(p) <> 3 then Error("Medial only defined for rank 3."); fi;
 

@@ -2,7 +2,7 @@
 InstallMethod(PyramidOver,
 	[IsManiplex],
 	function(p)
-	local n, pyr, SizeComputer, IsPolytopalComputer, ConnectionGroupComputer, FacetsComputer;
+	local n, pyr;
 	n := Rank(p);
 
 	if n = 0 then
@@ -23,25 +23,10 @@ InstallMethod(PyramidOver,
 		SetString(pyr, Concatenation("PyramidOver(", String(p), ")"));	
 	fi;
 
-	SizeComputer := function(M)
-		return Size(M!.base) * (1 + Rank(M));
-		end;
-	if HasSize(p) then
-		SetSize(pyr, SizeComputer(pyr));
-	else
-		AddAttrComputer(pyr, Size, SizeComputer);
-	fi;
-
-	IsPolytopalComputer := function(M)
-		return IsPolytopal(M!.base);
-		end;
-	if HasIsPolytopal(p) then
-		SetIsPolytopal(pyr, IsPolytopal(p));
-	else
-		AddAttrComputer(pyr, IsPolytopal, IsPolytopalComputer);	
-	fi;
-
-	ConnectionGroupComputer := function(M)
+	AddAttrComputer(pyr, Size, M -> Size(M!.base) * (1+Rank(M)) : prereqs := [Size, RankManiplex]);
+	AddAttrComputer(pyr, IsPolytopal, M -> IsPolytopal(M!.base) : prereqs := [IsPolytopal]);
+	AddAttrComputer(pyr, ConnectionGroup, 
+		function(M)
 		local flagNum, perms, s, t, r_t, i, j, k, thisFlag, nextFlag, conn;
 		
 		# The number of flags in the pyramid over P, where P is an n-polytope with k flags,
@@ -86,24 +71,26 @@ InstallMethod(PyramidOver,
 			perms[t+1] := r_t;	# Indices are off by one because GAP lists are 1-indexed.
 		od;
 		return Group(perms);
-		end;
-	if HasConnectionGroup(p) then
-		SetConnectionGroup(pyr, ConnectionGroupComputer(pyr));
-	else
-		AddAttrComputer(pyr, ConnectionGroup, ConnectionGroupComputer);	
-	fi;
+		end :
+		prereqs := [ConnectionGroup]);
 
-	FacetsComputer := function(M)
+	AddAttrComputer(pyr, Facets, 
+		function(M)
 		local facs;
 		facs := List(Facets(M!.base), F -> PyramidOver(F));
 		Add(facs, M!.base);
 		return Unique(facs);
-		end;
-	if HasFacets(p) then
-		SetFacets(pyr, FacetsComputer(pyr));
-	else
-		AddAttrComputer(pyr, Facets, FacetsComputer);		
-	fi;
+		end :
+		prereqs := [Facets]);
+		
+	AddAttrComputer(pyr, VertexFigures, 
+		function(M)
+		local vfigs;
+		vfigs := List(VertexFigures(M!.base), F -> PyramidOver(F));
+		Add(vfigs, M!.base);
+		return Unique(vfigs);
+		end :
+		prereqs := [VertexFigures]);
 		
 	return pyr;
 	end);
@@ -115,7 +102,7 @@ InstallMethod(Pyramid,
 InstallMethod(PrismOver,
 	[IsManiplex],
 	function(p)
-	local n, prism, SizeComputer, IsPolytopalComputer, ConnectionGroupComputer, FacetsComputer;
+	local n, prism;
 	n := Rank(p);
 
 	if n = 0 then
@@ -136,25 +123,10 @@ InstallMethod(PrismOver,
 		SetString(prism, Concatenation("PrismOver(", String(p), ")"));	
 	fi;
 
-	SizeComputer := function(M)
-		return 2 * Size(M!.base) * Rank(M);
-		end;
-	if HasSize(p) then
-		SetSize(prism, SizeComputer(prism));
-	else
-		AddAttrComputer(prism, Size, SizeComputer);
-	fi;
-
-	IsPolytopalComputer := function(M)
-		return IsPolytopal(M!.base);
-		end;
-	if HasIsPolytopal(p) then
-		SetIsPolytopal(prism, IsPolytopal(p));
-	else
-		AddAttrComputer(prism, IsPolytopal, IsPolytopalComputer);	
-	fi;
-
-	ConnectionGroupComputer := function(M)
+	AddAttrComputer(prism, Size, M -> 2 * Size(M!.base) * Rank(M) : prereqs := [Size, RankManiplex]);
+	AddAttrComputer(prism, IsPolytopal, M -> IsPolytopal(M!.base) : prereqs := [IsPolytopal]);
+	AddAttrComputer(prism, ConnectionGroup,
+		function(M)
 		local n, k, flagNum, i, t, r_t, d, thisFlag, perm, perms, conn, s, q;
 		conn := ConnectionGroup(M!.base);
 		n := Rank(M!.base);
@@ -193,24 +165,19 @@ InstallMethod(PrismOver,
 			perms[t+1] := r_t;
 		od;
 		return Group(perms);
-		end;
-	if HasConnectionGroup(p) then
-		SetSize(prism, ConnectionGroupComputer(prism));
-	else
-		AddAttrComputer(prism, ConnectionGroup, ConnectionGroupComputer);
-	fi;
-		
-	FacetsComputer := function(M)
+		end :
+		prereqs := [ConnectionGroup]);
+
+	AddAttrComputer(prism, Facets, 
+		function(M)
 		local facs;
 		facs := List(Facets(M!.base), F -> PrismOver(F));
 		Add(facs, M!.base);
 		return Unique(facs);
-		end;
-	if HasFacets(p) then
-		SetFacets(prism, FacetsComputer(prism));
-	else
-		AddAttrComputer(prism, Facets, FacetsComputer);		
-	fi;
+		end :
+		prereqs := [Facets]);
+
+	AddAttrComputer(prism, VertexFigures, M -> List(VertexFigures(M!.base), F -> PyramidOver(F)) : prereqs := [VertexFigures]);
 	
 	return prism;
 	end);
