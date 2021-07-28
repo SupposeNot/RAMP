@@ -135,7 +135,13 @@ InstallMethod(Skeleton,
 
 end);
 
-
+InstallMethod(CoSkeleton,
+	[IsManiplex],
+	function (m)
+	local p;
+	p:=PointGraph(LayerGraph(Dual(m),0,1));
+	return p;
+	end);
 
 
 #Want to run this on just connection groups, but have to rebuild f-vectors on the fly.

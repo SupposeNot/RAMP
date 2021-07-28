@@ -197,6 +197,15 @@ DeclareOperation("Skeleton",[IsManiplex]);
 #! @EndExampleSession
 
 
+#! @Arguments maniplex 
+#! @Returns `IsGraph`. Note this returns an undirected graph.
+#! @Description Given a maniplex, this outputs the $(n-1)$-$(n-2)$ skeleton, i.e., the skeleton of the dual.   The vertices are the $(n-1)$-faces, and the edges are the $(n-2)$-faces.
+DeclareOperation("CoSkeleton",[IsManiplex]);
+#! Here we build the skeleton of the dodecahedron.
+#! @BeginExampleSession
+#! gap> g:= CoSkeleton(Dodecahedron());;
+#! @EndExampleSession
+
 
 #! @Arguments group
 #! @Returns `IsGraph`. Note this returns a directed graph.
