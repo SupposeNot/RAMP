@@ -203,7 +203,26 @@
     [4X[25Xgap>[125X [27Xg:= Skeleton(Dodecahedron());;[127X[104X
   [4X[32X[104X
   
-  [1X1.1-7 Hasse[101X
+  [1X1.1-7 CoSkeleton[101X
+  
+  [33X[1;0Y[29X[2XCoSkeleton[102X( [3Xmaniplex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
+  
+  [33X[0;0YGiven  a  maniplex,  this  outputs  the  [23X(n-1)[123X-[23X(n-2)[123X skeleton, i.e., the 0-1
+  skeleton  of  the  dual. The vertices are the [23X(n-1)[123X-faces, and the edges are
+  the [23X(n-2)[123X-faces.[133X
+  
+  [33X[0;0YHere  we build the co-skeleton of the dodecahedron and verify that it is the
+  skeleton of the icosahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg:=CoSkeleton(Dodecahedron());;[127X[104X
+    [4X[25Xgap>[125X [27Xh:=Skeleton(Icosahedron());;[127X[104X
+    [4X[25Xgap>[125X [27Xg=h;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-8 Hasse[101X
   
   [33X[1;0Y[29X[2XHasse[102X( [3Xgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns a directed graph.[133X
@@ -229,7 +248,7 @@
     [4X[28X     -12, -13, -14, -15, -16 ] )[128X[104X
   [4X[32X[104X
   
-  [1X1.1-8 QuotientByLabel[101X
+  [1X1.1-9 QuotientByLabel[101X
   
   [33X[1;0Y[29X[2XQuotientByLabel[102X( [3Xobject[103X, [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
@@ -257,7 +276,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X1.1-9 EdgeLabeledGraphFromEdges[101X
+  [1X1.1-10 EdgeLabeledGraphFromEdges[101X
   
   [33X[1;0Y[29X[2XEdgeLabeledGraphFromEdges[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -277,7 +296,7 @@
     [4X[28Xgamma:=EdgeLabeledGraphFromEdges(V,Edges,L);[128X[104X
   [4X[32X[104X
   
-  [1X1.1-10 FlagGraph[101X
+  [1X1.1-11 FlagGraph[101X
   
   [33X[1;0Y[29X[2XFlagGraph[102X( [3Xgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -293,7 +312,7 @@
     [4X[28Xgamma:=FlagGraph(C);[128X[104X
   [4X[32X[104X
   
-  [1X1.1-11 UnlabeledSimpleGraph[101X
+  [1X1.1-12 UnlabeledSimpleGraph[101X
   
   [33X[1;0Y[29X[2XUnlabeledSimpleGraph[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
@@ -307,7 +326,7 @@
     [4X[28Xgamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));[128X[104X
   [4X[32X[104X
   
-  [1X1.1-12 EdgeLabelPreservingAutomorphismGroup[101X
+  [1X1.1-13 EdgeLabelPreservingAutomorphismGroup[101X
   
   [33X[1;0Y[29X[2XEdgeLabelPreservingAutomorphismGroup[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGroup[110X.[133X
@@ -325,7 +344,7 @@
     [4X[28XSize(g);[128X[104X
   [4X[32X[104X
   
-  [1X1.1-13 Simple[101X
+  [1X1.1-14 Simple[101X
   
   [33X[1;0Y[29X[2XSimple[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph [110X.[133X
@@ -334,7 +353,7 @@
   where  semi-edges,  loops,  and  multiple  edges  are removed. Note only the
   "first" edge label is retained if there are multiple edges.[133X
   
-  [1X1.1-14 ConnectedComponents[101X
+  [1X1.1-15 ConnectedComponents[101X
   
   [33X[1;0Y[29X[2XConnectedComponents[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
@@ -351,7 +370,7 @@
     [4X[28Xgamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);[128X[104X
   [4X[32X[104X
   
-  [1X1.1-15 PRGraph[101X
+  [1X1.1-16 PRGraph[101X
   
   [33X[1;0Y[29X[2XPRGraph[102X( [3Xgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph [110X.[133X
@@ -372,7 +391,7 @@
     [4X[28Xgamma:=PRGraph(G2);[128X[104X
   [4X[32X[104X
   
-  [1X1.1-16 CPRGraphFromGroups[101X
+  [1X1.1-17 CPRGraphFromGroups[101X
   
   [33X[1;0Y[29X[2XCPRGraphFromGroups[102X( [3Xgroup[103X, [3Xsubgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X

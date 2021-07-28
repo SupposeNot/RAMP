@@ -34,16 +34,17 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X791AEF1C7AA7138C">1.1-4 FlagGraphWithLabels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X809815D08250B57F">1.1-5 LayerGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7BB443CD832DAC12">1.1-6 Skeleton</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A0FB13C7EF68CBB">1.1-7 Hasse</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X860AACCF860A3F66">1.1-8 QuotientByLabel</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X84FE2C317CFA6AFD">1.1-9 EdgeLabeledGraphFromEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A958E7C821DD8F8">1.1-10 FlagGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X82A8C3AD871EC6D7">1.1-11 UnlabeledSimpleGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X84263C6C81AB458C">1.1-12 EdgeLabelPreservingAutomorphismGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7D7BF5608431FED8">1.1-13 Simple</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X8159C96B8757873F">1.1-14 ConnectedComponents</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A53CE8B820FD6A1">1.1-15 PRGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85BBB22F8196DC0B">1.1-16 CPRGraphFromGroups</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85F3D43E7D1BA8E5">1.1-7 CoSkeleton</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A0FB13C7EF68CBB">1.1-8 Hasse</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X860AACCF860A3F66">1.1-9 QuotientByLabel</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X84FE2C317CFA6AFD">1.1-10 EdgeLabeledGraphFromEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A958E7C821DD8F8">1.1-11 FlagGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X82A8C3AD871EC6D7">1.1-12 UnlabeledSimpleGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X84263C6C81AB458C">1.1-13 EdgeLabelPreservingAutomorphismGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7D7BF5608431FED8">1.1-14 Simple</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X8159C96B8757873F">1.1-15 ConnectedComponents</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A53CE8B820FD6A1">1.1-16 PRGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85BBB22F8196DC0B">1.1-17 CPRGraphFromGroups</a></span>
 </div></div>
 </div>
 
@@ -256,9 +257,28 @@ rec(
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= Skeleton(Dodecahedron());;</span>
 </pre></div>
 
+<p><a id="X85F3D43E7D1BA8E5" name="X85F3D43E7D1BA8E5"></a></p>
+
+<h5>1.1-7 CoSkeleton</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoSkeleton</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
+
+<p>Given a maniplex, this outputs the <span class="SimpleMath">\((n-1)\)</span>-<span class="SimpleMath">\((n-2)\)</span> skeleton, i.e., the 0-1 skeleton of the dual. The vertices are the <span class="SimpleMath">\((n-1)\)</span>-faces, and the edges are the <span class="SimpleMath">\((n-2)\)</span>-faces.</p>
+
+<p>Here we build the co-skeleton of the dodecahedron and verify that it is the skeleton of the icosahedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=CoSkeleton(Dodecahedron());;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h:=Skeleton(Icosahedron());;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g=h;</span>
+true
+</pre></div>
+
 <p><a id="X7A0FB13C7EF68CBB" name="X7A0FB13C7EF68CBB"></a></p>
 
-<h5>1.1-7 Hasse</h5>
+<h5>1.1-8 Hasse</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hasse</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns a directed graph.</p>
@@ -284,7 +304,7 @@ rec(
 
 <p><a id="X860AACCF860A3F66" name="X860AACCF860A3F66"></a></p>
 
-<h5>1.1-8 QuotientByLabel</h5>
+<h5>1.1-9 QuotientByLabel</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientByLabel</code>( <var class="Arg">object</var>, <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -311,7 +331,7 @@ true
 
 <p><a id="X84FE2C317CFA6AFD" name="X84FE2C317CFA6AFD"></a></p>
 
-<h5>1.1-9 EdgeLabeledGraphFromEdges</h5>
+<h5>1.1-10 EdgeLabeledGraphFromEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabeledGraphFromEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -330,7 +350,7 @@ gamma:=EdgeLabeledGraphFromEdges(V,Edges,L);
 
 <p><a id="X7A958E7C821DD8F8" name="X7A958E7C821DD8F8"></a></p>
 
-<h5>1.1-10 FlagGraph</h5>
+<h5>1.1-11 FlagGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -347,7 +367,7 @@ gamma:=FlagGraph(C);
 
 <p><a id="X82A8C3AD871EC6D7" name="X82A8C3AD871EC6D7"></a></p>
 
-<h5>1.1-11 UnlabeledSimpleGraph</h5>
+<h5>1.1-12 UnlabeledSimpleGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnlabeledSimpleGraph</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>.</p>
@@ -363,7 +383,7 @@ gamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));
 
 <p><a id="X84263C6C81AB458C" name="X84263C6C81AB458C"></a></p>
 
-<h5>1.1-12 EdgeLabelPreservingAutomorphismGroup</h5>
+<h5>1.1-13 EdgeLabelPreservingAutomorphismGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabelPreservingAutomorphismGroup</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGroup</code>.</p>
@@ -380,7 +400,7 @@ Size(g);
 
 <p><a id="X7D7BF5608431FED8" name="X7D7BF5608431FED8"></a></p>
 
-<h5>1.1-13 Simple</h5>
+<h5>1.1-14 Simple</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Simple</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph </code>.</p>
@@ -389,7 +409,7 @@ Size(g);
 
 <p><a id="X8159C96B8757873F" name="X8159C96B8757873F"></a></p>
 
-<h5>1.1-14 ConnectedComponents</h5>
+<h5>1.1-15 ConnectedComponents</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectedComponents</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>.</p>
@@ -405,7 +425,7 @@ gamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);
 
 <p><a id="X7A53CE8B820FD6A1" name="X7A53CE8B820FD6A1"></a></p>
 
-<h5>1.1-15 PRGraph</h5>
+<h5>1.1-16 PRGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PRGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph </code>.</p>
@@ -425,7 +445,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X85BBB22F8196DC0B" name="X85BBB22F8196DC0B"></a></p>
 
-<h5>1.1-16 CPRGraphFromGroups</h5>
+<h5>1.1-17 CPRGraphFromGroups</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CPRGraphFromGroups</code>( <var class="Arg">group</var>, <var class="Arg">subgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>

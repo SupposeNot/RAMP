@@ -8,19 +8,42 @@
 <Heading>Regular polyhedra</Heading>
 
 <ManSection>
-  <Func Arg="maxsize" Name="DegeneratePolyhedra" />
+  <Func Arg="sizerange" Name="DegeneratePolyhedra" />
  <Description>
- Returns all degenerate polyhedra (of type {2, q} and {p, 2})
- with up to <A>maxsize</A> flags.
+ Returns all degenerate polyhedra (of type {2, q} and {p, 2}) with 
+ sizes in <A>sizerange</A>. Also accepts a single integer
+ <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Func Arg="maxsize" Name="FlatRegularPolyhedra" />
+  <Func Arg="sizerange" Name="FlatRegularPolyhedra" />
  <Description>
- Returns all nondegenerate flat regular polyhedra with up to <A>maxsize</A> flags.
+ Returns all nondegenerate flat regular polyhedra with 
+ sizes in <A>sizerange</A>. Also accepts a single integer
+ <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
  Currently supports a maxsize of 4000 or less.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="sizerange" Name="RegularToroidalPolyhedra44" />
+ <Description>
+ Returns all regular toroidal polyhedra of type {4,4}
+ with sizes in <A>sizerange</A>. Also accepts a single integer
+ <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="sizerange" Name="RegularToroidalPolyhedra36" />
+ <Description>
+ Returns all regular toroidal polyhedra of type {3,6}
+ with sizes in <A>sizerange</A>. Also accepts a single integer
+ <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
  </Description>
 </ManSection>
 

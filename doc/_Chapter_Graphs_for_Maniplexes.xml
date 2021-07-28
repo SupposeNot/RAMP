@@ -215,6 +215,25 @@ gap> g:= Skeleton(Dodecahedron());;
 
 
 <ManSection>
+  <Oper Arg="maniplex" Name="CoSkeleton" Label="for IsManiplex"/>
+ <Returns><Code>IsGraph</Code>. Note this returns an undirected graph.
+</Returns>
+ <Description>
+Given a maniplex, this outputs the <Math>(n-1)</Math>-<Math>(n-2)</Math> skeleton, i.e., the 0-1 skeleton of the dual. The vertices are the <Math>(n-1)</Math>-faces, and the edges are the <Math>(n-2)</Math>-faces.
+ </Description>
+</ManSection>
+
+
+ Here we build the co-skeleton of the dodecahedron and verify that it is the skeleton of the icosahedron.
+<Example><![CDATA[
+gap> g:=CoSkeleton(Dodecahedron());;
+gap> h:=Skeleton(Icosahedron());;
+gap> g=h;
+true
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="group" Name="Hasse" Label="for IsManiplex"/>
  <Returns><Code>IsGraph</Code>. Note this returns a directed graph.
 </Returns>

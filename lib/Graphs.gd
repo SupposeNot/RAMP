@@ -199,11 +199,14 @@ DeclareOperation("Skeleton",[IsManiplex]);
 
 #! @Arguments maniplex 
 #! @Returns `IsGraph`. Note this returns an undirected graph.
-#! @Description Given a maniplex, this outputs the $(n-1)$-$(n-2)$ skeleton, i.e., the skeleton of the dual.   The vertices are the $(n-1)$-faces, and the edges are the $(n-2)$-faces.
+#! @Description Given a maniplex, this outputs the $(n-1)$-$(n-2)$ skeleton, i.e., the 0-1 skeleton of the dual.   The vertices are the $(n-1)$-faces, and the edges are the $(n-2)$-faces.
 DeclareOperation("CoSkeleton",[IsManiplex]);
-#! Here we build the skeleton of the dodecahedron.
+#! Here we build the co-skeleton of the dodecahedron and verify that it is the skeleton of the icosahedron.
 #! @BeginExampleSession
-#! gap> g:= CoSkeleton(Dodecahedron());;
+#! gap> g:=CoSkeleton(Dodecahedron());;
+#! gap> h:=Skeleton(Icosahedron());;
+#! gap> g=h;
+#! true
 #! @EndExampleSession
 
 
