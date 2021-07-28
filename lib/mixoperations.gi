@@ -54,6 +54,20 @@ InstallMethod(Mix,
 	return ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
 	end);
 
+InstallMethod(Comix,
+	[IsFpGroup, IsFpGroup],
+	function(gp,gq)
+	local g;
+	g := FactorGroupFpGroupByRels(gp, List(RelatorsOfFpGroup(gq), UnderlyingElement));
+	return g;
+	end);
+
+InstallMethod(Comix,
+	[IsReflexibleManiplex, IsReflexibleManiplex],
+	function(p,q)
+	return ReflexibleManiplex(Comix(AutomorphismGroupFpGroup(p),AutomorphismGroupFpGroup(q)));
+	end);
+
 InstallMethod(CtoL,
 	[IsInt,IsInt,IsInt,IsInt],
 	function(a,b,N,M)

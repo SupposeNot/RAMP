@@ -25,6 +25,15 @@ DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 #! @Description Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
 DeclareOperation("Mix", [IsReflexibleManiplex, IsReflexibleManiplex]);
 
+#! @Arguments fpgroup, fpgroup
+#! Returns the comix of two Finitely Presented groups gp and gq.
+DeclareOperation("Comix", [IsFpGroup, IsFpGroup]);
+
+#! @Arguments maniplex, maniplex
+#! @Returns `IsReflexibleManiplex `. 
+#! @Description Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups
+DeclareOperation("Comix", [IsReflexibleManiplex, IsReflexibleManiplex]);
+
 #! @Arguments int, int, int, int
 #! @Returns `IsInteger `. 
 #! @Description CtoL Returns an integer between 1 and N*M associated with the pair [a,b].  

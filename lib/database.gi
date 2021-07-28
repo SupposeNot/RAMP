@@ -77,6 +77,8 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	if IsInt(sizerange) then
 		minsize := 1;
 		maxsize := sizerange;
+	elif IsEmpty(sizerange) then
+		return [];
 	else
 		minsize := sizerange[1];
 		maxsize := Last(sizerange);
@@ -209,6 +211,8 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 	if IsInt(sizerange) then
 		minsize := 1;
 		maxsize := sizerange;
+	elif IsEmpty(sizerange) then
+		return [];
 	else
 		minsize := sizerange[1];
 		maxsize := Last(sizerange);
@@ -238,6 +242,8 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	if IsInt(sizerange) then
 		minsize := 1;
 		maxsize := sizerange;
+	elif IsEmpty(sizerange) then
+		return [];
 	else
 		minsize := sizerange[1];
 		maxsize := Last(sizerange);
@@ -303,6 +309,8 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	if IsInt(sizerange) then
 		minsize := 1;
 		maxsize := sizerange;
+	elif IsEmpty(sizerange) then
+		return [];
 	else
 		minsize := sizerange[1];
 		maxsize := Last(sizerange);
