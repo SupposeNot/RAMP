@@ -482,7 +482,7 @@ InstallMethod(IsPolytopal,
 		if Size(gens2) = 0 then
 			return false;
 		fi;
-		if not (v in Orbit(Group(gens2),v)) then
+		if not (v in Orbit(Group(gens2),u)) then
 			return false;
 		fi;
 		fi;
