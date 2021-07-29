@@ -1045,14 +1045,14 @@ InstallMethod(DisplayString,
 	string:="An element of a poset";
 	if HasElementObject(face) then
 		elobj:=ElementObject(face);
-		if HasRankPosetElement(elobj) then Append(string, Concatenation(" of Rank=", String(RankPosetElement(elobj))));fi;
-		if HasFlagList(elobj) then Append(string, Concatenation(" corr. to flags: ", String(FlagList(elobj))));fi;
-		if HasAtomList(elobj) then Append(string, Concatenation(" made up of atoms: ", String(AtomList(elobj))));fi;
+		if HasRankPosetElement(elobj) then Append(string, Concatenation(" of rank ", String(RankPosetElement(elobj))));fi;
+		if HasFlagList(elobj) then Append(string, Concatenation(" corr. to flags ", String(FlagList(elobj))));fi;
+		if HasAtomList(elobj) then Append(string, Concatenation(" made up of atoms ", String(AtomList(elobj))));fi;
 		if HasIndex(elobj) then Append(string,Concatenation(" with index=",String(Index(elobj)))); fi;
 	else
-		if HasRankPosetElement(face) then Append(string, Concatenation(" of Rank=", String(RankPosetElement(face))));fi;
-		if HasFlagList(face) then Append(string, Concatenation(" corr. to flags: ", String(FlagList(face))));fi;
-		if HasAtomList(face) then Append(string, Concatenation(" made up of atoms: ", String(AtomList(face))));fi;
+		if HasRankPosetElement(face) then Append(string, Concatenation(" of rank ", String(RankPosetElement(face))));fi;
+		if HasFlagList(face) then Append(string, Concatenation(" corr. to flags ", String(FlagList(face))));fi;
+		if HasAtomList(face) then Append(string, Concatenation(" made up of atoms ", String(AtomList(face))));fi;
 		if HasIndex(face) then Append(string,Concatenation(" with index=",String(Index(face)))); fi;
 	fi;
 	Append(string,".\n");
@@ -1077,13 +1077,15 @@ InstallMethod(ViewString,
 		if HasAtomList(elobj) then Append(string, " made up of atoms");fi;
 		if HasIndex(elobj) then Append(string," with index"); fi;
 	else
-		if HasFlagList(face) then Append(string, " made of flags");fi;
+		if HasFlagList(face) then Append(string, " made of flags ");fi;
 		if HasAtomList(face) then Append(string, " made up of atoms");fi;
 		if HasIndex(face) then Append(string," with index"); fi;
 	fi;
 	Append(string,".");
 	return string;
 	end);
+
+
 
 
 InstallMethod(IsSubface,
