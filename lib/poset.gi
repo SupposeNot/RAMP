@@ -877,7 +877,7 @@ InstallMethod(FaceListOfPoset,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local n;
-	if IsPosetOfFlags(poset)=true then return poset!.faces_list_by_rank; fi;
+	if IsPosetOfFlags(poset)=true then return ShallowCopy(poset!.faces_list_by_rank); fi;
 	return;
 	end);
 

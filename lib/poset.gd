@@ -358,7 +358,7 @@ DeclareAttribute("AutomorphismGroupOnElements", IsPoset);
 
 ##! @Arguments poset
 ##! @Returns `list`
-##! @Description Gives a list of faces collected into lists ordered by increasing rank. 
+##! @Description Gives a list of faces collected into lists ordered by increasing rank. Suitable as input for `PosetFromFaceListOfFlags`.
 DeclareOperation("FaceListOfPoset",[IsPoset]);
 
 
@@ -439,9 +439,9 @@ DeclareOperation("PosetElementWithPartialOrder",[IsObject, IsBinaryRelation]);
 
 #! @Section Element operations
 
-#! @Arguments poset
+#! @Arguments IsPosetOfFlags
 #! @Returns `list`
-#! @Description Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>.
+#! @Description Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>. Assumptions here are that faces are lists of incident flags.
 DeclareOperation("RankedFaceListOfPoset",[IsPoset]);
 
 

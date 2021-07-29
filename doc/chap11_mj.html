@@ -578,7 +578,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
 
-<p>Gives a list of faces collected into lists ordered by increasing rank.</p>
+<p>Gives a list of faces collected into lists ordered by increasing rank. Suitable as input for <code class="code">PosetFromFaceListOfFlags</code>.</p>
 
 <p><a id="X82CBC68480F222C7" name="X82CBC68480F222C7"></a></p>
 
@@ -693,10 +693,10 @@ true
 
 <h5>11.6-1 RankedFaceListOfPoset</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankedFaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankedFaceListOfPoset</code>( <var class="Arg">IsPosetOfFlags</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
 
-<p>Gives a list of [<var class="Arg">face</var>,<var class="Arg">rank</var>] pairs for all the faces of <var class="Arg">poset</var>.</p>
+<p>Gives a list of [<var class="Arg">face</var>,<var class="Arg">rank</var>] pairs for all the faces of <var class="Arg">poset</var>. Assumptions here are that faces are lists of incident flags.</p>
 
 <p><a id="X79BFF531809785A3" name="X79BFF531809785A3"></a></p>
 

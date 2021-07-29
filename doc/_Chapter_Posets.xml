@@ -512,7 +512,7 @@ Given a <A>poset</A>, gives the automorphism group of the poset as an action on 
  <Returns><Code>list</Code>
 </Returns>
  <Description>
-Gives a list of faces collected into lists ordered by increasing rank.
+Gives a list of faces collected into lists ordered by increasing rank. Suitable as input for <Code>PosetFromFaceListOfFlags</Code>.
  </Description>
 </ManSection>
 
@@ -647,11 +647,11 @@ Creates a <Code>face</Code> with index <A>obj</A> and BinaryRelation <A>order</A
 <Heading>Element operations</Heading>
 
 <ManSection>
-  <Oper Arg="poset" Name="RankedFaceListOfPoset" Label="for IsPoset"/>
+  <Oper Arg="IsPosetOfFlags" Name="RankedFaceListOfPoset" Label="for IsPoset"/>
  <Returns><Code>list</Code>
 </Returns>
  <Description>
-Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>.
+Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>. Assumptions here are that faces are lists of incident flags.
  </Description>
 </ManSection>
 

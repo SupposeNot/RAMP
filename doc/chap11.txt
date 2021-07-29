@@ -478,7 +478,8 @@
   [33X[1;0Y[29X[2XFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
-  [33X[0;0YGives a list of faces collected into lists ordered by increasing rank.[133X
+  [33X[0;0YGives  a  list  of  faces  collected  into lists ordered by increasing rank.
+  Suitable as input for [10XPosetFromFaceListOfFlags[110X.[133X
   
   [1X11.3-12 FacesByRankOfPoset[101X
   
@@ -571,10 +572,11 @@
   
   [1X11.6-1 RankedFaceListOfPoset[101X
   
-  [33X[1;0Y[29X[2XRankedFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRankedFaceListOfPoset[102X( [3XIsPosetOfFlags[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
-  [33X[0;0YGives a list of [[3Xface[103X,[3Xrank[103X] pairs for all the faces of [3Xposet[103X.[133X
+  [33X[0;0YGives  a  list  of [[3Xface[103X,[3Xrank[103X] pairs for all the faces of [3Xposet[103X. Assumptions
+  here are that faces are lists of incident flags.[133X
   
   [1X11.6-2 IsSubface[101X
   

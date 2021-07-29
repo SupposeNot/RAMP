@@ -3252,7 +3252,8 @@ chains. }
 
 
 
- Gives a list of faces collected into lists ordered by increasing rank. }
+ Gives a list of faces collected into lists ordered by increasing rank.
+Suitable as input for \texttt{PosetFromFaceListOfFlags}. }
 
  
 
@@ -3451,7 +3452,7 @@ belongs to. }
 \subsection{\textcolor{Chapter }{RankedFaceListOfPoset (for IsPoset)}}
 \logpage{[ 11, 6, 1 ]}\nobreak
 \hyperdef{L}{X7A80223E83EF52E8}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankedFaceListOfPoset({\mdseries\slshape poset})\index{RankedFaceListOfPoset@\texttt{RankedFaceListOfPoset}!for IsPoset}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankedFaceListOfPoset({\mdseries\slshape IsPosetOfFlags})\index{RankedFaceListOfPoset@\texttt{RankedFaceListOfPoset}!for IsPoset}
 \label{RankedFaceListOfPoset:for IsPoset}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -3459,7 +3460,7 @@ belongs to. }
 
 
 
- Gives a list of [\mbox{\texttt{\mdseries\slshape face}},\mbox{\texttt{\mdseries\slshape rank}}] pairs for all the faces of \mbox{\texttt{\mdseries\slshape poset}}. }
+ Gives a list of [\mbox{\texttt{\mdseries\slshape face}},\mbox{\texttt{\mdseries\slshape rank}}] pairs for all the faces of \mbox{\texttt{\mdseries\slshape poset}}. Assumptions here are that faces are lists of incident flags. }
 
  
 
@@ -4017,10 +4018,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
