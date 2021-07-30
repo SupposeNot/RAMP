@@ -2,6 +2,10 @@
 
   \item \texttt  {120Cell}, \hyperpage{26}
   \item \texttt  {24Cell}, \hyperpage{26}
+  \item \texttt  {24CellToroid}
+    \subitem for IsInt,IsInt, \hyperpage{27}
+  \item \texttt  {3343Toroid}
+    \subitem for IsInt,IsInt, \hyperpage{27}
   \item \texttt  {600Cell}, \hyperpage{26}
 
   \indexspace
@@ -61,6 +65,8 @@
     \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{34}
   \item \texttt  {Cube}
     \subitem for IsInt, \hyperpage{24}
+  \item \texttt  {CubicalToroid}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{26}
   \item \texttt  {CubicTiling}
     \subitem for IsInt, \hyperpage{25}
   \item \texttt  {Cuboctahedron}, \hyperpage{53}
@@ -137,7 +143,7 @@
 
   \item \texttt  {GraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{5}
-  \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{27}
+  \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{28}
   \item \texttt  {GreatRhombicuboctahedron}, \hyperpage{28}
 
   \indexspace
@@ -327,7 +333,7 @@
     \subitem for IsInt, \hyperpage{21}
   \item \texttt  {PrismOver}
     \subitem for IsManiplex, \hyperpage{21}
-  \item \texttt  {Pseudorhombicuboctahedron}, \hyperpage{27}
+  \item \texttt  {Pseudorhombicuboctahedron}, \hyperpage{28}
   \item \texttt  {PseudoSchlafliSymbol}
     \subitem for IsManiplex, \hyperpage{16}
   \item \texttt  {Pyramid}
@@ -388,10 +394,10 @@
   \item \texttt  {SmallestRegularCover}
     \subitem for IsManiplex, \hyperpage{50}
   \item \texttt  {SmallRegularPolyhedra}, \hyperpage{22}
-  \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{27}
+  \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{28}
   \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{27}
-  \item \texttt  {SnubCube}, \hyperpage{27}
-  \item \texttt  {SnubDodecahedron}, \hyperpage{27}
+  \item \texttt  {SnubCube}, \hyperpage{28}
+  \item \texttt  {SnubDodecahedron}, \hyperpage{28}
   \item \texttt  {SymmetryTypeGraph}
     \subitem for IsManiplex, \hyperpage{29}
 
@@ -402,10 +408,10 @@
   \item \texttt  {TranslatePerm}, \hyperpage{54}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{19}
-  \item \texttt  {TruncatedCube}, \hyperpage{26}
+  \item \texttt  {TruncatedCube}, \hyperpage{27}
   \item \texttt  {TruncatedDodecahedron}, \hyperpage{28}
   \item \texttt  {TruncatedIcosahedron}, \hyperpage{27}
-  \item \texttt  {TruncatedOctahedron}, \hyperpage{26}
+  \item \texttt  {TruncatedOctahedron}, \hyperpage{27}
   \item \texttt  {TruncatedTetrahedron}, \hyperpage{53}
 
   \indexspace

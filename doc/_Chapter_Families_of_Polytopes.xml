@@ -162,6 +162,49 @@
 </Section>
 
 
+<Section Label="Chapter_Families_of_Polytopes_Section_Toroids">
+<Heading>Toroids</Heading>
+
+<ManSection>
+  <Oper Arg="s, k, n" Name="CubicalToroid" Label="for IsInt,IsInt,IsInt"/>
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Given IsInt triple <A>s, k, n</A>, will return the regular toroid <Math>\{4, 3^{n-2},4\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> m44:=CubicalToroid(3,2,2);;
+gap> m44=ToroidalMap44([3,3]);
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="s, k" Name="3343Toroid" Label="for IsInt,IsInt"/>
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,3,4,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 0 or 1.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="s, k" Name="24CellToroid" Label="for IsInt,IsInt"/>
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,4,3,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 0 or 1.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Families_of_Polytopes_Section_Uniform_Polyhedra">
 <Heading>Uniform Polyhedra</Heading>
 

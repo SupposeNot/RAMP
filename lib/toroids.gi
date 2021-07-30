@@ -158,3 +158,59 @@ InstallGlobalFunction(ToroidalMap44,
 	return Maniplex(Group([r0,r1,r2]));
 	end);
 
+InstallMethod(CubicalToroid,
+	[IsInt,IsInt,IsInt],
+	function(s,k,n)
+	local i, l, m;
+	if not (k in [1,2,n]) then Print("The value of k should be 1 or 2 or n.\n"); return fail;fi;
+	l:="(r0";
+	for i in [1..n] do
+		Append(l," r"); Append(l, String(i));
+		od;
+	for i in Reversed([k..n-1]) do
+		Append(l, " r"); Append(l, String(i));
+		od;
+	Append(l,")^");
+	Append(l,String(s*k));
+	m:=ReflexibleQuotientManiplex(CubicTiling(n),l);
+	if k=1 then SetSize(m,(2*s)^n*Factorial(n));
+		elif k=2 then SetSize(m,2^(n+1)*s^n*Factorial(n));
+		else SetSize(m,2^(2*n-1)*s^n*Factorial(n)); fi;
+	if s>=2 then SetIsPolytopal(m,true);
+		else SetIsPolytopal(m,false); fi;
+	return m;
+	end);
+
+InstallMethod(3343Toroid,
+	[IsInt,IsInt],
+	function(s,k)
+	local i, l, m, sigma, tau;
+	if not (k in [1,2]) then Print("The value of k should be 1 or 2.\n"); return fail;fi;
+	sigma:=" r1 r2 r3 r2 r1";
+	tau:=" r4 r3 r2 r3 r4";
+	l:="(r0";
+	if k=1 then
+		Append(l, sigma);
+		Append(l, tau);
+		Append(l, sigma);
+		Append(l,")^");
+		Append(l,String(s));
+	else Append(l, sigma);
+		Append(l, tau);
+		Append(l, ")^");
+		Append(l, String(2*s));
+	fi;
+	m:=ReflexibleManiplex([3,3,4,3],l);
+	if k=1 then SetSize(m,1152*s^4);
+		else SetSize(m,4608*s^4);
+		fi;
+	if s>=2 then SetIsPolytopal(m,true);
+		else SetIsPolytopal(m,false); fi;
+	return m;
+	end);
+
+InstallMethod(24CellToroid,
+	[IsInt,IsInt],
+	function(s,k)
+	return Dual(3343Toroid(s,k));
+	end);

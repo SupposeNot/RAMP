@@ -1853,14 +1853,72 @@ n-cubes. }
  }
 
  
-\section{\textcolor{Chapter }{Uniform Polyhedra}}\label{Chapter_Families_of_Polytopes_Section_Uniform_Polyhedra}
+\section{\textcolor{Chapter }{Toroids}}\label{Chapter_Families_of_Polytopes_Section_Toroids}
 \logpage{[ 6, 2, 0 ]}
+\hyperdef{L}{X825A89737F01BFF1}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{CubicalToroid (for IsInt,IsInt,IsInt)}}
+\logpage{[ 6, 2, 1 ]}\nobreak
+\hyperdef{L}{X840968B17C45927A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicalToroid({\mdseries\slshape s, k, n})\index{CubicalToroid@\texttt{CubicalToroid}!for IsInt,IsInt,IsInt}
+\label{CubicalToroid:for IsInt,IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsManiplex 
+
+
+
+ Given IsInt triple \mbox{\texttt{\mdseries\slshape s, k, n}}, will return the regular toroid $\{4, 3^{n-2},4\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m44:=CubicalToroid(3,2,2);;|
+  !gapprompt@gap>| !gapinput@m44=ToroidalMap44([3,3]);|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{3343Toroid (for IsInt,IsInt)}}
+\logpage{[ 6, 2, 2 ]}\nobreak
+\hyperdef{L}{X870D878B843C9D5F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{3343Toroid({\mdseries\slshape s, k})\index{3343Toroid@\texttt{3343Toroid}!for IsInt,IsInt}
+\label{3343Toroid:for IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsManiplex 
+
+
+
+ Given IsInt pair \mbox{\texttt{\mdseries\slshape s, k}}, will return the regular toroid $\{3,3,4,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 0 or 1. }
+
+ 
+
+\subsection{\textcolor{Chapter }{24CellToroid (for IsInt,IsInt)}}
+\logpage{[ 6, 2, 3 ]}\nobreak
+\hyperdef{L}{X830F2B047B0C3C13}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{24CellToroid({\mdseries\slshape s, k})\index{24CellToroid@\texttt{24CellToroid}!for IsInt,IsInt}
+\label{24CellToroid:for IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsManiplex 
+
+
+
+ Given IsInt pair \mbox{\texttt{\mdseries\slshape s, k}}, will return the regular toroid $\{3,4,3,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 0 or 1. }
+
+ }
+
+ 
+\section{\textcolor{Chapter }{Uniform Polyhedra}}\label{Chapter_Families_of_Polytopes_Section_Uniform_Polyhedra}
+\logpage{[ 6, 3, 0 ]}
 \hyperdef{L}{X8708502981F8565A}{}
 {
   
 
 \subsection{\textcolor{Chapter }{TruncatedOctahedron}}
-\logpage{[ 6, 2, 1 ]}\nobreak
+\logpage{[ 6, 3, 1 ]}\nobreak
 \hyperdef{L}{X82251B0B7FF0867C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedOctahedron({\mdseries\slshape })\index{TruncatedOctahedron@\texttt{TruncatedOctahedron}}
 \label{TruncatedOctahedron}
@@ -1875,7 +1933,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedCube}}
-\logpage{[ 6, 2, 2 ]}\nobreak
+\logpage{[ 6, 3, 2 ]}\nobreak
 \hyperdef{L}{X83E8732F7B5723CA}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedCube({\mdseries\slshape })\index{TruncatedCube@\texttt{TruncatedCube}}
 \label{TruncatedCube}
@@ -1890,7 +1948,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{Icosadodecahedron}}
-\logpage{[ 6, 2, 3 ]}\nobreak
+\logpage{[ 6, 3, 3 ]}\nobreak
 \hyperdef{L}{X7C262C2B7B88190E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Icosadodecahedron({\mdseries\slshape })\index{Icosadodecahedron@\texttt{Icosadodecahedron}}
 \label{Icosadodecahedron}
@@ -1905,7 +1963,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedIcosahedron}}
-\logpage{[ 6, 2, 4 ]}\nobreak
+\logpage{[ 6, 3, 4 ]}\nobreak
 \hyperdef{L}{X81B089967C16B074}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedIcosahedron({\mdseries\slshape })\index{TruncatedIcosahedron@\texttt{TruncatedIcosahedron}}
 \label{TruncatedIcosahedron}
@@ -1920,7 +1978,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicuboctahedron}}
-\logpage{[ 6, 2, 5 ]}\nobreak
+\logpage{[ 6, 3, 5 ]}\nobreak
 \hyperdef{L}{X838FD696802FEFD8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRhombicuboctahedron({\mdseries\slshape })\index{SmallRhombicuboctahedron@\texttt{SmallRhombicuboctahedron}}
 \label{SmallRhombicuboctahedron}
@@ -1935,7 +1993,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{Pseudorhombicuboctahedron}}
-\logpage{[ 6, 2, 6 ]}\nobreak
+\logpage{[ 6, 3, 6 ]}\nobreak
 \hyperdef{L}{X84853A907A3EF1C5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pseudorhombicuboctahedron({\mdseries\slshape })\index{Pseudorhombicuboctahedron@\texttt{Pseudorhombicuboctahedron}}
 \label{Pseudorhombicuboctahedron}
@@ -1950,7 +2008,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SnubCube}}
-\logpage{[ 6, 2, 7 ]}\nobreak
+\logpage{[ 6, 3, 7 ]}\nobreak
 \hyperdef{L}{X7EA8AA0C84A43469}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SnubCube({\mdseries\slshape })\index{SnubCube@\texttt{SnubCube}}
 \label{SnubCube}
@@ -1965,7 +2023,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicosidodecahedron}}
-\logpage{[ 6, 2, 8 ]}\nobreak
+\logpage{[ 6, 3, 8 ]}\nobreak
 \hyperdef{L}{X7A2FC231845204F5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRhombicosidodecahedron({\mdseries\slshape })\index{SmallRhombicosidodecahedron@\texttt{SmallRhombicosidodecahedron}}
 \label{SmallRhombicosidodecahedron}
@@ -1980,7 +2038,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicosidodecahedron}}
-\logpage{[ 6, 2, 9 ]}\nobreak
+\logpage{[ 6, 3, 9 ]}\nobreak
 \hyperdef{L}{X87A29A6B8375339F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GreatRhombicosidodecahedron({\mdseries\slshape })\index{GreatRhombicosidodecahedron@\texttt{GreatRhombicosidodecahedron}}
 \label{GreatRhombicosidodecahedron}
@@ -1995,7 +2053,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SnubDodecahedron}}
-\logpage{[ 6, 2, 10 ]}\nobreak
+\logpage{[ 6, 3, 10 ]}\nobreak
 \hyperdef{L}{X874B90BD82EA1192}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SnubDodecahedron({\mdseries\slshape })\index{SnubDodecahedron@\texttt{SnubDodecahedron}}
 \label{SnubDodecahedron}
@@ -2010,7 +2068,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedDodecahedron}}
-\logpage{[ 6, 2, 11 ]}\nobreak
+\logpage{[ 6, 3, 11 ]}\nobreak
 \hyperdef{L}{X79A2DEE48126C748}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedDodecahedron({\mdseries\slshape })\index{TruncatedDodecahedron@\texttt{TruncatedDodecahedron}}
 \label{TruncatedDodecahedron}
@@ -2025,7 +2083,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicuboctahedron}}
-\logpage{[ 6, 2, 12 ]}\nobreak
+\logpage{[ 6, 3, 12 ]}\nobreak
 \hyperdef{L}{X7D08FB508708D8B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GreatRhombicuboctahedron({\mdseries\slshape })\index{GreatRhombicuboctahedron@\texttt{GreatRhombicuboctahedron}}
 \label{GreatRhombicuboctahedron}
@@ -4018,6 +4076,7 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
