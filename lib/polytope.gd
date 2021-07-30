@@ -17,6 +17,13 @@ DeclareOperation("UniversalSggi", [IsList]);
 
 #! @EndGroup
 
+#! @Arguments symbol, relations
+#! @Description Returns the sggi defined by the given Schlafli
+#! symbol and with the given relations. The relations can be given
+#! by a list of Tietze words or as a string of relators or relations
+#! that involve r0 etc.
+DeclareOperation("Sggi", [IsList, IsList]);
+
 #! @Arguments g
 #! @Description Given a group g (which should be a string C-group),
 #! returns the reflexible maniplex with that automorphism group,

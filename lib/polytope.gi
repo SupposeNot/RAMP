@@ -116,6 +116,20 @@ InstallMethod(IsPolytopal,
 	return ispoly;
 	end);
 
+InstallMethod(Sggi,
+	[IsList, IsList],
+	function(sym, rels)
+	local w, newrels;
+	w := UniversalSggi(sym);
+	if IsString(rels) then
+		newrels := ParseStringCRels(rels, w);
+	else
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+	fi;
+	return FactorGroupFpGroupByRels(w, newrels);
+	end);
+	
+
 # Given any group (which should be a sggi), builds the regular
 # polytope (well, maniplex) out of it. So you could pass in a
 # permutation group, matrix group, or anything else.
