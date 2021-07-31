@@ -29,38 +29,6 @@ InstallMethod(UniversalRotationGroup,
 	return g;
 	end);
 
-ROT_GROUP_SIZES := function(sym)
-	local dict, n, k;
-	
-	dict := NewDictionary([], true);
-	AddDictionary(dict, [3,5], 60);
-	AddDictionary(dict, [5,3], 60);
-	AddDictionary(dict, [3,4,3], 576);
-	AddDictionary(dict, [5,3,3], 7200);
-	AddDictionary(dict, [3,3,5], 7200);
-
-	n := Size(sym)+1;
-	
-	if n = 1 then
-		return 1;
-	elif n = 2 then
-		return sym[1];
-	elif KnowsDictionary(dict, sym) then
-		return LookupDictionary(dict, sym);
-	elif ForAll(sym, i -> i = 3) then
-		return Factorial(n+1) / 2;
-	elif sym[1] = 4 and ForAll(sym{[2..n-1]}, i -> i = 3) then
-		return 2^(n-1) * Factorial(n);
-	elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
-		return 2^(n-1) * Factorial(n);
-	elif 2 in sym then
-		k := Position(sym, 2);
-		return ROT_GROUP_SIZES(sym{[1..k-1]}) * ROT_GROUP_SIZES(sym{[k+1..n-1]}) / 2;
-	else
-		return infinity;
-	fi;
-	end;
-
 # Returns the universal string Coxeter Group given by sym.
 # For example, UniversalSggi([4,4]) is the group denoted [4, 4].
 InstallOtherMethod(UniversalRotationGroup,
@@ -77,7 +45,7 @@ InstallOtherMethod(UniversalRotationGroup,
 		fi;
 	od;
 	h := FactorGroupFpGroupByRels(g, rels);
-	SetSize(h, ROT_GROUP_SIZES(sym));
+	SetSize(h, COXETER_GROUP_SIZES(sym) / 2);
 	return h;
 	end);
 	
@@ -106,18 +74,11 @@ InstallMethod(RotaryManiplex,
 	return p;
 	end);
 
+# A rotary maniplex defined by a Schlafli Symbol is in fact reflexible.
 InstallMethod(RotaryManiplex,
 	[IsList],
 	function(sym)
-	local n, w, p;
-	n := Size(sym)+1;
-	w := UniversalRotationGroup(sym);
-	p := RotaryManiplex(w);
-	SetSchlafliSymbol(p, sym);
-	SetSize(p, 2*Size(w));
-	SetExtraRelators(p, []);
-	SetString(p, Concatenation("RotaryManiplex(", String(sym), ")"));
-	return p;
+	return ReflexibleManiplex(sym);
 	end);
 
 # Usage: RotaryManiplex([4,6], "s2^-1 s1^2 = s1^5 s2^2");
