@@ -2,6 +2,15 @@ TEST_RAMP := function()
 	Read(Filename(DirectoriesLibrary("pkg/ramp/tst"), "testall.g"));
 	end;
 
+BindGlobal("RampPath", DirectoriesLibrary("pkg/ramp/lib"));
+
+BindGlobal("TestRamp", 
+	function(filename)
+	local testFile;
+	testFile := Filename(DirectoriesLibrary("pkg/ramp/tst"), filename);
+	Test(testFile);
+	end);
+
 InstallGlobalFunction(AbstractPolytope,
 	function(args...)
 	local p;

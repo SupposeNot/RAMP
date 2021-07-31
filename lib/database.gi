@@ -1,69 +1,64 @@
 
-# I used this at some point to save some polytopes to a file.
-# Keeping it here in case we want to crib off it later.
-# SavePolytopes := function(polys, filename)
-#	local stream, i, j, p, F, rels, datastring, id, flats, sym, g, s1, s2, nonflats, pd, pp, invars, duals, done, pdp, ppd, pdpd;
-#	stream := OutputTextFile(filename, false);
-#
-#	for p in polys5 do
-#		WriteAll(stream, String(SchlafliSymbol(p)));
-#		WriteAll(stream, ", ");
-#		WriteAll(stream, String(PetrieLength(p)));
-#		WriteAll(stream, ", ");
-#		WriteAll(stream, String(Size(p)));
-#		WriteAll(stream, ", ");
-#		rels := List(ExtraRelators(p), r -> String(r));
-#		WriteAll(stream, String(rels));
-#		if IsSelfDual(p) then
-#			WriteAll(stream, ", SD");
-#		else
-#			WriteAll(stream, ", NSD");
-#		fi;
-#		if SchlafliSymbol(p)[2] = PetrieLength(p) and p = Dual(Petrial(Dual(p))) then
-#			WriteAll(stream, ", SO");
-#		else
-#			WriteAll(stream, ", NSO");
-#		fi;
-#		
-#		WriteAll(stream, "\n");
-#		# And write some other stuff
-#	od;
-#
-#	CloseStream(stream);
-#	end;
+WriteManiplexesToFile := function(maniplexes, filename)
+	local databaseFile, M;
+	databaseFile := OutputTextFile(Filename(RampPath, filename));
+
+	for M in maniplexes do
+		WriteLine(databaseFile, DatabaseString(M));
+	od;
+
+	CloseStream(databaseFile);
+	end;
+
+ManiplexesFromFile := function(filename)
+	local databaseFile, maniplexes, maniplexString;
+	databaseFile := InputTextFile(Filename(RampPath, filename));
+	maniplexes := [];
+
+	maniplexString := ReadLine(databaseFile);
+	repeat
+		Add(maniplexes, ManiplexFromDatabaseString(maniplexString));
+		maniplexString := ReadLine(databaseFile);
+	until IsEndOfStream(databaseFile);
+
+	CloseStream(databaseFile);
+	return maniplexes;
+	end;
+
+BindGlobal("MINSIZE_FROM_SIZERANGE",
+	function(sizerange)
+	if IsInt(sizerange) then return 1;
+	elif IsEmpty(sizerange) then return 0;
+	else return First(sizerange);
+	fi;
+	end);
+	
+BindGlobal("MAXSIZE_FROM_SIZERANGE",
+	function(sizerange)
+	if IsInt(sizerange) then return sizerange;
+	elif IsEmpty(sizerange) then return 0;
+	else return Last(sizerange);
+	fi;
+	end);
 
 InstallGlobalFunction(DegeneratePolyhedra,
 	function(sizerange)
 	local polys, k, p, minsize, maxsize;
 
-	if IsInt(sizerange) then
-		minsize := 1;
-		maxsize := sizerange;
-	else
-		minsize := sizerange[1];
-		maxsize := Last(sizerange);
-	fi;
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
 	polys := [];
 	if minsize <= 8 and maxsize >= 8 then
-		p := AbstractRegularPolytope([2,2]);
-		SetSize(p, 8);
-		Add(polys, p);
+		Add(polys, AbstractRegularPolytope([2,2]));
 	fi;
-	if minsize > 12 then
-		k := Int((minsize+3)/4);
-	else
-		k := 3;
-	fi;
-	
+
+	k := 3;
 	while 4*k <= maxsize do
-		p := AbstractRegularPolytope([2,k]);
-		SetSize(p, 4*k);
-		Add(polys, p);
-		
-		p := AbstractRegularPolytope([k,2]);
-		SetSize(p, 4*k);
-		Add(polys, p);
+		if 4*k >= minsize then
+			Add(polys, AbstractRegularPolytope([2,k]));
+			Add(polys, AbstractRegularPolytope([k,2]));
+		fi;
 		k := k + 1;
 	od;
 	return polys;
@@ -74,15 +69,8 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	local polys, p, q, k, r, poly, D, rampPath, filename, stream, params, flatpolystr, minsize, maxsize;
 	polys := [];
 
-	if IsInt(sizerange) then
-		minsize := 1;
-		maxsize := sizerange;
-	elif IsEmpty(sizerange) then
-		return [];
-	else
-		minsize := sizerange[1];
-		maxsize := Last(sizerange);
-	fi;
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 	
 	# If p and q are even, then FlatRegularPolyhedron(p, q, -1, 1) works.
 	# (from Minimal Equivelar Polytopes Thm. 6.3)
@@ -208,15 +196,8 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 	local polys, minsize, maxsize, t, p;
 	polys := [];
 
-	if IsInt(sizerange) then
-		minsize := 1;
-		maxsize := sizerange;
-	elif IsEmpty(sizerange) then
-		return [];
-	else
-		minsize := sizerange[1];
-		maxsize := Last(sizerange);
-	fi;
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 	
 	# ARP([4,4], "h2^t") is {4,4}_(t,0), with 8t^2 flags.
 	# ARP([4,4], "z1^2t") is {4,4}_(t,t), with 16t^2 flags.
@@ -239,15 +220,8 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	local polys, minsize, maxsize, t, p;
 	polys := [];
 
-	if IsInt(sizerange) then
-		minsize := 1;
-		maxsize := sizerange;
-	elif IsEmpty(sizerange) then
-		return [];
-	else
-		minsize := sizerange[1];
-		maxsize := Last(sizerange);
-	fi;
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
 	# The smallest polyhedron of type {3, 6} has 36 flags.
 	minsize := Maximum(36, minsize);
@@ -270,58 +244,19 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	return polys;
 	end);
 
-# Keeping this here for now in case I need to crib off of it later
-# Rewrite := function()
-#	local p, q, i, j, f1, f2, rampPath, filename, desc, paramstr, params, sym, petrie, flagnum, rels;
-#	rampPath := DirectoriesLibrary("pkg/ramp/lib");
-#	filename := Filename(rampPath, "regularPolyhedra.txt");
-#	f1 := InputTextFile(filename);
-#	f2 := OutputTextFile(Filename(rampPath, "regularPolyhedra2.txt"), false);
-#
-#	paramstr := ReadLine(f1);
-#	while not(IsEndOfStream(f1)) do
-#		params := EvalString(Concatenation("[", paramstr, "]"));
-#		
-#		sym := params[1];
-#		petrie := params[2];
-#		flagnum := params[3];
-#		rels := params[4][1];
-#
-#		if flagnum <> 2*sym[1]*sym[2] then
-#			WriteAll(f2, paramstr);
-#		fi;
-#		paramstr := ReadLine(f1);
-#	od;
-#
-#	CloseStream(f1);
-#	CloseStream(f2);
-#	return;
-#	end;
-
-# WARNING: The exact interface (arguments and their order etc) may change as we figure out
-# better ways to store and query the data...
 InstallGlobalFunction(SmallRegularPolyhedra,
 	function(sizerange)
-	local polys, stream, desc, params, flatpolystr, paramlist, sym, petrie, flagnum, rels, p, paramstr, filename, rampPath, toobig, degens, minsize, maxsize, toruspolys;
-	rampPath := DirectoriesLibrary("pkg/ramp/lib");
-	filename := Filename(rampPath, "regularPolyhedra.txt");
-	stream := InputTextFile(filename);
-	if IsInt(sizerange) then
-		minsize := 1;
-		maxsize := sizerange;
-	elif IsEmpty(sizerange) then
-		return [];
-	else
-		minsize := sizerange[1];
-		maxsize := Last(sizerange);
-	fi;
+	local polys, stream, desc, params, paramlist, sym, petrie, flagnum, rels, p, paramstr, toobig, minsize, maxsize, toruspolys;
+	stream := InputTextFile(Filename(RampPath, "regularPolyhedra.txt"));
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
 	polys := [];
 	toobig := false;
 	
-	#if ValueOption("nondegenerate") <> true and ValueOption("nonflat") <> true then
-	#	polys := DegeneratePolyhedra(sizerange);
-	#fi;
-
+	# Note that all degenerate polyhedra are also flat. So if the "nondegenerate" option is set, that
+	# is automatically passed to and handled by FlatRegularPolyhedra.
 	if ValueOption("nonflat") <> true then
 		Append(polys, FlatRegularPolyhedra(sizerange));
 	fi;
