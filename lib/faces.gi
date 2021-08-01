@@ -285,8 +285,15 @@ InstallMethod(IsFlat,
 
 InstallMethod(IsFlat,
 	[IsManiplex],
-	M -> IsFlat(M, 0, Rank(M)-1));
-
+	function(M)
+	
+	# Optimization from theory
+	if Rank(M) = 3 and IsEquivelar(M) and HasIsPolytopal(M) and IsPolytopal(M) then
+		return IsTight(M);
+	else
+		return IsFlat(M, 0, Rank(M)-1);
+	fi;
+	end);
 
 
 
