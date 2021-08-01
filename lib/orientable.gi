@@ -15,7 +15,7 @@ InstallMethod(IsOrientable,
 	[IsManiplex],
 	function(M)
 	local val;
-	val := ConnectionGroup(M) <> EvenConnectionGroup(M);
+	val := IsBipartite(UnlabeledFlagGraph(M));
 	if HasDual(M) then
 		SetIsOrientable(Dual(M), val);
 	fi;
@@ -64,5 +64,37 @@ InstallMethod(IsFacetBipartite,
 InstallMethod(IsFacetBipartite,
 	[IsManiplex],
 	function(M)
-	return IsBipartite(Skeleton(Dual(M)));
+	return IsBipartite(CoSkeleton(M));
+	end);
+
+BindGlobal("MinimalIOrientableManiplex",
+	function(I, n)
+	local generators;
+	
+	generators := List([0..n-1],
+					function(i)
+					if i in I then return (1,2);
+					else return ();
+					fi;
+					end);
+					
+	return ReflexibleManiplex(Group(generators));
+	end);
+
+InstallMethod(IOrientableCover,
+	[IsReflexibleManiplex, IsList],
+	function(M, I)
+	return Mix(M, MinimalIOrientableManiplex(I, Rank(M)));
+	end);
+	
+InstallMethod(IOrientableCover,
+	[IsManiplex, IsList],
+	function(M, I)
+	return FlagMix(M, MinimalIOrientableManiplex(I, Rank(M)));
+	end);
+	
+InstallMethod(OrientableCover,
+	[IsManiplex],
+	function(M)
+	return IOrientableCover(M, [0..Rank(M)-1]);
 	end);
