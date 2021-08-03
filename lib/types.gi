@@ -35,7 +35,6 @@ InstallGlobalFunction(AddAttrComputer,
 	fi;
 	end);
 
-# What if the attribute doesn't have a computer?	
 InstallGlobalFunction(ComputeAttr,
 	function(M, attr)
 	local computer;

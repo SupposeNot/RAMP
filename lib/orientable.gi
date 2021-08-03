@@ -1,25 +1,18 @@
 
 InstallMethod(IsOrientable,
-	[IsReflexibleManiplex],
-	function(M)
-	local rels, val;
-	rels := ExtraRelators(M);
-	val := ForAll(rels, r -> Length(r) mod 2 = 0);
-	if HasDual(M) then
-		SetIsOrientable(Dual(M), val);
-	fi;
-	return val;
-	end);
-
-InstallMethod(IsOrientable,
 	[IsManiplex],
 	function(M)
-	local val;
-	val := IsBipartite(UnlabeledFlagGraph(M));
-	if HasDual(M) then
-		SetIsOrientable(Dual(M), val);
+	local isOrientable;
+	isOrientable := ComputeAttr(M, IsOrientable);
+	if isOrientable = fail then
+		if IsReflexibleManiplexAutGpRep(M) then
+			isOrientable := ForAll(RelatorsOfFpGroup(AutomorphismGroup(M)), r -> IsEvenInt(Length(r)));
+		else
+			isOrientable := IsBipartite(UnlabeledFlagGraph(M));
+		fi;
 	fi;
-	return val;
+	
+	return isOrientable;
 	end);
 
 InstallMethod(IsIOrientable,

@@ -106,18 +106,13 @@ InstallMethod(NumberOfRidges,
 InstallMethod(Fvector,
 	[IsManiplex],
 	function(M)
-	local fvec, i, n;
-	if IsManiplexInstructionsRep(M) then
-		fvec := ComputeAttr(M, Fvector);
-		if fvec <> fail then return fvec; fi;
+	local fvector, i, n;
+	fvector := ComputeAttr(M, Fvector);
+	if fvector = fail then
+		fvector := List([0..Rank(M)-1], i -> NumberOfIFaces(M,i));
 	fi;
 	
-	n := Rank(M);
-	fvec := [];
-	for i in [0..n-1] do
-		Add(fvec, NumberOfIFaces(M,i));
-	od;
-	return fvec;
+	return fvector;	
 	end);
 
 
@@ -299,71 +294,44 @@ InstallMethod(IsFlat,
 
 ##### SCHLAFLI SYMBOL #####
 
-	
-InstallMethod(SchlafliSymbol,
-	[IsManiplex and IsReflexibleManiplexAutGpRep],
-	function(M)
-	local gens, n, sym;
-	gens := GeneratorsOfGroup(AutomorphismGroup(M));
-	n := Rank(M);
-	sym := [];
-	sym := List([1..n-1], i -> Order(gens[i]*gens[i+1]));
-	if HasDual(M) then
-		SetSchlafliSymbol(Dual(M), Reversed(sym));
-	fi;
-	return sym;
-	end);
-	
-InstallMethod(SchlafliSymbol,
-	[IsManiplex and IsRotaryManiplexRotGpRep],
-	function(M)
-	local gens, n, sym;
-	gens := GeneratorsOfGroup(RotationGroup(M));
-	n := Rank(M);
-	sym := List(gens, x -> Order(x));
-	if HasDual(M) then
-		SetSchlafliSymbol(Dual(M), Reversed(sym));
-	fi;
-	return sym;
-	end);
-	
-# This assumes that the connection group really does act on flags.
-# It appears to work for IsManiplexQuotientRep too, but I'm not
-# sure if I can guarantee that.
 InstallMethod(SchlafliSymbol,
 	[IsManiplex],
 	function(M)
-	local n, g, i, sym, gens, h, orbs, sections;
+	local schlafliSymbol, gens, g, i, h, orbs, sections;
 	
-	if IsManiplexInstructionsRep(M) then
-		sym := ComputeAttr(M, SchlafliSymbol);
-		if sym <> fail then return sym; fi;
-	fi;
-	
-	sym := [];
-	n := Rank(M);
-	g := ConnectionGroup(M);
-	gens := GeneratorsOfGroup(g);
-	for i in [1..n-1] do
-		# Look at the orbits under <ri-1, ri>.
-		# An orbit of size k indicates a (k/2)-gon section.
-		h := Subgroup(g, [gens[i], gens[i+1]]);
-		orbs := OrbitLengths(h);
-		sections := Set(List(orbs, k -> k/2));
-		if Size(sections) = 1 then
-			Add(sym, sections[1]);
+	schlafliSymbol := ComputeAttr(M, SchlafliSymbol);
+	if schlafliSymbol = fail then 
+		if IsReflexibleManiplexAutGpRep(M) then
+			gens := GeneratorsOfGroup(AutomorphismGroup(M));
+			schlafliSymbol := List([1..Rank(M)-1], i -> Order(gens[i]*gens[i+1]));
+		elif IsRotaryManiplexRotGpRep(M) then
+			gens := GeneratorsOfGroup(RotationGroup(M));
+			schlafliSymbol := List(gens, Order);
 		else
-			Add(sym, sections);
+			schlafliSymbol := [];
+			g := ConnectionGroup(M);
+			gens := GeneratorsOfGroup(g);
+			for i in [1..Rank(M)-1] do
+				# Look at the orbits under <ri-1, ri>.
+				# An orbit of size k indicates a (k/2)-gon section.
+				h := Subgroup(g, [gens[i], gens[i+1]]);
+				orbs := OrbitLengths(h);
+				sections := Set(List(orbs, k -> k/2));
+				if Size(sections) = 1 then
+					Add(schlafliSymbol, sections[1]);
+				else
+					Add(schlafliSymbol, sections);
+				fi;
+			od;
+		
 		fi;
-	od;
-
-	if HasDual(M) then
-		SetSchlafliSymbol(Dual(M), Reversed(sym));
 	fi;
-	M!.PseudoSchlafliSymbol := sym;
-	return sym;
-	end);
 
+	M!.PseudoSchlafliSymbol := schlafliSymbol;
+	
+	return schlafliSymbol;
+	end);
+	
 # Some constructors will set the pseudo-Schlafli symbol
 # of an object. Otherwise, we just compute the actual
 # Schlafli symbol.
@@ -389,9 +357,6 @@ InstallMethod(IsDegenerate,
 	function(M)
 	local val;
 	val := (2 in SchlafliSymbol(M));
-	if HasDual(M) then
-		SetIsDegenerate(Dual(M), val);
-	fi;
 	return val;
 	end);
 
@@ -403,9 +368,6 @@ InstallMethod(IsTight,
 		Error("Tightness is only well-defined for equivelar polytopes.\n");
 	fi;
 	val := (Size(M) = 2*Product(SchlafliSymbol(M)));
-	if HasDual(M) then
-		SetIsTight(Dual(M), val);
-	fi;
 	return val;
 	end);
 	

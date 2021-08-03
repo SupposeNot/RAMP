@@ -124,35 +124,27 @@ end);
 #	end);
 
 InstallMethod(NumberOfFlagOrbits,
-	[IsManiplex and IsManiplexQuotientRep],
-	function(M)
-	local n, g, h;
-	g := AutomorphismGroup(M!.parent);
-	h := M!.subgroup;
-	n := Normalizer(g, h);
-	return Index(g, n);
-	end);
-	
-	
-# After SymmetryTypeGraph is fixed, we probably want to cut out
-# the IsFinite line, since for some maniplexes, this will try to
-# calculate the size, which can be time-consuming.
-InstallMethod(NumberOfFlagOrbits,
 	[IsManiplex],
 	function(M)
-	local n;
-	if IsReflexibleManiplexAutGpRep(M) then 
-		n := 1; 
-	elif Size(M) < infinity then
-		return Size(M) / Size(AutomorphismGroup(M));
-	else
-		n := Size(Vertices(SymmetryTypeGraph(M)));
+	local numberOfFlagOrbits, g, h, n;
+	
+	numberOfFlagOrbits := ComputeAttr(M, NumberOfFlagOrbits);
+	if numberOfFlagOrbits = fail then
+		if IsReflexibleManiplexAutGpRep(M) then 
+			numberOfFlagOrbits := 1; 
+		elif IsManiplexQuotientRep(M) then
+			g := AutomorphismGroup(M!.parent);
+			h := M!.subgroup;
+			n := Normalizer(g, h);
+			numberOfFlagOrbits := Index(g, n);
+		elif Size(M) < infinity then
+			numberOfFlagOrbits :=  Size(M) / Size(AutomorphismGroup(M));
+		else
+			numberOfFlagOrbits := Size(Vertices(SymmetryTypeGraph(M)));
+		fi;
 	fi;
 	
-	if HasDual(M) then
-		SetNumberOfFlagOrbits(Dual(M), n);
-	fi;
-	return n;
+	return numberOfFlagOrbits;
 	end);
 
 InstallMethod(FlagOrbitRepresentatives,
@@ -173,9 +165,6 @@ InstallMethod(IsReflexible,
 	function(M)
 	local val;
 	val := (NumberOfFlagOrbits(M) = 1);
-	if HasDual(M) then
-		SetIsReflexible(Dual(M), val);
-	fi;
 	return val;
 	end);
 
@@ -185,9 +174,6 @@ InstallMethod(IsChiral,
 	local stg, val;
 	stg := SymmetryTypeGraph(M);
 	val := Size(Vertices(stg)) = 2 and ForAll(Edges(stg), e -> Size(e) = 2);
-	if HasDual(M) then
-		SetIsChiral(Dual(M), val);
-	fi;	
 	return val;
 	end);
 
@@ -196,9 +182,6 @@ InstallMethod(IsRotary,
 	function(M)
 	local val;
 	val := IsReflexible(M) or IsChiral(M);
-	if HasDual(M) then
-		SetIsRotary(Dual(M), val);
-	fi;
 	return val;
 	end);
 	

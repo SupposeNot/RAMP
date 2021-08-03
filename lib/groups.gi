@@ -122,67 +122,45 @@ InstallMethod(RotationGroup,
 	end);
 
 InstallMethod(ConnectionGroup,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(M)
-	local g;
-	g := AutomorphismGroup(M);
-	if Size(g) = infinity then
-		return fail;
-	else
-		return Action(g, g, OnLeftInverse, "surjective");
-	fi;
-	# return Image(RegularActionHomomorphism(g));
-	end);
+	local connectionGroup, g, h, w, wgens, wpgens, wp, hom, ker;
 	
-InstallMethod(ConnectionGroup,
-	[IsRotaryManiplex],
-	function(M)
-	local g, n, w, wgens, wpgens, wp, hom, ker, ker2;
-	g := AutomorphismGroup(M);
-	if IsReflexible(M) then
-		return Image(RegularActionHomomorphism(g));
-	elif Size(g) = infinity then
-		return fail;
-	else
-		# A chiral polytope has a flag-stabilizer K that is normal in W+ but not W.
-		# So we find the flag-stabilizer, and then use it to build the connection group.
-		n := Rank(M);
-		w := UniversalSggi(n);
-		wgens := GeneratorsOfGroup(w);
-		wpgens := List([1..n-1], i -> wgens[i]*wgens[i+1]);
-		wp := Subgroup(w, wpgens);
-		hom := GroupHomomorphismByImagesNC(wp, g, wpgens, GeneratorsOfGroup(g));
-		ker := Kernel(hom);
-		ker2 := Core(w, ker);
-		return w / ker2;
-	fi;	
-	end);
-InstallMethod(ConnectionGroup,
-	[IsManiplex and IsManiplexConnGpRep],
-	function(M)
-	return M!.conn_gp;
-	end);
-InstallMethod(ConnectionGroup,
-	[IsManiplex and IsManiplexQuotientRep],
-	function(M)
-	local g, h, c;
-	g := AutomorphismGroup(M!.parent);
-	h := M!.subgroup;
-	return Image(FactorCosetAction(g, h));
-	end);
-InstallMethod(ConnectionGroup,
-	[IsManiplex and IsManiplexInstructionsRep],
-	function(M)
-	if Size(M) = infinity then
-		return fail;
-	else
-		return ComputeAttr(M, ConnectionGroup);
+	connectionGroup := ComputeAttr(M, ConnectionGroup);
+	if connectionGroup = fail then
+		if IsReflexibleManiplexAutGpRep(M) or IsRotaryManiplexRotGpRep(M) and IsReflexible(M) then
+			if Size(AutomorphismGroup(M)) = infinity then
+				connectionGroup := fail;
+			else
+				connectionGroup := Action(AutomorphismGroup(M), AutomorphismGroup(M), OnLeftInverse, "surjective");
+			fi;
+		elif IsManiplexPosetRep(M) then
+			connectionGroup := ConnectionGroup(M!.poset);
+		elif IsManiplexConnGpRep(M) then
+			connectionGroup := M!.conn_gp;
+		elif IsManiplexQuotientRep(M) then
+			g := AutomorphismGroup(M!.parent);
+			h := M!.subgroup;
+			connectionGroup := Image(FactorCosetAction(g, h));
+		elif IsRotaryManiplexRotGpRep(M) then
+			g := AutomorphismGroup(M);
+			if Size(g) = infinity then
+				connectionGroup := fail;
+			else
+				# A chiral polytope has a flag-stabilizer K that is normal in W+ but not W.
+				# So we find the flag-stabilizer, and then use it to build the connection group.
+				w := UniversalSggi(Rank(M));
+				wgens := GeneratorsOfGroup(w);
+				wpgens := List([1..Rank(M)-1], i -> wgens[i]*wgens[i+1]);
+				wp := Subgroup(w, wpgens);
+				hom := GroupHomomorphismByImagesNC(wp, g, wpgens, GeneratorsOfGroup(g));
+				ker := Kernel(hom);
+				connectionGroup := Image(FactorCosetAction(w, ker));
+			fi;
+		fi;
 	fi;
-	end);
-InstallMethod(ConnectionGroup,
-	[IsManiplex and IsManiplexPosetRep],
-	function(M)
-	return ConnectionGroup(M!.poset);
+	
+	return connectionGroup;
 	end);
 
 InstallMethod(EvenConnectionGroup,

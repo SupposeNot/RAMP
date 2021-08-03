@@ -1,138 +1,46 @@
-# For reflexible maniplexes, we first try to use a presentation of the automorphism
-# group and just dualize the relators. But since finding isomorphisms to
-# fpGroups can be expensive, we only use this approach if the fpGroup is
-# already there. Otherwise, we just reverse the generators of the
-# automorphism group.
 InstallMethod(Dual,
-	[IsManiplex and IsReflexibleManiplexAutGpRep],
-	function(p)
-	local g, rels, q, n, sym, newrels, relstr, attr, attrs, gens;
-	n := Rank(p);
+	[IsManiplex],
+	function(M)
+	local Md, attr, MatchingAttributes, ReversedAttributes, rels, newrels, relstr, mdstr;
 	
-	if HasAutomorphismGroupFpGroup(p) then
-		rels := ExtraRelators(p);
-		sym := PseudoSchlafliSymbol(p);
-		sym := Reversed(sym);
+	if IsReflexibleManiplexAutGpRep(M) then
+		rels := ExtraRelators(M);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
 		
 		# Since the generators are involutions, an entry of -i means the same as i in a Tietze word
 		# If we don't take the absolute value here, then we get the wrong dual relator.
-		newrels := List(rels, r -> List(r, i -> n+1-AbsoluteValue(i)));
-		newrels := List(newrels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(p)))));
-		relstr := JoinStringsWithSeparator(newrels, ",");
-		q := ReflexibleManiplex(sym, relstr);
-
-		if HasSchlafliSymbol(p) then SetSchlafliSymbol(q, sym); fi;
-	else
-		gens := GeneratorsOfGroup(AutomorphismGroup(p));
-		q := ReflexibleManiplex(Group(Reversed(gens)));
-	fi;
-
-	attrs := [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate];
-	for attr in attrs do
-		if Tester(attr)(p) then Setter(attr)(q, attr(p)); fi;
-	od;
-
-	if HasIsPolytopal(p) and IsPolytopal(p) then
-		q!.String := ReplacedString(q!.String, "ReflexibleManiplex", "AbstractRegularPolytope");
-	fi;
-
-	SetDual(q, p);
-	return q;
-	end);
-
-InstallMethod(Dual,
-	[IsManiplex and IsRotaryManiplexRotGpRep],
-	function(p)
-	local g, rels, q, n, sym, newrels, relstr, attr, attrs, gens;
-	n := Rank(p);
-	g := RotationGroup(p);
-	
-	if HasSchlafliSymbol(p) and IsFpGroup(g) then
-		rels := ExtraRotRelators(p);
-		sym := SchlafliSymbol(p);
-		sym := Reversed(sym);
+		newrels := List(rels, r -> List(r, i -> Rank(M)+1-AbsoluteValue(i)));
+		newrels := List(newrels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(M))));
+		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
+		Md := ReflexibleManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr);
+	elif IsRotaryManiplexRotGpRep(M) then
+		rels := ExtraRotRelators(M);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
 
 		# Change each s_i to s_{n-i}^{-1}
-		newrels := List(rels, r -> List(r, i -> (n - AbsoluteValue(i)) * (-SignInt(i))));
-		q := RotaryManiplex(sym, newrels);
-		
-		SetSchlafliSymbol(q, sym);
+		newrels := List(rels, r -> List(r, i -> (Rank(M) - AbsoluteValue(i)) * (-SignInt(i))));
+		newrels := List(newrels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(M))));
+		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
+
+		Md := RotaryManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr);
 	else
-		gens := List(GeneratorsOfGroup(g), x -> x^-1);
-		q := RotaryManiplex(Group(Reversed(gens)));
+		Md := Maniplex(Dual, [M]);
+		SetRankManiplex(Md, Rank(M));
+		SetString(Md, Concatenation("Dual(", String(M), ")"));
 	fi;
 
-	attrs := [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate];
-	for attr in attrs do
-		if Tester(attr)(p) then Setter(attr)(q, attr(p)); fi;
-	od;
-
-	SetDual(q, p);
-	return q;
-	end);
-
-InstallMethod(Dual,
-	[IsManiplex and IsManiplexInstructionsRep],
-	function(M)
-	local Md, attr, f, g;
-	
-	Md := Maniplex(Dual, [M]);
 	Md!.base := M;
-	SetRankManiplex(Md, Rank(M));
-	
-	# This really unusual construction is to avoid some variable scope
-	# issues I was running into...
-	f := attr -> (M -> attr(M!.base));
-	for attr in [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate] do
-		if Tester(attr)(M) then
-			Setter(attr)(Md, attr(M));
-		else
-			AddAttrComputer(Md, attr, f(attr));
-		fi;
-	od;
 
-	g := attr -> (M -> Reversed(attr(M!.base)));
-	for attr in [Fvector, SchlafliSymbol] do
-		if Tester(attr)(M) then
-			Setter(attr)(Md, Reversed(attr(M)));
-		else
-			AddAttrComputer(Md, attr, g(attr));
-		fi;
-	od;
-	
-	if HasConnectionGroup(M) then
-		SetConnectionGroup(Md, Group(Reversed(GeneratorsOfGroup(ConnectionGroup(M)))));
-	else
-		AddAttrComputer(Md, ConnectionGroup, M -> Group(Reversed(GeneratorsOfGroup(ConnectionGroup(M!.base)))));
-	fi;
-	
-	SetString(Md, Concatenation("Dual(", String(M), ")"));
+	AddAttrComputer(Md, Size, Md -> Size(Md!.base) : prereqs := [Size]);
+	AddAttrComputer(Md, IsPolytopal, Md -> IsPolytopal(Md!.base) : prereqs := [IsPolytopal]);
+	AddAttrComputer(Md, NumberOfFlagOrbits, Md -> NumberOfFlagOrbits(Md!.base) : prereqs := [NumberOfFlagOrbits]);
+	AddAttrComputer(Md, IsOrientable, Md -> IsOrientable(Md!.base) : prereqs := [IsOrientable]);
 
-	SetDual(Md, M);
-
-	return Md;
-	end);
+	AddAttrComputer(Md, Fvector, Md -> Reversed(Fvector(Md!.base)) : prereqs := [Fvector]);
+	AddAttrComputer(Md, SchlafliSymbol, Md -> Reversed(SchlafliSymbol(Md!.base)) : prereqs := [SchlafliSymbol]);
 	
+	AddAttrComputer(Md, ConnectionGroup, Md -> Group(Reversed(GeneratorsOfGroup(ConnectionGroup(Md!.base)))) : prereqs := [ConnectionGroup]);
 	
-InstallMethod(Dual,
-	[IsManiplex],
-	function(M)
-	local g, gens, Md, attrs, attr;
-	g := ConnectionGroup(M);
-	gens := GeneratorsOfGroup(g);
-	Md := Maniplex(Group(Reversed(gens)));
-
-	for attr in [Size, IsPolytopal, NumberOfFlagOrbits, IsOrientable, IsTight, IsDegenerate] do
-		if Tester(attr)(M) then Setter(attr)(Md, attr(M)); fi;
-	od;
-
-	for attr in [SchlafliSymbol, Fvector] do
-		if Tester(attr)(M) then Setter(attr)(Md, Reversed(attr(M))); fi;
-	od;
-	
-	SetDual(Md, M);
 	return Md;
 	end);
 	

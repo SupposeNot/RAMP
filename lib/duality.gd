@@ -4,7 +4,7 @@
 
 #! @Arguments M
 #! @Returns The maniplex that is dual to <A>M</A>.
-DeclareAttribute("Dual", IsManiplex);
+DeclareOperation("Dual", [IsManiplex]);
 
 #! @Arguments P
 #! @Returns Whether this polytope is isomorphic to its dual.

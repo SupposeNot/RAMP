@@ -84,38 +84,6 @@ InstallOtherMethod(UniversalSggi,
 	return h;
 	end);
 	
-InstallMethod(IsPolytopal,
-	[IsReflexibleManiplex],
-	function(M)
-	local ispoly;
-	if Size(M) < 2*Product(SchlafliSymbol(M)) then
-		ispoly := false;
-	else
-		ispoly := IsStringC(AutomorphismGroup(M));
-	fi;
-	if HasDual(M) then
-		SetIsPolytopal(Dual(M), ispoly);
-	fi;
-	
-	if ispoly then
-		M!.String := ReplacedString(M!.String, "ReflexibleManiplex", "AbstractRegularPolytope");
-	fi;
-	
-	return ispoly;
-	end);
-
-# Currently assumes "nice" maniplexes
-InstallMethod(IsPolytopal,
-	[IsManiplex and IsRotaryManiplexRotGpRep],
-	function(M)
-	local ispoly;
-	ispoly := IsStringCPlus(RotationGroup(M));
-	if HasDual(M) then
-		SetIsPolytopal(Dual(M), ispoly);
-	fi;
-	return ispoly;
-	end);
-
 InstallMethod(Sggi,
 	[IsList, IsList],
 	function(sym, rels)
@@ -140,7 +108,7 @@ InstallMethod(ReflexibleManiplex,
 	local n, p;
 	n := Size(GeneratorsOfGroup(autgp));
 
-	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
 	
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
@@ -283,7 +251,7 @@ InstallMethod(Maniplex,
 		return Pgon(NrMovedPoints(g) / 2);
 	fi;
 	
-	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true)));
 	
 	SetSize(p, NrMovedPoints(g));
 	SetRankManiplex(p, n);
@@ -301,7 +269,7 @@ InstallMethod(Maniplex,
 		Error("The given group is not a subgroup of AutomorphismGroup(M).");
 	fi;
 	
-	M2 := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G ));
+	M2 := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G, attr_computers := NewDictionary(Size, true) ));
 	
 	SetRankManiplex(M2, n);
 	return M2;
@@ -318,58 +286,27 @@ InstallMethod(Maniplex,
 	function(P)
 	local M, n;
 	n := Rank(P);
-	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexPosetRep), rec( poset := P, fvec := List([1..n], i -> fail))); 
+	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexPosetRep), rec( poset := P, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
 	SetRankManiplex(M, n);
 	return M;
 	end);
 	
-InstallOtherMethod(Size,
-	[IsManiplex and IsReflexibleManiplexAutGpRep],
-	function(M)
-	local val;
-	val := Size(AutomorphismGroup(M));
-	if HasDual(M) then
-		SetSize(Dual(M), val);
-	fi;
-	return val;
-	end);
-	
-InstallOtherMethod(Size,
-	[IsManiplex and IsRotaryManiplexRotGpRep],
-	function(M)
-	local val;
-	val := 2 * Size(RotationGroup(M));
-	if HasDual(M) then
-		SetSize(Dual(M), val);
-	fi;
-	return val;
-	end);
-	
-InstallOtherMethod(Size,
-	[IsManiplex and IsManiplexQuotientRep],
-	function(M)
-	local val;
-	val := Index(AutomorphismGroup(M!.parent), M!.subgroup);
-	if HasDual(M) then
-		SetSize(Dual(M), val);
-	fi;
-	return val;
-	end);
-
 InstallMethod(Size,
 	[IsManiplex],
 	function(M)
-	local val;
-	if IsManiplexInstructionsRep(M) then
-		val := ComputeAttr(M, Size);
-		if val <> fail then return val; fi;
+	local size;
+	size := ComputeAttr(M, Size);
+	if size <> fail then return size; fi;
+
+	if IsReflexibleManiplexAutGpRep(M) then
+		return Size(AutomorphismGroup(M));
+	elif IsRotaryManiplexRotGpRep(M) then
+		return 2*Size(RotationGroup(M));
+	elif IsManiplexQuotientRep(M) then
+		return Index(AutomorphismGroup(M!.parent), M!.subgroup);
+	else
+		return LargestMovedPoint(ConnectionGroup(M));
 	fi;
-	
-	val := LargestMovedPoint(ConnectionGroup(M));
-	if HasDual(M) then
-		SetSize(Dual(M), val);
-	fi;
-	return val;
 	end);
 	
 InstallMethod(RankManiplex,
@@ -468,12 +405,32 @@ InstallMethod(String,
 	return MANIPLEX_STRING(M);
 	end);
 	
-	
-
-
-	
 
 InstallMethod(IsPolytopal,
+	[IsManiplex],
+	function(M)
+	local isPolytopal;
+	
+	isPolytopal := ComputeAttr(M, IsPolytopal);
+	if isPolytopal = fail then
+		if HasIsEquivelar(M) and IsEquivelar(M) and Size(M) < 2*Product(SchlafliSymbol(M)) then
+			isPolytopal := false;
+		elif IsReflexibleManiplexAutGpRep(M) then
+			isPolytopal := IsStringC(AutomorphismGroup(M));
+			if isPolytopal then M!.String := ReplacedString(M!.String, "ReflexibleManiplex", "AbstractRegularPolytope"); fi;
+		elif IsRotaryManiplexRotGpRep(M) then
+			isPolytopal := IsStringCPlus(RotationGroup(M));
+			if isPolytopal then M!.String := ReplacedString(M!.String, "RotaryManiplex", "AbstractRotaryPolytope"); fi;
+		else
+			isPolytopal := SatisfiesWeakPathIntersectionProperty(M);
+		fi;
+	fi;
+	
+	return isPolytopal;
+	end);
+	
+	
+InstallMethod(SatisfiesWeakPathIntersectionProperty,
 	[IsManiplex],
 	function(m)
 	local c, N, r, gens, v, u, i ,j, A, B, gens2;
