@@ -11,6 +11,7 @@
 ReadPackage( "ramp", "lib/types.gi" );
 ReadPackage( "ramp", "lib/utils.gi" );
 
+ReadPackage( "ramp", "lib/actions.gi" ); 
 ReadPackage( "ramp", "lib/constructions.gi" ); 
 ReadPackage( "ramp", "lib/database.gi" ); 
 ReadPackage( "ramp", "lib/duality.gi" ); 

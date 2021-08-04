@@ -102,7 +102,16 @@ InstallMethod(AutomorphismGroupPermGroup,
 	
 InstallMethod(AutomorphismGroupOnFlags, 
 	[IsManiplex],
-	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
+	function(M)
+	local agf, cggens, gens;
+	agf := Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M));
+	if IsReflexibleManiplex(M) then
+		cggens := GeneratorsOfGroup(ConnectionGroup(M));
+		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, 1, 1^cggens[i]));
+		agf := Group(gens);
+	fi;
+	return agf;
+	end);
 	
 InstallMethod(RotationGroup,
 	[IsManiplex and IsRotaryManiplexRotGpRep],
