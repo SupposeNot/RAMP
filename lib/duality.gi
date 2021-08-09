@@ -1,7 +1,9 @@
 InstallMethod(Dual,
 	[IsManiplex],
 	function(M)
-	local Md, attr, MatchingAttributes, ReversedAttributes, rels, newrels, relstr, mdstr;
+	local Md, attr, MatchingAttributes, ReversedAttributes, rels, newrels, relstr, mdstr, polytopal;
+
+	polytopal := (ValueOption("polytopal") = true);
 	
 	if IsReflexibleManiplexAutGpRep(M) then
 		rels := ExtraRelators(M);
@@ -22,7 +24,7 @@ InstallMethod(Dual,
 		newrels := List(newrels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(M))));
 		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
 
-		Md := RotaryManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr);
+		Md := RotaryManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr : polytopal);
 	else
 		Md := Maniplex(Dual, [M]);
 		SetRankManiplex(Md, Rank(M));

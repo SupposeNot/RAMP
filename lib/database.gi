@@ -1,7 +1,7 @@
 
 WriteManiplexesToFile := function(maniplexes, filename)
 	local databaseFile, M;
-	databaseFile := OutputTextFile(Filename(RampPath, filename));
+	databaseFile := OutputTextFile(Filename(RampPath, filename), false);
 
 	for M in maniplexes do
 		WriteLine(databaseFile, DatabaseString(M));
@@ -187,6 +187,8 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	if ValueOption("nondegenerate") <> true then
 		Append(polys, DegeneratePolyhedra(sizerange));
 	fi;
+
+	SortBy(polys, Size);
 
 	return polys;
 	end);

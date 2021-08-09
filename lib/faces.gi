@@ -193,12 +193,6 @@ InstallMethod(Section,
 	end);
 
 InstallMethod(Sections,
-	[IsReflexibleManiplex, IsInt, IsInt],
-	function(M, j, i)
-	return [Section(M,j,i,1)];
-	end);
-	
-InstallMethod(Sections,
 	[IsManiplex, IsInt, IsInt],
 	function(M, j, i)
 	return Unique(List(FlagOrbitRepresentatives(M), k -> Section(M,j,i,k)));

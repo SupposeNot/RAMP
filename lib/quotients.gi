@@ -111,7 +111,8 @@ InstallMethod(IsQuotient,
 	if not(CouldBeQuotient(q,p)) then return false; fi;
 
 	# TODO: This only logically works if they have Schlafli symbols that are known and computed
-	if IsSubset(ExtraRotRelators(q), ExtraRotRelators(p)) then return true; fi;
+	# This isn't working...
+	# if IsSubset(ExtraRotRelators(q), ExtraRotRelators(p)) then return true; fi;
 	
 	# We have to check both p and the enantiomorphic form of p
 	p2 := EnantiomorphicForm(p);
@@ -128,7 +129,7 @@ InstallMethod(IsQuotient,
 		
 		# Now try the enantiomorphic form
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p2))));
-		g := FactorGroupFpGroupByRels(RotationGroup(p2), rels);
+		g := FactorGroupFpGroupByRels(RotationGroup(p2), newrels);
 		return (Size(g) = Size(RotationGroup(p2)));
 	else
 		g1 := RotationGroup(q);
