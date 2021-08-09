@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 5: Databases</title>
+<title>GAP (RAMP) - Chapter 5: Constructions</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -20,66 +20,173 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap5_mj.html">[MathJax on]</a></p>
-<p><a id="X7EB183C3780A475B" name="X7EB183C3780A475B"></a></p>
-<div class="ChapSects"><a href="chap5.html#X7EB183C3780A475B">5 <span class="Heading">Databases</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X8062E376879531A7">5.1 <span class="Heading">Regular polyhedra</span></a>
+<p><a id="X836F56D77AA04554" name="X836F56D77AA04554"></a></p>
+<div class="ChapSects"><a href="chap5.html#X836F56D77AA04554">5 <span class="Heading">Constructions</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X871C2D73829F1FC1">5.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7B2285CD79A7DF27">5.1-1 DegeneratePolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X86869B8A80564ACF">5.1-2 FlatRegularPolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8229CA838473FF2B">5.1-3 RegularToroidalPolyhedra44</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X783D35FD79C25457">5.1-4 RegularToroidalPolyhedra36</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7BD5DABD833B9700">5.1-5 SmallRegularPolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X808AEA5281D52911">5.1-1 UniversalPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X800E07C686CF3EA7">5.1-2 FlatRegularPolyhedron</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8582D0CF7EA1CB34">5.1-3 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X78B4610E7DE67E32">5.1-4 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X84BB6B21853173FD">5.1-5 TrivialExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7A5853E278A83D74">5.1-6 FlatExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X790F22D47CD222EB">5.1-7 Amalgamate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X840BC19484E0E9CC">5.1-8 Medial</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X87FD993F7F6F2FAB">5.2 <span class="Heading">Duality</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7D62BD3E7F941F5B">5.2-1 Dual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7FF8B96C83DA60CB">5.2-2 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7E6D0732862D6BA3">5.2-3 Petrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X78FDB0047E3388A5">5.2-4 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7F8BED777CD6B80F">5.2-5 DirectDerivates</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X86CE352C7851221F">5.3 <span class="Heading">Products</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X80A4156A8423CAF8">5.3-1 PyramidOver</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X80EEFF7F7FE1B752">5.3-2 Pyramid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7C7D6F558335CFD0">5.3-3 PrismOver</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X86E5C03286E992CA">5.3-4 Prism</a></span>
 </div></div>
 </div>
 
-<h3>5 <span class="Heading">Databases</span></h3>
+<h3>5 <span class="Heading">Constructions</span></h3>
 
-<p><a id="X8062E376879531A7" name="X8062E376879531A7"></a></p>
+<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
 
-<h4>5.1 <span class="Heading">Regular polyhedra</span></h4>
+<h4>5.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
 
-<p><a id="X7B2285CD79A7DF27" name="X7B2285CD79A7DF27"></a></p>
+<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
 
-<h5>5.1-1 DegeneratePolyhedra</h5>
+<h5>5.1-1 UniversalPolytope</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DegeneratePolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns all degenerate polyhedra (of type {2, q} and {p, 2}) with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of [1..maxsize].</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal polytope of rank <var class="Arg">n</var>.</p>
 
-<p><a id="X86869B8A80564ACF" name="X86869B8A80564ACF"></a></p>
+<p><a id="X800E07C686CF3EA7" name="X800E07C686CF3EA7"></a></p>
 
-<h5>5.1-2 FlatRegularPolyhedra</h5>
+<h5>5.1-2 FlatRegularPolyhedron</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns all nondegenerate flat regular polyhedra with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of [1..maxsize]. Currently supports a maxsize of 4000 or less.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedron</code>( <var class="Arg">p</var>, <var class="Arg">q</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the flat regular polyhedron with automorphism group [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function does not currently validate the inputs to make sure that the output makes sense.</p>
 
-<p><a id="X8229CA838473FF2B" name="X8229CA838473FF2B"></a></p>
+<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
 
-<h5>5.1-3 RegularToroidalPolyhedra44</h5>
+<h5>5.1-3 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RegularToroidalPolyhedra44</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns all regular toroidal polyhedra of type {4,4} with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of [1..maxsize].</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
 
-<p><a id="X783D35FD79C25457" name="X783D35FD79C25457"></a></p>
+<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
 
-<h5>5.1-4 RegularToroidalPolyhedra36</h5>
+<h5>5.1-4 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RegularToroidalPolyhedra36</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns all regular toroidal polyhedra of type {3,6} with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of [1..maxsize].</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
 
-<p><a id="X7BD5DABD833B9700" name="X7BD5DABD833B9700"></a></p>
+<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
 
-<h5>5.1-5 SmallRegularPolyhedra</h5>
+<h5>5.1-5 TrivialExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegularPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns all regular polyhedra with sizes in <var class="Arg">sizerange</var> flags. Currently supports a maxsize of 4000 or less. You can also set options "nondegenerate" and "nonflat".</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M/</var>, 2}.</p>
 
+<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
 
-<div class="example"><pre>
-L1 := SmallRegularPolyhedra(500);;
-L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
-L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
-</pre></div>
+<h5>5.1-6 FlatExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in "Flat Extensions of Abstract Polytopes".) Currently only defined for reflexible maniplexes.</p>
+
+<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
+
+<h5>5.1-7 Amalgamate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
+
+<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
+
+<h5>5.1-8 Medial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
+
+<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
+
+<h4>5.2 <span class="Heading">Duality</span></h4>
+
+<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
+
+<h5>5.2-1 Dual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
+
+<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
+
+<h5>5.2-2 IsSelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this polytope is isomorphic to its dual.</p>
+
+<p>Also works for IsPoset objects.</p>
+
+<p><a id="X7E6D0732862D6BA3" name="X7E6D0732862D6BA3"></a></p>
+
+<h5>5.2-3 Petrial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Petrial (Petrie dual) of <var class="Arg">P</var>. Note that this is not necessarily a polytope.</p>
+
+<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
+
+<h5>5.2-4 IsSelfPetrial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this polytope is isomorphic to its Petrial.</p>
+
+<p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
+
+<h5>5.2-5 DirectDerivates</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
+
+<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
+
+<h4>5.3 <span class="Heading">Products</span></h4>
+
+<p><a id="X80A4156A8423CAF8" name="X80A4156A8423CAF8"></a></p>
+
+<h5>5.3-1 PyramidOver</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PyramidOver</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over <var class="Arg">M</var>.</p>
+
+<p><a id="X80EEFF7F7FE1B752" name="X80EEFF7F7FE1B752"></a></p>
+
+<h5>5.3-2 Pyramid</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
+
+<p><a id="X7C7D6F558335CFD0" name="X7C7D6F558335CFD0"></a></p>
+
+<h5>5.3-3 PrismOver</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrismOver</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over <var class="Arg">M</var>.</p>
+
+<p><a id="X86E5C03286E992CA" name="X86E5C03286E992CA"></a></p>
+
+<h5>5.3-4 Prism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over a <var class="Arg">k</var>-gon.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>

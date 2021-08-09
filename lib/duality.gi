@@ -1,3 +1,4 @@
+
 InstallMethod(Dual,
 	[IsManiplex],
 	function(M)

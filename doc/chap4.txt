@@ -1,123 +1,185 @@
   
-  [1X4 [33X[0;0YConstructions[133X[101X
+  [1X4 [33X[0;0YActions[133X[101X
   
   
-  [1X4.1 [33X[0;0YExtensions, amalgamations, and quotients[133X[101X
+  [1X4.1 [33X[0;0YAutomorphism group acting on faces and chains[133X[101X
   
-  [1X4.1-1 UniversalPolytope[101X
+  [1X4.1-1 AutomorphismGroupOnChains[101X
   
-  [33X[1;0Y[29X[2XUniversalPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAutomorphismGroupOnChains[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the universal polytope of rank [3Xn[103X.[133X
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the chains of [3XM[103X of type [3XI[103X.[133X
   
-  [1X4.1-2 FlatRegularPolyhedron[101X
+  [1X4.1-2 AutomorphismGroupOnIFaces[101X
   
-  [33X[1;0Y[29X[2XFlatRegularPolyhedron[102X( [3Xp[103X, [3Xq[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAutomorphismGroupOnIFaces[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
   
-  [33X[0;0YReturns  the flat regular polyhedron with automorphism group [p, q] / (r2 r1
-  r0  r1 = (r0 r1)^i (r1 r2)^j). This function does not currently validate the
-  inputs to make sure that the output makes sense.[133X
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the [3Xi[103X-faces of [3XM[103X.[133X
   
-  [1X4.1-3 UniversalExtension[101X
+  [1X4.1-3 AutomorphismGroupOnVertices[101X
   
-  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAutomorphismGroupOnVertices[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns  the  universal  extension  of  [3XM[103X,  i.e.  the  maniplex  with facets
-  isomorphic  to  [3XM[103X that covers all other maniplexes with facets isomorphic to
-  [3XM[103X. Currently only defined for reflexible maniplexes.[133X
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the vertices of [3XM[103X.[133X
   
-  [1X4.1-4 UniversalExtension[101X
+  [1X4.1-4 AutomorphismGroupOnEdges[101X
   
-  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAutomorphismGroupOnEdges[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns  the  universal extension of [3XM[103X with last entry of Schlafli symbol [3Xk[103X.
-  Currently only defined for reflexible maniplexes.[133X
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the edges of [3XM[103X.[133X
   
-  [1X4.1-5 TrivialExtension[101X
+  [1X4.1-5 AutomorphismGroupOnFacets[101X
   
-  [33X[1;0Y[29X[2XTrivialExtension[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAutomorphismGroupOnFacets[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns the trivial extension of [3XM[103X, also known as {[3XM/[103X, 2}.[133X
-  
-  [1X4.1-6 FlatExtension[101X
-  
-  [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  flat  extension of [3XM[103X with last entry of Schlafli symbol [3Xk[103X. (As
-  defined  in "Flat Extensions of Abstract Polytopes".) Currently only defined
-  for reflexible maniplexes.[133X
-  
-  [1X4.1-7 Amalgamate[101X
-  
-  [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X are
-  compatible. Currently only defined for reflexible maniplexes.[133X
-  
-  [1X4.1-8 Medial[101X
-  
-  [33X[1;0Y[29X[2XMedial[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven a 3-maniplex [3XM[103X, returns its medial.[133X
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the facets of [3XM[103X.[133X
   
   
-  [1X4.2 [33X[0;0YDuality[133X[101X
+  [1X4.2 [33X[0;0YNumber of orbits and transitivity[133X[101X
   
-  [1X4.2-1 Dual[101X
+  [1X4.2-1 NumberOfChainOrbits[101X
   
-  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe maniplex that is dual to [3XM[103X.[133X
+  [33X[1;0Y[29X[2XNumberOfChainOrbits[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
-  [1X4.2-2 IsSelfDual[101X
+  [33X[0;0YReturns  the  number  of  orbits  of  chains  of  type [3XI[103X under the action of
+  AutomorphismGroup([3XM[103X).[133X
   
-  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its dual.[133X
+  [1X4.2-2 NumberOfIFaceOrbits[101X
   
-  [33X[0;0YAlso works for IsPoset objects.[133X
+  [33X[1;0Y[29X[2XNumberOfIFaceOrbits[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
   
-  [1X4.2-3 Petrial[101X
+  [33X[0;0YReturns   the   number   of   orbits   of   [3Xi[103X-faces   under  the  action  of
+  AutomorphismGroup([3XM[103X).[133X
   
-  [33X[1;0Y[29X[2XPetrial[102X( [3XP[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XP[103X. Note that this is not necessarily
-            a polytope.[133X
+  [1X4.2-3 NumberOfVertexOrbits[101X
   
-  [1X4.2-4 IsSelfPetrial[101X
+  [33X[1;0Y[29X[2XNumberOfVertexOrbits[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its Petrial.[133X
+  [33X[0;0YReturns   the   number   of   orbits   of   vertices  under  the  action  of
+  AutomorphismGroup([3XM[103X).[133X
   
-  [1X4.2-5 DirectDerivates[101X
+  [1X4.2-4 NumberOfEdgeOrbits[101X
   
-  [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfEdgeOrbits[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns a list of the [13Xdirect derivates[113X of [3XM[103X, which are the images of M under
-  duality  and Petriality. If the option 'polytopal' is set, then only returns
-  those direct derivates that are polytopal.[133X
+  [33X[0;0YReturns   the   number   of   orbits   of   edges   under   the   action  of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [1X4.2-5 NumberOfFacetOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfFacetOrbits[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns   the   number   of   orbits   of   facets   under   the  action  of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [1X4.2-6 IsChainTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsChainTransitive[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  whether  the  action of AutomorphismGroup([3XM[103X) on chains of type [3XI[103X is
+  transitive.[133X
+  
+  [1X4.2-7 IsIFaceTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsIFaceTransitive[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns whether the action of AutomorphismGroup([3XM[103X) on [3Xi[103X-faces is transitive.[133X
+  
+  [1X4.2-8 IsVertexTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsVertexTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns   whether   the   action  of  AutomorphismGroup([3XM[103X)  on  vertices  is
+  transitive.[133X
+  
+  [1X4.2-9 IsEdgeTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsEdgeTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns whether the action of AutomorphismGroup([3XM[103X) on edges is transitive.[133X
+  
+  [1X4.2-10 IsFacetTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsFacetTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns whether the action of AutomorphismGroup([3XM[103X) on facets is transitive.[133X
+  
+  [1X4.2-11 IsFullyTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsFullyTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether the action of AutomorphismGroup([3XM[103X) on i-faces is transitive
+  for every i.[133X
   
   
-  [1X4.3 [33X[0;0YProducts[133X[101X
+  [1X4.3 [33X[0;0YFlag orbits[133X[101X
   
-  [1X4.3-1 PyramidOver[101X
+  [1X4.3-1 SymmetryTypeGraph[101X
   
-  [33X[1;0Y[29X[2XPyramidOver[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns the pyramid over [3XM[103X.[133X
+  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
+  group on Rank([3XM[103X) generators.[133X
   
-  [1X4.3-2 Pyramid[101X
+  [1X4.3-2 NumberOfFlagOrbits[101X
   
-  [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns the pyramid over a [3Xk[103X-gon.[133X
+  [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
   
-  [1X4.3-3 PrismOver[101X
+  [1X4.3-3 FlagOrbitRepresentatives[101X
   
-  [33X[1;0Y[29X[2XPrismOver[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns the prism over [3XM[103X.[133X
+  [33X[0;0YReturns one flag from each orbit under the action of AutomorphismGroup([3XM[103X).[133X
   
-  [1X4.3-4 Prism[101X
+  [1X4.3-4 IsReflexible[101X
   
-  [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
   
-  [33X[0;0YReturns the prism over a [3Xk[103X-gon.[133X
+  [1X4.3-5 IsChiral[101X
+  
+  [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
+  
+  [1X4.3-6 IsRotary[101X
+  
+  [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
+            reflexible or chiral.[133X
+  
+  
+  [1X4.4 [33X[0;0YFaithfulness[133X[101X
+  
+  [1X4.4-1 IsVertexFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsVertexFaithful[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether the reflexible maniplex [3XM[103X is vertex-faithful; i.e., whether
+  the action of the automorphism group on the vertices is faithful.[133X
+  
+  [1X4.4-2 IsFacetFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsFacetFaithful[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  the reflexible maniplex [3XM[103X is facet-faithful; i.e., whether
+  the action of the automorphism group on the facets is faithful.[133X
+  
+  [1X4.4-3 MaxVertexFaithfulQuotient[101X
+  
+  [33X[1;0Y[29X[2XMaxVertexFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
   

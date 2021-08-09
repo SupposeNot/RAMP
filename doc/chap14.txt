@@ -58,14 +58,30 @@
   Otherwise, if M is chiral, then the enantiomorphic form gives us a different
   presentation for the rotation group.[133X
   
-  [1X14.1-7 Cuboctahedron[101X
+  [1X14.1-7 DatabaseString[101X
+  
+  [33X[1;0Y[29X[2XDatabaseString[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YString[133X
+  
+  [33X[0;0YGiven a maniplex [3XM[103X, returns a string representation of [3XM[103X suitable for saving
+  in a database for later retrieval.[133X
+  
+  [1X14.1-8 ManiplexFromDatabaseString[101X
+  
+  [33X[1;0Y[29X[2XManiplexFromDatabaseString[102X( [3XmaniplexString[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven a string [3XmaniplexString[103X, representing a maniplex stored in a database,
+  returns the maniplex that is represented.[133X
+  
+  [1X14.1-9 Cuboctahedron[101X
   
   [33X[1;0Y[29X[2XCuboctahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the cuboctahedron.[133X
   
-  [1X14.1-8 TruncatedTetrahedron[101X
+  [1X14.1-10 TruncatedTetrahedron[101X
   
   [33X[1;0Y[29X[2XTruncatedTetrahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X

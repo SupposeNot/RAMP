@@ -124,84 +124,102 @@
       3.5-3 PetrieLength
       3.5-4 HoleLength
       3.5-5 HoleVector
-  4 [33X[0;0YConstructions[133X
-    4.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
-      4.1-1 UniversalPolytope
-      4.1-2 FlatRegularPolyhedron
-      4.1-3 UniversalExtension
-      4.1-4 UniversalExtension
-      4.1-5 TrivialExtension
-      4.1-6 FlatExtension
-      4.1-7 Amalgamate
-      4.1-8 Medial
-    4.2 [33X[0;0YDuality[133X
-      4.2-1 Dual
-      4.2-2 IsSelfDual
-      4.2-3 Petrial
-      4.2-4 IsSelfPetrial
-      4.2-5 DirectDerivates
-    4.3 [33X[0;0YProducts[133X
-      4.3-1 PyramidOver
-      4.3-2 Pyramid
-      4.3-3 PrismOver
-      4.3-4 Prism
-  5 [33X[0;0YDatabases[133X
-    5.1 [33X[0;0YRegular polyhedra[133X
-      5.1-1 DegeneratePolyhedra
-      5.1-2 FlatRegularPolyhedra
-      5.1-3 RegularToroidalPolyhedra44
-      5.1-4 RegularToroidalPolyhedra36
-      5.1-5 SmallRegularPolyhedra
-  6 [33X[0;0YFamilies of Polytopes[133X
-    6.1 [33X[0;0YClassical Polytopes[133X
-      6.1-1 Vertex
-      6.1-2 Edge
-      6.1-3 Pgon
-      6.1-4 Cube
-      6.1-5 HemiCube
-      6.1-6 CrossPolytope
-      6.1-7 HemiCrossPolytope
-      6.1-8 Simplex
-      6.1-9 CubicTiling
-      6.1-10 Dodecahedron
-      6.1-11 HemiDodecahedron
-      6.1-12 Icosahedron
-      6.1-13 HemiIcosahedron
-      6.1-14 24Cell
-      6.1-15 Hemi24Cell
-      6.1-16 120Cell
-      6.1-17 Hemi120Cell
-      6.1-18 600Cell
-      6.1-19 Hemi600Cell
-    6.2 [33X[0;0YToroids[133X
-      6.2-1 CubicalToroid
-      6.2-2 3343Toroid
-      6.2-3 24CellToroid
-    6.3 [33X[0;0YUniform Polyhedra[133X
-      6.3-1 TruncatedOctahedron
-      6.3-2 TruncatedCube
-      6.3-3 Icosadodecahedron
-      6.3-4 TruncatedIcosahedron
-      6.3-5 SmallRhombicuboctahedron
-      6.3-6 Pseudorhombicuboctahedron
-      6.3-7 SnubCube
-      6.3-8 SmallRhombicosidodecahedron
-      6.3-9 GreatRhombicosidodecahedron
-      6.3-10 SnubDodecahedron
-      6.3-11 TruncatedDodecahedron
-      6.3-12 GreatRhombicuboctahedron
-  7 [33X[0;0YActions[133X
-    7.1 [33X[0;0YFlag orbits[133X
-      7.1-1 SymmetryTypeGraph
-      7.1-2 NumberOfFlagOrbits
-      7.1-3 FlagOrbitRepresentatives
-      7.1-4 IsReflexible
-      7.1-5 IsChiral
-      7.1-6 IsRotary
-    7.2 [33X[0;0YFaithfulness[133X
-      7.2-1 IsVertexFaithful
-      7.2-2 IsFacetFaithful
-      7.2-3 MaxVertexFaithfulQuotient
+  4 [33X[0;0YActions[133X
+    4.1 [33X[0;0YAutomorphism group acting on faces and chains[133X
+      4.1-1 AutomorphismGroupOnChains
+      4.1-2 AutomorphismGroupOnIFaces
+      4.1-3 AutomorphismGroupOnVertices
+      4.1-4 AutomorphismGroupOnEdges
+      4.1-5 AutomorphismGroupOnFacets
+    4.2 [33X[0;0YNumber of orbits and transitivity[133X
+      4.2-1 NumberOfChainOrbits
+      4.2-2 NumberOfIFaceOrbits
+      4.2-3 NumberOfVertexOrbits
+      4.2-4 NumberOfEdgeOrbits
+      4.2-5 NumberOfFacetOrbits
+      4.2-6 IsChainTransitive
+      4.2-7 IsIFaceTransitive
+      4.2-8 IsVertexTransitive
+      4.2-9 IsEdgeTransitive
+      4.2-10 IsFacetTransitive
+      4.2-11 IsFullyTransitive
+    4.3 [33X[0;0YFlag orbits[133X
+      4.3-1 SymmetryTypeGraph
+      4.3-2 NumberOfFlagOrbits
+      4.3-3 FlagOrbitRepresentatives
+      4.3-4 IsReflexible
+      4.3-5 IsChiral
+      4.3-6 IsRotary
+    4.4 [33X[0;0YFaithfulness[133X
+      4.4-1 IsVertexFaithful
+      4.4-2 IsFacetFaithful
+      4.4-3 MaxVertexFaithfulQuotient
+  5 [33X[0;0YConstructions[133X
+    5.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
+      5.1-1 UniversalPolytope
+      5.1-2 FlatRegularPolyhedron
+      5.1-3 UniversalExtension
+      5.1-4 UniversalExtension
+      5.1-5 TrivialExtension
+      5.1-6 FlatExtension
+      5.1-7 Amalgamate
+      5.1-8 Medial
+    5.2 [33X[0;0YDuality[133X
+      5.2-1 Dual
+      5.2-2 IsSelfDual
+      5.2-3 Petrial
+      5.2-4 IsSelfPetrial
+      5.2-5 DirectDerivates
+    5.3 [33X[0;0YProducts[133X
+      5.3-1 PyramidOver
+      5.3-2 Pyramid
+      5.3-3 PrismOver
+      5.3-4 Prism
+  6 [33X[0;0YDatabases[133X
+    6.1 [33X[0;0YRegular polyhedra[133X
+      6.1-1 DegeneratePolyhedra
+      6.1-2 FlatRegularPolyhedra
+      6.1-3 RegularToroidalPolyhedra44
+      6.1-4 RegularToroidalPolyhedra36
+      6.1-5 SmallRegularPolyhedra
+  7 [33X[0;0YFamilies of Polytopes[133X
+    7.1 [33X[0;0YClassical Polytopes[133X
+      7.1-1 Vertex
+      7.1-2 Edge
+      7.1-3 Pgon
+      7.1-4 Cube
+      7.1-5 HemiCube
+      7.1-6 CrossPolytope
+      7.1-7 HemiCrossPolytope
+      7.1-8 Simplex
+      7.1-9 CubicTiling
+      7.1-10 Dodecahedron
+      7.1-11 HemiDodecahedron
+      7.1-12 Icosahedron
+      7.1-13 HemiIcosahedron
+      7.1-14 24Cell
+      7.1-15 Hemi24Cell
+      7.1-16 120Cell
+      7.1-17 Hemi120Cell
+      7.1-18 600Cell
+      7.1-19 Hemi600Cell
+    7.2 [33X[0;0YToroids[133X
+      7.2-1 CubicalToroid
+      7.2-2 3343Toroid
+      7.2-3 24CellToroid
+    7.3 [33X[0;0YUniform Polyhedra[133X
+      7.3-1 TruncatedOctahedron
+      7.3-2 TruncatedCube
+      7.3-3 Icosadodecahedron
+      7.3-4 TruncatedIcosahedron
+      7.3-5 SmallRhombicuboctahedron
+      7.3-6 Pseudorhombicuboctahedron
+      7.3-7 SnubCube
+      7.3-8 SmallRhombicosidodecahedron
+      7.3-9 GreatRhombicosidodecahedron
+      7.3-10 SnubDodecahedron
+      7.3-11 TruncatedDodecahedron
+      7.3-12 GreatRhombicuboctahedron
   8 [33X[0;0YGroups[133X
     8.1 [33X[0;0YGroups[133X
       8.1-1 AutomorphismGroup
@@ -231,6 +249,8 @@
       10.1-2 IsIOrientable
       10.1-3 IsVertexBipartite
       10.1-4 IsFacetBipartite
+      10.1-5 OrientableCover
+      10.1-6 IOrientableCover
   11 [33X[0;0YPosets[133X
     11.1 [33X[0;0YPoset constructors[133X
       11.1-1 PosetFromFaceListOfFlags
@@ -308,8 +328,10 @@
       14.1-4 RotaryManiplex
       14.1-5 RotaryManiplex
       14.1-6 EnantiomorphicForm
-      14.1-7 Cuboctahedron
-      14.1-8 TruncatedTetrahedron
+      14.1-7 DatabaseString
+      14.1-8 ManiplexFromDatabaseString
+      14.1-9 Cuboctahedron
+      14.1-10 TruncatedTetrahedron
   15 [33X[0;0YUtility functions[133X
     15.1 [33X[0;0YUtility functions[133X
       15.1-1 AbstractPolytope

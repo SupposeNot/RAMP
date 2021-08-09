@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 4: Constructions</title>
+<title>GAP (RAMP) - Chapter 4: Actions</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -23,173 +23,255 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap5_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap4.html">[MathJax off]</a></p>
-<p><a id="X836F56D77AA04554" name="X836F56D77AA04554"></a></p>
-<div class="ChapSects"><a href="chap4_mj.html#X836F56D77AA04554">4 <span class="Heading">Constructions</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X871C2D73829F1FC1">4.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
+<p><a id="X833C5DA683E4EA15" name="X833C5DA683E4EA15"></a></p>
+<div class="ChapSects"><a href="chap4_mj.html#X833C5DA683E4EA15">4 <span class="Heading">Actions</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X84F0885E8664F785">4.1 <span class="Heading">Automorphism group acting on faces and chains</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X808AEA5281D52911">4.1-1 UniversalPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X800E07C686CF3EA7">4.1-2 FlatRegularPolyhedron</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X8582D0CF7EA1CB34">4.1-3 UniversalExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X78B4610E7DE67E32">4.1-4 UniversalExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X84BB6B21853173FD">4.1-5 TrivialExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7A5853E278A83D74">4.1-6 FlatExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X790F22D47CD222EB">4.1-7 Amalgamate</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X840BC19484E0E9CC">4.1-8 Medial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X84B5DAED82D403DE">4.1-1 AutomorphismGroupOnChains</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X8549DB2585A989E4">4.1-2 AutomorphismGroupOnIFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X81972F5187B9C2AF">4.1-3 AutomorphismGroupOnVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X86CBC88A8718D7E4">4.1-4 AutomorphismGroupOnEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X82726AF27C1E00D6">4.1-5 AutomorphismGroupOnFacets</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X87FD993F7F6F2FAB">4.2 <span class="Heading">Duality</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X7A07E55F7D617911">4.2 <span class="Heading">Number of orbits and transitivity</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7D62BD3E7F941F5B">4.2-1 Dual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7FF8B96C83DA60CB">4.2-2 IsSelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7E6D0732862D6BA3">4.2-3 Petrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X78FDB0047E3388A5">4.2-4 IsSelfPetrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7F8BED777CD6B80F">4.2-5 DirectDerivates</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X8423C2647CFF8C2E">4.2-1 NumberOfChainOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X82D959517BC24461">4.2-2 NumberOfIFaceOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X86A6A073804A5780">4.2-3 NumberOfVertexOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7A41AD2B7A606FB2">4.2-4 NumberOfEdgeOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X81C6FD5078C637E6">4.2-5 NumberOfFacetOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7A2326997FB2CAA8">4.2-6 IsChainTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X80F9303F7A272F20">4.2-7 IsIFaceTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7E29A16E7B724836">4.2-8 IsVertexTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7CA8A3A17CB62B51">4.2-9 IsEdgeTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X85436C5C84C4031E">4.2-10 IsFacetTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7B898E19857B356F">4.2-11 IsFullyTransitive</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X86CE352C7851221F">4.3 <span class="Heading">Products</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X7BE5F0217862DBEF">4.3 <span class="Heading">Flag orbits</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X80A4156A8423CAF8">4.3-1 PyramidOver</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X80EEFF7F7FE1B752">4.3-2 Pyramid</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7C7D6F558335CFD0">4.3-3 PrismOver</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X86E5C03286E992CA">4.3-4 Prism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X856ED1E7866152A0">4.3-1 SymmetryTypeGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X78060E3A788D2D3C">4.3-2 NumberOfFlagOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X852C679D8338AB53">4.3-3 FlagOrbitRepresentatives</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7E4E689F86171C78">4.3-4 IsReflexible</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7D74CD997C7FF39D">4.3-5 IsChiral</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X7DACFE5483893523">4.3-6 IsRotary</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4_mj.html#X83355D207F38F997">4.4 <span class="Heading">Faithfulness</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X785DE0A9842AAEA1">4.4-1 IsVertexFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X78CDF48E7CDED1AB">4.4-2 IsFacetFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4_mj.html#X856543F87E52DDC6">4.4-3 MaxVertexFaithfulQuotient</a></span>
 </div></div>
 </div>
 
-<h3>4 <span class="Heading">Constructions</span></h3>
+<h3>4 <span class="Heading">Actions</span></h3>
 
-<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
+<p><a id="X84F0885E8664F785" name="X84F0885E8664F785"></a></p>
 
-<h4>4.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
+<h4>4.1 <span class="Heading">Automorphism group acting on faces and chains</span></h4>
 
-<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
+<p><a id="X84B5DAED82D403DE" name="X84B5DAED82D403DE"></a></p>
 
-<h5>4.1-1 UniversalPolytope</h5>
+<h5>4.1-1 AutomorphismGroupOnChains</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the universal polytope of rank <var class="Arg">n</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnChains</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the chains of <var class="Arg">M</var> of type <var class="Arg">I</var>.</p>
 
-<p><a id="X800E07C686CF3EA7" name="X800E07C686CF3EA7"></a></p>
+<p><a id="X8549DB2585A989E4" name="X8549DB2585A989E4"></a></p>
 
-<h5>4.1-2 FlatRegularPolyhedron</h5>
+<h5>4.1-2 AutomorphismGroupOnIFaces</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedron</code>( <var class="Arg">p</var>, <var class="Arg">q</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the flat regular polyhedron with automorphism group [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function does not currently validate the inputs to make sure that the output makes sense.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnIFaces</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the <var class="Arg">i</var>-faces of <var class="Arg">M</var>.</p>
 
-<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
+<p><a id="X81972F5187B9C2AF" name="X81972F5187B9C2AF"></a></p>
 
-<h5>4.1-3 UniversalExtension</h5>
+<h5>4.1-3 AutomorphismGroupOnVertices</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnVertices</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the vertices of <var class="Arg">M</var>.</p>
 
-<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
+<p><a id="X86CBC88A8718D7E4" name="X86CBC88A8718D7E4"></a></p>
 
-<h5>4.1-4 UniversalExtension</h5>
+<h5>4.1-4 AutomorphismGroupOnEdges</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnEdges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the edges of <var class="Arg">M</var>.</p>
 
-<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
+<p><a id="X82726AF27C1E00D6" name="X82726AF27C1E00D6"></a></p>
 
-<h5>4.1-5 TrivialExtension</h5>
+<h5>4.1-5 AutomorphismGroupOnFacets</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M/</var>, 2}.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnFacets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the facets of <var class="Arg">M</var>.</p>
 
-<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
+<p><a id="X7A07E55F7D617911" name="X7A07E55F7D617911"></a></p>
 
-<h5>4.1-6 FlatExtension</h5>
+<h4>4.2 <span class="Heading">Number of orbits and transitivity</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in "Flat Extensions of Abstract Polytopes".) Currently only defined for reflexible maniplexes.</p>
+<p><a id="X8423C2647CFF8C2E" name="X8423C2647CFF8C2E"></a></p>
 
-<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
+<h5>4.2-1 NumberOfChainOrbits</h5>
 
-<h5>4.1-7 Amalgamate</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfChainOrbits</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of chains of type <var class="Arg">I</var> under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
+<p><a id="X82D959517BC24461" name="X82D959517BC24461"></a></p>
 
-<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
+<h5>4.2-2 NumberOfIFaceOrbits</h5>
 
-<h5>4.1-8 Medial</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfIFaceOrbits</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of <var class="Arg">i</var>-faces under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
+<p><a id="X86A6A073804A5780" name="X86A6A073804A5780"></a></p>
 
-<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
+<h5>4.2-3 NumberOfVertexOrbits</h5>
 
-<h4>4.2 <span class="Heading">Duality</span></h4>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfVertexOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of vertices under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
 
-<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
+<p><a id="X7A41AD2B7A606FB2" name="X7A41AD2B7A606FB2"></a></p>
 
-<h5>4.2-1 Dual</h5>
+<h5>4.2-4 NumberOfEdgeOrbits</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfEdgeOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of edges under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
 
-<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
+<p><a id="X81C6FD5078C637E6" name="X81C6FD5078C637E6"></a></p>
 
-<h5>4.2-2 IsSelfDual</h5>
+<h5>4.2-5 NumberOfFacetOrbits</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether this polytope is isomorphic to its dual.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFacetOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of facets under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
 
-<p>Also works for IsPoset objects.</p>
+<p><a id="X7A2326997FB2CAA8" name="X7A2326997FB2CAA8"></a></p>
 
-<p><a id="X7E6D0732862D6BA3" name="X7E6D0732862D6BA3"></a></p>
+<h5>4.2-6 IsChainTransitive</h5>
 
-<h5>4.2-3 Petrial</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChainTransitive</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns whether the action of AutomorphismGroup(<var class="Arg">M</var>) on chains of type <var class="Arg">I</var> is transitive.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The Petrial (Petrie dual) of <var class="Arg">P</var>. Note that this is not necessarily a polytope.</p>
+<p><a id="X80F9303F7A272F20" name="X80F9303F7A272F20"></a></p>
 
-<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
+<h5>4.2-7 IsIFaceTransitive</h5>
 
-<h5>4.2-4 IsSelfPetrial</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIFaceTransitive</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns whether the action of AutomorphismGroup(<var class="Arg">M</var>) on <var class="Arg">i</var>-faces is transitive.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether this polytope is isomorphic to its Petrial.</p>
+<p><a id="X7E29A16E7B724836" name="X7E29A16E7B724836"></a></p>
 
-<p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
+<h5>4.2-8 IsVertexTransitive</h5>
 
-<h5>4.2-5 DirectDerivates</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
+<p>Returns whether the action of AutomorphismGroup(<var class="Arg">M</var>) on vertices is transitive.</p>
 
-<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
+<p><a id="X7CA8A3A17CB62B51" name="X7CA8A3A17CB62B51"></a></p>
 
-<h4>4.3 <span class="Heading">Products</span></h4>
+<h5>4.2-9 IsEdgeTransitive</h5>
 
-<p><a id="X80A4156A8423CAF8" name="X80A4156A8423CAF8"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEdgeTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<h5>4.3-1 PyramidOver</h5>
+<p>Returns whether the action of AutomorphismGroup(<var class="Arg">M</var>) on edges is transitive.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PyramidOver</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the pyramid over <var class="Arg">M</var>.</p>
+<p><a id="X85436C5C84C4031E" name="X85436C5C84C4031E"></a></p>
 
-<p><a id="X80EEFF7F7FE1B752" name="X80EEFF7F7FE1B752"></a></p>
+<h5>4.2-10 IsFacetTransitive</h5>
 
-<h5>4.3-2 Pyramid</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
+<p>Returns whether the action of AutomorphismGroup(<var class="Arg">M</var>) on facets is transitive.</p>
 
-<p><a id="X7C7D6F558335CFD0" name="X7C7D6F558335CFD0"></a></p>
+<p><a id="X7B898E19857B356F" name="X7B898E19857B356F"></a></p>
 
-<h5>4.3-3 PrismOver</h5>
+<h5>4.2-11 IsFullyTransitive</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PrismOver</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the prism over <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFullyTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p><a id="X86E5C03286E992CA" name="X86E5C03286E992CA"></a></p>
+<p>Returns whether the action of AutomorphismGroup(<var class="Arg">M</var>) on i-faces is transitive for every i.</p>
 
-<h5>4.3-4 Prism</h5>
+<p><a id="X7BE5F0217862DBEF" name="X7BE5F0217862DBEF"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the prism over a <var class="Arg">k</var>-gon.</p>
+<h4>4.3 <span class="Heading">Flag orbits</span></h4>
+
+<p><a id="X856ED1E7866152A0" name="X856ED1E7866152A0"></a></p>
+
+<h5>4.3-1 SymmetryTypeGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var>, encoded as a permutation group on Rank(<var class="Arg">M</var>) generators.</p>
+
+<p><a id="X78060E3A788D2D3C" name="X78060E3A788D2D3C"></a></p>
+
+<h5>4.3-2 NumberOfFlagOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
+
+<p><a id="X852C679D8338AB53" name="X852C679D8338AB53"></a></p>
+
+<h5>4.3-3 FlagOrbitRepresentatives</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+<p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
+
+<h5>4.3-4 IsReflexible</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
+
+<p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
+
+<h5>4.3-5 IsChiral</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is chrial.</p>
+
+<p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
+
+<h5>4.3-6 IsRotary</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
+
+<p><a id="X83355D207F38F997" name="X83355D207F38F997"></a></p>
+
+<h4>4.4 <span class="Heading">Faithfulness</span></h4>
+
+<p><a id="X785DE0A9842AAEA1" name="X785DE0A9842AAEA1"></a></p>
+
+<h5>4.4-1 IsVertexFaithful</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is vertex-faithful; i.e., whether the action of the automorphism group on the vertices is faithful.</p>
+
+<p><a id="X78CDF48E7CDED1AB" name="X78CDF48E7CDED1AB"></a></p>
+
+<h5>4.4-2 IsFacetFaithful</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is facet-faithful; i.e., whether the action of the automorphism group on the facets is faithful.</p>
+
+<p><a id="X856543F87E52DDC6" name="X856543F87E52DDC6"></a></p>
+
+<h5>4.4-3 MaxVertexFaithfulQuotient</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxVertexFaithfulQuotient</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the maximal vertex-faithful reflexible maniplex covered by <var class="Arg">M</var>.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap5_mj.html">[Next Chapter]</a>&nbsp;  </div>

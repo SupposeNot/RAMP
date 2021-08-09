@@ -8,33 +8,31 @@
 <Heading>Orientability</Heading>
 
 <ManSection>
-  <Prop Arg="p" Name="IsOrientable" Label="for IsManiplex"/>
+  <Prop Arg="M" Name="IsOrientable" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-A polytope is orientable if its flag graph is bipartite.
- Currently only implemented for regular polytopes.
+A maniplex is orientable if its flag graph is bipartite.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Oper Arg="p, I" Name="IsIOrientable" Label="for IsManiplex, IsList"/>
+  <Oper Arg="M, I" Name="IsIOrientable" Label="for IsManiplex, IsList"/>
  <Description>
-For a subset I of {0, ..., n-1}, a polytope if I-orientable
+For a subset I of {0, ..., n-1}, a maniplex is I-orientable
  if every closed path in its flag graph contains an even number
  of edges with colors in I.
- Currently only implemented for regular polytopes.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Prop Arg="p" Name="IsVertexBipartite" Label="for IsManiplex"/>
+  <Prop Arg="M" Name="IsVertexBipartite" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-A polytope is vertex-bipartite if its 1-skeleton is
+A maniplex is vertex-bipartite if its 1-skeleton is
  bipartite. This is equivalent to being I-orientable for
  I = {0}.
  </Description>
@@ -42,13 +40,29 @@ A polytope is vertex-bipartite if its 1-skeleton is
 
 
 <ManSection>
-  <Prop Arg="p" Name="IsFacetBipartite" Label="for IsManiplex"/>
+  <Prop Arg="M" Name="IsFacetBipartite" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-A polytope is facet-bipartite if the 1-skeleton of its
+A maniplex is facet-bipartite if the 1-skeleton of its
  dual is bipartite. This is equivalent to being I-orientable for
  I = {n-1}.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="OrientableCover" Label="for IsManiplex"/>
+ <Description>
+Returns the minimal <Emph>orientable cover</Emph> of the maniplex <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="IOrientableCover" Label="for IsManiplex, IsList"/>
+ <Description>
+Returns the minimal <Emph>I-orientable cover</Emph> of the maniplex <A>M</A>.
  </Description>
 </ManSection>
 

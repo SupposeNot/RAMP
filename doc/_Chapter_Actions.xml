@@ -4,6 +4,170 @@
 <Chapter Label="Chapter_Actions">
 <Heading>Actions</Heading>
 
+<Section Label="Chapter_Actions_Section_Automorphism_group_acting_on_faces_and_chains">
+<Heading>Automorphism group acting on faces and chains</Heading>
+
+<ManSection>
+  <Oper Arg="M, I" Name="AutomorphismGroupOnChains" Label="for IsManiplex, IsCollection"/>
+ <Description>
+Returns a permutation group, representing the action of
+ AutomorphismGroup(<A>M</A>) on the chains of <A>M</A> of type <A>I</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, i" Name="AutomorphismGroupOnIFaces" Label="for IsManiplex, IsInt"/>
+ <Description>
+Returns a permutation group, representing the action of
+ AutomorphismGroup(<A>M</A>) on the <A>i</A>-faces of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="AutomorphismGroupOnVertices" Label="for IsManiplex"/>
+ <Description>
+Returns a permutation group, representing the action of
+ AutomorphismGroup(<A>M</A>) on the vertices of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="AutomorphismGroupOnEdges" Label="for IsManiplex"/>
+ <Description>
+Returns a permutation group, representing the action of
+ AutomorphismGroup(<A>M</A>) on the edges of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="AutomorphismGroupOnFacets" Label="for IsManiplex"/>
+ <Description>
+Returns a permutation group, representing the action of
+ AutomorphismGroup(<A>M</A>) on the facets of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Actions_Section_Number_of_orbits_and_transitivity">
+<Heading>Number of orbits and transitivity</Heading>
+
+<ManSection>
+  <Oper Arg="M, I" Name="NumberOfChainOrbits" Label="for IsManiplex, IsCollection"/>
+ <Description>
+Returns the number of orbits of chains of type <A>I</A> under
+ the action of AutomorphismGroup(<A>M</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, i" Name="NumberOfIFaceOrbits" Label="for IsManiplex, IsInt"/>
+ <Description>
+Returns the number of orbits of <A>i</A>-faces under
+ the action of AutomorphismGroup(<A>M</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="NumberOfVertexOrbits" Label="for IsManiplex"/>
+ <Description>
+Returns the number of orbits of vertices under
+ the action of AutomorphismGroup(<A>M</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="NumberOfEdgeOrbits" Label="for IsManiplex"/>
+ <Description>
+Returns the number of orbits of edges under
+ the action of AutomorphismGroup(<A>M</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="NumberOfFacetOrbits" Label="for IsManiplex"/>
+ <Description>
+Returns the number of orbits of facets under
+ the action of AutomorphismGroup(<A>M</A>).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, I" Name="IsChainTransitive" Label="for IsManiplex, IsCollection"/>
+ <Description>
+Returns whether the action of AutomorphismGroup(<A>M</A>) on
+ chains of type <A>I</A> is transitive.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, i" Name="IsIFaceTransitive" Label="for IsManiplex, IsInt"/>
+ <Description>
+Returns whether the action of AutomorphismGroup(<A>M</A>) on
+ <A>i</A>-faces is transitive.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsVertexTransitive" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Returns whether the action of AutomorphismGroup(<A>M</A>) on
+ vertices is transitive.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsEdgeTransitive" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Returns whether the action of AutomorphismGroup(<A>M</A>) on
+ edges is transitive.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsFacetTransitive" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Returns whether the action of AutomorphismGroup(<A>M</A>) on
+ facets is transitive.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsFullyTransitive" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Returns whether the action of AutomorphismGroup(<A>M</A>) on
+ i-faces is transitive for every i.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Actions_Section_Flag_orbits">
 <Heading>Flag orbits</Heading>
 
