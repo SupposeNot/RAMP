@@ -37,3 +37,8 @@ DeclareGlobalFunction("RegularToroidalPolyhedra36");
 #! L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
 #! @EndExampleSession
 DeclareGlobalFunction("SmallRegularPolyhedra");
+
+#! @Arguments sizerange
+#! Returns all chiral polyhedra with sizes in <A>sizerange</A> flags.
+#! Currently supports a maxsize of 4000 or less.
+DeclareGlobalFunction("SmallChiralPolyhedra");

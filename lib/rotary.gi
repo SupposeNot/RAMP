@@ -29,8 +29,8 @@ InstallMethod(UniversalRotationGroup,
 	return g;
 	end);
 
-# Returns the universal string Coxeter Group given by sym.
-# For example, UniversalSggi([4,4]) is the group denoted [4, 4].
+# Returns the universal rotation group given by sym.
+# For example, UniversalRotationGroup([4,4]) is the group denoted [4, 4]^+.
 InstallOtherMethod(UniversalRotationGroup,
 	[IsList],
 	function(sym)
@@ -101,6 +101,8 @@ InstallMethod(RotaryManiplex,
 	p := RotaryManiplex(rotgp);
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
+	else
+		SetPseudoSchlafliSymbol(p, sym);
 	fi;
 	SetString(p, desc);
 	if ValueOption("polytopal") = true then
