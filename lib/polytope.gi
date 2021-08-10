@@ -176,12 +176,19 @@ InstallMethod(ReflexibleManiplex,
 	if rels = [] then return AbstractRegularPolytope(sym); fi;
 	n := Size(sym)+1;
 	w := UniversalSggi(sym);
+
+	if ValueOption("polytopal") = true then
+		desc := "AbstractRegularPolytope(";
+	else
+		desc := "ReflexibleManiplex(";
+	fi;
+
 	if IsString(rels) then
 		newrels := ParseStringCRels(rels, w);
-		desc := Concatenation("ReflexibleManiplex(", String(sym), ", \"", String(rels), "\")");
+		desc := Concatenation(desc, String(sym), ", \"", String(rels), "\")");
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
-		desc := Concatenation("ReflexibleManiplex(", String(sym), ", ", String(rels), ")");
+		desc := Concatenation(desc, String(sym), ", ", String(rels), ")");
 	fi;
 	autgp := FactorGroupFpGroupByRels(w, newrels);
 	p := ReflexibleManiplex(autgp);
@@ -190,6 +197,10 @@ InstallMethod(ReflexibleManiplex,
 		SetSchlafliSymbol(p, sym);
 	else
 		SetPseudoSchlafliSymbol(p, sym);
+	fi;
+
+	if ValueOption("polytopal") = true then
+		SetIsPolytopal(p, true);
 	fi;
 
 	SetString(p, desc);

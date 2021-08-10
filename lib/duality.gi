@@ -15,7 +15,7 @@ InstallMethod(Dual,
 		newrels := List(rels, r -> List(r, i -> Rank(M)+1-AbsoluteValue(i)));
 		newrels := List(newrels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(M))));
 		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
-		Md := ReflexibleManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr);
+		Md := ReflexibleManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr : polytopal);
 	elif IsRotaryManiplexRotGpRep(M) then
 		rels := ExtraRotRelators(M);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
