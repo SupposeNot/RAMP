@@ -347,13 +347,6 @@ InstallGlobalFunction(SmallRegular4Polytopes,
 	return maniplexes;
 	end);
 
-InstallGlobalFunction(SmallChiralPolyhedra,
-	function(sizerange)
-	return ReadChiralPolytopesFromFile(sizerange, "ChiralPolyhedraUpTo4000.txt");
-	end);
-
-
-
 InstallGlobalFunction(ReadChiralPolytopesFromFile,
 	function(sizerange, filename)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex;

@@ -2,7 +2,7 @@ TEST_RAMP := function()
 	Read(Filename(DirectoriesLibrary("pkg/ramp/tst"), "testall.g"));
 	end;
 
-BindGlobal("RampPath", DirectoriesLibrary("pkg/ramp/lib"));
+BindGlobal("RampPath", DirectoriesLibrary("pkg/ramp/lib")[1]);
 
 BindGlobal("TestRamp", 
 	function(filename)
@@ -163,3 +163,34 @@ InstallGlobalFunction(AddOrAppend,
 	return;
 	end);
 	
+PruneRelators := function(M)
+	local rels, n, standardRels, ggen, fgen, i, j, order, prunedRels;
+	rels := ExtraRelators(M);
+	n := Rank(M);
+	standardRels := [];
+	ggen := GeneratorsOfGroup(AutomorphismGroup(M));
+	fgen := FreeGeneratorsOfFpGroup(AutomorphismGroup(M));
+	
+	for i in [1..n] do
+		Add(standardRels, fgen[i]*fgen[i]);
+		for j in [1..n] do
+			if j <> i then
+				if j = i-1 then
+					order := SchlafliSymbol(M)[j];
+				elif j = i+1 then
+					order := SchlafliSymbol(M)[i];
+				else
+					order := 2;
+				fi;
+				Add(standardRels, (fgen[i]*fgen[j])^order);
+			fi;
+		od;
+	od;
+
+	prunedRels := Difference(rels, standardRels);
+	
+	M!.ExtraRelators := prunedRels;
+	M!.String := Concatenation("AbstractRegularPolytope(",
+		String(SchlafliSymbol(M)), ", \"",
+		JoinStringsWithSeparator(prunedRels), "\")");
+	end;
