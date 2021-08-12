@@ -169,6 +169,12 @@ InstallMethod(IsReflexible,
 	end);
 
 InstallMethod(IsChiral,
+	[IsManiplex and IsRotaryManiplexRotGpRep],
+	function(M)
+	return (NumberOfFlagOrbits(M) = 2);
+	end);
+
+InstallMethod(IsChiral,
 	[IsManiplex],
 	function(M)
 	local stg, val;

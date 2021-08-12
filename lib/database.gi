@@ -313,11 +313,11 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	return polys;
 	end);
 
-InstallGlobalFunction(SmallChiralPolyhedra,
-	function(sizerange)
+InstallGlobalFunction(ReadChiralPolytopesFromFile,
+	function(sizerange, filename)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex;
 
-	databaseFile := InputTextFile(Filename(RampPath, "ChiralPolyhedraUpTo4000.txt"));
+	databaseFile := InputTextFile(Filename(RampPath, filename));
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
@@ -328,6 +328,7 @@ InstallGlobalFunction(SmallChiralPolyhedra,
 	repeat
 		maniplex := ManiplexFromDatabaseString(maniplexString);
 		SetSchlafliSymbol(maniplex, PseudoSchlafliSymbol(maniplex));
+		SetIsChiral(maniplex, true);
 		if Size(maniplex) > maxsize then
 			break;
 		elif Size(maniplex) >= minsize then
@@ -340,4 +341,15 @@ InstallGlobalFunction(SmallChiralPolyhedra,
 	
 	return maniplexes;
 	end);
-	
+
+InstallGlobalFunction(SmallChiralPolyhedra,
+	function(sizerange)
+	return ReadChiralPolytopesFromFile(sizerange, "ChiralPolyhedraUpTo4000.txt");
+	end);
+
+
+InstallGlobalFunction(SmallChiral4Polytopes,
+	function(sizerange)
+	return ReadChiralPolytopesFromFile(sizerange, "Chiral4PolytopesUpTo4000.txt");
+	end);
+

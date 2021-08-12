@@ -4,7 +4,6 @@
 # in the internal f-vector.
 # Eventually, if the user asks for the f-vector, we compute the number
 # of i-faces for each i that hasn't already been computed.
-# TODO: I think I can handle this more gracefully - see GAP ch. 85 "Function-Operation-Attribute triples"
 
 ##### NUMBER OF FACES, FVECTOR, ETC #####
 
