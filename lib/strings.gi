@@ -13,6 +13,15 @@ InstallMethod(DatabaseString,
 									ManiplexDatabaseStringSeparator);
 	end);
 	
+InstallOtherMethod(DatabaseString,
+	[IsManiplex, IsList],
+	function(M, attrList)
+	local attrStrings;
+	attrStrings := [Chomp(String(M))];
+	Append(attrStrings, List(attrList, attr -> String(attr(M))));
+	return JoinStringsWithSeparator(attrStrings, ManiplexDatabaseStringSeparator);
+	end);
+	
 InstallMethod(ManiplexFromDatabaseString,
 	[IsString],
 	function(maniplexString)
@@ -21,6 +30,19 @@ InstallMethod(ManiplexFromDatabaseString,
 	maniplex := EvalString(parameters[1]);
 	SetPetrieLength(maniplex, EvalString(parameters[2]));
 	SetSize(maniplex, EvalString(parameters[3]));
+	return maniplex;
+	end);
+	
+InstallOtherMethod(ManiplexFromDatabaseString,
+	[IsString, IsList],
+	function(maniplexString, attrList)
+	local parameters, maniplex, attr, i;
+	parameters := SplitString(maniplexString, ManiplexDatabaseStringSeparator);
+	maniplex := EvalString(parameters[1]);
+	i := 2;
+	for attr in attrList do
+		Setter(attr)(maniplex, EvalString(parameters[i]));
+	od;
 	return maniplex;
 	end);
 	

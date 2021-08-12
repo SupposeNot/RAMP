@@ -38,6 +38,12 @@ DeclareGlobalFunction("RegularToroidalPolyhedra36");
 #! @EndExampleSession
 DeclareGlobalFunction("SmallRegularPolyhedra");
 
+#! @Arguments sizerange
+#! Returns all regular 4-polytopes with sizes in <A>sizerange</A> flags.
+#! Currently supports a maxsize of 4000 or less.
+DeclareGlobalFunction("SmallRegular4Polytopes");
+
+
 DeclareGlobalFunction("ReadChiralPolytopesFromFile");
 
 #! @Arguments sizerange

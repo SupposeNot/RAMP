@@ -1,23 +1,27 @@
 
-WriteManiplexesToFile := function(maniplexes, filename)
-	local databaseFile, M;
+WriteManiplexesToFile := function(maniplexes, filename, attributeNames)
+	local databaseFile, M, attributes;
 	databaseFile := OutputTextFile(Filename(RampPath, filename), false);
 
+	WriteLine(databaseFile, JoinStringsWithSeparator(attributeNames));
+	attributes := List(attributeNames, EvalString);
 	for M in maniplexes do
-		WriteLine(databaseFile, DatabaseString(M));
+		WriteLine(databaseFile, DatabaseString(M, attributes));
 	od;
 
 	CloseStream(databaseFile);
 	end;
 
 ManiplexesFromFile := function(filename)
-	local databaseFile, maniplexes, maniplexString;
+	local databaseFile, maniplexes, maniplexString, attributeNames, attributes;
 	databaseFile := InputTextFile(Filename(RampPath, filename));
 	maniplexes := [];
 
+	attributeNames := SplitString(ReadLine(databaseFile), ",");
+	attributes := List(attributeNames, EvalString);
 	maniplexString := ReadLine(databaseFile);
 	repeat
-		Add(maniplexes, ManiplexFromDatabaseString(maniplexString));
+		Add(maniplexes, ManiplexFromDatabaseString(maniplexString, attributes));
 		maniplexString := ReadLine(databaseFile);
 	until IsEndOfStream(databaseFile);
 
@@ -313,6 +317,43 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	return polys;
 	end);
 
+InstallGlobalFunction(SmallRegular4Polytopes,
+	function(sizerange)
+	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex, attributeNames, attributes;
+
+	databaseFile := InputTextFile(Filename(RampPath, "Regular4PolytopesUpTo4000.txt"));
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	maniplexes := [];
+
+	attributeNames := SplitString(ReadLine(databaseFile), ",");
+	attributes := List(attributeNames, EvalString);
+	maniplexString := ReadLine(databaseFile);
+	repeat
+		maniplex := ManiplexFromDatabaseString(maniplexString, attributes);
+		SetSchlafliSymbol(maniplex, PseudoSchlafliSymbol(maniplex));
+		if Size(maniplex) > maxsize then
+			break;
+		elif Size(maniplex) >= minsize then
+			Add(maniplexes, maniplex);
+		fi;
+		maniplexString := ReadLine(databaseFile);
+	until IsEndOfStream(databaseFile);
+
+	CloseStream(databaseFile);
+
+	return maniplexes;
+	end);
+
+InstallGlobalFunction(SmallChiralPolyhedra,
+	function(sizerange)
+	return ReadChiralPolytopesFromFile(sizerange, "ChiralPolyhedraUpTo4000.txt");
+	end);
+
+
+
 InstallGlobalFunction(ReadChiralPolytopesFromFile,
 	function(sizerange, filename)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex;
@@ -352,4 +393,30 @@ InstallGlobalFunction(SmallChiral4Polytopes,
 	function(sizerange)
 	return ReadChiralPolytopesFromFile(sizerange, "Chiral4PolytopesUpTo4000.txt");
 	end);
+
+Read4Polys := function(filename)
+	local databaseFile, maniplexes, maniplexString, size, sym, rels, maniplex;
+	databaseFile := InputTextFile(Filename(RampPath, "Regular4Polytopes.txt"));
+	maniplexes := [];
+
+	
+	size := EvalString(ReadLine(databaseFile));
+	sym := EvalString(ReadLine(databaseFile));
+	rels := ReadLine(databaseFile);
+	ReadLine(databaseFile);
+	repeat
+		maniplex := AbstractRegularPolytope(sym, rels : set_schlafli);
+		SetSize(maniplex, size);
+		Add(maniplexes, maniplex);
+
+		size := EvalString(ReadLine(databaseFile));
+		sym := EvalString(ReadLine(databaseFile));
+		rels := ReadLine(databaseFile);
+		ReadLine(databaseFile);
+		
+	until IsEndOfStream(databaseFile) or size = fail;
+
+	CloseStream(databaseFile);
+	return maniplexes;
+	end;
 
