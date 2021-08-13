@@ -1,8 +1,14 @@
 
 InstallMethod(AutomorphismGroup, 
 	[IsManiplex],
-	M -> Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M)));
-	
+	function(M)
+	local c, stab, norm;
+	c := ConnectionGroup(M);
+	stab := Stabilizer(c,1);
+	norm := Normalizer(c, stab);
+	return norm/stab;
+	end);
+
 InstallMethod(AutomorphismGroup, 
 	[IsManiplex and IsReflexibleManiplexAutGpRep],
 	M -> M!.aut_gp);
@@ -105,7 +111,7 @@ InstallMethod(AutomorphismGroupOnFlags,
 	function(M)
 	local agf, cggens, gens;
 	agf := Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M));
-	if IsReflexibleManiplex(M) then
+	if IsReflexibleManiplexAutGpRep(M) then
 		cggens := GeneratorsOfGroup(ConnectionGroup(M));
 		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, 1, 1^cggens[i]));
 		agf := Group(gens);
