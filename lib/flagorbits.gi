@@ -1,44 +1,29 @@
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(m)
-	local c, gamma, vert, ed, lab, labnew, A, O, vertnew, ednew, trips, edfixed, labfixed, r, i ,j, k , t;
+	local r, c, gens, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
 	c:=ConnectionGroup(m);
-	gamma:=FlagGraph(m);
-	vert:=gamma!.vertices;
-	ed:=gamma!.edges;
-	lab:=gamma!.labels;
-	labnew:=[];
-	A:=EdgeLabelPreservingAutomorphismGroup(gamma);
-	O:=Orbits(A);		
-	vertnew:=[1..Size(O)];
-	ednew:=[];
-
-	for r in Set(lab) do
-	for i in [1..Size(O)] do
-	for j in [i..Size(O)] do
-		for k in [1..Size(ed)] do
-			t:=ed[k];
-			if (t[1] in O[i]) and (t[2] in O[j]) then
-				Add(ednew,[i,j]);
-				Add(labnew, lab[k]);
-			fi;
-		od;
-	od;	
+	gens:=GeneratorsOfGroup(c);
+	stab := Stabilizer(c, 1);
+	norm := Normalizer(c, stab);
+	stg := Image(FactorCosetAction(c,norm));
+	vertnew:=MovedPoints(stg);
+	edgesnew:=[];
+	labelsnew:=[];
+	for r in [1..Rank(m)] do
+	for i in vertnew do
+		j:=i^gens[r];
+		if j < i then
+			Add(edgesnew,[j,i]);			
+			Add(labelsnew,r);
+		
+		elif j = i then
+			Add(edgesnew, [i]);
+			Add(labelsnew,r);
+		fi;
 	od;
 	od;
-	trips:=[];
-	for i in [1..Size(ednew)] do
-	Add(trips,[ednew[i][1],ednew[i][2],labnew[i]]);
-	od;
-	trips:=Set(trips);
-	edfixed:=[];
-	labfixed:=[];
-	for i in [1..Size(trips)] do
-	Add(edfixed,[trips[i][1],trips[i][2]]);
-	Add(labfixed,trips[i][3]);
-	od;
-	Apply(edfixed, i -> Set(i)); 
-	return EdgeLabeledGraphFromEdges(vertnew,edfixed,labfixed);
+	return EdgeLabeledGraphFromEdges(vertnew, edgesnew,labelsnew);
 end);
 
 
