@@ -399,7 +399,7 @@ InstallMethod(IsPolytopal,
 InstallMethod(SatisfiesWeakPathIntersectionProperty,
 	[IsManiplex],
 	function(m)
-	local c, N, r, gens, v, u, i ,j, A, B, gens2;
+	local c, N, r, gens, v, u, i ,j, A, B, C, orbA, orbB, orbC;
 	c:=ConnectionGroup(m);
 	N:=Size(MovedPoints(c));
 	r:=Rank(m);
@@ -407,26 +407,24 @@ InstallMethod(SatisfiesWeakPathIntersectionProperty,
 	if not IsTransitive(c) then
 		return false;
 	fi;
-	for v in [1..N-1] do
-	for u in [v+1..N] do
-	for i in [1..r-1] do
-		A:=[i+1..r];
-		if v in Orbit(Group(gens{A}),u) then
-	for j in [i+1..r] do
-		B:= [1..j-1];
-		if v in Orbit(Group(gens{B}),u) then
-		gens2:=gens{Intersection(A,B)};
-		if Size(gens2) = 0 then
-			return false;
-		fi;
-		if not (v in Orbit(Group(gens2),u)) then
-			return false;
-		fi;
-		fi;
-	od;
-		fi;
-	od;
-	od;
+	for v in [1..N] do
+		for i in [1..r-1] do
+			for j in [i+1..r] do
+				A := [i+1..r];
+				B := [1..j-1];
+				C := [i+1..j-1];
+				orbA := Orbit(Group(gens{A}), v);
+				orbB := Orbit(Group(gens{B}), v);
+				if IsEmpty(C) then
+					orbC := [v];
+				else
+					orbC := Orbit(Group(gens{C}), v);
+				fi;
+				if AsSet(Intersection(orbA, orbB)) <> AsSet(orbC) then 
+					return false;
+				fi;
+			od;
+		od;
 	od;
 	return true;
-end);
+	end);
