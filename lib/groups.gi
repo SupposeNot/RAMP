@@ -109,8 +109,25 @@ InstallMethod(AutomorphismGroupPermGroup,
 InstallMethod(AutomorphismGroupOnFlags, 
 	[IsManiplex],
 	function(M)
-	local agf, cggens, gens;
-	agf := Centralizer(SymmetricGroup(Size(M)), ConnectionGroup(M));
+	local N, c, stab, norm, orb, auts, i, w, aut, notMoved, j, x, plist, agf, cggens, gens;
+	N := Size(M);
+	c := ConnectionGroup(M);
+	stab := Stabilizer(c, 1);
+	norm := Normalizer(c, stab);
+	orb := Difference(Orbit(norm, 1), [1]);
+	auts := [];
+	
+	while not(IsEmpty(orb)) do
+		i := First(orb);
+		plist := [i];
+		for j in [2..N] do
+			x := RepresentativeAction(c, 1, j);
+			plist[j] := i^x;
+		od;
+		Add(auts, PermList(plist));
+		orb := Difference(orb, Orbit(Group(auts), 1));
+	od;
+	agf := Group(auts);
 	if IsReflexibleManiplexAutGpRep(M) then
 		cggens := GeneratorsOfGroup(ConnectionGroup(M));
 		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, 1, 1^cggens[i]));
@@ -118,6 +135,26 @@ InstallMethod(AutomorphismGroupOnFlags,
 	fi;
 	return agf;
 	end);
+	
+AgOnFlags := function(M)
+	local N, c, stab, norm, orb, auts, i, w, aut, notMoved, j, x, plist;
+	N := Size(M);
+	c := ConnectionGroup(M);
+	stab := Stabilizer(c, 1);
+	norm := Normalizer(c, stab);
+	orb := Difference(Orbit(norm, 1), [1]);
+	auts := [];
+	
+	for i in orb do
+		plist := [i];
+		for j in [2..N] do
+			x := RepresentativeAction(c, 1, j);
+			plist[j] := i^x;
+		od;
+		Add(auts, PermList(plist));
+	od;
+	return Group(auts);
+	end;
 	
 InstallMethod(RotationGroup,
 	[IsManiplex and IsRotaryManiplexRotGpRep],
