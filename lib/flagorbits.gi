@@ -150,13 +150,21 @@ InstallMethod(NumberOfFlagOrbits,
 InstallMethod(FlagOrbitRepresentatives,
 	[IsManiplex],
 	function(M)
-	local ag;
-	if IsReflexible(M) then
+	local c, reps, norm, stab, flags, i;
+	if IsReflexibleManiplexAutGpRep(M) then
 		return [1];
 	else
-		# This should eventually just use the symmetry type graph.
-		ag := AutomorphismGroupOnFlags(M);
-		return List(Orbits(ag), o -> First(o));
+		c := ConnectionGroup(M);
+		reps := [];
+		flags := [1..Size(M)];
+		while not(IsEmpty(flags)) do
+			i := First(flags);
+			Add(reps, i);
+			stab := Stabilizer(c, i);
+			norm := Normalizer(c, stab);
+			flags := Difference(flags, Orbit(norm, i));
+		od;
+		return reps;
 	fi;
 	end);
 
