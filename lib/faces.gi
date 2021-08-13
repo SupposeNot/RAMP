@@ -272,6 +272,12 @@ InstallMethod(IsFlat,
 	end);
 
 InstallMethod(IsFlat,
+	[IsManiplex and IsReflexibleManiplexAutGpRep],
+	function(M)
+	return NumberOfVertices(M) = NumberOfVertices(Facet(M));
+	end);
+
+InstallMethod(IsFlat,
 	[IsManiplex],
 	function(M)
 	
