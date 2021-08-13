@@ -1,12 +1,22 @@
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(m)
-	local r, c, gens, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
+	local r, gens, c, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
 	c:=ConnectionGroup(m);
-	gens:=GeneratorsOfGroup(c);
 	stab := Stabilizer(c, 1);
 	norm := Normalizer(c, stab);
 	stg := Image(FactorCosetAction(c,norm));
+		if Size(stg) = 1 then
+			vertnew:=[1];
+			edgesnew:=[];
+			labelsnew:=[];
+			for r in [1..Rank(m)] do
+				Add(edgesnew, [1]);
+				Add(labelsnew,r);
+			od;
+			return EdgeLabeledGraphFromEdges([1], edgesnew,labelsnew);
+		fi;
+	gens:=GeneratorsOfGroup(stg);
 	vertnew:=MovedPoints(stg);
 	edgesnew:=[];
 	labelsnew:=[];
