@@ -1,8 +1,9 @@
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(m)
-	local r, c, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
+	local r, c, gens, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
 	c:=ConnectionGroup(m);
+	gens:=GeneratorsOfGroup(c);
 	stab := Stabilizer(c, 1);
 	norm := Normalizer(c, stab);
 	stg := Image(FactorCosetAction(c,norm));
