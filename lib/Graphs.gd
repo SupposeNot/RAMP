@@ -149,6 +149,7 @@ DeclareOperation("FlagGraphWithLabels",[IsManiplex]);
 DeclareOperation("Vertices",[IsEdgeLabeledGraph]);
 DeclareOperation("Edges",[IsEdgeLabeledGraph]);
 DeclareOperation("Labels",[IsEdgeLabeledGraph]);
+DeclareOperation("LabeledEdges",[IsEdgeLabeledGraph]);
 
 
 
