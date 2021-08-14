@@ -386,5 +386,40 @@ InstallMethod(Labels,
 	end);
 
 
+InstallMethod(LabeledEdges,
+	[IsEdgeLabeledGraph],
+	function(g)
+	local labs, eds, i, labed;
+	labs:=g!.labels;
+	eds:=g!.edges;
+	labed:=[];
+	for i in [1..Size(eds)] do
+	Add(labed,[eds[i],labs[i]]);
+	od;
+	return labed;
+	end);
+
+
+
+
+InstallOtherMethod(LabeledEdges,
+	[IsEdgeLabeledGraph,IsBool],
+	function(g,t)
+	local labs, eds, i, labed;
+	if t = true then
+	return LabeledEdges(g);
+	else 
+	labs:=g!.labels;
+	eds:=g!.edges;
+	labed:=[];
+	for i in [1..Size(eds)] do
+	if Size(eds[i]) = 2 then
+	Add(labed,[eds[i],labs[i]]);
+	fi;
+	od;
+	return labed;
+	fi;
+	end);
+
 
 
