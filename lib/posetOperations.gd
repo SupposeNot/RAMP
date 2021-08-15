@@ -100,7 +100,13 @@ DeclareOperation("AsPosetOfAtoms", [IsPoset]);
 #! true
 #! @EndExampleSession
 
+#! @BeginGroup Special Faces
+#! @GroupTitle Max/min faces
+
 #! @Arguments poset
 #! @Returns face
-#! @Description Gives the minimal face of a <A>poset</A> (when it exists).
+#! @Description Gives the minimal/maximal face of a <A>poset</A> when it IsP1 and IsP2.
 DeclareOperation("MinFace", [IsPoset]);
+DeclareOperation("MaxFace", [IsPoset]);
+
+#! @EndGroup Special Faces

@@ -453,6 +453,14 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [1X12.2-9 Cleave[101X
+  
+  [33X[1;0Y[29X[2XCleave[102X( [3Xpolytope[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YcleavedPolytope[133X
+  
+  [33X[0;0YGiven  a  [3Xpolytope[103X  [23X\mathcal  P[123X,  and  an  integer  [3Xk[103X,  will  construct  the
+  [23Xk^{\text{th}}[123X-cleaved polytope of [23X\mathcal P[123X.[133X
+  
   
   [1X12.3 [33X[0;0YElement Constructors[133X[101X
   
@@ -722,4 +730,13 @@
     [4X[25Xgap>[125X [27XIsIsomorphicPoset(poset,p2);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
+  
+  
+  [1X12.5-17 [33X[0;0YMax/min faces[133X[101X
+  
+  [33X[1;0Y[29X[2XMinFace[102X( [3Xposet[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XMaxFace[102X( [3Xarg[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yface[133X
+  
+  [33X[0;0YGives the minimal/maximal face of a [3Xposet[103X when it IsP1 and IsP2.[133X
   

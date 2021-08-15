@@ -486,6 +486,16 @@ true
 ]]></Example>
 
 
+<ManSection>
+  <Oper Arg="polytope, k" Name="Cleave" Label="for IsPoset,IsInt"/>
+ <Returns>cleavedPolytope
+</Returns>
+ <Description>
+Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, will construct the <Math>k^{\text{th}}</Math>-cleaved polytope of <Math>\mathcal P</Math>.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 
@@ -828,6 +838,19 @@ A poset on 10 elements using the IsPosetOfIndices representation.
 gap> IsIsomorphicPoset(poset,p2);
 true
 ]]></Example>
+
+
+<ManSection Label="Special_Faces">
+<Heading>Max/min faces</Heading>
+  <Oper Arg="poset" Name="MinFace" Label="for IsPoset"/>
+  <Oper Arg="arg" Name="MaxFace" Label="for IsPoset"/>
+ <Returns>face
+</Returns>
+ <Description>
+Gives the minimal/maximal face of a <A>poset</A> when it IsP1 and IsP2.
+<P/>
+ </Description>
+</ManSection>
 
 
 </Section>

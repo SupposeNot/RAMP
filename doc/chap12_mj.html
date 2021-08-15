@@ -59,6 +59,7 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X878F761878BCB6B9">12.2-7 DualPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7923E0E47CAFBD9D">12.2-8 Section</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X8338D424809BDDD1">12.2-9 Cleave</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap12_mj.html#X85445BE07F161F88">12.3 <span class="Heading">Element Constructors</span></a>
 </span>
@@ -102,6 +103,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X82CBC68480F222C7">12.5-14 FacesByRankOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7AE5050E7F6182C8">12.5-15 HasseDiagramOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X83ACE1CB7DE65C44">12.5-16 AsPosetOfAtoms</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X838947F98660C2C4">12.5-17 <span class="Heading">Max/min faces</span></a>
+</span>
 </div></div>
 </div>
 
@@ -564,6 +567,15 @@ true
 true
 </pre></div>
 
+<p><a id="X8338D424809BDDD1" name="X8338D424809BDDD1"></a></p>
+
+<h5>12.2-9 Cleave</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cleave</code>( <var class="Arg">polytope</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: cleavedPolytope</p>
+
+<p>Given a <var class="Arg">polytope</var> <span class="SimpleMath">\(\mathcal P\)</span>, and an integer <var class="Arg">k</var>, will construct the <span class="SimpleMath">\(k^{\text{th}}\)</span>-cleaved polytope of <span class="SimpleMath">\(\mathcal P\)</span>.</p>
+
 <p><a id="X85445BE07F161F88" name="X85445BE07F161F88"></a></p>
 
 <h4>12.3 <span class="Heading">Element Constructors</span></h4>
@@ -863,6 +875,16 @@ A poset on 10 elements using the IsPosetOfIndices representation.
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(poset,p2);</span>
 true
 </pre></div>
+
+<p><a id="X838947F98660C2C4" name="X838947F98660C2C4"></a></p>
+
+<h5>12.5-17 <span class="Heading">Max/min faces</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinFace</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxFace</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: face</p>
+
+<p>Gives the minimal/maximal face of a <var class="Arg">poset</var> when it IsP1 and IsP2.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap11_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap13_mj.html">[Next Chapter]</a>&nbsp;  </div>

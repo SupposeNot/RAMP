@@ -15,7 +15,7 @@
   \item \texttt  {AbstractRotaryPolytope}, \hyperpage{62}
   \item \texttt  {AddOrAppend}, \hyperpage{63}
   \item \texttt  {AddRanksInPosets}
-    \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{50}
+    \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{51}
   \item \texttt  {AdjacentFlag}
     \subitem for IsPosetOfFlags,IsList,IsInt, \hyperpage{53}
   \item \texttt  {AdjacentFlags}
@@ -42,7 +42,7 @@
   \item \texttt  {AutomorphismGroupOnEdges}
     \subitem for IsManiplex, \hyperpage{20}
   \item \texttt  {AutomorphismGroupOnElements}
-    \subitem for IsPoset, \hyperpage{53}
+    \subitem for IsPoset, \hyperpage{54}
   \item \texttt  {AutomorphismGroupOnFacets}
     \subitem for IsManiplex, \hyperpage{20}
   \item \texttt  {AutomorphismGroupOnFlags}
@@ -57,7 +57,7 @@
   \indexspace
 
   \item \texttt  {Bk2l}
-    \subitem for IsInt,IsInt, \hyperpage{25}
+    \subitem for IsInt,IsInt, \hyperpage{24}
   \item \texttt  {Bk2lStar}
     \subitem for IsInt,IsInt, \hyperpage{25}
 
@@ -67,6 +67,8 @@
     \subitem for IsPoset,IsPoset, \hyperpage{55}
   \item \texttt  {ChiralityGroup}
     \subitem for IsRotaryManiplex, \hyperpage{37}
+  \item \texttt  {Cleave}
+    \subitem for IsPoset,IsInt, \hyperpage{50}
   \item \texttt  {Comix}
     \subitem for IsFpGroup, IsFpGroup, \hyperpage{38}
     \subitem for IsReflexibleManiplex, IsReflexibleManiplex, 
@@ -312,6 +314,8 @@
     \subitem for IsReflexibleManiplex, IsGroup, \hyperpage{13}
   \item \texttt  {ManiplexFromDatabaseString}
     \subitem for IsString, \hyperpage{61}
+  \item \texttt  {MaxFace}
+    \subitem for IsPoset, \hyperpage{54}
   \item \texttt  {MaximalChains}
     \subitem for IsPoset, \hyperpage{42}
   \item \texttt  {MaxVertexFaithfulQuotient}
@@ -320,6 +324,8 @@
     \subitem for IsManiplex, \hyperpage{27}
   \item \texttt  {Meet}
     \subitem for IsFace, IsFace, IsPoset, \hyperpage{52}
+  \item \texttt  {MinFace}
+    \subitem for IsPoset, \hyperpage{54}
   \item \texttt  {Mix}
     \subitem for IsFpGroup, IsFpGroup, \hyperpage{38}
     \subitem for IsPermGroup, IsPermGroup, \hyperpage{38}
@@ -427,7 +433,7 @@
   \indexspace
 
   \item \texttt  {RankedFaceListOfPoset}
-    \subitem for IsPoset, \hyperpage{52}
+    \subitem for IsPoset, \hyperpage{53}
   \item \texttt  {RankInPoset}
     \subitem for IsPosetElement,IsPoset, \hyperpage{51}
   \item \texttt  {RankManiplex}

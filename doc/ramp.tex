@@ -3718,6 +3718,21 @@ section
   !gapprompt@gap>| !gapinput@IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));|
   true
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Cleave (for IsPoset,IsInt)}}
+\logpage{[ 12, 2, 9 ]}\nobreak
+\hyperdef{L}{X8338D424809BDDD1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape polytope, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
+\label{Cleave:for IsPoset,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+cleavedPolytope 
+
+
+
+ Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, will construct the $k^{\text{th}}$-cleaved polytope of $\mathcal P$. }
+
  }
 
  
@@ -4224,6 +4239,26 @@ using PosetFromAtomList. }
   !gapprompt@gap>| !gapinput@IsIsomorphicPoset(poset,p2);|
   true
 \end{Verbatim}
+ 
+\subsection{\textcolor{Chapter }{Max/min faces}}\label{Special_Faces}
+\logpage{[ 12, 5, 17 ]}
+\hyperdef{L}{X838947F98660C2C4}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MinFace({\mdseries\slshape poset})\index{MinFace@\texttt{MinFace}!for IsPoset}
+\label{MinFace:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxFace({\mdseries\slshape arg})\index{MaxFace@\texttt{MaxFace}!for IsPoset}
+\label{MaxFace:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+face 
+
+
+
+ Gives the minimal/maximal face of a \mbox{\texttt{\mdseries\slshape poset}} when it IsP1 and IsP2. 
+
+ }
+
  }
 
  }
@@ -4777,6 +4812,9 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

@@ -418,24 +418,19 @@ InstallMethod( \=,
 	return IsIdenticalObj(p,q);
 	end);
 
-# InstallMethod(MinFace,
-# 	[IsPoset],
-# 	function(poset)
-# 	local faces, comps, i, j;
-# 	faces:=Faces(poset);
-# 	i:=1;
-# 	while i<Length(faces)+1 do
-# 		for j in  do
-# 			if IsSubface(j,i,poset) then
-# 				i:=i+1;
-# 			else
-# 				
-# 	
-# 	end);
 
-# InstallOtherMethod(MinFace,
-# 	[IsPoset and IsPrePolytope],
-# 	function(poset)
-# 	local faces;
-# 	return faces[PositionProperty(faces,x->RankInPoset(x,poset)=-1)];
-# 	end);
+InstallMethod(MinFace,
+	[IsPoset and IsP1 and IsP2],
+	function(poset)
+	local faces;
+	faces:=Faces(poset);
+	return faces[PositionProperty(faces,x->RankInPoset(x,poset)=-1)];
+	end);
+
+InstallMethod(MaxFace,
+	[IsPoset and IsP1 and IsP2],
+	function(poset)
+	local faces;
+	faces:=Faces(poset);
+	return faces[PositionProperty(faces,x->RankInPoset(x,poset)=Rank(poset))];
+	end);
