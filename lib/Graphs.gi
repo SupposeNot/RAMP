@@ -216,7 +216,7 @@ InstallMethod(EdgeLabeledGraphFromEdges,
 InstallMethod( ViewObj,
 	[IsEdgeLabeledGraph],
 	function(p)
-	Print(Concatenation("Edge labeled graph with ", String(Size(p!.vertices)), " vertices, and labels ", String(Set(p!.labels))));
+	Print(Concatenation("Edge labeled graph with ", String(Size(p!.vertices)), " vertices, and edge labels ", String(Set(p!.labels))));
 	end);
 
 
