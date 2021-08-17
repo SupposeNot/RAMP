@@ -147,8 +147,8 @@ DeclareOperation("FlagGraphWithLabels",[IsManiplex]);
 
 
 DeclareOperation("Vertices",[IsEdgeLabeledGraph]);
-DeclareOperation("Edges",[IsEdgeLabeledGraph]);
-DeclareOperation("Labels",[IsEdgeLabeledGraph]);
+#DeclareOperation("Edges",[IsEdgeLabeledGraph]);
+#DeclareOperation("Labels",[IsEdgeLabeledGraph]);
 DeclareOperation("LabeledEdges",[IsEdgeLabeledGraph]);
 
 
@@ -252,6 +252,10 @@ DeclareOperation("QuotientByLabel", [IsObject,IsList, IsList, IsList]);
 #! true
 #! @EndExampleSession
 
+
+DeclareAttribute("Verts", IsEdgeLabeledGraph);
+DeclareAttribute("Edges", IsEdgeLabeledGraph);
+DeclareAttribute("Labels", IsEdgeLabeledGraph);
 
 #! @Arguments list, list, list
 #! @Returns `IsEdgeLabeledGraph`. 
