@@ -206,6 +206,9 @@ InstallMethod(EdgeLabeledGraphFromEdges,
 	function(listv,liste,listl)
 	local fam, egraph;
 	egraph:=Objectify(NewType(EdgeLabeledGraphFamily, IsEdgeLabeledGraph and IsEdgeLabeledGraphListRep), rec(vertices:=listv, edges:=liste, labels:=listl));
+	SetVerts(egraph,listv);
+	SetEdges(egraph,liste);
+	SetLabels(egraph,listl);
 	return(egraph);
 	end);
 
