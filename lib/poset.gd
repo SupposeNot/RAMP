@@ -17,6 +17,8 @@
 #! @Arguments list
 #! @Returns `IsPosetOfFlags`. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
 #! @Description Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Note that if you don't include faces or ranks, this function doesn't know about about them!
+#! 
+#! __Notes:__ I'm rethinking this a little bit. Since we __already__ know that the poset admits a description in terms of faces described by incident flags, then we have a set with a natural rank function, and all maximal chains must be the same length. I think I should probably take advantage of that a little more. Will rewrite the code to take advantage of the assumptions that IsP1 and IsP2 are true. I'll try not to break things.
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 #! Here we have a poset using the `IsPosetOfFlags` description for the triangle.
 #! @BeginExampleSession

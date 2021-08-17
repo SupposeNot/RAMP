@@ -130,6 +130,8 @@
 
 <p>Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Note that if you don't include faces or ranks, this function doesn't know about about them!</p>
 
+<p><em>Notes:</em> I'm rethinking this a little bit. Since we <em>already</em> know that the poset admits a description in terms of faces described by incident flags, then we have a set with a natural rank function, and all maximal chains must be the same length. I think I should probably take advantage of that a little more. In particular, every such poset should be IsP2. Should I require/check they are IsP1 as well? Do we need an NC version?</p>
+
 <p>Here we have a poset using the <code class="code">IsPosetOfFlags</code> description for the triangle.</p>
 
 

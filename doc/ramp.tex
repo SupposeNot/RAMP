@@ -1987,6 +1987,42 @@ of 4000 or less. }
 \end{Verbatim}
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{SmallRegular4Polytopes}}
+\logpage{[ 6, 1, 6 ]}\nobreak
+\hyperdef{L}{X83C76844861B7B5A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRegular4Polytopes({\mdseries\slshape sizerange})\index{SmallRegular4Polytopes@\texttt{SmallRegular4Polytopes}}
+\label{SmallRegular4Polytopes}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Returns all regular 4-polytopes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 4000 or less. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SmallChiralPolyhedra}}
+\logpage{[ 6, 1, 7 ]}\nobreak
+\hyperdef{L}{X7C5BEAD87A858EE7}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiralPolyhedra({\mdseries\slshape sizerange})\index{SmallChiralPolyhedra@\texttt{SmallChiralPolyhedra}}
+\label{SmallChiralPolyhedra}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Returns all chiral polyhedra with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 4000 or less. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SmallChiral4Polytopes}}
+\logpage{[ 6, 1, 8 ]}\nobreak
+\hyperdef{L}{X85ED37A97CE7F77C}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiral4Polytopes({\mdseries\slshape sizerange})\index{SmallChiral4Polytopes@\texttt{SmallChiral4Polytopes}}
+\label{SmallChiral4Polytopes}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Returns all chiral 4-polytopes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 4000 or less. }
+
  }
 
  }
@@ -2918,7 +2954,13 @@ given full poset or not.
 
  Given a \mbox{\texttt{\mdseries\slshape list}} of lists of faces in increasing rank, where each face is described by the
 incident flags, gives you a IsPosetOfFlags object back. Note that if you don't
-include faces or ranks, this function doesn't know about about them! }
+include faces or ranks, this function doesn't know about about them! 
+
+ \emph{Notes:} I'm rethinking this a little bit. Since we \emph{already} know that the poset admits a description in terms of faces described by
+incident flags, then we have a set with a natural rank function, and all
+maximal chains must be the same length. I think I should probably take
+advantage of that a little more. In particular, every such poset should be
+IsP2. Should I require/check they are IsP1 as well? Do we need an NC version? }
 
  Here we have a poset using the \texttt{IsPosetOfFlags} description for the triangle. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -4362,6 +4404,9 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
