@@ -50,6 +50,7 @@ InstallMethod(UnlabeledFlagGraph,
 
 
 
+#Labels are 0 to n-1
 InstallMethod(FlagGraphWithLabels,
 	[IsGroup],
 	function(c)
@@ -63,12 +64,13 @@ InstallMethod(FlagGraphWithLabels,
 	for i in [1..Size(Ed)] do
 	for j in [1..n] do
 		if Ed[i][1]^gens[j] = Ed[i][2] then
-			Labels[i]:=j;
+			Labels[i]:=j-1;    
 		fi;
 	od;
 	od;
 	return([p,Ed,Labels]);
 end);
+
 
 
 InstallMethod(FlagGraphWithLabels,
@@ -335,6 +337,7 @@ InstallMethod(ConnectedComponents,
 	end);
 		
 
+#Labels go from 0 to r-1
 InstallMethod(PRGraph,
 	[IsGroup],
 	function(g)
@@ -347,7 +350,7 @@ InstallMethod(PRGraph,
 	for i in [1..Size(V)-1] do
 	for j in [i+1..Size(V)] do
 		if i^gens[r] = j then
-			Add(labels,r);
+			Add(labels,r-1);
 			Add(edges, [i,j]);
 		fi;
 	od;
