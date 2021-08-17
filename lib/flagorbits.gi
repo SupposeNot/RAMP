@@ -12,7 +12,8 @@ InstallMethod(SymmetryTypeGraph,
 			labelsnew:=[];
 			for r in [1..Rank(m)] do
 				Add(edgesnew, [1]);
-				Add(labelsnew,r);
+				Add(labelsnew,r-1);
+				# Labels go from 0 to r-1
 			od;
 			return EdgeLabeledGraphFromEdges([1], edgesnew,labelsnew);
 		fi;
@@ -25,11 +26,14 @@ InstallMethod(SymmetryTypeGraph,
 		j:=i^gens[r];
 		if j < i then
 			Add(edgesnew,[j,i]);			
-			Add(labelsnew,r);
+			Add(labelsnew,r-1);
+			# Labels go from 0 to r-1
+
 		
 		elif j = i then
 			Add(edgesnew, [i]);
-			Add(labelsnew,r);
+			Add(labelsnew,r-1);
+			# Labels go from 0 to r-1
 		fi;
 	od;
 	od;
