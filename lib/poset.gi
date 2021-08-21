@@ -39,12 +39,11 @@ InstallMethod(PosetFromPartialOrder,
 	end);
 
 
-
 InstallOtherMethod(ElementsList,
 	[IsPosetOfFlags],
 	function(poset)
-	local list;
-	list:=RankedFaceListOfPoset(poset);
+	local list, e;
+	list:=RankedFaceListOfPoset(poset,true);
 	return List(list,PosetElementFromListOfFlags);
 	end);
 
@@ -52,97 +51,18 @@ InstallOtherMethod(ElementsList,
 InstallOtherMethod(ElementsList,
 	[IsPoset and HasPartialOrder],
 	function(poset)
-	local elms, succ, n, checkList, ranks, i, j, li, x, po, posmin, posmax, min, pelm, perm;
-# 	if IsP2(poset)=false then Print("Only works for P2 posets."); return fail; fi;
+	local elms, succ, n, checkList, ranks, i, j, li, x, po, posmin, posmax, min, pelms, perm;
 	po:=PartialOrder(poset);
-	elms:=AsList(ShallowCopy(Source(po)));
- 	succ:=ShallowCopy(Successors(HasseDiagramBinaryRelation(po)));
- 	Apply(succ,AsList);
- 	n:=Maximum(elms);
-#  	if PositionsProperty(succ,x->x=[])<>[n] then return fail;fi;
-#  	if PositionsProperty(Successors(PartialOrder(poset)),x->x=[1..n])<>[1] then return fail;fi;
- 	posmax:=PositionProperty(succ,x->x=[]);
-#  	posmin:=PositionsProperty(succ,x->x=[n]);
- 	ranks:=[[posmax]];
- 	checkList:=DuplicateFreeList(Flat(ranks));
- 	i:=1;
- 	while Length(checkList)<n-1 do
-#  		Print([i,ranks[i]],"\n");
- 		li:=PositionsProperty(succ,x->Intersection(x,ranks[i])<>[]);
-#  		Print([i,li],"\n");
- 		Add(ranks,li);
-#  		Print([i,ranks],"\n");
- 		i:=i+1;
- 		checkList:=DuplicateFreeList(Flat(ranks));
- 		Sort(checkList);
-#  		Print(checkList,"\n");
- 		Sleep(1);
- 		od;
- 	posmin:=Difference([1..n],checkList)[1];
- 	Add(ranks,[posmin]);
- 	ranks:=Reversed(ranks);
-#  	Print(ranks,"\n");
-#  	Print("min",posmin,"\n");
-#  	Print("ranks", ranks,"\n");
-#  	if min<posmax then 
-#  		Add(ranks,[1..n],posmin); 
-# 	 	Add(ranks,[],posmax)
-#  	Print("ranks", ranks,"\n"); 	
- 	elms:=[];
- 	for i in [1..Length(ranks)] do
-		for j in [1..Length(ranks[i])] do
-			pelm:=PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset));
-# 			Print(ranks[i][j],",",i,",",j,"\n");
-			SetIndex(pelm,ranks[i][j]);
-			Append(elms,[pelm]);
-		od;
-	od;
-	perm:=PermListList([1..n],List(elms,Index));
-	elms:=Permuted(elms,perm);
-# 	elms:=List([1..n],x->elms[PositionProperty(elms,y->Index(y)=x)]);
-	return elms;
+	elms:=AsList(Union(Source(po),Range(po)));
+	pelms:=List(elms,x->PosetElementWithPartialOrder(x,PartialOrder(poset)));
+	for i in elms do SetIndex(pelms[i],i); od;
+	return pelms;
 	end);
 
-# InstallOtherMethod(ElementsList,
-# 	[IsPoset and HasPartialOrder],
-# 	function(poset)
-# 	local elms, succ, n, checkList, ranks, i, j, li, x, pelm;
-# # 	if IsP2(poset)=false then Print("Only works for P2 posets."); return fail; fi;
-# 	elms:=ShallowCopy(AsList(Source(PartialOrder(poset))));
-#  	succ:=ShallowCopy(Successors(HasseDiagramBinaryRelation(PartialOrder(poset))));
-#  	Apply(succ,AsList);
-#  	n:=Maximum(AsList(Source(PartialOrder(poset))));
-#  	if PositionsProperty(succ,x->x=[])<>[n] then return fail;fi;
-#  	if PositionsProperty(Successors(PartialOrder(poset)),x->x=[1..n])<>[1] then return fail;fi;
-#  	Remove(succ,1);
-#  	ranks:=[[n]];
-#  	checkList:=DuplicateFreeList(Flat(ranks));
-#  	i:=1;
-#  	while checkList<>[2..n] do
-# #  		Print([i,ranks[i]],"\n");
-#  		li:=PositionsProperty(succ,x->Intersection(x,ranks[i])<>[])+1;
-# #  		Print([i,li],"\n");
-#  		Add(ranks,li);
-# #  		Print([i,ranks],"\n");
-#  		i:=i+1;
-#  		checkList:=DuplicateFreeList(Flat(ranks));
-#  		Sort(checkList);
-# #  		Print(checkList,"\n");
-# #  		Sleep(1);
-#  		od;
-#  	ranks:=Reversed(ranks);
-#  	Add(ranks,[1],1);
-#  	elms:=[];
-#  	for i in [1..Length(ranks)] do
-# 		for j in [1..Length(ranks[i])] do
-# 			pelm:=PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset));
-# 			SetIndex(pelm,ranks[i][j]);
-# 			Append(elms,[pelm]);
-# # 			Append(elms,[PosetElementWithPartialOrder(ranks[i][j],PartialOrder(poset))]);
-# 		od;
-# 	od;
-# 	return elms;
-# 	end);
+InstallOtherMethod(Rank,
+	[IsPoset and HasRankPoset],
+	x->RankPoset(x));
+
 
 InstallOtherMethod(Rank,
 	[IsPoset and IsPosetOfFlags],
@@ -172,8 +92,13 @@ InstallOtherMethod(Rank,
 		SetRankPoset(poset,false); 
 		return false; 
 	fi;
-	SetRankPoset(poset,chains[1]-2);
-	return chains[1]-2;
+	SetIsP2(poset,true);
+	if IsP1(poset) then
+		SetRankPoset(poset,chains[1]-2);
+	else
+		SetRankPoset(poset,chains[1]);
+	fi;
+	return RankPoset(poset);
 	end);
 	
 
@@ -251,18 +176,17 @@ InstallMethod(EqualChains,
 	local pairs;
 	if Length(flag1)<>Length(flag2) then return false; fi;
 	pairs:=[1..Length(flag1)];
-	pairs:=List(pairs,x->IsEqualFaces(flag1[x],flag2[x]));
+	pairs:=List(pairs,x->IsIdenticalObj(flag1[x],flag2[x]));
 	if DuplicateFreeList(pairs)=[true] then return true;
 		else
 		return false;
 		fi;
 	end);
 
-InstallMethod( \=,
-	ReturnTrue,
+InstallMethod(\=,
 	[IsPosetElement, IsPosetElement],
 	function(p,q)
-	return IsEqualFaces(p,q);
+	return IsIdenticalObj(p,q);
 	end);
 
 InstallMethod(AdjacentFlags,
@@ -297,7 +221,7 @@ InstallOtherMethod(AdjacentFlags,
 InstallOtherMethod(IsFlagConnected,
 	[IsPoset],
 	function(poset)
-	local flags, pathends, i, ranks, f, temppathends, newends;
+	local flags, pathends, i, ranks, f, jf, temppathends, newends;
 	if (not(IsP1(poset)) or not (IsP2(poset))) then return false; fi;
 	if Rank(poset)=false then return false; fi;
 	if Rank(poset)<=1 then return true; fi;
@@ -311,8 +235,9 @@ InstallOtherMethod(IsFlagConnected,
 		temppathends:=newends;
 		newends:=[];
 		for f in temppathends do
+			jf:=Position(flags,f);
 			for i in ranks do
-				Append(newends,AdjacentFlags(poset,f,i));
+				Append(newends,AdjacentFlags(poset,jf,i));
 				od;
 			od;
 		newends:=DuplicateFreeList(newends);
@@ -352,6 +277,7 @@ InstallMethod(IsP3,
 			fi;
 		od;
 	od;
+	SetIsFlagConnected(poset,true);
 	return true;
 	end);
 
@@ -382,23 +308,26 @@ InstallOtherMethod(IsP3,
 				fi;
 			od;
 		od;
+	SetIsFlagConnected(poset,true);
 	return true;
 	end);
 
 InstallOtherMethod(IsP3,
 	[IsPoset,IsBool],
 	function(poset,tvalue)
-	local maxChains,faces,facePairs,sections,list;
+	local maxChains,faces,facePairs,sections,list,ord;
 	if Rank(poset)=false then return false; fi;
 	if IsP1(poset)=false or IsP2(poset)=false then return false;fi;
 	maxChains:=MaximalChains(poset);
 	faces:=ElementsList(poset);
 	facePairs:=Cartesian(faces,faces);
-	facePairs:=Filtered(facePairs,x->IsSubface(x[2],x[1]));
-	sections:=List(facePairs,x->Filtered(faces,y->IsSubface(x[2],y) and IsSubface(y,x[1])));
+	facePairs:=Filtered(facePairs,x->IsSubface(x[2],x[1],poset));
+	sections:=List(facePairs,x->Filtered(faces,y->IsSubface(x[2],y,poset) and IsSubface(y,x[1],poset)));
 	sections:=Filtered(sections,x->Length(x)<>1);
-	list:=List(sections,x->IsFlagConnected(PosetFromElements(x,IsSubface)));
+	ord:=function(a,b) return IsSubface(a,b,poset); end;
+	list:=List(sections,x->IsFlagConnected(PosetFromElements(x,ord)));
 	if DuplicateFreeList(list)=[true] then
+		SetIsFlagConnected(poset,true);
 		return true;
 	else
 		return false;
@@ -429,9 +358,9 @@ InstallMethod(IsP4,
 		faceshigh:=DuplicateFreeList(List(flags,x->x[i+2]));
 		facesmid:=DuplicateFreeList(List(flags,x->x[i+1]));
 		facepairs:=Cartesian(faceshigh,faceslow);
-		facepairs:=Filtered(facepairs,x->IsSubface(x[1],x[2]));
+		facepairs:=Filtered(facepairs,x->IsSubface(x[1],x[2],poset));
 		for pair in facepairs do
-			mids:=Filtered(facesmid,x-> IsSubface(pair[1],x) and IsSubface(x,pair[2]));
+			mids:=Filtered(facesmid,x-> IsSubface(pair[1],x,poset) and IsSubface(x,pair[2],poset));
 			if Length(mids)<>2 then
 				return false;
 			fi;
@@ -492,18 +421,19 @@ InstallMethod(PosetFromConnectionGroup,
 	for i in [1..rank] do
 		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	Add(posetList,[[]],1);
+	Add(posetList,[flags],1);
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList); 
 	SetIsP1(poset,true);
-	faces:=RankedFaceListOfPoset(poset);
-	chains:=ShallowCopy(flags);
-	for i in flags do
-		chains[i]:=Concatenation([[[],-1]],Filtered(faces,x->i in x[1]));
-		chains[i]:=List(chains[i],PosetElementFromListOfFlags);
-		od;
-	SetMaximalChains(poset,chains);
-	SetConnectionGroup(poset,conng);
+	SetIsP2(poset,true);
+	faces:=RankedFaceListOfPoset(poset,true);
+# 	chains:=ShallowCopy(flags);
+# 	for i in flags do
+# 		chains[i]:=Filtered(faces,x->i in x[1]);
+# 		chains[i]:=List(chains[i],PosetElementFromListOfFlags);
+# 		od;
+# 	SetMaximalChains(poset,chains);
+# 	SetConnectionGroup(poset,conng);
 	return poset;
 	end);
 
@@ -532,7 +462,7 @@ InstallMethod(PosetFromManiplex,
 	for i in [1..rank] do
 		Append(posetList,[Orbits(Group(gens{genIndexes[i]}))]);
 		od;
-	Add(posetList,[[]],1);
+	Add(posetList,[flags],1);
 	Add(posetList,[flags]);
 	poset:=PosetFromFaceListOfFlags(posetList);
 	if IsPolytopal(mani) then 
@@ -557,17 +487,17 @@ InstallMethod(HasseDiagramOfPoset,
 	return DirectedGraphFromListOfEdges(nodes,edges);
 	end);
 
-InstallOtherMethod(PartialOrder,
+InstallMethod(PartialOrder,
 	[IsPoset],
 	function(poset)
 	local faceList, workingList, po;
 	faceList:=ElementsList(poset);
 	if DuplicateFreeList(List(faceList,HasFlagList))=[true] then
-		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
+		workingList:=List(faceList,x->[FlagList(x),RankInPoset(x,poset)]);
 		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
 		return POConvertToBROnPoints(po);
 	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
-		workingList:=List(faceList,x->[AtomList(x),Rank(x)]);
+		workingList:=List(faceList,x->[AtomList(x),RankInPoset(x,poset)]);
 		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
 		return POConvertToBROnPoints(po);
 	else
@@ -607,14 +537,15 @@ InstallMethod(FlagsAsListOfFacesFromPoset,
 InstallMethod(FlagsAsListOfFacesFromPoset,
 	[IsPoset],
 	function(poset)
-	local faces, facesAsLists, flags, flagsAsLists;
+	local faces, facesAsLists, flags, flagsAsLists, args;
 		faces:=ElementsList(poset);
 		flags:=MaximalChains(poset);
 		facesAsLists:=List(faces, x->PositionsProperty(flags,flag-> x in flag));
-		if IsP1(poset)=true then 
-			facesAsLists[PositionsProperty(faces,x->x=flags[1][1])[1]]:=[];
-			fi;
+# 		if IsP1(poset)=true then 
+# 			facesAsLists[PositionsProperty(faces,x->x=flags[1][1])[1]]:=[];
+# 			fi;
 		flagsAsLists:=List(flags,x->facesAsLists{PositionsProperty(faces,y->y in x)});
+		if IsP2(poset) then flagsAsLists:=List(flagsAsLists,x->x{[2..Length(x)-1]});fi;
 		return flagsAsLists;
 	end);
 
@@ -885,74 +816,129 @@ InstallMethod(FaceListOfPoset,
 InstallMethod(RankedFaceListOfPoset,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
-	local list,flp;
+	local list, flp, i;
 	flp:=ShallowCopy(FaceListOfPoset(poset));
 	if IsP1(poset) then 
-		list:=Concatenation(List(flp,x->List(x,y->[y,Position(flp,x)-2])));
+		list:=[];
+		for i in [1..Length(flp)] do
+		Add(list,List(flp[i],y->[y,i-2]));
+		od;
+		return Concatenation(list);	
 	else
-		list:=Concatenation(List(flp,x->List(x,y->[y,Position(flp,x)-1])));
+		Error("Posets using a flag description should be IsP1.");
 	fi;
-	return list;
+	end);
+
+InstallOtherMethod(RankedFaceListOfPoset,
+	[IsPoset and IsPosetOfFlags,IsBool],
+	function(poset, bool)
+	local list,flp, i;
+	if bool<>true then return RankedFaceListOfPoset(poset); fi;
+	flp:=ShallowCopy(FaceListOfPoset(poset));
+	if IsP1(poset) then 
+		list:=[];
+		for i in [1..Length(flp)] do
+		Add(list,List(flp[i],y->[y,poset,i-2]));
+		od;
+		return Concatenation(list);	
+	else
+		Error("Posets using a flag description should be IsP1.");
+	fi;
+	end);
+
+
+InstallMethod( \=,
+	[IsPoset, IsPoset],
+	function(p,q)
+	return IsIdenticalObj(p,q);
 	end);
 
 InstallMethod(FacesByRankOfPoset,
 	[IsPoset],
 	function(poset)
-	local faces, minface, facesByRank, ranks, face, maxface, tempfaces, newtempfaces, i;
+	local faces, minface, facesByRank, ranks, face, maxface, tempfaces, newtempfaces, i, position;
+	if Rank(poset)=false then Error("Poset must admit a rank function.");fi;
 	faces:=ElementsList(poset);
-	if HasRankPosetElement(faces[1]) then
+	if HasRanksInPosets(faces[1]) then
+		position:=Position(RanksInPosets(faces[1]),poset);
 		facesByRank:=[];
-		ranks:=DuplicateFreeList(List(faces,RankPosetElement));
+		ranks:=DuplicateFreeList(List(faces,x->RankInPoset(x,poset)));
 		Sort(ranks);
-		facesByRank:=List(ranks,x->Filtered(faces,y->RankPosetElement(y)=x));
+		facesByRank:=List(ranks,x->Filtered(faces,y->RankInPoset(y,poset)=x));
 		return facesByRank;
-		fi;
-	if HasElementOrderingFunction(faces[1]) then
+	fi;
+	if HasPartialOrder(poset) then 
 		minface:=faces[1];
 		for face in faces do
-			if IsSubface(minface,face) then minface:=face; fi;
+			if IsSubface(minface,face,poset) then minface:=face; fi;
 		od;
 		maxface:=faces[1];
 		for face in faces do
-			if IsSubface(face,maxface) then maxface:=face; fi;
+			if IsSubface(face,maxface,poset) then maxface:=face; fi;
 		od;
 		facesByRank:=[[minface]];
 		tempfaces:=ShallowCopy(faces);
 		tempfaces:=tempfaces{PositionsProperty(tempfaces,x->x<>minface)};
 		i:=0;
-		SetRankPosetElement(minface,-1);
+		AddRanksInPosets(minface,poset,-1);
 		while tempfaces<>[] do
 			newtempfaces:=[1..Length(tempfaces)];
 			newtempfaces:=Filtered(newtempfaces, x->[x]=PositionsProperty(tempfaces, y->IsSubface(tempfaces[x],y)));
 			for face in newtempfaces do
-				SetRankPosetElement(tempfaces[face],i);
+				AddRanksInPosets(tempfaces[face],poset,i);
 				od;
 			Append(facesByRank,[tempfaces{newtempfaces}]);
 			tempfaces:=tempfaces{Difference([1..Length(tempfaces)],newtempfaces)};
 			i:=i+1;
 			od;
 		return facesByRank;
-		fi;
+	fi;
+	if HasElementOrderingFunction(faces[1]) then
+		minface:=faces[1];
+		for face in faces do
+			if IsSubface(minface,face,poset) then minface:=face; fi;
+		od;
+		maxface:=faces[1];
+		for face in faces do
+			if IsSubface(face,maxface,poset) then maxface:=face; fi;
+		od;
+		facesByRank:=[[minface]];
+		tempfaces:=ShallowCopy(faces);
+		tempfaces:=tempfaces{PositionsProperty(tempfaces,x->x<>minface)};
+		i:=0;
+		AddRanksInPosets(minface,poset,-1);
+		while tempfaces<>[] do
+			newtempfaces:=[1..Length(tempfaces)];
+			newtempfaces:=Filtered(newtempfaces, x->[x]=PositionsProperty(tempfaces, y->IsSubface(tempfaces[x],y)));
+			for face in newtempfaces do
+				AddRanksInPosets(tempfaces[face],poset,i);
+				od;
+			Append(facesByRank,[tempfaces{newtempfaces}]);
+			tempfaces:=tempfaces{Difference([1..Length(tempfaces)],newtempfaces)};
+			i:=i+1;
+			od;
+		return facesByRank;
+	fi;
 	end);
 
 InstallMethod(MaximalChains,
 	[IsPoset],
 	function(poset)
 	local faces, facesByRanks, flags, maxFaces, listofchildren, listofparents, i, top, j, newflags, tempflags, order;
-	faces:=ShallowCopy(ElementsList(poset));
-	listofchildren:=List(faces,x->PositionsProperty(faces,y->IsSubface(x,y)));
+	faces:=ElementsList(poset);
+	listofchildren:=List(faces,x->PositionsProperty(faces,y->IsSubface(x,y,poset)));
 	flags:=List(PositionsProperty(listofchildren,x->Length(x)=1),x->[x]);
-	listofparents:=List(faces,x->PositionsProperty(faces,y->IsSubface(y,x)));
+	listofparents:=List(faces,x->PositionsProperty(faces,y->IsSubface(y,x,poset)));
 	maxFaces:=PositionsProperty(listofparents,x->Length(x)=1);
 	newflags:=[];
 	tempflags:=[];
 	while  DuplicateFreeList(List(flags,Last))<>maxFaces do
 		for i in flags do
 			top:=Last(i);
-			listofparents:=PositionsProperty(faces,x->IsSubface(x,faces[top]));
+			listofparents:=PositionsProperty(faces,x->IsSubface(x,faces[top],poset));
 			listofparents:=Filtered(listofparents,x->x<>top);
 			for j in listofparents do
-				listofchildren:=PositionsProperty(faces,x->IsSubface(faces[j],x));
+				listofchildren:=PositionsProperty(faces,x->IsSubface(faces[j],x,poset));
 				if Intersection(listofchildren,listofparents)=[j] then 
 					Append(newflags,[Concatenation(i,[j])]);
 				fi;
@@ -966,77 +952,138 @@ InstallMethod(MaximalChains,
 	return flags;
 	end);
 
-
-
-InstallMethod(MaximalChains,
+InstallOtherMethod(MaximalChains,
 	[IsPoset and HasPartialOrder],
 	function(poset)
-	local maxChains, PO, hasse, UR, nFaces, pairs, pairsPlus, parents, children, flags, maxFaces, newflags, tempflags, i, j, top, URplus, successors;
-	PO:=PartialOrder(poset);
-	hasse:=HasseDiagramBinaryRelation(PO);
-	UR:=AsList(UnderlyingRelation(hasse));
-	nFaces:=[1..Size(ElementsList(poset))];
-	URplus:=Concatenation(UR,List(nFaces,x->DirectProductElement([x,x])));
-	pairsPlus:=Cartesian(nFaces,nFaces);
-	pairsPlus:=Filtered(pairsPlus,x->DirectProductElement(x) in URplus);
-	children:=List(nFaces,x->PositionsProperty(nFaces,y->[y,x] in pairsPlus));
-	flags:=List(PositionsProperty(children,x->Length(x)=1),x->[x]);
-	parents:=List(nFaces,x->PositionsProperty(nFaces,y->[x,y] in pairsPlus));
-	maxFaces:=PositionsProperty(parents,x->Length(x)=1);
-	newflags:=[]; # tempflags:=[];
-	successors:=Successors(hasse);
-	while DuplicateFreeList(List(flags,Last))<>maxFaces do
+	local maxChains, po, hasse, elms, parents, children, flags, deg, maxFaces, listofparents, newflags, tempflags, i, j, top, faces;
+	po:=PartialOrder(poset);
+	hasse:=HasseDiagramBinaryRelation(po);
+	elms:=Union(Range(hasse),Source(hasse));
+	faces:=ElementsList(poset);
+	deg:=DegreeOfBinaryRelation(po);
+	if elms<>[1..deg] then Error("Partial order of poset is improperly indexed.");fi;
+	parents:=Successors(hasse);
+	flags:=List(PositionsProperty([1..deg],x->not(x in Union(parents))),x->[x]);
+	maxFaces:=PositionsProperty([1..deg],x->parents[x]=[]);
+	newflags:=[];
+	tempflags:=[];
+	while Unique(List(flags,Last))<>maxFaces do
 		for i in flags do
-			newflags:=Concatenation(newflags, List(successors[Last(i)], x->Concatenation(i,[x])));
+			top:=Last(i);
+			listofparents:=parents[top];
+			Append(newflags,List(listofparents,x->Concatenation(i,[x])));
 			od;
+		Append(tempflags,Filtered(newflags,x->Last(x) in maxFaces));
 		flags:=newflags;
 		newflags:=[];
-		od;
-	maxChains:=List(flags, x->ElementsList(poset){x});
-	return maxChains;
+	od;
+	flags:=List(tempflags,x->faces{x});
+	return flags;
 	end);
 
+
+
 InstallMethod(PosetElementFromListOfFlags,
- 	[IsList,IsInt],
- 	function(list,n)
+ 	[IsList,IsPoset,IsInt],
+ 	function(list,poset,n)
 	local fam, face;
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
-	SetRankFace(face,n);
+	SetRanksInPosets(face,[[poset,n]]);
 	return(face);
 	end);
 
 InstallOtherMethod(PosetElementFromListOfFlags,
  	[IsList],
  	function(listrank)
-	local fam, face,list,rank;
-	if IsList(listrank[1]) and IsInt(listrank[2]) then 
-		list:=listrank[1]; rank:=listrank[2];
+	local fam, face,list,rank, poset;
+	if IsList(listrank[1]) and IsPoset(listrank[2]) and IsInt(listrank[3]) then 
+		list:=listrank[1]; poset:=listrank[2]; rank:=listrank[3];
 	else
-		Error("I expected a list of the form [list of flags, IsInt].");
+		Error("I expected a list of the form [list of flags, IsPoset, IsInt].");
 # 		return;
 	fi;
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetFlagList(face,list);
-	SetRankFace(face,rank);
-	return(face);
-	end);
-
-InstallOtherMethod(PosetElementFromListOfFlags,
- 	[IsList,IsInt,IsPoset],
- 	function(list,n,poset)
-	local fam, face;
-	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
-	SetFlagList(face,list);
-	SetRankFace(face,n);
-	SetFromPoset(face,poset);
+	SetRanksInPosets(face,[[poset,rank]]);
 	return(face);
 	end);
 
 
-InstallMethod(Rank,[IsFace],RankFace);
+# InstallMethod(Rank,[IsFace],RankFace);
+InstallMethod(RankInPoset,
+	[IsPosetElement and HasRanksInPosets,IsPoset],
+	function(elm,poset)
+	local position;
+	position:=PositionProperty(RanksInPosets(elm),x->x[1]=poset);
+	if position=fail then 
+		return RankInPoset(elm,poset,true);
+	fi;
+	return RanksInPosets(elm)[position][2];
+	end);
 
-	
+InstallOtherMethod(RankInPoset,
+#	This is to be used when elements don't know their own ranks in a particular poset.
+	[IsPosetElement, IsPoset, IsBool],
+	function(elm,poset,bool)
+	local maxPos, elmPos, maxRank, successors, counter;
+	# Posets should know if they are P1 or not.
+	if bool<>true then return fail; fi;
+	if IsP1(poset)<>true then
+		Error("Your poset isn't P1.");
+		fi;
+	if RankPoset=false then 
+		Error("This poset does not appear to have a rank.");
+		fi;	
+	maxRank:=Rank(poset);
+	successors:=Successors(HasseDiagramBinaryRelation(PartialOrder(poset)));
+	maxPos:=PositionProperty(successors,x->x=[]);
+	elmPos:=Position(ElementsList(poset),elm);
+	if elmPos=maxPos and HasRanksInPosets(elm)=false then 
+		AddRanksInPosets(elm,poset,maxRank);
+		return maxRank;
+		fi;
+	counter:=1;
+	while  (maxPos in successors[elmPos])=false do
+		elmPos:=successors[elmPos][1];
+		counter:=counter+1;
+		od;
+	AddRanksInPosets(elm,poset,maxRank - counter);
+	return maxRank - counter;	
+	end);	
+
+InstallOtherMethod(RankInPoset,
+#	This is to be used when elements don't know their own ranks.
+	[IsPosetElement, IsPoset],
+	function(elm,poset)
+	local maxPos, elmPos, maxRank, successors, counter;
+	# Posets should know if they are P1 or not.
+	if IsP1(poset)<>true then
+		Error("Your poset isn't P1.");
+		fi;
+	if RankPoset=false then 
+		Error("This poset does not appear to have a rank.");
+		fi;	
+	maxRank:=Rank(poset);
+	successors:=Successors(HasseDiagramBinaryRelation(PartialOrder(poset)));
+	maxPos:=PositionProperty(successors,x->x=[]);
+	elmPos:=Position(ElementsList(poset),elm);
+	if elmPos=maxPos and HasRanksInPosets(elm)=false then 
+		SetRanksInPosets(elm,[[poset,maxRank]]);
+		return maxRank;
+		fi;
+	counter:=1;
+	while  (maxPos in successors[elmPos])=false do
+		elmPos:=successors[elmPos][1];
+		counter:=counter+1;
+		od;
+	if HasRanksInPosets(elm)=true then 
+		Add(RanksInPosets(elm),[poset, maxRank - counter]);
+	else
+		SetRanksInPosets(elm,[[poset, maxRank - counter]]);
+		fi;
+	return maxRank - counter;	
+	end);	
 
 InstallMethod(DisplayString,
 	[IsFace],
@@ -1045,12 +1092,12 @@ InstallMethod(DisplayString,
 	string:="An element of a poset";
 	if HasElementObject(face) then
 		elobj:=ElementObject(face);
-		if HasRankPosetElement(elobj) then Append(string, Concatenation(" of rank ", String(RankPosetElement(elobj))));fi;
+# 		if HasRanksInPosets(elobj) then Append(string, Concatenation(" of rank ", String(RankPosetElement(elobj))));fi;
 		if HasFlagList(elobj) then Append(string, Concatenation(" corr. to flags ", String(FlagList(elobj))));fi;
 		if HasAtomList(elobj) then Append(string, Concatenation(" made up of atoms ", String(AtomList(elobj))));fi;
 		if HasIndex(elobj) then Append(string,Concatenation(" with index=",String(Index(elobj)))); fi;
 	else
-		if HasRankPosetElement(face) then Append(string, Concatenation(" of rank ", String(RankPosetElement(face))));fi;
+# 		if HasRankPosetElement(face) then Append(string, Concatenation(" of rank ", String(RankPosetElement(face))));fi;
 		if HasFlagList(face) then Append(string, Concatenation(" corr. to flags ", String(FlagList(face))));fi;
 		if HasAtomList(face) then Append(string, Concatenation(" made up of atoms ", String(AtomList(face))));fi;
 		if HasIndex(face) then Append(string,Concatenation(" with index=",String(Index(face)))); fi;
@@ -1077,84 +1124,93 @@ InstallMethod(ViewString,
 		if HasAtomList(elobj) then Append(string, " made up of atoms");fi;
 		if HasIndex(elobj) then Append(string," with index"); fi;
 	else
-		if HasFlagList(face) then Append(string, " made of flags ");fi;
+		if HasFlagList(face) then Append(string, " made of flags");fi;
 		if HasAtomList(face) then Append(string, " made up of atoms");fi;
 		if HasIndex(face) then Append(string," with index"); fi;
 	fi;
-	Append(string,".");
+# 	Append(string,".");
 	return string;
 	end);
 
 
-
-
 InstallMethod(IsSubface,
-	[IsFace and HasFlagList,IsFace and HasFlagList],
-	function(face1,face2)
-	if FlagList(face2)=[] then return true;fi;
-	if Rank(face1)>=Rank(face2) and Intersection(FlagList(face1),FlagList(face2))<>[] then return true;
+	[IsFace and HasFlagList, IsFace and HasFlagList, IsPoset],
+	function(face1, face2, poset)
+	if RankInPoset(face1,poset)>=RankInPoset(face2,poset) and Intersection(FlagList(face1),FlagList(face2))<>[] then return true;
 	else return false;
 	fi;
 	end);
 
+InstallOtherMethod(IsSubface,
+	[IsFace and HasFlagList, IsFace and HasFlagList],
+	function(face1,face2)
+	local poset, posets1, posets2;
+	posets1:=List(RanksInPosets(face1),x->x[1]);
+	posets2:=List(RanksInPosets(face2),x->x[1]);
+	poset:=Intersection(posets1,posets2);
+	if Size(poset)<>1 then Error("The elements appear to belong to more than one poset, so you must specify which poset you wish to perform the test in."); fi;
+	poset:=poset[1];
+	return IsSubface(face1,face2,poset);
+	end);
+
+
+
 
 InstallMethod(PosetElementFromAtomList,
- 	[IsList,IsInt],
- 	function(list,n)
+ 	[IsList],
+ 	function(list)
 	local fam, face;
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetAtomList(face,list);
-	SetRankFace(face,n);
 	return(face);
 	end);
 
 InstallOtherMethod(IsSubface,
 	[IsFace and HasAtomList, IsFace and HasAtomList],
 	function(face1,face2)
-	if Rank(face1)>=Rank(face2) and IsSubset(AtomList(face1),AtomList(face2)) then return true;
+	if IsSubset(AtomList(face1),AtomList(face2)) then return true;
 	else return false;
 	fi;
 	end);
 
 InstallMethod(PosetElementFromIndex,
- 	[IsObject,IsInt],
- 	function(index,n)
+ 	[IsObject],
+ 	function(index)
 	local fam, face;
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
 	SetIndex(face,index);
-	SetRankFace(face,n);
 	return(face);
 	end);
 
-InstallOtherMethod(PosetElementFromIndex,
- 	[IsObject,IsInt,IsPoset],
- 	function(index,n,pos)
-	local fam, face;
-	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
-	SetIndex(face,index);
-	SetRankFace(face,n);
-	SetFromPoset(face,pos);
-	return(face);
-	end);
+# InstallOtherMethod(PosetElementFromIndex,
+#  	[IsObject,IsInt,IsPoset],
+#  	function(index,n,pos)
+# 	local fam, face;
+# 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset), rec());
+# 	SetIndex(face,index);
+# 	SetRankFace(face,n);
+# 	SetFromPoset(face,pos);
+# 	return(face);
+# 	end);
 
 
 
 InstallOtherMethod(IsSubface,
-	[IsFace and HasIndex, IsFace and HasIndex],
-	function(face1,face2)
+	[IsFace and HasIndex, IsFace and HasIndex, IsPoset],
+	function(face1,face2, poset)
 	local reln,po;
-	if FromPoset(face1)=FromPoset(face2) and HasPartialOrder(FromPoset(face1)) then
-		po:=PartialOrder(FromPoset(face1));
-		if Rank(face1)>=Rank(face2) and Tuple([Index(face1),Index(face2)]) in po then return true;
+	if HasPartialOrder(poset) then
+		po:=PartialOrder(poset);
+		if Index(face1) in Successors(po)[Index(face2)] then return true;
 		else return false;
 		fi;
-	else Error("No partial order found for elements of this poset.");
+	else Error("Given poset has no defined partial order.");
 	fi;
-	end); #Not sure this works yet... Have to build up the right kind of object.
+	end);
 
 InstallOtherMethod(IsSubface,
-	[IsFace and HasElementOrderingFunction, IsFace and HasElementOrderingFunction],
-	function(face1, face2)
+	[IsFace and HasElementOrderingFunction, IsFace and HasElementOrderingFunction,IsPoset],
+	function(face1, face2, poset)
 	local order;
 	if ElementOrderingFunction(face1)<>ElementOrderingFunction(face2) then Error("Faces have different ordering functions."); 
 # 		return; 
@@ -1183,8 +1239,8 @@ InstallOtherMethod(IsSubface,
 InstallMethod(PairCompareFlagsList,
 	[IsList,IsList],
 	function(a,b) 
-	if a[1]=[] and a[2]<=b[2] then return true; fi;
-	return Intersection(b[1],a[1])<>[] and a[2]<=b[2];end);
+# 	if a[1]=[] and a[2]<=b[2] then return true; fi;
+	return Intersection(b[1],a[1])<>[] and b[2]<=a[2];end);
 
 InstallMethod(PairCompareAtomsList,
 	[IsList,IsList],
@@ -1192,29 +1248,7 @@ InstallMethod(PairCompareAtomsList,
 	return IsSubset(b[1],a[1]) and a[2]<=b[2];end);
 
 
-InstallMethod(PosetFromElements,
-	[IsList],
-	function(faceList)
-	local nFaceList, workingList, po, poset;
-	nFaceList:=Length(faceList);
-	if DuplicateFreeList(List(faceList,HasFlagList))[1] then
-		workingList:=List(faceList,x->[FlagList(x),Rank(x)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
-		poset:= PosetFromPartialOrder(po);
-		SetElementsList(poset,ShallowCopy(faceList));
-		SetOrderingFunction(poset,PairCompareFlagsList);
-		return poset;
-	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
-		workingList:=List(faceList,x->[AtomList(x),Rank(x)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
-		poset:= PosetFromPartialOrder(po);
-		SetElementsList(poset,ShallowCopy(faceList));
-		SetOrderingFunction(poset,PairCompareAtomsList);
-		return poset;
-	else
-		Print("ya got me doc! You might try including a partial ordering function.");
-	fi;	
-	end);
+
 
 InstallMethod(PosetElementWithOrder,
 	[IsObject, IsFunction],
@@ -1233,11 +1267,10 @@ InstallMethod(PosetElementWithPartialOrder,
 	face:=Objectify(NewType(PosetElementFamily, IsFace and IsFaceOfPoset),rec());
 	SetElementObject(face,obj);
 	SetElementBR(face,func);
-# 	SetElementOrderingFunction(face,func);
 	return face;
 	end);	
 
-InstallOtherMethod(PosetFromElements,
+InstallMethod(PosetFromElements,
 	[IsList,IsFunction],
 	function(faceList,orderFunc)
 	local nFaceList,workingList,pairs,tuplesList,po,i,j, poset;
@@ -1255,15 +1288,16 @@ InstallOtherMethod(PosetFromElements,
 	poset:= PosetFromPartialOrder(po);
 	faceList:=ShallowCopy(faceList);
 	Apply(faceList,x->PosetElementWithOrder(x,orderFunc));
+	for i in [1..Length(faceList)] do SetIndex(faceList[i],i);od;
 	SetElementsList(poset,faceList);
 	SetOrderingFunction(poset,orderFunc);
 	return poset;
 	end);
 
 InstallMethod(IsEqualFaces,
-	[IsPosetElement,IsPosetElement],
-	function(face1,face2);
-	return IsSubface(face1,face2) and IsSubface(face2,face1);
+	[IsPosetElement,IsPosetElement,IsPoset],
+	function(face1,face2,poset);
+	return IsSubface(face1,face2,poset) and IsSubface(face2,face1,poset);
 	end);
 
 
@@ -1310,28 +1344,43 @@ InstallOtherMethod(IsSelfDual,
 	p->IsIsomorphicPoset(p,DualPoset(p)));
 
 
-#Here's a sample of things you can do...
-#p:=PyramidOver(HemiCube(3));
-#pos:=PosetFromManiplex(p);;
-#cg:=ConnectionGroup(p);
-#flagList:=FlagsAsListOfFacesFromPoset(pos);;
-#flagList[4];
-#AdjacentFlag(flagList[4],flagList,3);
-#conG:=ConnectionGroupOfPoset(pos);
-#GeneratorsOfGroup(cg)=GeneratorsOfGroup(conG);
+InstallMethod(AddRanksInPosets,
+	[IsPosetElement,IsPoset,IsInt],
+	function(elm,poset,n)
+	local position, prompt;
+	if HasRanksInPosets(elm) then
+		position:=PositionProperty(RanksInPosets(elm),x->poset=x[1]);
+		if position=fail then
+			Add(RanksInPosets(elm),[poset,n]);
+		else
+			prompt:= NCurses.Select(["yes", "no"]);
+			if prompt=1 then
+			RanksInPosets(elm)[position]:=[poset,n];
+			else 
+				Print("Did not modify the rank of the element in the given poset.\n");
+				return;
+			fi;
+		fi;
+	else
+		SetRanksInPosets(elm,[[poset,n]]);
+	fi;
+	end);
 
-#If you want to play with the flaggable stuff... m44 below is the {4,4}_(1,0) map.
-#m44:=ReflexibleManiplex(Group([(1,8)(2,3)(4,5)(6,7),(1,2)(3,4)(5,6)(7,8),(1,4)(2,7)(3,6)(5,8)]);
-#m44pos:=PosetFromManiplex(m44);
-#IsFlaggablePoset(m44);
-#IsFlaggablePoset(pos);
-
-
+InstallMethod(RankPosetElements,
+	[IsPoset],
+	function(poset)
+	local faces;
+	if Rank(poset)=false then Error("Given poset doesn't admit a rank function.\n"); fi;
+	faces:=Faces(poset);
+	Perform(faces,x->RankInPoset(x,poset));
+	return true;
+	end);
 
 # Some test objects:
 posetFM:=function(n) return PosetFromManiplex(PyramidOver(Cube(n)));end;
 posetFE:=function(n) return PosetFromElements(ElementsList(posetFM(n)),IsSubface);end;
 posetFG:=function(n) return PosetFromConnectionGroup(ConnectionGroup(posetFE(n))); end;
+pbad:=function() local g,a,p; g:=AlternatingGroup(4); a:=AllSubgroups(g); p:=PosetFromElements(a,IsSubgroup); return p; end;
 # posetFA:=function() return 
 # posetFM:=PosetFromManiplex(HemiCube(3));
 # posetFE:=PosetFromElements(ElementsList(posetFM),IsSubface);

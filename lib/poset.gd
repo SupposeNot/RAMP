@@ -22,10 +22,10 @@
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 #! Here we have a poset using the `IsPosetOfFlags` description for the triangle.
 #! @BeginExampleSession
-#! gap> poset:=PosetFromFaceListOfFlags([[[]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);
+#! gap> poset:=PosetFromFaceListOfFlags([[[1,2,3,4,5,6]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);
 #! A poset using the IsPosetOfFlags representation with 8 faces.
 #! gap> FaceListOfPoset(poset);
-#! [ [ [  ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ]
+#! [ [ [ 1, 2, 3, 4, 5, 6 ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ]
 #! @EndExampleSession
 
 #! @Arguments g
@@ -68,48 +68,29 @@ DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
 #! A poset using the IsPosetOfIndices representation 
 #! gap> h:=HasseDiagramBinaryRelation(PartialOrder(poset));
 #! <general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >
-#! gap> UnderlyingRelation(h);
-#! Domain([ DirectProductElement( [ 1, 2 ] ), DirectProductElement( [ 1, 3 ] ), DirectProductElement( [ 2, 4 ] ) ])
+#! gap> Successors(h);
+#! [ [ 2, 3 ], [ 4 ], [  ], [  ] ]
 #! @EndExampleSession
 #! Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.
 
 
-#! @Arguments list_of_faces, {func}
+#! @Arguments list_of_faces, func
 #! @Returns `IsPosetOfElements`
-#! @Description This is for gathering elements with a known ordering <A>func</A> on two variables into a poset. Note... you should expect to get complete garbage if you send it a list of faces of different types. If your list of faces HasFlagList or HasAtomList, you may omit the function. Also note, the expectation is that <A>func</A> behaves similarly to IsSubset, i.e., <A>func</A> (x,y)=true means $y$ is less than  $x$ in the order.
-#! Also worth noting, is that the internal representation of this kind of poset can and does keep both the partial order on the indices, and the list of faces corresponding to those indices, and the binary relation <A>func</A> (if the <A>list_of_faces</A> elements all have HasFlagList or HasAtomList, this will be the operation `PairCompareFlagsList` or `PairCompareAtomsList`).
-DeclareOperation("PosetFromElements",[IsList]);
+#! @Description This is for gathering elements with a known ordering <A>func</A> on two variables into a poset. Also note, the expectation is that <A>func</A> behaves similarly to IsSubset, i.e., <A>func</A> (x,y)=true means $y$ is less than  $x$ in the order.
+DeclareOperation("PosetFromElements",[IsList,IsFunction]);
 #! @BeginExampleSession
-#! gap> g:=SymmetricGroup(3);
+#! gap>  g:=SymmetricGroup(3);
 #! Sym( [ 1 .. 3 ] )
 #! gap> asg:=AllSubgroups(g);
-#! [ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]), Group([ (1,2,3), (2,3) ]) ]
+#! [ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]),   Group([ (1,2,3), (2,3) ]) ]
 #! gap> poset:=PosetFromElements(asg,IsSubgroup);
-#! A poset using the IsPosetOfIndices representation 
+#! A poset on 6 elements using the IsPosetOfIndices representation.
 #! gap> HasseDiagramBinaryRelation(PartialOrder(poset));
 #! <general mapping: Domain([ 1 .. 6 ]) -> Domain([ 1 .. 6 ]) >
-#! gap> UnderlyingRelation(last);
-#! Domain([ DirectProductElement( [ 1, 2 ] ), DirectProductElement( [ 1, 3 ] ), DirectProductElement( [ 1, 4 ] ),   DirectProductElement( [ 1, 5 ] ), DirectProductElement( [ 2, 6 ] ), DirectProductElement( [ 3, 6 ] ),   DirectProductElement( [ 4, 6 ] ), DirectProductElement( [ 5, 6 ] ) ])
-#! gap> ElementsList(poset){[2,6]};
+#! gap> Successors(last);
+#! [ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ]
+#! gap> List( ElementsList(poset){[2,6]}, ElementObject);
 #! [ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
-#! @EndExampleSession
-#! Here we have an example of how we can store a partially ordered set, and recover information about which objects are incident in the partial order.
-#! Another interesting example:
-#! @BeginExampleSession
-#! gap> poset:=PosetFromManiplex(HemiCube(3));
-#! A poset using the IsPosetOfFlags representation with 15 faces.
-#! gap> rfl:=RankedFaceListOfPoset(poset);
-#! [ [ [  ], -1 ], [ [ 1, 6, 2, 9, 3, 13 ], 0 ], [ [ 4, 14, 16, 23, 11, 21 ], 0 ], [ [ 5, 22, 8, 17, 19, 20 ], 0 ], 
-#!   [ [ 7, 10, 12, 24, 15, 18 ], 0 ], [ [ 1, 5, 2, 8 ], 1 ], [ [ 3, 11, 13, 21 ], 1 ], [ [ 4, 12, 16, 7 ], 1 ], 
-#!   [ [ 6, 15, 9, 18 ], 1 ], [ [ 10, 19, 24, 20 ], 1 ], [ [ 14, 22, 23, 17 ], 1 ], 
-#!   [ [ 1, 5, 6, 22, 15, 14, 12, 4 ], 2 ], [ [ 2, 8, 3, 19, 11, 10, 16, 7 ], 2 ], 
-#!   [ [ 9, 18, 13, 24, 21, 20, 23, 17 ], 2 ], 
-#!   [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ], 3 ] ]
-#! gap> Apply(rfl,PosetElementFromListOfFlags);
-#! gap> pos2:=PosetFromElements(rfl);
-#! A poset using the IsPosetOfIndices representation 
-#! gap>  List(FacesList(pos2),x->Rank(x));
-#! [ -1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3 ]
 #! @EndExampleSession
 
 #! @BeginGroup Helper functions
@@ -149,46 +130,55 @@ DeclareOperation("DualPoset",[IsPoset]);
 
 
 #! @Arguments poset
-#! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonym function is `FlagsList`. 
+#! @Description Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonyms are `FlagsList` and `Flags`. 
 #! Tends to work faster (sometimes significantly) if the poset `HasPartialOrder`.
 DeclareAttribute("MaximalChains", IsPoset);
 #! Synonym is `FlagsList`.
 
 
 DeclareSynonymAttr("FlagsList", MaximalChains);
-
+DeclareSynonymAttr("Flags", MaximalChains);
 #! @BeginExampleSession
 #! gap> poset:=PosetFromManiplex(HemiCube(3));
-#! A poset using the IsPosetOfFlags representation with 15 faces.
-#! gap> rfl:=RankedFaceListOfPoset(poset);;
-#! gap> Apply(rfl,PosetElementFromListOfFlags);
-#! gap> pos2:=PosetFromElements(rfl);
-#! A poset using the IsPosetOfIndices representation 
-#! gap> MaximalChains(pos2)[1];
-#! [ An element of a poset., An element of a poset., An element of a poset., An element of a poset., 
-#!   An element of a poset. ]
-#! gap> List(last,Rank);
+#! A poset using the IsPosetOfFlags representation.
+#! gap> MaximalChains(poset)[1];
+#! [ An element of a poset made of flags, An element of a poset made of flags, 
+#!   An element of a poset made of flags, An element of a poset made of flags, 
+#!   An element of a poset made of flags ]
+#! gap> List(last,x->RankInPoset(x,poset));
 #! [ -1, 0, 1, 2, 3 ]
 #! @EndExampleSession
 
 
 #! @Arguments poset
 #! @Description If the poset `IsP1`, ranks are assumed to run from $-1$ to $n$, and function will return $n$. If `IsP1(poset)=false`, ranks are assumed to run from 1 to $n$.
+#! In RAMP, at least currently, we are assuming that graded/ranked posets are bounded. 
+#! Note that in general what you __actually__ want to do is call `Rank(poset)`. The reason is that `Rank` will calculate the `RankPoset` if it isn't set, and then set and store the value in the poset.
 DeclareAttribute("RankPoset", IsPoset);
 
 #! @BeginGroup elements
 #! @Arguments poset
 #! @Description Will recover the list of faces of the poset, format may depend on __type__ of representation of `poset`.
-#! * We also have `FacesList` as a synonym for this command.
+#! * We also have `FacesList` and `Faces` as synonyms for this command.
 DeclareAttribute("ElementsList", IsPoset); #for storing facelists
 
 
 DeclareSynonymAttr("FacesList", ElementsList);
+DeclareSynonymAttr("Faces", ElementsList);
 #! @EndGroup
 
 #! @Arguments poset
 #! @Description `OrderingFunction` is an attribute of a poset which stores a function for ordering elements.
 DeclareAttribute("OrderingFunction", IsPoset); #helpful for facelist info.
+#! @BeginExampleSession
+#! gap> p:=PosetFromManiplex(Cube(2));;
+#! gap> p3:=PosetFromElements(RankedFaceListOfPoset(p),PairCompareFlagsList);;
+#! gap> f3:=FacesList(p3);;
+#! gap> OrderingFunction(p3)(ElementObject(f3[2]),ElementObject(f3[1]));
+#! true
+#! gap> OrderingFunction(p3)(ElementObject(f3[1]),ElementObject(f3[2]));
+#! false
+#! @EndExampleSession
 
 
 
@@ -200,12 +190,13 @@ DeclareProperty("IsFlaggable",IsPoset);
 
 
 #! @Arguments poset
-#! @Description Checks if <A>poset</A> is atomic. __Not a computed value.__ 
+#! @Description Checks if <A>poset</A> is atomic. 
+#! TBD
 DeclareProperty("IsAtomic",IsPoset);
 
 #! @Arguments poset
 #! @Returns `partial order`
-#! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. `Note, currently something that is not computed, just declared.`
+#! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. In many cases, PartialOrder is able to compute one from structural information.
 DeclareAttribute("PartialOrder", IsPoset);
 
 
@@ -240,7 +231,7 @@ DeclareProperty("IsP2", IsPoset);
 #! @EndExampleSession
 #! Another nice example
 #! @BeginExampleSession
-#! gap> g:=AlternatingGroup(4);;a:=AllSubgroups(g);;poset:=PosetFromElements(a,IsSubgroup);
+#! gap> g:=AlternatingGroup(4);; a:=AllSubgroups(g);; poset:=PosetFromElements(a,IsSubgroup);
 #! A poset using the IsPosetOfIndices representation 
 #! gap> IsP2(poset);
 #! false
@@ -256,7 +247,7 @@ DeclareSynonymAttr("IsStronglyFlagConnected", IsP3);
 #! Helper for IsP3
 #! @Arguments poset
 #! @Description Determines whether a poset is flag connected.
-DeclareOperation("IsFlagConnected", [IsPoset]);
+DeclareProperty("IsFlagConnected", IsPoset);
 
 
 #! @Arguments poset
@@ -295,6 +286,10 @@ DeclareProperty("IsPrePolytope", IsPoset);
 
 #! @Arguments poset1, poset2
 #! @Returns `true` or `false`
+#! @Description Determines whether <A>poset1</A> and <A>poset2</A> are equal by
+
+#! @Arguments poset1, poset2
+#! @Returns `true` or `false`
 #! @Description Determines whether <A>poset1</A> and <A>poset2</A> are isomorphic by checking to see if their Hasse diagrams are isomorphic.
 DeclareOperation("IsIsomorphicPoset",[IsPoset,IsPoset]);
 #! @BeginExampleSession
@@ -312,8 +307,13 @@ DeclareOperation("PosetIsomorphism",[IsPoset,IsPoset]);
 #! @Arguments poset
 #! @Returns `IsList`
 #a list of flags as a list of faces from `PosetFromFaceListOfFlags`.
-#! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the faces described in the <A>poset</A>. Note that the flag list does not include the empty face or the maximal face. In other words, this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. 
+#! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the proper faces described in the <A>poset</A>. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. 
 DeclareOperation("FlagsAsListOfFacesFromPoset",[IsPoset]); 
+
+#! @Arguments IsPosetOfFlags
+#! @Returns `list`
+#! @Description Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>. Assumptions here are that faces are lists of incident flags.
+DeclareOperation("RankedFaceListOfPoset",[IsPoset]);
 
 #! @Arguments poset, flag, i
 #! @Returns `flag(s)`
@@ -352,17 +352,17 @@ DeclareAttribute("AutomorphismGroup", IsPoset);
 DeclareAttribute("AutomorphismGroupOnElements", IsPoset);
 
 
-## ! @Arguments poset
-## ! @Returns A binary relation on the integers 1 through $n$, where $n$ is the number of faces of the full poset.
-## ! @Description FacesOfPosetAsBinaryRelationOnFaces 
-# DeclareOperation("FacesOfPosetAsBinaryRelationOnFaces",[IsPoset]);
-
 
 ##! @Arguments poset
 ##! @Returns `list`
-##! @Description Gives a list of faces collected into lists ordered by increasing rank. Suitable as input for `PosetFromFaceListOfFlags`.
+##! @Description Gives a list of faces collected into lists ordered by increasing rank. Suitable as input for `PosetFromFaceListOfFlags`. Argument must be IsPosetOfFlags.
 DeclareOperation("FaceListOfPoset",[IsPoset]);
 
+#! @Arguments poset
+#! @Description Assigns to each face of a poset (when possible) the rank of the element in the poset. 
+DeclareOperation("RankPosetElements",[IsPoset]);
+
+DeclareSynonym("RankPosetFaces", RankPosetElements);
 
 #! @Arguments poset
 #! @Returns `list`
@@ -380,23 +380,25 @@ DeclareOperation("HasseDiagramOfPoset",[IsPoset]);
 
 #! @Subsection Element properties
 
-#! @Arguments posetelement {face}
-#! @Returns `true` or `false`
-#! @Description The rank of a poset element. Alternately `RankFace`(<A>IsPosetElement</A>).
-DeclareAttribute("RankPosetElement",IsPosetElement); 
+#! @Arguments posetelement
+#! @Returns list
+#! @Description Gives the `list` of posets <A>posetelement</A> is in, and the corresponding rank (if available) as a list of ordered pairs of the form `[poset,rank]`. #!
+#! Note that this attribute is mutable, so if you modify it you may break things.
+DeclareAttribute("RanksInPosets", IsPosetElement,"mutable");
+
+#! @Arguments posetelement, poset, int
+#! @Returns null
+#! @Description Adds an entry in the list of RanksInPosets for <A>posetelement</A> corresponding to <A>poset</A> with assigned rank <A>int</A>.
+DeclareOperation("AddRanksInPosets",[IsPosetElement,IsPoset,IsInt]);
 
 
-DeclareSynonymAttr("RankFace", RankPosetElement);
 
 #! @Arguments posetelement {face}
 #! @Returns `list`
 #! @Description Description of <A>posetelement</A> n as a list of incident flags (when present).
 DeclareAttribute("FlagList", IsPosetElement); #list of incident flags
 
-#! @Arguments posetelement {face}
-#! @Returns `poset`
-#! @Description Gives the poset to which the face belongs (when present).
-DeclareAttribute("FromPoset",IsPosetElement); #Which poset the element belongs to.
+
 
 #! @Arguments posetelement {face}
 #! @Returns `list`
@@ -418,42 +420,45 @@ DeclareAttribute("ElementObject", IsPosetElement);
 #! @Description Creates a `face` with <A>obj</A> and ordering function `func`.
 DeclareOperation("PosetElementWithOrder",[IsObject,IsFunction]);
 
-#! @Arguments list, n
+#! @Arguments list, poset, n
 #! @Returns `IsPosetElement`
-#! @Description This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of poset. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
-DeclareOperation("PosetElementFromListOfFlags",[IsList,IsInt]);
+#! @Description This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of <A>poset</A>.
+DeclareOperation("PosetElementFromListOfFlags",[IsList,IsPoset,IsInt]);
 
 
-#! @Arguments list, n
+#! @Arguments list
 #! @Returns `IsFace`
-#! @Description Creates a `face` with <A>list</A> of atoms at rank <A>n</A>. If an IsPoset object is appended to the input will tell the element what poset it belongs to.
-DeclareOperation("PosetElementFromAtomList",[IsList,IsInt]);
+#! @Description Creates a `face` with <A>list</A> of atoms. If you wish to assign ranks or membership in a poset, you must do this separately.
+DeclareOperation("PosetElementFromAtomList",[IsList]);
 
-#! @Arguments obj, n
+#! @Arguments obj
 #! @Returns `IsFace`
-#! @Description Creates a `face` with index <A>obj</A> at rank <A>n</A>. If an IsPoset object is appended to will tell the element what poset it belongs to.
-DeclareOperation("PosetElementFromIndex",[IsObject,IsInt]);
+#! @Description Creates a `face` with index <A>obj</A> at rank <A>n</A>.
+DeclareOperation("PosetElementFromIndex",[IsObject]);
 
 #! @Arguments obj, order
 #! @Returns `IsFace`
-#! @Description Creates a `face` with index <A>obj</A> and BinaryRelation <A>order</A> on <A>obj</A>. 
+#! @Description Creates a `face` with index <A>obj</A> and BinaryRelation <A>order</A> on <A>obj</A>. Function does not check to make sure <A>order</A> has <A>obj</A> in its domain.
 DeclareOperation("PosetElementWithPartialOrder",[IsObject, IsBinaryRelation]);
 
 #! @Section Element operations
 
-#! @Arguments IsPosetOfFlags
-#! @Returns `list`
-#! @Description Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A>. Assumptions here are that faces are lists of incident flags.
-DeclareOperation("RankedFaceListOfPoset",[IsPoset]);
 
 
+#! @Arguments [face,poset]
+#! @Returns `IsInt`
+#! @Description Given an element <A>face</A> and a poset <A>poset</A> to which it belongs, will give you the rank of <A>face</A> in <A>poset</A>.
+DeclareOperation("RankInPoset",[IsPosetElement,IsPoset]);
 
-#! @Arguments [face1,face1]
+
+#! @Arguments [face1,face2,poset]
 #! @Returns `true` or `false`
-#! @Description <A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. Subface will check to make sure <A>face2</A> is a subface of <A>face1</A>. 
-DeclareOperation("IsSubface", [IsFace,IsFace]);
+#! @Description <A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. IsSubface will check to see if  <A>face2</A> is a subface of <A>face1</A> in <A>poset</A>. You may drop the argument <A>poset</A> if the faces only belong to one poset in common.
+#! Warning: if the elements are made up of atoms, then IsSubface doesn't need to know what poset you are working with.
+DeclareOperation("IsSubface", [IsFace,IsFace,IsPoset]);
 
-DeclareOperation("IsEqualFaces", [IsFace, IsFace]);
+#! @Description Determines whether two faces are equal in a poset. Note that `\=` tests whether they are the identical object or not.
+DeclareOperation("IsEqualFaces", [IsFace, IsFace, IsPoset]);
 
 
 #! @Arguments object1, object2
@@ -464,7 +469,6 @@ DeclareOperation("AreIncidentElements",[IsObject,IsObject]);
 
 DeclareSynonym("AreIncidentFaces",AreIncidentElements);
 
-###To Do
 
 
 
