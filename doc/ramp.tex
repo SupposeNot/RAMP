@@ -3672,6 +3672,31 @@ directed graph
 
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{AsPosetOfAtoms (for IsPoset)}}
+\logpage{[ 11, 3, 16 ]}\nobreak
+\hyperdef{L}{X83ACE1CB7DE65C44}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AsPosetOfAtoms({\mdseries\slshape poset})\index{AsPosetOfAtoms@\texttt{AsPosetOfAtoms}!for IsPoset}
+\label{AsPosetOfAtoms:for IsPoset}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+posetFromAtoms 
+
+
+
+ If an IsP1 poset admits a description of its elements in terms of its atoms,
+this function will construct an isomorphic poset whose faces are described
+using PosetFromAtomList. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@poset:=PosetFromManiplex(Cube(2));;|
+  !gapprompt@gap>| !gapinput@p2:=AsPosetOfAtoms(poset);|
+  A poset on 10 elements using the IsPosetOfIndices representation.
+  !gapprompt@gap>| !gapinput@IsIsomorphicPoset(poset,p2);|
+  true
+\end{Verbatim}
  }
 
  
@@ -4447,6 +4472,7 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

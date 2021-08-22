@@ -382,6 +382,18 @@ DeclareOperation("FacesByRankOfPoset",[IsPoset]);
 #! @Returns directed graph
 DeclareOperation("HasseDiagramOfPoset",[IsPoset]);
 
+#! @Arguments poset
+#! @Returns posetFromAtoms
+#! @Description If <A>poset</A> is an IsP1 poset admits a description of its elements in terms of its atoms, this function will construct an isomorphic poset whose faces are described using PosetFromAtomList.
+DeclareOperation("AsPosetOfAtoms", [IsPoset]);
+#! @BeginExampleSession
+#! gap> poset:=PosetFromManiplex(Cube(2));;
+#! gap> p2:=AsPosetOfAtoms(poset);
+#! A poset on 10 elements using the IsPosetOfIndices representation.
+#! gap> IsIsomorphicPoset(poset,p2);
+#! true
+#! @EndExampleSession
+
 
 ############# Element stuff #################
 

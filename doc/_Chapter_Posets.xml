@@ -561,6 +561,25 @@ Gives lists of faces ordered by rank. Also sets the rank for each of the faces.
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="poset" Name="AsPosetOfAtoms" Label="for IsPoset"/>
+ <Returns>posetFromAtoms
+</Returns>
+ <Description>
+If an IsP1 poset admits a description of its elements in terms of its atoms, this function will construct an isomorphic poset whose faces are described using PosetFromAtomList.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> poset:=PosetFromManiplex(Cube(2));;
+gap> p2:=AsPosetOfAtoms(poset);
+A poset on 10 elements using the IsPosetOfIndices representation.
+gap> IsIsomorphicPoset(poset,p2);
+true
+]]></Example>
+
+
 </Section>
 
 

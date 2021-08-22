@@ -109,7 +109,7 @@ InstallMethod(ListIsP1Poset,
 	flags:=DuplicateFreeList(Flat(list));
 	Sort(flags);
 	rank:=Length(list);
-	if list[1]=[[]] and list[rank]=[flags] then
+	if Length(list[1])=1 and Length(list[rank])=1 then
 		return true;
 	else
 		return false;
@@ -124,7 +124,7 @@ InstallMethod(IsP1,
 	function(poset)
 		local faceList;
 	faceList:=poset!.faces_list_by_rank;
-	if faceList[1]=[[]] and Length(faceList[Rank(poset)+2])=1 then
+	if Length(faceList[1])=1 and Length(faceList[Rank(poset)+2])=1 then
 		return true;
 	else
 		return false;
@@ -505,6 +505,34 @@ InstallMethod(PartialOrder,
 	fi;	
 	end);
 
+InstallMethod(AsPosetOfAtoms,
+	[IsPoset],
+	function(poset)
+	local minFace, minFaces, po, hpo, succ, parents, domain, newFaces, fullSuccessors, atoms, i, j, nonReflSucc;
+	if IsP1(poset)=false then Error("Poset must be IsP1."); return fail; fi;
+	if HasIsAtomic(poset) then 
+		if IsAtomic(poset)<>true then Error("Poset doesn't admit a description of its faces in terms of atoms."); return fail; fi;
+		fi;
+	po:=PartialOrder(poset);
+	hpo:=HasseDiagramBinaryRelation(po);
+	parents:=Successors(hpo);
+	fullSuccessors:=Successors(po);
+	nonReflSucc:=Successors(TransitiveClosureBinaryRelation(hpo));
+	succ:=Union(parents);
+	domain:=Union(Source(po),Range(po));
+	minFace:=Filtered(domain,x->not (x in succ))[1];
+ 	minFaces:=parents[minFace];
+ 	atoms:=List(domain,x->[]);
+ 	for i in minFaces do atoms[i]:=[i];od;
+ 	for i in minFaces do
+ 		for j in nonReflSucc[i] do
+ 			Append(atoms[j],[i]);
+ 		od;
+ 	od;
+ 	newFaces:=List(atoms,PosetElementFromAtomList);
+	return PosetFromElements(atoms,PairCompareAtomsList);
+	end);
+
 
 InstallMethod(AreIncidentElements,
 	[IsObject,IsObject],
@@ -712,7 +740,6 @@ InstallMethod(IsAtomic,
 	return IsDuplicateFreeList(atoms);
 	end);
 	
-
 
 InstallMethod(ConnectionGeneratorOfPoset,
 	[IsPoset,IsInt],
@@ -1267,11 +1294,14 @@ InstallMethod(PairCompareFlagsList,
 # 	if a[1]=[] and a[2]<=b[2] then return true; fi;
 	return Intersection(b[1],a[1])<>[] and b[2]<=a[2];end);
 
+# InstallMethod(PairCompareAtomsList,
+# 	[IsList,IsList],
+# 	function(a,b) 
+# 	return IsSubset(b[1],a[1]) and a[2]<=b[2];end);
 InstallMethod(PairCompareAtomsList,
 	[IsList,IsList],
 	function(a,b) 
-	return IsSubset(b[1],a[1]) and a[2]<=b[2];end);
-
+	return IsSubset(a,b);end);
 
 
 

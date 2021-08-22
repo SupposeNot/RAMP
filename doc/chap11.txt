@@ -514,6 +514,23 @@
   [33X[1;0Y[29X[2XHasseDiagramOfPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ydirected graph[133X
   
+  [1X11.3-16 AsPosetOfAtoms[101X
+  
+  [33X[1;0Y[29X[2XAsPosetOfAtoms[102X( [3Xposet[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YposetFromAtoms[133X
+  
+  [33X[0;0YIf an IsP1 poset admits a description of its elements in terms of its atoms,
+  this  function  will construct an isomorphic poset whose faces are described
+  using PosetFromAtomList.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Cube(2));;[127X[104X
+    [4X[25Xgap>[125X [27Xp2:=AsPosetOfAtoms(poset);[127X[104X
+    [4X[28XA poset on 10 elements using the IsPosetOfIndices representation.[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicPoset(poset,p2);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   
   [1X11.4 [33X[0;0YElements of posets, also known as faces.[133X[101X
   

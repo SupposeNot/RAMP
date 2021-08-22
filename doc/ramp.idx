@@ -204,45 +204,46 @@
 \indexentry{RankPosetElements@\texttt  {RankPosetElements}!for IsPoset|hyperpage}{48}
 \indexentry{FacesByRankOfPoset@\texttt  {FacesByRankOfPoset}!for IsPoset|hyperpage}{48}
 \indexentry{HasseDiagramOfPoset@\texttt  {HasseDiagramOfPoset}!for IsPoset|hyperpage}{48}
+\indexentry{AsPosetOfAtoms@\texttt  {AsPosetOfAtoms}!for IsPoset|hyperpage}{49}
 \indexentry{RanksInPosets@\texttt  {RanksInPosets}!for IsPosetElement|hyperpage}{49}
 \indexentry{AddRanksInPosets@\texttt  {AddRanksInPosets}!for IsPosetElement,IsPoset,IsInt|hyperpage}{49}
 \indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{49}
 \indexentry{AtomList@\texttt  {AtomList}!for IsPosetElement|hyperpage}{49}
 \indexentry{PosetElementWithOrder@\texttt  {PosetElementWithOrder}!for IsObject,IsFunction|hyperpage}{49}
-\indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsPoset,IsInt|hyperpage}{49}
-\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList|hyperpage}{49}
+\indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsPoset,IsInt|hyperpage}{50}
+\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList|hyperpage}{50}
 \indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject|hyperpage}{50}
 \indexentry{PosetElementWithPartialOrder@\texttt  {PosetElementWithPartialOrder}!for IsObject, IsBinaryRelation|hyperpage}{50}
 \indexentry{RankInPoset@\texttt  {RankInPoset}!for IsPosetElement,IsPoset|hyperpage}{50}
 \indexentry{IsSubface@\texttt  {IsSubface}!for IsFace,IsFace,IsPoset|hyperpage}{50}
-\indexentry{IsEqualFaces@\texttt  {IsEqualFaces}!for IsFace, IsFace, IsPoset|hyperpage}{50}
-\indexentry{AreIncidentElements@\texttt  {AreIncidentElements}!for IsObject,IsObject|hyperpage}{50}
-\indexentry{JoinProduct@\texttt  {JoinProduct}!for IsPoset,IsPoset|hyperpage}{51}
-\indexentry{CartesianProduct@\texttt  {CartesianProduct}!for IsPoset,IsPoset|hyperpage}{51}
-\indexentry{DirectSumOfPosets@\texttt  {DirectSumOfPosets}!for IsPoset,IsPoset|hyperpage}{52}
-\indexentry{TopologicalProduct@\texttt  {TopologicalProduct}!for IsPoset,IsPoset|hyperpage}{52}
-\indexentry{Antiprism@\texttt  {Antiprism}!for IsPoset|hyperpage}{52}
-\indexentry{IsQuotient@\texttt  {IsQuotient}!for IsManiplex, IsManiplex|hyperpage}{54}
-\indexentry{IsCover@\texttt  {IsCover}!for IsManiplex, IsManiplex|hyperpage}{54}
-\indexentry{IsIsomorphicManiplex@\texttt  {IsIsomorphicManiplex}!for IsManiplex, IsManiplex|hyperpage}{54}
-\indexentry{SmallestRegularCover@\texttt  {SmallestRegularCover}!for IsManiplex|hyperpage}{54}
-\indexentry{QuotientManiplex@\texttt  {QuotientManiplex}!for IsReflexibleManiplex, IsString|hyperpage}{54}
-\indexentry{ReflexibleQuotientManiplex@\texttt  {ReflexibleQuotientManiplex}!for IsManiplex, IsList|hyperpage}{55}
-\indexentry{UniversalRotationGroup@\texttt  {UniversalRotationGroup}!for IsInt|hyperpage}{56}
-\indexentry{UniversalRotationGroup@\texttt  {UniversalRotationGroup}!for IsList|hyperpage}{56}
-\indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsGroup|hyperpage}{56}
-\indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsList|hyperpage}{56}
-\indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsList, IsList|hyperpage}{56}
-\indexentry{EnantiomorphicForm@\texttt  {EnantiomorphicForm}!for IsRotaryManiplex|hyperpage}{57}
-\indexentry{DatabaseString@\texttt  {DatabaseString}!for IsManiplex|hyperpage}{57}
-\indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{57}
-\indexentry{Cuboctahedron@\texttt  {Cuboctahedron}|hyperpage}{57}
-\indexentry{TruncatedTetrahedron@\texttt  {TruncatedTetrahedron}|hyperpage}{57}
-\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{58}
-\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{58}
-\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{58}
-\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{58}
-\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{58}
-\indexentry{ParseStringCRels@\texttt  {ParseStringCRels}|hyperpage}{59}
-\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{59}
-\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{59}
+\indexentry{IsEqualFaces@\texttt  {IsEqualFaces}!for IsFace, IsFace, IsPoset|hyperpage}{51}
+\indexentry{AreIncidentElements@\texttt  {AreIncidentElements}!for IsObject,IsObject|hyperpage}{51}
+\indexentry{JoinProduct@\texttt  {JoinProduct}!for IsPoset,IsPoset|hyperpage}{52}
+\indexentry{CartesianProduct@\texttt  {CartesianProduct}!for IsPoset,IsPoset|hyperpage}{52}
+\indexentry{DirectSumOfPosets@\texttt  {DirectSumOfPosets}!for IsPoset,IsPoset|hyperpage}{53}
+\indexentry{TopologicalProduct@\texttt  {TopologicalProduct}!for IsPoset,IsPoset|hyperpage}{53}
+\indexentry{Antiprism@\texttt  {Antiprism}!for IsPoset|hyperpage}{53}
+\indexentry{IsQuotient@\texttt  {IsQuotient}!for IsManiplex, IsManiplex|hyperpage}{55}
+\indexentry{IsCover@\texttt  {IsCover}!for IsManiplex, IsManiplex|hyperpage}{55}
+\indexentry{IsIsomorphicManiplex@\texttt  {IsIsomorphicManiplex}!for IsManiplex, IsManiplex|hyperpage}{55}
+\indexentry{SmallestRegularCover@\texttt  {SmallestRegularCover}!for IsManiplex|hyperpage}{55}
+\indexentry{QuotientManiplex@\texttt  {QuotientManiplex}!for IsReflexibleManiplex, IsString|hyperpage}{55}
+\indexentry{ReflexibleQuotientManiplex@\texttt  {ReflexibleQuotientManiplex}!for IsManiplex, IsList|hyperpage}{56}
+\indexentry{UniversalRotationGroup@\texttt  {UniversalRotationGroup}!for IsInt|hyperpage}{57}
+\indexentry{UniversalRotationGroup@\texttt  {UniversalRotationGroup}!for IsList|hyperpage}{57}
+\indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsGroup|hyperpage}{57}
+\indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsList|hyperpage}{57}
+\indexentry{RotaryManiplex@\texttt  {RotaryManiplex}!for IsList, IsList|hyperpage}{57}
+\indexentry{EnantiomorphicForm@\texttt  {EnantiomorphicForm}!for IsRotaryManiplex|hyperpage}{58}
+\indexentry{DatabaseString@\texttt  {DatabaseString}!for IsManiplex|hyperpage}{58}
+\indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{58}
+\indexentry{Cuboctahedron@\texttt  {Cuboctahedron}|hyperpage}{58}
+\indexentry{TruncatedTetrahedron@\texttt  {TruncatedTetrahedron}|hyperpage}{58}
+\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{59}
+\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{59}
+\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{59}
+\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{59}
+\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{59}
+\indexentry{ParseStringCRels@\texttt  {ParseStringCRels}|hyperpage}{60}
+\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{60}
+\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{60}
