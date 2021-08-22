@@ -342,7 +342,19 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAtomic</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Checks if <var class="Arg">poset</var> is atomic. TBD</p>
+<p>This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.</p>
+
+<p>Note: At some point this will have to be renamed, but I've forgotten the right terminology.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromPartialOrder(po);; IsAtomic(p);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);</span>
+true
+</pre></div>
 
 <p><a id="X85A9CAA682FE56EB" name="X85A9CAA682FE56EB"></a></p>
 

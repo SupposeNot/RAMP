@@ -688,6 +688,31 @@ InstallMethod(IsFlaggable,
 
 
 
+InstallMethod(IsAtomic,
+	[IsPoset],
+	function(poset)
+	local minFace, minFaces, po, hpo, succ, parents, domain, newFaces, fullSuccessors, atoms, i, j, nonReflSucc;
+	if IsP1(poset)=false then return false;fi;
+	po:=PartialOrder(poset);
+	hpo:=HasseDiagramBinaryRelation(po);
+	parents:=Successors(hpo);
+	fullSuccessors:=Successors(po);
+	nonReflSucc:=Successors(TransitiveClosureBinaryRelation(hpo));
+	succ:=Union(parents);
+	domain:=Union(Source(po),Range(po));
+	minFace:=Filtered(domain,x->not (x in succ))[1];
+ 	minFaces:=parents[minFace];
+ 	atoms:=List(domain,x->[]);
+ 	for i in minFaces do atoms[i]:=[i];od;
+ 	for i in minFaces do
+ 		for j in nonReflSucc[i] do
+ 			Append(atoms[j],[i]);
+ 		od;
+ 	od;
+	return IsDuplicateFreeList(atoms);
+	end);
+	
+
 
 InstallMethod(ConnectionGeneratorOfPoset,
 	[IsPoset,IsInt],
@@ -1238,7 +1263,7 @@ InstallOtherMethod(IsSubface,
 
 InstallMethod(PairCompareFlagsList,
 	[IsList,IsList],
-	function(a,b) 
+	function(b,a) 
 # 	if a[1]=[] and a[2]<=b[2] then return true; fi;
 	return Intersection(b[1],a[1])<>[] and b[2]<=a[2];end);
 

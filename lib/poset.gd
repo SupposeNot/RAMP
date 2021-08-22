@@ -190,9 +190,18 @@ DeclareProperty("IsFlaggable",IsPoset);
 
 
 #! @Arguments poset
-#! @Description Checks if <A>poset</A> is atomic. 
-#! TBD
-DeclareProperty("IsAtomic",IsPoset);
+#! @Description This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.
+#!
+#! Note: At some point this will have to be renamed, but I've forgotten the right terminology. 
+DeclareProperty("IsAtomic", IsPoset);
+#! @BeginExampleSession
+#! gap> po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;
+#! gap> po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;
+#! gap> p:=PosetFromPartialOrder(po);; IsAtomic(p);
+#! false
+#! gap> p2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);
+#! true
+#! @EndExampleSession
 
 #! @Arguments poset
 #! @Returns `partial order`

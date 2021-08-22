@@ -3241,8 +3241,21 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
 
 
 
- Checks if \mbox{\texttt{\mdseries\slshape poset}} is atomic. TBD }
+ This checks whether or not the faces of an IsP1 poset may be described
+uniquely in terms of the posets atoms. 
 
+ Note: At some point this will have to be renamed, but I've forgotten the right
+terminology. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;|
+  !gapprompt@gap>| !gapinput@po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;|
+  !gapprompt@gap>| !gapinput@p:=PosetFromPartialOrder(po);; IsAtomic(p);|
+  false
+  !gapprompt@gap>| !gapinput@p2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
@@ -4434,7 +4447,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

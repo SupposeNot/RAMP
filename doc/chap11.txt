@@ -255,7 +255,20 @@
   [33X[1;0Y[29X[2XIsAtomic[102X( [3Xposet[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YChecks if [3Xposet[103X is atomic. TBD[133X
+  [33X[0;0YThis  checks  whether  or  not  the  faces of an IsP1 poset may be described
+  uniquely in terms of the posets atoms.[133X
+  
+  [33X[0;0YNote:  At  some  point  this will have to be renamed, but I've forgotten the
+  right terminology.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xpo:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;[127X[104X
+    [4X[25Xgap>[125X [27Xpo:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;[127X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromPartialOrder(po);; IsAtomic(p);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27Xp2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X11.2-7 PartialOrder[101X
   
