@@ -255,63 +255,62 @@
       10.1-5 OrientableCover
       10.1-6 IOrientableCover
   11 [33X[0;0YPosets[133X
-    11.1 [33X[0;0YPoset constructors[133X
-      11.1-1 PosetFromFaceListOfFlags
-      11.1-2 PosetFromConnectionGroup
-      11.1-3 PosetFromManiplex
-      11.1-4 PosetFromPartialOrder
-      11.1-5 PosetFromElements
-      11.1-6 [33X[0;0YHelper functions for special partial orders[133X
-      11.1-7 DualPoset
-    11.2 [33X[0;0YPoset attributes[133X
-      11.2-1 MaximalChains
-      11.2-2 RankPoset
-      11.2-3 ElementsList
-      11.2-4 OrderingFunction
-      11.2-5 IsFlaggable
-      11.2-6 IsAtomic
-      11.2-7 PartialOrder
-      11.2-8 ListIsP1Poset
-      11.2-9 IsP1
-      11.2-10 IsP2
-      11.2-11 IsP3
-      11.2-12 IsFlagConnected
-      11.2-13 IsP4
-      11.2-14 IsPolytope
-      11.2-15 IsPrePolytope
-    11.3 [33X[0;0YWorking with posets[133X
-      11.3-1 IsIsomorphicPoset
-      11.3-2 PosetIsomorphism
-      11.3-3 FlagsAsListOfFacesFromPoset
-      11.3-4 RankedFaceListOfPoset
-      11.3-5 AdjacentFlag
-      11.3-6 AdjacentFlags
-      11.3-7 EqualChains
-      11.3-8 ConnectionGeneratorOfPoset
-      11.3-9 ConnectionGroup
-      11.3-10 AutomorphismGroup
-      11.3-11 AutomorphismGroupOnElements
-      11.3-12 FaceListOfPoset
-      11.3-13 RankPosetElements
-      11.3-14 FacesByRankOfPoset
-      11.3-15 HasseDiagramOfPoset
-      11.3-16 AsPosetOfAtoms
-    11.4 [33X[0;0YElements of posets, also known as faces.[133X
-      11.4-1 RanksInPosets
-      11.4-2 AddRanksInPosets
-      11.4-3 FlagList
-      11.4-4 AtomList
-    11.5 [33X[0;0YElement Constructors[133X
-      11.5-1 PosetElementWithOrder
-      11.5-2 PosetElementFromListOfFlags
-      11.5-3 PosetElementFromAtomList
-      11.5-4 PosetElementFromIndex
-      11.5-5 PosetElementWithPartialOrder
-    11.6 [33X[0;0YElement operations[133X
-      11.6-1 RankInPoset
-      11.6-2 IsSubface
-      11.6-3 IsEqualFaces
-      11.6-4 AreIncidentElements
+    11.1 [33X[0;0YPoset attributes[133X
+      11.1-1 MaximalChains
+      11.1-2 RankPoset
+      11.1-3 ElementsList
+      11.1-4 OrderingFunction
+      11.1-5 IsFlaggable
+      11.1-6 IsAtomic
+      11.1-7 PartialOrder
+      11.1-8 ListIsP1Poset
+      11.1-9 IsP1
+      11.1-10 IsP2
+      11.1-11 IsP3
+      11.1-12 IsFlagConnected
+      11.1-13 IsP4
+      11.1-14 IsPolytope
+      11.1-15 IsPrePolytope
+    11.2 [33X[0;0YPoset constructors[133X
+      11.2-1 PosetFromFaceListOfFlags
+      11.2-2 PosetFromConnectionGroup
+      11.2-3 PosetFromManiplex
+      11.2-4 PosetFromPartialOrder
+      11.2-5 PosetFromElements
+      11.2-6 [33X[0;0YHelper functions for special partial orders[133X
+      11.2-7 DualPoset
+    11.3 [33X[0;0YElement Constructors[133X
+      11.3-1 PosetElementWithOrder
+      11.3-2 PosetElementFromListOfFlags
+      11.3-3 PosetElementFromAtomList
+      11.3-4 PosetElementFromIndex
+      11.3-5 PosetElementWithPartialOrder
+      11.3-6 RanksInPosets
+      11.3-7 AddRanksInPosets
+      11.3-8 FlagList
+      11.3-9 AtomList
+    11.4 [33X[0;0YElement operations[133X
+      11.4-1 RankInPoset
+      11.4-2 IsSubface
+      11.4-3 IsEqualFaces
+      11.4-4 AreIncidentElements
+    11.5 [33X[0;0YWorking with posets[133X
+      11.5-1 IsIsomorphicPoset
+      11.5-2 PosetIsomorphism
+      11.5-3 FlagsAsListOfFacesFromPoset
+      11.5-4 RankedFaceListOfPoset
+      11.5-5 AdjacentFlag
+      11.5-6 AdjacentFlags
+      11.5-7 EqualChains
+      11.5-8 ConnectionGeneratorOfPoset
+      11.5-9 ConnectionGroup
+      11.5-10 AutomorphismGroup
+      11.5-11 AutomorphismGroupOnElements
+      11.5-12 FaceListOfPoset
+      11.5-13 RankPosetElements
+      11.5-14 FacesByRankOfPoset
+      11.5-15 HasseDiagramOfPoset
+      11.5-16 AsPosetOfAtoms
   12 [33X[0;0YProducts of Posets and Digraphs[133X
     12.1 [33X[0;0YConstruction methods[133X
       12.1-1 JoinProduct
