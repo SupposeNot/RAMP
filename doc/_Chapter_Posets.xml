@@ -115,12 +115,17 @@ HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary rela
 </ManSection>
 
 
-<ManSection>
-  <Attr Arg="poset" Name="IsLattice" Label="for IsPoset"/>
+<ManSection Label="Lattices">
+<Heading>Lattices</Heading>
+  <Prop Arg="poset" Name="IsLattice" Label="for IsPoset"/>
+  <Prop Arg="arg" Name="IsAllMeets" Label="for IsPoset"/>
+  <Prop Arg="arg" Name="IsAllJoins" Label="for IsPoset"/>
  <Returns>IsBool
 </Returns>
  <Description>
-Determines whether a poset is a lattice or not.
+IsLattice determines whether a poset is a lattice or not.
+IsAllMeets determines whether all meets in a poset are unique.
+IsAllJoins determines whether all joins in a poset are unique.
  </Description>
 </ManSection>
 
@@ -132,6 +137,19 @@ true
 gap> bad:=PosetFromManiplex(HemiCube(3));;
 gap> IsLattice(bad);
 fail
+]]></Example>
+
+
+ Here's a simple example of when a lattice isn't atomic.
+<Example><![CDATA[
+gap> l:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;
+gap> b:=BinaryRelationOnPoints(l);; 
+po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
+gap> poset:=PosetFromPartialOrder(po);;
+gap> IsLattice(poset);
+true
+gap> IsAtomic(poset);
+false
 ]]></Example>
 
 

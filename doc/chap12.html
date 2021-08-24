@@ -32,7 +32,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X842B0F7E81670077">12.1-5 IsFlaggable</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X816460188169E650">12.1-6 IsAtomic</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X85A9CAA682FE56EB">12.1-7 PartialOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7ED4FC9887B79338">12.1-8 IsLattice</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X851265E17D42FCAD">12.1-8 <span class="Heading">Lattices</span></a>
+</span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8455987F7E9A88FF">12.1-9 ListIsP1Poset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X81269ACB7EF202C4">12.1-10 IsP1</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7AFA3C077FD9583A">12.1-11 IsP2</a></span>
@@ -207,14 +208,16 @@ true
 
 <p>HasPartialOrder Checks if <var class="Arg">poset</var> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <var class="Arg">poset</var>. In many cases, PartialOrder is able to compute one from structural information.</p>
 
-<p><a id="X7ED4FC9887B79338" name="X7ED4FC9887B79338"></a></p>
+<p><a id="X851265E17D42FCAD" name="X851265E17D42FCAD"></a></p>
 
-<h5>12.1-8 IsLattice</h5>
+<h5>12.1-8 <span class="Heading">Lattices</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLattice</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLattice</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAllMeets</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAllJoins</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>
 
-<p>Determines whether a poset is a lattice or not.</p>
+<p>IsLattice determines whether a poset is a lattice or not. IsAllMeets determines whether all meets in a poset are unique. IsAllJoins determines whether all joins in a poset are unique.</p>
 
 
 <div class="example"><pre>
@@ -224,6 +227,20 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bad:=PosetFromManiplex(HemiCube(3));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLattice(bad);</span>
 fail
+</pre></div>
+
+<p>Here's a simple example of when a lattice isn't atomic.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=BinaryRelationOnPoints(l);; </span>
+po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromPartialOrder(po);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLattice(poset);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAtomic(poset);</span>
+false
 </pre></div>
 
 <p><a id="X8455987F7E9A88FF" name="X8455987F7E9A88FF"></a></p>

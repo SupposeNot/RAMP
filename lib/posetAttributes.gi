@@ -182,7 +182,7 @@ InstallMethod(IsAtomic,
 	[IsPoset],
 	function(poset)
 	local minFace, minFaces, po, hpo, succ, parents, domain, newFaces, fullSuccessors, atoms, i, j, nonReflSucc;
-	if IsP1(poset)=false then return false;fi;
+	if IsLattice(poset)=false then return false; fi;
 	po:=PartialOrder(poset);
 	hpo:=HasseDiagramBinaryRelation(po);
 	parents:=Successors(hpo);
@@ -235,8 +235,41 @@ InstallMethod(IsLattice,
 		od;
 	od;
 	if Positions(meets,fail)=[] and Positions(joins,fail)=[] then return true;
-	else return fail; fi;
+	else return false; fi;
 	end);
+
+InstallMethod(IsAllMeets,
+	[IsPoset],
+	function(poset)
+	local faces, meets, joins, i, j;
+	if IsP1(poset)<>true then return false;fi;
+	faces:=Faces(poset);
+	meets:=[];
+	for i in [1..Length(faces)-1] do
+		for j in [i+1..Length(faces)] do
+			Add(meets,Meet(faces[i],faces[j],poset));
+		od;
+	od;
+	if Positions(meets,fail)=[] then return true;
+	else return false; fi;
+	end);
+
+InstallMethod(IsAllJoins,
+	[IsPoset],
+	function(poset)
+	local faces, meets, joins, i, j;
+	if IsP1(poset)<>true then return false;fi;
+	faces:=Faces(poset);
+	joins:=[];
+	for i in [1..Length(faces)-1] do
+		for j in [i+1..Length(faces)] do
+			Add(joins,Join(faces[i],faces[j],poset));
+		od;
+	od;
+	if Positions(joins,fail)=[] then return true;
+	else return false; fi;
+	end);
+
 
 InstallMethod(ListIsP1Poset,
 	[IsList],

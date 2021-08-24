@@ -21,6 +21,11 @@ InstallTrueMethod(IsPrePolytope, IsPoset and IsP1 and IsP2 and IsP4);
 InstallTrueMethod(IsPoset and IsP1 and IsP2 and IsP3 and IsP4,IsPolytope);
 InstallTrueMethod( IsPoset and IsP1 and IsP2 and IsP4, IsPrePolytope);
 InstallTrueMethod(IsFlagConnected, IsPoset and IsP3);
+InstallTrueMethod(IsLattice, IsP1 and IsAllMeets and IsAllJoins);
+InstallTrueMethod(IsP1 and IsAllMeets and IsAllJoins, IsLattice);
+InstallTrueMethod(IsP1, IsAllMeets and IsAllJoins);
+InstallTrueMethod(IsAllMeets, IsP1 and IsAllJoins);
+InstallTrueMethod(IsAllJoins, IsP1 and IsAllMeets);
 # When we add an attribute computer, we can optionally pass in a list of
 # "prerequisite attributes" of the base. Then, if the base already has
 # values for those attributes, we just run the attribute computer right away.

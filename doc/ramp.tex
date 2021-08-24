@@ -3111,19 +3111,27 @@ partial order to the \mbox{\texttt{\mdseries\slshape poset}}. In many cases, Par
 information. }
 
  
-
-\subsection{\textcolor{Chapter }{IsLattice (for IsPoset)}}
-\logpage{[ 12, 1, 8 ]}\nobreak
-\hyperdef{L}{X7ED4FC9887B79338}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLattice({\mdseries\slshape poset})\index{IsLattice@\texttt{IsLattice}!for IsPoset}
+\subsection{\textcolor{Chapter }{Lattices}}\label{Lattices}
+\logpage{[ 12, 1, 8 ]}
+\hyperdef{L}{X851265E17D42FCAD}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLattice({\mdseries\slshape poset})\index{IsLattice@\texttt{IsLattice}!for IsPoset}
 \label{IsLattice:for IsPoset}
-}\hfill{\scriptsize (attribute)}}\\
+}\hfill{\scriptsize (property)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAllMeets({\mdseries\slshape arg})\index{IsAllMeets@\texttt{IsAllMeets}!for IsPoset}
+\label{IsAllMeets:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAllJoins({\mdseries\slshape arg})\index{IsAllJoins@\texttt{IsAllJoins}!for IsPoset}
+\label{IsAllJoins:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 IsBool 
 
 
 
- Determines whether a poset is a lattice or not. }
+ IsLattice determines whether a poset is a lattice or not. IsAllMeets
+determines whether all meets in a poset are unique. IsAllJoins determines
+whether all joins in a poset are unique. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -3133,6 +3141,17 @@ IsBool
   !gapprompt@gap>| !gapinput@bad:=PosetFromManiplex(HemiCube(3));;|
   !gapprompt@gap>| !gapinput@IsLattice(bad);|
   fail
+\end{Verbatim}
+ Here's a simple example of when a lattice isn't atomic. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@l:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;|
+  !gapprompt@gap>| !gapinput@b:=BinaryRelationOnPoints(l);; |
+  po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
+  !gapprompt@gap>| !gapinput@poset:=PosetFromPartialOrder(po);;|
+  !gapprompt@gap>| !gapinput@IsLattice(poset);|
+  true
+  !gapprompt@gap>| !gapinput@IsAtomic(poset);|
+  false
 \end{Verbatim}
  
 
@@ -4615,6 +4634,7 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

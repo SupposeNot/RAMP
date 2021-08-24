@@ -107,12 +107,17 @@
   relation).  SetPartialOrder  assigns  a  partial order to the [3Xposet[103X. In many
   cases, PartialOrder is able to compute one from structural information.[133X
   
-  [1X12.1-8 IsLattice[101X
   
-  [33X[1;0Y[29X[2XIsLattice[102X( [3Xposet[103X ) [32X attribute[133X
+  [1X12.1-8 [33X[0;0YLattices[133X[101X
+  
+  [33X[1;0Y[29X[2XIsLattice[102X( [3Xposet[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsAllMeets[102X( [3Xarg[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsAllJoins[102X( [3Xarg[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YIsBool[133X
   
-  [33X[0;0YDetermines whether a poset is a lattice or not.[133X
+  [33X[0;0YIsLattice  determines  whether  a  poset  is  a  lattice  or not. IsAllMeets
+  determines  whether  all  meets in a poset are unique. IsAllJoins determines
+  whether all joins in a poset are unique.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Cube(3));;[127X[104X
@@ -121,6 +126,19 @@
     [4X[25Xgap>[125X [27Xbad:=PosetFromManiplex(HemiCube(3));;[127X[104X
     [4X[25Xgap>[125X [27XIsLattice(bad);[127X[104X
     [4X[28Xfail[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YHere's a simple example of when a lattice isn't atomic.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xl:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;[127X[104X
+    [4X[25Xgap>[125X [27Xb:=BinaryRelationOnPoints(l);; [127X[104X
+    [4X[28Xpo:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;[128X[104X
+    [4X[25Xgap>[125X [27Xposet:=PosetFromPartialOrder(po);;[127X[104X
+    [4X[25Xgap>[125X [27XIsLattice(poset);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsAtomic(poset);[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X12.1-9 ListIsP1Poset[101X

@@ -79,15 +79,18 @@ DeclareProperty("IsAtomic", IsPoset);
 #! true
 #! @EndExampleSession
 
+
 #! @Arguments poset
 #! @Returns `partial order`
 #! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. In many cases, PartialOrder is able to compute one from structural information.
 DeclareAttribute("PartialOrder", IsPoset);
 
+#! @BeginGroup Lattices
+#! @GroupTitle Lattices
 #! @Arguments poset
 #! @Returns IsBool
-#! @Description Determines whether a poset is a lattice or not.
-DeclareAttribute("IsLattice", IsPoset);
+#! @Description IsLattice determines whether a poset is a lattice or not.
+DeclareProperty("IsLattice", IsPoset);
 #! @BeginExampleSession
 #! gap> poset:=PosetFromManiplex(Cube(3));;
 #! gap> IsLattice(poset);
@@ -96,6 +99,23 @@ DeclareAttribute("IsLattice", IsPoset);
 #! gap> IsLattice(bad);
 #! fail
 #! @EndExampleSession
+#! @Description IsAllMeets determines whether all meets in a poset are unique.
+DeclareProperty("IsAllMeets", IsPoset );
+#! @Description IsAllJoins determines whether all joins in a poset are unique.
+DeclareProperty("IsAllJoins", IsPoset );
+#! Here's a simple example of when a lattice isn't atomic.
+#! @BeginExampleSession
+#! gap> l:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;
+#! gap> b:=BinaryRelationOnPoints(l);; 
+#! po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
+#! gap> poset:=PosetFromPartialOrder(po);;
+#! gap> IsLattice(poset);
+#! true
+#! gap> IsAtomic(poset);
+#! false
+#! @EndExampleSession
+#! @EndGroup Lattices
+
 
 #! @Arguments list
 #! @Returns `true` or `false`
