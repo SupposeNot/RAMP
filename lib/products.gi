@@ -186,3 +186,27 @@ InstallMethod(Prism,
 	[IsInt],
 	k -> PrismOver(Pgon(k)));
 
+
+InstallMethod(Antiprism,
+	[IsManiplex],
+	function(M)
+	local n, antiprism;
+	n := Rank(M);
+
+	antiprism := Maniplex(Antiprism, [M]);
+	antiprism!.base := M;
+
+	SetRankManiplex(antiprism, n+1);
+	SetString(antiprism, Concatenation("Antiprism(", String(M), ")"));
+
+	AddAttrComputer(antiprism, ConnectionGroup,
+		function(p)
+		return ConnectionGroup(Antiprism(PosetFromManiplex(p!.base)));
+		end);
+		
+	return antiprism;
+	end);
+
+InstallMethod(Antiprism,
+	[IsInt],
+	k -> Antiprism(Pgon(k)));

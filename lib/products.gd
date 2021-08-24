@@ -18,3 +18,10 @@ DeclareOperation("PrismOver", [IsManiplex]);
 #! Returns the prism over a <A>k</A>-gon.
 DeclareOperation("Prism", [IsInt]);
 
+#! @Arguments M
+#! Returns the antiprism over <A>M</A>.
+DeclareOperation("Antiprism", [IsManiplex]);
+
+#! @Arguments k
+#! Returns the antiprism over a <A>k</A>-gon.
+DeclareOperation("Antiprism", [IsInt]);
