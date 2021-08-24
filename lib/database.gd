@@ -39,6 +39,11 @@ DeclareGlobalFunction("RegularToroidalPolyhedra36");
 DeclareGlobalFunction("SmallRegularPolyhedra");
 
 #! @Arguments sizerange
+#! Returns all degenerate regular 4-polytopes with sizes in <A>sizerange</A> flags.
+#! Currently supports a maxsize of 8000 or less. 
+DeclareGlobalFunction("SmallDegenerateRegular4Polytopes");
+
+#! @Arguments sizerange
 #! Returns all regular 4-polytopes with sizes in <A>sizerange</A> flags.
 #! Currently supports a maxsize of 4000 or less.
 DeclareGlobalFunction("SmallRegular4Polytopes");
