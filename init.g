@@ -8,6 +8,7 @@
 ReadPackage( "ramp", "lib/types.gd" ); 
 
 ReadPackage( "ramp", "lib/actions.gd" ); 
+ReadPackage("ramp","lib/bicontactualRegularMaps.gd");
 ReadPackage( "ramp", "lib/conn.gd" ); 
 ReadPackage( "ramp", "lib/constructions.gd" ); 
 ReadPackage( "ramp", "lib/database.gd" ); 

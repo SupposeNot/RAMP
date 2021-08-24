@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Regular_maps">
+<Heading>Regular maps</Heading>
+
+<Section Label="Chapter_Regular_maps_Section_Bicontactual_regular_maps">
+<Heading>Bicontactual regular maps</Heading>
+
+ The names for the maps in this section are from S.E. Wilson's paper of the same title.
+<ManSection>
+  <Oper Arg="k" Name="Epsilonk" Label="for IsInt"/>
+ <Returns>maniplex
+</Returns>
+ <Description>
+Given an integer <A>k</A>, gives the map <Math>\epsilon_k</Math>, which is <Math>\{k,2\}_k</Math> when <A>k</A> is even, and <Math>\{k,2\}_{2k}</Math> when <A>k</A> is odd.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k" Name="Deltak" Label="for IsInt"/>
+ <Returns>maniplex
+</Returns>
+ <Description>
+Given an integer <A>k</A>, gives the map <Math>\delta_k</Math>, which is <Math>\{2k,2\}/2</Math> when <A>k</A> is even, and <Math>\{2k,2\}_{k}</Math> when <A>k</A> is odd.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

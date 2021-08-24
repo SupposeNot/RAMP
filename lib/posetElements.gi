@@ -269,4 +269,30 @@ InstallMethod(AreIncidentElements,
 	[IsObject,IsObject],
 	{face1,face2}->IsSubface(face1,face2) or IsSubface(face2,face1));
 
+InstallMethod(Join,
+	[IsFace, IsFace, IsPoset],
+	function(face1, face2, poset)
+	local faces, up, li, br, meet;
+	faces:=Faces(poset);
+	if not (face1 in faces and face2 in faces) then return fail; fi;
+	up:=Filtered([1..Length(faces)], x->IsSubface(faces[x],face1,poset) and IsSubface(faces[x],face2,poset));
+	if up=[] then return fail; fi;
+	li:=Flat(up);
+	li:=li{PositionsProperty( List(li, x->Unique( List(li, y->IsSubface(faces[y],faces[x],poset)))),x->x=[true])};
+	if Length(li)<>1 then return fail;fi;
+	return faces[li[1]];
+	end);
 
+InstallMethod(Meet,
+	[IsFace, IsFace, IsPoset],
+	function(face1, face2, poset)
+	local faces, down, li, br, meet;
+	faces:=Faces(poset);
+	if not (face1 in faces and face2 in faces) then return fail; fi;
+	down:=Filtered([1..Length(faces)], x->IsSubface(face1,faces[x],poset) and IsSubface(face2,faces[x],poset));
+	if down=[] then return fail; fi;
+	li:=Flat(down);
+	li:=li{PositionsProperty( List(li, x->Unique( List(li, y->IsSubface(faces[y],faces[x],poset)))),x->x=[true])};
+	if Length(li)<>1 then return fail;fi;
+	return faces[li[1]];
+	end);

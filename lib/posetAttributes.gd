@@ -68,7 +68,7 @@ DeclareProperty("IsFlaggable",IsPoset);
 #! @Arguments poset
 #! @Description This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.
 #!
-#! Note: At some point this will have to be renamed, but I've forgotten the right terminology. 
+#! The terminology as used here is approximately that of Ziegler's __Lectures on Polytopes__ where a lattice is atomic if every element is the join of atoms.
 DeclareProperty("IsAtomic", IsPoset);
 #! @BeginExampleSession
 #! gap> po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;
@@ -84,6 +84,18 @@ DeclareProperty("IsAtomic", IsPoset);
 #! @Description HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. In many cases, PartialOrder is able to compute one from structural information.
 DeclareAttribute("PartialOrder", IsPoset);
 
+#! @Arguments poset
+#! @Returns IsBool
+#! @Description Determines whether a poset is a lattice or not.
+DeclareAttribute("IsLattice", IsPoset);
+#! @BeginExampleSession
+#! gap> poset:=PosetFromManiplex(Cube(3));;
+#! gap> IsLattice(poset);
+#! true
+#! gap> bad:=PosetFromManiplex(HemiCube(3));;
+#! gap> IsLattice(bad);
+#! fail
+#! @EndExampleSession
 
 #! @Arguments list
 #! @Returns `true` or `false`
@@ -164,3 +176,17 @@ DeclareProperty("IsPolytope", IsPoset);
 #! @Arguments poset
 #! @Description Determines whether a poset is an abstract pre-polytope.
 DeclareProperty("IsPrePolytope", IsPoset);
+
+#! @Arguments poset
+#! @Returns IsBool
+#! @Description Determines whether a poset is self dual.
+DeclareProperty("IsSelfDual", IsPoset);
+#! @BeginExampleSession
+#! gap> poset:=PosetFromManiplex(Simplex(5));;
+#! A poset using the IsPosetOfFlags representation.
+#! gap> IsSelfDual(poset);
+#! true
+#! gap> poset2:=PosetFromManiplex(PyramidOver(Cube(3)));;
+#! gap> IsSelfDual(poset2);
+#! false
+#! @EndExampleSession

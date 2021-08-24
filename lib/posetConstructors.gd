@@ -1,15 +1,17 @@
 
 
 #! @Chapter Posets
+
+
+
+#! @Section Poset constructors
+
 #! I'm in the process of reconciling all of this, but there are going to be a number of ways to `define` a poset:
 #! * As an `IsPosetOfFlags`, where the underlying description is an ordered list of length $n+2$. Each of the $n+2$ list elements is a list of faces, and the assumption is that these are the faces of rank $i-2$, where $i$ is the index in the master list (e.g., `l[1][1]` would usually correspond to the unique $-1$ face of a polytope -- and there won't be an `l[1][2]`). Each face is then a list of the flags incident with that face.
 #! * As an `IsPosetOfIndices`, where the underlying description is a binary relation on a set of indices, which correspond to labels for the elements of the poset.
 #! * If the poset is known to be atomic, then by a description of the faces in terms of the atoms... usually we'll just need the list of the elements of maximal rank, from which all other elements may be obtained.
 #! * As an `IsPosetOfElements`, where the elements could be anything, and we have a known function determining the partial order on the elements.
 #! Usually, we assume that the poset will have a natural rank function on it.
-
-
-#! @Section Poset constructors
 
 #! @Arguments list
 #! @Returns `IsPosetOfFlags`. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
@@ -118,4 +120,20 @@ DeclareOperation("DualPoset",[IsPoset]);
 #! true
 #! gap> IsIsomorphicPoset(DualPoset(p),p);
 #! false
+#! @EndExampleSession
+
+#! @Arguments face1, face2, poset
+#! @Returns section
+#! @Description Constructs the section of the <A>poset</A> <A>face1</A>$/$<A>face2</A>.
+DeclareOperation("Section",[IsFace, IsFace, IsPoset]);
+#! @BeginExampleSession
+#! gap> poset:=PosetFromManiplex(PyramidOver(Cube(2)));;
+#! gap> faces:=Faces(poset);;List(faces,x->RankInPoset(x,poset));
+#! [ -1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3 ]
+#! gap> IsIsomorphicPoset(Section(faces[15],faces[1],poset),PosetFromManiplex(Simplex(2)));
+#! true
+#! gap> IsIsomorphicPoset(Section(faces[16],faces[1],poset),PosetFromManiplex(Cube(2)));
+#! true
+#! gap> IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));
+#! true
 #! @EndExampleSession

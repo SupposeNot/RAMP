@@ -95,3 +95,12 @@ DeclareOperation("AreIncidentElements",[IsObject,IsObject]);
 
 DeclareSynonym("AreIncidentFaces",AreIncidentElements);
 
+#! @Arguments face1, face2, poset
+#! @Returns meet
+#! @Description Finds (when possible) the meet of two elements in a poset.
+DeclareOperation("Meet",[IsFace, IsFace, IsPoset]);
+
+#! @Arguments face1, face2, poset
+#! @Returns meet
+#! @Description Finds (when possible) the join of two elements in a poset.
+DeclareOperation("Join",[IsFace, IsFace, IsPoset]);

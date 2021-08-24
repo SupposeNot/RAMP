@@ -165,4 +165,16 @@ InstallMethod(DualPoset,
 	newOrder:=ReflexiveClosureBinaryRelation( TransitiveClosureBinaryRelation( BinaryRelationOnPoints(suc)));
 	return PosetFromPartialOrder(AsBinaryRelationOnPoints(newOrder));
 	end);
-	
+
+
+InstallMethod(Section,
+	[IsFace, IsFace, IsPoset],
+	function(face1, face2, poset)
+	local faces, elements, ord;
+	faces:=Faces(poset);
+	if not (face1 in faces and  face2 in faces) then return fail; fi;
+	if IsSubface(face1,face2,poset)<>true then return fail;fi;
+	elements:=Filtered(faces,x->IsSubface(face1,x,poset) and IsSubface(x,face2,poset));
+	ord:=function(x,y) return IsSubface(x,y,poset); end;
+	return PosetFromElements(elements,ord);
+	end);

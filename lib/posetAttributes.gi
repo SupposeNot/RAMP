@@ -221,6 +221,22 @@ InstallMethod(PartialOrder,
 	fi;	
 	end);
 
+InstallMethod(IsLattice,
+	[IsPoset],
+	function(poset)
+	local faces, meets, joins, i, j;
+	if IsP1(poset)<>true then return false;fi;
+	faces:=Faces(poset);
+	meets:=[];joins:=[];
+	for i in [1..Length(faces)-1] do
+		for j in [i+1..Length(faces)] do
+			Add(meets,Meet(faces[i],faces[j],poset));
+			Add(joins,Join(faces[i],faces[j],poset));
+		od;
+	od;
+	if Positions(meets,fail)=[] and Positions(joins,fail)=[] then return true;
+	else return fail; fi;
+	end);
 
 InstallMethod(ListIsP1Poset,
 	[IsList],

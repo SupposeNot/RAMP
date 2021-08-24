@@ -90,7 +90,7 @@ Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Co
  <Description>
 This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.
 <P/>
- Note: At some point this will have to be renamed, but I've forgotten the right terminology. 
+ The terminology as used here is approximately that of Ziegler's <Emph>Lectures on Polytopes</Emph> where a lattice is atomic if every element is the join of atoms.
  </Description>
 </ManSection>
 
@@ -113,6 +113,26 @@ true
 HasPartialOrder Checks if <A>poset</A> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <A>poset</A>. In many cases, PartialOrder is able to compute one from structural information.
  </Description>
 </ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="IsLattice" Label="for IsPoset"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Determines whether a poset is a lattice or not.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> poset:=PosetFromManiplex(Cube(3));;
+gap> IsLattice(poset);
+true
+gap> bad:=PosetFromManiplex(HemiCube(3));;
+gap> IsLattice(bad);
+fail
+]]></Example>
 
 
 <ManSection>
@@ -240,8 +260,32 @@ Determines whether a poset is an abstract pre-polytope.
 </ManSection>
 
 
+<ManSection>
+  <Prop Arg="poset" Name="IsSelfDual" Label="for IsPoset"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Determines whether a poset is self dual.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> poset:=PosetFromManiplex(Simplex(5));;
+A poset using the IsPosetOfFlags representation.
+gap> IsSelfDual(poset);
+true
+gap> poset2:=PosetFromManiplex(PyramidOver(Cube(3)));;
+gap> IsSelfDual(poset2);
+false
+]]></Example>
+
+
 </Section>
 
+
+<Section Label="Chapter_Posets_Section_Poset_constructors">
+<Heading>Poset constructors</Heading>
 
  I'm in the process of reconciling all of this, but there are going to be a number of ways to <Code>define</Code> a poset:
 <List>
@@ -259,9 +303,6 @@ As an <Code>IsPosetOfElements</Code>, where the elements could be anything, and 
 </Item>
 </List>
  Usually, we assume that the poset will have a natural rank function on it.
-<Section Label="Chapter_Posets_Section_Poset_constructors">
-<Heading>Poset constructors</Heading>
-
 <ManSection>
   <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
  <Returns><Code>IsPosetOfFlags</Code>. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
@@ -401,6 +442,29 @@ gap> IsIsomorphicPoset(DualPoset(p),c);
 true
 gap> IsIsomorphicPoset(DualPoset(p),p);
 false
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="face1, face2, poset" Name="Section" Label="for IsFace, IsFace, IsPoset"/>
+ <Returns>section
+</Returns>
+ <Description>
+Constructs the section of the <A>poset</A> <A>face1</A><Math>/</Math><A>face2</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> poset:=PosetFromManiplex(PyramidOver(Cube(2)));;
+gap> faces:=Faces(poset);;List(faces,x->RankInPoset(x,poset));
+[ -1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3 ]
+gap> IsIsomorphicPoset(Section(faces[15],faces[1],poset),PosetFromManiplex(Simplex(2)));
+true
+gap> IsIsomorphicPoset(Section(faces[16],faces[1],poset),PosetFromManiplex(Cube(2)));
+true
+gap> IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));
+true
 ]]></Example>
 
 
@@ -549,6 +613,26 @@ Given two poset elements, will tell you if they are incident.
 Synonym function: <Code>AreIncidentFaces</Code>.
 </Item>
 </List>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="face1, face2, poset" Name="Meet" Label="for IsFace, IsFace, IsPoset"/>
+ <Returns>meet
+</Returns>
+ <Description>
+Finds (when possible) the meet of two elements in a poset.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="face1, face2, poset" Name="Join" Label="for IsFace, IsFace, IsPoset"/>
+ <Returns>meet
+</Returns>
+ <Description>
+Finds (when possible) the join of two elements in a poset.
  </Description>
 </ManSection>
 
