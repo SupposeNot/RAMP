@@ -210,10 +210,10 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 	t := 2;
 	while 8*t^2 <= maxsize do
 		if 8*t^2 >= minsize then
-			Add(polys, ARP([4,4], Concatenation("h2^", String(t))));
+			Add(polys, ARP([4,4], Concatenation("(r0 r1 r2 r1)^", String(t))));
 		fi;
 		if 16*t^2 >= minsize and 16*t^2 <= maxsize then
-			Add(polys, ARP([4,4], Concatenation("z1^", String(2*t))));
+			Add(polys, ARP([4,4], Concatenation("(r0 r1 r2)^", String(2*t))));
 		fi;
 		t := t + 1;
 	od;
@@ -237,10 +237,10 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	t := 1;
 	while 12*t^2 <= maxsize do
 		if 12*t^2 >= minsize then
-			Add(polys, ARP([3,6], Concatenation("z1^", String(2*t))));
+			Add(polys, ARP([3,6], Concatenation("(r0 r1 r2)^", String(2*t))));
 		fi;
 		if 36*t^2 >= minsize and 36*t^2 <= maxsize then
-			Add(polys, ARP([3,6], Concatenation("z2^", String(2*t))));
+			Add(polys, ARP([3,6], Concatenation("(r0 r1 r2 r1 r2)^", String(2*t))));
 		fi;
 		t := t + 1;
 	od;
