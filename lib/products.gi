@@ -204,6 +204,9 @@ InstallMethod(Antiprism,
 		return ConnectionGroup(Antiprism(PosetFromManiplex(p!.base)));
 		end);
 		
+	AddAttrComputer(antiprism, IsPolytopal, M -> IsPolytopal(M!.base) : prereqs := [IsPolytopal]);
+	AddAttrComputer(antiprism, Size, M -> Size(M!.base) * 2^(Rank(M)) : prereqs := [Size, RankManiplex]);
+	
 	return antiprism;
 	end);
 

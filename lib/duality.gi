@@ -53,25 +53,46 @@ InstallMethod(IsSelfDual,
 	return p = Dual(p);
 	end);
 
-# WARNING: Currently only working as intended for polyhedra.
 InstallMethod(Petrial,
-	[IsReflexibleManiplex],
-	function(p)
-	local g, rels, q, n, sym, pet;
-	g := AutomorphismGroup(p);
-	sym := ShallowCopy(SchlafliSymbol(p));
-	rels := List(ExtraRelators(p), String);
+	[IsManiplex],
+	function(M)
+	local g, sym, rels, pet, Mp;
+
+	if IsReflexibleManiplexAutGpRep(M) and Rank(M) = 3 then
+		g := AutomorphismGroup(M);
+		sym := ShallowCopy(SchlafliSymbol(M));
+		rels := List(ExtraRelators(M), String);
+		
+		pet := Order(g.1*g.2*g.3);
+		rels := List(rels, r -> ReplacedString(r, "r0", "(r0 r2)"));
+		Add(rels, Concatenation("z1^", String(sym[1])));
+		
+		sym[1] := pet;
+		Mp := ReflexibleManiplex(sym, JoinStringsWithSeparator(rels));
+	else
+		Mp := Maniplex(Petrial, [M]);
+		SetRankManiplex(Mp, Rank(M));
+		SetString(Mp, Concatenation("Petrial(", String(M), ")"));
+	fi;
+
+	Mp!.base := M;
+
+	AddAttrComputer(Mp, Size, Mp -> Size(Mp!.base) : prereqs := [Size]);
+	AddAttrComputer(Mp, NumberOfFlagOrbits, Mp -> NumberOfFlagOrbits(Mp!.base) : prereqs := [NumberOfFlagOrbits]);
+
+	AddAttrComputer(Mp, ConnectionGroup, 
+		function(Mp)
+		local cg, gens, n;
+		cg := ConnectionGroup(Mp!.base);
+		gens := ShallowCopy(GeneratorsOfGroup(cg));
+		n := Rank(Mp);
+		gens[n-2] := gens[n-2] * gens[n];
+		return Group(gens);
+		end :
+		prereqs := [ConnectionGroup]);
 	
-	pet := Order(g.1*g.2*g.3);
-	rels := List(rels, r -> ReplacedString(r, "r0", "(r0 r2)"));
-	Add(rels, Concatenation("z1^", String(sym[1])));
-	
-	sym[1] := pet;
-	q := ReflexibleManiplex(sym, JoinStringsWithSeparator(rels));
-	SetSize(q, Size(p));
-	SetSchlafliSymbol(q, sym);
-	SetPetrial(q, p);
-	return q;
+	SetPetrial(Mp, M);
+	return Mp;
 	end);
 	
 InstallMethod(IsSelfPetrial,
@@ -83,15 +104,20 @@ InstallMethod(IsSelfPetrial,
 InstallMethod(DirectDerivates,
 	[IsManiplex],
 	function(M)
-	local Md, Mp, Mdp, Mpd, Mdpd;
+	local Md, Mp, Mdp, Mpd, Mdpd, maniplexes;
 	Md := Dual(M);
 	Mp := Petrial(M);
 	Mdp := Petrial(Md);
 	Mpd := Dual(Mp);
 	Mdpd := Dual(Mdp);
+	maniplexes := [M, Md, Mp, Mdp, Mpd, Mdpd];
+	if Rank(M) > 3 then
+		Append(maniplexes, [Petrial(Mpd), Petrial(Mdpd)]);
+	fi;
+
 	if ValueOption("polytopal") = true then
-		return Filtered(Unique([M, Md, Mp, Mdp, Mpd, Mdpd]), p -> IsPolytopal(p));
+		return Filtered(Unique(maniplexes), p -> IsPolytopal(p));
 	else
-		return Unique([M, Md, Mp, Mdp, Mpd, Mdpd]);
+		return Unique(maniplexes);
 	fi;
 	end);

@@ -210,10 +210,10 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 	t := 2;
 	while 8*t^2 <= maxsize do
 		if 8*t^2 >= minsize then
-			Add(polys, ARP([4,4], Concatenation("h2^", String(t))));
+			Add(polys, ARP([4,4], Concatenation("(r0 r1 r2 r1)^", String(t))));
 		fi;
 		if 16*t^2 >= minsize and 16*t^2 <= maxsize then
-			Add(polys, ARP([4,4], Concatenation("z1^", String(2*t))));
+			Add(polys, ARP([4,4], Concatenation("(r0 r1 r2)^", String(2*t))));
 		fi;
 		t := t + 1;
 	od;
@@ -237,10 +237,10 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	t := 1;
 	while 12*t^2 <= maxsize do
 		if 12*t^2 >= minsize then
-			Add(polys, ARP([3,6], Concatenation("z1^", String(2*t))));
+			Add(polys, ARP([3,6], Concatenation("(r0 r1 r2)^", String(2*t))));
 		fi;
 		if 36*t^2 >= minsize and 36*t^2 <= maxsize then
-			Add(polys, ARP([3,6], Concatenation("z2^", String(2*t))));
+			Add(polys, ARP([3,6], Concatenation("(r0 r1 r2 r1 r2)^", String(2*t))));
 		fi;
 		t := t + 1;
 	od;
@@ -317,6 +317,43 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	return polys;
 	end);
 
+
+InstallGlobalFunction(SmallDegenerateRegular4Polytopes,
+	function(sizerange)
+	local minsize, maxsize, maniplexes, p, q, r, polyhedra, extensions;
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	maniplexes := [];
+
+	# First we add all polytopes of type [p, 2, r], with size 4pr
+	for p in [3..Int(maxsize/8)] do
+		if 4*p^2 > maxsize then break; fi;
+		if 4*p^2 >= minsize then Add(maniplexes, ARP([p,2,p])); fi;
+		for r in [p+1..Int(maxsize/(4*p))] do
+			if minsize <= 4*p*r and 4*p*r <= maxsize then
+				Add(maniplexes, ARP([p,2,r]));
+				Add(maniplexes, ARP([r,2,p]));
+			fi;
+		od;
+	od;
+
+	# Add ones of type [2, q, 2]
+	for q in [3..Int(maxsize/8)] do
+		if 8*q >= minsize then Add(maniplexes, ARP([2,q,2])); fi;
+	od;
+	
+	# Now we add trivial extensions of all small nondegenerate regular polyhedra, and their duals
+	polyhedra := SmallRegularPolyhedra([Int((minsize+1)/2)..Int(maxsize/2)] : nondegenerate);
+	extensions := List(polyhedra, TrivialExtension);
+	Append(maniplexes, extensions);
+	Append(maniplexes, List(extensions, Dual));
+	
+	return maniplexes;
+	end);
+
+
 InstallGlobalFunction(SmallRegular4Polytopes,
 	function(sizerange)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex, attributeNames, attributes;
@@ -343,6 +380,12 @@ InstallGlobalFunction(SmallRegular4Polytopes,
 	until IsEndOfStream(databaseFile);
 
 	CloseStream(databaseFile);
+
+	if ValueOption("nondegenerate") <> true then
+		Append(maniplexes, SmallDegenerateRegular4Polytopes([minsize..maxsize]));
+	fi;
+	
+	SortBy(maniplexes, Size);
 
 	return maniplexes;
 	end);

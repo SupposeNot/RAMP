@@ -151,3 +151,37 @@ InstallMethod(EnantiomorphicForm,
 	M2 := RotaryManiplex(SchlafliSymbol(M), relstr : polytopal);
 	return M2;
 	end);
+	
+	
+TwoOrbit3ManiplexClass2_02 := function(sym, rels)
+	local f, w, v, old_names, new_names, i, parsed_rels, trans_rels, autgp, M, standard_rels, f2, wp, hom, ker, connectionGroup;
+	
+	old_names := ["r0", "r2", "a101", "a121"];
+	f := FreeGroup(old_names);
+	
+	new_names := ["a","b","c","d"];
+	for i in [1..4] do
+		rels := ReplacedString(rels, old_names[i], new_names[i]);
+	od;
+	f2 := FreeGroup(new_names);
+	parsed_rels := ParseRelators(GeneratorsOfGroup(f2), rels);
+	trans_rels := List(parsed_rels, r -> TranslateWord(r, f));
+	
+	standard_rels := ParseRelators(GeneratorsOfGroup(f2), Concatenation("a^2, b^2, c^2, d^2, (ab)^2, (cd)^2, (ac)^", String(sym[1]/2), ", (bd)^", String(sym[2]/2)));
+	
+	Append(trans_rels, List(standard_rels, r -> TranslateWord(r, f)));
+	
+	autgp := FactorGroupFpGroupByRels(f, trans_rels);
+	
+	w := UniversalSggi(3);
+	wp := Subgroup(w, [w.1, w.3, w.2*w.1*w.2, w.2*w.3*w.2]);
+	hom := GroupHomomorphismByImagesNC(wp, autgp, GeneratorsOfGroup(wp), GeneratorsOfGroup(autgp));
+	ker := Kernel(hom);
+	connectionGroup := Image(FactorCosetAction(w, ker));
+	
+	M := Maniplex(connectionGroup);
+	SetAutomorphismGroup(M, autgp);
+	
+	return M;
+	end;
+	
