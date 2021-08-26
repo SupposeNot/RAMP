@@ -177,6 +177,24 @@ InstallMethod(IsFlaggable,
 	end);
 
 
+InstallMethod(PartialOrder,
+	[IsPoset],
+	function(poset)
+	local faceList, workingList, po;
+	faceList:=ElementsList(poset);
+	if DuplicateFreeList(List(faceList,HasFlagList))=[true] then
+		workingList:=List(faceList,x->[FlagList(x),RankInPoset(x,poset)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
+		return POConvertToBROnPoints(po);
+	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
+		workingList:=List(faceList,x->[AtomList(x),RankInPoset(x,poset)]);
+		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
+		return POConvertToBROnPoints(po);
+	else
+		Print("ya got me doc! You might try including a partial ordering function.");
+	fi;	
+	end);
+
 
 InstallMethod(IsAtomic,
 	[IsPoset],
@@ -203,23 +221,6 @@ InstallMethod(IsAtomic,
 	end);
 	
 
-InstallMethod(PartialOrder,
-	[IsPoset],
-	function(poset)
-	local faceList, workingList, po;
-	faceList:=ElementsList(poset);
-	if DuplicateFreeList(List(faceList,HasFlagList))=[true] then
-		workingList:=List(faceList,x->[FlagList(x),RankInPoset(x,poset)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
-		return POConvertToBROnPoints(po);
-	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
-		workingList:=List(faceList,x->[AtomList(x),RankInPoset(x,poset)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
-		return POConvertToBROnPoints(po);
-	else
-		Print("ya got me doc! You might try including a partial ordering function.");
-	fi;	
-	end);
 
 InstallMethod(IsLattice,
 	[IsPoset],
