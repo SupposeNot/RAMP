@@ -53,6 +53,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X80EEFF7F7FE1B752">6.3-2 Pyramid</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7C7D6F558335CFD0">6.3-3 PrismOver</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X86E5C03286E992CA">6.3-4 Prism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X79B6A83C7EBC21C2">6.3-5 Antiprism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X82EED70583F7F8CD">6.3-6 Antiprism</a></span>
 </div></div>
 </div>
 
@@ -133,8 +135,8 @@
 
 <h5>6.2-2 IsSelfDual</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether this polytope is isomorphic to its dual.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its dual.</p>
 
 <p>Also works for IsPoset objects.</p>
 
@@ -142,22 +144,22 @@
 
 <h5>6.2-3 Petrial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The Petrial (Petrie dual) of <var class="Arg">P</var>. Note that this is not necessarily a polytope.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>. Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="SimpleMath">\(r_{n-3}\)</span> with <span class="SimpleMath">\(r_{n-3} r_{n-1}\)</span> in the set of generators.</p>
 
 <p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
 <h5>6.2-4 IsSelfPetrial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether this polytope is isomorphic to its Petrial.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
 
 <p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
 
 <h5>6.2-5 DirectDerivates</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
+<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
 
 <p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
 
@@ -190,6 +192,20 @@
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the prism over a <var class="Arg">k</var>-gon.</p>
+
+<p><a id="X79B6A83C7EBC21C2" name="X79B6A83C7EBC21C2"></a></p>
+
+<h5>6.3-5 Antiprism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the antiprism over <var class="Arg">M</var>.</p>
+
+<p><a id="X82EED70583F7F8CD" name="X82EED70583F7F8CD"></a></p>
+
+<h5>6.3-6 Antiprism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the antiprism over a <var class="Arg">k</var>-gon.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap5_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap7_mj.html">[Next Chapter]</a>&nbsp;  </div>

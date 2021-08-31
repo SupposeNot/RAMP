@@ -30,7 +30,20 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X871814FE7CC7B178">5.1-1 Epsilonk</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7F59553F84D04CAF">5.1-2 Deltak</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7876740785ECAF02">5.1-3 Mk</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7DAE3F0686CA7AA5">5.1-4 MkPrime</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7EB8C646795CB285">5.1-5 Bk2l</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X8592D83D87DFCF3F">5.1-6 Bk2lStar</a></span>
 </div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X7D2C4BEC7E1C4528">5.2 <span class="Heading">Operators on reflexible maps</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7838C8F4843AD598">5.2-1 Opp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X80DBA6CD87866B0C">5.2-2 Hole</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X86C3B52C82ABE6EF">5.3 <span class="Heading">Operations on Reflexible and Regular Maps</span></a>
+</span>
+</div>
 </div>
 
 <h3>5 <span class="Heading">Regular maps</span></h3>
@@ -58,6 +71,70 @@
 <p>Returns: maniplex</p>
 
 <p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(\delta_k\)</span>, which is <span class="SimpleMath">\(\{2k,2\}/2\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{2k,2\}_{k}\)</span> when <var class="Arg">k</var> is odd.</p>
+
+<p><a id="X7876740785ECAF02" name="X7876740785ECAF02"></a></p>
+
+<h5>5.1-3 Mk</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mk</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: maniplex</p>
+
+<p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(M_k\)</span>, which is <span class="SimpleMath">\(\{2k,2k\}_{1,0}\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{2k,k\}_{2}\)</span> when <var class="Arg">k</var> is odd.</p>
+
+<p><a id="X7DAE3F0686CA7AA5" name="X7DAE3F0686CA7AA5"></a></p>
+
+<h5>5.1-4 MkPrime</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MkPrime</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: maniplex</p>
+
+<p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(M'_k\)</span>, which is <span class="SimpleMath">\(\{k,k\}_2\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{k,2k\}_{2}\)</span> when <var class="Arg">k</var> is odd. <code class="code">MkPrime(k,i)</code> gives the map <span class="SimpleMath">\(M'_{k,i}\)</span>.</p>
+
+<p><a id="X7EB8C646795CB285" name="X7EB8C646795CB285"></a></p>
+
+<h5>5.1-5 Bk2l</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2l</code>( <var class="Arg">k</var>, <var class="Arg">l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: maniplex</p>
+
+<p>Given integers <var class="Arg">k,l</var>, gives the map <span class="SimpleMath">\(B(k,2l)\)</span>.</p>
+
+<p><a id="X8592D83D87DFCF3F" name="X8592D83D87DFCF3F"></a></p>
+
+<h5>5.1-6 Bk2lStar</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2lStar</code>( <var class="Arg">k</var>, <var class="Arg">l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: maniplex</p>
+
+<p>Given integers <var class="Arg">k,l</var>, gives the map <span class="SimpleMath">\(B^*(k,2l)\)</span>.</p>
+
+<p><a id="X7D2C4BEC7E1C4528" name="X7D2C4BEC7E1C4528"></a></p>
+
+<h4>5.2 <span class="Heading">Operators on reflexible maps</span></h4>
+
+<p><a id="X7838C8F4843AD598" name="X7838C8F4843AD598"></a></p>
+
+<h5>5.2-1 Opp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Opp</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: oppositeMap</p>
+
+<p>Forms the opposite map of the maniplex <var class="Arg">map</var>.</p>
+
+<p><a id="X80DBA6CD87866B0C" name="X80DBA6CD87866B0C"></a></p>
+
+<h5>5.2-2 Hole</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hole</code>( <var class="Arg">map</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: newMap</p>
+
+<p>Given <var class="Arg">map</var> and integer <span class="SimpleMath">\(j\)</span>, will form the map <span class="SimpleMath">\(H_j(map)\)</span>. Note that if the action of <span class="SimpleMath">\([r_0,(r_1 r_2)^{j-1} r_1, r_2]\)</span> on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.</p>
+
+<p><a id="X86C3B52C82ABE6EF" name="X86C3B52C82ABE6EF"></a></p>
+
+<h4>5.3 <span class="Heading">Operations on Reflexible and Regular Maps</span></h4>
+
+<p>The goal would be to implement the operations in BerPisWil17, as well as those suggested in the conclusion.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6_mj.html">[Next Chapter]</a>&nbsp;  </div>

@@ -28,6 +28,80 @@ Given an integer <A>k</A>, gives the map <Math>\delta_k</Math>, which is <Math>\
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="k" Name="Mk" Label="for IsInt"/>
+ <Returns>maniplex
+</Returns>
+ <Description>
+Given an integer <A>k</A>, gives the map <Math>M_k</Math>, which is <Math>\{2k,2k\}_{1,0}</Math> when <A>k</A> is even, and <Math>\{2k,k\}_{2}</Math> when <A>k</A> is odd.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k" Name="MkPrime" Label="for IsInt"/>
+ <Returns>maniplex
+</Returns>
+ <Description>
+Given an integer <A>k</A>, gives the map <Math>M'_k</Math>, which is <Math>\{k,k\}_2</Math> when <A>k</A> is even, and <Math>\{k,2k\}_{2}</Math> when <A>k</A> is odd.
+ <Code>MkPrime(k,i)</Code> gives the map <Math>M'_{k,i}</Math>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k, l" Name="Bk2l" Label="for IsInt,IsInt"/>
+ <Returns>maniplex
+</Returns>
+ <Description>
+Given integers <A>k,l</A>, gives the map <Math>B(k,2l)</Math>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k, l" Name="Bk2lStar" Label="for IsInt,IsInt"/>
+ <Returns>maniplex
+</Returns>
+ <Description>
+Given integers <A>k,l</A>, gives the map <Math>B^*(k,2l)</Math>.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Regular_maps_Section_Operators_on_reflexible_maps">
+<Heading>Operators on reflexible maps</Heading>
+
+<ManSection>
+  <Oper Arg="map" Name="Opp" Label="for IsManiplex"/>
+ <Returns>oppositeMap
+</Returns>
+ <Description>
+Forms the opposite map of the maniplex <A>map</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="map, j" Name="Hole" Label="for IsManiplex,IsInt"/>
+ <Returns>newMap
+</Returns>
+ <Description>
+Given <A>map</A> and integer <Math>j</Math>, will form the map <Math>H_j(map)</Math>. Note that if the action of <Math>[r_0,(r_1 r_2)^{j-1} r_1, r_2]</Math> on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Regular_maps_Section_Operations_on_Reflexible_and_Regular_Maps">
+<Heading>Operations on Reflexible and Regular Maps</Heading>
+
+ The goal would be to implement the operations in BerPisWil17, as well as those suggested in the conclusion.
 </Section>
 
 

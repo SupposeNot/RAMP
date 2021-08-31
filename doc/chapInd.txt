@@ -15,7 +15,9 @@
   [2XAdjacentFlag[102X, for IsPosetOfFlags,IsList,IsInt 12.5-5 
   [2XAdjacentFlags[102X, for IsPoset,IsList,IsInt 12.5-6 
   [2XAmalgamate[102X, for IsManiplex, IsManiplex 6.1-7 
-  [2XAntiprism[102X, for IsPoset 13.1-5 
+  [2XAntiprism[102X, for IsInt 6.3-6 
+      for IsManiplex 6.3-5 
+      for IsPoset 13.1-5 
   [2XAreIncidentElements[102X, for IsObject,IsObject 12.4-4 
   [2XAsPosetOfAtoms[102X, for IsPoset 12.5-16 
   [2XAtomList[102X, for IsPosetElement 12.3-9 
@@ -30,6 +32,8 @@
   [2XAutomorphismGroupOnIFaces[102X, for IsManiplex, IsInt 4.1-2 
   [2XAutomorphismGroupOnVertices[102X, for IsManiplex 4.1-3 
   [2XAutomorphismGroupPermGroup[102X, for IsManiplex 9.1-3 
+  [2XBk2l[102X, for IsInt,IsInt 5.1-5 
+  [2XBk2lStar[102X, for IsInt,IsInt 5.1-6 
   [2XCartesianProduct[102X, for IsPoset,IsPoset 13.1-2 
   [2XChiralityGroup[102X, for IsRotaryManiplex 9.1-8 
   [2XComix[102X, for IsFpGroup, IsFpGroup 10.1-4 
@@ -92,6 +96,7 @@
   [2XHemiCube[102X, for IsInt 8.1-5 
   [2XHemiDodecahedron[102X 8.1-11 
   [2XHemiIcosahedron[102X 8.1-13 
+  [2XHole[102X, for IsManiplex,IsInt 5.2-2 
   [2XHoleLength[102X, for IsManiplex, IsInt 3.5-4 
   [2XHoleVector[102X, for IsManiplex 3.5-5 
   [2XIcosadodecahedron[102X 8.3-3 
@@ -158,6 +163,8 @@
   [2XMix[102X, for IsFpGroup, IsFpGroup 10.1-2 
       for IsPermGroup, IsPermGroup 10.1-1 
       for IsReflexibleManiplex, IsReflexibleManiplex 10.1-3 
+  [2XMk[102X, for IsInt 5.1-3 
+  [2XMkPrime[102X, for IsInt 5.1-4 
   [2XMultPerm[102X 16.1-5 
   [2XNumberOfChainOrbits[102X, for IsManiplex, IsCollection 4.2-1 
   [2XNumberOfEdgeOrbits[102X, for IsManiplex 4.2-4 
@@ -170,6 +177,7 @@
   [2XNumberOfRidges[102X, for IsManiplex 3.1-5 
   [2XNumberOfVertexOrbits[102X, for IsManiplex 4.2-3 
   [2XNumberOfVertices[102X, for IsManiplex 3.1-2 
+  [2XOpp[102X, for IsManiplex 5.2-1 
   [2XOrderingFunction[102X, for IsPoset 12.1-4 
   [2XOrientableCover[102X, for IsManiplex 11.1-5 
   [2XPairCompareAtomsList[102X, for IsList,IsList 12.2-6 
@@ -227,10 +235,11 @@
   [2XSimplex[102X, for IsInt 8.1-8 
   [2XSize[102X, for IsManiplex 3.4-1 
   [2XSkeleton[102X, for IsManiplex 1.1-6 
-  [2XSmallChiral4Polytopes[102X 7.1-8 
-  [2XSmallChiralPolyhedra[102X 7.1-7 
+  [2XSmallChiral4Polytopes[102X 7.1-9 
+  [2XSmallChiralPolyhedra[102X 7.1-8 
+  [2XSmallDegenerateRegular4Polytopes[102X 7.1-6 
   [2XSmallestRegularCover[102X, for IsManiplex 14.1-4 
-  [2XSmallRegular4Polytopes[102X 7.1-6 
+  [2XSmallRegular4Polytopes[102X 7.1-7 
   [2XSmallRegularPolyhedra[102X 7.1-5 
   [2XSmallRhombicosidodecahedron[102X 8.3-8 
   [2XSmallRhombicuboctahedron[102X 8.3-5 

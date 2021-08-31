@@ -99,8 +99,8 @@
 
 
 <ManSection>
-  <Prop Arg="P" Name="IsSelfDual" Label="for IsManiplex"/>
- <Returns>Whether this polytope is isomorphic to its dual.
+  <Prop Arg="M" Name="IsSelfDual" Label="for IsManiplex"/>
+ <Returns>Whether this maniplex is isomorphic to its dual.
 </Returns>
  <Description>
 Also works for IsPoset objects.
@@ -109,8 +109,10 @@ Also works for IsPoset objects.
 
 
 <ManSection>
-  <Attr Arg="P" Name="Petrial" Label="for IsManiplex"/>
- <Returns>The Petrial (Petrie dual) of <A>P</A>.  Note that this is not necessarily a polytope.
+  <Attr Arg="M" Name="Petrial" Label="for IsManiplex"/>
+ <Returns>The Petrial (Petrie dual) of <A>M</A>.  Note that this is not necessarily a polytope, even if <A>M</A> is.
+  When Rank(M) > 3, this is the "generalized Petrial" which essentially
+  replaces <Math>r_{n-3}</Math> with <Math>r_{n-3} r_{n-1}</Math> in the set of generators.
 </Returns>
  <Description>
 <P/>
@@ -119,8 +121,8 @@ Also works for IsPoset objects.
 
 
 <ManSection>
-  <Prop Arg="P" Name="IsSelfPetrial" Label="for IsManiplex"/>
- <Returns>Whether this polytope is isomorphic to its Petrial.
+  <Prop Arg="M" Name="IsSelfPetrial" Label="for IsManiplex"/>
+ <Returns>Whether this maniplex is isomorphic to its Petrial.
 </Returns>
  <Description>
 <P/>
@@ -132,7 +134,8 @@ Also works for IsPoset objects.
   <Oper Arg="M" Name="DirectDerivates" Label="for IsManiplex"/>
  <Description>
  Returns a list of the <Emph>direct derivates</Emph> of <A>M</A>, which are
- the images of M under duality and Petriality.
+ the images of M under duality and Petriality. A 3-maniplex has up to
+ 6 direct derivates, and an n-maniplex with <Math>n \geq 4</Math> has up to 8.
  If the option 'polytopal' is set, then only returns those direct
  derivates that are polytopal.
  </Description>
@@ -173,6 +176,22 @@ Also works for IsPoset objects.
   <Oper Arg="k" Name="Prism" Label="for IsInt"/>
  <Description>
  Returns the prism over a <A>k</A>-gon.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Antiprism" Label="for IsManiplex"/>
+ <Description>
+ Returns the antiprism over <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k" Name="Antiprism" Label="for IsInt"/>
+ <Description>
+ Returns the antiprism over a <A>k</A>-gon.
  </Description>
 </ManSection>
 

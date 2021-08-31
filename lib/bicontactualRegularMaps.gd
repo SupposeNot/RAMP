@@ -20,17 +20,32 @@ DeclareOperation("Mk",[IsInt]);
 
 #! @Arguments k
 #! @Returns maniplex
-#! @Description Given an integer <A>k</A>, gives the map $M'_k$, which is $\{k,k\}_2$ when <A>k</A> is even, and $\{k,2k\}_{2}$ when <A>k</A> is odd.
+#! @Description Given an integer <A>k</A>, gives the map $M'_k$, which is $\{k,k\}_2$ when <A>k</A> is even, and $\{k,2k\}_{2}$ when <A>k</A> is odd. 
+#! `MkPrime(k,i)` gives the map $M'_{k,i}$.
 DeclareOperation("MkPrime",[IsInt]);
+
+#! @Arguments k, l
+#! @Returns maniplex
+#! @Description Given integers <A>k,l</A>, gives the map $B(k,2l)$. 
+DeclareOperation("Bk2l",[IsInt,IsInt]);
+
+#! @Arguments k, l
+#! @Returns maniplex
+#! @Description Given integers <A>k,l</A>, gives the map $B^*(k,2l)$. 
+DeclareOperation("Bk2lStar",[IsInt,IsInt]);
 
 #! @Section Operators on reflexible maps
 
 #! @Arguments map
 #! @Returns oppositeMap
-#! @Description Forms the opposite map of the maniplex <A>map</>.
+#! @Description Forms the opposite map of the maniplex <A>map</A>.
 DeclareOperation("Opp", [IsManiplex]);
 
 #! @Arguments map, j
 #! @Returns newMap
 #! @Description Given <A>map</A> and integer $j$, will form the map $H_j(map)$. Note that if the action of $[r_0,(r_1 r_2)^{j-1} r_1, r_2]$ on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.
 DeclareOperation("Hole", [IsManiplex,IsInt]);
+
+
+#! @Section Operations on Reflexible and Regular Maps
+#! The goal would be to implement the operations in BerPisWil17, as well as those suggested in the conclusion.

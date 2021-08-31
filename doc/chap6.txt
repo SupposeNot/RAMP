@@ -70,29 +70,32 @@
   
   [1X6.2-2 IsSelfDual[101X
   
-  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its dual.[133X
+  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its dual.[133X
   
   [33X[0;0YAlso works for IsPoset objects.[133X
   
   [1X6.2-3 Petrial[101X
   
-  [33X[1;0Y[29X[2XPetrial[102X( [3XP[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XP[103X. Note that this is not necessarily
-            a polytope.[133X
+  [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XM[103X. Note that this is not necessarily
+            a  polytope,  even  if  [3XM[103X  is.  When  Rank(M)  >  3,  this  is the
+            "generalized  Petrial"  which  essentially  replaces  [23Xr_{n-3}[123X with
+            [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
   
   [1X6.2-4 IsSelfPetrial[101X
   
-  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this polytope is isomorphic to its Petrial.[133X
+  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
   
   [1X6.2-5 DirectDerivates[101X
   
   [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
   
   [33X[0;0YReturns a list of the [13Xdirect derivates[113X of [3XM[103X, which are the images of M under
-  duality  and Petriality. If the option 'polytopal' is set, then only returns
-  those direct derivates that are polytopal.[133X
+  duality  and  Petriality.  A 3-maniplex has up to 6 direct derivates, and an
+  n-maniplex with [23Xn \geq 4[123X has up to 8. If the option 'polytopal' is set, then
+  only returns those direct derivates that are polytopal.[133X
   
   
   [1X6.3 [33X[0;0YProducts[133X[101X
@@ -120,4 +123,16 @@
   [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
   
   [33X[0;0YReturns the prism over a [3Xk[103X-gon.[133X
+  
+  [1X6.3-5 Antiprism[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the antiprism over [3XM[103X.[133X
+  
+  [1X6.3-6 Antiprism[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the antiprism over a [3Xk[103X-gon.[133X
   

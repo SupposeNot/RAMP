@@ -1690,7 +1690,113 @@ maniplex
 
  Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $\delta_k$, which is $\{2k,2\}/2$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{2k,2\}_{k}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. }
 
+ 
+
+\subsection{\textcolor{Chapter }{Mk (for IsInt)}}
+\logpage{[ 5, 1, 3 ]}\nobreak
+\hyperdef{L}{X7876740785ECAF02}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mk({\mdseries\slshape k})\index{Mk@\texttt{Mk}!for IsInt}
+\label{Mk:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+maniplex 
+
+
+
+ Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $M_k$, which is $\{2k,2k\}_{1,0}$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{2k,k\}_{2}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. }
+
+ 
+
+\subsection{\textcolor{Chapter }{MkPrime (for IsInt)}}
+\logpage{[ 5, 1, 4 ]}\nobreak
+\hyperdef{L}{X7DAE3F0686CA7AA5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MkPrime({\mdseries\slshape k})\index{MkPrime@\texttt{MkPrime}!for IsInt}
+\label{MkPrime:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+maniplex 
+
+
+
+ Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $M'_k$, which is $\{k,k\}_2$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{k,2k\}_{2}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. \texttt{MkPrime(k,i)} gives the map $M'_{k,i}$. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Bk2l (for IsInt,IsInt)}}
+\logpage{[ 5, 1, 5 ]}\nobreak
+\hyperdef{L}{X7EB8C646795CB285}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2l({\mdseries\slshape k, l})\index{Bk2l@\texttt{Bk2l}!for IsInt,IsInt}
+\label{Bk2l:for IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+maniplex 
+
+
+
+ Given integers \mbox{\texttt{\mdseries\slshape k,l}}, gives the map $B(k,2l)$. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Bk2lStar (for IsInt,IsInt)}}
+\logpage{[ 5, 1, 6 ]}\nobreak
+\hyperdef{L}{X8592D83D87DFCF3F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2lStar({\mdseries\slshape k, l})\index{Bk2lStar@\texttt{Bk2lStar}!for IsInt,IsInt}
+\label{Bk2lStar:for IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+maniplex 
+
+
+
+ Given integers \mbox{\texttt{\mdseries\slshape k,l}}, gives the map $B^*(k,2l)$. }
+
  }
+
+ 
+\section{\textcolor{Chapter }{Operators on reflexible maps}}\label{Chapter_Regular_maps_Section_Operators_on_reflexible_maps}
+\logpage{[ 5, 2, 0 ]}
+\hyperdef{L}{X7D2C4BEC7E1C4528}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{Opp (for IsManiplex)}}
+\logpage{[ 5, 2, 1 ]}\nobreak
+\hyperdef{L}{X7838C8F4843AD598}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Opp({\mdseries\slshape map})\index{Opp@\texttt{Opp}!for IsManiplex}
+\label{Opp:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+oppositeMap 
+
+
+
+ Forms the opposite map of the maniplex \mbox{\texttt{\mdseries\slshape map}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Hole (for IsManiplex,IsInt)}}
+\logpage{[ 5, 2, 2 ]}\nobreak
+\hyperdef{L}{X80DBA6CD87866B0C}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hole({\mdseries\slshape map, j})\index{Hole@\texttt{Hole}!for IsManiplex,IsInt}
+\label{Hole:for IsManiplex,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+newMap 
+
+
+
+ Given \mbox{\texttt{\mdseries\slshape map}} and integer $j$, will form the map $H_j(map)$. Note that if the action of $[r_0,(r_1 r_2)^{j-1} r_1, r_2]$ on the flags forms multiple orbits, then the resulting map will be on just one
+of those orbits. }
+
+ }
+
+ 
+\section{\textcolor{Chapter }{Operations on Reflexible and Regular Maps}}\label{Chapter_Regular_maps_Section_Operations_on_Reflexible_and_Regular_Maps}
+\logpage{[ 5, 3, 0 ]}
+\hyperdef{L}{X86C3B52C82ABE6EF}{}
+{
+  The goal would be to implement the operations in BerPisWil17, as well as those
+suggested in the conclusion. }
 
  }
 
@@ -1833,11 +1939,11 @@ The maniplex that is dual to \mbox{\texttt{\mdseries\slshape M}}.
 \subsection{\textcolor{Chapter }{IsSelfDual (for IsManiplex)}}
 \logpage{[ 6, 2, 2 ]}\nobreak
 \hyperdef{L}{X7FF8B96C83DA60CB}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfDual({\mdseries\slshape P})\index{IsSelfDual@\texttt{IsSelfDual}!for IsManiplex}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfDual({\mdseries\slshape M})\index{IsSelfDual@\texttt{IsSelfDual}!for IsManiplex}
 \label{IsSelfDual:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
-Whether this polytope is isomorphic to its dual. 
+Whether this maniplex is isomorphic to its dual. 
 
 
 
@@ -1848,11 +1954,12 @@ Whether this polytope is isomorphic to its dual.
 \subsection{\textcolor{Chapter }{Petrial (for IsManiplex)}}
 \logpage{[ 6, 2, 3 ]}\nobreak
 \hyperdef{L}{X7E6D0732862D6BA3}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Petrial({\mdseries\slshape P})\index{Petrial@\texttt{Petrial}!for IsManiplex}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Petrial({\mdseries\slshape M})\index{Petrial@\texttt{Petrial}!for IsManiplex}
 \label{Petrial:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
-The Petrial (Petrie dual) of \mbox{\texttt{\mdseries\slshape P}}. Note that this is not necessarily a polytope. 
+The Petrial (Petrie dual) of \mbox{\texttt{\mdseries\slshape M}}. Note that this is not necessarily a polytope, even if \mbox{\texttt{\mdseries\slshape M}} is. When Rank(M) {\textgreater} 3, this is the "generalized Petrial" which
+essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators. 
 
 
 
@@ -1865,11 +1972,11 @@ The Petrial (Petrie dual) of \mbox{\texttt{\mdseries\slshape P}}. Note that this
 \subsection{\textcolor{Chapter }{IsSelfPetrial (for IsManiplex)}}
 \logpage{[ 6, 2, 4 ]}\nobreak
 \hyperdef{L}{X78FDB0047E3388A5}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfPetrial({\mdseries\slshape P})\index{IsSelfPetrial@\texttt{IsSelfPetrial}!for IsManiplex}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfPetrial({\mdseries\slshape M})\index{IsSelfPetrial@\texttt{IsSelfPetrial}!for IsManiplex}
 \label{IsSelfPetrial:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
-Whether this polytope is isomorphic to its Petrial. 
+Whether this maniplex is isomorphic to its Petrial. 
 
 
 
@@ -1887,9 +1994,9 @@ Whether this polytope is isomorphic to its Petrial.
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns a list of the \emph{direct derivates} of \mbox{\texttt{\mdseries\slshape M}}, which are the images of M under duality and Petriality. If the option
-'polytopal' is set, then only returns those direct derivates that are
-polytopal. }
+ Returns a list of the \emph{direct derivates} of \mbox{\texttt{\mdseries\slshape M}}, which are the images of M under duality and Petriality. A 3-maniplex has up
+to 6 direct derivates, and an n-maniplex with $n \geq 4$ has up to 8. If the option 'polytopal' is set, then only returns those direct
+derivates that are polytopal. }
 
  }
 
@@ -1945,6 +2052,30 @@ polytopal. }
 
 
  Returns the prism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Antiprism (for IsManiplex)}}
+\logpage{[ 6, 3, 5 ]}\nobreak
+\hyperdef{L}{X79B6A83C7EBC21C2}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape M})\index{Antiprism@\texttt{Antiprism}!for IsManiplex}
+\label{Antiprism:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the antiprism over \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Antiprism (for IsInt)}}
+\logpage{[ 6, 3, 6 ]}\nobreak
+\hyperdef{L}{X82EED70583F7F8CD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape k})\index{Antiprism@\texttt{Antiprism}!for IsInt}
+\label{Antiprism:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the antiprism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
 
  }
 
@@ -2034,8 +2165,20 @@ of 4000 or less. }
 
  
 
-\subsection{\textcolor{Chapter }{SmallRegular4Polytopes}}
+\subsection{\textcolor{Chapter }{SmallDegenerateRegular4Polytopes}}
 \logpage{[ 7, 1, 6 ]}\nobreak
+\hyperdef{L}{X8670A2B078096E46}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallDegenerateRegular4Polytopes({\mdseries\slshape sizerange})\index{SmallDegenerateRegular4Polytopes@\texttt{SmallDegenerateRegular4Polytopes}}
+\label{SmallDegenerateRegular4Polytopes}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Returns all degenerate regular 4-polytopes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 8000 or less. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SmallRegular4Polytopes}}
+\logpage{[ 7, 1, 7 ]}\nobreak
 \hyperdef{L}{X83C76844861B7B5A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRegular4Polytopes({\mdseries\slshape sizerange})\index{SmallRegular4Polytopes@\texttt{SmallRegular4Polytopes}}
 \label{SmallRegular4Polytopes}
@@ -2047,7 +2190,7 @@ of 4000 or less. }
  
 
 \subsection{\textcolor{Chapter }{SmallChiralPolyhedra}}
-\logpage{[ 7, 1, 7 ]}\nobreak
+\logpage{[ 7, 1, 8 ]}\nobreak
 \hyperdef{L}{X7C5BEAD87A858EE7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiralPolyhedra({\mdseries\slshape sizerange})\index{SmallChiralPolyhedra@\texttt{SmallChiralPolyhedra}}
 \label{SmallChiralPolyhedra}
@@ -2059,7 +2202,7 @@ of 4000 or less. }
  
 
 \subsection{\textcolor{Chapter }{SmallChiral4Polytopes}}
-\logpage{[ 7, 1, 8 ]}\nobreak
+\logpage{[ 7, 1, 9 ]}\nobreak
 \hyperdef{L}{X85ED37A97CE7F77C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiral4Polytopes({\mdseries\slshape sizerange})\index{SmallChiral4Polytopes@\texttt{SmallChiral4Polytopes}}
 \label{SmallChiral4Polytopes}
@@ -4634,7 +4777,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
