@@ -104,8 +104,8 @@ InstallMethod(PosetFromManiplex,
 	local posetList,conng,poset,flags,rank,gens,genIndexes,i;
 	if Rank(mani) in [0,1] then 
 		if Rank(mani)=0 then 
-			posetList:=[ [ [  ] ],[ [ 1 ] ] ];
-		else posetList:=[ [ [  ] ],[ [ 1 ],[ 2 ] ],[ [ 1, 2 ] ] ];
+			posetList:=[ [ [ 1 ] ],[ [ 1 ] ] ];
+		else posetList:=[ [ [ 1,2 ] ],[ [ 1 ],[ 2 ] ],[ [ 1, 2 ] ] ];
 		fi;
 		poset:=PosetFromFaceListOfFlags(posetList);
 		SetIsPolytope(poset,true);
