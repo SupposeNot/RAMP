@@ -100,3 +100,7 @@ DeclareOperation("AsPosetOfAtoms", [IsPoset]);
 #! true
 #! @EndExampleSession
 
+#! @Arguments poset
+#! @Returns face
+#! @Description Gives the minimal face of a <A>poset</A> (when it exists).
+DeclareOperation("MinFace", [IsPoset]);

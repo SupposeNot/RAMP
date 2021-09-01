@@ -178,3 +178,23 @@ InstallMethod(Section,
 	ord:=function(x,y) return IsSubface(x,y,poset); end;
 	return PosetFromElements(elements,ord);
 	end);
+
+InstallMethod(Cleave,
+	[IsPoset, IsInt],
+	function(poset,k)
+	local faces, lowFaces, highFaces, pairs, ord, minFace;
+	faces:=FacesList(poset);
+	lowFaces:=Filtered(faces,x->RankInPoset(x,poset)<= k-1);
+	highFaces:=Filtered(faces,x->RankInPoset(x,poset)>=k);
+	pairs:=Filtered(Cartesian(lowFaces,highFaces),x->IsSubface(x[2],x[1],poset));
+	minFace:=Filtered(lowFaces,x->RankInPoset(x,poset)=-1)[1];
+	Add(pairs,[minFace,minFace],1);
+	ord:=function(x,y)
+		local f,g,fp,gp;
+		if y=[minFace,minFace] then return true;fi;
+		if x=[minFace,minFace] and y<>[minFace,minFace] then return false;fi;
+		fp:=x[1];gp:=x[2];f:=y[1];g:=y[2];
+		return IsSubface(f,fp,poset) and IsSubface(g,f,poset) and IsSubface(gp,g,poset);
+		end;	
+	return PosetFromElements(pairs,ord);
+	end);

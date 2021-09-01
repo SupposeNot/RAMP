@@ -137,3 +137,8 @@ DeclareOperation("Section",[IsFace, IsFace, IsPoset]);
 #! gap> IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));
 #! true
 #! @EndExampleSession
+
+#! @Arguments polytope, k
+#! @Returns cleavedPolytope
+#! @Description Given a <A>polytope</A> $\mathcal P$, and an integer <A>k</A>, will construct the $k^{\text{th}}$-cleaved polytope of $\mathcal P$.
+DeclareOperation("Cleave", [IsPoset,IsInt]);
