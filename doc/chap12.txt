@@ -453,13 +453,17 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X12.2-9 Cleave[101X
+  
+  [1X12.2-9 [33X[0;0YCleaving polytopes[133X[101X
   
   [33X[1;0Y[29X[2XCleave[102X( [3Xpolytope[103X, [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPartiallyCleave[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YcleavedPolytope[133X
   
-  [33X[0;0YGiven  a  [3Xpolytope[103X  [23X\mathcal  P[123X,  and  an  integer  [3Xk[103X,  will  construct  the
-  [23Xk^{\text{th}}[123X-cleaved polytope of [23X\mathcal P[123X.[133X
+  [33X[0;0YGiven  a  [3Xpolytope[103X  [23X\mathcal  P[123X,  and  an integer [3Xk[103X, [10XCleave(polytope,k)[110X will
+  construct  the  [23Xk^{th}[123X-cleaved  polytope  of  [23X\mathcal  P[123X.  Given a [3Xpolytope[103X
+  [23X\mathcal P[123X, and an integer [3Xk[103X, [10XPartiallyCleave(polytope,k)[110X will construct the
+  [23Xk^{th}[123X-partially cleaved polytope of [23X\mathcal P[123X.[133X
   
   
   [1X12.3 [33X[0;0YElement Constructors[133X[101X
@@ -469,7 +473,8 @@
   [33X[1;0Y[29X[2XPosetElementWithOrder[102X( [3Xobj[103X, [3Xfunc[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
   
-  [33X[0;0YCreates a [10Xface[110X with [3Xobj[103X and ordering function [10Xfunc[110X.[133X
+  [33X[0;0YCreates   a  [10Xface[110X  with  [3Xobj[103X  and  ordering  function  [10Xfunc[110X.  Note  that  by
+  convetiontion [10Xfunc(a,b)[110X should return true when [23Xb\le a[123X.[133X
   
   [1X12.3-2 PosetElementFromListOfFlags[101X
   

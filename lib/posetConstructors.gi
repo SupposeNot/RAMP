@@ -198,3 +198,24 @@ InstallMethod(Cleave,
 		end;	
 	return PosetFromElements(pairs,ord);
 	end);
+
+InstallMethod(PartiallyCleave,
+	[IsPoset, IsInt],
+	function(poset,k)
+	local faces, lowFaces, highFaces, pairs, ord, minFace, maxFace;
+	if k<2 or k>Rank(poset)-2 then Error("k must be between 2 and n-2.\n");fi;
+	faces:=FacesList(poset);
+	lowFaces:=Filtered(faces,x->RankInPoset(x,poset)<= k-1 and RankInPoset(x,poset)>=0);
+	highFaces:=Filtered(faces,x->RankInPoset(x,poset)>=k and RankInPoset(x,poset)<=Rank(poset)-1);
+	pairs:=Filtered(Cartesian(lowFaces,highFaces),x->IsSubface(x[2],x[1],poset));
+	minFace:=MinFace(poset); maxFace:=MaxFace(poset);
+	Add(pairs,[minFace,minFace],1); Add(pairs,[minFace,maxFace]);
+	ord:=function(x,y)
+		local f,g,fp,gp;
+		if y=[minFace,minFace] then return true;fi;
+		if x=[minFace,minFace] and y<>[minFace,minFace] then return false;fi;
+		fp:=x[1];gp:=x[2];f:=y[1];g:=y[2];
+		return IsSubface(f,fp,poset) and IsSubface(g,f,poset) and IsSubface(gp,g,poset);
+		end;	
+	return PosetFromElements(pairs,ord);
+	end);

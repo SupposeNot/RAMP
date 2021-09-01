@@ -486,16 +486,20 @@ true
 ]]></Example>
 
 
-<ManSection>
+<ManSection Label="Cleaving">
+<Heading>Cleaving polytopes</Heading>
   <Oper Arg="polytope, k" Name="Cleave" Label="for IsPoset,IsInt"/>
+  <Oper Arg="arg1,arg2" Name="PartiallyCleave" Label="for IsPoset,IsInt"/>
  <Returns>cleavedPolytope
 </Returns>
  <Description>
-Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, will construct the <Math>k^{\text{th}}</Math>-cleaved polytope of <Math>\mathcal P</Math>.
+Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, <Code>Cleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-cleaved polytope of <Math>\mathcal P</Math>.
+Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, <Code>PartiallyCleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-partially cleaved polytope of <Math>\mathcal P</Math>.
  </Description>
 </ManSection>
 
 
+<P/>
 </Section>
 
 
@@ -508,7 +512,7 @@ Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, will c
  <Returns><Code>IsFace</Code>
 </Returns>
  <Description>
-Creates a <Code>face</Code> with <A>obj</A> and ordering function <Code>func</Code>.
+Creates a <Code>face</Code> with <A>obj</A> and ordering function <Code>func</Code>. Note that by convetiontion <Code>func(a,b)</Code> should return true when <Math>b\le a</Math>.
  </Description>
 </ManSection>
 

@@ -27,7 +27,7 @@
     \subitem for IsManiplex, \hyperpage{28}
     \subitem for IsPoset, \hyperpage{56}
   \item \texttt  {AreIncidentElements}
-    \subitem for IsObject,IsObject, \hyperpage{51}
+    \subitem for IsObject,IsObject, \hyperpage{52}
   \item \texttt  {AsPosetOfAtoms}
     \subitem for IsPoset, \hyperpage{54}
   \item \texttt  {AtomList}
@@ -379,6 +379,8 @@
     \subitem for IsList,IsList, \hyperpage{49}
   \item \texttt  {ParseRotGpRels}, \hyperpage{63}
   \item \texttt  {ParseStringCRels}, \hyperpage{63}
+  \item \texttt  {PartiallyCleave}
+    \subitem for IsPoset,IsInt, \hyperpage{50}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{44}
   \item \texttt  {Petrial}

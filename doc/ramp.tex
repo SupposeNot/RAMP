@@ -3719,19 +3719,24 @@ section
   true
 \end{Verbatim}
  
-
-\subsection{\textcolor{Chapter }{Cleave (for IsPoset,IsInt)}}
-\logpage{[ 12, 2, 9 ]}\nobreak
-\hyperdef{L}{X8338D424809BDDD1}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape polytope, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
+\subsection{\textcolor{Chapter }{Cleaving polytopes}}\label{Cleaving}
+\logpage{[ 12, 2, 9 ]}
+\hyperdef{L}{X7B693D8884B77C7C}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape polytope, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
 \label{Cleave:for IsPoset,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartiallyCleave({\mdseries\slshape arg1, arg2})\index{PartiallyCleave@\texttt{PartiallyCleave}!for IsPoset,IsInt}
+\label{PartiallyCleave:for IsPoset,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 cleavedPolytope 
 
 
 
- Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, will construct the $k^{\text{th}}$-cleaved polytope of $\mathcal P$. }
+ Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{Cleave(polytope,k)} will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{PartiallyCleave(polytope,k)} will construct the $k^{th}$-partially cleaved polytope of $\mathcal P$. }
+
+ 
 
  }
 
@@ -3753,7 +3758,7 @@ cleavedPolytope
 
 
 
- Creates a \texttt{face} with \mbox{\texttt{\mdseries\slshape obj}} and ordering function \texttt{func}. }
+ Creates a \texttt{face} with \mbox{\texttt{\mdseries\slshape obj}} and ordering function \texttt{func}. Note that by convetiontion \texttt{func(a,b)} should return true when $b\le a$. }
 
  
 
@@ -4812,8 +4817,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

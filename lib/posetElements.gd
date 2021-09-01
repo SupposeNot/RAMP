@@ -10,7 +10,7 @@
 
 #! @Arguments obj, func
 #! @Returns `IsFace`
-#! @Description Creates a `face` with <A>obj</A> and ordering function `func`.
+#! @Description Creates a `face` with <A>obj</A> and ordering function `func`. Note that by convetiontion `func(a,b)` should return true when $b\le a$.
 DeclareOperation("PosetElementWithOrder",[IsObject,IsFunction]);
 
 #! @Arguments list, poset, n
