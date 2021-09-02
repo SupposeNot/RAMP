@@ -3734,7 +3734,7 @@ cleavedPolytope
 
 
 
- Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{Cleave(polytope,k)} will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{PartiallyCleave(polytope,k)} will construct the $k^{th}$-partially cleaved polytope of $\mathcal P$. }
+ Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{Cleave(polytope,k)} will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Cleaved polytopes were introduced by Daniel Pellicer \cite{Pel18} (\href{https://doi.org/10.1007/s00493-016-3518-3} {\texttt{https://doi.org/10.1007/s00493-016-3518-3}}). Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{PartiallyCleave(polytope,k)} will construct the $k^{th}$-partially cleaved polytope of $\mathcal P$. }
 
  
 
@@ -4278,7 +4278,7 @@ face
 \logpage{[ 13, 1, 0 ]}
 \hyperdef{L}{X7B9C137879BB5529}{}
 {
-  Anyone know how to link stuff? 
+  The products documented in this section were defined by Gleason and Hubard in \cite{GleHub18} (\href{https://doi.org/10.1016/j.jcta.2018.02.002} {\texttt{https://doi.org/10.1016/j.jcta.2018.02.002}}). 
 
 \subsection{\textcolor{Chapter }{JoinProduct (for IsPoset,IsPoset)}}
 \logpage{[ 13, 1, 1 ]}\nobreak
@@ -4806,7 +4806,16 @@ will append the characters 'f', 'o', 'o'. }
 
  }
 
- \def\indexname{Index\logpage{[ "Ind", 0, 0 ]}
+ \def\bibname{References\logpage{[ "Bib", 0, 0 ]}
+\hyperdef{L}{X7A6F98FD85F02BFE}{}
+}
+
+\bibliographystyle{alpha}
+\bibliography{ramp.bib}
+
+\addcontentsline{toc}{chapter}{References}
+
+\def\indexname{Index\logpage{[ "Ind", 0, 0 ]}
 \hyperdef{L}{X83A0356F839C696F}{}
 }
 
@@ -4817,6 +4826,7 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

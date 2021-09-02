@@ -493,7 +493,7 @@ true
  <Returns>cleavedPolytope
 </Returns>
  <Description>
-Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, <Code>Cleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-cleaved polytope of <Math>\mathcal P</Math>.
+Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, <Code>Cleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-cleaved polytope of <Math>\mathcal P</Math>. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/> (<URL>https://doi.org/10.1007/s00493-016-3518-3</URL>).
 Given a <A>polytope</A> <Math>\mathcal P</Math>, and an integer <A>k</A>, <Code>PartiallyCleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-partially cleaved polytope of <Math>\mathcal P</Math>.
  </Description>
 </ManSection>

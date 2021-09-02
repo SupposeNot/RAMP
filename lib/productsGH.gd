@@ -4,7 +4,7 @@
 #! This uses the work of Gleason and Hubard.
 
 #! @Section Construction methods
-#! Anyone know how to link stuff?
+#! The products documented in this section were defined by Gleason and Hubard in <Cite Key="GleHub18"/> (<URL>https://doi.org/10.1016/j.jcta.2018.02.002</URL>). 
 
 #! @Arguments poset1, poset2
 #! @Returns poset

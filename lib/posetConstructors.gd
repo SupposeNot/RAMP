@@ -142,7 +142,7 @@ DeclareOperation("Section",[IsFace, IsFace, IsPoset]);
 #! @GroupTitle Cleaving polytopes
 #! @Arguments polytope, k
 #! @Returns cleavedPolytope
-#! @Description Given a <A>polytope</A> $\mathcal P$, and an integer <A>k</A>, `Cleave(polytope,k)` will construct the $k^{th}$-cleaved polytope of $\mathcal P$.
+#! @Description Given a <A>polytope</A> $\mathcal P$, and an integer <A>k</A>, `Cleave(polytope,k)` will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/> (<URL>https://doi.org/10.1007/s00493-016-3518-3</URL>). 
 DeclareOperation("Cleave", [IsPoset,IsInt]);
 
 #! 
