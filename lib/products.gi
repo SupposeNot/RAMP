@@ -213,3 +213,83 @@ InstallMethod(Antiprism,
 InstallMethod(Antiprism,
 	[IsInt],
 	k -> Antiprism(Pgon(k)));
+
+InstallMethod(JoinProduct,
+	[IsManiplex, IsManiplex],
+	function(M1, M2)
+	local n, prod;
+	n := Rank(M1) + Rank(M2) + 1;
+
+	prod := Maniplex(JoinProduct, [M1, M2]);
+	prod!.bases := [M1, M2];
+
+	SetRankManiplex(prod, n);
+	SetString(prod, Concatenation("JoinProduct(", String(M1), ", ", String(M2), ")"));
+
+	AddAttrComputer(prod, ConnectionGroup,
+		function(p)
+		return ConnectionGroup(JoinProduct(PosetFromManiplex(p!.bases[1]), PosetFromManiplex(p!.bases[2])));
+		end);
+		
+	return prod;
+	end);
+
+InstallMethod(CartesianProduct,
+	[IsManiplex, IsManiplex],
+	function(M1, M2)
+	local n, prod;
+	n := Rank(M1) + Rank(M2);
+
+	prod := Maniplex(CartesianProduct, [M1, M2]);
+	prod!.bases := [M1, M2];
+
+	SetRankManiplex(prod, n);
+	SetString(prod, Concatenation("CartesianProduct(", String(M1), ", ", String(M2), ")"));
+
+	AddAttrComputer(prod, ConnectionGroup,
+		function(p)
+		return ConnectionGroup(CartesianProduct(PosetFromManiplex(p!.bases[1]), PosetFromManiplex(p!.bases[2])));
+		end);
+		
+	return prod;
+	end);
+
+InstallMethod(DirectSumOfManiplexes,
+	[IsManiplex, IsManiplex],
+	function(M1, M2)
+	local n, prod;
+	n := Rank(M1) + Rank(M2);
+
+	prod := Maniplex(DirectSum, [M1, M2]);
+	prod!.bases := [M1, M2];
+
+	SetRankManiplex(prod, n);
+	SetString(prod, Concatenation("DirectSum(", String(M1), ", ", String(M2), ")"));
+
+	AddAttrComputer(prod, ConnectionGroup,
+		function(p)
+		return ConnectionGroup(DirectSumOfPosets(PosetFromManiplex(p!.bases[1]), PosetFromManiplex(p!.bases[2])));
+		end);
+		
+	return prod;
+	end);
+
+InstallMethod(TopologicalProduct,
+	[IsManiplex, IsManiplex],
+	function(M1, M2)
+	local n, prod;
+	n := Rank(M1) + Rank(M2) - 1;
+
+	prod := Maniplex(TopologicalProduct, [M1, M2]);
+	prod!.bases := [M1, M2];
+
+	SetRankManiplex(prod, n);
+	SetString(prod, Concatenation("TopologicalProduct(", String(M1), ", ", String(M2), ")"));
+
+	AddAttrComputer(prod, ConnectionGroup,
+		function(p)
+		return ConnectionGroup(TopologicalProduct(PosetFromManiplex(p!.bases[1]), PosetFromManiplex(p!.bases[2])));
+		end);
+		
+	return prod;
+	end);

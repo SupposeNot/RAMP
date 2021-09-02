@@ -25,3 +25,34 @@ DeclareOperation("Antiprism", [IsManiplex]);
 #! @Arguments k
 #! Returns the antiprism over a <A>k</A>-gon.
 DeclareOperation("Antiprism", [IsInt]);
+
+
+
+#! @Arguments M1, M2
+#! @Returns Maniplex
+#! @Description Given two maniplexes, this forms the join product.
+#! May give weird results if the maniplexes aren't faithfully represented
+#! by their posets.
+DeclareOperation("JoinProduct", [IsManiplex, IsManiplex]);
+
+#! @Arguments M1, M2
+#! @Returns Maniplex
+#! @Description Given two maniplexes, this forms the cartesian product.
+#! May give weird results if the maniplexes aren't faithfully represented
+#! by their posets.
+DeclareOperation("CartesianProduct", [IsManiplex, IsManiplex]);
+
+#! @Arguments M1, M2
+#! @Returns Maniplex
+#! @Description Given two maniplexes, this forms the direct sum.
+#! May give weird results if the maniplexes aren't faithfully represented
+#! by their posets.
+DeclareOperation("DirectSumOfManiplexes", [IsManiplex, IsManiplex]);
+
+#! @Arguments M1, M2
+#! @Returns Maniplex
+#! @Description Given two maniplexes, this forms the direct sum.
+#! May give weird results if the maniplexes aren't faithfully represented
+#! by their posets.
+DeclareOperation("TopologicalProduct", [IsManiplex, IsManiplex]);
+
