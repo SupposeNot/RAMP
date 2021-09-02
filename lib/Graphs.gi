@@ -429,3 +429,306 @@ InstallOtherMethod(LabeledEdges,
 
 
 
+
+
+
+
+InstallMethod(AdjacentVertices,
+[IsEdgeLabeledGraph, IsObject],
+function(g,v)
+local verts, eds, i , ans;
+verts:=Vertices(g);
+eds:=Edges(g);
+ans:=[];
+for i in [1..Size(verts)] do
+if [i,v] in eds or [v,i] in eds then
+Add(ans,i);
+fi;
+od;
+return ans;
+end);
+
+
+
+InstallMethod(LabeledAdjacentVertices,
+[IsEdgeLabeledGraph, IsObject],
+function(g,v)
+local verts, eds, i ,j, labs,  ansv, ansl;
+verts:=Vertices(g);
+eds:=Edges(g);
+labs:=Labels(g);
+ansv:=[];
+ansl:=[];
+for j in [1..Size(eds)] do
+i:= eds[j];
+if (Size(i) = 2) and (v in i) then
+	if i[1] = i[2] then
+	Add(ansv,v);
+	Add(ansl,labs[j]);
+
+	elif i[1] <> v then
+	Add(ansv,i[1]);
+	Add(ansl,labs[j]);
+
+	else
+	Add(ansv,i[2]);	
+	Add(ansl,labs[j]);
+
+	fi;
+fi;	
+od;
+return [ansv,ansl];
+end);
+
+
+
+
+InstallMethod(SemiEdges,
+[IsEdgeLabeledGraph],
+function(g)
+return Filtered(Edges(g), i -> Size(i) = 1);
+end);
+
+
+
+
+
+
+InstallMethod(LabeledSemiEdges,
+[IsEdgeLabeledGraph],
+function(g)
+local anse, ansl, eds, labs, i;
+anse:=[];
+ansl:=[];
+eds:=Edges(g);
+labs:=Labels(g);
+for i in [1..Size(eds)] do
+if Size(eds[i]) = 1 then
+Add(anse, eds[i]);
+Add(ansl, labs[i]);
+fi;
+od;
+return [anse,ansl];
+end);
+
+
+
+
+
+InstallMethod(ViewGraph,
+[IsEdgeLabeledGraph, IsString],
+function(g,s)
+local SE, extra, ans, verts, eds, labs, bad, i, j, A;
+verts:=Vertices(g);
+if s = "Mathematica" or s = "mathematica" or s = "MATHEMATICA" then
+ans:="Mathematica Code: GraphPlot[{";
+
+extra:=Size(verts)+1;
+eds:=Edges(g);
+labs:=Labels(g);
+for i in [1..Size(eds)-1] do
+if Size(eds[i]) =2 then
+ans:=Concatenation(ans,"{", String( eds[i][1]), " ->",  String(eds[i][2]), " , " , String(labs[i]), " },");
+elif Size(eds[i]) =1 then
+ans:=Concatenation(ans,"{", String( eds[i][1]), " ->",  String(extra), " , " , String(labs[i]), " },");
+extra:=extra+1;
+fi;
+od;
+i:=Size(eds);
+if Size(eds[i]) =2 then
+ans:=Concatenation(ans,"{", String( eds[i][1]), " ->",  String(eds[i][2]), " , " , String(labs[i]), " }},");
+elif Size(eds[i]) =1 then
+ans:=Concatenation(ans,"{", String( eds[i][1]), " ->",  String(extra), " , " , String(labs[i]), " }},");
+extra:=extra+1;
+fi;
+ans:=Concatenation(ans, "VertexLabels -> Placed[Automatic, Center], MultiedgeStyle -> True,");
+if Size(SemiEdges(g)) = 0 then
+ans:=Concatenation(ans,"VertexSize -> .5] ");
+else
+ans:=Concatenation(ans,"VertexSize -> {");
+for i in [1..Size(verts)] do
+ans:=Concatenation(ans,  String(verts[i]), "->.5 ,");
+od;
+for i in [(Size(verts)+1)..(extra-2)] do
+ans:=Concatenation(ans,  String(i), "->0 ,");
+od;
+ans:=Concatenation(ans,  String(extra-1), "->0 }]");
+fi;
+return ans;
+elif s = "Sage" or s = "sage" or s = "SAGE" then
+ extra:=Size(verts)+1;
+ ans:="";
+ SE:=LabeledSemiEdges(g);
+ verts:=Vertices(g);
+ ans:=Concatenation(ans,"G= Graph({");
+ for i in [1..Size(verts)-1] do
+ A:= LabeledAdjacentVertices( g, i );;
+ ans:=Concatenation(ans,String(verts[i]));
+ ans:=Concatenation(ans,":{");
+ if Size(SE[1]) > 0 then
+ for j in [1..Size(SE[1])] do
+  if i in SE[1][j] then
+ ans:=Concatenation(ans,String(extra));
+ ans:=Concatenation(ans,": ' ");
+ ans:=Concatenation(ans,String(SE[2][j]));
+ ans:=Concatenation(ans,"', ");
+  extra:=extra+1;
+ fi;
+od;
+ fi;
+
+ for j in [1..Size(A[1])-1] do
+ ans:=Concatenation(ans,String(A[1][j]));
+ ans:=Concatenation(ans,": ' ");
+ ans:=Concatenation(ans,String(A[2][j]));
+ ans:=Concatenation(ans,"', ");
+ od;
+ ans:=Concatenation(ans,String(A[1][Size(A[1])]));
+ ans:=Concatenation(ans,": ' ");
+ ans:=Concatenation(ans,String(A[2][Size(A[1])]));
+ ans:=Concatenation(ans," ' },");
+ od;
+
+ ans:=Concatenation(ans,String(verts[Size(verts)]));
+ ans:=Concatenation(ans,":{");
+
+ if Size(SE[1]) > 0 then
+ for j in [1..Size(SE[1])] do
+  if verts[Size(verts)] in SE[1][j] then
+ ans:=Concatenation(ans,String(extra));
+ ans:=Concatenation(ans,": ' ");
+ ans:=Concatenation(ans,String(SE[2][j]));
+ ans:=Concatenation(ans,"', ");
+  extra:=extra+1;
+ fi;
+od;
+fi;
+
+
+ A:= LabeledAdjacentVertices( g, verts[Size(verts)] );
+ for j in [1..Size(A[1])-1] do
+ ans:=Concatenation(ans,String(A[1][j]));
+ ans:=Concatenation(ans,": ' ");
+ ans:=Concatenation(ans,String(A[2][j]));
+ ans:=Concatenation(ans,"' ,");
+ od;
+ ans:=Concatenation(ans,String(A[1][Size(A[1])]));
+ ans:=Concatenation(ans,": ' ");
+ ans:=Concatenation(ans,String(A[2][Size(A[1])]));
+
+ ans:=Concatenation(ans,"' }})");
+ Print( "Sage Code:");
+if Size(SE[1]) > 0 then
+Print( " (SemiEdges shown with red placeholder vertices):"   );
+fi;
+	
+Print("\n");
+
+ Print(ans);
+ Print(" \n");
+ Print("G.show(edge_labels=True");
+ if Size(SE[1]) > 0 then
+ Print(", vertex_colors={'red': [ ");
+ for i in [(Size(verts)+1)..(extra-2)] do
+ Print(String(i));
+ Print(",");
+ od;
+ Print(String(extra-1));
+ Print("]}");
+ fi;
+ Print(")"); 
+ return;
+
+else
+bad:="That graph visualization is not supported yet. Currently Sage and Mathematica are supported.";
+return bad;
+fi;
+ end);
+
+
+InstallOtherMethod(ViewGraph,
+[IsEdgeLabeledGraph],
+function(g)
+return ViewGraph(g,"Mathematica");
+end);
+
+
+
+
+InstallMethod(ViewGraph,
+[IsObject, IsString],
+function(g,s)
+local ans, eds, verts, A, i, j,bad;
+if not IsGraph(g) then
+return "Not a graph";
+fi;
+if s = "Sage" or s = "sage" or s = "SAGE" then
+ ans:="";
+ verts:=Vertices(g);
+ ans:=Concatenation(ans,"G= Graph({");
+ for i in [1..Size(verts)-1] do
+ A:=Adjacency( g, i );;
+ ans:=Concatenation(ans,String(verts[i]));
+ ans:=Concatenation(ans,":[");
+ for j in [1..Size(A)-1] do
+ ans:=Concatenation(ans,String(A[j]));
+ ans:=Concatenation(ans,",");
+ od;
+ ans:=Concatenation(ans,String(A[Size(A)]));
+ ans:=Concatenation(ans,"],");
+ od;
+ ans:=Concatenation(ans,String(verts[Size(verts)]));
+ ans:=Concatenation(ans,":[");
+ A:=Adjacency( g, verts[Size(verts)] );
+ for j in [1..Size(A)-1] do
+ ans:=Concatenation(ans,String(A[j]));
+ ans:=Concatenation(ans,",");
+ od;
+ ans:=Concatenation(ans,String(A[Size(A)]));
+ ans:=Concatenation(ans,"]})");
+ Print( "Sage Code:  Follow by P= G.plot();  P.show() \n" );
+ Print(ans);
+ Print(" \n");
+Print("P= G.plot()  \n");
+Print("P.show() 	\n");
+## IN SAGE Follow with:
+##  P= G.plot()
+##  P.show() 
+return;
+##OUTPUT IS CODE TO COPY INTO MATHEMATICA.
+elif s = "Mathematica" or s = "mathematica" or s = "MATHEMATICA" then
+ans:= "GraphPlot[{";
+verts:=Vertices(g);
+eds:=UndirectedEdges(g);
+for i in [1..Size(eds)-1] do
+if Size(eds[i]) =2 then
+ans:=Concatenation(ans, String( eds[i][1]), " ->",  String(eds[i][2]),   " ,");
+elif Size(eds[i]) =1 then
+ans:=Concatenation(ans, String( eds[i][1]), " ->",  String(eds[i][1]),   " ,");
+fi;
+od;
+i:=Size(eds);
+if Size(eds[i]) =2 then
+ans:=Concatenation(ans, String( eds[i][1]), " ->",  String(eds[i][2]),  " },");
+elif Size(eds[i]) =1 then
+ans:=Concatenation(ans, String( eds[i][1]), " ->",  String(eds[i][1]),  " },");
+fi;
+ans:=Concatenation(ans, "VertexLabels -> Placed[Automatic, Center], VertexSize -> .5, MultiedgeStyle -> True] ");
+Print( "Mathematica code: \n" );
+return ans;
+else
+bad:="That graph visualization is not supported yet. Currently Sage and Mathematica are supported.";
+return bad;
+fi;
+ end);
+
+##  P= G.plot()
+##  P.show() 
+
+
+InstallOtherMethod(ViewGraph,
+[IsObject],
+function(g)
+return ViewGraph(g,"Mathematica");
+end);
+

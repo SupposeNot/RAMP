@@ -347,3 +347,46 @@ DeclareOperation("PRGraph",[IsGroup]);
 #! @Description Given a group and a subgroup.  Returns the graph of the action of the first group on cosets of the subgroup.
 DeclareOperation("CPRGraphFromGroups",[IsGroup,IsGroup]);
 
+
+
+
+#! @Arguments EdgeLabeledGraph, vertex
+#! @Returns `IsList`. 
+#! @Description Takes in an edge labeled graph and a vertex, and outputs a list of the adjacent vertices.
+ DeclareOperation("AdjacentVertices",[IsEdgeLabeledGraph, IsObject]);
+
+
+
+
+#! @Arguments EdgeLabeledGraph, vertex
+#! @Returns `IsList, IsList`. 
+#! @Description Takes in an edge labeled graph and a vertex, and outputs two lists: the list of adjacent vertices, and the labels of the corresponding edges.
+ DeclareOperation("LabeledAdjacentVertices",[IsEdgeLabeledGraph, IsObject]);
+
+#! @Arguments EdgeLabeledGraph
+#! @Returns `IsList`. 
+#! @Description Takes in an edge labeled graph and a vertex, and outputs a list of semiedges
+DeclareOperation("SemiEdges",[IsEdgeLabeledGraph]);
+
+
+#! @Arguments EdgeLabeledGraph
+#! @Returns `IsList, IsList`. 
+#! @Description Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges and their labels
+DeclareOperation("LabeledSemiEdges",[IsEdgeLabeledGraph]);
+
+
+
+#! @Arguments EdgeLabeledGraph, String
+#! @Returns `IsString`. 
+#! @Description This takes an edge labeled graph and outputs code to view the graph in other software.
+#! Currently mathematica and sage are supported.
+DeclareOperation("ViewGraph",[IsEdgeLabeledGraph, IsString]);
+
+
+#! @Arguments Graph, String
+#! @Returns `IsString`. 
+#! @Description This takes a graph and outputs code to view the graph in other software.
+#! Currently mathematica and sage are supported.
+DeclareOperation("ViewGraph",[IsObject, IsString]);
+
+
