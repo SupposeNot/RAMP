@@ -113,6 +113,13 @@ InstallOtherMethod(ElementsList,
 	return List(list,PosetElementFromListOfFlags);
 	end);
 
+InstallOtherMethod(ElementsList,
+	[IsPosetOfAtoms],
+	function(poset)
+	local list, faces;
+	list:=poset!.faces_list_of_atoms;
+	return List(list,PosetElementFromAtomList);
+	end);
 
 InstallOtherMethod(ElementsList,
 	[IsPoset and HasPartialOrder],
@@ -186,12 +193,11 @@ InstallMethod(PartialOrder,
 		workingList:=List(faceList,x->[FlagList(x),RankInPoset(x,poset)]);
 		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareFlagsList);
 		return POConvertToBROnPoints(po);
-	elif DuplicateFreeList(List(faceList,HasAtomList))[1] then
-		workingList:=List(faceList,x->[AtomList(x),RankInPoset(x,poset)]);
-		po:=PartialOrderByOrderingFunction(Domain(workingList),PairCompareAtomsList);
-		return POConvertToBROnPoints(po);
+	elif DuplicateFreeList(List(faceList,HasAtomList))=[true] then
+		workingList:=List(faceList,AtomList);
+		return POConvertToBROnPoints(workingList,PairCompareAtomsList);
 	else
-		Print("ya got me doc! You might try including a partial ordering function.");
+		Error("ya got me doc! You might try including a partial ordering function.");
 	fi;	
 	end);
 
@@ -300,6 +306,18 @@ InstallMethod(IsP1,
 		return false;
 	fi;
 	end);	
+
+InstallMethod(IsP1,
+	[IsPoset and IsPosetOfAtoms],
+	function(poset)
+	local faceList;
+	faceList:=poset!.faces_list_of_atoms;
+	if [] in faceList and Union(faceList) in faceList then
+		return true;
+	else
+		return false;
+	fi;
+	end);
 
 InstallOtherMethod(IsP1,
 	[IsPoset and IsPosetOfIndices],

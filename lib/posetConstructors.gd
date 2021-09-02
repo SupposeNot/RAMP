@@ -11,13 +11,12 @@
 #! * As an `IsPosetOfIndices`, where the underlying description is a binary relation on a set of indices, which correspond to labels for the elements of the poset.
 #! * If the poset is known to be atomic, then by a description of the faces in terms of the atoms... usually we'll just need the list of the elements of maximal rank, from which all other elements may be obtained.
 #! * As an `IsPosetOfElements`, where the elements could be anything, and we have a known function determining the partial order on the elements.
-#! Usually, we assume that the poset will have a natural rank function on it.
+#! Usually, we assume that the poset will have a natural rank function on it. More information on the poset attributes that are important in the study of abstract polytopes and maniplexes is available in <Cite Key="McMSch02"/>, <Cite Key="MonPelWil14"/>, and <Cite Key="Wil12"/>.
 
 #! @Arguments list
-#! @Returns `IsPosetOfFlags`. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
-#! @Description Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Note that if you don't include faces or ranks, this function doesn't know about about them!
-#! 
-#! __Notes:__ I'm rethinking this a little bit. Since we __already__ know that the poset admits a description in terms of faces described by incident flags, then we have a set with a natural rank function, and all maximal chains must be the same length. I think I should probably take advantage of that a little more. Will rewrite the code to take advantage of the assumptions that IsP1 and IsP2 are true. I'll try not to break things.
+#! @Returns `IsPosetOfFlags`. 
+#! @Description Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
+#! Posets constructed this way are assumed to be IsP1 and IsP2.
 DeclareOperation("PosetFromFaceListOfFlags",[IsList]);
 #! Here we have a poset using the `IsPosetOfFlags` description for the triangle.
 #! @BeginExampleSession
@@ -72,6 +71,10 @@ DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
 #! @EndExampleSession
 #! Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.
 
+#! @Arguments list
+#! @Returns `IsPosetOfAtoms`
+#! @Description Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).
+DeclareOperation("PosetFromAtomicList",[IsList]);
 
 #! @Arguments list_of_faces, func
 #! @Returns `IsPosetOfElements`

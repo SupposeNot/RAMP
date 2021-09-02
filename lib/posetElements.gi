@@ -201,8 +201,8 @@ InstallOtherMethod(IsSubface,
 
 
 InstallOtherMethod(IsSubface,
-	[IsFace and HasAtomList, IsFace and HasAtomList],
-	function(face1,face2)
+	[IsFace and HasAtomList, IsFace and HasAtomList, IsPoset],
+	function(face1,face2, poset)
 	if IsSubset(AtomList(face1),AtomList(face2)) then return true;
 	else return false;
 	fi;

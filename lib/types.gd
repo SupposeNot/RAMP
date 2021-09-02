@@ -24,6 +24,7 @@ DeclareFilter("IsRegularPolytope");
 #Poset stuff
 DeclareCategory("IsPoset", IsObject);
 DeclareRepresentation("IsPosetOfFlags", IsComponentObjectRep and IsAttributeStoringRep,["faces_list_by_rank"]);
+DeclareRepresentation("IsPosetOfAtoms", IsComponentObjectRep and IsAttributeStoringRep,["faces_list_of_atoms"]);
 DeclareRepresentation("IsPosetOfIndices", IsComponentObjectRep and IsAttributeStoringRep, ["domain"]); 
 #Note... need to specify PartialOrder here
 #DeclareRepresentation("IsPosetByElementsWParents", IsComponentObjectRep and IsAttributeStoringRep,["face_parent_pairs"]);

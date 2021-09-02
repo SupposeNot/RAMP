@@ -320,15 +320,14 @@ If the poset is known to be atomic, then by a description of the faces in terms 
 As an <Code>IsPosetOfElements</Code>, where the elements could be anything, and we have a known function determining the partial order on the elements.
 </Item>
 </List>
- Usually, we assume that the poset will have a natural rank function on it.
+ Usually, we assume that the poset will have a natural rank function on it. More information on the poset attributes that are important in the study of abstract polytopes and maniplexes is available in <Cite Key="McMSch02"/>, <Cite Key="MonPelWil14"/>, and <Cite Key="Wil12"/>.
 <ManSection>
   <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
- <Returns><Code>IsPosetOfFlags</Code>. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.
+ <Returns><Code>IsPosetOfFlags</Code>.
 </Returns>
  <Description>
-Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Note that if you don't include faces or ranks, this function doesn't know about about them!
-<P/>
- <Emph>Notes:</Emph> I'm rethinking this a little bit. Since we <Emph>already</Emph> know that the poset admits a description in terms of faces described by incident flags, then we have a set with a natural rank function, and all maximal chains must be the same length. I think I should probably take advantage of that a little more. Will rewrite the code to take advantage of the assumptions that IsP1 and IsP2 are true. I'll try not to break things.
+Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
+ Posets constructed this way are assumed to be IsP1 and IsP2.
  </Description>
 </ManSection>
 
@@ -402,6 +401,16 @@ gap> Successors(h);
 
 
  Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.
+<ManSection>
+  <Oper Arg="list" Name="PosetFromAtomicList" Label="for IsList"/>
+ <Returns><Code>IsPosetOfAtoms</Code>
+</Returns>
+ <Description>
+Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).
+ </Description>
+</ManSection>
+
+
 <ManSection>
   <Oper Arg="list_of_faces, func" Name="PosetFromElements" Label="for IsList,IsFunction"/>
  <Returns><Code>IsPosetOfElements</Code>
@@ -704,11 +713,11 @@ When <A>poset1</A> and <A>poset2</A> are isomorphic, will give you a map from th
 
 
 <ManSection>
-  <Oper Arg="poset" Name="FlagsAsListOfFacesFromPoset" Label="for IsPoset"/>
+  <Oper Arg="poset" Name="FlagsAsFlagListFaces" Label="for IsPoset"/>
  <Returns><Code>IsList</Code>
 </Returns>
  <Description>
-Given a <A>poset</A>, this will give you a version of the list of flags in terms of the proper faces described in the <A>poset</A>. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags.
+Given a <A>poset</A>, this will give you a version of the list of flags in terms of the proper faces described in the <A>poset</A>; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2.
  </Description>
 </ManSection>
 
@@ -730,7 +739,7 @@ Gives a list of [<A>face</A>,<A>rank</A>] pairs for all the faces of <A>poset</A
  <Description>
 Given a poset, a flag, and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
  You can replace <A>flag</A> with the integer corresponding to that flag.
- Appending <Code>true</Code> to the arguments will give the position of the flag instead of its description from <Code>FlagsAsListOfFacesFromPoset</Code>.
+ Appending <Code>true</Code> to the arguments will give the position of the flag instead of its description from <Code>FlagsAsFlagListFaces</Code>.
  </Description>
 </ManSection>
 

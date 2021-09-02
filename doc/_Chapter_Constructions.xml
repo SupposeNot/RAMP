@@ -196,6 +196,54 @@ Also works for IsPoset objects.
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="M1, M2" Name="JoinProduct" Label="for IsManiplex, IsManiplex"/>
+ <Returns>Maniplex
+</Returns>
+ <Description>
+Given two maniplexes, this forms the join product.
+ May give weird results if the maniplexes aren't faithfully represented
+ by their posets.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="CartesianProduct" Label="for IsManiplex, IsManiplex"/>
+ <Returns>Maniplex
+</Returns>
+ <Description>
+Given two maniplexes, this forms the cartesian product.
+ May give weird results if the maniplexes aren't faithfully represented
+ by their posets.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="DirectSumOfManiplexes" Label="for IsManiplex, IsManiplex"/>
+ <Returns>Maniplex
+</Returns>
+ <Description>
+Given two maniplexes, this forms the direct sum.
+ May give weird results if the maniplexes aren't faithfully represented
+ by their posets.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="TopologicalProduct" Label="for IsManiplex, IsManiplex"/>
+ <Returns>Maniplex
+</Returns>
+ <Description>
+Given two maniplexes, this forms the direct sum.
+ May give weird results if the maniplexes aren't faithfully represented
+ by their posets.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

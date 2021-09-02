@@ -413,6 +413,68 @@ Given a group and a subgroup. Returns the graph of the action of the first group
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="EdgeLabeledGraph, vertex" Name="AdjacentVertices" Label="for IsEdgeLabeledGraph, IsObject"/>
+ <Returns><Code>IsList</Code>.
+</Returns>
+ <Description>
+Takes in an edge labeled graph and a vertex, and outputs a list of the adjacent vertices.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="EdgeLabeledGraph, vertex" Name="LabeledAdjacentVertices" Label="for IsEdgeLabeledGraph, IsObject"/>
+ <Returns><Code>IsList, IsList</Code>.
+</Returns>
+ <Description>
+Takes in an edge labeled graph and a vertex, and outputs two lists: the list of adjacent vertices, and the labels of the corresponding edges.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="EdgeLabeledGraph" Name="SemiEdges" Label="for IsEdgeLabeledGraph"/>
+ <Returns><Code>IsList</Code>.
+</Returns>
+ <Description>
+Takes in an edge labeled graph and a vertex, and outputs a list of semiedges
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="EdgeLabeledGraph" Name="LabeledSemiEdges" Label="for IsEdgeLabeledGraph"/>
+ <Returns><Code>IsList, IsList</Code>.
+</Returns>
+ <Description>
+Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges and their labels
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="EdgeLabeledGraph, String" Name="ViewGraph" Label="for IsEdgeLabeledGraph, IsString"/>
+ <Returns><Code>IsString</Code>.
+</Returns>
+ <Description>
+This takes an edge labeled graph and outputs code to view the graph in other software.
+ Currently mathematica and sage are supported.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="Graph, String" Name="ViewGraph" Label="for IsObject, IsString"/>
+ <Returns><Code>IsString</Code>.
+</Returns>
+ <Description>
+This takes a graph and outputs code to view the graph in other software.
+ Currently mathematica and sage are supported.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

@@ -19,7 +19,7 @@ InstallMethod(PosetIsomorphism,
 	return GraphIsomorphism(h1,h2);
 	end);
 
-InstallMethod(FlagsAsListOfFacesFromPoset,
+InstallMethod(FlagsAsFlagListFaces,
 	[IsPoset and IsPosetOfFlags],
 	function(poset)
 	local faceList, flags, size, flagList, rank, i, flag, newPoset;
@@ -43,7 +43,7 @@ InstallMethod(FlagsAsListOfFacesFromPoset,
 	return flagList;
 	end);	
 
-InstallMethod(FlagsAsListOfFacesFromPoset,
+InstallMethod(FlagsAsFlagListFaces,
 	[IsPoset],
 	function(poset)
 	local faces, facesAsLists, flags, flagsAsLists, args;
@@ -98,7 +98,7 @@ InstallMethod(AdjacentFlag,
 	function(poset,flag,i)
 	#Note that flag and list of flags here are assumed to be given as lists of incident faces in increasing order. the variable i is the rank of the adjacency (indexed from 0)
 	local n,ranks,flags;
-	flags:=FlagsAsListOfFacesFromPoset(poset);
+	flags:=FlagsAsFlagListFaces(poset);
 	n:=Rank(poset);
 	ranks:=[1..n];
 	i:=i+1;
@@ -130,7 +130,7 @@ InstallOtherMethod(AdjacentFlag,
 	ranks:=[1..n];
 	i:=i+1;
 	Remove(ranks,i);
-	flags:=FlagsAsListOfFacesFromPoset(poset);
+	flags:=FlagsAsFlagListFaces(poset);
 	return Filtered(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
 	end);
 
@@ -140,7 +140,7 @@ InstallOtherMethod(AdjacentFlag,
 	#Note that flag and list of flags here are assumed to be given as lists of incident faces in increasing order. the variable i is the rank of the adjacency (indexed from 0)
 	local n,ranks,flags,found;
 	if bool<>true then return AdjacentFlag(poset,flag,i);fi;
-	flags:=FlagsAsListOfFacesFromPoset(poset);
+	flags:=FlagsAsFlagListFaces(poset);
 	n:=Rank(poset);
 	ranks:=[1..n];
 	i:=i+1;
@@ -159,7 +159,7 @@ InstallOtherMethod(AdjacentFlag,
 	ranks:=[1..n];
 	i:=i+1;
 	Remove(ranks,i);
-	flags:=FlagsAsListOfFacesFromPoset(poset);
+	flags:=FlagsAsFlagListFaces(poset);
 	found:=Filtered(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
 	return Position(flags,found);
 	end);

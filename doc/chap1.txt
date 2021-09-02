@@ -399,3 +399,50 @@
   [33X[0;0YGiven  a  group and a subgroup. Returns the graph of the action of the first
   group on cosets of the subgroup.[133X
   
+  [1X1.1-18 AdjacentVertices[101X
+  
+  [33X[1;0Y[29X[2XAdjacentVertices[102X( [3XEdgeLabeledGraph[103X, [3Xvertex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
+  
+  [33X[0;0YTakes  in  an  edge  labeled  graph  and a vertex, and outputs a list of the
+  adjacent vertices.[133X
+  
+  [1X1.1-19 LabeledAdjacentVertices[101X
+  
+  [33X[1;0Y[29X[2XLabeledAdjacentVertices[102X( [3XEdgeLabeledGraph[103X, [3Xvertex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList, IsList[110X.[133X
+  
+  [33X[0;0YTakes in an edge labeled graph and a vertex, and outputs two lists: the list
+  of adjacent vertices, and the labels of the corresponding edges.[133X
+  
+  [1X1.1-20 SemiEdges[101X
+  
+  [33X[1;0Y[29X[2XSemiEdges[102X( [3XEdgeLabeledGraph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
+  
+  [33X[0;0YTakes in an edge labeled graph and a vertex, and outputs a list of semiedges[133X
+  
+  [1X1.1-21 LabeledSemiEdges[101X
+  
+  [33X[1;0Y[29X[2XLabeledSemiEdges[102X( [3XEdgeLabeledGraph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList, IsList[110X.[133X
+  
+  [33X[0;0YTakes  in  an  edge  labeled  graph  and  a  vertex,  and outputs two lists:
+  SemiEdges and their labels[133X
+  
+  [1X1.1-22 ViewGraph[101X
+  
+  [33X[1;0Y[29X[2XViewGraph[102X( [3XEdgeLabeledGraph[103X, [3XString[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
+  
+  [33X[0;0YThis takes an edge labeled graph and outputs code to view the graph in other
+  software. Currently mathematica and sage are supported.[133X
+  
+  [1X1.1-23 ViewGraph[101X
+  
+  [33X[1;0Y[29X[2XViewGraph[102X( [3XGraph[103X, [3XString[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
+  
+  [33X[0;0YThis  takes  a  graph  and outputs code to view the graph in other software.
+  Currently mathematica and sage are supported.[133X
+  

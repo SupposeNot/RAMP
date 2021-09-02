@@ -21,6 +21,17 @@ InstallMethod(POConvertToBROnPoints,
 		return BinaryRelationOnPoints(pairs);
 	end);
 
+InstallOtherMethod(POConvertToBROnPoints,
+	[IsList,IsFunction],
+	function(list,ord)
+	local  pairs, i;
+	pairs:=[1..Length(list)];
+	for i in pairs do
+		pairs[i]:=PositionsProperty(list,x->ord(x,list[i]));
+		od;
+	return BinaryRelationOnPoints(pairs);
+	end);
+
 InstallMethod(PosetFromPartialOrder,
 	[IsBinaryRelation],
 	function(reln)
@@ -35,6 +46,22 @@ InstallMethod(PosetFromPartialOrder,
 	return(poset);
 	end);
 
+InstallMethod(PosetFromAtomicList,
+	[IsList],
+	function(list)
+	local els, newList, tempList, intersections, poset;
+	newList:=list;
+	tempList:=[];
+	while Length(newList)<>Length(tempList) do
+		tempList:=newList;
+		intersections:=List(Cartesian(newList,newList),x->Intersection(x[1],x[2]));
+		newList:=Union(newList,intersections);
+		od;
+	Add(newList,Union(newList));
+	poset:=Objectify(NewType(PosetFamily, IsPoset and IsPosetOfAtoms), rec(faces_list_of_atoms:=newList));
+	SetIsAtomic(poset,true);
+	return poset;
+	end);
 
 InstallMethod(PosetFromElements,
 	[IsList,IsFunction],

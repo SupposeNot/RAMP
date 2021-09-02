@@ -77,6 +77,12 @@
       1.1-15 ConnectedComponents
       1.1-16 PRGraph
       1.1-17 CPRGraphFromGroups
+      1.1-18 AdjacentVertices
+      1.1-19 LabeledAdjacentVertices
+      1.1-20 SemiEdges
+      1.1-21 LabeledSemiEdges
+      1.1-22 ViewGraph
+      1.1-23 ViewGraph
   2 [33X[0;0YBasics[133X
     2.1 [33X[0;0YConstructors[133X
       2.1-1 [33X[0;0YUniversalSggi[133X
@@ -189,6 +195,10 @@
       6.3-4 Prism
       6.3-5 Antiprism
       6.3-6 Antiprism
+      6.3-7 JoinProduct
+      6.3-8 CartesianProduct
+      6.3-9 DirectSumOfManiplexes
+      6.3-10 TopologicalProduct
   7 [33X[0;0YDatabases[133X
     7.1 [33X[0;0YRegular polyhedra[133X
       7.1-1 DegeneratePolyhedra
@@ -293,11 +303,12 @@
       12.2-2 PosetFromConnectionGroup
       12.2-3 PosetFromManiplex
       12.2-4 PosetFromPartialOrder
-      12.2-5 PosetFromElements
-      12.2-6 [33X[0;0YHelper functions for special partial orders[133X
-      12.2-7 DualPoset
-      12.2-8 Section
-      12.2-9 [33X[0;0YCleaving polytopes[133X
+      12.2-5 PosetFromAtomicList
+      12.2-6 PosetFromElements
+      12.2-7 [33X[0;0YHelper functions for special partial orders[133X
+      12.2-8 DualPoset
+      12.2-9 Section
+      12.2-10 [33X[0;0YCleaving polytopes[133X
     12.3 [33X[0;0YElement Constructors[133X
       12.3-1 PosetElementWithOrder
       12.3-2 PosetElementFromListOfFlags
@@ -318,7 +329,7 @@
     12.5 [33X[0;0YWorking with posets[133X
       12.5-1 IsIsomorphicPoset
       12.5-2 PosetIsomorphism
-      12.5-3 FlagsAsListOfFacesFromPoset
+      12.5-3 FlagsAsFlagListFaces
       12.5-4 RankedFaceListOfPoset
       12.5-5 AdjacentFlag
       12.5-6 AdjacentFlags

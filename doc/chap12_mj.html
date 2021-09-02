@@ -54,12 +54,13 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X8720C4757EE12082">12.2-2 PosetFromConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7C4F3D307C5A7E7A">12.2-3 PosetFromManiplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7ECC2FBC7AF3A960">12.2-4 PosetFromPartialOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X79AEF6FF8699020E">12.2-5 PosetFromElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X82DB1F987C68B392">12.2-6 <span class="Heading">Helper functions for special partial orders</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X80052F8E835F45A4">12.2-5 PosetFromAtomicList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X79AEF6FF8699020E">12.2-6 PosetFromElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X82DB1F987C68B392">12.2-7 <span class="Heading">Helper functions for special partial orders</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X878F761878BCB6B9">12.2-7 DualPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7923E0E47CAFBD9D">12.2-8 Section</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7B693D8884B77C7C">12.2-9 <span class="Heading">Cleaving polytopes</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X878F761878BCB6B9">12.2-8 DualPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7923E0E47CAFBD9D">12.2-9 Section</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7B693D8884B77C7C">12.2-10 <span class="Heading">Cleaving polytopes</span></a>
 </span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap12_mj.html#X85445BE07F161F88">12.3 <span class="Heading">Element Constructors</span></a>
@@ -90,7 +91,7 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X80A2785B7D079FD1">12.5-1 IsIsomorphicPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X8340F2597BD837A5">12.5-2 PosetIsomorphism</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7B9029A4868E7138">12.5-3 FlagsAsListOfFacesFromPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X828C2C297FAAB627">12.5-3 FlagsAsFlagListFaces</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7A80223E83EF52E8">12.5-4 RankedFaceListOfPoset</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7ACE88EC803EDE07">12.5-5 AdjacentFlag</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7C94E895794BA41F">12.5-6 AdjacentFlags</a></span>
@@ -410,18 +411,16 @@ false
 
 </li>
 </ul>
-<p>Usually, we assume that the poset will have a natural rank function on it.</p>
+<p>Usually, we assume that the poset will have a natural rank function on it. More information on the poset attributes that are important in the study of abstract polytopes and maniplexes is available in <a href="chapBib_mj.html#biBMcMSch02">[MS02]</a>, <a href="chapBib_mj.html#biBMonPelWil14">[MPW14]</a>, and <a href="chapBib_mj.html#biBWil12">[Wil12]</a>.</p>
 
 <p><a id="X7D495B407CDFAEA2" name="X7D495B407CDFAEA2"></a></p>
 
 <h5>12.2-1 PosetFromFaceListOfFlags</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromFaceListOfFlags</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfFlags</code>. Note that the function is INTENTIONALLY agnostic about whether it is being given full poset or not.</p>
+<p>Returns: <code class="code">IsPosetOfFlags</code>.</p>
 
-<p>Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Note that if you don't include faces or ranks, this function doesn't know about about them!</p>
-
-<p><em>Notes:</em> I'm rethinking this a little bit. Since we <em>already</em> know that the poset admits a description in terms of faces described by incident flags, then we have a set with a natural rank function, and all maximal chains must be the same length. I think I should probably take advantage of that a little more. Will rewrite the code to take advantage of the assumptions that IsP1 and IsP2 are true. I'll try not to break things.</p>
+<p>Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Posets constructed this way are assumed to be IsP1 and IsP2.</p>
 
 <p>Here we have a poset using the <code class="code">IsPosetOfFlags</code> description for the triangle.</p>
 
@@ -491,9 +490,18 @@ A poset using the IsPosetOfIndices representation
 
 <p>Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.</p>
 
+<p><a id="X80052F8E835F45A4" name="X80052F8E835F45A4"></a></p>
+
+<h5>12.2-5 PosetFromAtomicList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromAtomicList</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsPosetOfAtoms</code></p>
+
+<p>Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).</p>
+
 <p><a id="X79AEF6FF8699020E" name="X79AEF6FF8699020E"></a></p>
 
-<h5>12.2-5 PosetFromElements</h5>
+<h5>12.2-6 PosetFromElements</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromElements</code>( <var class="Arg">list_of_faces</var>, <var class="Arg">func</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsPosetOfElements</code></p>
@@ -518,7 +526,7 @@ A poset on 6 elements using the IsPosetOfIndices representation.
 
 <p><a id="X82DB1F987C68B392" name="X82DB1F987C68B392"></a></p>
 
-<h5>12.2-6 <span class="Heading">Helper functions for special partial orders</span></h5>
+<h5>12.2-7 <span class="Heading">Helper functions for special partial orders</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareFlagsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareAtomsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -528,7 +536,7 @@ A poset on 6 elements using the IsPosetOfIndices representation.
 
 <p><a id="X878F761878BCB6B9" name="X878F761878BCB6B9"></a></p>
 
-<h5>12.2-7 DualPoset</h5>
+<h5>12.2-8 DualPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DualPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: dual</p>
@@ -548,7 +556,7 @@ false
 
 <p><a id="X7923E0E47CAFBD9D" name="X7923E0E47CAFBD9D"></a></p>
 
-<h5>12.2-8 Section</h5>
+<h5>12.2-9 Section</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: section</p>
@@ -570,7 +578,7 @@ true
 
 <p><a id="X7B693D8884B77C7C" name="X7B693D8884B77C7C"></a></p>
 
-<h5>12.2-9 <span class="Heading">Cleaving polytopes</span></h5>
+<h5>12.2-10 <span class="Heading">Cleaving polytopes</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cleave</code>( <var class="Arg">polytope</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartiallyCleave</code>( <var class="Arg">arg1</var>, <var class="Arg">arg2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -755,14 +763,14 @@ true
 
 <p>When <var class="Arg">poset1</var> and <var class="Arg">poset2</var> are isomorphic, will give you a map from the faces of <var class="Arg">poset1</var> to the faces of <var class="Arg">poset2</var>.</p>
 
-<p><a id="X7B9029A4868E7138" name="X7B9029A4868E7138"></a></p>
+<p><a id="X828C2C297FAAB627" name="X828C2C297FAAB627"></a></p>
 
-<h5>12.5-3 FlagsAsListOfFacesFromPoset</h5>
+<h5>12.5-3 FlagsAsFlagListFaces</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagsAsListOfFacesFromPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagsAsFlagListFaces</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsList</code></p>
 
-<p>Given a <var class="Arg">poset</var>, this will give you a version of the list of flags in terms of the proper faces described in the <var class="Arg">poset</var>. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags.</p>
+<p>Given a <var class="Arg">poset</var>, this will give you a version of the list of flags in terms of the proper faces described in the <var class="Arg">poset</var>; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2.</p>
 
 <p><a id="X7A80223E83EF52E8" name="X7A80223E83EF52E8"></a></p>
 
@@ -780,7 +788,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">poset</var>, <var class="Arg">flag</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">flag(s)</code></p>
 
-<p>Given a poset, a flag, and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. Appending <code class="code">true</code> to the arguments will give the position of the flag instead of its description from <code class="code">FlagsAsListOfFacesFromPoset</code>.</p>
+<p>Given a poset, a flag, and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. Appending <code class="code">true</code> to the arguments will give the position of the flag instead of its description from <code class="code">FlagsAsFlagListFaces</code>.</p>
 
 <p><a id="X7C94E895794BA41F" name="X7C94E895794BA41F"></a></p>
 

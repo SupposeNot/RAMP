@@ -656,6 +656,101 @@ vertices).
  Given a group and a subgroup. Returns the graph of the action of the first
 group on cosets of the subgroup. }
 
+ 
+
+\subsection{\textcolor{Chapter }{AdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}
+\logpage{[ 1, 1, 18 ]}\nobreak
+\hyperdef{L}{X7E52D3CB7A84139A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentVertices({\mdseries\slshape EdgeLabeledGraph, vertex})\index{AdjacentVertices@\texttt{AdjacentVertices}!for IsEdgeLabeledGraph, IsObject}
+\label{AdjacentVertices:for IsEdgeLabeledGraph, IsObject}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsList}. 
+
+
+
+ Takes in an edge labeled graph and a vertex, and outputs a list of the
+adjacent vertices. }
+
+ 
+
+\subsection{\textcolor{Chapter }{LabeledAdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}
+\logpage{[ 1, 1, 19 ]}\nobreak
+\hyperdef{L}{X78BAE96984A79ACD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledAdjacentVertices({\mdseries\slshape EdgeLabeledGraph, vertex})\index{LabeledAdjacentVertices@\texttt{LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject}
+\label{LabeledAdjacentVertices:for IsEdgeLabeledGraph, IsObject}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsList, IsList}. 
+
+
+
+ Takes in an edge labeled graph and a vertex, and outputs two lists: the list
+of adjacent vertices, and the labels of the corresponding edges. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SemiEdges (for IsEdgeLabeledGraph)}}
+\logpage{[ 1, 1, 20 ]}\nobreak
+\hyperdef{L}{X791A59B97A44470F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{SemiEdges@\texttt{SemiEdges}!for IsEdgeLabeledGraph}
+\label{SemiEdges:for IsEdgeLabeledGraph}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsList}. 
+
+
+
+ Takes in an edge labeled graph and a vertex, and outputs a list of semiedges }
+
+ 
+
+\subsection{\textcolor{Chapter }{LabeledSemiEdges (for IsEdgeLabeledGraph)}}
+\logpage{[ 1, 1, 21 ]}\nobreak
+\hyperdef{L}{X82490C307F022606}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledSemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{LabeledSemiEdges@\texttt{LabeledSemiEdges}!for IsEdgeLabeledGraph}
+\label{LabeledSemiEdges:for IsEdgeLabeledGraph}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsList, IsList}. 
+
+
+
+ Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges
+and their labels }
+
+ 
+
+\subsection{\textcolor{Chapter }{ViewGraph (for IsEdgeLabeledGraph, IsString)}}
+\logpage{[ 1, 1, 22 ]}\nobreak
+\hyperdef{L}{X7FF9E3FC7DD66BA4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape EdgeLabeledGraph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsEdgeLabeledGraph, IsString}
+\label{ViewGraph:for IsEdgeLabeledGraph, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsString}. 
+
+
+
+ This takes an edge labeled graph and outputs code to view the graph in other
+software. Currently mathematica and sage are supported. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ViewGraph (for IsObject, IsString)}}
+\logpage{[ 1, 1, 23 ]}\nobreak
+\hyperdef{L}{X83990BFD7D887A02}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape Graph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsObject, IsString}
+\label{ViewGraph:for IsObject, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsString}. 
+
+
+
+ This takes a graph and outputs code to view the graph in other software.
+Currently mathematica and sage are supported. }
+
  }
 
  }
@@ -2076,6 +2171,70 @@ derivates that are polytopal. }
 
 
  Returns the antiprism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
+
+ 
+
+\subsection{\textcolor{Chapter }{JoinProduct (for IsManiplex, IsManiplex)}}
+\logpage{[ 6, 3, 7 ]}\nobreak
+\hyperdef{L}{X7FA28B5C7AC1C32E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinProduct({\mdseries\slshape M1, M2})\index{JoinProduct@\texttt{JoinProduct}!for IsManiplex, IsManiplex}
+\label{JoinProduct:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Maniplex 
+
+
+
+ Given two maniplexes, this forms the join product. May give weird results if
+the maniplexes aren't faithfully represented by their posets. }
+
+ 
+
+\subsection{\textcolor{Chapter }{CartesianProduct (for IsManiplex, IsManiplex)}}
+\logpage{[ 6, 3, 8 ]}\nobreak
+\hyperdef{L}{X7C116F2C83963ADC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CartesianProduct({\mdseries\slshape M1, M2})\index{CartesianProduct@\texttt{CartesianProduct}!for IsManiplex, IsManiplex}
+\label{CartesianProduct:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Maniplex 
+
+
+
+ Given two maniplexes, this forms the cartesian product. May give weird results
+if the maniplexes aren't faithfully represented by their posets. }
+
+ 
+
+\subsection{\textcolor{Chapter }{DirectSumOfManiplexes (for IsManiplex, IsManiplex)}}
+\logpage{[ 6, 3, 9 ]}\nobreak
+\hyperdef{L}{X8022B9AC85D38D7D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectSumOfManiplexes({\mdseries\slshape M1, M2})\index{DirectSumOfManiplexes@\texttt{DirectSumOfManiplexes}!for IsManiplex, IsManiplex}
+\label{DirectSumOfManiplexes:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Maniplex 
+
+
+
+ Given two maniplexes, this forms the direct sum. May give weird results if the
+maniplexes aren't faithfully represented by their posets. }
+
+ 
+
+\subsection{\textcolor{Chapter }{TopologicalProduct (for IsManiplex, IsManiplex)}}
+\logpage{[ 6, 3, 10 ]}\nobreak
+\hyperdef{L}{X833534418543FB94}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TopologicalProduct({\mdseries\slshape M1, M2})\index{TopologicalProduct@\texttt{TopologicalProduct}!for IsManiplex, IsManiplex}
+\label{TopologicalProduct:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Maniplex 
+
+
+
+ Given two maniplexes, this forms the direct sum. May give weird results if the
+maniplexes aren't faithfully represented by their posets. }
 
  }
 
@@ -3504,7 +3663,9 @@ maximal rank, from which all other elements may be obtained.
 \item  As an \texttt{IsPosetOfElements}, where the elements could be anything, and we have a known function
 determining the partial order on the elements. 
 \end{itemize}
- Usually, we assume that the poset will have a natural rank function on it. 
+ Usually, we assume that the poset will have a natural rank function on it.
+More information on the poset attributes that are important in the study of
+abstract polytopes and maniplexes is available in \cite{McMSch02}, \cite{MonPelWil14}, and \cite{Wil12}. 
 
 \subsection{\textcolor{Chapter }{PosetFromFaceListOfFlags (for IsList)}}
 \logpage{[ 12, 2, 1 ]}\nobreak
@@ -3513,20 +3674,13 @@ determining the partial order on the elements.
 \label{PosetFromFaceListOfFlags:for IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-\texttt{IsPosetOfFlags}. Note that the function is INTENTIONALLY agnostic about whether it is being
-given full poset or not. 
+\texttt{IsPosetOfFlags}. 
 
 
 
  Given a \mbox{\texttt{\mdseries\slshape list}} of lists of faces in increasing rank, where each face is described by the
-incident flags, gives you a IsPosetOfFlags object back. Note that if you don't
-include faces or ranks, this function doesn't know about about them! 
-
- \emph{Notes:} I'm rethinking this a little bit. Since we \emph{already} know that the poset admits a description in terms of faces described by
-incident flags, then we have a set with a natural rank function, and all
-maximal chains must be the same length. I think I should probably take
-advantage of that a little more. Will rewrite the code to take advantage of
-the assumptions that IsP1 and IsP2 are true. I'll try not to break things. }
+incident flags, gives you a IsPosetOfFlags object back. Posets constructed
+this way are assumed to be IsP1 and IsP2. }
 
  Here we have a poset using the \texttt{IsPosetOfFlags} description for the triangle. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -3618,8 +3772,26 @@ that the $i$-faces correspond to the $i+1$ item in the list because of how GAP i
 second. The essential information about the poset can be obtained from the
 Hasse diagram. 
 
-\subsection{\textcolor{Chapter }{PosetFromElements (for IsList,IsFunction)}}
+\subsection{\textcolor{Chapter }{PosetFromAtomicList (for IsList)}}
 \logpage{[ 12, 2, 5 ]}\nobreak
+\hyperdef{L}{X80052F8E835F45A4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromAtomicList({\mdseries\slshape list})\index{PosetFromAtomicList@\texttt{PosetFromAtomicList}!for IsList}
+\label{PosetFromAtomicList:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsPosetOfAtoms} 
+
+
+
+ Given a list of elements, where each element is given as a list of atoms, this
+function will construct the corresponding poset. Note that this will construct
+any implied faces as well (i.e., all possible intersections of the listed
+faces). }
+
+ 
+
+\subsection{\textcolor{Chapter }{PosetFromElements (for IsList,IsFunction)}}
+\logpage{[ 12, 2, 6 ]}\nobreak
 \hyperdef{L}{X79AEF6FF8699020E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromElements({\mdseries\slshape list{\textunderscore}of{\textunderscore}faces, func})\index{PosetFromElements@\texttt{PosetFromElements}!for IsList,IsFunction}
 \label{PosetFromElements:for IsList,IsFunction}
@@ -3648,7 +3820,7 @@ Hasse diagram.
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Helper functions for special partial orders}}\label{Helper_functions}
-\logpage{[ 12, 2, 6 ]}
+\logpage{[ 12, 2, 7 ]}
 \hyperdef{L}{X82DB1F987C68B392}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareFlagsList({\mdseries\slshape list1, list2})\index{PairCompareFlagsList@\texttt{PairCompareFlagsList}!for IsList,IsList}
@@ -3669,7 +3841,7 @@ assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slsh
  
 
 \subsection{\textcolor{Chapter }{DualPoset (for IsPoset)}}
-\logpage{[ 12, 2, 7 ]}\nobreak
+\logpage{[ 12, 2, 8 ]}\nobreak
 \hyperdef{L}{X878F761878BCB6B9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DualPoset({\mdseries\slshape poset})\index{DualPoset@\texttt{DualPoset}!for IsPoset}
 \label{DualPoset:for IsPoset}
@@ -3694,7 +3866,7 @@ dual
  
 
 \subsection{\textcolor{Chapter }{Section (for IsFace, IsFace, IsPoset)}}
-\logpage{[ 12, 2, 8 ]}\nobreak
+\logpage{[ 12, 2, 9 ]}\nobreak
 \hyperdef{L}{X7923E0E47CAFBD9D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Section({\mdseries\slshape face1, face2, poset})\index{Section@\texttt{Section}!for IsFace, IsFace, IsPoset}
 \label{Section:for IsFace, IsFace, IsPoset}
@@ -3720,7 +3892,7 @@ section
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Cleaving polytopes}}\label{Cleaving}
-\logpage{[ 12, 2, 9 ]}
+\logpage{[ 12, 2, 10 ]}
 \hyperdef{L}{X7B693D8884B77C7C}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape polytope, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
@@ -4029,11 +4201,11 @@ map on face indices
 
  
 
-\subsection{\textcolor{Chapter }{FlagsAsListOfFacesFromPoset (for IsPoset)}}
+\subsection{\textcolor{Chapter }{FlagsAsFlagListFaces (for IsPoset)}}
 \logpage{[ 12, 5, 3 ]}\nobreak
-\hyperdef{L}{X7B9029A4868E7138}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsListOfFacesFromPoset({\mdseries\slshape poset})\index{FlagsAsListOfFacesFromPoset@\texttt{FlagsAsListOfFacesFromPoset}!for IsPoset}
-\label{FlagsAsListOfFacesFromPoset:for IsPoset}
+\hyperdef{L}{X828C2C297FAAB627}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsFlagListFaces({\mdseries\slshape poset})\index{FlagsAsFlagListFaces@\texttt{FlagsAsFlagListFaces}!for IsPoset}
+\label{FlagsAsFlagListFaces:for IsPoset}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsList} 
@@ -4041,9 +4213,9 @@ map on face indices
 
 
  Given a \mbox{\texttt{\mdseries\slshape poset}}, this will give you a version of the list of flags in terms of the proper
-faces described in the \mbox{\texttt{\mdseries\slshape poset}}. Note that the flag list does not include the minimal face or the maximal
-face if the poset IsP2; i.e., this gives a list of flags where each face is
-described in terms of its (enumerated) list of incident flags. }
+faces described in the \mbox{\texttt{\mdseries\slshape poset}}; i.e., this gives a list of flags where each face is described in terms of
+its (enumerated) list of incident flags. Note that the flag list does not
+include the minimal face or the maximal face if the poset IsP2. }
 
  
 
@@ -4075,7 +4247,7 @@ described in terms of its (enumerated) list of incident flags. }
 
  Given a poset, a flag, and a rank, this function will give you the \mbox{\texttt{\mdseries\slshape i}}-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than
 the dimension. You can replace \mbox{\texttt{\mdseries\slshape flag}} with the integer corresponding to that flag. Appending \texttt{true} to the arguments will give the position of the flag instead of its description
-from \texttt{FlagsAsListOfFacesFromPoset}. }
+from \texttt{FlagsAsFlagListFaces}. }
 
  
 
@@ -4826,8 +4998,6 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

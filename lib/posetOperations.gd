@@ -22,8 +22,8 @@ DeclareOperation("PosetIsomorphism",[IsPoset,IsPoset]);
 #! @Arguments poset
 #! @Returns `IsList`
 #a list of flags as a list of faces from `PosetFromFaceListOfFlags`.
-#! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the proper faces described in the <A>poset</A>. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. 
-DeclareOperation("FlagsAsListOfFacesFromPoset",[IsPoset]); 
+#! @Description Given a <A>poset</A>, this will give you a version of the list of flags in terms of the proper faces described in the <A>poset</A>; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2. 
+DeclareOperation("FlagsAsFlagListFaces",[IsPoset]); 
 
 #! @Arguments IsPosetOfFlags
 #! @Returns `list`
@@ -34,7 +34,7 @@ DeclareOperation("RankedFaceListOfPoset",[IsPoset]);
 #! @Returns `flag(s)`
 #! @Description Given a poset, a flag, and a rank, this function will give you the <A>i</A>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension.
 #! You can replace <A>flag</A> with the integer corresponding to that flag.
-#! Appending `true` to the arguments will give the position of the flag instead of its description from `FlagsAsListOfFacesFromPoset`.
+#! Appending `true` to the arguments will give the position of the flag instead of its description from `FlagsAsFlagListFaces`.
 DeclareOperation("AdjacentFlag",[IsPosetOfFlags,IsList,IsInt]);
 
 #Helper for flag connected

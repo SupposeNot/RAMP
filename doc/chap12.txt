@@ -287,25 +287,19 @@
   [30X    [33X[0;6YAs  an [10XIsPosetOfElements[110X, where the elements could be anything, and we
         have a known function determining the partial order on the elements.[133X
   
-  [33X[0;0YUsually, we assume that the poset will have a natural rank function on it.[133X
+  [33X[0;0YUsually,  we  assume that the poset will have a natural rank function on it.
+  More  information on the poset attributes that are important in the study of
+  abstract  polytopes  and  maniplexes  is  available  in [MS02], [MPW14], and
+  [Wil12].[133X
   
   [1X12.2-1 PosetFromFaceListOfFlags[101X
   
   [33X[1;0Y[29X[2XPosetFromFaceListOfFlags[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfFlags[110X.  Note  that the function is INTENTIONALLY agnostic
-            about whether it is being given full poset or not.[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfFlags[110X.[133X
   
   [33X[0;0YGiven  a  [3Xlist[103X  of  lists  of  faces  in increasing rank, where each face is
   described  by  the  incident  flags, gives you a IsPosetOfFlags object back.
-  Note  that  if  you don't include faces or ranks, this function doesn't know
-  about about them![133X
-  
-  [33X[0;0Y[13XNotes:[113X  I'm  rethinking  this  a  little bit. Since we [13Xalready[113X know that the
-  poset  admits  a  description in terms of faces described by incident flags,
-  then we have a set with a natural rank function, and all maximal chains must
-  be  the  same  length.  I  think  I should probably take advantage of that a
-  little more. Will rewrite the code to take advantage of the assumptions that
-  IsP1 and IsP2 are true. I'll try not to break things.[133X
+  Posets constructed this way are assumed to be IsP1 and IsP2.[133X
   
   [33X[0;0YHere we have a poset using the [10XIsPosetOfFlags[110X description for the triangle.[133X
   
@@ -378,7 +372,17 @@
   divides  the  second.  The  essential  information  about  the  poset can be
   obtained from the Hasse diagram.[133X
   
-  [1X12.2-5 PosetFromElements[101X
+  [1X12.2-5 PosetFromAtomicList[101X
+  
+  [33X[1;0Y[29X[2XPosetFromAtomicList[102X( [3Xlist[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfAtoms[110X[133X
+  
+  [33X[0;0YGiven  a  list  of elements, where each element is given as a list of atoms,
+  this  function  will  construct the corresponding poset. Note that this will
+  construct any implied faces as well (i.e., all possible intersections of the
+  listed faces).[133X
+  
+  [1X12.2-6 PosetFromElements[101X
   
   [33X[1;0Y[29X[2XPosetFromElements[102X( [3Xlist_of_faces[103X, [3Xfunc[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfElements[110X[133X
@@ -403,7 +407,7 @@
   [4X[32X[104X
   
   
-  [1X12.2-6 [33X[0;0YHelper functions for special partial orders[133X[101X
+  [1X12.2-7 [33X[0;0YHelper functions for special partial orders[133X[101X
   
   [33X[1;0Y[29X[2XPairCompareFlagsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPairCompareAtomsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
@@ -417,7 +421,7 @@
   is  a  list  of  flags  in  the face and [10Xint[110X is the rank of the face. Allows
   comparison of HasAtomList elements.[133X
   
-  [1X12.2-7 DualPoset[101X
+  [1X12.2-8 DualPoset[101X
   
   [33X[1;0Y[29X[2XDualPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ydual[133X
@@ -434,7 +438,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X12.2-8 Section[101X
+  [1X12.2-9 Section[101X
   
   [33X[1;0Y[29X[2XSection[102X( [3Xface1[103X, [3Xface2[103X, [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ysection[133X
@@ -454,7 +458,7 @@
   [4X[32X[104X
   
   
-  [1X12.2-9 [33X[0;0YCleaving polytopes[133X[101X
+  [1X12.2-10 [33X[0;0YCleaving polytopes[133X[101X
   
   [33X[1;0Y[29X[2XCleave[102X( [3Xpolytope[103X, [3Xk[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPartiallyCleave[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
@@ -617,16 +621,16 @@
   [33X[0;0YWhen [3Xposet1[103X and [3Xposet2[103X are isomorphic, will give you a map from the faces of
   [3Xposet1[103X to the faces of [3Xposet2[103X.[133X
   
-  [1X12.5-3 FlagsAsListOfFacesFromPoset[101X
+  [1X12.5-3 FlagsAsFlagListFaces[101X
   
-  [33X[1;0Y[29X[2XFlagsAsListOfFacesFromPoset[102X( [3Xposet[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFlagsAsFlagListFaces[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X[133X
   
   [33X[0;0YGiven a [3Xposet[103X, this will give you a version of the list of flags in terms of
-  the  proper  faces  described in the [3Xposet[103X. Note that the flag list does not
-  include  the  minimal face or the maximal face if the poset IsP2; i.e., this
-  gives  a  list  of  flags  where  each  face  is  described  in terms of its
-  (enumerated) list of incident flags.[133X
+  the  proper  faces  described in the [3Xposet[103X; i.e., this gives a list of flags
+  where  each  face is described in terms of its (enumerated) list of incident
+  flags.  Note  that  the  flag  list does not include the minimal face or the
+  maximal face if the poset IsP2.[133X
   
   [1X12.5-4 RankedFaceListOfPoset[101X
   
@@ -645,7 +649,7 @@
   [3Xi[103X-adjacent  flag.  Note that adjacencies are listed from ranks 0 to one less
   than  the  dimension. You can replace [3Xflag[103X with the integer corresponding to
   that  flag.  Appending  [10Xtrue[110X  to the arguments will give the position of the
-  flag instead of its description from [10XFlagsAsListOfFacesFromPoset[110X.[133X
+  flag instead of its description from [10XFlagsAsFlagListFaces[110X.[133X
   
   [1X12.5-6 AdjacentFlags[101X
   

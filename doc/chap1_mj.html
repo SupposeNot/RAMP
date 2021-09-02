@@ -45,6 +45,12 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X8159C96B8757873F">1.1-15 ConnectedComponents</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7A53CE8B820FD6A1">1.1-16 PRGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X85BBB22F8196DC0B">1.1-17 CPRGraphFromGroups</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7E52D3CB7A84139A">1.1-18 AdjacentVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X78BAE96984A79ACD">1.1-19 LabeledAdjacentVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X791A59B97A44470F">1.1-20 SemiEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X82490C307F022606">1.1-21 LabeledSemiEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X7FF9E3FC7DD66BA4">1.1-22 ViewGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1_mj.html#X83990BFD7D887A02">1.1-23 ViewGraph</a></span>
 </div></div>
 </div>
 
@@ -451,6 +457,60 @@ gamma:=PRGraph(G2);
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
 
 <p>Given a group and a subgroup. Returns the graph of the action of the first group on cosets of the subgroup.</p>
+
+<p><a id="X7E52D3CB7A84139A" name="X7E52D3CB7A84139A"></a></p>
+
+<h5>1.1-18 AdjacentVertices</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentVertices</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">vertex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs a list of the adjacent vertices.</p>
+
+<p><a id="X78BAE96984A79ACD" name="X78BAE96984A79ACD"></a></p>
+
+<h5>1.1-19 LabeledAdjacentVertices</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledAdjacentVertices</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">vertex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList, IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs two lists: the list of adjacent vertices, and the labels of the corresponding edges.</p>
+
+<p><a id="X791A59B97A44470F" name="X791A59B97A44470F"></a></p>
+
+<h5>1.1-20 SemiEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SemiEdges</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs a list of semiedges</p>
+
+<p><a id="X82490C307F022606" name="X82490C307F022606"></a></p>
+
+<h5>1.1-21 LabeledSemiEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledSemiEdges</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList, IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges and their labels</p>
+
+<p><a id="X7FF9E3FC7DD66BA4" name="X7FF9E3FC7DD66BA4"></a></p>
+
+<h5>1.1-22 ViewGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ViewGraph</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">String</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsString</code>.</p>
+
+<p>This takes an edge labeled graph and outputs code to view the graph in other software. Currently mathematica and sage are supported.</p>
+
+<p><a id="X83990BFD7D887A02" name="X83990BFD7D887A02"></a></p>
+
+<h5>1.1-23 ViewGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ViewGraph</code>( <var class="Arg">Graph</var>, <var class="Arg">String</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsString</code>.</p>
+
+<p>This takes a graph and outputs code to view the graph in other software. Currently mathematica and sage are supported.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Next Chapter]</a>&nbsp;  </div>
