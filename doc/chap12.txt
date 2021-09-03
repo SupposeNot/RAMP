@@ -382,6 +382,15 @@
   construct any implied faces as well (i.e., all possible intersections of the
   listed faces).[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xlist:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];[127X[104X
+    [4X[28X[ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xposet:=PosetFromAtomicList(list);;[127X[104X
+    [4X[25Xgap>[125X [27XList(Faces(poset),AtomList);[127X[104X
+    [4X[28X[ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], [128X[104X
+    [4X[28X  [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ][128X[104X
+  [4X[32X[104X
+  
   [1X12.2-6 PosetFromElements[101X
   
   [33X[1;0Y[29X[2XPosetFromElements[102X( [3Xlist_of_faces[103X, [3Xfunc[103X ) [32X operation[133X

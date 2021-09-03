@@ -31,7 +31,7 @@
   \item \texttt  {AreIncidentElements}
     \subitem for IsObject,IsObject, \hyperpage{54}
   \item \texttt  {AsPosetOfAtoms}
-    \subitem for IsPoset, \hyperpage{56}
+    \subitem for IsPoset, \hyperpage{57}
   \item \texttt  {AtomList}
     \subitem for IsPosetElement, \hyperpage{53}
   \item \texttt  {AutomorphismGroup}
@@ -79,7 +79,7 @@
   \item \texttt  {ConnectedComponents}
     \subitem for IsEdgeLabeledGraph, IsList, \hyperpage{10}
   \item \texttt  {ConnectionGeneratorOfPoset}
-    \subitem for IsPoset,IsInt, \hyperpage{55}
+    \subitem for IsPoset,IsInt, \hyperpage{56}
   \item \texttt  {ConnectionGroup}
     \subitem for IsManiplex, \hyperpage{38}
     \subitem for IsPoset, \hyperpage{56}
@@ -408,7 +408,7 @@
   \item \texttt  {PosetElementWithOrder}
     \subitem for IsObject,IsFunction, \hyperpage{52}
   \item \texttt  {PosetElementWithPartialOrder}
-    \subitem for IsObject, IsBinaryRelation, \hyperpage{52}
+    \subitem for IsObject, IsBinaryRelation, \hyperpage{53}
   \item \texttt  {PosetFromAtomicList}
     \subitem for IsList, \hyperpage{50}
   \item \texttt  {PosetFromConnectionGroup}
@@ -422,7 +422,7 @@
   \item \texttt  {PosetFromPartialOrder}
     \subitem for IsBinaryRelation, \hyperpage{50}
   \item \texttt  {PosetIsomorphism}
-    \subitem for IsPoset,IsPoset, \hyperpage{54}
+    \subitem for IsPoset,IsPoset, \hyperpage{55}
   \item \texttt  {PRGraph}
     \subitem for IsGroup, \hyperpage{11}
   \item \texttt  {Prism}

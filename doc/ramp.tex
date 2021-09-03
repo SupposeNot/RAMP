@@ -3789,6 +3789,15 @@ any implied faces as well (i.e., all possible intersections of the listed
 faces). }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@list:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];|
+  [ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]
+  !gapprompt@gap>| !gapinput@poset:=PosetFromAtomicList(list);;|
+  !gapprompt@gap>| !gapinput@List(Faces(poset),AtomList);|
+  [ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
+    [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{PosetFromElements (for IsList,IsFunction)}}
 \logpage{[ 12, 2, 6 ]}\nobreak
@@ -4998,6 +5007,7 @@ will append the characters 'f', 'o', 'o'. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

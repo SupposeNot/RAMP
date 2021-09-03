@@ -75,6 +75,14 @@ DeclareOperation("PosetFromPartialOrder",[IsBinaryRelation]);
 #! @Returns `IsPosetOfAtoms`
 #! @Description Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).
 DeclareOperation("PosetFromAtomicList",[IsList]);
+#! @BeginExampleSession
+#! gap> list:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];
+#! [ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]
+#! gap> poset:=PosetFromAtomicList(list);;
+#! gap> List(Faces(poset),AtomList);
+#! [ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
+#!   [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
+#! @EndExampleSession
 
 #! @Arguments list_of_faces, func
 #! @Returns `IsPosetOfElements`
