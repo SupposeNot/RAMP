@@ -66,7 +66,7 @@ InstallMethod(FlatOrientablyRegularPolyhedraOfType,
 	return polys;
 	end);
 	
-InstallMethod(FlatOrientablyRegularPolytopesOfType,
+InstallMethod(TightOrientablyRegularPolytopesOfType,
 	[IsList],
 	function(sym)
 	local n, polys, facets, vfigs, f, amalgs, p;
@@ -75,8 +75,8 @@ InstallMethod(FlatOrientablyRegularPolytopesOfType,
 		return FlatOrientablyRegularPolyhedraOfType(sym);
 	else
 		polys := [];
-		facets := FlatOrientablyRegularPolytopesOfType(sym{[1..n-1]});
-		vfigs := FlatOrientablyRegularPolytopesOfType(sym{[2..n]});
+		facets := TightOrientablyRegularPolytopesOfType(sym{[1..n-1]});
+		vfigs := TightOrientablyRegularPolytopesOfType(sym{[2..n]});
 		for f in facets do
 			amalgs := List(vfigs, v -> Amalgamate(f, v));
 			amalgs := Filtered(amalgs, a -> Size(a) = 2*Product(sym));

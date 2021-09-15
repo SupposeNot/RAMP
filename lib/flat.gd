@@ -15,4 +15,4 @@ DeclareOperation("FlatOrientablyRegularPolyhedraOfType", [IsList]);
 #! @Arguments sym
 #! Returns a lits of all flat, orientably regular polytopes with Schlafli symbol <A>sym</A>.
 #! When <A>sym</A> has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(<A>sym</A>).
-DeclareOperation("FlatOrientablyRegularPolytopesOfType", [IsList]);
+DeclareOperation("TightOrientablyRegularPolytopesOfType", [IsList]);
