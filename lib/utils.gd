@@ -1,4 +1,6 @@
 
+DeclareInfoClass("InfoRamp");
+
 #! @Chapter Utility functions
 #! @Section Utility functions
 

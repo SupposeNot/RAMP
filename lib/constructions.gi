@@ -143,32 +143,6 @@ InstallMethod(FlatExtension,
 	return p2;
 	end);
 
-# TODO: Guard against some bad function values
-# Make this one not assume anything and actually compute everything;
-# make an NC version that assumes well-definedness.
-InstallMethod(FlatRegularPolyhedron,
-	[IsInt, IsInt, IsInt, IsInt],
-	function(p,q,i,j)
-	local g, poly, relstr;
-	
-	# Normalize i and j to have small absolute value
-	# This makes some later computations faster
-	if i > p/2 then i := i - p; fi;
-	if j > q/2 then j := j - q; fi;
-
-	# We only need one of these two relations, but having both may make some computations faster.
-	relstr := Concatenation("r2 r1 r0 r1 (r2 r1)^", String(j), " (r1 r0)^", String(i), ", r1 r2 r1 r0 (r1 r2)^", String(j), " (r0 r1)^", String(i));
-	poly := AbstractRegularPolytope([p,q], relstr);
-	
-	# Now we assume that the values of p, q, i, j really do yield a flat polyhedron of type {p, q}.
-	SetSize(poly, 2*p*q);
-	SetSize(AutomorphismGroup(poly), 2*p*q);
-	SetFvector(poly, [q, p*q/2, p]);
-	SetSchlafliSymbol(poly, [p,q]);
-	poly!.String := Concatenation("FlatRegularPolyhedron(", String(p), ",", String(q), ",", String(i), ",", String(j), ")");
-	return poly;
-	end);
-	
 # TODO: Check for compatibility.
 # Results not guaranteed to be correct for incompatible polytopes
 InstallMethod(Amalgamate, 

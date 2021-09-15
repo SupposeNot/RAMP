@@ -1,3 +1,6 @@
+
+SetInfoLevel(InfoRamp, 1);
+
 TEST_RAMP := function()
 	Read(Filename(DirectoriesLibrary("pkg/ramp/tst"), "testall.g"));
 	end;

@@ -75,6 +75,11 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	if maxsize > 4000 then
+		Info(InfoRamp, 1, "The list of flat regular polyhedra with more than 4000 flags is incomplete.");
+	fi;
+
 	
 	# If p and q are even, then FlatRegularPolyhedron(p, q, -1, 1) works.
 	# (from Minimal Equivelar Polytopes Thm. 6.3)
@@ -94,9 +99,9 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 		# set q/2 = Int(minsize/(4*p))
 		q := Maximum(4, 2 * (1 + Int((minsize-1)/(4*p))));
 		while q <= p and 2*p*q <= maxsize do
-			Add(polys, FlatRegularPolyhedron(p,q,-1,1));
+			Add(polys, FlatOrientablyRegularPolyhedronNC(p,q,-1,1));
 			if q <> p then
-				Add(polys, FlatRegularPolyhedron(q,p,-1,1));
+				Add(polys, FlatOrientablyRegularPolyhedronNC(q,p,-1,1));
 			fi;
 			q := q + 2;
 		od;
@@ -109,8 +114,8 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	while 12*p <= maxsize do
 		for q in Filtered(DivisorsInt(2*p), n -> IsEvenInt(n) and n > 2) do
 			if 2*p*q <= maxsize and minsize <= 2*p*q then
-				Add(polys, FlatRegularPolyhedron(p, q, -1, -3));
-				Add(polys, FlatRegularPolyhedron(q, p, 3, 1));
+				Add(polys, FlatOrientablyRegularPolyhedronNC(p, q, -1, -3));
+				Add(polys, FlatOrientablyRegularPolyhedronNC(q, p, 3, 1));
 			fi;
 		od;
 		p := p + 2;
@@ -178,7 +183,7 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	
 	params := ReadLine(stream);
 	while params <> fail do
-		flatpolystr := Concatenation("FlatRegularPolyhedron(", params, ")");
+		flatpolystr := Concatenation("FlatOrientablyRegularPolyhedronNC(", params, ")");
 		poly := EvalString(flatpolystr);
 		if Size(poly) <= maxsize then
 			if Size(poly) >= minsize then Add(polys, poly); fi;
@@ -261,6 +266,10 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	polys := [];
 	toobig := false;
 	
+	if maxsize > 4000 then
+		Info(InfoRamp, 1, "The list of small regular polyhedra with more than 4000 flags is incomplete.");
+	fi;
+	
 	# Note that all degenerate polyhedra are also flat. So if the "nondegenerate" option is set, that
 	# is automatically passed to and handled by FlatRegularPolyhedra.
 	if ValueOption("nonflat") <> true then
@@ -325,6 +334,10 @@ InstallGlobalFunction(SmallDegenerateRegular4Polytopes,
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
+	if maxsize > 8000 then
+		Info(InfoRamp, 1, "The list of small degenerate regular 4-polytopes with more than 8000 flags is incomplete.");
+	fi;
+	
 	maniplexes := [];
 
 	# First we add all polytopes of type [p, 2, r], with size 4pr
@@ -363,6 +376,10 @@ InstallGlobalFunction(SmallRegular4Polytopes,
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
+	if maxsize > 4000 then
+		Info(InfoRamp, 1, "The list of small regular 4-polytopes with more than 4000 flags is incomplete.");
+	fi;
+	
 	maniplexes := [];
 
 	attributeNames := SplitString(ReadLine(databaseFile), ",");
@@ -398,6 +415,10 @@ InstallGlobalFunction(ReadChiralPolytopesFromFile,
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	if maxsize > 4000 then
+		Info(InfoRamp, 1, "The list of small chiral polytopes with more than 4000 flags is incomplete.");
+	fi;
 
 	maniplexes := [];
 

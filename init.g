@@ -16,6 +16,7 @@ ReadPackage( "ramp", "lib/duality.gd" );
 ReadPackage( "ramp", "lib/faces.gd" ); 
 ReadPackage( "ramp", "lib/families.gd" );
 ReadPackage( "ramp", "lib/flagorbits.gd" );
+ReadPackage( "ramp", "lib/flat.gd" );
 ReadPackage( "ramp", "lib/Graphs.gd" );
 ReadPackage( "ramp", "lib/groups.gd" );
 ReadPackage( "ramp", "lib/mixoperations.gd" );

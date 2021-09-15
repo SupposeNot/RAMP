@@ -6,13 +6,6 @@
 #! Returns the universal polytope of rank <A>n</A>.
 DeclareOperation("UniversalPolytope", [IsInt]);
 
-#! @Arguments p, q, i, j
-#! Returns the flat regular polyhedron with automorphism group
-#! [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j).
-#! This function does not currently validate the inputs to make sure
-#! that the output makes sense.
-DeclareOperation("FlatRegularPolyhedron", [IsInt, IsInt, IsInt, IsInt]);
-
 #! @Arguments M
 #! Returns the universal extension of <A>M</A>, i.e. the maniplex with facets
 #! isomorphic to <A>M</A> that covers all other maniplexes with facets
