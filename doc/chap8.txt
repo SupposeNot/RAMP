@@ -119,9 +119,44 @@
   [33X[0;0YReturns the hemi-600-cell, {3, 3, 5}_15.[133X
   
   
-  [1X8.2 [33X[0;0YToroids[133X[101X
+  [1X8.2 [33X[0;0YFlat and tight polytopes[133X[101X
   
-  [1X8.2-1 CubicalToroid[101X
+  [1X8.2-1 FlatOrientablyRegularPolyhedron[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedron[102X( [3Xp[103X, [3Xq[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ythe flat orientably regular polyhedron with automorphism group [p,
+            q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j).[133X
+  
+  [33X[0;0YThis  function  validates  the  inputs  to  make sure that the polyhedron is
+  well-defined.  Use FlatOrientablyRegularPolyhedronNC if you do not want this
+  validation.[133X
+  
+  [1X8.2-2 FlatOrientablyRegularPolyhedronNC[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedronNC[102X( [3Xp[103X, [3Xq[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y???[133X
+  
+  [33X[0;0Y???[133X
+  
+  [1X8.2-3 FlatOrientablyRegularPolyhedraOfType[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedraOfType[102X( [3Xsym[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya  lits  of  all  flat, orientably regular polyhedra with Schlafli
+            symbol [3Xsym[103X.[133X
+  
+  [1X8.2-4 TightOrientablyRegularPolytopesOfType[101X
+  
+  [33X[1;0Y[29X[2XTightOrientablyRegularPolytopesOfType[102X( [3Xsym[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya  lits  of  all  flat, orientably regular polytopes with Schlafli
+            symbol [3Xsym[103X.[133X
+  
+  [33X[0;0YWhen       [3Xsym[103X       has       length      2,      this      just      calls
+  FlatOrientablyRegularPolyhedraOfType([3Xsym[103X).[133X
+  
+  
+  [1X8.3 [33X[0;0YToroids[133X[101X
+  
+  [1X8.3-1 CubicalToroid[101X
   
   [33X[1;0Y[29X[2XCubicalToroid[102X( [3Xs[103X, [3Xk[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
@@ -135,7 +170,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X8.2-2 3343Toroid[101X
+  [1X8.3-2 3343Toroid[101X
   
   [33X[1;0Y[29X[2X3343Toroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
@@ -143,7 +178,7 @@
   [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,3,4,3\}_{\vec s}[123X
   where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 0 or 1.[133X
   
-  [1X8.2-3 24CellToroid[101X
+  [1X8.3-3 24CellToroid[101X
   
   [33X[1;0Y[29X[2X24CellToroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
@@ -152,86 +187,100 @@
   where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 0 or 1.[133X
   
   
-  [1X8.3 [33X[0;0YUniform Polyhedra[133X[101X
+  [1X8.4 [33X[0;0YUniform Polyhedra[133X[101X
   
-  [1X8.3-1 TruncatedOctahedron[101X
+  [1X8.4-1 Cuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XCuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the cuboctahedron.[133X
+  
+  [1X8.4-2 TruncatedTetrahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedTetrahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated tetrahedron.[133X
+  
+  [1X8.4-3 TruncatedOctahedron[101X
   
   [33X[1;0Y[29X[2XTruncatedOctahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated octahedron.[133X
   
-  [1X8.3-2 TruncatedCube[101X
+  [1X8.4-4 TruncatedCube[101X
   
   [33X[1;0Y[29X[2XTruncatedCube[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated octahedron.[133X
   
-  [1X8.3-3 Icosadodecahedron[101X
+  [1X8.4-5 Icosadodecahedron[101X
   
   [33X[1;0Y[29X[2XIcosadodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the icosadodecahedron.[133X
   
-  [1X8.3-4 TruncatedIcosahedron[101X
+  [1X8.4-6 TruncatedIcosahedron[101X
   
   [33X[1;0Y[29X[2XTruncatedIcosahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated icosahedron.[133X
   
-  [1X8.3-5 SmallRhombicuboctahedron[101X
+  [1X8.4-7 SmallRhombicuboctahedron[101X
   
   [33X[1;0Y[29X[2XSmallRhombicuboctahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the small rhombicuboctahedron.[133X
   
-  [1X8.3-6 Pseudorhombicuboctahedron[101X
+  [1X8.4-8 Pseudorhombicuboctahedron[101X
   
   [33X[1;0Y[29X[2XPseudorhombicuboctahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the pseudorhombicuboctahedron.[133X
   
-  [1X8.3-7 SnubCube[101X
+  [1X8.4-9 SnubCube[101X
   
   [33X[1;0Y[29X[2XSnubCube[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the snub cube.[133X
   
-  [1X8.3-8 SmallRhombicosidodecahedron[101X
+  [1X8.4-10 SmallRhombicosidodecahedron[101X
   
   [33X[1;0Y[29X[2XSmallRhombicosidodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the small rhombicosidodecahedron.[133X
   
-  [1X8.3-9 GreatRhombicosidodecahedron[101X
+  [1X8.4-11 GreatRhombicosidodecahedron[101X
   
   [33X[1;0Y[29X[2XGreatRhombicosidodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the great rhombicosidodecahedron.[133X
   
-  [1X8.3-10 SnubDodecahedron[101X
+  [1X8.4-12 SnubDodecahedron[101X
   
   [33X[1;0Y[29X[2XSnubDodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the small snub dodecahedron.[133X
   
-  [1X8.3-11 TruncatedDodecahedron[101X
+  [1X8.4-13 TruncatedDodecahedron[101X
   
   [33X[1;0Y[29X[2XTruncatedDodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated dodecahedron.[133X
   
-  [1X8.3-12 GreatRhombicuboctahedron[101X
+  [1X8.4-14 GreatRhombicuboctahedron[101X
   
   [33X[1;0Y[29X[2XGreatRhombicuboctahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X

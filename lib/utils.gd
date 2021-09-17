@@ -1,9 +1,13 @@
 
-DeclareInfoClass("InfoRamp");
+
 
 #! @Chapter Utility functions
 #! @Section Utility functions
 
+
+#! @Arguments args
+#! @Description Calls 
+DeclareInfoClass("InfoRamp");
 
 #! @Arguments args
 #! @Description Calls `Maniplex(args)` and marks the output as polytopal.

@@ -175,13 +175,12 @@
   6 [33X[0;0YConstructions[133X
     6.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
       6.1-1 UniversalPolytope
-      6.1-2 FlatRegularPolyhedron
+      6.1-2 UniversalExtension
       6.1-3 UniversalExtension
-      6.1-4 UniversalExtension
-      6.1-5 TrivialExtension
-      6.1-6 FlatExtension
-      6.1-7 Amalgamate
-      6.1-8 Medial
+      6.1-4 TrivialExtension
+      6.1-5 FlatExtension
+      6.1-6 Amalgamate
+      6.1-7 Medial
     6.2 [33X[0;0YDuality[133X
       6.2-1 Dual
       6.2-2 IsSelfDual
@@ -231,23 +230,30 @@
       8.1-17 Hemi120Cell
       8.1-18 600Cell
       8.1-19 Hemi600Cell
-    8.2 [33X[0;0YToroids[133X
-      8.2-1 CubicalToroid
-      8.2-2 3343Toroid
-      8.2-3 24CellToroid
-    8.3 [33X[0;0YUniform Polyhedra[133X
-      8.3-1 TruncatedOctahedron
-      8.3-2 TruncatedCube
-      8.3-3 Icosadodecahedron
-      8.3-4 TruncatedIcosahedron
-      8.3-5 SmallRhombicuboctahedron
-      8.3-6 Pseudorhombicuboctahedron
-      8.3-7 SnubCube
-      8.3-8 SmallRhombicosidodecahedron
-      8.3-9 GreatRhombicosidodecahedron
-      8.3-10 SnubDodecahedron
-      8.3-11 TruncatedDodecahedron
-      8.3-12 GreatRhombicuboctahedron
+    8.2 [33X[0;0YFlat and tight polytopes[133X
+      8.2-1 FlatOrientablyRegularPolyhedron
+      8.2-2 FlatOrientablyRegularPolyhedronNC
+      8.2-3 FlatOrientablyRegularPolyhedraOfType
+      8.2-4 TightOrientablyRegularPolytopesOfType
+    8.3 [33X[0;0YToroids[133X
+      8.3-1 CubicalToroid
+      8.3-2 3343Toroid
+      8.3-3 24CellToroid
+    8.4 [33X[0;0YUniform Polyhedra[133X
+      8.4-1 Cuboctahedron
+      8.4-2 TruncatedTetrahedron
+      8.4-3 TruncatedOctahedron
+      8.4-4 TruncatedCube
+      8.4-5 Icosadodecahedron
+      8.4-6 TruncatedIcosahedron
+      8.4-7 SmallRhombicuboctahedron
+      8.4-8 Pseudorhombicuboctahedron
+      8.4-9 SnubCube
+      8.4-10 SmallRhombicosidodecahedron
+      8.4-11 GreatRhombicosidodecahedron
+      8.4-12 SnubDodecahedron
+      8.4-13 TruncatedDodecahedron
+      8.4-14 GreatRhombicuboctahedron
   9 [33X[0;0YGroups[133X
     9.1 [33X[0;0YGroups[133X
       9.1-1 AutomorphismGroup
@@ -369,18 +375,17 @@
       15.1-6 EnantiomorphicForm
       15.1-7 DatabaseString
       15.1-8 ManiplexFromDatabaseString
-      15.1-9 Cuboctahedron
-      15.1-10 TruncatedTetrahedron
   16 [33X[0;0YUtility functions[133X
     16.1 [33X[0;0YUtility functions[133X
-      16.1-1 AbstractPolytope
-      16.1-2 AbstractRegularPolytope
-      16.1-3 AbstractRotaryPolytope
-      16.1-4 TranslatePerm
-      16.1-5 MultPerm
-      16.1-6 ParseStringCRels
-      16.1-7 ParseRotGpRels
-      16.1-8 AddOrAppend
+      16.1-1 InfoRamp
+      16.1-2 AbstractPolytope
+      16.1-3 AbstractRegularPolytope
+      16.1-4 AbstractRotaryPolytope
+      16.1-5 TranslatePerm
+      16.1-6 MultPerm
+      16.1-7 ParseStringCRels
+      16.1-8 ParseRotGpRels
+      16.1-9 AddOrAppend
   
   
   [32X

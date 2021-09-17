@@ -1913,97 +1913,110 @@ suggested in the conclusion. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalPolytope({\mdseries\slshape n})\index{UniversalPolytope@\texttt{UniversalPolytope}!for IsInt}
 \label{UniversalPolytope:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the universal polytope of rank \mbox{\texttt{\mdseries\slshape n}}. 
 
 
- Returns the universal polytope of rank \mbox{\texttt{\mdseries\slshape n}}. }
 
  
 
-\subsection{\textcolor{Chapter }{FlatRegularPolyhedron (for IsInt, IsInt, IsInt, IsInt)}}
-\logpage{[ 6, 1, 2 ]}\nobreak
-\hyperdef{L}{X800E07C686CF3EA7}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatRegularPolyhedron({\mdseries\slshape p, q, i, j})\index{FlatRegularPolyhedron@\texttt{FlatRegularPolyhedron}!for IsInt, IsInt, IsInt, IsInt}
-\label{FlatRegularPolyhedron:for IsInt, IsInt, IsInt, IsInt}
-}\hfill{\scriptsize (operation)}}\\
-
-
- Returns the flat regular polyhedron with automorphism group [p, q] / (r2 r1 r0
-r1 = (r0 r1)\texttt{\symbol{94}}i (r1 r2)\texttt{\symbol{94}}j). This function
-does not currently validate the inputs to make sure that the output makes
-sense. }
+ }
 
  
 
 \subsection{\textcolor{Chapter }{UniversalExtension (for IsManiplex)}}
-\logpage{[ 6, 1, 3 ]}\nobreak
+\logpage{[ 6, 1, 2 ]}\nobreak
 \hyperdef{L}{X8582D0CF7EA1CB34}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalExtension({\mdseries\slshape M})\index{UniversalExtension@\texttt{UniversalExtension}!for IsManiplex}
 \label{UniversalExtension:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the universal extension of \mbox{\texttt{\mdseries\slshape M}}, i.e. the maniplex with facets isomorphic to \mbox{\texttt{\mdseries\slshape M}} that covers all other maniplexes with facets isomorphic to \mbox{\texttt{\mdseries\slshape M}}. 
 
 
- Returns the universal extension of \mbox{\texttt{\mdseries\slshape M}}, i.e. the maniplex with facets isomorphic to \mbox{\texttt{\mdseries\slshape M}} that covers all other maniplexes with facets isomorphic to \mbox{\texttt{\mdseries\slshape M}}. Currently only defined for reflexible maniplexes. }
+
+ Currently only defined for reflexible maniplexes. }
 
  
 
 \subsection{\textcolor{Chapter }{UniversalExtension (for IsManiplex, IsInt)}}
-\logpage{[ 6, 1, 4 ]}\nobreak
+\logpage{[ 6, 1, 3 ]}\nobreak
 \hyperdef{L}{X78B4610E7DE67E32}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalExtension({\mdseries\slshape M, k})\index{UniversalExtension@\texttt{UniversalExtension}!for IsManiplex, IsInt}
 \label{UniversalExtension:for IsManiplex, IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the universal extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. Currently only defined for reflexible maniplexes. 
 
 
- Returns the universal extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. Currently only defined for reflexible maniplexes. }
+
+ 
+
+ }
 
  
 
 \subsection{\textcolor{Chapter }{TrivialExtension (for IsManiplex)}}
-\logpage{[ 6, 1, 5 ]}\nobreak
+\logpage{[ 6, 1, 4 ]}\nobreak
 \hyperdef{L}{X84BB6B21853173FD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TrivialExtension({\mdseries\slshape M})\index{TrivialExtension@\texttt{TrivialExtension}!for IsManiplex}
 \label{TrivialExtension:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the trivial extension of \mbox{\texttt{\mdseries\slshape M}}, also known as \texttt{\symbol{123}}\mbox{\texttt{\mdseries\slshape M/}}, 2\texttt{\symbol{125}}. 
 
 
- Returns the trivial extension of \mbox{\texttt{\mdseries\slshape M}}, also known as \texttt{\symbol{123}}\mbox{\texttt{\mdseries\slshape M/}}, 2\texttt{\symbol{125}}. }
+
+ 
+
+ }
 
  
 
 \subsection{\textcolor{Chapter }{FlatExtension (for IsManiplex, IsInt)}}
-\logpage{[ 6, 1, 6 ]}\nobreak
+\logpage{[ 6, 1, 5 ]}\nobreak
 \hyperdef{L}{X7A5853E278A83D74}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatExtension({\mdseries\slshape M, k})\index{FlatExtension@\texttt{FlatExtension}!for IsManiplex, IsInt}
 \label{FlatExtension:for IsManiplex, IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the flat extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. (As defined in "Flat Extensions of Abstract Polytopes".) 
 
 
- Returns the flat extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. (As defined in "Flat Extensions of Abstract Polytopes".) Currently only
-defined for reflexible maniplexes. }
+
+ Currently only defined for reflexible maniplexes. }
 
  
 
 \subsection{\textcolor{Chapter }{Amalgamate (for IsManiplex, IsManiplex)}}
-\logpage{[ 6, 1, 7 ]}\nobreak
+\logpage{[ 6, 1, 6 ]}\nobreak
 \hyperdef{L}{X790F22D47CD222EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Amalgamate({\mdseries\slshape M1, M2})\index{Amalgamate@\texttt{Amalgamate}!for IsManiplex, IsManiplex}
 \label{Amalgamate:for IsManiplex, IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the amalgamation of \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. Implicitly assumes that \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible. 
 
 
- Returns the amalgamation of \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. Implicitly assumes that \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible. Currently only defined for reflexible maniplexes. }
+
+ Currently only defined for reflexible maniplexes. }
 
  
 
 \subsection{\textcolor{Chapter }{Medial (for IsManiplex)}}
-\logpage{[ 6, 1, 8 ]}\nobreak
+\logpage{[ 6, 1, 7 ]}\nobreak
 \hyperdef{L}{X840BC19484E0E9CC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Medial({\mdseries\slshape M})\index{Medial@\texttt{Medial}!for IsManiplex}
 \label{Medial:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Given a 3-maniplex \mbox{\texttt{\mdseries\slshape M}}, returns its medial. 
 
 
- Given a 3-maniplex \mbox{\texttt{\mdseries\slshape M}}, returns its medial. }
+
+ 
+
+ }
 
  }
 
@@ -2621,14 +2634,86 @@ n-cubes. }
  }
 
  
-\section{\textcolor{Chapter }{Toroids}}\label{Chapter_Families_of_Polytopes_Section_Toroids}
+\section{\textcolor{Chapter }{Flat and tight polytopes}}\label{Chapter_Families_of_Polytopes_Section_Flat_and_tight_polytopes}
 \logpage{[ 8, 2, 0 ]}
+\hyperdef{L}{X7808135A8376515A}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedron (for IsInt, IsInt, IsInt, IsInt)}}
+\logpage{[ 8, 2, 1 ]}\nobreak
+\hyperdef{L}{X843987937D815A4D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedron({\mdseries\slshape p, q, i, j})\index{FlatOrientablyRegularPolyhedron@\texttt{FlatOrientablyRegularPolyhedron}!for IsInt, IsInt, IsInt, IsInt}
+\label{FlatOrientablyRegularPolyhedron:for IsInt, IsInt, IsInt, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the flat orientably regular polyhedron with automorphism group [p, q] / (r2 r1
+r0 r1 = (r0 r1)\texttt{\symbol{94}}i (r1 r2)\texttt{\symbol{94}}j). 
+
+
+
+ This function validates the inputs to make sure that the polyhedron is
+well-defined. Use FlatOrientablyRegularPolyhedronNC if you do not want this
+validation. }
+
+ 
+
+\subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedronNC (for IsInt, IsInt, IsInt, IsInt)}}
+\logpage{[ 8, 2, 2 ]}\nobreak
+\hyperdef{L}{X79CCE0A9859C0F4D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedronNC({\mdseries\slshape p, q, i, j})\index{FlatOrientablyRegularPolyhedronNC@\texttt{FlatOrientablyRegularPolyhedronNC}!for IsInt, IsInt, IsInt, IsInt}
+\label{FlatOrientablyRegularPolyhedronNC:for IsInt, IsInt, IsInt, IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+??? 
+
+
+
+ ??? }
+
+ 
+
+\subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedraOfType (for IsList)}}
+\logpage{[ 8, 2, 3 ]}\nobreak
+\hyperdef{L}{X84B0BB9A83E67A3A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedraOfType({\mdseries\slshape sym})\index{FlatOrientablyRegularPolyhedraOfType@\texttt{Flat}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polyhedra}\-\texttt{Of}\-\texttt{Type}!for IsList}
+\label{FlatOrientablyRegularPolyhedraOfType:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+a lits of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{TightOrientablyRegularPolytopesOfType (for IsList)}}
+\logpage{[ 8, 2, 4 ]}\nobreak
+\hyperdef{L}{X83F74BA1814E8DF4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TightOrientablyRegularPolytopesOfType({\mdseries\slshape sym})\index{TightOrientablyRegularPolytopesOfType@\texttt{Tight}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polytopes}\-\texttt{Of}\-\texttt{Type}!for IsList}
+\label{TightOrientablyRegularPolytopesOfType:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+a lits of all flat, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
+
+
+
+ When \mbox{\texttt{\mdseries\slshape sym}} has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(\mbox{\texttt{\mdseries\slshape sym}}). }
+
+ }
+
+ 
+\section{\textcolor{Chapter }{Toroids}}\label{Chapter_Families_of_Polytopes_Section_Toroids}
+\logpage{[ 8, 3, 0 ]}
 \hyperdef{L}{X825A89737F01BFF1}{}
 {
   
 
 \subsection{\textcolor{Chapter }{CubicalToroid (for IsInt,IsInt,IsInt)}}
-\logpage{[ 8, 2, 1 ]}\nobreak
+\logpage{[ 8, 3, 1 ]}\nobreak
 \hyperdef{L}{X840968B17C45927A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicalToroid({\mdseries\slshape s, k, n})\index{CubicalToroid@\texttt{CubicalToroid}!for IsInt,IsInt,IsInt}
 \label{CubicalToroid:for IsInt,IsInt,IsInt}
@@ -2649,7 +2734,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{3343Toroid (for IsInt,IsInt)}}
-\logpage{[ 8, 2, 2 ]}\nobreak
+\logpage{[ 8, 3, 2 ]}\nobreak
 \hyperdef{L}{X870D878B843C9D5F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{3343Toroid({\mdseries\slshape s, k})\index{3343Toroid@\texttt{3343Toroid}!for IsInt,IsInt}
 \label{3343Toroid:for IsInt,IsInt}
@@ -2664,7 +2749,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{24CellToroid (for IsInt,IsInt)}}
-\logpage{[ 8, 2, 3 ]}\nobreak
+\logpage{[ 8, 3, 3 ]}\nobreak
 \hyperdef{L}{X830F2B047B0C3C13}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{24CellToroid({\mdseries\slshape s, k})\index{24CellToroid@\texttt{24CellToroid}!for IsInt,IsInt}
 \label{24CellToroid:for IsInt,IsInt}
@@ -2680,13 +2765,43 @@ IsManiplex
 
  
 \section{\textcolor{Chapter }{Uniform Polyhedra}}\label{Chapter_Families_of_Polytopes_Section_Uniform_Polyhedra}
-\logpage{[ 8, 3, 0 ]}
+\logpage{[ 8, 4, 0 ]}
 \hyperdef{L}{X8708502981F8565A}{}
 {
   
 
+\subsection{\textcolor{Chapter }{Cuboctahedron}}
+\logpage{[ 8, 4, 1 ]}\nobreak
+\hyperdef{L}{X7D1C3FE3780376C5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cuboctahedron({\mdseries\slshape })\index{Cuboctahedron@\texttt{Cuboctahedron}}
+\label{Cuboctahedron}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+maniplex 
+
+
+
+ Constructs the cuboctahedron. }
+
+ 
+
+\subsection{\textcolor{Chapter }{TruncatedTetrahedron}}
+\logpage{[ 8, 4, 2 ]}\nobreak
+\hyperdef{L}{X7914BBCD85B92572}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedTetrahedron({\mdseries\slshape })\index{TruncatedTetrahedron@\texttt{TruncatedTetrahedron}}
+\label{TruncatedTetrahedron}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+maniplex 
+
+
+
+ Constructs the truncated tetrahedron. }
+
+ 
+
 \subsection{\textcolor{Chapter }{TruncatedOctahedron}}
-\logpage{[ 8, 3, 1 ]}\nobreak
+\logpage{[ 8, 4, 3 ]}\nobreak
 \hyperdef{L}{X82251B0B7FF0867C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedOctahedron({\mdseries\slshape })\index{TruncatedOctahedron@\texttt{TruncatedOctahedron}}
 \label{TruncatedOctahedron}
@@ -2701,7 +2816,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedCube}}
-\logpage{[ 8, 3, 2 ]}\nobreak
+\logpage{[ 8, 4, 4 ]}\nobreak
 \hyperdef{L}{X83E8732F7B5723CA}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedCube({\mdseries\slshape })\index{TruncatedCube@\texttt{TruncatedCube}}
 \label{TruncatedCube}
@@ -2716,7 +2831,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{Icosadodecahedron}}
-\logpage{[ 8, 3, 3 ]}\nobreak
+\logpage{[ 8, 4, 5 ]}\nobreak
 \hyperdef{L}{X7C262C2B7B88190E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Icosadodecahedron({\mdseries\slshape })\index{Icosadodecahedron@\texttt{Icosadodecahedron}}
 \label{Icosadodecahedron}
@@ -2731,7 +2846,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedIcosahedron}}
-\logpage{[ 8, 3, 4 ]}\nobreak
+\logpage{[ 8, 4, 6 ]}\nobreak
 \hyperdef{L}{X81B089967C16B074}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedIcosahedron({\mdseries\slshape })\index{TruncatedIcosahedron@\texttt{TruncatedIcosahedron}}
 \label{TruncatedIcosahedron}
@@ -2746,7 +2861,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicuboctahedron}}
-\logpage{[ 8, 3, 5 ]}\nobreak
+\logpage{[ 8, 4, 7 ]}\nobreak
 \hyperdef{L}{X838FD696802FEFD8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRhombicuboctahedron({\mdseries\slshape })\index{SmallRhombicuboctahedron@\texttt{SmallRhombicuboctahedron}}
 \label{SmallRhombicuboctahedron}
@@ -2761,7 +2876,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{Pseudorhombicuboctahedron}}
-\logpage{[ 8, 3, 6 ]}\nobreak
+\logpage{[ 8, 4, 8 ]}\nobreak
 \hyperdef{L}{X84853A907A3EF1C5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pseudorhombicuboctahedron({\mdseries\slshape })\index{Pseudorhombicuboctahedron@\texttt{Pseudorhombicuboctahedron}}
 \label{Pseudorhombicuboctahedron}
@@ -2776,7 +2891,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SnubCube}}
-\logpage{[ 8, 3, 7 ]}\nobreak
+\logpage{[ 8, 4, 9 ]}\nobreak
 \hyperdef{L}{X7EA8AA0C84A43469}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SnubCube({\mdseries\slshape })\index{SnubCube@\texttt{SnubCube}}
 \label{SnubCube}
@@ -2791,7 +2906,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicosidodecahedron}}
-\logpage{[ 8, 3, 8 ]}\nobreak
+\logpage{[ 8, 4, 10 ]}\nobreak
 \hyperdef{L}{X7A2FC231845204F5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRhombicosidodecahedron({\mdseries\slshape })\index{SmallRhombicosidodecahedron@\texttt{SmallRhombicosidodecahedron}}
 \label{SmallRhombicosidodecahedron}
@@ -2806,7 +2921,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicosidodecahedron}}
-\logpage{[ 8, 3, 9 ]}\nobreak
+\logpage{[ 8, 4, 11 ]}\nobreak
 \hyperdef{L}{X87A29A6B8375339F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GreatRhombicosidodecahedron({\mdseries\slshape })\index{GreatRhombicosidodecahedron@\texttt{GreatRhombicosidodecahedron}}
 \label{GreatRhombicosidodecahedron}
@@ -2821,7 +2936,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SnubDodecahedron}}
-\logpage{[ 8, 3, 10 ]}\nobreak
+\logpage{[ 8, 4, 12 ]}\nobreak
 \hyperdef{L}{X874B90BD82EA1192}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SnubDodecahedron({\mdseries\slshape })\index{SnubDodecahedron@\texttt{SnubDodecahedron}}
 \label{SnubDodecahedron}
@@ -2836,7 +2951,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedDodecahedron}}
-\logpage{[ 8, 3, 11 ]}\nobreak
+\logpage{[ 8, 4, 13 ]}\nobreak
 \hyperdef{L}{X79A2DEE48126C748}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedDodecahedron({\mdseries\slshape })\index{TruncatedDodecahedron@\texttt{TruncatedDodecahedron}}
 \label{TruncatedDodecahedron}
@@ -2851,7 +2966,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicuboctahedron}}
-\logpage{[ 8, 3, 12 ]}\nobreak
+\logpage{[ 8, 4, 14 ]}\nobreak
 \hyperdef{L}{X7D08FB508708D8B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GreatRhombicuboctahedron({\mdseries\slshape })\index{GreatRhombicuboctahedron@\texttt{GreatRhombicuboctahedron}}
 \label{GreatRhombicuboctahedron}
@@ -4828,36 +4943,6 @@ IsManiplex
  Given a string \mbox{\texttt{\mdseries\slshape maniplexString}}, representing a maniplex stored in a database, returns the maniplex that is
 represented. }
 
- 
-
-\subsection{\textcolor{Chapter }{Cuboctahedron}}
-\logpage{[ 15, 1, 9 ]}\nobreak
-\hyperdef{L}{X7D1C3FE3780376C5}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cuboctahedron({\mdseries\slshape })\index{Cuboctahedron@\texttt{Cuboctahedron}}
-\label{Cuboctahedron}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-maniplex 
-
-
-
- Constructs the cuboctahedron. }
-
- 
-
-\subsection{\textcolor{Chapter }{TruncatedTetrahedron}}
-\logpage{[ 15, 1, 10 ]}\nobreak
-\hyperdef{L}{X7914BBCD85B92572}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedTetrahedron({\mdseries\slshape })\index{TruncatedTetrahedron@\texttt{TruncatedTetrahedron}}
-\label{TruncatedTetrahedron}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-maniplex 
-
-
-
- Constructs the truncated tetrahedron. }
-
  }
 
  }
@@ -4874,8 +4959,20 @@ maniplex
 {
   
 
-\subsection{\textcolor{Chapter }{AbstractPolytope}}
+\subsection{\textcolor{Chapter }{InfoRamp}}
 \logpage{[ 16, 1, 1 ]}\nobreak
+\hyperdef{L}{X863ECFAD85CFFCB0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InfoRamp\index{InfoRamp@\texttt{InfoRamp}}
+\label{InfoRamp}
+}\hfill{\scriptsize (info class)}}\\
+
+
+ Calls }
+
+ 
+
+\subsection{\textcolor{Chapter }{AbstractPolytope}}
+\logpage{[ 16, 1, 2 ]}\nobreak
 \hyperdef{L}{X7D63A6087BD7F5F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AbstractPolytope({\mdseries\slshape args})\index{AbstractPolytope@\texttt{AbstractPolytope}}
 \label{AbstractPolytope}
@@ -4887,7 +4984,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{AbstractRegularPolytope}}
-\logpage{[ 16, 1, 2 ]}\nobreak
+\logpage{[ 16, 1, 3 ]}\nobreak
 \hyperdef{L}{X7C2837FB8174C8DC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AbstractRegularPolytope({\mdseries\slshape args})\index{AbstractRegularPolytope@\texttt{AbstractRegularPolytope}}
 \label{AbstractRegularPolytope}
@@ -4899,7 +4996,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{AbstractRotaryPolytope}}
-\logpage{[ 16, 1, 3 ]}\nobreak
+\logpage{[ 16, 1, 4 ]}\nobreak
 \hyperdef{L}{X79AB055B7DDFB160}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AbstractRotaryPolytope({\mdseries\slshape args})\index{AbstractRotaryPolytope@\texttt{AbstractRotaryPolytope}}
 \label{AbstractRotaryPolytope}
@@ -4911,7 +5008,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TranslatePerm}}
-\logpage{[ 16, 1, 4 ]}\nobreak
+\logpage{[ 16, 1, 5 ]}\nobreak
 \hyperdef{L}{X7CDF25897D4DBE57}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TranslatePerm({\mdseries\slshape perm, k})\index{TranslatePerm@\texttt{TranslatePerm}}
 \label{TranslatePerm}
@@ -4923,7 +5020,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{MultPerm}}
-\logpage{[ 16, 1, 5 ]}\nobreak
+\logpage{[ 16, 1, 6 ]}\nobreak
 \hyperdef{L}{X83788BBF7EF52486}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MultPerm({\mdseries\slshape perm, multiplier, offset})\index{MultPerm@\texttt{MultPerm}}
 \label{MultPerm}
@@ -4936,7 +5033,7 @@ offset*2), ..., with \mbox{\texttt{\mdseries\slshape multiplier}} terms, and ret
  
 
 \subsection{\textcolor{Chapter }{ParseStringCRels}}
-\logpage{[ 16, 1, 6 ]}\nobreak
+\logpage{[ 16, 1, 7 ]}\nobreak
 \hyperdef{L}{X7E84DB4E8746344A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseStringCRels({\mdseries\slshape rels, g})\index{ParseStringCRels@\texttt{ParseStringCRels}}
 \label{ParseStringCRels}
@@ -4959,7 +5056,7 @@ to j-zigzags of a polyhedron, and the latter corresponds to j-holes.) }
  
 
 \subsection{\textcolor{Chapter }{ParseRotGpRels}}
-\logpage{[ 16, 1, 7 ]}\nobreak
+\logpage{[ 16, 1, 8 ]}\nobreak
 \hyperdef{L}{X79C6D76380B9F364}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseRotGpRels({\mdseries\slshape rels, g})\index{ParseRotGpRels@\texttt{ParseRotGpRels}}
 \label{ParseRotGpRels}
@@ -4972,7 +5069,7 @@ to ParseStringCRels, but for rotation groups instead. }
  
 
 \subsection{\textcolor{Chapter }{AddOrAppend}}
-\logpage{[ 16, 1, 8 ]}\nobreak
+\logpage{[ 16, 1, 9 ]}\nobreak
 \hyperdef{L}{X829B5DA779342A28}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AddOrAppend({\mdseries\slshape L, x})\index{AddOrAppend@\texttt{AddOrAppend}}
 \label{AddOrAppend}

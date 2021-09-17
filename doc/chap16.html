@@ -25,14 +25,15 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap16.html#X810FFB1C8035C8BE">16.1 <span class="Heading">Utility functions</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7D63A6087BD7F5F8">16.1-1 AbstractPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7C2837FB8174C8DC">16.1-2 AbstractRegularPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79AB055B7DDFB160">16.1-3 AbstractRotaryPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7CDF25897D4DBE57">16.1-4 TranslatePerm</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X83788BBF7EF52486">16.1-5 MultPerm</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7E84DB4E8746344A">16.1-6 ParseStringCRels</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79C6D76380B9F364">16.1-7 ParseRotGpRels</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X829B5DA779342A28">16.1-8 AddOrAppend</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X863ECFAD85CFFCB0">16.1-1 InfoRamp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7D63A6087BD7F5F8">16.1-2 AbstractPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7C2837FB8174C8DC">16.1-3 AbstractRegularPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79AB055B7DDFB160">16.1-4 AbstractRotaryPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7CDF25897D4DBE57">16.1-5 TranslatePerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X83788BBF7EF52486">16.1-6 MultPerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7E84DB4E8746344A">16.1-7 ParseStringCRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79C6D76380B9F364">16.1-8 ParseRotGpRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X829B5DA779342A28">16.1-9 AddOrAppend</a></span>
 </div></div>
 </div>
 
@@ -42,44 +43,51 @@
 
 <h4>16.1 <span class="Heading">Utility functions</span></h4>
 
+<p><a id="X863ECFAD85CFFCB0" name="X863ECFAD85CFFCB0"></a></p>
+
+<h5>16.1-1 InfoRamp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoRamp</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
+<p>Calls</p>
+
 <p><a id="X7D63A6087BD7F5F8" name="X7D63A6087BD7F5F8"></a></p>
 
-<h5>16.1-1 AbstractPolytope</h5>
+<h5>16.1-2 AbstractPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Calls <code class="code">Maniplex(args)</code> and marks the output as polytopal.</p>
 
 <p><a id="X7C2837FB8174C8DC" name="X7C2837FB8174C8DC"></a></p>
 
-<h5>16.1-2 AbstractRegularPolytope</h5>
+<h5>16.1-3 AbstractRegularPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRegularPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Calls <code class="code">ReflexibleManiplex(args)</code> and marks the output as polytopal. Also available as <code class="code">ARP(args)</code>.</p>
 
 <p><a id="X79AB055B7DDFB160" name="X79AB055B7DDFB160"></a></p>
 
-<h5>16.1-3 AbstractRotaryPolytope</h5>
+<h5>16.1-4 AbstractRotaryPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRotaryPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Calls <code class="code">RotaryManiplex(args)</code> and marks the output as polytopal.</p>
 
 <p><a id="X7CDF25897D4DBE57" name="X7CDF25897D4DBE57"></a></p>
 
-<h5>16.1-4 TranslatePerm</h5>
+<h5>16.1-5 TranslatePerm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TranslatePerm</code>( <var class="Arg">perm</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns a new permutation obtained from <var class="Arg">perm</var> by adding k to each moved point.</p>
 
 <p><a id="X83788BBF7EF52486" name="X83788BBF7EF52486"></a></p>
 
-<h5>16.1-5 MultPerm</h5>
+<h5>16.1-6 MultPerm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MultPerm</code>( <var class="Arg">perm</var>, <var class="Arg">multiplier</var>, <var class="Arg">offset</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result.</p>
 
 <p><a id="X7E84DB4E8746344A" name="X7E84DB4E8746344A"></a></p>
 
-<h5>16.1-6 ParseStringCRels</h5>
+<h5>16.1-7 ParseStringCRels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseStringCRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This helper function is used in several maniplex constructors. Given a string <var class="Arg">rels</var> that represents relations in an sggi, and an sggi g, returns a list of elements of g represented by <var class="Arg">rels</var>.</p>
@@ -96,14 +104,14 @@ newrels := ParseStringCRels(rels, g);
 
 <p><a id="X79C6D76380B9F364" name="X79C6D76380B9F364"></a></p>
 
-<h5>16.1-7 ParseRotGpRels</h5>
+<h5>16.1-8 ParseRotGpRels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseRotGpRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This helper function is used in several maniplex constructors. It is analogous to ParseStringCRels, but for rotation groups instead.</p>
 
 <p><a id="X829B5DA779342A28" name="X829B5DA779342A28"></a></p>
 
-<h5>16.1-8 AddOrAppend</h5>
+<h5>16.1-9 AddOrAppend</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>

@@ -162,6 +162,53 @@
 </Section>
 
 
+<Section Label="Chapter_Families_of_Polytopes_Section_Flat_and_tight_polytopes">
+<Heading>Flat and tight polytopes</Heading>
+
+<ManSection>
+  <Oper Arg="p, q, i, j" Name="FlatOrientablyRegularPolyhedron" Label="for IsInt, IsInt, IsInt, IsInt"/>
+ <Returns>the flat orientably regular polyhedron with automorphism group  [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j).
+</Returns>
+ <Description>
+This function validates the inputs to make sure that the polyhedron is well-defined.
+ Use FlatOrientablyRegularPolyhedronNC if you do not want this validation.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="p, q, i, j" Name="FlatOrientablyRegularPolyhedronNC" Label="for IsInt, IsInt, IsInt, IsInt"/>
+ <Returns>???
+</Returns>
+ <Description>
+???
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="sym" Name="FlatOrientablyRegularPolyhedraOfType" Label="for IsList"/>
+ <Returns>a lits of all flat, orientably regular polyhedra with Schlafli symbol <A>sym</A>.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="sym" Name="TightOrientablyRegularPolytopesOfType" Label="for IsList"/>
+ <Returns>a lits of all flat, orientably regular polytopes with Schlafli symbol <A>sym</A>.
+</Returns>
+ <Description>
+When <A>sym</A> has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(<A>sym</A>).
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Families_of_Polytopes_Section_Toroids">
 <Heading>Toroids</Heading>
 
@@ -207,6 +254,26 @@ Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,4,3,3\}_{
 
 <Section Label="Chapter_Families_of_Polytopes_Section_Uniform_Polyhedra">
 <Heading>Uniform Polyhedra</Heading>
+
+<ManSection>
+  <Oper Arg="" Name="Cuboctahedron" />
+ <Returns>maniplex
+</Returns>
+ <Description>
+Constructs the cuboctahedron.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="" Name="TruncatedTetrahedron" />
+ <Returns>maniplex
+</Returns>
+ <Description>
+Constructs the truncated tetrahedron.
+ </Description>
+</ManSection>
+
 
 <ManSection>
   <Oper Arg="" Name="TruncatedOctahedron" />

@@ -1,5 +1,9 @@
 
 
+
+#! @Chapter Families of Polytopes
+#! @Section Uniform Polyhedra
+
 #! @Arguments
 #! @Returns maniplex
 #! @Description Constructs the cuboctahedron.
@@ -11,10 +15,6 @@ DeclareOperation("Cuboctahedron",[]);
 #! @Description Constructs the truncated tetrahedron.
 DeclareOperation("TruncatedTetrahedron",[]);
 
-
-
-#! @Chapter Families of Polytopes
-#! @Section Uniform Polyhedra
 
 #! @Arguments
 #! @Returns maniplex

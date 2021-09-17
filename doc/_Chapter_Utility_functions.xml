@@ -8,6 +8,14 @@
 <Heading>Utility functions</Heading>
 
 <ManSection>
+  <InfoClass Name="InfoRamp" />
+ <Description>
+Calls
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Func Arg="args" Name="AbstractPolytope" />
  <Description>
 Calls <Code>Maniplex(args)</Code> and marks the output as polytopal.
