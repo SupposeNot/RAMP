@@ -207,47 +207,6 @@ InstallMethod(ReflexibleManiplex,
 	return p;
 	end);
 
-# Returns the regular polytope with the given symbolic name.
-# Examples:
-# ReflexibleManiplex("{3,3,3}");
-# ReflexibleManiplex("{4,3}_3");
-InstallOtherMethod(ReflexibleManiplex,
-	[IsString],
-	function(name)
-	local sym, p, nameparts, petrie, n, petrie_word, symname;
-	
-	# HACK: If something calls ReflexibleManiplex([]) wanting the universal 1-polytope,
-	# then we end up here because [] is the same as the empty string. So we
-	# handle that case specially.
-	if name = [] then
-		return UniversalPolytope(1);
-	fi;
-	
-	if name[1] = '{' and name[Size(name)] = '}' then
-		sym := SplitString(name{[2..Size(name)-1]}, ',');
-		sym := List(sym, str -> Int(str));
-		p := ReflexibleManiplex(sym);
-	elif '_' in name then
-		nameparts := SplitString(name, '_');
-		symname := nameparts[1];
-		if symname[1] = '{' and symname[Size(symname)] = '}' then
-			sym := SplitString(symname{[2..Size(symname)-1]}, ',');
-			sym := List(sym, str -> Int(str));
-			petrie := Int(nameparts[2]);
-			n := 1 + Size(sym);
-			p := ReflexibleManiplex(sym, PetrieRelation(n, petrie));
-		else
-			Error("Cannot parse name.");
-		fi;
-	else
-		Error("Cannot parse name.");
-	fi;
-
-	SetString(p, Concatenation("ReflexibleManiplex(", name, ")"));
-	
-	return p;
-	end);
-	
 # Given a permutation group (sggi), builds a maniplex with that as its connection group.	
 InstallMethod(Maniplex,
 	[IsPermGroup],

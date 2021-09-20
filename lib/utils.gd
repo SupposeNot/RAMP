@@ -5,8 +5,7 @@
 #! @Section Utility functions
 
 
-#! @Arguments args
-#! @Description Calls 
+#! @Description The InfoClass for the Ramp package.
 DeclareInfoClass("InfoRamp");
 
 #! @Arguments args
@@ -38,31 +37,45 @@ DeclareGlobalFunction("MultPerm");
 DeclareGlobalFunction("TranslateWord");
 
 #! @Arguments rels, g
-#! This helper function is used in several maniplex constructors.
+#! @Returns a list of relators
+#! @Description This helper function is used in several maniplex constructors.
 #! Given a string <A>rels</A> that represents relations in an sggi, and an sggi g,
-#! returns a list of elements of g represented by <A>rels</A>. 
+#! returns a list of elements in the free group of g represented by <A>rels</A>.
+#! These can then be used to form a quotient of g.
 #! @BeginExampleSession
-#! g := AutomorphismGroup(CubicTiling(2));;
-#! rels := "(r0 r1 r2 r1)^6";;
-#! newrels := ParseStringCRels(rels, g);
+#! gap> g := AutomorphismGroup(CubicTiling(2));;
+#! gap> rels := "(r0 r1 r2 r1)^6";;
+#! gap> newrels := ParseStringCRels(rels, g);
 #! [ (r0*r1*r2*r1)^6 ]
+#! gap> newrels[1] in FreeGroupOfFpGroup(g);
+#! true
+#! gap> g2 := FactorGroupFpGroupByRels(g, newrels);
+#! <fp group on the generators [ r0, r1, r2 ]>
 #! @EndExampleSession
 #! For convenience, you may use z1, z2, etc and h1, h2, etc in relations,
-#! where zj means r0 (r1 r2)^j and hj means r0 (r1 r2)^j-1 r1.
-#! (That is, the former is the word corresponding to j-zigzags of a polyhedron,
-#! and the latter corresponds to j-holes.)
+#! where zj means r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1
+#! (the "j-hole" word).
 DeclareGlobalFunction("ParseStringCRels");
 
 #! @Arguments rels, g
-#! This helper function is used in several maniplex constructors.
+#! @Description This helper function is used in several maniplex constructors.
 #! It is analogous to ParseStringCRels, but for rotation groups instead.
 DeclareGlobalFunction("ParseRotGpRels");
 
 DeclareGlobalFunction("StandardizeSggi");
 
 #! @Arguments L, x
-#! Given a list <A>L</A> and an object <A>x</A>, this calls
+#! @Description Given a list <A>L</A> and an object <A>x</A>, this calls
 #! Append(L, x) if x is a list; otherwise it calls Add(L, x).
 #! Note that since strings are internally represented as lists,
 #! AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.
+#! @BeginExampleSession
+#! gap> L := [1, 2, 3];;
+#! gap> AddOrAppend(L, 4);
+#! gap> L;
+#! [1, 2, 3, 4]
+#! gap> AddOrAppend(L, [5, 6]);
+#! gap> L;
+#! [1, 2, 3, 4, 5, 6];
+#! @EndExampleSession
 DeclareGlobalFunction("AddOrAppend");

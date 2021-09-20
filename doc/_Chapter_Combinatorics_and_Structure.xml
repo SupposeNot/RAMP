@@ -228,17 +228,20 @@
 
 <ManSection>
   <Attr Arg="M" Name="Size" Label="for IsManiplex"/>
+ <Returns>The number of flags of the maniplex <A>M</A>.
+</Returns>
  <Description>
- Returns the number of flags of the maniplex <A>M</A>.
- Synonym: <Code>NumberOfFlags</Code>.
+Synonym: <Code>NumberOfFlags</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Attr Arg="M" Name="RankManiplex" Label="for IsManiplex"/>
+ <Returns>The rank of the maniplex <A>M</A>.
+</Returns>
  <Description>
- Returns the rank of the maniplex <A>M</A>.
+<P/>
  </Description>
 </ManSection>
 

@@ -9,152 +9,200 @@
 
 <ManSection>
   <Oper Arg="" Name="Vertex" />
+ <Returns>the universal 0-polytope.
+</Returns>
  <Description>
- Returns the universal 0-polytope.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Edge" />
+ <Returns>the universal 1-polytope.
+</Returns>
  <Description>
- Returns the universal 1-polytope.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="p" Name="Pgon" Label="for IsInt"/>
+ <Returns>the p-gon.
+</Returns>
  <Description>
- Returns the p-gon.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="Cube" Label="for IsInt"/>
+ <Returns>the n-cube.
+</Returns>
  <Description>
- Returns the n-cube.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="HemiCube" Label="for IsInt"/>
+ <Returns>the n-hemi-cube.
+</Returns>
  <Description>
- Returns the n-hemi-cube.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="CrossPolytope" Label="for IsInt"/>
+ <Returns>the n-cross-polytope.
+</Returns>
  <Description>
- Returns the n-cross-polytope.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="HemiCrossPolytope" Label="for IsInt"/>
+ <Returns>the n-hemi-cross-polytope.
+</Returns>
  <Description>
- Returns the n-hemi-cross-polytope.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="Simplex" Label="for IsInt"/>
+ <Returns>the n-simplex.
+</Returns>
  <Description>
- Returns the n-simplex.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="CubicTiling" Label="for IsInt"/>
+ <Returns>the rank n+1 polytope; the tiling of E^n by n-cubes.
+</Returns>
  <Description>
- Returns the rank n+1 polytope; the tiling of E^n by n-cubes.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Dodecahedron" />
+ <Returns>the dodecahedron, {5, 3}.
+</Returns>
  <Description>
- Returns the dodecahedron, {5, 3}.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="HemiDodecahedron" />
+ <Returns>the hemi-dodecahedron, {5, 3}_5.
+</Returns>
  <Description>
- Returns the hemi-dodecahedron, {5, 3}_5.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Icosahedron" />
+ <Returns>the icosahedron, {3, 5}.
+</Returns>
  <Description>
- Returns the icosahedron, {3, 5}.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="HemiIcosahedron" />
+ <Returns>the hemi-icosahedron, {3, 5}_5.
+</Returns>
  <Description>
- Returns the hemi-icosahedron, {3, 5}_5.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="24Cell" />
+ <Returns>the 24-cell, {3, 4, 3}.
+</Returns>
  <Description>
- Returns the 24-cell, {3, 4, 3}.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Hemi24Cell" />
+ <Returns>the hemi-24-cell, {3, 4, 3}_6.
+</Returns>
  <Description>
- Returns the hemi-24-cell, {3, 4, 3}_6.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="120Cell" />
+ <Returns>the 120-cell, {5, 3, 3}.
+</Returns>
  <Description>
- Returns the 120-cell, {5, 3, 3}.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Hemi120Cell" />
+ <Returns>the hemi-120-cell, {5, 3, 3}_15.
+</Returns>
  <Description>
- Returns the hemi-120-cell, {5, 3, 3}_15.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="600Cell" />
+ <Returns>the 600-cell, {3, 3, 5}.
+</Returns>
  <Description>
- Returns the 600-cell, {3, 3, 5}.
+<P/>
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Hemi600Cell" />
+ <Returns>the hemi-600-cell, {3, 3, 5}_15.
+</Returns>
  <Description>
- Returns the hemi-600-cell, {3, 3, 5}_15.
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="" Name="BrucknerSphere" />
+ <Returns>Bruckner's sphere.
+</Returns>
+ <Description>
+<P/>
  </Description>
 </ManSection>
 
@@ -177,18 +225,8 @@ This function validates the inputs to make sure that the polyhedron is well-defi
 
 
 <ManSection>
-  <Oper Arg="p, q, i, j" Name="FlatOrientablyRegularPolyhedronNC" Label="for IsInt, IsInt, IsInt, IsInt"/>
- <Returns>???
-</Returns>
- <Description>
-???
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="sym" Name="FlatOrientablyRegularPolyhedraOfType" Label="for IsList"/>
- <Returns>a lits of all flat, orientably regular polyhedra with Schlafli symbol <A>sym</A>.
+ <Returns>a list of all flat, orientably regular polyhedra with Schlafli symbol <A>sym</A>.
 </Returns>
  <Description>
 <P/>
@@ -198,7 +236,7 @@ This function validates the inputs to make sure that the polyhedron is well-defi
 
 <ManSection>
   <Oper Arg="sym" Name="TightOrientablyRegularPolytopesOfType" Label="for IsList"/>
- <Returns>a lits of all flat, orientably regular polytopes with Schlafli symbol <A>sym</A>.
+ <Returns>a list of all tight, orientably regular polytopes with Schlafli symbol <A>sym</A>.
 </Returns>
  <Description>
 When <A>sym</A> has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(<A>sym</A>).

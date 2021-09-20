@@ -8,7 +8,8 @@ DeclareGlobalVariable("UNIVERSAL_SGGI_FREE_GROUPS");
 #! @GroupTitle UniversalSggi
 
 #! @Arguments n
-#! In the first form, returns the universal Coxeter Group of rank n.
+#! @Returns `IsFpGroup`
+#! @Description In the first form, returns the universal Coxeter Group of rank n.
 DeclareOperation("UniversalSggi", [IsInt]);
 
 #! @Arguments sym
@@ -18,71 +19,120 @@ DeclareOperation("UniversalSggi", [IsList]);
 #! @EndGroup
 
 #! @Arguments symbol, relations
+#! @Returns `IsFpGroup`
 #! @Description Returns the sggi defined by the given Schlafli
 #! symbol and with the given relations. The relations can be given
 #! by a list of Tietze words or as a string of relators or relations
 #! that involve r0 etc.
+#! @BeginExampleSession
+#! gap> g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
+#! gap> h := Sggi([4,4], "r0 = r2");;
+#! gap> k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;
+#! gap> k = Sggi([3,3]);
+#! true
+#! @EndExampleSession
 DeclareOperation("Sggi", [IsList, IsList]);
 
+
+#! @BeginGroup ReflexibleManiplex
+#! @GroupTitle ReflexibleManiplex
+
+
 #! @Arguments g
-#! @Description Given a group g (which should be a string C-group),
-#! returns the reflexible maniplex with that automorphism group,
+#! @Returns `IsReflexibleManiplex`
+#! @Description In the first form, we are given a string C-group <A>g</A>
+#! and we return the reflexible maniplex with that automorphism group,
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
+#! @BeginExampleSession
+#! gap> g := Group([(1,2), (2,3), (3,4)]);
+#! gap> M := ReflexibleManiplex(g);
+#! gap> M = Simplex(3);
+#! true
+#! @EndExampleSession
 DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
-#! @Arguments sym
-#! Returns the universal reflexible maniplex (in fact, regular polytope)
-#! with Schlafli symbol <A>sym</A>.
-DeclareOperation("ReflexibleManiplex", [IsList]);
-
-#! @Arguments symbol, relations
-#! @Description Returns the reflexible maniplex with the given Schlafli
-#! symbol and with the given relations.
-#! The formatting of the relations is quite flexible. All of the following work:
+#! @Arguments sym[, relations]
+#! @Description The second form returns the universal reflexible maniplex
+#! with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
+#! then we return the reflexible maniplex with the given defining relations.
+#! The relations can be given by a list of Tietze words or as a string of relators 
+#! or relations that involve r0 etc.
 #! @BeginExampleSession
-#! q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
-#! q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
-#! p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");
+#! gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
+#! gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
+#! true
+#! gap> p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;
 #! @EndExampleSession
 #! If the option set_schlafli is set, then we set the Schlafli symbol
 #! to the one given. This may not be the correct Schlafli symbol, since
 #! the relations may cause a collapse, so this should only be used if
 #! you know that the Schlafli symbol is correct.
+DeclareOperation("ReflexibleManiplex", [IsList]);
+#! @EndGroup
+
 DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 
-#! @Arguments name
-#! @Description Returns the regular polytope with the given symbolic name.
-#! Examples:
-#! ReflexibleManiplex("{3,3,3}");
-#! ReflexibleManiplex("{4,3}_3");
-#! If the option set_schlafli is set, then we set the Schlafli symbol
-#! to the one given. This may not be the correct Schlafli symbol, since
-#! the relations may cause a collapse, so this should only be used if
-#! you know that the Schlafli symbol is correct.
-DeclareOperation("ReflexibleManiplex", [IsString]);
+
+
 
 #! @Arguments G
-#! Returns a maniplex with connection group <A>G</A>, where <A>G</A>
-#! is assumed to be a permutation group on the flags.
-DeclareOperation("Maniplex", [IsGroup]);
+#! @Returns `IsManiplex`
+#! @Description Given a permutation group <A>G</A> on the set [1..N],
+#! returns a maniplex with N flags with connection group <A>G</A>.
+#! The output may not make sense if <A>G</A> is not an sggi.
+#! @BeginExampleSession
+#! gap> G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;
+#! gap> M := Maniplex(G);
+#! Pgon(3)
+#! gap> c := ConnectionGroup(Cube(3));
+#! <permutation group with 3 generators>
+#! gap> Maniplex(c) = Cube(3);
+#! true
+#! @EndExampleSession
+DeclareOperation("Maniplex", [IsPermGroup]);
 
-#! @Arguments M, G
-#! Given a reflexible maniplex <A>M</A> and a subgroup <A>G</A> of the flag-stabilizer
-#! of the base flag of <A>M</A>, returns the maniplex <A>M/G</A>.
+#! @Arguments M, H
+#! @Returns `IsManiplex`
+#! @Description Let <A>M</A> be a reflexible maniplex and let <A>H</A> be a subgroup
+#! of AutomorphismGroup(<A>M</A>). This returns the maniplex <A>M/H</A>. This will be
+#! reflexible if and only if <A>H</A> is normal.
+#! For most purposes, it is probably easier to use QuotientManiplex, which takes a
+#! string of relations as input instead of a subgroup.
+#! The example below builds the map $\{4, 4\}_{(1,0), (0,2)}$.
+#! @BeginExampleSession
+#! gap> M := ReflexibleManiplex([4,4]);
+#! CubicTiling(2)
+#! gap> G := AutomorphismGroup(M);
+#! <fp group of size infinity on the generators [ r0, r1, r2 ]>
+#! gap> H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);
+#! Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
+#! gap> M2 := Maniplex(M, H);
+#! 3-maniplex
+#! gap> Size(M2);
+#! 16
+#! @EndExampleSession
 DeclareOperation("Maniplex", [IsReflexibleManiplex, IsGroup]);
 
 #! @Arguments F, inputs
-#! Constructs a formal polytope, represented by an operation <A>F</A> and
-#! a list of arguments <A>inputs</A>.
+#! @Returns `IsManiplex`
+#! @Description Constructs a formal maniplex, represented by an operation <A>F</A> and
+#! a list of arguments <A>inputs</A>. By itself, this does not really _do_
+#! anything -- it creates a maniplex object that only knows the operation <A>F</A> and 
+#! the <A>inputs</A>. However, many polytope operations (such as Pyramid(M), Medial(M), etc)
+#! use this construction as a base, and then add "attribute computers" that tell the formal
+#! maniplex how to compute certain things in terms of properties of the base.
+#! See AddAttrComputer for more information.
 DeclareOperation("Maniplex", [IsFunction, IsList]);
 
 #! @Arguments P
-#! Returns a maniplex with poset <A>P</A>.
+#! @Returns `IsManiplex`
+#! @Description Constructs the maniplex from the given poset <A>P</A>.
+#! This assumes that P actually defines a maniplex.
 DeclareOperation("Maniplex", [IsPoset]);
 
 #! @Arguments M
-#! Returns whether the maniplex <A>M</A> is a polytope.
-#! Currently only implemented for reflexible maniplexes.
+#! @Description Returns whether the maniplex <A>M</A> is polytopal;
+#! i.e., the flag graph of a polytope.
 DeclareProperty("IsPolytopal", IsManiplex);
 
 
@@ -91,14 +141,14 @@ DeclareProperty("IsPolytopal", IsManiplex);
 #! @Section Basics
 
 #! @Arguments M
-#! Returns the number of flags of the maniplex <A>M</A>.
-#! Synonym: `NumberOfFlags`.
+#! @Returns The number of flags of the maniplex <A>M</A>.
+#! @Description Synonym: `NumberOfFlags`.
 DeclareAttribute("Size", IsManiplex);
 
 DeclareSynonymAttr("NumberOfFlags", Size);
 
 #! @Arguments M
-#! Returns the rank of the maniplex <A>M</A>.
+#! @Returns The rank of the maniplex <A>M</A>.
 DeclareAttribute("RankManiplex", IsManiplex);
 
 
@@ -106,13 +156,13 @@ DeclareAttribute("RankManiplex", IsManiplex);
 #! @Section Faithfulness
 
 #! @Arguments M
-#! Returns whether the reflexible maniplex <A>M</A> is
+#! @Description Returns whether the reflexible maniplex <A>M</A> is
 #! vertex-faithful; i.e., whether the action of the automorphism
 #! group on the vertices is faithful.
 DeclareProperty("IsVertexFaithful", IsReflexibleManiplex);
 
 #! @Arguments M
-#! Returns whether the reflexible maniplex <A>M</A> is
+#! @Description Returns whether the reflexible maniplex <A>M</A> is
 #! facet-faithful; i.e., whether the action of the automorphism
 #! group on the facets is faithful.
 DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);

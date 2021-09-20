@@ -8,7 +8,7 @@
   
   [33X[1;0Y[29X[2XInfoRamp[102X[32X info class[133X
   
-  [33X[0;0YCalls[133X
+  [33X[0;0YThe InfoClass for the Ramp package.[133X
   
   [1X16.1-2 AbstractPolytope[101X
   
@@ -46,22 +46,27 @@
   [1X16.1-7 ParseStringCRels[101X
   
   [33X[1;0Y[29X[2XParseStringCRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya list of relators[133X
   
   [33X[0;0YThis  helper  function  is  used  in  several maniplex constructors. Given a
   string  [3Xrels[103X  that represents relations in an sggi, and an sggi g, returns a
-  list of elements of g represented by [3Xrels[103X.[133X
+  list  of elements in the free group of g represented by [3Xrels[103X. These can then
+  be used to form a quotient of g.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28Xg := AutomorphismGroup(CubicTiling(2));;[128X[104X
-    [4X[28Xrels := "(r0 r1 r2 r1)^6";;[128X[104X
-    [4X[28Xnewrels := ParseStringCRels(rels, g);[128X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(CubicTiling(2));;[127X[104X
+    [4X[25Xgap>[125X [27Xrels := "(r0 r1 r2 r1)^6";;[127X[104X
+    [4X[25Xgap>[125X [27Xnewrels := ParseStringCRels(rels, g);[127X[104X
     [4X[28X[ (r0*r1*r2*r1)^6 ][128X[104X
+    [4X[25Xgap>[125X [27Xnewrels[1] in FreeGroupOfFpGroup(g);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xg2 := FactorGroupFpGroupByRels(g, newrels);[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
   [4X[32X[104X
   
   [33X[0;0YFor convenience, you may use z1, z2, etc and h1, h2, etc in relations, where
-  zj  means  r0 (r1 r2)^j and hj means r0 (r1 r2)^j-1 r1. (That is, the former
-  is  the  word  corresponding  to  j-zigzags  of a polyhedron, and the latter
-  corresponds to j-holes.)[133X
+  zj  means  r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1
+  (the "j-hole" word).[133X
   
   [1X16.1-8 ParseRotGpRels[101X
   
@@ -78,4 +83,14 @@
   otherwise  it  calls  Add(L,  x).  Note  that  since  strings are internally
   represented  as lists, AddOrAppend(L, "foo") will append the characters 'f',
   'o', 'o'.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := [1, 2, 3];;[127X[104X
+    [4X[25Xgap>[125X [27XAddOrAppend(L, 4);[127X[104X
+    [4X[25Xgap>[125X [27XL;[127X[104X
+    [4X[28X[1, 2, 3, 4][128X[104X
+    [4X[25Xgap>[125X [27XAddOrAppend(L, [5, 6]);[127X[104X
+    [4X[25Xgap>[125X [27XL;[127X[104X
+    [4X[28X[1, 2, 3, 4, 5, 6];[128X[104X
+  [4X[32X[104X
   

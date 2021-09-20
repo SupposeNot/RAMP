@@ -51,7 +51,7 @@
 <h5>16.1-1 InfoRamp</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoRamp</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
-<p>Calls</p>
+<p>The InfoClass for the Ramp package.</p>
 
 <p><a id="X7D63A6087BD7F5F8" name="X7D63A6087BD7F5F8"></a></p>
 
@@ -93,17 +93,23 @@
 <h5>16.1-7 ParseStringCRels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseStringCRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>This helper function is used in several maniplex constructors. Given a string <var class="Arg">rels</var> that represents relations in an sggi, and an sggi g, returns a list of elements of g represented by <var class="Arg">rels</var>.</p>
+<p>Returns: a list of relators</p>
+
+<p>This helper function is used in several maniplex constructors. Given a string <var class="Arg">rels</var> that represents relations in an sggi, and an sggi g, returns a list of elements in the free group of g represented by <var class="Arg">rels</var>. These can then be used to form a quotient of g.</p>
 
 
 <div class="example"><pre>
-g := AutomorphismGroup(CubicTiling(2));;
-rels := "(r0 r1 r2 r1)^6";;
-newrels := ParseStringCRels(rels, g);
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(CubicTiling(2));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := "(r0 r1 r2 r1)^6";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseStringCRels(rels, g);</span>
 [ (r0*r1*r2*r1)^6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels[1] in FreeGroupOfFpGroup(g);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := FactorGroupFpGroupByRels(g, newrels);</span>
+&lt;fp group on the generators [ r0, r1, r2 ]&gt;
 </pre></div>
 
-<p>For convenience, you may use z1, z2, etc and h1, h2, etc in relations, where zj means r0 (r1 r2)^j and hj means r0 (r1 r2)^j-1 r1. (That is, the former is the word corresponding to j-zigzags of a polyhedron, and the latter corresponds to j-holes.)</p>
+<p>For convenience, you may use z1, z2, etc and h1, h2, etc in relations, where zj means r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1 (the "j-hole" word).</p>
 
 <p><a id="X79C6D76380B9F364" name="X79C6D76380B9F364"></a></p>
 
@@ -118,6 +124,17 @@ newrels := ParseStringCRels(rels, g);
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := [1, 2, 3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AddOrAppend(L, 4);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
+[1, 2, 3, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AddOrAppend(L, [5, 6]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
+[1, 2, 3, 4, 5, 6];
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap15_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib_mj.html">[Next Chapter]</a>&nbsp;  </div>

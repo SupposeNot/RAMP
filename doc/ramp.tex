@@ -776,6 +776,9 @@ Currently mathematica and sage are supported. }
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalSggi({\mdseries\slshape sym})\index{UniversalSggi@\texttt{UniversalSggi}!for IsList}
 \label{UniversalSggi:for IsList}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFpGroup} 
+
 
 
  In the first form, returns the universal Coxeter Group of rank n. In the
@@ -789,56 +792,55 @@ second form, returns the Coxeter Group with Schlafli symbol sym. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Sggi({\mdseries\slshape symbol, relations})\index{Sggi@\texttt{Sggi}!for IsList, IsList}
 \label{Sggi:for IsList, IsList}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFpGroup} 
+
 
 
  Returns the sggi defined by the given Schlafli symbol and with the given
 relations. The relations can be given by a list of Tietze words or as a string
-of relators or relations that involve r0 etc. }
+of relators or relations that involve r0 etc. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@h := Sggi([4,4], "r0 = r2");;|
+  !gapprompt@gap>| !gapinput@k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;|
+  !gapprompt@gap>| !gapinput@k = Sggi([3,3]);|
+  true
+\end{Verbatim}
+ }
 
  
-
-\subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsGroup)}}
-\logpage{[ 2, 1, 3 ]}\nobreak
-\hyperdef{L}{X8494D0598240BD67}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape g})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsGroup}
+\subsection{\textcolor{Chapter }{ReflexibleManiplex}}\label{ReflexibleManiplex}
+\logpage{[ 2, 1, 3 ]}
+\hyperdef{L}{X7F88B7097E9421AB}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape g})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsGroup}
 \label{ReflexibleManiplex:for IsGroup}
 }\hfill{\scriptsize (operation)}}\\
-
-
- Given a group g (which should be a string C-group), returns the reflexible
-maniplex with that automorphism group, where the privileged generators are
-those returned by GeneratorsOfGroup(g). }
-
- 
-
-\subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsList)}}
-\logpage{[ 2, 1, 4 ]}\nobreak
-\hyperdef{L}{X872407AC7E91F409}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape sym})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape sym[, relations]})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList}
 \label{ReflexibleManiplex:for IsList}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsReflexibleManiplex} 
 
 
- Returns the universal reflexible maniplex (in fact, regular polytope) with
-Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. }
 
- 
-
-\subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsList, IsList)}}
-\logpage{[ 2, 1, 5 ]}\nobreak
-\hyperdef{L}{X7A50E3AA7F5A9E55}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape symbol, relations})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList, IsList}
-\label{ReflexibleManiplex:for IsList, IsList}
-}\hfill{\scriptsize (operation)}}\\
-
-
- Returns the reflexible maniplex with the given Schlafli symbol and with the
-given relations. The formatting of the relations is quite flexible. All of the
-following work: 
+ In the first form, we are given a string C-group \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
+privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");
-  q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
-  p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  true
+\end{Verbatim}
+ The second form returns the universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
+relations. The relations can be given by a list of Tietze words or as a string
+of relators or relations that involve r0 etc. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  true
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
 \end{Verbatim}
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
@@ -847,74 +849,97 @@ that the Schlafli symbol is correct. }
 
  
 
-\subsection{\textcolor{Chapter }{ReflexibleManiplex (for IsString)}}
-\logpage{[ 2, 1, 6 ]}\nobreak
-\hyperdef{L}{X8209E4587808FE97}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape name})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsString}
-\label{ReflexibleManiplex:for IsString}
+\subsection{\textcolor{Chapter }{Maniplex (for IsPermGroup)}}
+\logpage{[ 2, 1, 4 ]}\nobreak
+\hyperdef{L}{X7F0E44EA7980CF74}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape G})\index{Maniplex@\texttt{Maniplex}!for IsPermGroup}
+\label{Maniplex:for IsPermGroup}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsManiplex} 
 
 
- Returns the regular polytope with the given symbolic name. Examples:
-ReflexibleManiplex("\texttt{\symbol{123}}3,3,3\texttt{\symbol{125}}");
-ReflexibleManiplex("\texttt{\symbol{123}}4,3\texttt{\symbol{125}}{\textunderscore}3");
-If the option set{\textunderscore}schlafli is set, then we set the Schlafli
-symbol to the one given. This may not be the correct Schlafli symbol, since
-the relations may cause a collapse, so this should only be used if you know
-that the Schlafli symbol is correct. }
 
- 
-
-\subsection{\textcolor{Chapter }{Maniplex (for IsGroup)}}
-\logpage{[ 2, 1, 7 ]}\nobreak
-\hyperdef{L}{X84CE00BB87E71848}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape G})\index{Maniplex@\texttt{Maniplex}!for IsGroup}
-\label{Maniplex:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
-
-
- Returns a maniplex with connection group \mbox{\texttt{\mdseries\slshape G}}, where \mbox{\texttt{\mdseries\slshape G}} is assumed to be a permutation group on the flags. }
+ Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  Pgon(3)
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  <permutation group with 3 generators>
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  true
+\end{Verbatim}
+ }
 
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsReflexibleManiplex, IsGroup)}}
-\logpage{[ 2, 1, 8 ]}\nobreak
+\logpage{[ 2, 1, 5 ]}\nobreak
 \hyperdef{L}{X80B9127679FEBEAE}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape M, G})\index{Maniplex@\texttt{Maniplex}!for IsReflexibleManiplex, IsGroup}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape M, H})\index{Maniplex@\texttt{Maniplex}!for IsReflexibleManiplex, IsGroup}
 \label{Maniplex:for IsReflexibleManiplex, IsGroup}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsManiplex} 
 
 
- Given a reflexible maniplex \mbox{\texttt{\mdseries\slshape M}} and a subgroup \mbox{\texttt{\mdseries\slshape G}} of the flag-stabilizer of the base flag of \mbox{\texttt{\mdseries\slshape M}}, returns the maniplex \mbox{\texttt{\mdseries\slshape M/G}}. }
+
+ Let \mbox{\texttt{\mdseries\slshape M}} be a reflexible maniplex and let \mbox{\texttt{\mdseries\slshape H}} be a subgroup of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). This returns the maniplex \mbox{\texttt{\mdseries\slshape M/H}}. This will be reflexible if and only if \mbox{\texttt{\mdseries\slshape H}} is normal. For most purposes, it is probably easier to use QuotientManiplex,
+which takes a string of relations as input instead of a subgroup. The example
+below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  CubicTiling(2)
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  <fp group of size infinity on the generators [ r0, r1, r2 ]>
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  3-maniplex
+  !gapprompt@gap>| !gapinput@Size(M2);|
+  16
+\end{Verbatim}
+ }
 
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsFunction, IsList)}}
-\logpage{[ 2, 1, 9 ]}\nobreak
+\logpage{[ 2, 1, 6 ]}\nobreak
 \hyperdef{L}{X81DA2F5185E38D67}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape F, inputs})\index{Maniplex@\texttt{Maniplex}!for IsFunction, IsList}
 \label{Maniplex:for IsFunction, IsList}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsManiplex} 
 
 
- Constructs a formal polytope, represented by an operation \mbox{\texttt{\mdseries\slshape F}} and a list of arguments \mbox{\texttt{\mdseries\slshape inputs}}. }
+
+ Constructs a formal maniplex, represented by an operation \mbox{\texttt{\mdseries\slshape F}} and a list of arguments \mbox{\texttt{\mdseries\slshape inputs}}. By itself, this does not really {\textunderscore}do{\textunderscore}
+anything -- it creates a maniplex object that only knows the operation \mbox{\texttt{\mdseries\slshape F}} and the \mbox{\texttt{\mdseries\slshape inputs}}. However, many polytope operations (such as Pyramid(M), Medial(M), etc) use
+this construction as a base, and then add "attribute computers" that tell the
+formal maniplex how to compute certain things in terms of properties of the
+base. See AddAttrComputer for more information. }
 
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsPoset)}}
-\logpage{[ 2, 1, 10 ]}\nobreak
+\logpage{[ 2, 1, 7 ]}\nobreak
 \hyperdef{L}{X864C043380FB58D4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsPoset}
 \label{Maniplex:for IsPoset}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsManiplex} 
 
 
- Returns a maniplex with poset \mbox{\texttt{\mdseries\slshape P}}. }
+
+ Constructs the maniplex from the given poset \mbox{\texttt{\mdseries\slshape P}}. This assumes that P actually defines a maniplex. }
 
  
 
 \subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
-\logpage{[ 2, 1, 11 ]}\nobreak
+\logpage{[ 2, 1, 8 ]}\nobreak
 \hyperdef{L}{X79DD94037E0FACD4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
 \label{IsPolytopal:for IsManiplex}
@@ -924,7 +949,7 @@ that the Schlafli symbol is correct. }
 
 
 
- Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is a polytope. Currently only implemented for reflexible maniplexes. }
+ Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is polytopal; i.e., the flag graph of a polytope. }
 
  }
 
@@ -1255,9 +1280,12 @@ non-polytopal maniplexes, which aren't constrained by this lower bound. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Size({\mdseries\slshape M})\index{Size@\texttt{Size}!for IsManiplex}
 \label{Size:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+The number of flags of the maniplex \mbox{\texttt{\mdseries\slshape M}}. 
 
 
- Returns the number of flags of the maniplex \mbox{\texttt{\mdseries\slshape M}}. Synonym: \texttt{NumberOfFlags}. }
+
+ Synonym: \texttt{NumberOfFlags}. }
 
  
 
@@ -1267,9 +1295,14 @@ non-polytopal maniplexes, which aren't constrained by this lower bound. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankManiplex({\mdseries\slshape M})\index{RankManiplex@\texttt{RankManiplex}!for IsManiplex}
 \label{RankManiplex:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+The rank of the maniplex \mbox{\texttt{\mdseries\slshape M}}. 
 
 
- Returns the rank of the maniplex \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+
+ }
 
  }
 
@@ -2405,9 +2438,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Vertex({\mdseries\slshape })\index{Vertex@\texttt{Vertex}}
 \label{Vertex}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the universal 0-polytope. 
 
 
- Returns the universal 0-polytope. }
+
+ 
+
+ }
 
  
 
@@ -2417,9 +2455,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Edge({\mdseries\slshape })\index{Edge@\texttt{Edge}}
 \label{Edge}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the universal 1-polytope. 
 
 
- Returns the universal 1-polytope. }
+
+ 
+
+ }
 
  
 
@@ -2429,9 +2472,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pgon({\mdseries\slshape p})\index{Pgon@\texttt{Pgon}!for IsInt}
 \label{Pgon:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the p-gon. 
 
 
- Returns the p-gon. }
+
+ 
+
+ }
 
  
 
@@ -2441,9 +2489,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cube({\mdseries\slshape n})\index{Cube@\texttt{Cube}!for IsInt}
 \label{Cube:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the n-cube. 
 
 
- Returns the n-cube. }
+
+ 
+
+ }
 
  
 
@@ -2453,9 +2506,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiCube({\mdseries\slshape n})\index{HemiCube@\texttt{HemiCube}!for IsInt}
 \label{HemiCube:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the n-hemi-cube. 
 
 
- Returns the n-hemi-cube. }
+
+ 
+
+ }
 
  
 
@@ -2465,9 +2523,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CrossPolytope({\mdseries\slshape n})\index{CrossPolytope@\texttt{CrossPolytope}!for IsInt}
 \label{CrossPolytope:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the n-cross-polytope. 
 
 
- Returns the n-cross-polytope. }
+
+ 
+
+ }
 
  
 
@@ -2477,9 +2540,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiCrossPolytope({\mdseries\slshape n})\index{HemiCrossPolytope@\texttt{HemiCrossPolytope}!for IsInt}
 \label{HemiCrossPolytope:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the n-hemi-cross-polytope. 
 
 
- Returns the n-hemi-cross-polytope. }
+
+ 
+
+ }
 
  
 
@@ -2489,9 +2557,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Simplex({\mdseries\slshape n})\index{Simplex@\texttt{Simplex}!for IsInt}
 \label{Simplex:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the n-simplex. 
 
 
- Returns the n-simplex. }
+
+ 
+
+ }
 
  
 
@@ -2501,10 +2574,14 @@ of 4000 or less. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicTiling({\mdseries\slshape n})\index{CubicTiling@\texttt{CubicTiling}!for IsInt}
 \label{CubicTiling:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the rank n+1 polytope; the tiling of E\texttt{\symbol{94}}n by n-cubes. 
 
 
- Returns the rank n+1 polytope; the tiling of E\texttt{\symbol{94}}n by
-n-cubes. }
+
+ 
+
+ }
 
  
 
@@ -2514,9 +2591,14 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Dodecahedron({\mdseries\slshape })\index{Dodecahedron@\texttt{Dodecahedron}}
 \label{Dodecahedron}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the dodecahedron, \texttt{\symbol{123}}5, 3\texttt{\symbol{125}}. 
 
 
- Returns the dodecahedron, \texttt{\symbol{123}}5, 3\texttt{\symbol{125}}. }
+
+ 
+
+ }
 
  
 
@@ -2526,10 +2608,15 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiDodecahedron({\mdseries\slshape })\index{HemiDodecahedron@\texttt{HemiDodecahedron}}
 \label{HemiDodecahedron}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the hemi-dodecahedron, \texttt{\symbol{123}}5,
+3\texttt{\symbol{125}}{\textunderscore}5. 
 
 
- Returns the hemi-dodecahedron, \texttt{\symbol{123}}5,
-3\texttt{\symbol{125}}{\textunderscore}5. }
+
+ 
+
+ }
 
  
 
@@ -2539,9 +2626,14 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Icosahedron({\mdseries\slshape })\index{Icosahedron@\texttt{Icosahedron}}
 \label{Icosahedron}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the icosahedron, \texttt{\symbol{123}}3, 5\texttt{\symbol{125}}. 
 
 
- Returns the icosahedron, \texttt{\symbol{123}}3, 5\texttt{\symbol{125}}. }
+
+ 
+
+ }
 
  
 
@@ -2551,10 +2643,15 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiIcosahedron({\mdseries\slshape })\index{HemiIcosahedron@\texttt{HemiIcosahedron}}
 \label{HemiIcosahedron}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the hemi-icosahedron, \texttt{\symbol{123}}3,
+5\texttt{\symbol{125}}{\textunderscore}5. 
 
 
- Returns the hemi-icosahedron, \texttt{\symbol{123}}3,
-5\texttt{\symbol{125}}{\textunderscore}5. }
+
+ 
+
+ }
 
  
 
@@ -2564,9 +2661,14 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{24Cell({\mdseries\slshape })\index{24Cell@\texttt{24Cell}}
 \label{24Cell}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the 24-cell, \texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}. 
 
 
- Returns the 24-cell, \texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}. }
+
+ 
+
+ }
 
  
 
@@ -2576,10 +2678,15 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hemi24Cell({\mdseries\slshape })\index{Hemi24Cell@\texttt{Hemi24Cell}}
 \label{Hemi24Cell}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the hemi-24-cell, \texttt{\symbol{123}}3, 4,
+3\texttt{\symbol{125}}{\textunderscore}6. 
 
 
- Returns the hemi-24-cell, \texttt{\symbol{123}}3, 4,
-3\texttt{\symbol{125}}{\textunderscore}6. }
+
+ 
+
+ }
 
  
 
@@ -2589,9 +2696,14 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{120Cell({\mdseries\slshape })\index{120Cell@\texttt{120Cell}}
 \label{120Cell}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}. 
 
 
- Returns the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}. }
+
+ 
+
+ }
 
  
 
@@ -2601,10 +2713,15 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hemi120Cell({\mdseries\slshape })\index{Hemi120Cell@\texttt{Hemi120Cell}}
 \label{Hemi120Cell}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the hemi-120-cell, \texttt{\symbol{123}}5, 3,
+3\texttt{\symbol{125}}{\textunderscore}15. 
 
 
- Returns the hemi-120-cell, \texttt{\symbol{123}}5, 3,
-3\texttt{\symbol{125}}{\textunderscore}15. }
+
+ 
+
+ }
 
  
 
@@ -2614,9 +2731,14 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{600Cell({\mdseries\slshape })\index{600Cell@\texttt{600Cell}}
 \label{600Cell}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the 600-cell, \texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}. 
 
 
- Returns the 600-cell, \texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}. }
+
+ 
+
+ }
 
  
 
@@ -2626,10 +2748,32 @@ n-cubes. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hemi600Cell({\mdseries\slshape })\index{Hemi600Cell@\texttt{Hemi600Cell}}
 \label{Hemi600Cell}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the hemi-600-cell, \texttt{\symbol{123}}3, 3,
+5\texttt{\symbol{125}}{\textunderscore}15. 
 
 
- Returns the hemi-600-cell, \texttt{\symbol{123}}3, 3,
-5\texttt{\symbol{125}}{\textunderscore}15. }
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{BrucknerSphere}}
+\logpage{[ 8, 1, 20 ]}\nobreak
+\hyperdef{L}{X7E949BC7808403F4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BrucknerSphere({\mdseries\slshape })\index{BrucknerSphere@\texttt{BrucknerSphere}}
+\label{BrucknerSphere}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Bruckner's sphere. 
+
+
+
+ 
+
+ }
 
  }
 
@@ -2658,29 +2802,14 @@ validation. }
 
  
 
-\subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedronNC (for IsInt, IsInt, IsInt, IsInt)}}
-\logpage{[ 8, 2, 2 ]}\nobreak
-\hyperdef{L}{X79CCE0A9859C0F4D}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedronNC({\mdseries\slshape p, q, i, j})\index{FlatOrientablyRegularPolyhedronNC@\texttt{FlatOrientablyRegularPolyhedronNC}!for IsInt, IsInt, IsInt, IsInt}
-\label{FlatOrientablyRegularPolyhedronNC:for IsInt, IsInt, IsInt, IsInt}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-??? 
-
-
-
- ??? }
-
- 
-
 \subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedraOfType (for IsList)}}
-\logpage{[ 8, 2, 3 ]}\nobreak
+\logpage{[ 8, 2, 2 ]}\nobreak
 \hyperdef{L}{X84B0BB9A83E67A3A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedraOfType({\mdseries\slshape sym})\index{FlatOrientablyRegularPolyhedraOfType@\texttt{Flat}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polyhedra}\-\texttt{Of}\-\texttt{Type}!for IsList}
 \label{FlatOrientablyRegularPolyhedraOfType:for IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-a lits of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
+a list of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
 
 
 
@@ -2691,13 +2820,13 @@ a lits of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\tex
  
 
 \subsection{\textcolor{Chapter }{TightOrientablyRegularPolytopesOfType (for IsList)}}
-\logpage{[ 8, 2, 4 ]}\nobreak
+\logpage{[ 8, 2, 3 ]}\nobreak
 \hyperdef{L}{X83F74BA1814E8DF4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TightOrientablyRegularPolytopesOfType({\mdseries\slshape sym})\index{TightOrientablyRegularPolytopesOfType@\texttt{Tight}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polytopes}\-\texttt{Of}\-\texttt{Type}!for IsList}
 \label{TightOrientablyRegularPolytopesOfType:for IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-a lits of all flat, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
+a list of all tight, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
 
 
 
@@ -4967,7 +5096,7 @@ represented. }
 }\hfill{\scriptsize (info class)}}\\
 
 
- Calls }
+ The InfoClass for the Ramp package. }
 
  
 
@@ -5038,20 +5167,26 @@ offset*2), ..., with \mbox{\texttt{\mdseries\slshape multiplier}} terms, and ret
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseStringCRels({\mdseries\slshape rels, g})\index{ParseStringCRels@\texttt{ParseStringCRels}}
 \label{ParseStringCRels}
 }\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+a list of relators 
+
 
 
  This helper function is used in several maniplex constructors. Given a string \mbox{\texttt{\mdseries\slshape rels}} that represents relations in an sggi, and an sggi g, returns a list of
-elements of g represented by \mbox{\texttt{\mdseries\slshape rels}}. 
+elements in the free group of g represented by \mbox{\texttt{\mdseries\slshape rels}}. These can then be used to form a quotient of g. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  g := AutomorphismGroup(CubicTiling(2));;
-  rels := "(r0 r1 r2 r1)^6";;
-  newrels := ParseStringCRels(rels, g);
+  !gapprompt@gap>| !gapinput@g := AutomorphismGroup(CubicTiling(2));;|
+  !gapprompt@gap>| !gapinput@rels := "(r0 r1 r2 r1)^6";;|
+  !gapprompt@gap>| !gapinput@newrels := ParseStringCRels(rels, g);|
   [ (r0*r1*r2*r1)^6 ]
+  !gapprompt@gap>| !gapinput@newrels[1] in FreeGroupOfFpGroup(g);|
+  true
+  !gapprompt@gap>| !gapinput@g2 := FactorGroupFpGroupByRels(g, newrels);|
+  <fp group on the generators [ r0, r1, r2 ]>
 \end{Verbatim}
  For convenience, you may use z1, z2, etc and h1, h2, etc in relations, where
-zj means r0 (r1 r2)\texttt{\symbol{94}}j and hj means r0 (r1
-r2)\texttt{\symbol{94}}j-1 r1. (That is, the former is the word corresponding
-to j-zigzags of a polyhedron, and the latter corresponds to j-holes.) }
+zj means r0 (r1 r2)\texttt{\symbol{94}}j (the "j-zigzag" word) and hj means r0
+(r1 r2)\texttt{\symbol{94}}j-1 r1 (the "j-hole" word). }
 
  
 
@@ -5078,7 +5213,17 @@ to ParseStringCRels, but for rotation groups instead. }
 
  Given a list \mbox{\texttt{\mdseries\slshape L}} and an object \mbox{\texttt{\mdseries\slshape x}}, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note
 that since strings are internally represented as lists, AddOrAppend(L, "foo")
-will append the characters 'f', 'o', 'o'. }
+will append the characters 'f', 'o', 'o'. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@L := [1, 2, 3];;|
+  !gapprompt@gap>| !gapinput@AddOrAppend(L, 4);|
+  !gapprompt@gap>| !gapinput@L;|
+  [1, 2, 3, 4]
+  !gapprompt@gap>| !gapinput@AddOrAppend(L, [5, 6]);|
+  !gapprompt@gap>| !gapinput@L;|
+  [1, 2, 3, 4, 5, 6];
+\end{Verbatim}
+ }
 
  }
 
