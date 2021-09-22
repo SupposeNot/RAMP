@@ -82,11 +82,13 @@ InstallMethod(IsQuotient,
 	ReturnTrue,
 	[IsManiplex and IsReflexibleManiplexAutGpRep, IsManiplex and IsReflexibleManiplexAutGpRep],
 	function(q,p)
-	local g, rels, g1, g2, hom, k1, k2, i;
+	local g, rels, g1, g2, hom, k1, k2, i, relsp, relsq;
 	if not(CouldBeQuotient(q,p)) then return false; fi;
 
-	# TODO: This only logically works if they have Schlafli symbols that are known and computed
-	if IsSubset(ExtraRelators(q), ExtraRelators(p)) then return true; fi;
+	relsp := List(ExtraRelators(p), TietzeWordAbstractWord);
+	relsq := List(ExtraRelators(q), TietzeWordAbstractWord);
+
+	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) and IsSubset(relsq, relsp) then return true; fi;
 	
 	if HasSize(p) and IsFinite(p) then
 		# add rels from q to p...
