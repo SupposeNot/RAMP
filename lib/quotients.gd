@@ -4,7 +4,7 @@
 DeclareGlobalFunction("CouldBeQuotient");
 
 #! @Arguments M1, M2
-#! Returns whether <A>M1</A> is a quotient of <A>M2</A>.
+#! Returns whether <A>M2</A> is a quotient of <A>M1</A>.
 DeclareOperation("IsQuotient", [IsManiplex, IsManiplex]);
 
 #! @Arguments M1, M2

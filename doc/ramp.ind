@@ -1,7 +1,7 @@
 \begin{theindex}
 
-  \item \texttt  {120Cell}, \hyperpage{35}
-  \item \texttt  {24Cell}, \hyperpage{35}
+  \item \texttt  {120Cell}, \hyperpage{34}
+  \item \texttt  {24Cell}, \hyperpage{34}
   \item \texttt  {24CellToroid}
     \subitem for IsInt,IsInt, \hyperpage{36}
   \item \texttt  {3343Toroid}
@@ -59,9 +59,10 @@
   \indexspace
 
   \item \texttt  {Bk2l}
-    \subitem for IsInt,IsInt, \hyperpage{26}
+    \subitem for IsInt,IsInt, \hyperpage{25}
   \item \texttt  {Bk2lStar}
     \subitem for IsInt,IsInt, \hyperpage{26}
+  \item \texttt  {BrucknerSphere}, \hyperpage{35}
 
   \indexspace
 
@@ -88,16 +89,16 @@
   \item \texttt  {CPRGraphFromGroups}
     \subitem for IsGroup,IsGroup, \hyperpage{11}
   \item \texttt  {CrossPolytope}
-    \subitem for IsInt, \hyperpage{34}
+    \subitem for IsInt, \hyperpage{33}
   \item \texttt  {CtoL}
     \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{42}
   \item \texttt  {Cube}
     \subitem for IsInt, \hyperpage{33}
   \item \texttt  {CubicalToroid}
-    \subitem for IsInt,IsInt,IsInt, \hyperpage{36}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{35}
   \item \texttt  {CubicTiling}
     \subitem for IsInt, \hyperpage{34}
-  \item \texttt  {Cuboctahedron}, \hyperpage{37}
+  \item \texttt  {Cuboctahedron}, \hyperpage{36}
 
   \indexspace
 
@@ -168,11 +169,9 @@
   \item \texttt  {FlatExtension}
     \subitem for IsManiplex, IsInt, \hyperpage{27}
   \item \texttt  {Flat}\-\texttt  {Orientably}\-\texttt  {Regular}\-\texttt  {Polyhedra}\-\texttt  {Of}\-\texttt  {Type}
-    \subitem for IsList, \hyperpage{36}
+    \subitem for IsList, \hyperpage{35}
   \item \texttt  {FlatOrientablyRegularPolyhedron}
     \subitem for IsInt, IsInt, IsInt, IsInt, \hyperpage{35}
-  \item \texttt  {FlatOrientablyRegularPolyhedronNC}
-    \subitem for IsInt, IsInt, IsInt, IsInt, \hyperpage{36}
   \item \texttt  {FlatRegularPolyhedra}, \hyperpage{31}
   \item \texttt  {Fvector}
     \subitem for IsManiplex, \hyperpage{17}
@@ -181,7 +180,7 @@
 
   \item \texttt  {GraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{5}
-  \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{38}
+  \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{37}
   \item \texttt  {GreatRhombicuboctahedron}, \hyperpage{38}
 
   \indexspace
@@ -191,7 +190,7 @@
   \item \texttt  {HasseDiagramOfPoset}
     \subitem for IsPoset, \hyperpage{57}
   \item \texttt  {Hemi120Cell}, \hyperpage{35}
-  \item \texttt  {Hemi24Cell}, \hyperpage{35}
+  \item \texttt  {Hemi24Cell}, \hyperpage{34}
   \item \texttt  {Hemi600Cell}, \hyperpage{35}
   \item \texttt  {HemiCrossPolytope}
     \subitem for IsInt, \hyperpage{34}
@@ -323,9 +322,9 @@
   \indexspace
 
   \item \texttt  {Maniplex}
-    \subitem for IsFunction, IsList, \hyperpage{14}
-    \subitem for IsGroup, \hyperpage{14}
-    \subitem for IsPoset, \hyperpage{14}
+    \subitem for IsFunction, IsList, \hyperpage{15}
+    \subitem for IsPermGroup, \hyperpage{14}
+    \subitem for IsPoset, \hyperpage{15}
     \subitem for IsReflexibleManiplex, IsGroup, \hyperpage{14}
   \item \texttt  {ManiplexFromDatabaseString}
     \subitem for IsString, \hyperpage{65}
@@ -466,8 +465,6 @@
   \item \texttt  {ReflexibleManiplex}
     \subitem for IsGroup, \hyperpage{13}
     \subitem for IsList, \hyperpage{13}
-    \subitem for IsList, IsList, \hyperpage{13}
-    \subitem for IsString, \hyperpage{14}
   \item \texttt  {ReflexibleQuotientManiplex}
     \subitem for IsManiplex, IsList, \hyperpage{63}
   \item \texttt  {RegularToroidalPolyhedra36}, \hyperpage{31}
@@ -508,28 +505,28 @@
     \subitem for IsManiplex, \hyperpage{62}
   \item \texttt  {SmallRegular4Polytopes}, \hyperpage{32}
   \item \texttt  {SmallRegularPolyhedra}, \hyperpage{31}
-  \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{38}
+  \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{37}
   \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{37}
-  \item \texttt  {SnubCube}, \hyperpage{38}
-  \item \texttt  {SnubDodecahedron}, \hyperpage{38}
+  \item \texttt  {SnubCube}, \hyperpage{37}
+  \item \texttt  {SnubDodecahedron}, \hyperpage{37}
   \item \texttt  {SymmetryTypeGraph}
     \subitem for IsManiplex, \hyperpage{23}
 
   \indexspace
 
   \item \texttt  {Tight}\-\texttt  {Orientably}\-\texttt  {Regular}\-\texttt  {Polytopes}\-\texttt  {Of}\-\texttt  {Type}
-    \subitem for IsList, \hyperpage{36}
+    \subitem for IsList, \hyperpage{35}
   \item \texttt  {TopologicalProduct}
     \subitem for IsManiplex, IsManiplex, \hyperpage{30}
     \subitem for IsPoset,IsPoset, \hyperpage{60}
   \item \texttt  {TranslatePerm}, \hyperpage{66}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{27}
-  \item \texttt  {TruncatedCube}, \hyperpage{37}
+  \item \texttt  {TruncatedCube}, \hyperpage{36}
   \item \texttt  {TruncatedDodecahedron}, \hyperpage{38}
   \item \texttt  {TruncatedIcosahedron}, \hyperpage{37}
-  \item \texttt  {TruncatedOctahedron}, \hyperpage{37}
-  \item \texttt  {TruncatedTetrahedron}, \hyperpage{37}
+  \item \texttt  {TruncatedOctahedron}, \hyperpage{36}
+  \item \texttt  {TruncatedTetrahedron}, \hyperpage{36}
 
   \indexspace
 
