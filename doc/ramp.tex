@@ -801,10 +801,10 @@ second form, returns the Coxeter Group with Schlafli symbol sym. }
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@h := Sggi([4,4], "r0 = r2");;|
-  !gapprompt@gap>| !gapinput@k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;|
-  !gapprompt@gap>| !gapinput@k = Sggi([3,3]);|
+  !gapprompt@gap>| !gapinput@g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@h := Sggi([4,4], "r0 = r2");;|
+  !gapprompt@gap>| !gapinput@k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;|
+  !gapprompt@gap>| !gapinput@k = Sggi([3,3]);|
   true
 \end{Verbatim}
  }
@@ -828,19 +828,19 @@ of relators or relations that involve r0 etc.
  In the first form, we are given a string C-group \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  The second form returns the universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
 \end{Verbatim}
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
@@ -862,12 +862,12 @@ that the Schlafli symbol is correct. }
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -889,15 +889,15 @@ that the Schlafli symbol is correct. }
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -2092,8 +2092,64 @@ Whether this maniplex is isomorphic to its dual.
 
  
 
-\subsection{\textcolor{Chapter }{Petrial (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{IsInternallySelfDual (for IsReflexibleManiplex)}}
 \logpage{[ 6, 2, 3 ]}\nobreak
+\hyperdef{L}{X79132A9583296ED0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsInternallySelfDual({\mdseries\slshape M})\index{IsInternallySelfDual@\texttt{IsInternallySelfDual}!for IsReflexibleManiplex}
+\label{IsInternallySelfDual:for IsReflexibleManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether this maniplex is "internally self-dual", as defined by
+Cunningham and Mixer in \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). That is, if \mbox{\texttt{\mdseries\slshape M}} is self-dual, and the automorphism of AutomorphismGroup(M) that induces the
+isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner automorphism. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(Simplex(4));|
+  true
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ARP([4,4], "h2^6"));|
+  false
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ARP([4,4], "h2^5"));|
+  true
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(Cube(3));|
+  false
+\end{Verbatim}
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsExternallySelfDual (for IsReflexibleManiplex)}}
+\logpage{[ 6, 2, 4 ]}\nobreak
+\hyperdef{L}{X86041B6684EFE1C2}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsExternallySelfDual({\mdseries\slshape M})\index{IsExternallySelfDual@\texttt{IsExternallySelfDual}!for IsReflexibleManiplex}
+\label{IsExternallySelfDual:for IsReflexibleManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether this maniplex is "externally self-dual", as defined by
+Cunningham and Mixer in \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). That is, if \mbox{\texttt{\mdseries\slshape M}} is self-dual, and the automorphism of AutomorphismGroup(M) that induces the
+isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an outer automorphism. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsExternallySelfDual(Simplex(4));|
+  false
+  !gapprompt@gap>| !gapinput@IsExternallySelfDual(ARP([4,4], "h2^6"));|
+  true
+  !gapprompt@gap>| !gapinput@IsExternallySelfDual(ARP([4,4], "h2^5"));|
+  false
+  !gapprompt@gap>| !gapinput@IsExternallySelfDual(Cube(3));|
+  false
+\end{Verbatim}
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{Petrial (for IsManiplex)}}
+\logpage{[ 6, 2, 5 ]}\nobreak
 \hyperdef{L}{X7E6D0732862D6BA3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Petrial({\mdseries\slshape M})\index{Petrial@\texttt{Petrial}!for IsManiplex}
 \label{Petrial:for IsManiplex}
@@ -2111,7 +2167,7 @@ essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
  
 
 \subsection{\textcolor{Chapter }{IsSelfPetrial (for IsManiplex)}}
-\logpage{[ 6, 2, 4 ]}\nobreak
+\logpage{[ 6, 2, 6 ]}\nobreak
 \hyperdef{L}{X78FDB0047E3388A5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfPetrial({\mdseries\slshape M})\index{IsSelfPetrial@\texttt{IsSelfPetrial}!for IsManiplex}
 \label{IsSelfPetrial:for IsManiplex}
@@ -2128,7 +2184,7 @@ Whether this maniplex is isomorphic to its Petrial.
  
 
 \subsection{\textcolor{Chapter }{DirectDerivates (for IsManiplex)}}
-\logpage{[ 6, 2, 5 ]}\nobreak
+\logpage{[ 6, 2, 7 ]}\nobreak
 \hyperdef{L}{X7F8BED777CD6B80F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectDerivates({\mdseries\slshape M})\index{DirectDerivates@\texttt{DirectDerivates}!for IsManiplex}
 \label{DirectDerivates:for IsManiplex}
@@ -5249,6 +5305,8 @@ will append the characters 'f', 'o', 'o'.
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

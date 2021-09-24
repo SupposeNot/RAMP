@@ -12,6 +12,41 @@ DeclareOperation("Dual", [IsManiplex]);
 DeclareProperty("IsSelfDual", IsManiplex);
 
 #! @Arguments M
+#! @Description Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in
+#! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+#! That is, if <A>M</A> is self-dual, and the automorphism of AutomorphismGroup(M) that induces
+#! the isomorphism between <A>M</A> and its dual is an inner automorphism.
+#! @BeginExampleSession
+#! gap> IsInternallySelfDual(Simplex(4));
+#! true
+#! gap> IsInternallySelfDual(ARP([4,4], "h2^6"));
+#! false
+#! gap> IsInternallySelfDual(ARP([4,4], "h2^5"));
+#! true
+#! gap> IsInternallySelfDual(Cube(3));
+#! false
+#! @EndExampleSession
+DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
+
+#! @Arguments M
+#! @Description Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in
+#! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+#! That is, if <A>M</A> is self-dual, and the automorphism of AutomorphismGroup(M) that induces
+#! the isomorphism between <A>M</A> and its dual is an outer automorphism.
+#! @BeginExampleSession
+#! gap> IsExternallySelfDual(Simplex(4));
+#! false
+#! gap> IsExternallySelfDual(ARP([4,4], "h2^6"));
+#! true
+#! gap> IsExternallySelfDual(ARP([4,4], "h2^5"));
+#! false
+#! gap> IsExternallySelfDual(Cube(3));
+#! false
+#! @EndExampleSession
+DeclareProperty("IsExternallySelfDual", IsReflexibleManiplex);
+
+
+#! @Arguments M
 #! @Returns The Petrial (Petrie dual) of <A>M</A>.
 #! Note that this is not necessarily a polytope, even if <A>M</A> is.
 #! When Rank(M) > 3, this is the "generalized Petrial" which essentially

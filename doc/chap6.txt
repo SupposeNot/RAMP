@@ -65,7 +65,51 @@
   
   [33X[0;0YAlso works for IsPoset objects.[133X
   
-  [1X6.2-3 Petrial[101X
+  [1X6.2-3 IsInternallySelfDual[101X
+  
+  [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  this  maniplex  is  "internally  self-dual", as defined by
+  Cunningham  and  Mixer in [CM17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
+  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
+  automorphism.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Cube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-4 IsExternallySelfDual[101X
+  
+  [33X[1;0Y[29X[2XIsExternallySelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  this  maniplex  is  "externally  self-dual", as defined by
+  Cunningham  and  Mixer in [CM17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
+  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  outer
+  automorphism.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(Simplex(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(Cube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X6.2-5 Petrial[101X
   
   [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XM[103X. Note that this is not necessarily
@@ -73,12 +117,12 @@
             "generalized  Petrial"  which  essentially  replaces  [23Xr_{n-3}[123X with
             [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
   
-  [1X6.2-4 IsSelfPetrial[101X
+  [1X6.2-6 IsSelfPetrial[101X
   
   [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
   
-  [1X6.2-5 DirectDerivates[101X
+  [1X6.2-7 DirectDerivates[101X
   
   [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
   

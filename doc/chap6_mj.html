@@ -41,9 +41,11 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7D62BD3E7F941F5B">6.2-1 Dual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7FF8B96C83DA60CB">6.2-2 IsSelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7E6D0732862D6BA3">6.2-3 Petrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X78FDB0047E3388A5">6.2-4 IsSelfPetrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7F8BED777CD6B80F">6.2-5 DirectDerivates</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X79132A9583296ED0">6.2-3 IsInternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X86041B6684EFE1C2">6.2-4 IsExternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7E6D0732862D6BA3">6.2-5 Petrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X78FDB0047E3388A5">6.2-6 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7F8BED777CD6B80F">6.2-7 DirectDerivates</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6_mj.html#X86CE352C7851221F">6.3 <span class="Heading">Products</span></a>
 </span>
@@ -142,23 +144,65 @@
 
 <p>Also works for IsPoset objects.</p>
 
+<p><a id="X79132A9583296ED0" name="X79132A9583296ED0"></a></p>
+
+<h5>6.2-3 IsInternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(4));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^6"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^5"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Cube(3));</span>
+false
+</pre></div>
+
+<p><a id="X86041B6684EFE1C2" name="X86041B6684EFE1C2"></a></p>
+
+<h5>6.2-4 IsExternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^6"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^5"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Cube(3));</span>
+false
+</pre></div>
+
 <p><a id="X7E6D0732862D6BA3" name="X7E6D0732862D6BA3"></a></p>
 
-<h5>6.2-3 Petrial</h5>
+<h5>6.2-5 Petrial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>. Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="SimpleMath">\(r_{n-3}\)</span> with <span class="SimpleMath">\(r_{n-3} r_{n-1}\)</span> in the set of generators.</p>
 
 <p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
-<h5>6.2-4 IsSelfPetrial</h5>
+<h5>6.2-6 IsSelfPetrial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
 
 <p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
 
-<h5>6.2-5 DirectDerivates</h5>
+<h5>6.2-7 DirectDerivates</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>

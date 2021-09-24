@@ -53,6 +53,28 @@ InstallMethod(IsSelfDual,
 	return p = Dual(p);
 	end);
 
+InstallMethod(IsInternallySelfDual,
+	[IsReflexibleManiplex],
+	function(M)
+	local g, cands, n, i, gens;
+	g := AutomorphismGroup(M);
+	n := Rank(M);
+	gens := GeneratorsOfGroup(g);
+	
+	cands := g;
+	for i in [1..n] do
+		cands := Filtered(cands, a -> gens[i]^a = gens[n-i+1]);
+	od;
+	
+	return not(IsEmpty(cands));	
+	end);
+	
+InstallMethod(IsExternallySelfDual,
+	[IsReflexibleManiplex],
+	function(M)
+	return IsSelfDual(M) and not(IsInternallySelfDual(M));
+	end);
+
 InstallMethod(Petrial,
 	[IsManiplex],
 	function(M)
