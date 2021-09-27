@@ -239,3 +239,22 @@ InstallMethod(BrucknerSphere,
 	function()
 	return PosetFromAtomicList([ [ 1, 2, 3, 4 ], [ 1, 2, 3, 7 ], [ 1, 2, 6, 7 ], [ 1, 3, 4, 7 ], [ 1, 5, 6, 7 ], [ 2, 3, 4, 5 ],  [ 2, 3, 6, 7 ], [ 3, 4, 6, 7 ], [ 3, 4, 5, 6 ], [ 4, 5, 6, 7 ], [ 2, 3, 5, 8 ], [ 2, 3, 6, 8 ],  [ 3, 5, 6, 8 ], [ 1, 2, 6, 8 ], [ 1, 5, 6, 8 ], [ 1, 2, 4, 8 ], [ 2, 4, 5, 8 ], [ 1, 4, 7, 8 ], [ 1, 5, 7, 8 ], [ 4, 5, 7, 8 ] ]);
 	end);
+	
+InstallMethod(InternallySelfDualPolyhedron1,
+	[IsInt],
+	function(k)
+	local r0, r1, r2;
+	if k < 7 then
+		Error("This family of polyhedra is only defined for k >= 7.");
+	fi;
+	if IsEvenInt(k) then
+		r0 := MultPerm((1,2), k/2, 2);
+		r1 := MultPerm((2,3), (k-2)/2, 2);
+		r2 := (1,5)(2,6)(3,4) * MultPerm((7,8), (k/2)-3, 2);
+	else
+		r0 := MultPerm((1,2), (k-1)/2, 2);
+		r1 := MultPerm((2,3), (k-1)/2, 2);
+		r2 := (1,5)(2,6)(3,4) * MultPerm((7,8), ((k-1)/2)-3, 2);
+	fi;
+	return ReflexibleManiplex(Group(r0,r1,r2));
+	end);

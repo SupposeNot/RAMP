@@ -56,17 +56,17 @@ InstallMethod(IsSelfDual,
 InstallMethod(IsInternallySelfDual,
 	[IsReflexibleManiplex],
 	function(M)
-	local g, cands, n, i, gens;
+	local g, cands, n, x, gens;
 	g := AutomorphismGroup(M);
 	n := Rank(M);
 	gens := GeneratorsOfGroup(g);
 	
-	cands := g;
-	for i in [1..n] do
-		cands := Filtered(cands, a -> gens[i]^a = gens[n-i+1]);
+	for x in g do
+		if ForAll([1..n], i -> gens[i]^x = gens[n-i+1]) then
+			return true;
+		fi;
 	od;
-	
-	return not(IsEmpty(cands));	
+	return false;
 	end);
 	
 InstallMethod(IsExternallySelfDual,

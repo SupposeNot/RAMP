@@ -63,7 +63,9 @@ InstallGlobalFunction(MultPerm,
 
 	# perm is the "seed" permutations, newperm is the accumulated result so far.
 	MultPermAux := function(perm, newperm, multiplier, offset)
-		if (multiplier = 1) then
+		if multiplier = 0 then
+			return ();
+		elif multiplier = 1 then
 			return newperm;
 		else
 			return MultPermAux(perm, newperm*TranslatePerm(perm, offset*(multiplier-1)), multiplier-1, offset);
