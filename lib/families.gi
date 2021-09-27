@@ -242,19 +242,46 @@ InstallMethod(BrucknerSphere,
 	
 InstallMethod(InternallySelfDualPolyhedron1,
 	[IsInt],
-	function(k)
+	function(p)
 	local r0, r1, r2;
-	if k < 7 then
-		Error("This family of polyhedra is only defined for k >= 7.");
+	if p < 7 then
+		Error("This family of polyhedra is only defined for p >= 7.");
 	fi;
-	if IsEvenInt(k) then
-		r0 := MultPerm((1,2), k/2, 2);
-		r1 := MultPerm((2,3), (k-2)/2, 2);
-		r2 := (1,5)(2,6)(3,4) * MultPerm((7,8), (k/2)-3, 2);
+	if IsEvenInt(p) then
+		r0 := MultPerm((1,2), p/2, 2);
+		r1 := MultPerm((2,3), (p-2)/2, 2);
+		r2 := (1,5)(2,6)(3,4) * MultPerm((7,8), (p/2)-3, 2);
 	else
-		r0 := MultPerm((1,2), (k-1)/2, 2);
-		r1 := MultPerm((2,3), (k-1)/2, 2);
-		r2 := (1,5)(2,6)(3,4) * MultPerm((7,8), ((k-1)/2)-3, 2);
+		r0 := MultPerm((1,2), (p-1)/2, 2);
+		r1 := MultPerm((2,3), (p-1)/2, 2);
+		r2 := (1,5)(2,6)(3,4) * MultPerm((7,8), ((p-1)/2)-3, 2);
 	fi;
+	return ReflexibleManiplex(Group(r0,r1,r2));
+	end);
+	
+InstallMethod(InternallySelfDualPolyhedron2,
+	[IsInt, IsInt],
+	function(p, k)
+	local r0, r1, r2, N;
+	if not(IsEvenInt(p)) or p < 6 then
+		Error("This family of polyhedra is only defined when p is even and p >= 6.");
+	elif IsEvenInt(k) then
+		Error("This family of polyhedra is only defined when k is odd.");
+	fi;
+	
+	r0 := PermFromRange((2,3), (p-6,p-5)) * (p-4, p-2)(p-3, p-1);
+	r1 := PermFromRange((1,2), (p-5, p-4)) * PermFromRange((p-1, p), (2*p-7, 2*p-6));
+	r2 := PermFromRange((p-4, p-3), (2*p-8, 2*p-7));
+
+	N := k*(p-4);
+	
+	r0 := MultPerm(r0, N, 2*p-6);
+	r1 := MultPerm(r1, N, 2*p-6) * MultPerm((p-2, p-3+2*p-6), N-1, 2*p-6) * (p-2 + (N-1)*(2*p-6), p-3);
+	r2 := MultPerm(r2, N, 2*p-6);
+
+	# (i, j) --> i + (j-1)*(2p-6)
+	# connect (p-2, j) to (p-3, j+1) --> p-2+(j-1)*N to p-3+j*N
+	# (p-2, p-3+N)
+
 	return ReflexibleManiplex(Group(r0,r1,r2));
 	end);

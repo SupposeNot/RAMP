@@ -32,3 +32,7 @@ gap> IsInternallySelfDual(CubicalToroid(3,1,3));
 true
 gap> IsInternallySelfDual(CubicalToroid(4,1,3));
 false
+gap> M := InternallySelfDualPolyhedron2(10,1);;
+gap> g := AutomorphismGroup(M);;
+gap> IsInternallySelfDual(M, (g.1*g.3*g.2)^6);
+true

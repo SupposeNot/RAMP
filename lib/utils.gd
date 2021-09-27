@@ -34,6 +34,20 @@ DeclareGlobalFunction("TranslatePerm");
 #! ..., with <A>multiplier</A> terms, and returns the result.
 DeclareGlobalFunction("MultPerm");
 
+#! @Arguments perm1, perm2
+#! @Returns Permutation
+#! @Description This attempts to construct a permutation that we would
+#! write as perm1 ... perm2. Probably it is clearest to look at some examples:
+#! @BeginExampleSession
+#! gap> PermFromRange((1,2), (9,10));
+#! (1,2)(3,4)(5,6)(7,8)(9,10)
+#! gap> PermFromRange((1,3), (13,15));
+#! (1,3)(4,6)(7,9)(10,12)(13,15)
+#! gap> PermFromRange((2,3,4), (8,9,10));
+#! (2,3,4)(5,6,7)(8,9,10)
+#! @EndExampleSession
+DeclareGlobalFunction("PermFromRange");
+
 DeclareGlobalFunction("TranslateWord");
 
 #! @Arguments rels, g

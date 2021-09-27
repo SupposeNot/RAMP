@@ -207,6 +207,28 @@
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="p" Name="InternallySelfDualPolyhedron1" Label="for IsInt"/>
+ <Returns>the internally self-dual polyhedron of type {p, p} described in Theorem 5.3 of  <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+  p must be at least 7.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="p, k" Name="InternallySelfDualPolyhedron2" Label="for IsInt, IsInt"/>
+ <Returns>the internally self-dual polyhedron of type {p, p} described in Theorem 5.8 of  <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+  p must be even and at least 6, and k must be odd.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

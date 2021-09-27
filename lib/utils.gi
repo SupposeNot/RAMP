@@ -75,6 +75,14 @@ InstallGlobalFunction(MultPerm,
 	return MultPermAux(perm, perm, multiplier, offset);
 	end);
 	
+InstallGlobalFunction(PermFromRange,
+	function(perm1, perm2)
+	local multiplier, offset;
+	offset := 1 + LargestMovedPoint(perm1) - SmallestMovedPoint(perm1);
+	multiplier := 1 + (SmallestMovedPoint(perm2) - SmallestMovedPoint(perm1)) / offset;
+	return MultPerm(perm1, multiplier, offset);
+	end);
+	
 # Takes an abstract word in the generators of some free group and returns the corresponding
 # abstract word in the generators of f.
 InstallGlobalFunction(TranslateWord,

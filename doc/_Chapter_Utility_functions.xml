@@ -59,6 +59,27 @@ Calls <Code>RotaryManiplex(args)</Code> and marks the output as polytopal.
 
 
 <ManSection>
+  <Func Arg="perm1, perm2" Name="PermFromRange" />
+ <Returns>Permutation
+</Returns>
+ <Description>
+This attempts to construct a permutation that we would
+ write as perm1 ... perm2. Probably it is clearest to look at some examples:
+<Example><![CDATA[
+gap> PermFromRange((1,2), (9,10));
+(1,2)(3,4)(5,6)(7,8)(9,10)
+gap> PermFromRange((1,3), (13,15));
+(1,3)(4,6)(7,9)(10,12)(13,15)
+gap> PermFromRange((2,3,4), (8,9,10));
+(2,3,4)(5,6,7)(8,9,10)
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Func Arg="rels, g" Name="ParseStringCRels" />
  <Returns>a list of relators
 </Returns>

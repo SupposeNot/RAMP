@@ -67,14 +67,16 @@
   
   [1X6.2-3 IsInternallySelfDual[101X
   
-  [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X[, [3Xx[103X] ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YReturns  whether  this  maniplex  is  "internally  self-dual", as defined by
   Cunningham  and  Mixer in [CM17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
   That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
   that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
-  automorphism.[133X
+  automorphism.  If the optional group element [3Xx[103X is given, then we first check
+  whether  [3Xx[103X  is a dualizing automorphism of [3XM[103X, and if not, then we search the
+  whole automorphism group of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(4));[127X[104X
@@ -85,6 +87,10 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XIsInternallySelfDual(Cube(3));[127X[104X
     [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron2(10,1);;[127X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(M);;[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(M, (g.1*g.3*g.2)^6);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.2-4 IsExternallySelfDual[101X

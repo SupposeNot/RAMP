@@ -34,9 +34,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X79AB055B7DDFB160">16.1-4 AbstractRotaryPolytope</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7CDF25897D4DBE57">16.1-5 TranslatePerm</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X83788BBF7EF52486">16.1-6 MultPerm</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7E84DB4E8746344A">16.1-7 ParseStringCRels</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X79C6D76380B9F364">16.1-8 ParseRotGpRels</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X829B5DA779342A28">16.1-9 AddOrAppend</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X85D36D93795A336D">16.1-7 PermFromRange</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7E84DB4E8746344A">16.1-8 ParseStringCRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X79C6D76380B9F364">16.1-9 ParseRotGpRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X829B5DA779342A28">16.1-10 AddOrAppend</a></span>
 </div></div>
 </div>
 
@@ -88,9 +89,28 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MultPerm</code>( <var class="Arg">perm</var>, <var class="Arg">multiplier</var>, <var class="Arg">offset</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result.</p>
 
+<p><a id="X85D36D93795A336D" name="X85D36D93795A336D"></a></p>
+
+<h5>16.1-7 PermFromRange</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermFromRange</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: Permutation</p>
+
+<p>This attempts to construct a permutation that we would write as perm1 ... perm2. Probably it is clearest to look at some examples:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,2), (9,10));</span>
+(1,2)(3,4)(5,6)(7,8)(9,10)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,3), (13,15));</span>
+(1,3)(4,6)(7,9)(10,12)(13,15)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((2,3,4), (8,9,10));</span>
+(2,3,4)(5,6,7)(8,9,10)
+</pre></div>
+
 <p><a id="X7E84DB4E8746344A" name="X7E84DB4E8746344A"></a></p>
 
-<h5>16.1-7 ParseStringCRels</h5>
+<h5>16.1-8 ParseStringCRels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseStringCRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: a list of relators</p>
@@ -113,14 +133,14 @@ true
 
 <p><a id="X79C6D76380B9F364" name="X79C6D76380B9F364"></a></p>
 
-<h5>16.1-8 ParseRotGpRels</h5>
+<h5>16.1-9 ParseRotGpRels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseRotGpRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This helper function is used in several maniplex constructors. It is analogous to ParseStringCRels, but for rotation groups instead.</p>
 
 <p><a id="X829B5DA779342A28" name="X829B5DA779342A28"></a></p>
 
-<h5>16.1-9 AddOrAppend</h5>
+<h5>16.1-10 AddOrAppend</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>

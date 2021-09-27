@@ -203,11 +203,12 @@
       7.1-2 FlatRegularPolyhedra
       7.1-3 RegularToroidalPolyhedra44
       7.1-4 RegularToroidalPolyhedra36
-      7.1-5 SmallRegularPolyhedra
-      7.1-6 SmallDegenerateRegular4Polytopes
-      7.1-7 SmallRegular4Polytopes
-      7.1-8 SmallChiralPolyhedra
-      7.1-9 SmallChiral4Polytopes
+      7.1-5 SmallRegularPolyhedraFromFile
+      7.1-6 SmallRegularPolyhedra
+      7.1-7 SmallDegenerateRegular4Polytopes
+      7.1-8 SmallRegular4Polytopes
+      7.1-9 SmallChiralPolyhedra
+      7.1-10 SmallChiral4Polytopes
   8 [33X[0;0YFamilies of Polytopes[133X
     8.1 [33X[0;0YClassical Polytopes[133X
       8.1-1 Vertex
@@ -230,6 +231,8 @@
       8.1-18 600Cell
       8.1-19 Hemi600Cell
       8.1-20 BrucknerSphere
+      8.1-21 InternallySelfDualPolyhedron1
+      8.1-22 InternallySelfDualPolyhedron2
     8.2 [33X[0;0YFlat and tight polytopes[133X
       8.2-1 FlatOrientablyRegularPolyhedron
       8.2-2 FlatOrientablyRegularPolyhedraOfType
@@ -374,6 +377,8 @@
       15.1-6 EnantiomorphicForm
       15.1-7 DatabaseString
       15.1-8 ManiplexFromDatabaseString
+    15.2 [33X[0;0Yramp automatic generated documentation of attributes[133X
+      15.2-1 AtlasID
   16 [33X[0;0YUtility functions[133X
     16.1 [33X[0;0YUtility functions[133X
       16.1-1 InfoRamp
@@ -382,9 +387,10 @@
       16.1-4 AbstractRotaryPolytope
       16.1-5 TranslatePerm
       16.1-6 MultPerm
-      16.1-7 ParseStringCRels
-      16.1-8 ParseRotGpRels
-      16.1-9 AddOrAppend
+      16.1-7 PermFromRange
+      16.1-8 ParseStringCRels
+      16.1-9 ParseRotGpRels
+      16.1-10 AddOrAppend
   
   
   [32X

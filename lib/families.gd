@@ -82,8 +82,14 @@ DeclareOperation("Hemi600Cell", []);
 #! @Returns Bruckner's sphere.
 DeclareOperation("BrucknerSphere",[]);
 
-#! @Arguments k
-#! @Returns the internally self-dual polyhedron of type {k, k} described in Theorem 5.3 of
+#! @Arguments p
+#! @Returns the internally self-dual polyhedron of type {p, p} described in Theorem 5.3 of
 #! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
-#! k must be at least 7.
+#! p must be at least 7.
 DeclareOperation("InternallySelfDualPolyhedron1",[IsInt]);
+
+#! @Arguments p, k
+#! @Returns the internally self-dual polyhedron of type {p, p} described in Theorem 5.8 of
+#! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+#! p must be even and at least 6, and k must be odd.
+DeclareOperation("InternallySelfDualPolyhedron2",[IsInt, IsInt]);

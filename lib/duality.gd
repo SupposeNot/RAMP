@@ -11,11 +11,13 @@ DeclareOperation("Dual", [IsManiplex]);
 #! @Description Also works for IsPoset objects.
 DeclareProperty("IsSelfDual", IsManiplex);
 
-#! @Arguments M
+#! @Arguments M[, x]
 #! @Description Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in
 #! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
 #! That is, if <A>M</A> is self-dual, and the automorphism of AutomorphismGroup(M) that induces
 #! the isomorphism between <A>M</A> and its dual is an inner automorphism.
+#! If the optional group element <A>x</A> is given, then we first check whether <A>x</A> is a dualizing
+#! automorphism of <A>M</A>, and if not, then we search the whole automorphism group of <A>M</A>.
 #! @BeginExampleSession
 #! gap> IsInternallySelfDual(Simplex(4));
 #! true
@@ -25,6 +27,10 @@ DeclareProperty("IsSelfDual", IsManiplex);
 #! true
 #! gap> IsInternallySelfDual(Cube(3));
 #! false
+#! gap> M := InternallySelfDualPolyhedron2(10,1);;
+#! gap> g := AutomorphismGroup(M);;
+#! gap> IsInternallySelfDual(M, (g.1*g.3*g.2)^6);
+#! true
 #! @EndExampleSession
 DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
 
