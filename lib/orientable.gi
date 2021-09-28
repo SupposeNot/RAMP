@@ -33,7 +33,7 @@ InstallMethod(IsIOrientable,
 	g := FlagGraphWithLabels(M);
 
 	# QuotientByLabel has edge labels that are offset by 1.
-	return(IsBipartite(QuotientByLabel(g[1], g[2], g[3], I+1)));
+	return(IsBipartite(QuotientByLabel(g[1], g[2], g[3], I)));
 	end);
 
 InstallMethod(IsVertexBipartite,
