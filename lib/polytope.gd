@@ -1,37 +1,6 @@
-# Basic constructors
-DeclareGlobalVariable("UNIVERSAL_SGGI_FREE_GROUPS");
 
 #! @Chapter Basics
 #! @Section Constructors
-
-#! @BeginGroup UniversalSggi
-#! @GroupTitle UniversalSggi
-
-#! @Arguments n
-#! @Returns `IsFpGroup`
-#! @Description In the first form, returns the universal Coxeter Group of rank n.
-DeclareOperation("UniversalSggi", [IsInt]);
-
-#! @Arguments sym
-#! In the second form, returns the Coxeter Group with Schlafli symbol sym.
-DeclareOperation("UniversalSggi", [IsList]);
-
-#! @EndGroup
-
-#! @Arguments symbol, relations
-#! @Returns `IsFpGroup`
-#! @Description Returns the sggi defined by the given Schlafli
-#! symbol and with the given relations. The relations can be given
-#! by a list of Tietze words or as a string of relators or relations
-#! that involve r0 etc.
-#! @BeginExampleSession
-#! gap> g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
-#! gap> h := Sggi([4,4], "r0 = r2");;
-#! gap> k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;
-#! gap> k = Sggi([3,3]);
-#! true
-#! @EndExampleSession
-DeclareOperation("Sggi", [IsList, IsList]);
 
 
 #! @BeginGroup ReflexibleManiplex
@@ -40,7 +9,7 @@ DeclareOperation("Sggi", [IsList, IsList]);
 
 #! @Arguments g
 #! @Returns `IsReflexibleManiplex`
-#! @Description In the first form, we are given a string C-group <A>g</A>
+#! @Description In the first form, we are given an Sggi <A>g</A>
 #! and we return the reflexible maniplex with that automorphism group,
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
 #! @BeginExampleSession
@@ -49,7 +18,12 @@ DeclareOperation("Sggi", [IsList, IsList]);
 #! gap> M = Simplex(3);
 #! true
 #! @EndExampleSession
+#! This function first checks whether g is an Sggi. Use `ReflexibleManiplexNC` to
+#! bypass that check.
 DeclareOperation("ReflexibleManiplex", [IsGroup]);
+
+DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
+
 
 #! @Arguments sym[, relations]
 #! @Description The second form returns the universal reflexible maniplex

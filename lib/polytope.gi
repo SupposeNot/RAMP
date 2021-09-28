@@ -1,108 +1,11 @@
 ### RAMP -- Research Assistant for Maniplexes and Polytopes ###
 
-# For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
-# free group. So the first time we create one in a given rank, we save it and use it again later.
-InstallValue(UNIVERSAL_SGGI_FREE_GROUPS, []);
-
-# Returns the universal string Coxeter Group of rank n.
-InstallMethod(UniversalSggi,
-	[IsInt],
-	function(n)
-	local i, j, f, rels, gens, g;
-	if n = 0 then
-		return FreeGroup([]);
-	fi;
-	
-	if not(IsBound(UNIVERSAL_SGGI_FREE_GROUPS[n])) then
-		UNIVERSAL_SGGI_FREE_GROUPS[n] := FreeGroup(List([0..n-1], i -> Concatenation("r", String(i))));	
-	fi;
-	f := UNIVERSAL_SGGI_FREE_GROUPS[n];
-	gens := GeneratorsOfGroup(f);
-	rels := [];
-	for i in [1..n] do
-		Add(rels, gens[i]*gens[i]);
-	od;
-	for i in [1..n-2] do
-		for j in [i+2..n] do
-			Add(rels, gens[i]*gens[j]*gens[i]*gens[j]);
-		od;
-	od;
-	g := FactorGroupFpGroupByRels(f, rels);
-	if (n >= 2) then SetSize(g, infinity); fi;
-	return g;
-	end);
-
-COXETER_GROUP_SIZES := function(sym)
-	local dict, n, k;
-	
-	dict := NewDictionary([], true);
-	AddDictionary(dict, [3,5], 120);
-	AddDictionary(dict, [5,3], 120);
-	AddDictionary(dict, [3,4,3], 1152);
-	AddDictionary(dict, [5,3,3], 14400);
-	AddDictionary(dict, [3,3,5], 14400);
-
-	n := Size(sym)+1;
-	
-	if n = 1 then
-		return 2;
-	elif n = 2 then
-		return 2 * sym[1];
-	elif KnowsDictionary(dict, sym) then
-		return LookupDictionary(dict, sym);
-	elif ForAll(sym, i -> i = 3) then
-		return Factorial(n+1);
-	elif sym[1] = 4 and ForAll(sym{[2..n-1]}, i -> i = 3) then
-		return 2^n * Factorial(n);
-	elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
-		return 2^n * Factorial(n);
-	elif 2 in sym then
-		k := Position(sym, 2);
-		return COXETER_GROUP_SIZES(sym{[1..k-1]}) * COXETER_GROUP_SIZES(sym{[k+1..n-1]});
-	else
-		return infinity;
-	fi;
-	end;
-
-# Returns the universal string Coxeter Group given by sym.
-# For example, UniversalSggi([4,4]) is the group denoted [4, 4].
-InstallOtherMethod(UniversalSggi,
-	[IsList],
-	function(sym)
-	local i, j, f, g, rels, gens, n, h;
-	n := Size(sym)+1;
-	g := UniversalSggi(n);
-	gens := FreeGeneratorsOfFpGroup(g);
-	rels := [];
-	for i in [1..n-1] do
-		if sym[i] <> infinity then
-			Add(rels, (gens[i]*gens[i+1])^sym[i]);
-		fi;
-	od;
-	h := FactorGroupFpGroupByRels(g, rels);
-	SetSize(h, COXETER_GROUP_SIZES(sym));
-	return h;
-	end);
-	
-InstallMethod(Sggi,
-	[IsList, IsList],
-	function(sym, rels)
-	local w, newrels;
-	w := UniversalSggi(sym);
-	if IsString(rels) then
-		newrels := ParseStringCRels(rels, w);
-	else
-		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
-	fi;
-	return FactorGroupFpGroupByRels(w, newrels);
-	end);
-	
 
 # Given any group (which should be a sggi), builds the regular
 # polytope (well, maniplex) out of it. So you could pass in a
 # permutation group, matrix group, or anything else.
 # NOTE: This does not check whether autgp is an sggi.
-InstallMethod(ReflexibleManiplex,
+InstallMethod(ReflexibleManiplexNC,
 	[IsGroup],
 	function(autgp)
 	local n, p;
@@ -121,6 +24,16 @@ InstallMethod(ReflexibleManiplex,
 	SetIsReflexible(p, true);
 
 	return p;
+	end);
+
+InstallMethod(ReflexibleManiplex,
+	[IsGroup],
+	function(autgp)
+	if IsSggi(autgp) then
+		return ReflexibleManiplexNC(autgp);
+	else
+		Error("The given group is not an Sggi.");
+	fi;
 	end);
 	
 # The universal maniplex with the given Schlafli symbol.

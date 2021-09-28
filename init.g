@@ -30,6 +30,7 @@ ReadPackage( "ramp", "lib/products.gd" );
 ReadPackage( "ramp", "lib/productsGH.gd");
 ReadPackage( "ramp", "lib/quotients.gd" );
 ReadPackage( "ramp", "lib/rotary.gd" );
+ReadPackage( "ramp", "lib/sggi.gd" );
 ReadPackage( "ramp", "lib/strings.gd" );
 ReadPackage( "ramp", "lib/tomotope.gd" );
 ReadPackage( "ramp", "lib/toroids.gd" );

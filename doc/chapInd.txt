@@ -131,6 +131,7 @@
   [2XIsFlat[102X, for IsManiplex 3.2-1 
       for IsManiplex, IsInt, IsInt 3.2-1 
   [2XIsFullyTransitive[102X, for IsManiplex 4.2-11 
+  [2XIsGgi[102X, for IsGroup 2.2-3 
   [2XIsIFaceTransitive[102X, for IsManiplex, IsInt 4.2-7 
   [2XIsInternallySelfDual[102X, for IsReflexibleManiplex 6.2-3 
   [2XIsIOrientable[102X, for IsManiplex, IsList 11.1-2 
@@ -142,7 +143,7 @@
   [2XIsP2[102X, for IsPoset 12.1-11 
   [2XIsP3[102X, for IsPoset 12.1-12 
   [2XIsP4[102X, for IsPoset 12.1-14 
-  [2XIsPolytopal[102X, for IsManiplex 2.1-8 
+  [2XIsPolytopal[102X, for IsManiplex 2.1-6 
   [2XIsPolytope[102X, for IsPoset 12.1-15 
   [2XIsPrePolytope[102X, for IsPoset 12.1-16 
   [2XIsQuotient[102X, for IsManiplex, IsManiplex 14.1-1 
@@ -151,8 +152,10 @@
   [2XIsSelfDual[102X, for IsManiplex 6.2-2 
       for IsPoset 12.1-17 
   [2XIsSelfPetrial[102X, for IsManiplex 6.2-6 
-  [2XIsStringC[102X, for IsGroup 9.1-11 
-  [2XIsStringCPlus[102X, for IsGroup 9.1-12 
+  [2XIsSggi[102X, for IsGroup 2.2-5 
+  [2XIsStringC[102X, for IsGroup 2.2-6 
+  [2XIsStringCPlus[102X, for IsGroup 2.2-7 
+  [2XIsStringy[102X, for IsGroup 2.2-4 
   [2XIsSubface[102X, for IsFace,IsFace,IsPoset 12.4-2 
   [2XIsTight[102X, for IsManiplex 3.3-5 
   [2XIsVertexBipartite[102X, for IsManiplex 11.1-3 
@@ -166,10 +169,10 @@
   [2XLayerGraph[102X, for IsGroup, IsInt, IsInt 1.1-5 
   License .-1 
   [2XListIsP1Poset[102X, for IsList 12.1-9 
-  [2XManiplex[102X, for IsFunction, IsList 2.1-6 
-      for IsPermGroup 2.1-4 
-      for IsPoset 2.1-7 
-      for IsReflexibleManiplex, IsGroup 2.1-5 
+  [2XManiplex[102X, for IsFunction, IsList 2.1-4 
+      for IsPermGroup 2.1-2 
+      for IsPoset 2.1-5 
+      for IsReflexibleManiplex, IsGroup 2.1-3 
   [2XManiplexFromDatabaseString[102X, for IsString 15.1-8 
   [2XMaxFace[102X, for IsPoset 12.5-17 
   [2XMaximalChains[102X, for IsPoset 12.1-1 
@@ -234,8 +237,8 @@
   [2XRankPoset[102X, for IsPoset 12.1-2 
   [2XRankPosetElements[102X, for IsPoset 12.5-13 
   [2XRanksInPosets[102X, for IsPosetElement 12.3-6 
-  [2XReflexibleManiplex[102X, for IsGroup 2.1-3 
-      for IsList 2.1-3 
+  [2XReflexibleManiplex[102X, for IsGroup 2.1-1 
+      for IsList 2.1-1 
   [2XReflexibleQuotientManiplex[102X, for IsManiplex, IsList 14.1-6 
   [2XRegularToroidalPolyhedra36[102X 7.1-4 
   [2XRegularToroidalPolyhedra44[102X 7.1-3 
@@ -249,7 +252,8 @@
       for IsManiplex, IsInt, IsInt, IsInt 3.1-8 
   [2XSections[102X, for IsManiplex, IsInt, IsInt 3.1-9 
   [2XSemiEdges[102X, for IsEdgeLabeledGraph 1.1-20 
-  [2XSggi[102X, for IsList, IsList 2.1-2 
+  [2XSggi[102X, for IsList, IsList 2.2-2 
+  [2XSggiElement[102X, for IsGroup, IsString 2.2-8 
   [2XSimple[102X, for IsEdgeLabeledGraph 1.1-14 
   [2XSimplex[102X, for IsInt 8.1-8 
   [2XSize[102X, for IsManiplex 3.4-1 
@@ -281,8 +285,8 @@
   [2XUniversalPolytope[102X, for IsInt 6.1-1 
   [2XUniversalRotationGroup[102X, for IsInt 15.1-1 
       for IsList 15.1-2 
-  [2XUniversalSggi[102X, for IsInt 2.1-1 
-      for IsList 2.1-1 
+  [2XUniversalSggi[102X, for IsInt 2.2-1 
+      for IsList 2.2-1 
   [2XUnlabeledFlagGraph[102X, for IsGroup 1.1-3 
   [2XUnlabeledSimpleGraph[102X, for IsEdgeLabeledGraph 1.1-12 
   [2XVertex[102X 8.1-1 

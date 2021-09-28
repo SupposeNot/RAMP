@@ -766,52 +766,8 @@ Currently mathematica and sage are supported. }
 \hyperdef{L}{X86EC0F0A78ECBC10}{}
 {
   
-\subsection{\textcolor{Chapter }{UniversalSggi}}\label{UniversalSggi}
-\logpage{[ 2, 1, 1 ]}
-\hyperdef{L}{X7AE843CE7878951F}{}
-{
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalSggi({\mdseries\slshape n})\index{UniversalSggi@\texttt{UniversalSggi}!for IsInt}
-\label{UniversalSggi:for IsInt}
-}\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalSggi({\mdseries\slshape sym})\index{UniversalSggi@\texttt{UniversalSggi}!for IsList}
-\label{UniversalSggi:for IsList}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-\texttt{IsFpGroup} 
-
-
-
- In the first form, returns the universal Coxeter Group of rank n. In the
-second form, returns the Coxeter Group with Schlafli symbol sym. }
-
- 
-
-\subsection{\textcolor{Chapter }{Sggi (for IsList, IsList)}}
-\logpage{[ 2, 1, 2 ]}\nobreak
-\hyperdef{L}{X841E3F0F84465DCA}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Sggi({\mdseries\slshape symbol, relations})\index{Sggi@\texttt{Sggi}!for IsList, IsList}
-\label{Sggi:for IsList, IsList}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-\texttt{IsFpGroup} 
-
-
-
- Returns the sggi defined by the given Schlafli symbol and with the given
-relations. The relations can be given by a list of Tietze words or as a string
-of relators or relations that involve r0 etc. 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@h := Sggi([4,4], "r0 = r2");;|
-  !gapprompt@gap>| !gapinput@k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;|
-  !gapprompt@gap>| !gapinput@k = Sggi([3,3]);|
-  true
-\end{Verbatim}
- }
-
- 
 \subsection{\textcolor{Chapter }{ReflexibleManiplex}}\label{ReflexibleManiplex}
-\logpage{[ 2, 1, 3 ]}
+\logpage{[ 2, 1, 1 ]}
 \hyperdef{L}{X7F88B7097E9421AB}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape g})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsGroup}
@@ -825,7 +781,7 @@ of relators or relations that involve r0 etc.
 
 
 
- In the first form, we are given a string C-group \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
+ In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
@@ -833,7 +789,8 @@ privileged generators are those returned by GeneratorsOfGroup(g).
   !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
- The second form returns the universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
+ This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. The second form returns the universal reflexible
+maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -850,7 +807,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsPermGroup)}}
-\logpage{[ 2, 1, 4 ]}\nobreak
+\logpage{[ 2, 1, 2 ]}\nobreak
 \hyperdef{L}{X7F0E44EA7980CF74}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape G})\index{Maniplex@\texttt{Maniplex}!for IsPermGroup}
 \label{Maniplex:for IsPermGroup}
@@ -875,7 +832,7 @@ that the Schlafli symbol is correct. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsReflexibleManiplex, IsGroup)}}
-\logpage{[ 2, 1, 5 ]}\nobreak
+\logpage{[ 2, 1, 3 ]}\nobreak
 \hyperdef{L}{X80B9127679FEBEAE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape M, H})\index{Maniplex@\texttt{Maniplex}!for IsReflexibleManiplex, IsGroup}
 \label{Maniplex:for IsReflexibleManiplex, IsGroup}
@@ -905,7 +862,7 @@ below builds the map $\{4, 4\}_{(1,0), (0,2)}$.
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsFunction, IsList)}}
-\logpage{[ 2, 1, 6 ]}\nobreak
+\logpage{[ 2, 1, 4 ]}\nobreak
 \hyperdef{L}{X81DA2F5185E38D67}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape F, inputs})\index{Maniplex@\texttt{Maniplex}!for IsFunction, IsList}
 \label{Maniplex:for IsFunction, IsList}
@@ -924,7 +881,7 @@ base. See AddAttrComputer for more information. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsPoset)}}
-\logpage{[ 2, 1, 7 ]}\nobreak
+\logpage{[ 2, 1, 5 ]}\nobreak
 \hyperdef{L}{X864C043380FB58D4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsPoset}
 \label{Maniplex:for IsPoset}
@@ -939,7 +896,7 @@ base. See AddAttrComputer for more information. }
  
 
 \subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
-\logpage{[ 2, 1, 8 ]}\nobreak
+\logpage{[ 2, 1, 6 ]}\nobreak
 \hyperdef{L}{X79DD94037E0FACD4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
 \label{IsPolytopal:for IsManiplex}
@@ -950,6 +907,159 @@ base. See AddAttrComputer for more information. }
 
 
  Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is polytopal; i.e., the flag graph of a polytope. }
+
+ }
+
+ 
+\section{\textcolor{Chapter }{Sggis}}\label{Chapter_Basics_Section_Sggis}
+\logpage{[ 2, 2, 0 ]}
+\hyperdef{L}{X8547ABE882A26E43}{}
+{
+  
+\subsection{\textcolor{Chapter }{UniversalSggi}}\label{UniversalSggi}
+\logpage{[ 2, 2, 1 ]}
+\hyperdef{L}{X7AE843CE7878951F}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalSggi({\mdseries\slshape n})\index{UniversalSggi@\texttt{UniversalSggi}!for IsInt}
+\label{UniversalSggi:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalSggi({\mdseries\slshape sym})\index{UniversalSggi@\texttt{UniversalSggi}!for IsList}
+\label{UniversalSggi:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFpGroup} 
+
+
+
+ In the first form, returns the universal Coxeter Group of rank n. In the
+second form, returns the Coxeter Group with Schlafli symbol sym. }
+
+ 
+
+\subsection{\textcolor{Chapter }{Sggi (for IsList, IsList)}}
+\logpage{[ 2, 2, 2 ]}\nobreak
+\hyperdef{L}{X841E3F0F84465DCA}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Sggi({\mdseries\slshape symbol, relations})\index{Sggi@\texttt{Sggi}!for IsList, IsList}
+\label{Sggi:for IsList, IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFpGroup} 
+
+
+
+ Returns the sggi defined by the given Schlafli symbol and with the given
+relations. The relations can be given by a list of Tietze words or as a string
+of relators or relations that involve r0 etc. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@h := Sggi([4,4], "r0 = r2");;|
+  !gapprompt@gap>| !gapinput@k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;|
+  !gapprompt@gap>| !gapinput@k = Sggi([3,3]);|
+  true
+\end{Verbatim}
+ }
+
+ 
+
+ 
+
+\subsection{\textcolor{Chapter }{IsGgi (for IsGroup)}}
+\logpage{[ 2, 2, 3 ]}\nobreak
+\hyperdef{L}{X81A3AE37837A4B8D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsGgi({\mdseries\slshape arg})\index{IsGgi@\texttt{IsGgi}!for IsGroup}
+\label{IsGgi:for IsGroup}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ 
+
+ }
+
+ 
+
+ 
+
+\subsection{\textcolor{Chapter }{IsStringy (for IsGroup)}}
+\logpage{[ 2, 2, 4 ]}\nobreak
+\hyperdef{L}{X7BBA245D7DBAAE7A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringy({\mdseries\slshape arg})\index{IsStringy@\texttt{IsStringy}!for IsGroup}
+\label{IsStringy:for IsGroup}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ 
+
+ }
+
+ 
+
+ 
+
+\subsection{\textcolor{Chapter }{IsSggi (for IsGroup)}}
+\logpage{[ 2, 2, 5 ]}\nobreak
+\hyperdef{L}{X802333F880B11196}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSggi({\mdseries\slshape arg})\index{IsSggi@\texttt{IsSggi}!for IsGroup}
+\label{IsSggi:for IsGroup}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsStringC (for IsGroup)}}
+\logpage{[ 2, 2, 6 ]}\nobreak
+\hyperdef{L}{X835FA8527E2442F4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringC({\mdseries\slshape G})\index{IsStringC@\texttt{IsStringC}!for IsGroup}
+\label{IsStringC:for IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ For an sggi \mbox{\texttt{\mdseries\slshape G}}, returns whether the group is a string C group. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsStringCPlus (for IsGroup)}}
+\logpage{[ 2, 2, 7 ]}\nobreak
+\hyperdef{L}{X8445AFAB7CF3F319}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringCPlus({\mdseries\slshape G})\index{IsStringCPlus@\texttt{IsStringCPlus}!for IsGroup}
+\label{IsStringCPlus:for IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ For a "string rotation group" \mbox{\texttt{\mdseries\slshape G}}, returns whether the group is a string C+ group. It does not check whether \mbox{\texttt{\mdseries\slshape G}} is a string rotation group. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SggiElement (for IsGroup, IsString)}}
+\logpage{[ 2, 2, 8 ]}\nobreak
+\hyperdef{L}{X815ADF0A7B5A456A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SggiElement({\mdseries\slshape g, str})\index{SggiElement@\texttt{SggiElement}!for IsGroup, IsString}
+\label{SggiElement:for IsGroup, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the element of \mbox{\texttt{\mdseries\slshape g}} with underlying word \mbox{\texttt{\mdseries\slshape str}}. 
+
+
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := Group((1,2),(2,3),(3,4));;|
+  !gapprompt@gap>| !gapinput@SggiElement(g, "r0 r1");|
+  (1,3,2)
+\end{Verbatim}
+ }
 
  }
 
@@ -3359,30 +3469,6 @@ robust at the moment. }
 the rotation group of a string Coxeter group given by its Schlafli symbol. Not
 particularly robust at the moment. }
 
- 
-
-\subsection{\textcolor{Chapter }{IsStringC (for IsGroup)}}
-\logpage{[ 9, 1, 11 ]}\nobreak
-\hyperdef{L}{X835FA8527E2442F4}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringC({\mdseries\slshape G})\index{IsStringC@\texttt{IsStringC}!for IsGroup}
-\label{IsStringC:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
-
-
- For an sggi \mbox{\texttt{\mdseries\slshape G}}, returns whether the group is a string C group. It does not check whether \mbox{\texttt{\mdseries\slshape G}} is an sggi. }
-
- 
-
-\subsection{\textcolor{Chapter }{IsStringCPlus (for IsGroup)}}
-\logpage{[ 9, 1, 12 ]}\nobreak
-\hyperdef{L}{X8445AFAB7CF3F319}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringCPlus({\mdseries\slshape G})\index{IsStringCPlus@\texttt{IsStringCPlus}!for IsGroup}
-\label{IsStringCPlus:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
-
-
- For a "string rotation group" \mbox{\texttt{\mdseries\slshape G}}, returns whether the group is a string C+ group. It does not check whether \mbox{\texttt{\mdseries\slshape G}} is a string rotation group. }
-
  }
 
  }
@@ -5408,6 +5494,7 @@ will append the characters 'f', 'o', 'o'.
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

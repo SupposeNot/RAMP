@@ -106,26 +106,6 @@
 </ManSection>
 
 
-<ManSection>
-  <Oper Arg="G" Name="IsStringC" Label="for IsGroup"/>
- <Description>
- For an sggi <A>G</A>, returns whether the group is
- a string C group. It does not check whether <A>G</A>
- is an sggi.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="G" Name="IsStringCPlus" Label="for IsGroup"/>
- <Description>
- For a "string rotation group" <A>G</A>, returns whether the group is
- a string C+ group. It does not check whether <A>G</A>
- is a string rotation group.
- </Description>
-</ManSection>
-
-
 </Section>
 
 
