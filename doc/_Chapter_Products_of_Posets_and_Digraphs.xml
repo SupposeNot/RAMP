@@ -16,6 +16,7 @@
  <Description>
 Given two posets, this forms the join product.
  If given two partial orders, returns the join product of the partial orders.
+ If given two maniplexes, returns the join product of the maniplexes.
  </Description>
 </ManSection>
 
@@ -40,6 +41,7 @@ true
 </Returns>
  <Description>
 Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets.
+ If given two maniplexes, returns the join product of the maniplexes.
  </Description>
 </ManSection>
 
@@ -81,6 +83,7 @@ true
 </Returns>
  <Description>
 Given two polytopes, forms the topological product of the polytopes.
+ If given two maniplexes, returns the join product of the maniplexes.
  </Description>
 </ManSection>
 
@@ -110,6 +113,7 @@ true
 </Returns>
  <Description>
 Given a <A>polytope</A> (actually, should work for any poset), will return the antiprism of the <A>polytope</A> (poset).
+ If given two maniplexes, returns the join product of the maniplexes.
  </Description>
 </ManSection>
 

@@ -10,6 +10,7 @@
 #! @Returns poset
 #! @Description Given two posets, this forms the join product.
 #! If given two partial orders, returns the join product of the partial orders.
+#! If given two maniplexes, returns the join product of the maniplexes.
 DeclareOperation("JoinProduct", [IsPoset,IsPoset]);
 #! @BeginExampleSession
 #! gap> p:=PosetFromManiplex(Cube(2));
@@ -28,6 +29,7 @@ DeclareOperation("JoinProduct", [IsPoset,IsPoset]);
 #! @Arguments polytope1, polytope2
 #! @Returns polytope
 #! @Description Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets.
+#! If given two maniplexes, returns the join product of the maniplexes.
 DeclareOperation("CartesianProduct",[IsPoset,IsPoset]);
 #! @BeginExampleSession
 #! gap> p1:=PosetFromManiplex(Edge());
@@ -55,6 +57,7 @@ DeclareOperation("DirectSumOfPosets",[IsPoset,IsPoset]);
 #! @Arguments polytope1, polytope2
 #! @Returns polytope
 #! @Description Given two polytopes, forms the topological product of the polytopes. 
+#! If given two maniplexes, returns the join product of the maniplexes.
 DeclareOperation("TopologicalProduct",[IsPoset,IsPoset]);
 #! Here we demonstrate that the topological product (as expected) when taking the product of a triangle with itself gives us the torus $\{4,4\}_{(3,0)}$ with 72 flags.
 #! @BeginExampleSession
@@ -79,6 +82,7 @@ DeclareOperation("TopologicalProduct",[IsPoset,IsPoset]);
 #! @Arguments polytope
 #! @Returns poset
 #! @Description Given a <A>polytope</A> (actually, should work for any poset), will return the antiprism of the <A>polytope</A> (poset).
+#! If given two maniplexes, returns the join product of the maniplexes.
 DeclareOperation("Antiprism",[IsPoset]);
 #! @BeginExampleSession
 #! gap> p:=PosetFromManiplex(Pgon(3));;

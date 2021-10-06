@@ -46,6 +46,16 @@ InstallOtherMethod(JoinProduct,
 	return po;
 	end);
 
+#  InstallMethod(JoinProduct,
+# 	[IsManiplex,IsManiplex],
+# 	function(m1,m2)
+# 	local p1,p2,r1,r2,jp;
+# 	p1:=PosetFromManiplex(m1);
+# 	p2:=PosetFromManiplex(m2);
+# 	jp:=Maniplex(ConnectionGroup(JoinProduct(p1,p2)));
+# 	return jp;
+# 	end);
+	
 # InstallMethod(CartesianProduct,
 # 	[IsPolytope,IsPolytope],
 # 	function(poset1,poset2)
@@ -105,7 +115,17 @@ InstallMethod(CartesianProduct,
 	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
 	return PosetFromPartialOrder(po);
 	end);
-	
+
+# InstallMethod(CartesianProduct,
+# 	[IsManiplex,IsManiplex],
+# 	function(m1,m2)
+# 	local p1,p2,r1,r2,cp;
+# 	p1:=PosetFromManiplex(m1);
+# 	p2:=PosetFromManiplex(m2);
+# 	cp:=Maniplex(ConnectionGroup(CartesianProduct(p1,p2)));
+# 	return cp;
+# 	end);
+# 	
 InstallMethod(DirectSumOfPosets,
 	[IsPoset,IsPoset],
 	function(poset1, poset2)
@@ -173,6 +193,16 @@ InstallMethod(TopologicalProduct,
 	po:=TransitiveClosureBinaryRelation(BinaryRelationOnPoints(list));
 	return PosetFromPartialOrder(po);
 	end);
+
+# InstallMethod(TopologicalProduct,
+# 	[IsManiplex,IsManiplex],
+# 	function(m1,m2)
+# 	local p1,p2,r1,r2,cp;
+# 	p1:=PosetFromManiplex(m1);
+# 	p2:=PosetFromManiplex(m2);
+# 	cp:=Maniplex(ConnectionGroup(TopologicalProduct(p1,p2)));
+# 	return cp;
+# 	end);
 	
 
 InstallMethod(Antiprism,
@@ -196,3 +226,13 @@ InstallMethod(Antiprism,
 	po:=TransitiveClosureBinaryRelation( ReflexiveClosureBinaryRelation( BinaryRelationOnPoints( newSuc ) ) );
 	return PosetFromPartialOrder(po);
 	end);
+
+
+# InstallMethod(Antiprism,
+# 	[IsManiplex],
+# 	function(m)
+# 	local p,r,ap;
+# 	p:=PosetFromManiplex(m);
+# 	ap:=Maniplex(ConnectionGroup(Antiprism(p)));
+# 	return ap;
+# 	end);

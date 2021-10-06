@@ -15,7 +15,8 @@
   [6XReturns:[106X  [33X[0;10Yposet[133X
   
   [33X[0;0YGiven  two posets, this forms the join product. If given two partial orders,
-  returns the join product of the partial orders.[133X
+  returns  the  join  product  of the partial orders. If given two maniplexes,
+  returns the join product of the maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(2));[127X[104X
@@ -36,7 +37,8 @@
   [6XReturns:[106X  [33X[0;10Ypolytope[133X
   
   [33X[0;0YGiven  two  polytopes,  forms the cartesian product of the polytopes. Should
-  also work if you give it any two posets.[133X
+  also  work  if  you give it any two posets. If given two maniplexes, returns
+  the join product of the maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Edge());[127X[104X
@@ -69,7 +71,8 @@
   [33X[1;0Y[29X[2XTopologicalProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ypolytope[133X
   
-  [33X[0;0YGiven two polytopes, forms the topological product of the polytopes.[133X
+  [33X[0;0YGiven  two  polytopes,  forms  the  topological product of the polytopes. If
+  given two maniplexes, returns the join product of the maniplexes.[133X
   
   [33X[0;0YHere  we  demonstrate that the topological product (as expected) when taking
   the  product  of  a  triangle with itself gives us the torus [23X\{4,4\}_{(3,0)}[123X
@@ -98,7 +101,8 @@
   [6XReturns:[106X  [33X[0;10Yposet[133X
   
   [33X[0;0YGiven  a  [3Xpolytope[103X  (actually,  should  work for any poset), will return the
-  antiprism of the [3Xpolytope[103X (poset).[133X
+  antiprism of the [3Xpolytope[103X (poset). If given two maniplexes, returns the join
+  product of the maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));;[127X[104X

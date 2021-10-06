@@ -50,7 +50,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: poset</p>
 
-<p>Given two posets, this forms the join product. If given two partial orders, returns the join product of the partial orders.</p>
+<p>Given two posets, this forms the join product. If given two partial orders, returns the join product of the partial orders. If given two maniplexes, returns the join product of the maniplexes.</p>
 
 
 <div class="example"><pre>
@@ -73,7 +73,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: polytope</p>
 
-<p>Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets.</p>
+<p>Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets. If given two maniplexes, returns the join product of the maniplexes.</p>
 
 
 <div class="example"><pre>
@@ -112,7 +112,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: polytope</p>
 
-<p>Given two polytopes, forms the topological product of the polytopes.</p>
+<p>Given two polytopes, forms the topological product of the polytopes. If given two maniplexes, returns the join product of the maniplexes.</p>
 
 <p>Here we demonstrate that the topological product (as expected) when taking the product of a triangle with itself gives us the torus <span class="Math">\{4,4\}_{(3,0)}</span> with 72 flags.</p>
 
@@ -141,7 +141,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">polytope</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: poset</p>
 
-<p>Given a <var class="Arg">polytope</var> (actually, should work for any poset), will return the antiprism of the <var class="Arg">polytope</var> (poset).</p>
+<p>Given a <var class="Arg">polytope</var> (actually, should work for any poset), will return the antiprism of the <var class="Arg">polytope</var> (poset). If given two maniplexes, returns the join product of the maniplexes.</p>
 
 
 <div class="example"><pre>
