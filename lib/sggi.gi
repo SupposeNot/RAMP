@@ -186,6 +186,12 @@ InstallOtherMethod(UniversalSggi,
 	return h;
 	end);
 	
+InstallOtherMethod(Sggi,
+	[IsList],
+	function(sym)
+	return UniversalSggi(sym);
+	end);
+	
 InstallMethod(Sggi,
 	[IsList, IsList],
 	function(sym, rels)
@@ -202,3 +208,26 @@ InstallMethod(Sggi,
 	end);
 	
 
+InstallMethod(SggiFamily,
+	[IsGroup, IsList],
+	function(parent, wordList)
+	local f, n;
+	n := Size(wordList);
+	
+	f := function(orders)
+		local rels, i, rel, g;
+		rels := [];
+		for i in [1..n] do
+			rel := Concatenation("(", wordList[i], ")^", String(orders[i]));
+			Add(rels, rel);
+		od;
+		g := FactorGroupFpGroupByRels(parent, ParseStringCRels(JoinStringsWithSeparator(rels), parent));
+		g!.parentGroup := parent;
+		g!.wordOrders := orders;
+		SetIsSggi(g, true);
+		return g;
+		end;
+		
+	return f;
+	end);
+	

@@ -75,6 +75,19 @@ InstallMethod(IsQuotient,
 		TryNextMethod();
 	fi;
 	end);
+
+InstallMethod(IsQuotient,
+	ReturnTrue,
+	[IsSggi, IsSggi],
+	function(g, h)
+	local hom;
+	if IsBound(g!.parentGroup) and IsBound(h!.parentGroup) and g!.parentGroup = h!.parentGroup then
+		return ForAll([1..Size(g!.wordOrders)], i -> (g!.wordOrders[i] mod h!.wordOrders[i]) = 0);
+	else
+		hom := GroupHomomorphismByImages(g,h);
+		return (hom <> fail);
+	fi;
+	end);
 	
 # This determines whether the regular polytope P is a quotient of the regular polytope Q,
 # assuming that we have presentations for both of their groups.
@@ -238,3 +251,17 @@ InstallMethod(ReflexibleQuotientManiplex,
 	return q;
 	end);
 	
+InstallMethod(QuotientSggi,
+	[IsGroup, IsList],
+	function(g, rels)
+	local h;
+	if not(IsSggi(g)) then Error("g is not an Sggi"); fi;
+	if IsString(rels) then
+		rels := ParseStringCRels(rels, g);
+	else
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
+	fi;
+	h := FactorGroupFpGroupByRels(g, rels);
+	SetIsSggi(h, true);
+	return h;
+	end);

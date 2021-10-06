@@ -7,6 +7,12 @@ DeclareGlobalFunction("CouldBeQuotient");
 #! Returns whether <A>M2</A> is a quotient of <A>M1</A>.
 DeclareOperation("IsQuotient", [IsManiplex, IsManiplex]);
 
+#! @Arguments g, h
+#! Returns whether <A>h</A> is a quotient of <A>g</A>.
+#! That is, whether there is a homomorphism sending each generator of g
+#! to the corresponding generator of h.
+DeclareOperation("IsQuotient", [IsSggi, IsSggi]);
+
 #! @Arguments M1, M2
 #! Returns whether <A>M1</A> is a cover of <A>M2</A>.
 DeclareOperation("IsCover", [IsManiplex, IsManiplex]);
@@ -40,3 +46,16 @@ DeclareOperation("QuotientManiplex", [IsReflexibleManiplex, IsString]);
 #! and r1 r0 r1 r2.
 DeclareOperation("ReflexibleQuotientManiplex", [IsManiplex, IsList]);
 
+#! @Arguments g, rels
+#! @Returns the quotient of <A>g</A> by <A>rels</A>, which is either a list
+#! of Tietze words or a string of relations that is parsed by ParseStringCRels.
+#! @Description
+#! @BeginExampleSession
+#! gap> g := UniversalSggi(3);
+#! <fp group of size infinity on the generators [ r0, r1, r2 ]>
+#! gap> h := QuotientSggi(g, "(r0 r1)^5, (r1 r2)^3, (r0 r1 r2)^5");
+#! <fp group on the generators [ r0, r1, r2 ]>
+#! gap> Size(h);
+#! 60
+#! @EndExampleSession
+DeclareOperation("QuotientSggi", [IsGroup, IsList]);
