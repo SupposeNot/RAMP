@@ -104,7 +104,7 @@ InstallMethod(ReflexibleManiplex,
 		desc := Concatenation(desc, String(sym), ", ", String(rels), ")");
 	fi;
 	autgp := FactorGroupFpGroupByRels(w, newrels);
-	p := ReflexibleManiplex(autgp);
+	p := ReflexibleManiplexNC(autgp);
 	SetExtraRelators(p, newrels);
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
