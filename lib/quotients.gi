@@ -101,7 +101,7 @@ InstallMethod(IsQuotient,
 	relsp := List(ExtraRelators(p), TietzeWordAbstractWord);
 	relsq := List(ExtraRelators(q), TietzeWordAbstractWord);
 
-	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) and IsSubset(relsq, relsp) then return true; fi;
+	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) and IsSubset(relsp, relsq) then return true; fi;
 	
 	if HasSize(p) and IsFinite(p) then
 		# add rels from q to p...
