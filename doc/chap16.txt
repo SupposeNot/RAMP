@@ -111,3 +111,24 @@
     [4X[28X[1, 2, 3, 4, 5, 6];[128X[104X
   [4X[32X[104X
   
+  [1X16.1-11 WrappedPosetOperation[101X
+  
+  [33X[1;0Y[29X[2XWrappedPosetOperation[102X( [3XposetOp[103X ) [32X function[133X
+  
+  [33X[0;0YGiven  a  poset  operation,  creates  a  bare-bones  maniplex operation that
+  delegates to the poset operation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xmyjoin := WrappedPosetOperation(JoinProduct);[127X[104X
+    [4X[28Xfunction( arg... ) ... end[128X[104X
+    [4X[25Xgap>[125X [27XM := myjoin(Pgon(4), Vertex());[127X[104X
+    [4X[28X3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XM = Pyramid(4);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YUsually, you will want to eventually create a fuller-featured wrapper of the
+  poset  operation  -- one that can infer more information from its arguments.
+  But  this  method  is  a  good way to quickly test whether a poset operation
+  works on maniplexes the way one expects.[133X
+  

@@ -242,6 +242,8 @@ gap> SggiElement(g, "r0 r1");
 ]]></Example>
 
 
+ For convenience, you can also use a reflexible maniplex M in place
+ of g, in which case <Code>AutomorphismGroup(M)</Code> is used for g.
  </Description>
 </ManSection>
 

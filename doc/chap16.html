@@ -35,6 +35,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7E84DB4E8746344A">16.1-8 ParseStringCRels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79C6D76380B9F364">16.1-9 ParseRotGpRels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X829B5DA779342A28">16.1-10 AddOrAppend</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7C4A431283A32F67">16.1-11 WrappedPosetOperation</a></span>
 </div></div>
 </div>
 
@@ -152,6 +153,25 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
 [1, 2, 3, 4, 5, 6];
 </pre></div>
+
+<p><a id="X7C4A431283A32F67" name="X7C4A431283A32F67"></a></p>
+
+<h5>16.1-11 WrappedPosetOperation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WrappedPosetOperation</code>( <var class="Arg">posetOp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a poset operation, creates a bare-bones maniplex operation that delegates to the poset operation.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">myjoin := WrappedPosetOperation(JoinProduct);</span>
+function( arg... ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := myjoin(Pgon(4), Vertex());</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Pyramid(4);</span>
+true
+</pre></div>
+
+<p>Usually, you will want to eventually create a fuller-featured wrapper of the poset operation -- one that can infer more information from its arguments. But this method is a good way to quickly test whether a poset operation works on maniplexes the way one expects.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap15.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>

@@ -36,13 +36,23 @@
   [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
   sizerange of [1..maxsize].[133X
   
-  [1X7.1-5 SmallRegularPolyhedra[101X
+  [1X7.1-5 SmallRegularPolyhedraFromFile[101X
+  
+  [33X[1;0Y[29X[2XSmallRegularPolyhedraFromFile[102X( [3Xsizerange[103X ) [32X function[133X
+  
+  [33X[0;0YReturns  all regular polyhedra with sizes in [3Xsizerange[103X flags that are stored
+  separately  in  a  file.  These  are  polyhedra  that are not part of one of
+  several  infinite  families  that  are  covered by the other generators. The
+  return  value  of  this function is unstable and may change as more infinite
+  familes of polyhedra are identified and written as separate generators.[133X
+  
+  [1X7.1-6 SmallRegularPolyhedra[101X
   
   [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  regular  polyhedra  with  sizes  in [3Xsizerange[103X flags. Currently
-  supports a maxsize of 4000 or less. You can also set options "nondegenerate"
-  and "nonflat".[133X
+  supports   a   maxsize   of   4000   or  less.  You  can  also  set  options
+  "nondegenerate", "nonflat", and "nontoroidal".[133X
   
   [4X[32X  Example  [32X[104X
     [4X[28XL1 := SmallRegularPolyhedra(500);;[128X[104X
@@ -50,28 +60,28 @@
     [4X[28XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[128X[104X
   [4X[32X[104X
   
-  [1X7.1-6 SmallDegenerateRegular4Polytopes[101X
+  [1X7.1-7 SmallDegenerateRegular4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallDegenerateRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  degenerate  regular 4-polytopes with sizes in [3Xsizerange[103X flags.
   Currently supports a maxsize of 8000 or less.[133X
   
-  [1X7.1-7 SmallRegular4Polytopes[101X
+  [1X7.1-8 SmallRegular4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  regular  4-polytopes  with sizes in [3Xsizerange[103X flags. Currently
   supports a maxsize of 4000 or less.[133X
   
-  [1X7.1-8 SmallChiralPolyhedra[101X
+  [1X7.1-9 SmallChiralPolyhedra[101X
   
   [33X[1;0Y[29X[2XSmallChiralPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  chiral  polyhedra  with  sizes  in  [3Xsizerange[103X flags. Currently
   supports a maxsize of 4000 or less.[133X
   
-  [1X7.1-9 SmallChiral4Polytopes[101X
+  [1X7.1-10 SmallChiral4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallChiral4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
   

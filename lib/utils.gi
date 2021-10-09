@@ -207,3 +207,25 @@ PruneRelators := function(M)
 		String(SchlafliSymbol(M)), ", \"",
 		JoinStringsWithSeparator(prunedRels), "\")");
 	end;
+
+InstallGlobalFunction(WrappedPosetOperation,
+	function(posetOp)
+	local f;
+	f := function(arg)
+		local posets, p, cg, M;
+		posets := List(arg, PosetFromManiplex);
+		p := CallFuncList(posetOp, posets);	
+		M := Maniplex(f, arg);
+		M!.poset := p;
+		
+		SetRankManiplex(M, Rank(p));
+		
+		AddAttrComputer(M, ConnectionGroup,
+			function(x)
+			return ConnectionGroup(x!.poset);
+			end);
+
+		return M;
+		end;
+	return f;
+	end);
