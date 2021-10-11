@@ -31,7 +31,7 @@ InstallMethod(UniversalExtension,
 	[IsReflexibleManiplex],
 	function(p)
 	local g, n, rels, f2, g2, p2, sym;
-	g := AutomorphismGroup(p);
+	g := AutomorphismGroupFpGroup(p);
 	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	f2 := UniversalSggi(n+1);
@@ -55,7 +55,7 @@ InstallMethod(UniversalExtension,
 	[IsReflexibleManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
-	g := AutomorphismGroup(p);
+	g := AutomorphismGroupFpGroup(p);
 	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	Add(rels, List([0..2*k-1], i -> n+(i mod 2)));
