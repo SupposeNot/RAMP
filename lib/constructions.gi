@@ -52,7 +52,7 @@ InstallMethod(UniversalExtension,
 	end);
 
 InstallMethod(UniversalExtension,
-	[IsReflexibleManiplex, IsInt],
+	[IsManiplex and IsReflexibleManiplexAutGpRep, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
 	g := AutomorphismGroupFpGroup(p);
@@ -85,7 +85,7 @@ InstallMethod(UniversalExtension,
 	end);
 	
 InstallMethod(TrivialExtension,
-	[IsReflexibleManiplex],
+	[IsManiplex and IsReflexibleManiplexAutGpRep],
 	function(p)
 	return UniversalExtension(p,2);
 	end);
