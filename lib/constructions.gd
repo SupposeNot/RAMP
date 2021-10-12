@@ -19,7 +19,7 @@ DeclareOperation("UniversalExtension", [IsManiplex]);
 DeclareOperation("UniversalExtension", [IsManiplex, IsInt]);
 
 #! @Arguments M
-#! @Returns the trivial extension of <A>M</A>, also known as {<A>M/</A>, 2}.
+#! @Returns the trivial extension of <A>M</A>, also known as {<A>M</A>, 2}.
 DeclareOperation("TrivialExtension", [IsManiplex]);
 
 #! @Arguments M, k
