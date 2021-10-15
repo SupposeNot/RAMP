@@ -99,6 +99,12 @@ InstallMethod(SggiElement,
 	return Image(hom, x);
 	end);
 	
+InstallOtherMethod(SggiElement,
+	[IsManiplex and IsReflexibleManiplexAutGpRep, IsString],
+	function(M, str)
+	return SggiElement(AutomorphismGroup(M), str);
+	end);
+	
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
 # free group. So the first time we create one in a given rank, we save it and use it again later.
 InstallValue(UNIVERSAL_SGGI_FREE_GROUPS, []);

@@ -73,6 +73,8 @@ DeclareOperation("IsStringCPlus", [IsGroup]);
 #! gap> SggiElement(g, "r0 r1");
 #! (1,3,2)
 #! @EndExampleSession
+#! For convenience, you can also use a reflexible maniplex M in place
+#! of g, in which case `AutomorphismGroup(M)` is used for g.
 DeclareOperation("SggiElement", [IsGroup, IsString]);
 
 #! @Arguments parent, words
