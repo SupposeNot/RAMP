@@ -1,5 +1,5 @@
 
-InstallMethod(PyramidOver,
+InstallMethod(Pyramid,
 	[IsManiplex],
 	function(p)
 	local n, pyr;
@@ -13,14 +13,14 @@ InstallMethod(PyramidOver,
 		return Simplex(n+1);
 	fi;
 
-	pyr := Maniplex(PyramidOver, [p]);
+	pyr := Maniplex(Pyramid, [p]);
 	pyr!.base := p;
 
 	SetRankManiplex(pyr, n+1);
 	if n = 2 and IsEvenInt(Size(p)) and Size(p) >= 4 and p = Pgon(Size(p)/2) then
 		SetString(pyr, Concatenation("Pyramid(", String(Size(p)/2), ")"));
 	else
-		SetString(pyr, Concatenation("PyramidOver(", String(p), ")"));	
+		SetString(pyr, Concatenation("Pyramid(", String(p), ")"));	
 	fi;
 
 	AddAttrComputer(pyr, Size, M -> Size(M!.base) * (1+Rank(M)) : prereqs := [Size, RankManiplex]);
@@ -77,7 +77,7 @@ InstallMethod(PyramidOver,
 	AddAttrComputer(pyr, Facets, 
 		function(M)
 		local facs;
-		facs := List(Facets(M!.base), F -> PyramidOver(F));
+		facs := List(Facets(M!.base), F -> Pyramid(F));
 		Add(facs, M!.base);
 		return Unique(facs);
 		end :
@@ -86,7 +86,7 @@ InstallMethod(PyramidOver,
 	AddAttrComputer(pyr, VertexFigures, 
 		function(M)
 		local vfigs;
-		vfigs := List(VertexFigures(M!.base), F -> PyramidOver(F));
+		vfigs := List(VertexFigures(M!.base), F -> Pyramid(F));
 		Add(vfigs, M!.base);
 		return Unique(vfigs);
 		end :
@@ -97,9 +97,9 @@ InstallMethod(PyramidOver,
 
 InstallMethod(Pyramid,
 	[IsInt],
-	k -> PyramidOver(Pgon(k)));
+	k -> Pyramid(Pgon(k)));
 
-InstallMethod(PrismOver,
+InstallMethod(Prism,
 	[IsManiplex],
 	function(p)
 	local n, prism;
@@ -113,14 +113,14 @@ InstallMethod(PrismOver,
 		return Cube(n+1);
 	fi;
 
-	prism := Maniplex(PrismOver, [p]);
+	prism := Maniplex(Prism, [p]);
 	prism!.base := p;
 
 	SetRankManiplex(prism, n+1);
 	if n = 2 and IsEvenInt(Size(p)) and Size(p) >= 4 and p = Pgon(Size(p)/2) then
 		SetString(prism, Concatenation("Prism(", String(Size(p)/2), ")"));
 	else
-		SetString(prism, Concatenation("PrismOver(", String(p), ")"));	
+		SetString(prism, Concatenation("Prism(", String(p), ")"));	
 	fi;
 
 	AddAttrComputer(prism, Size, M -> 2 * Size(M!.base) * Rank(M) : prereqs := [Size, RankManiplex]);
@@ -171,20 +171,20 @@ InstallMethod(PrismOver,
 	AddAttrComputer(prism, Facets, 
 		function(M)
 		local facs;
-		facs := List(Facets(M!.base), F -> PrismOver(F));
+		facs := List(Facets(M!.base), F -> Prism(F));
 		Add(facs, M!.base);
 		return Unique(facs);
 		end :
 		prereqs := [Facets]);
 
-	AddAttrComputer(prism, VertexFigures, M -> List(VertexFigures(M!.base), F -> PyramidOver(F)) : prereqs := [VertexFigures]);
+	AddAttrComputer(prism, VertexFigures, M -> List(VertexFigures(M!.base), F -> Pyramid(F)) : prereqs := [VertexFigures]);
 	
 	return prism;
 	end);
 	
 InstallMethod(Prism,
 	[IsInt],
-	k -> PrismOver(Pgon(k)));
+	k -> Prism(Pgon(k)));
 
 
 InstallMethod(Antiprism,
