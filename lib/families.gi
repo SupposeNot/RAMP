@@ -167,7 +167,7 @@ InstallMethod(Dodecahedron,
 InstallMethod(HemiDodecahedron,
 	[],
 	function()
-	return AbstractRegularPolytope("{5,3}_5" : set_schlafli);
+	return AbstractRegularPolytope([5,3], "z1^5" : set_schlafli);
 	end);
 InstallMethod(Icosahedron,
 	[],
@@ -183,7 +183,7 @@ InstallMethod(Icosahedron,
 InstallMethod(HemiIcosahedron,
 	[],
 	function()
-	return AbstractRegularPolytope("{3,5}_5" : set_schlafli);
+	return AbstractRegularPolytope([3,5], "z1^5" : set_schlafli);
 	end);
 InstallMethod(24Cell,
 	[],
@@ -199,7 +199,7 @@ InstallMethod(24Cell,
 InstallMethod(Hemi24Cell,
 	[],
 	function()
-	return AbstractRegularPolytope("{3,4,3}_6" : set_schlafli);
+	return AbstractRegularPolytope([3,4,3], "(r0 r1 r2 r3)^6" : set_schlafli);
 	end);
 InstallMethod(120Cell,
 	[],
@@ -215,7 +215,7 @@ InstallMethod(120Cell,
 InstallMethod(Hemi120Cell,
 	[],
 	function()
-	return AbstractRegularPolytope("{5,3,3}_15" : set_schlafli);
+	return AbstractRegularPolytope([5,3,3], "(r0 r1 r2 r3)^15" : set_schlafli);
 	end);
 InstallMethod(600Cell,
 	[],
@@ -231,7 +231,7 @@ InstallMethod(600Cell,
 InstallMethod(Hemi600Cell,
 	[],
 	function()
-	return AbstractRegularPolytope("{3,3,5}_15" : set_schlafli);
+	return AbstractRegularPolytope([3,3,5], "(r0 r1 r2 r3)^15" : set_schlafli);
 	end);
 
 InstallMethod(BrucknerSphere,
