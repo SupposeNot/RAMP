@@ -214,7 +214,7 @@ InstallMethod( \=,
 InstallMethod(SmallestRegularCover,
 	[IsManiplex],
 	function(p)
-	return ReflexibleManiplex(Image(RegularActionHomomorphism(ConnectionGroup(p))));
+	return ReflexibleManiplexNC(Image(RegularActionHomomorphism(ConnectionGroup(p))));
 	end);
 	
 InstallMethod(QuotientManiplex,
