@@ -28,9 +28,18 @@ DeclareGlobalFunction("RegularToroidalPolyhedra44");
 DeclareGlobalFunction("RegularToroidalPolyhedra36");
 
 #! @Arguments sizerange
+#! Returns all regular polyhedra with sizes in <A>sizerange</A> flags
+#! that are stored separately in a file. These are polyhedra that
+#! are not part of one of several infinite families that are covered
+#! by the other generators. The return value of this function is
+#! unstable and may change as more infinite familes of polyhedra
+#! are identified and written as separate generators.
+DeclareGlobalFunction("SmallRegularPolyhedraFromFile");
+
+#! @Arguments sizerange
 #! Returns all regular polyhedra with sizes in <A>sizerange</A> flags.
 #! Currently supports a maxsize of 4000 or less.
-#! You can also set options "nondegenerate" and "nonflat".
+#! You can also set options "nondegenerate", "nonflat", and "nontoroidal".
 #! @BeginExampleSession
 #! L1 := SmallRegularPolyhedra(500);;
 #! L2 := SmallRegularPolyhedra(1000 : nondegenerate);;

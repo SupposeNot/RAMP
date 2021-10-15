@@ -255,6 +255,43 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	return polys;
 	end);
 
+InstallGlobalFunction(SmallRegularPolyhedraFromFile,
+	function(sizerange)
+	local polys, stream, desc, params, paramlist, sym, petrie, flagnum, rels, p, paramstr, toobig, minsize, maxsize, toruspolys;
+	stream := InputTextFile(Filename(RampPath, "regularPolyhedra.txt"));
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+	polys := [];
+
+	toobig := false;
+	paramstr := ReadLine(stream);
+	while not(toobig) and not(IsEndOfStream(stream)) do
+		params := EvalString(Concatenation("[", paramstr, "]"));
+		
+		sym := params[1];
+		petrie := params[2];
+		flagnum := params[3];
+		rels := params[4][1];
+		
+		if flagnum > maxsize then
+			toobig := true;
+		elif flagnum >= minsize then
+			p := AbstractRegularPolytope(sym, rels);
+			SetSize(p, flagnum);
+			SetSize(AutomorphismGroup(p), flagnum);
+			SetPetrieLength(p, petrie);
+			SetSchlafliSymbol(p, sym);
+			Add(polys, p);
+		fi;
+
+		paramstr := ReadLine(stream);
+	od;
+
+	CloseStream(stream);
+	return polys;
+	end);
+
 InstallGlobalFunction(SmallRegularPolyhedra,
 	function(sizerange)
 	local polys, stream, desc, params, paramlist, sym, petrie, flagnum, rels, p, paramstr, toobig, minsize, maxsize, toruspolys;
@@ -296,33 +333,14 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	od;
 	Append(polys, toruspolys);
 	
-	toobig := false;
-	paramstr := ReadLine(stream);
-	while not(toobig) and not(IsEndOfStream(stream)) do
-		params := EvalString(Concatenation("[", paramstr, "]"));
-		
-		sym := params[1];
-		petrie := params[2];
-		flagnum := params[3];
-		rels := params[4][1];
-		
-		if flagnum > maxsize then
-			toobig := true;
-		elif flagnum >= minsize then
-			p := AbstractRegularPolytope(sym, rels);
-			SetSize(p, flagnum);
-			SetSize(AutomorphismGroup(p), flagnum);
-			SetPetrieLength(p, petrie);
-			SetSchlafliSymbol(p, sym);
-			Add(polys, p);
-		fi;
-
-		paramstr := ReadLine(stream);
-	od;
-
-	CloseStream(stream);
+	Append(polys, SmallRegularPolyhedraFromFile(sizerange));
 
 	SortBy(polys, p -> Size(p));
+	
+	if ValueOption("nontoroidal") = true then
+		polys := Filtered(polys, p -> not(SchlafliSymbol(p) in [[3,6],[6,3],[4,4]]));
+	fi;
+	
 	return polys;
 	end);
 
