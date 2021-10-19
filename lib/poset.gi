@@ -130,7 +130,7 @@ InstallMethod(ViewString,
 
 
 # Some test objects:
-posetFM:=function(n) return PosetFromManiplex(PyramidOver(Cube(n)));end;
+posetFM:=function(n) return PosetFromManiplex(Pyramid(Cube(n)));end;
 posetFE:=function(n) return PosetFromElements(ElementsList(posetFM(n)),IsSubface);end;
 posetFG:=function(n) return PosetFromConnectionGroup(ConnectionGroup(posetFE(n))); end;
 pbad:=function() local g,a,p; g:=AlternatingGroup(4); a:=AllSubgroups(g); p:=PosetFromElements(a,IsSubgroup); return p; end;
