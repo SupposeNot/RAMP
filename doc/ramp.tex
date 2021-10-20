@@ -784,9 +784,9 @@ Currently mathematica and sage are supported. }
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. The second form returns the universal reflexible
@@ -794,10 +794,10 @@ maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the opti
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
 \end{Verbatim}
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
@@ -819,12 +819,12 @@ that the Schlafli symbol is correct. }
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -846,15 +846,15 @@ that the Schlafli symbol is correct. }
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -2343,11 +2343,11 @@ derivates that are polytopal. }
 {
   
 
-\subsection{\textcolor{Chapter }{PyramidOver (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Pyramid (for IsManiplex)}}
 \logpage{[ 6, 3, 1 ]}\nobreak
-\hyperdef{L}{X80A4156A8423CAF8}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PyramidOver({\mdseries\slshape M})\index{PyramidOver@\texttt{PyramidOver}!for IsManiplex}
-\label{PyramidOver:for IsManiplex}
+\hyperdef{L}{X830A34BA7E8BC096}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape M})\index{Pyramid@\texttt{Pyramid}!for IsManiplex}
+\label{Pyramid:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -2367,11 +2367,11 @@ derivates that are polytopal. }
 
  
 
-\subsection{\textcolor{Chapter }{PrismOver (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Prism (for IsManiplex)}}
 \logpage{[ 6, 3, 3 ]}\nobreak
-\hyperdef{L}{X7C7D6F558335CFD0}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PrismOver({\mdseries\slshape M})\index{PrismOver@\texttt{PrismOver}!for IsManiplex}
-\label{PrismOver:for IsManiplex}
+\hyperdef{L}{X822C7D527BC2A7F1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape M})\index{Prism@\texttt{Prism}!for IsManiplex}
+\label{Prism:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 
 
@@ -5335,28 +5335,6 @@ IsManiplex
 
  Given a string \mbox{\texttt{\mdseries\slshape maniplexString}}, representing a maniplex stored in a database, returns the maniplex that is
 represented. }
-
- }
-
- 
-\section{\textcolor{Chapter }{ramp automatic generated documentation of attributes}}\label{Chapter_ramp_automatic_generated_documentation_Section_ramp_automatic_generated_documentation_of_attributes}
-\logpage{[ 15, 2, 0 ]}
-\hyperdef{L}{X7E70EB607C5FCB00}{}
-{
-  
-
-\subsection{\textcolor{Chapter }{AtlasID (for IsReflexibleManiplex)}}
-\logpage{[ 15, 2, 1 ]}\nobreak
-\hyperdef{L}{X7A2741CA863D0B40}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AtlasID({\mdseries\slshape M})\index{AtlasID@\texttt{AtlasID}!for IsReflexibleManiplex}
-\label{AtlasID:for IsReflexibleManiplex}
-}\hfill{\scriptsize (attribute)}}\\
-\textbf{\indent Returns:\ }
-String 
-
-
-
- Returns the ID of \mbox{\texttt{\mdseries\slshape M}} in Hartley's Atlas. }
 
  }
 

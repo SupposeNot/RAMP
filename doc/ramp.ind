@@ -59,7 +59,7 @@
   \indexspace
 
   \item \texttt  {Bk2l}
-    \subitem for IsInt,IsInt, \hyperpage{27}
+    \subitem for IsInt,IsInt, \hyperpage{26}
   \item \texttt  {Bk2lStar}
     \subitem for IsInt,IsInt, \hyperpage{27}
   \item \texttt  {BrucknerSphere}, \hyperpage{37}
@@ -447,14 +447,12 @@
     \subitem for IsGroup, \hyperpage{11}
   \item \texttt  {Prism}
     \subitem for IsInt, \hyperpage{31}
-  \item \texttt  {PrismOver}
     \subitem for IsManiplex, \hyperpage{31}
   \item \texttt  {Pseudorhombicuboctahedron}, \hyperpage{39}
   \item \texttt  {PseudoSchlafliSymbol}
     \subitem for IsManiplex, \hyperpage{19}
   \item \texttt  {Pyramid}
     \subitem for IsInt, \hyperpage{31}
-  \item \texttt  {PyramidOver}
     \subitem for IsManiplex, \hyperpage{30}
 
   \indexspace
@@ -526,7 +524,8 @@
   \item \texttt  {SmallestRegularCover}
     \subitem for IsManiplex, \hyperpage{64}
   \item \texttt  {SmallRegular4Polytopes}, \hyperpage{34}
-  \item \texttt  {SmallRegularPolyhedra}, \hyperpage{33}
+  \item \texttt  {SmallRegularPolyhedra}, \hyperpage{34}
+  \item \texttt  {SmallRegularPolyhedraFromFile}, \hyperpage{33}
   \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{39}
   \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{39}
   \item \texttt  {SnubCube}, \hyperpage{39}
@@ -579,6 +578,10 @@
   \item \texttt  {ViewGraph}
     \subitem for IsEdgeLabeledGraph, IsString, \hyperpage{12}
     \subitem for IsObject, IsString, \hyperpage{12}
+
+  \indexspace
+
+  \item \texttt  {WrappedPosetOperation}, \hyperpage{70}
 
   \indexspace
 
