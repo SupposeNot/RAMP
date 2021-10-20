@@ -16,3 +16,18 @@ InstallMethod(StratifiedProduct,
 	newperm:=perm1*perm2;
 	return [newperm,newlist];
 	end);
+
+testList:=function(list)
+	local elements,templist, i, newEls, x;
+	elements:=list;
+	templist:=[];
+	while Length(templist)<>Length(elements) do
+		templist:=elements; #templist stores the old list
+		for i in list do
+			newEls:=List(elements, x->StratifiedProduct(x,i));
+			elements:=Union(elements,newEls);
+			od;
+# 			Print(elements,"\n\n");
+		od;
+	return elements;
+	end;
