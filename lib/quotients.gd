@@ -1,3 +1,4 @@
+
 #! @Chapter Comparing maniplexes
 #! @Section Quotients and covers
 
@@ -14,7 +15,7 @@ DeclareOperation("IsQuotient", [IsManiplex, IsManiplex]);
 DeclareOperation("IsQuotient", [IsSggi, IsSggi]);
 
 #! @Arguments M1, M2
-#! Returns whether <A>M1</A> is a cover of <A>M2</A>.
+#! Returns whether <A>M2</A> is a cover of <A>M1</A>.
 DeclareOperation("IsCover", [IsManiplex, IsManiplex]);
 
 #! @Arguments M1, M2
