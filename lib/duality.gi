@@ -4,7 +4,7 @@ InstallMethod(Dual,
 	function(M)
 	local Md, attr, MatchingAttributes, ReversedAttributes, rels, newrels, relstr, mdstr, polytopal;
 
-	polytopal := (ValueOption("polytopal") = true);
+	# polytopal := (ValueOption("polytopal") = true);
 	
 	if IsReflexibleManiplexAutGpRep(M) then
 		rels := ExtraRelators(M);
@@ -15,7 +15,8 @@ InstallMethod(Dual,
 		newrels := List(rels, r -> List(r, i -> Rank(M)+1-AbsoluteValue(i)));
 		newrels := List(newrels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(AutomorphismGroupFpGroup(M))));
 		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
-		Md := ReflexibleManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr : polytopal);
+		# Md := ReflexibleManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr : polytopal);
+		Md := ReflexibleManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr);
 	elif IsRotaryManiplexRotGpRep(M) then
 		rels := ExtraRotRelators(M);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
@@ -25,7 +26,8 @@ InstallMethod(Dual,
 		newrels := List(newrels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(M))));
 		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
 
-		Md := RotaryManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr : polytopal);
+		# Md := RotaryManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr : polytopal);
+		Md := RotaryManiplex(Reversed(PseudoSchlafliSymbol(M)), relstr);
 	else
 		Md := Maniplex(Dual, [M]);
 		SetRankManiplex(Md, Rank(M));

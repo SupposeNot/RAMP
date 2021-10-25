@@ -255,10 +255,10 @@ InstallMethod(IsPolytopal,
 			isPolytopal := false;
 		elif IsReflexibleManiplexAutGpRep(M) then
 			isPolytopal := IsStringC(AutomorphismGroup(M));
-			if isPolytopal then M!.String := ReplacedString(M!.String, "ReflexibleManiplex", "AbstractRegularPolytope"); fi;
+			if isPolytopal and IsBound(M!.String) then M!.String := ReplacedString(M!.String, "ReflexibleManiplex", "AbstractRegularPolytope"); fi;
 		elif IsRotaryManiplexRotGpRep(M) then
 			isPolytopal := IsStringCPlus(RotationGroup(M));
-			if isPolytopal then M!.String := ReplacedString(M!.String, "RotaryManiplex", "AbstractRotaryPolytope"); fi;
+			if isPolytopal and IsBound(M!.String) then M!.String := ReplacedString(M!.String, "RotaryManiplex", "AbstractRotaryPolytope"); fi;
 		else
 			isPolytopal := SatisfiesWeakPathIntersectionProperty(M);
 		fi;
