@@ -6,7 +6,7 @@ InstallMethod(IsOrientable,
 	isOrientable := ComputeAttr(M, IsOrientable);
 	if isOrientable = fail then
 		if IsReflexibleManiplexAutGpRep(M) then
-			isOrientable := ForAll(RelatorsOfFpGroup(AutomorphismGroup(M)), r -> IsEvenInt(Length(r)));
+			isOrientable := ForAll(RelatorsOfFpGroup(AutomorphismGroupFpGroup(M)), r -> IsEvenInt(Length(r)));
 		else
 			isOrientable := IsBipartite(UnlabeledFlagGraph(M));
 		fi;
@@ -19,7 +19,7 @@ InstallMethod(IsIOrientable,
 	[IsReflexibleManiplex, IsList],
 	function(M, I)
 	local rels;
-	rels := RelatorsOfFpGroup(AutomorphismGroup(M));
+	rels := RelatorsOfFpGroup(AutomorphismGroupFpGroup(M));
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
 	# Translate I since tietze words are 1-based instead of 0-based
 	I := I+1;
