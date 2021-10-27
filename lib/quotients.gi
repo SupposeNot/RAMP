@@ -265,3 +265,10 @@ InstallMethod(QuotientSggi,
 	SetIsSggi(h, true);
 	return h;
 	end);
+
+InstallMethod(QuotientSggiByNormalSubgroup,
+	[IsGroup,IsGroup],
+	function(sggi,n)
+	if IsSggi(sggi)=false or IsNormal(sggi,n)<>true then Error("That isn't a normal subgroup in an SGGI.");fi;
+	return Group(Image(NaturalHomomorphismByNormalSubgroup(sggi,n),GeneratorsOfGroup(sggi)));	
+	end);

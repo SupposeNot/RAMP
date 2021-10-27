@@ -60,3 +60,8 @@ DeclareOperation("ReflexibleQuotientManiplex", [IsManiplex, IsList]);
 #! 60
 #! @EndExampleSession
 DeclareOperation("QuotientSggi", [IsGroup, IsList]);
+
+#! @Arguments g, n
+#! @Returns g/n
+#! @Description Given an sggi <A>g</A> and a normal subgroup <A>n</A> in <A>g</A>, this function will give you the quotient in a way that respects the generators (i.e., the generators of the quotient will be the images of the generators of the original group).
+DeclareOperation("QuotientSggiByNormalSubgroup",[IsGroup,IsGroup]);
