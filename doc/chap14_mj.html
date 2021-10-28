@@ -36,6 +36,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X85BE14877927DB85">14.1-6 QuotientManiplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X87DCBB9E78E383BB">14.1-7 ReflexibleQuotientManiplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X83D969847E68299D">14.1-8 QuotientSggi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X819D85E57B505196">14.1-9 QuotientSggiByNormalSubgroup</a></span>
 </div></div>
 </div>
 
@@ -109,6 +110,25 @@
 &lt;fp group on the generators [ r0, r1, r2 ]&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(h);</span>
 60
+</pre></div>
+
+<p><a id="X819D85E57B505196" name="X819D85E57B505196"></a></p>
+
+<h5>14.1-9 QuotientSggiByNormalSubgroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggiByNormalSubgroup</code>( <var class="Arg">g</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: g/n</p>
+
+<p>Given an sggi <var class="Arg">g</var> and a normal subgroup <var class="Arg">n</var> in <var class="Arg">g</var>, this function will give you the quotient in a way that respects the generators (i.e., the generators of the quotient will be the images of the generators of the original group).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AutomorphismGroup(Cube(3));</span>
+&lt;fp group of size 48 on the generators [ r0, r1, r2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=QuotientSggiByNormalSubgroup(g,Group([(g.1*g.2*g.3)^3]));</span>
+Group([ (1,2)(3,7)(4,6)(5,10)(8,14)(9,16)(11,18)(12,20)(13,17)(15,23)(19,22)(21,24), (1,3)(2,5)(4,9)(6,12)(7,13)(8,15)(10,17)(11,19)(14,22)(16,24)(18,23)(20,21), (1,4)(2,6)(3,8)(5,11)(7,14)(9,15)(10,18)(12,19)(13,21)(16,23)(17,24)(20,22) ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(q)=HemiCube(3);</span>
+true
 </pre></div>
 
 

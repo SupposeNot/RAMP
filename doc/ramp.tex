@@ -5203,6 +5203,32 @@ parsed by ParseStringCRels.
 \end{Verbatim}
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{QuotientSggiByNormalSubgroup (for IsGroup,IsGroup)}}
+\logpage{[ 14, 1, 9 ]}\nobreak
+\hyperdef{L}{X819D85E57B505196}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientSggiByNormalSubgroup({\mdseries\slshape g, n})\index{QuotientSggiByNormalSubgroup@\texttt{QuotientSggiByNormalSubgroup}!for IsGroup,IsGroup}
+\label{QuotientSggiByNormalSubgroup:for IsGroup,IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+g/n 
+
+
+
+ Given an sggi \mbox{\texttt{\mdseries\slshape g}} and a normal subgroup \mbox{\texttt{\mdseries\slshape n}} in \mbox{\texttt{\mdseries\slshape g}}, this function will give you the quotient in a way that respects the
+generators (i.e., the generators of the quotient will be the images of the
+generators of the original group). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g:=AutomorphismGroup(Cube(3));|
+  <fp group of size 48 on the generators [ r0, r1, r2 ]>
+  !gapprompt@gap>| !gapinput@q:=QuotientSggiByNormalSubgroup(g,Group([(g.1*g.2*g.3)^3]));|
+  Group([ (1,2)(3,7)(4,6)(5,10)(8,14)(9,16)(11,18)(12,20)(13,17)(15,23)(19,22)(21,24), (1,3)(2,5)(4,9)(6,12)(7,13)(8,15)(10,17)(11,19)(14,22)(16,24)(18,23)(20,21), (1,4)(2,6)(3,8)(5,11)(7,14)(9,15)(10,18)(12,19)(13,21)(16,23)(17,24)(20,22) ])
+  !gapprompt@gap>| !gapinput@Maniplex(q)=HemiCube(3);|
+  true
+\end{Verbatim}
  }
 
  }
@@ -5577,6 +5603,7 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

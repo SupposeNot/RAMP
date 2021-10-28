@@ -65,3 +65,11 @@ DeclareOperation("QuotientSggi", [IsGroup, IsList]);
 #! @Returns g/n
 #! @Description Given an sggi <A>g</A> and a normal subgroup <A>n</A> in <A>g</A>, this function will give you the quotient in a way that respects the generators (i.e., the generators of the quotient will be the images of the generators of the original group).
 DeclareOperation("QuotientSggiByNormalSubgroup",[IsGroup,IsGroup]);
+#! @BeginExampleSession
+#! gap> g:=AutomorphismGroup(Cube(3));
+#! <fp group of size 48 on the generators [ r0, r1, r2 ]>
+#! gap> q:=QuotientSggiByNormalSubgroup(g,Group([(g.1*g.2*g.3)^3]));
+#! Group([ (1,2)(3,7)(4,6)(5,10)(8,14)(9,16)(11,18)(12,20)(13,17)(15,23)(19,22)(21,24), (1,3)(2,5)(4,9)(6,12)(7,13)(8,15)(10,17)(11,19)(14,22)(16,24)(18,23)(20,21), (1,4)(2,6)(3,8)(5,11)(7,14)(9,15)(10,18)(12,19)(13,21)(16,23)(17,24)(20,22) ])
+#! gap> Maniplex(q)=HemiCube(3);
+#! true
+#! @EndExampleSession
