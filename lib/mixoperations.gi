@@ -49,7 +49,7 @@ InstallMethod(Mix,
 	end);
 
 InstallMethod(Mix,
-	[IsReflexibleManiplex, IsReflexibleManiplex],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	return ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
 	end);
