@@ -14,7 +14,7 @@ false
 gap> Q := Pyramid(4);;
 gap> NumberOfVertexOrbits(Q);
 2
-gap> Qp := PrismOver(Q);;
+gap> Qp := Prism(Q);;
 gap> NumberOfVertexOrbits(Qp);
 2
 gap> NumberOfFacetOrbits(Qp);

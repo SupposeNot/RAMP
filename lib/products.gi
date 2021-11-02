@@ -71,8 +71,7 @@ InstallMethod(Pyramid,
 			perms[t+1] := r_t;	# Indices are off by one because GAP lists are 1-indexed.
 		od;
 		return Group(perms);
-		end :
-		prereqs := [ConnectionGroup]);
+		end);
 
 	AddAttrComputer(pyr, Facets, 
 		function(M)
@@ -165,8 +164,7 @@ InstallMethod(Prism,
 			perms[t+1] := r_t;
 		od;
 		return Group(perms);
-		end :
-		prereqs := [ConnectionGroup]);
+		end);
 
 	AddAttrComputer(prism, Facets, 
 		function(M)

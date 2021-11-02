@@ -59,20 +59,20 @@ InstallGlobalFunction(TranslatePerm,
 # Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with multiplier terms.	
 InstallGlobalFunction(MultPerm,
 	function(perm, multiplier, offset)
-	local MultPermAux;
+	local newperm, k, i;
 
-	# perm is the "seed" permutations, newperm is the accumulated result so far.
-	MultPermAux := function(perm, newperm, multiplier, offset)
-		if multiplier = 0 then
-			return ();
-		elif multiplier = 1 then
-			return newperm;
-		else
-			return MultPermAux(perm, newperm*TranslatePerm(perm, offset*(multiplier-1)), multiplier-1, offset);
-		fi;
-		end;
-		
-	return MultPermAux(perm, perm, multiplier, offset);
+	if multiplier = 0 then
+		return ();
+	else
+		k := 0;
+		newperm := ();
+		for i in [1..multiplier] do
+			newperm := newperm * TranslatePerm(perm, k);
+			k := k + offset;
+		od;
+		return newperm;
+	fi;
+
 	end);
 	
 InstallGlobalFunction(PermFromRange,

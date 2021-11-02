@@ -45,3 +45,6 @@ DeclareProperty("IsChiral", IsManiplex);
 #! either reflexible or chiral.
 DeclareProperty("IsRotary", IsManiplex);
 
+#! @Arguments M
+#! Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<A>M</A>).
+DeclareAttribute("FlagOrbits", IsManiplex);
