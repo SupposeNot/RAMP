@@ -17,6 +17,22 @@ DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
 DeclareAttribute("FlagOrbitRepresentatives", IsManiplex);
 
 #! @Arguments M
+#! @Returns g
+#! @Description Returns the subgroup of the connection group that preserves the flag orbits under the action of the automorphism group.
+DeclareAttribute("FlagOrbitsStabilizer", IsManiplex);
+#! @BeginExampleSession
+#! gap> m:=Prism(Dodecahedron());
+#! Prism(Dodecahedron())
+#! gap> s:=FlagOrbitsStabilizer(m);
+#! <permutation group of size 207360000 with 12 generators>
+#! gap> IsSubgroup(ConnectionGroup(m),s);
+#! true
+#! gap> AsSet(Orbit(AutomorphismGroupOnFlags(m),1))=AsSet(Orbit(s,1));
+#! true
+#! @EndExampleSession
+
+
+#! @Arguments M
 #! @Returns Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
 DeclareProperty("IsReflexible", IsManiplex);
 

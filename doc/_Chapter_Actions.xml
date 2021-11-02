@@ -198,6 +198,28 @@ Returns whether the action of AutomorphismGroup(<A>M</A>) on
 
 
 <ManSection>
+  <Attr Arg="M" Name="FlagOrbitsStabilizer" Label="for IsManiplex"/>
+ <Returns>g
+</Returns>
+ <Description>
+Returns the subgroup of the connection group that preserves the flag orbits under the action of the automorphism group.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> m:=Prism(Dodecahedron());
+Prism(Dodecahedron())
+gap> s:=FlagOrbitsStabilizer(m);
+<permutation group of size 207360000 with 12 generators>
+gap> IsSubgroup(ConnectionGroup(m),s);
+true
+gap> AsSet(Orbit(AutomorphismGroupOnFlags(m),1))=AsSet(Orbit(s,1));
+true
+]]></Example>
+
+
+<ManSection>
   <Prop Arg="M" Name="IsReflexible" Label="for IsManiplex"/>
  <Returns>Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
 </Returns>

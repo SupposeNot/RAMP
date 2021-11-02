@@ -167,6 +167,16 @@ InstallMethod(FlagOrbitRepresentatives,
 	fi;
 	end);
 
+InstallMethod(FlagOrbitsStabilizer,
+	[IsManiplex],
+	function(M)
+	local c, a, orbs, s;
+	c:=ConnectionGroup(M); a:=AutomorphismGroupOnFlags(M);
+	orbs:=List(Orbits(a),AsSet);
+	s:=Intersection(List(orbs,x->Stabilizer(c,x,OnSets)));
+	return s;
+	end);
+
 InstallMethod(IsReflexible,
 	[IsManiplex],
 	function(M)

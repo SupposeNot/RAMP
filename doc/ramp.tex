@@ -1808,8 +1808,35 @@ AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
  
 
-\subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{FlagOrbitsStabilizer (for IsManiplex)}}
 \logpage{[ 4, 3, 4 ]}\nobreak
+\hyperdef{L}{X81C0D5667D83EB88}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitsStabilizer({\mdseries\slshape M})\index{FlagOrbitsStabilizer@\texttt{FlagOrbitsStabilizer}!for IsManiplex}
+\label{FlagOrbitsStabilizer:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+g 
+
+
+
+ Returns the subgroup of the connection group that preserves the flag orbits
+under the action of the automorphism group. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m:=Prism(Dodecahedron());|
+  Prism(Dodecahedron())
+  !gapprompt@gap>| !gapinput@s:=FlagOrbitsStabilizer(m);|
+  <permutation group of size 207360000 with 12 generators>
+  !gapprompt@gap>| !gapinput@IsSubgroup(ConnectionGroup(m),s);|
+  true
+  !gapprompt@gap>| !gapinput@AsSet(Orbit(AutomorphismGroupOnFlags(m),1))=AsSet(Orbit(s,1));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
+\logpage{[ 4, 3, 5 ]}\nobreak
 \hyperdef{L}{X7E4E689F86171C78}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsManiplex}
 \label{IsReflexible:for IsManiplex}
@@ -1826,7 +1853,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
  
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsManiplex)}}
-\logpage{[ 4, 3, 5 ]}\nobreak
+\logpage{[ 4, 3, 6 ]}\nobreak
 \hyperdef{L}{X7D74CD997C7FF39D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChiral({\mdseries\slshape M})\index{IsChiral@\texttt{IsChiral}!for IsManiplex}
 \label{IsChiral:for IsManiplex}
@@ -1843,7 +1870,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is chrial.
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
-\logpage{[ 4, 3, 6 ]}\nobreak
+\logpage{[ 4, 3, 7 ]}\nobreak
 \hyperdef{L}{X7DACFE5483893523}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsManiplex}
 \label{IsRotary:for IsManiplex}
@@ -3563,8 +3590,22 @@ connection groups }
 
  
 
-\subsection{\textcolor{Chapter }{Comix (for IsFpGroup, IsFpGroup)}}
+\subsection{\textcolor{Chapter }{Mix (for IsManiplex, IsManiplex)}}
 \logpage{[ 10, 1, 4 ]}\nobreak
+\hyperdef{L}{X7FB8D59C83B5819C}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape arg1, arg2})\index{Mix@\texttt{Mix}!for IsManiplex, IsManiplex}
+\label{Mix:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{Comix (for IsFpGroup, IsFpGroup)}}
+\logpage{[ 10, 1, 5 ]}\nobreak
 \hyperdef{L}{X8688A51E816A5176}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape fpgroup, fpgroup})\index{Comix@\texttt{Comix}!for IsFpGroup, IsFpGroup}
 \label{Comix:for IsFpGroup, IsFpGroup}
@@ -3576,7 +3617,7 @@ connection groups }
  
 
 \subsection{\textcolor{Chapter }{Comix (for IsReflexibleManiplex, IsReflexibleManiplex)}}
-\logpage{[ 10, 1, 5 ]}\nobreak
+\logpage{[ 10, 1, 6 ]}\nobreak
 \hyperdef{L}{X8287C9F684CA66F5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape maniplex, maniplex})\index{Comix@\texttt{Comix}!for IsReflexibleManiplex, IsReflexibleManiplex}
 \label{Comix:for IsReflexibleManiplex, IsReflexibleManiplex}
@@ -3592,7 +3633,7 @@ connection groups }
  
 
 \subsection{\textcolor{Chapter }{CtoL (for IsInt,IsInt,IsInt,IsInt)}}
-\logpage{[ 10, 1, 6 ]}\nobreak
+\logpage{[ 10, 1, 7 ]}\nobreak
 \hyperdef{L}{X7CD7AB1C7DF21CFE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CtoL({\mdseries\slshape int, int, int, int})\index{CtoL@\texttt{CtoL}!for IsInt,IsInt,IsInt,IsInt}
 \label{CtoL:for IsInt,IsInt,IsInt,IsInt}
@@ -3611,7 +3652,7 @@ Functions are inverses. }
  
 
 \subsection{\textcolor{Chapter }{FlagMix (for IsManiplex, IsManiplex)}}
-\logpage{[ 10, 1, 7 ]}\nobreak
+\logpage{[ 10, 1, 8 ]}\nobreak
 \hyperdef{L}{X853A36497F3AF41E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagMix({\mdseries\slshape permgroup, permgroup})\index{FlagMix@\texttt{FlagMix}!for IsManiplex, IsManiplex}
 \label{FlagMix:for IsManiplex, IsManiplex}
@@ -5603,7 +5644,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

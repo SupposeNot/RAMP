@@ -52,9 +52,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X856ED1E7866152A0">4.3-1 SymmetryTypeGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X78060E3A788D2D3C">4.3-2 NumberOfFlagOrbits</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X852C679D8338AB53">4.3-3 FlagOrbitRepresentatives</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E4E689F86171C78">4.3-4 IsReflexible</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D74CD997C7FF39D">4.3-5 IsChiral</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7DACFE5483893523">4.3-6 IsRotary</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X81C0D5667D83EB88">4.3-4 FlagOrbitsStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E4E689F86171C78">4.3-5 IsReflexible</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D74CD997C7FF39D">4.3-6 IsChiral</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7DACFE5483893523">4.3-7 IsRotary</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap4.html#X83355D207F38F997">4.4 <span class="Heading">Faithfulness</span></a>
 </span>
@@ -220,23 +221,44 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
 
+<p><a id="X81C0D5667D83EB88" name="X81C0D5667D83EB88"></a></p>
+
+<h5>4.3-4 FlagOrbitsStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitsStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: g</p>
+
+<p>Returns the subgroup of the connection group that preserves the flag orbits under the action of the automorphism group.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Prism(Dodecahedron());</span>
+Prism(Dodecahedron())
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s:=FlagOrbitsStabilizer(m);</span>
+&lt;permutation group of size 207360000 with 12 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSubgroup(ConnectionGroup(m),s);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSet(Orbit(AutomorphismGroupOnFlags(m),1))=AsSet(Orbit(s,1));</span>
+true
+</pre></div>
+
 <p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
 
-<h5>4.3-4 IsReflexible</h5>
+<h5>4.3-5 IsReflexible</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
 
 <p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
 
-<h5>4.3-5 IsChiral</h5>
+<h5>4.3-6 IsChiral</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is chrial.</p>
 
 <p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
 
-<h5>4.3-6 IsRotary</h5>
+<h5>4.3-7 IsRotary</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
