@@ -2,7 +2,7 @@ gap> M := Cube(3);; M = ManiplexFromDatabaseString(DatabaseString(M));
 true
 gap> M := Medial(Cube(3));; M = ManiplexFromDatabaseString(DatabaseString(M));
 true
-gap> M := PyramidOver(Cube(3));; M = ManiplexFromDatabaseString(DatabaseString(M));
+gap> M := Pyramid(Cube(3));; M = ManiplexFromDatabaseString(DatabaseString(M));
 true
 gap> M := Pyramid(5);; M = ManiplexFromDatabaseString(DatabaseString(M));
 true

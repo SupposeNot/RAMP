@@ -8,13 +8,13 @@ gap> IsOrientable(ReflexibleManiplex([4,4], "z1^1"));
 false
 gap> IsOrientable(Medial(Cube(3)));
 true
-gap> IsOrientable(PyramidOver(Cube(3)));
+gap> IsOrientable(Pyramid(Cube(3)));
 true
 gap> IsOrientable(Medial(HemiCube(3)));
 false
-gap> IsOrientable(PyramidOver(HemiCube(3)));
+gap> IsOrientable(Pyramid(HemiCube(3)));
 false
-gap> IsOrientable(PyramidOver(HemiCube(3)));
+gap> IsOrientable(Pyramid(HemiCube(3)));
 false
 gap> IsVertexBipartite(Cube(3));
 true
@@ -90,19 +90,19 @@ gap> IsIOrientable(Prism(6), [1,2]);
 true
 gap> IsIOrientable(Prism(5), [1,2]);
 false
-gap> IsIOrientable(PrismOver(Simplex(3)), [0]);
+gap> IsIOrientable(Prism(Simplex(3)), [0]);
 false
-gap> IsIOrientable(PrismOver(Simplex(3)), [0,1,2]);
+gap> IsIOrientable(Prism(Simplex(3)), [0,1,2]);
 false
-gap> IsIOrientable(PrismOver(Simplex(3)), [0,1,2,3]);
+gap> IsIOrientable(Prism(Simplex(3)), [0,1,2,3]);
 true
 gap> OrientableCover(Cube(3)) = Cube(3);
 true
 gap> OrientableCover(HemiCube(3)) = Cube(3);
 true
-gap> OrientableCover(PyramidOver(Cube(3))) = PyramidOver(Cube(3));
+gap> OrientableCover(Pyramid(Cube(3))) = Pyramid(Cube(3));
 true
-gap> OrientableCover(PyramidOver(HemiCube(3))) = PyramidOver(Cube(3));
+gap> OrientableCover(Pyramid(HemiCube(3))) = Pyramid(Cube(3));
 true
 gap> IOrientableCover(Cube(3), [0]) = Cube(3);
 true
