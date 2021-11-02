@@ -24,7 +24,8 @@ DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 #! @Arguments maniplex, maniplex
 #! @Returns `IsReflexibleManiplex `. 
 #! @Description Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
-DeclareOperation("Mix", [IsReflexibleManiplex, IsReflexibleManiplex]);
+# DeclareOperation("Mix", [IsReflexibleManiplex, IsReflexibleManiplex]);
+DeclareOperation("Mix", [IsManiplex, IsManiplex]);
 
 #! @Arguments fpgroup, fpgroup
 #! Returns the comix of two Finitely Presented groups gp and gq.
