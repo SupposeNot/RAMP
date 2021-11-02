@@ -198,3 +198,21 @@ InstallMethod(IsRotary,
 	return val;
 	end);
 	
+
+InstallMethod(FlagOrbits,
+	[IsManiplex],
+	function(M)
+	local reps, c, flags, orbits, i, stab, norm;
+		reps:= FlagOrbitRepresentatives(M);
+		c := ConnectionGroup(M);
+		flags := [1..Size(M)];
+                orbits:=[];
+		for i in reps do
+			stab := Stabilizer(c, i);
+			norm := Normalizer(c, stab);
+			Add(orbits, Orbit(norm, i));
+		od;
+		return orbits;
+	end);
+
+
