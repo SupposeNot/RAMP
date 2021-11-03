@@ -1,3 +1,4 @@
+
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(m)

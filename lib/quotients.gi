@@ -272,3 +272,22 @@ InstallMethod(QuotientSggiByNormalSubgroup,
 	if IsSggi(sggi)=false or IsNormal(sggi,n)<>true then Error("That isn't a normal subgroup in an SGGI.");fi;
 	return Group(Image(NaturalHomomorphismByNormalSubgroup(sggi,n),GeneratorsOfGroup(sggi)));	
 	end);
+	
+InstallMethod(QuotientManiplexByAutomorphismSubgroup,
+	[IsManiplex,IsPermGroup],
+	function(m,h)
+	local flags, orbits, conn, aut, Norbits, ims,x,y, orb,gensC, newGens;
+	aut:=AutomorphismGroupOnFlags(m);
+	if IsSubgroup(aut,h)=false then Error("Your subgroup needs to be a subgroup of the automorphism group acting on the flags.");fi;
+	flags:=MovedPoints(aut);
+	orbits:=List(Orbits(h),AsSet);
+#  	Norbits:=Length(orbits);
+ 	conn:=ConnectionGroup(m);
+ 	gensC:=GeneratorsOfGroup(conn);
+ 	ims:=[1..Rank(m)];
+	for x in [1..Rank(m)] do
+		ims[x]:=List(orbits,orb->AsSet(List(orb,y->y^gensC[x])));
+		od;
+	newGens:=List([1..Rank(m)],x->PermListList(orbits,ims[x]));
+	return Maniplex(Group(newGens));
+	end);

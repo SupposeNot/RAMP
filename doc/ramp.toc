@@ -102,9 +102,10 @@
 \contentsline {subsection}{\numberline {4.3.5}\textcolor {Chapter }{IsReflexible (for IsManiplex)}}{25}{subsection.4.3.5}%
 \contentsline {subsection}{\numberline {4.3.6}\textcolor {Chapter }{IsChiral (for IsManiplex)}}{25}{subsection.4.3.6}%
 \contentsline {subsection}{\numberline {4.3.7}\textcolor {Chapter }{IsRotary (for IsManiplex)}}{25}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {4.3.8}\textcolor {Chapter }{FlagOrbits (for IsManiplex)}}{25}{subsection.4.3.8}%
 \contentsline {section}{\numberline {4.4}\textcolor {Chapter }{Faithfulness}}{25}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}\textcolor {Chapter }{IsVertexFaithful (for IsReflexibleManiplex)}}{25}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}\textcolor {Chapter }{IsFacetFaithful (for IsReflexibleManiplex)}}{25}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.2}\textcolor {Chapter }{IsFacetFaithful (for IsReflexibleManiplex)}}{26}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}\textcolor {Chapter }{MaxVertexFaithfulQuotient (for IsReflexibleManiplex)}}{26}{subsection.4.4.3}%
 \contentsline {chapter}{\numberline {5}\textcolor {Chapter }{Regular maps}}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}\textcolor {Chapter }{Bicontactual regular maps}}{27}{section.5.1}%
@@ -318,30 +319,31 @@
 \contentsline {subsection}{\numberline {14.1.7}\textcolor {Chapter }{ReflexibleQuotientManiplex (for IsManiplex, IsList)}}{66}{subsection.14.1.7}%
 \contentsline {subsection}{\numberline {14.1.8}\textcolor {Chapter }{QuotientSggi (for IsGroup, IsList)}}{66}{subsection.14.1.8}%
 \contentsline {subsection}{\numberline {14.1.9}\textcolor {Chapter }{QuotientSggiByNormalSubgroup (for IsGroup,IsGroup)}}{66}{subsection.14.1.9}%
-\contentsline {chapter}{\numberline {15}\textcolor {Chapter }{ramp automatic generated documentation}}{67}{chapter.15}%
-\contentsline {section}{\numberline {15.1}\textcolor {Chapter }{ramp automatic generated documentation of methods}}{67}{section.15.1}%
-\contentsline {subsection}{\numberline {15.1.1}\textcolor {Chapter }{UniversalRotationGroup (for IsInt)}}{67}{subsection.15.1.1}%
-\contentsline {subsection}{\numberline {15.1.2}\textcolor {Chapter }{UniversalRotationGroup (for IsList)}}{67}{subsection.15.1.2}%
-\contentsline {subsection}{\numberline {15.1.3}\textcolor {Chapter }{RotaryManiplex (for IsGroup)}}{67}{subsection.15.1.3}%
-\contentsline {subsection}{\numberline {15.1.4}\textcolor {Chapter }{RotaryManiplex (for IsList)}}{67}{subsection.15.1.4}%
-\contentsline {subsection}{\numberline {15.1.5}\textcolor {Chapter }{RotaryManiplex (for IsList, IsList)}}{67}{subsection.15.1.5}%
-\contentsline {subsection}{\numberline {15.1.6}\textcolor {Chapter }{EnantiomorphicForm (for IsRotaryManiplex)}}{68}{subsection.15.1.6}%
-\contentsline {subsection}{\numberline {15.1.7}\textcolor {Chapter }{DatabaseString (for IsManiplex)}}{68}{subsection.15.1.7}%
-\contentsline {subsection}{\numberline {15.1.8}\textcolor {Chapter }{ManiplexFromDatabaseString (for IsString)}}{68}{subsection.15.1.8}%
-\contentsline {chapter}{\numberline {16}\textcolor {Chapter }{Stratified Operations}}{69}{chapter.16}%
-\contentsline {section}{\numberline {16.1}\textcolor {Chapter }{Computational tools}}{69}{section.16.1}%
-\contentsline {chapter}{\numberline {17}\textcolor {Chapter }{Utility functions}}{70}{chapter.17}%
-\contentsline {section}{\numberline {17.1}\textcolor {Chapter }{Utility functions}}{70}{section.17.1}%
-\contentsline {subsection}{\numberline {17.1.1}\textcolor {Chapter }{InfoRamp}}{70}{subsection.17.1.1}%
-\contentsline {subsection}{\numberline {17.1.2}\textcolor {Chapter }{AbstractPolytope}}{70}{subsection.17.1.2}%
-\contentsline {subsection}{\numberline {17.1.3}\textcolor {Chapter }{AbstractRegularPolytope}}{70}{subsection.17.1.3}%
-\contentsline {subsection}{\numberline {17.1.4}\textcolor {Chapter }{AbstractRotaryPolytope}}{70}{subsection.17.1.4}%
-\contentsline {subsection}{\numberline {17.1.5}\textcolor {Chapter }{TranslatePerm}}{70}{subsection.17.1.5}%
-\contentsline {subsection}{\numberline {17.1.6}\textcolor {Chapter }{MultPerm}}{71}{subsection.17.1.6}%
-\contentsline {subsection}{\numberline {17.1.7}\textcolor {Chapter }{PermFromRange}}{71}{subsection.17.1.7}%
-\contentsline {subsection}{\numberline {17.1.8}\textcolor {Chapter }{ParseStringCRels}}{71}{subsection.17.1.8}%
-\contentsline {subsection}{\numberline {17.1.9}\textcolor {Chapter }{ParseRotGpRels}}{71}{subsection.17.1.9}%
-\contentsline {subsection}{\numberline {17.1.10}\textcolor {Chapter }{AddOrAppend}}{72}{subsection.17.1.10}%
-\contentsline {subsection}{\numberline {17.1.11}\textcolor {Chapter }{WrappedPosetOperation}}{72}{subsection.17.1.11}%
-\contentsline {chapter}{References}{73}{chapter*.4}%
-\contentsline {chapter}{Index}{74}{section*.5}%
+\contentsline {subsection}{\numberline {14.1.10}\textcolor {Chapter }{QuotientManiplexByAutomorphismSubgroup (for IsManiplex,IsPermGroup)}}{67}{subsection.14.1.10}%
+\contentsline {chapter}{\numberline {15}\textcolor {Chapter }{ramp automatic generated documentation}}{68}{chapter.15}%
+\contentsline {section}{\numberline {15.1}\textcolor {Chapter }{ramp automatic generated documentation of methods}}{68}{section.15.1}%
+\contentsline {subsection}{\numberline {15.1.1}\textcolor {Chapter }{UniversalRotationGroup (for IsInt)}}{68}{subsection.15.1.1}%
+\contentsline {subsection}{\numberline {15.1.2}\textcolor {Chapter }{UniversalRotationGroup (for IsList)}}{68}{subsection.15.1.2}%
+\contentsline {subsection}{\numberline {15.1.3}\textcolor {Chapter }{RotaryManiplex (for IsGroup)}}{68}{subsection.15.1.3}%
+\contentsline {subsection}{\numberline {15.1.4}\textcolor {Chapter }{RotaryManiplex (for IsList)}}{68}{subsection.15.1.4}%
+\contentsline {subsection}{\numberline {15.1.5}\textcolor {Chapter }{RotaryManiplex (for IsList, IsList)}}{68}{subsection.15.1.5}%
+\contentsline {subsection}{\numberline {15.1.6}\textcolor {Chapter }{EnantiomorphicForm (for IsRotaryManiplex)}}{69}{subsection.15.1.6}%
+\contentsline {subsection}{\numberline {15.1.7}\textcolor {Chapter }{DatabaseString (for IsManiplex)}}{69}{subsection.15.1.7}%
+\contentsline {subsection}{\numberline {15.1.8}\textcolor {Chapter }{ManiplexFromDatabaseString (for IsString)}}{69}{subsection.15.1.8}%
+\contentsline {chapter}{\numberline {16}\textcolor {Chapter }{Stratified Operations}}{70}{chapter.16}%
+\contentsline {section}{\numberline {16.1}\textcolor {Chapter }{Computational tools}}{70}{section.16.1}%
+\contentsline {chapter}{\numberline {17}\textcolor {Chapter }{Utility functions}}{71}{chapter.17}%
+\contentsline {section}{\numberline {17.1}\textcolor {Chapter }{Utility functions}}{71}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}\textcolor {Chapter }{InfoRamp}}{71}{subsection.17.1.1}%
+\contentsline {subsection}{\numberline {17.1.2}\textcolor {Chapter }{AbstractPolytope}}{71}{subsection.17.1.2}%
+\contentsline {subsection}{\numberline {17.1.3}\textcolor {Chapter }{AbstractRegularPolytope}}{71}{subsection.17.1.3}%
+\contentsline {subsection}{\numberline {17.1.4}\textcolor {Chapter }{AbstractRotaryPolytope}}{71}{subsection.17.1.4}%
+\contentsline {subsection}{\numberline {17.1.5}\textcolor {Chapter }{TranslatePerm}}{71}{subsection.17.1.5}%
+\contentsline {subsection}{\numberline {17.1.6}\textcolor {Chapter }{MultPerm}}{72}{subsection.17.1.6}%
+\contentsline {subsection}{\numberline {17.1.7}\textcolor {Chapter }{PermFromRange}}{72}{subsection.17.1.7}%
+\contentsline {subsection}{\numberline {17.1.8}\textcolor {Chapter }{ParseStringCRels}}{72}{subsection.17.1.8}%
+\contentsline {subsection}{\numberline {17.1.9}\textcolor {Chapter }{ParseRotGpRels}}{72}{subsection.17.1.9}%
+\contentsline {subsection}{\numberline {17.1.10}\textcolor {Chapter }{AddOrAppend}}{73}{subsection.17.1.10}%
+\contentsline {subsection}{\numberline {17.1.11}\textcolor {Chapter }{WrappedPosetOperation}}{73}{subsection.17.1.11}%
+\contentsline {chapter}{References}{74}{chapter*.4}%
+\contentsline {chapter}{Index}{75}{section*.5}%

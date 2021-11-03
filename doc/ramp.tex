@@ -1884,6 +1884,19 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
 
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{FlagOrbits (for IsManiplex)}}
+\logpage{[ 4, 3, 8 ]}\nobreak
+\hyperdef{L}{X7B29BD1C87239567}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbits({\mdseries\slshape M})\index{FlagOrbits@\texttt{FlagOrbits}!for IsManiplex}
+\label{FlagOrbits:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns a list of lists of flags, representing the orbits of flags under the
+action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
+
  }
 
  
@@ -5268,6 +5281,36 @@ generators of the original group). }
   !gapprompt@gap>| !gapinput@q:=QuotientSggiByNormalSubgroup(g,Group([(g.1*g.2*g.3)^3]));|
   Group([ (1,2)(3,7)(4,6)(5,10)(8,14)(9,16)(11,18)(12,20)(13,17)(15,23)(19,22)(21,24), (1,3)(2,5)(4,9)(6,12)(7,13)(8,15)(10,17)(11,19)(14,22)(16,24)(18,23)(20,21), (1,4)(2,6)(3,8)(5,11)(7,14)(9,15)(10,18)(12,19)(13,21)(16,23)(17,24)(20,22) ])
   !gapprompt@gap>| !gapinput@Maniplex(q)=HemiCube(3);|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{QuotientManiplexByAutomorphismSubgroup (for IsManiplex,IsPermGroup)}}
+\logpage{[ 14, 1, 10 ]}\nobreak
+\hyperdef{L}{X86725DD8781BF181}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientManiplexByAutomorphismSubgroup({\mdseries\slshape m, h})\index{QuotientManiplexByAutomorphismSubgroup@\texttt{Quotient}\-\texttt{Maniplex}\-\texttt{By}\-\texttt{Automorphism}\-\texttt{Subgroup}!for IsManiplex,IsPermGroup}
+\label{QuotientManiplexByAutomorphismSubgroup:for IsManiplex,IsPermGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+m/h 
+
+
+
+ Given a maniplex \mbox{\texttt{\mdseries\slshape m}}, and a subgroup \mbox{\texttt{\mdseries\slshape h}} of the automorphism group on the flags, this function will give you the
+maniplex in which the orbits of flags under the action of \mbox{\texttt{\mdseries\slshape h}} are identified. Note that this function doesn't do any prechecks, and may
+break easily when \texttt{m/h} {\textunderscore}isn't{\textunderscore} a maniplex or when \texttt{m/h} is of lower rank (sorry!). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m:=Cube(3);|
+  Cube(3)
+  !gapprompt@gap>| !gapinput@a:=AutomorphismGroupOnFlags(m);|
+  <permutation group with 3 generators>
+  !gapprompt@gap>| !gapinput@h:=Group((a.3*a.1*a.2)^3);|
+  Group([ (1,7)(2,3)(4,18)(5,19)(6,20)(8,11)(9,12)(10,13)(14,32)(15,33)(16,34)(17,35)(21,25)(22,26)  (23,27)(24,28)(29,43)(30,44)(31,45)(36,39)(37,40)(38,41)(42,48)(46,47) ])
+  !gapprompt@gap>| !gapinput@q:=QuotientManiplexByAutomorphismSubgroup(m,h);|
+  3-maniplex with 24 flags
+  !gapprompt@gap>| !gapinput@last=HemiCube(3);|
   true
 \end{Verbatim}
  }

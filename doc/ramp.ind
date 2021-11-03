@@ -10,10 +10,10 @@
 
   \indexspace
 
-  \item \texttt  {AbstractPolytope}, \hyperpage{70}
-  \item \texttt  {AbstractRegularPolytope}, \hyperpage{70}
-  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{70}
-  \item \texttt  {AddOrAppend}, \hyperpage{72}
+  \item \texttt  {AbstractPolytope}, \hyperpage{71}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{71}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{71}
+  \item \texttt  {AddOrAppend}, \hyperpage{73}
   \item \texttt  {AddRanksInPosets}
     \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{57}
   \item \texttt  {AdjacentFlag}
@@ -103,7 +103,7 @@
   \indexspace
 
   \item \texttt  {DatabaseString}
-    \subitem for IsManiplex, \hyperpage{68}
+    \subitem for IsManiplex, \hyperpage{69}
   \item \texttt  {DegeneratePolyhedra}, \hyperpage{34}
   \item \texttt  {Deltak}
     \subitem for IsInt, \hyperpage{27}
@@ -131,7 +131,7 @@
   \item \texttt  {ElementsList}
     \subitem for IsPoset, \hyperpage{49}
   \item \texttt  {EnantiomorphicForm}
-    \subitem for IsRotaryManiplex, \hyperpage{68}
+    \subitem for IsRotaryManiplex, \hyperpage{69}
   \item \texttt  {Epsilonk}
     \subitem for IsInt, \hyperpage{27}
   \item \texttt  {EqualChains}
@@ -164,6 +164,8 @@
     \subitem for IsManiplex, IsManiplex, \hyperpage{45}
   \item \texttt  {FlagOrbitRepresentatives}
     \subitem for IsManiplex, \hyperpage{24}
+  \item \texttt  {FlagOrbits}
+    \subitem for IsManiplex, \hyperpage{25}
   \item \texttt  {FlagOrbitsStabilizer}
     \subitem for IsManiplex, \hyperpage{25}
   \item \texttt  {FlagsAsFlagListFaces}
@@ -211,7 +213,7 @@
 
   \item \texttt  {Icosadodecahedron}, \hyperpage{40}
   \item \texttt  {Icosahedron}, \hyperpage{37}
-  \item \texttt  {InfoRamp}, \hyperpage{70}
+  \item \texttt  {InfoRamp}, \hyperpage{71}
   \item \texttt  {InternallySelfDualPolyhedron1}
     \subitem for IsInt, \hyperpage{38}
   \item \texttt  {InternallySelfDualPolyhedron2}
@@ -243,7 +245,7 @@
   \item \texttt  {IsFacetBipartite}
     \subitem for IsManiplex, \hyperpage{46}
   \item \texttt  {IsFacetFaithful}
-    \subitem for IsReflexibleManiplex, \hyperpage{25}
+    \subitem for IsReflexibleManiplex, \hyperpage{26}
   \item \texttt  {IsFacetTransitive}
     \subitem for IsManiplex, \hyperpage{24}
   \item \texttt  {IsFlagConnected}
@@ -344,7 +346,7 @@
     \subitem for IsPoset, \hyperpage{14}
     \subitem for IsReflexibleManiplex, IsGroup, \hyperpage{14}
   \item \texttt  {ManiplexFromDatabaseString}
-    \subitem for IsString, \hyperpage{68}
+    \subitem for IsString, \hyperpage{69}
   \item \texttt  {MaxFace}
     \subitem for IsPoset, \hyperpage{61}
   \item \texttt  {MaximalChains}
@@ -367,7 +369,7 @@
     \subitem for IsInt, \hyperpage{27}
   \item \texttt  {MkPrime}
     \subitem for IsInt, \hyperpage{27}
-  \item \texttt  {MultPerm}, \hyperpage{71}
+  \item \texttt  {MultPerm}, \hyperpage{72}
 
   \indexspace
 
@@ -409,13 +411,13 @@
     \subitem for IsList,IsList, \hyperpage{55}
   \item \texttt  {PairCompareFlagsList}
     \subitem for IsList,IsList, \hyperpage{55}
-  \item \texttt  {ParseRotGpRels}, \hyperpage{71}
-  \item \texttt  {ParseStringCRels}, \hyperpage{71}
+  \item \texttt  {ParseRotGpRels}, \hyperpage{72}
+  \item \texttt  {ParseStringCRels}, \hyperpage{72}
   \item \texttt  {PartiallyCleave}
     \subitem for IsPoset,IsInt, \hyperpage{56}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{50}
-  \item \texttt  {PermFromRange}, \hyperpage{71}
+  \item \texttt  {PermFromRange}, \hyperpage{72}
   \item \texttt  {Petrial}
     \subitem for IsManiplex, \hyperpage{31}
   \item \texttt  {PetrieLength}
@@ -464,6 +466,8 @@
     \subitem for IsObject,IsList, IsList, IsList, \hyperpage{9}
   \item \texttt  {QuotientManiplex}
     \subitem for IsReflexibleManiplex, IsString, \hyperpage{66}
+  \item \texttt  {Quotient}\-\texttt  {Maniplex}\-\texttt  {By}\-\texttt  {Automorphism}\-\texttt  {Subgroup}
+    \subitem for IsManiplex,IsPermGroup, \hyperpage{67}
   \item \texttt  {QuotientSggi}
     \subitem for IsGroup, IsList, \hyperpage{66}
   \item \texttt  {QuotientSggiByNormalSubgroup}
@@ -491,9 +495,9 @@
   \item \texttt  {RegularToroidalPolyhedra36}, \hyperpage{34}
   \item \texttt  {RegularToroidalPolyhedra44}, \hyperpage{34}
   \item \texttt  {RotaryManiplex}
-    \subitem for IsGroup, \hyperpage{67}
-    \subitem for IsList, \hyperpage{67}
-    \subitem for IsList, IsList, \hyperpage{67}
+    \subitem for IsGroup, \hyperpage{68}
+    \subitem for IsList, \hyperpage{68}
+    \subitem for IsList, IsList, \hyperpage{68}
   \item \texttt  {RotationGroup}
     \subitem for IsManiplex, \hyperpage{43}
 
@@ -545,7 +549,7 @@
   \item \texttt  {TopologicalProduct}
     \subitem for IsManiplex, IsManiplex, \hyperpage{33}
     \subitem for IsPoset,IsPoset, \hyperpage{63}
-  \item \texttt  {TranslatePerm}, \hyperpage{70}
+  \item \texttt  {TranslatePerm}, \hyperpage{71}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{29}
   \item \texttt  {TruncatedCube}, \hyperpage{40}
@@ -562,8 +566,8 @@
   \item \texttt  {UniversalPolytope}
     \subitem for IsInt, \hyperpage{29}
   \item \texttt  {UniversalRotationGroup}
-    \subitem for IsInt, \hyperpage{67}
-    \subitem for IsList, \hyperpage{67}
+    \subitem for IsInt, \hyperpage{68}
+    \subitem for IsList, \hyperpage{68}
   \item \texttt  {UniversalSggi}
     \subitem for IsInt, \hyperpage{15}
     \subitem for IsList, \hyperpage{15}
@@ -586,7 +590,7 @@
 
   \indexspace
 
-  \item \texttt  {WrappedPosetOperation}, \hyperpage{72}
+  \item \texttt  {WrappedPosetOperation}, \hyperpage{73}
 
   \indexspace
 
