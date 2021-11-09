@@ -56,11 +56,12 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7ECC2FBC7AF3A960">12.2-4 PosetFromPartialOrder</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X80052F8E835F45A4">12.2-5 PosetFromAtomicList</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X79AEF6FF8699020E">12.2-6 PosetFromElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X82DB1F987C68B392">12.2-7 <span class="Heading">Helper functions for special partial orders</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X856446F583AAF703">12.2-7 PosetFromSuccessorList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X82DB1F987C68B392">12.2-8 <span class="Heading">Helper functions for special partial orders</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X878F761878BCB6B9">12.2-8 DualPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7923E0E47CAFBD9D">12.2-9 Section</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7B693D8884B77C7C">12.2-10 <span class="Heading">Cleaving polytopes</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X878F761878BCB6B9">12.2-9 DualPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7923E0E47CAFBD9D">12.2-10 Section</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7B693D8884B77C7C">12.2-11 <span class="Heading">Cleaving polytopes</span></a>
 </span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap12_mj.html#X85445BE07F161F88">12.3 <span class="Heading">Element Constructors</span></a>
@@ -534,9 +535,27 @@ A poset on 6 elements using the IsPosetOfIndices representation.
 [ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
 </pre></div>
 
+<p><a id="X856446F583AAF703" name="X856446F583AAF703"></a></p>
+
+<h5>12.2-7 PosetFromSuccessorList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromSuccessorList</code>( <var class="Arg">successorsList</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: poset</p>
+
+<p>Given a list of immediate successors, will construct the poset. A valid list of successors is of the form <code class="code">[[2,3],[3],[]]</code> where the <span class="SimpleMath">\(i\)</span>-th entry is a list of elements that are greater than the <span class="SimpleMath">\(i\)</span>-th element in the partial order that determines the poset. If the given list isn't reflexive and transitive, this function will induce those properties from the given list of successors.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(HemiCube(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(p);</span>
+PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
+[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
+[ 15 ], [ 15 ], [ 15 ], [ ] ]);
+</pre></div>
+
 <p><a id="X82DB1F987C68B392" name="X82DB1F987C68B392"></a></p>
 
-<h5>12.2-7 <span class="Heading">Helper functions for special partial orders</span></h5>
+<h5>12.2-8 <span class="Heading">Helper functions for special partial orders</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareFlagsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareAtomsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -546,7 +565,7 @@ A poset on 6 elements using the IsPosetOfIndices representation.
 
 <p><a id="X878F761878BCB6B9" name="X878F761878BCB6B9"></a></p>
 
-<h5>12.2-8 DualPoset</h5>
+<h5>12.2-9 DualPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DualPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: dual</p>
@@ -566,7 +585,7 @@ false
 
 <p><a id="X7923E0E47CAFBD9D" name="X7923E0E47CAFBD9D"></a></p>
 
-<h5>12.2-9 Section</h5>
+<h5>12.2-10 Section</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: section</p>
@@ -588,7 +607,7 @@ true
 
 <p><a id="X7B693D8884B77C7C" name="X7B693D8884B77C7C"></a></p>
 
-<h5>12.2-10 <span class="Heading">Cleaving polytopes</span></h5>
+<h5>12.2-11 <span class="Heading">Cleaving polytopes</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cleave</code>( <var class="Arg">polytope</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartiallyCleave</code>( <var class="Arg">arg1</var>, <var class="Arg">arg2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>

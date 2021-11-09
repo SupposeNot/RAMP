@@ -1979,6 +1979,13 @@ maniplex
  Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $\epsilon_k$, which is $\{k,2\}_k$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{k,2\}_{2k}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Epsilonk(5);|
+  AbstractRegularPolytope([ 5, 2 ])
+  !gapprompt@gap>| !gapinput@Epsilonk(6);|
+  AbstractRegularPolytope([ 6, 2 ])
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Deltak (for IsInt)}}
 \logpage{[ 5, 1, 2 ]}\nobreak
@@ -1993,6 +2000,13 @@ maniplex
 
  Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $\delta_k$, which is $\{2k,2\}/2$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{2k,2\}_{k}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Deltak(5);|
+  AbstractRegularPolytope([ 10, 2 ], "(r0 r1)^5 r2")
+  !gapprompt@gap>| !gapinput@Deltak(6);|
+  AbstractRegularPolytope([ 12, 2 ], "(r0 r1)^6 r2")
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Mk (for IsInt)}}
@@ -2009,6 +2023,12 @@ maniplex
  Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $M_k$, which is $\{2k,2k\}_{1,0}$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{2k,k\}_{2}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Mk(5);Mk(6);|
+  AbstractRegularPolytope([ 10, 5 ], "(r0 r1)^5 r0 = r2")
+  AbstractRegularPolytope([ 12, 12 ], "(r0 r1)^6 r0 = r2")
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{MkPrime (for IsInt)}}
 \logpage{[ 5, 1, 4 ]}\nobreak
@@ -2023,6 +2043,12 @@ maniplex
 
  Given an integer \mbox{\texttt{\mdseries\slshape k}}, gives the map $M'_k$, which is $\{k,k\}_2$ when \mbox{\texttt{\mdseries\slshape k}} is even, and $\{k,2k\}_{2}$ when \mbox{\texttt{\mdseries\slshape k}} is odd. \texttt{MkPrime(k,i)} gives the map $M'_{k,i}$. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@MkPrime(5);MkPrime(6);|
+  ReflexibleManiplex([ 5, 10 ], "(r2*r1*(r0 r2))^5,z1^2")
+  ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Bk2l (for IsInt,IsInt)}}
@@ -2039,6 +2065,11 @@ maniplex
  Given integers \mbox{\texttt{\mdseries\slshape k,l}}, gives the map $B(k,2l)$. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Bk2l(4,5);|
+  3-maniplex with 80 flags
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Bk2lStar (for IsInt,IsInt)}}
 \logpage{[ 5, 1, 6 ]}\nobreak
@@ -2053,6 +2084,11 @@ maniplex
 
  Given integers \mbox{\texttt{\mdseries\slshape k,l}}, gives the map $B^*(k,2l)$. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Bk2lStar(5,7);|
+  3-maniplex with 140 flags
+\end{Verbatim}
  }
 
  
@@ -2076,6 +2112,11 @@ oppositeMap
  Forms the opposite map of the maniplex \mbox{\texttt{\mdseries\slshape map}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Opp(Bk2lStar(5,7));|
+  Petrial(Dual(Petrial(3-maniplex with 140 flags)))
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Hole (for IsManiplex,IsInt)}}
 \logpage{[ 5, 2, 2 ]}\nobreak
@@ -2091,6 +2132,11 @@ newMap
  Given \mbox{\texttt{\mdseries\slshape map}} and integer $j$, will form the map $H_j(map)$. Note that if the action of $[r_0,(r_1 r_2)^{j-1} r_1, r_2]$ on the flags forms multiple orbits, then the resulting map will be on just one
 of those orbits. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Hole(Bk2lStar(5,7),2);|
+  3-maniplex with 140 flags
+\end{Verbatim}
  }
 
  
@@ -4349,8 +4395,34 @@ faces). }
   [ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
 \end{Verbatim}
  
+
+\subsection{\textcolor{Chapter }{PosetFromSuccessorList (for IsList)}}
+\logpage{[ 12, 2, 7 ]}\nobreak
+\hyperdef{L}{X856446F583AAF703}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromSuccessorList({\mdseries\slshape successorsList})\index{PosetFromSuccessorList@\texttt{PosetFromSuccessorList}!for IsList}
+\label{PosetFromSuccessorList:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+poset 
+
+
+
+ Given a list of immediate successors, will construct the poset. A valid list
+of successors is of the form \texttt{[[2,3],[3],[]]} where the $i$-th entry is a list of elements that are greater than the $i$-th element in the partial order that determines the poset. If the given list
+isn't reflexive and transitive, this function will induce those properties
+from the given list of successors. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=PosetFromManiplex(HemiCube(3));;|
+  !gapprompt@gap>| !gapinput@Print(p);|
+  PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
+  [ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
+  [ 15 ], [ 15 ], [ 15 ], [ ] ]);
+\end{Verbatim}
+ 
 \subsection{\textcolor{Chapter }{Helper functions for special partial orders}}\label{Helper_functions}
-\logpage{[ 12, 2, 7 ]}
+\logpage{[ 12, 2, 8 ]}
 \hyperdef{L}{X82DB1F987C68B392}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareFlagsList({\mdseries\slshape list1, list2})\index{PairCompareFlagsList@\texttt{PairCompareFlagsList}!for IsList,IsList}
@@ -4371,7 +4443,7 @@ assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slsh
  
 
 \subsection{\textcolor{Chapter }{DualPoset (for IsPoset)}}
-\logpage{[ 12, 2, 8 ]}\nobreak
+\logpage{[ 12, 2, 9 ]}\nobreak
 \hyperdef{L}{X878F761878BCB6B9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DualPoset({\mdseries\slshape poset})\index{DualPoset@\texttt{DualPoset}!for IsPoset}
 \label{DualPoset:for IsPoset}
@@ -4396,7 +4468,7 @@ dual
  
 
 \subsection{\textcolor{Chapter }{Section (for IsFace, IsFace, IsPoset)}}
-\logpage{[ 12, 2, 9 ]}\nobreak
+\logpage{[ 12, 2, 10 ]}\nobreak
 \hyperdef{L}{X7923E0E47CAFBD9D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Section({\mdseries\slshape face1, face2, poset})\index{Section@\texttt{Section}!for IsFace, IsFace, IsPoset}
 \label{Section:for IsFace, IsFace, IsPoset}
@@ -4422,7 +4494,7 @@ section
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Cleaving polytopes}}\label{Cleaving}
-\logpage{[ 12, 2, 10 ]}
+\logpage{[ 12, 2, 11 ]}
 \hyperdef{L}{X7B693D8884B77C7C}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape polytope, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
@@ -5687,6 +5759,8 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

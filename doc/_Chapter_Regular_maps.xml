@@ -18,6 +18,14 @@ Given an integer <A>k</A>, gives the map <Math>\epsilon_k</Math>, which is <Math
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Epsilonk(5);
+AbstractRegularPolytope([ 5, 2 ])
+gap> Epsilonk(6);
+AbstractRegularPolytope([ 6, 2 ])
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="k" Name="Deltak" Label="for IsInt"/>
  <Returns>maniplex
@@ -28,6 +36,14 @@ Given an integer <A>k</A>, gives the map <Math>\delta_k</Math>, which is <Math>\
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Deltak(5);
+AbstractRegularPolytope([ 10, 2 ], "(r0 r1)^5 r2")
+gap> Deltak(6);
+AbstractRegularPolytope([ 12, 2 ], "(r0 r1)^6 r2")
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="k" Name="Mk" Label="for IsInt"/>
  <Returns>maniplex
@@ -36,6 +52,13 @@ Given an integer <A>k</A>, gives the map <Math>\delta_k</Math>, which is <Math>\
 Given an integer <A>k</A>, gives the map <Math>M_k</Math>, which is <Math>\{2k,2k\}_{1,0}</Math> when <A>k</A> is even, and <Math>\{2k,k\}_{2}</Math> when <A>k</A> is odd.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Mk(5);Mk(6);
+AbstractRegularPolytope([ 10, 5 ], "(r0 r1)^5 r0 = r2")
+AbstractRegularPolytope([ 12, 12 ], "(r0 r1)^6 r0 = r2")
+]]></Example>
 
 
 <ManSection>
@@ -49,6 +72,13 @@ Given an integer <A>k</A>, gives the map <Math>M'_k</Math>, which is <Math>\{k,k
 </ManSection>
 
 
+<Example><![CDATA[
+gap> MkPrime(5);MkPrime(6);
+ReflexibleManiplex([ 5, 10 ], "(r2*r1*(r0 r2))^5,z1^2")
+ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="k, l" Name="Bk2l" Label="for IsInt,IsInt"/>
  <Returns>maniplex
@@ -59,6 +89,12 @@ Given integers <A>k,l</A>, gives the map <Math>B(k,2l)</Math>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Bk2l(4,5);
+3-maniplex with 80 flags
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="k, l" Name="Bk2lStar" Label="for IsInt,IsInt"/>
  <Returns>maniplex
@@ -67,6 +103,12 @@ Given integers <A>k,l</A>, gives the map <Math>B(k,2l)</Math>.
 Given integers <A>k,l</A>, gives the map <Math>B^*(k,2l)</Math>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Bk2lStar(5,7);
+3-maniplex with 140 flags
+]]></Example>
 
 
 </Section>
@@ -85,6 +127,12 @@ Forms the opposite map of the maniplex <A>map</A>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Opp(Bk2lStar(5,7));
+Petrial(Dual(Petrial(3-maniplex with 140 flags)))
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="map, j" Name="Hole" Label="for IsManiplex,IsInt"/>
  <Returns>newMap
@@ -93,6 +141,12 @@ Forms the opposite map of the maniplex <A>map</A>.
 Given <A>map</A> and integer <Math>j</Math>, will form the map <Math>H_j(map)</Math>. Note that if the action of <Math>[r_0,(r_1 r_2)^{j-1} r_1, r_2]</Math> on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Hole(Bk2lStar(5,7),2);
+3-maniplex with 140 flags
+]]></Example>
 
 
 </Section>

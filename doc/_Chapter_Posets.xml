@@ -447,6 +447,25 @@ gap> List( ElementsList(poset){[2,6]}, ElementObject);
 ]]></Example>
 
 
+<ManSection>
+  <Oper Arg="successorsList" Name="PosetFromSuccessorList" Label="for IsList"/>
+ <Returns>poset
+</Returns>
+ <Description>
+Given a list of immediate successors, will construct the poset. A valid list of successors is of the form <Code>[[2,3],[3],[]]</Code> where the <Math>i</Math>-th entry is a list of elements that are greater than the <Math>i</Math>-th element in the partial order that determines the poset. If the given list isn't reflexive and transitive, this function will induce those properties from the given list of successors.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(HemiCube(3));;
+gap> Print(p);
+PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
+[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
+[ 15 ], [ 15 ], [ 15 ], [ ] ]);
+]]></Example>
+
+
 <ManSection Label="Helper_functions">
 <Heading>Helper functions for special partial orders</Heading>
   <Oper Arg="list1, list2" Name="PairCompareFlagsList" Label="for IsList,IsList"/>

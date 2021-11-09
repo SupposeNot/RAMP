@@ -158,6 +158,17 @@ InstallMethod(PosetFromManiplex,
 	return poset;
 	end);	
 
+InstallMethod(PosetFromSuccessorList,
+	[IsList],
+	function(succ)
+	local BO, elms, PO;
+	BO:=BinaryRelationOnPoints(succ);
+	PO:=TransitiveClosureBinaryRelation(ReflexiveClosureBinaryRelation(BO));
+# 	if IsAntisymmetricBinaryRelation(PO) then Error("List does not correspond to an antisymmetric binary relation.");fi;
+	return PosetFromPartialOrder(PO);
+	end);
+
+
 InstallMethod(PairCompareFlagsList,
 	[IsList,IsList],
 	function(b,a) 

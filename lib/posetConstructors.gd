@@ -103,10 +103,21 @@ DeclareOperation("PosetFromElements",[IsList,IsFunction]);
 #! [ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
 #! @EndExampleSession
 
+#! @Arguments successorsList
+#! @Returns  poset
+#! @Description Given a list of immediate successors, will construct the poset. A valid list of successors is of the form `[[2,3],[3],[]]` where the $i$-th entry is a list of elements that are greater than the $i$-th element in the partial order that determines the poset. If the given list isn't reflexive and transitive, this function will induce those properties from the given list of successors.
+DeclareOperation("PosetFromSuccessorList", [IsList]);
+#! @BeginExampleSession
+#! gap> p:=PosetFromManiplex(HemiCube(3));;
+#! gap> Print(p);
+#! PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
+#! [ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
+#! [ 15 ], [ 15 ], [ 15 ], [ ] ]);
+#! @EndExampleSession
+
 #! @BeginGroup Helper functions
 #! @GroupTitle Helper functions for special partial orders
 #! The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
-
 
 #! @Arguments list1, list2
 #! @Returns `true` or `false`

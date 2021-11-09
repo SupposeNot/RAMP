@@ -60,6 +60,14 @@
 
 <p>Given an integer <var class="Arg">k</var>, gives the map <span class="Math">\epsilon_k</span>, which is <span class="Math">\{k,2\}_k</span> when <var class="Arg">k</var> is even, and <span class="Math">\{k,2\}_{2k}</span> when <var class="Arg">k</var> is odd.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Epsilonk(5);</span>
+AbstractRegularPolytope([ 5, 2 ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Epsilonk(6);</span>
+AbstractRegularPolytope([ 6, 2 ])
+</pre></div>
+
 <p><a id="X7F59553F84D04CAF" name="X7F59553F84D04CAF"></a></p>
 
 <h5>5.1-2 Deltak</h5>
@@ -68,6 +76,14 @@
 <p>Returns: maniplex</p>
 
 <p>Given an integer <var class="Arg">k</var>, gives the map <span class="Math">\delta_k</span>, which is <span class="Math">\{2k,2\}/2</span> when <var class="Arg">k</var> is even, and <span class="Math">\{2k,2\}_{k}</span> when <var class="Arg">k</var> is odd.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Deltak(5);</span>
+AbstractRegularPolytope([ 10, 2 ], "(r0 r1)^5 r2")
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Deltak(6);</span>
+AbstractRegularPolytope([ 12, 2 ], "(r0 r1)^6 r2")
+</pre></div>
 
 <p><a id="X7876740785ECAF02" name="X7876740785ECAF02"></a></p>
 
@@ -78,6 +94,13 @@
 
 <p>Given an integer <var class="Arg">k</var>, gives the map <span class="Math">M_k</span>, which is <span class="Math">\{2k,2k\}_{1,0}</span> when <var class="Arg">k</var> is even, and <span class="Math">\{2k,k\}_{2}</span> when <var class="Arg">k</var> is odd.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Mk(5);Mk(6);</span>
+AbstractRegularPolytope([ 10, 5 ], "(r0 r1)^5 r0 = r2")
+AbstractRegularPolytope([ 12, 12 ], "(r0 r1)^6 r0 = r2")
+</pre></div>
+
 <p><a id="X7DAE3F0686CA7AA5" name="X7DAE3F0686CA7AA5"></a></p>
 
 <h5>5.1-4 MkPrime</h5>
@@ -86,6 +109,13 @@
 <p>Returns: maniplex</p>
 
 <p>Given an integer <var class="Arg">k</var>, gives the map <span class="Math">M'_k</span>, which is <span class="Math">\{k,k\}_2</span> when <var class="Arg">k</var> is even, and <span class="Math">\{k,2k\}_{2}</span> when <var class="Arg">k</var> is odd. <code class="code">MkPrime(k,i)</code> gives the map <span class="Math">M'_{k,i}</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MkPrime(5);MkPrime(6);</span>
+ReflexibleManiplex([ 5, 10 ], "(r2*r1*(r0 r2))^5,z1^2")
+ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
+</pre></div>
 
 <p><a id="X7EB8C646795CB285" name="X7EB8C646795CB285"></a></p>
 
@@ -96,6 +126,12 @@
 
 <p>Given integers <var class="Arg">k,l</var>, gives the map <span class="Math">B(k,2l)</span>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2l(4,5);</span>
+3-maniplex with 80 flags
+</pre></div>
+
 <p><a id="X8592D83D87DFCF3F" name="X8592D83D87DFCF3F"></a></p>
 
 <h5>5.1-6 Bk2lStar</h5>
@@ -104,6 +140,12 @@
 <p>Returns: maniplex</p>
 
 <p>Given integers <var class="Arg">k,l</var>, gives the map <span class="Math">B^*(k,2l)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2lStar(5,7);</span>
+3-maniplex with 140 flags
+</pre></div>
 
 <p><a id="X7D2C4BEC7E1C4528" name="X7D2C4BEC7E1C4528"></a></p>
 
@@ -118,6 +160,12 @@
 
 <p>Forms the opposite map of the maniplex <var class="Arg">map</var>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Opp(Bk2lStar(5,7));</span>
+Petrial(Dual(Petrial(3-maniplex with 140 flags)))
+</pre></div>
+
 <p><a id="X80DBA6CD87866B0C" name="X80DBA6CD87866B0C"></a></p>
 
 <h5>5.2-2 Hole</h5>
@@ -126,6 +174,12 @@
 <p>Returns: newMap</p>
 
 <p>Given <var class="Arg">map</var> and integer <span class="Math">j</span>, will form the map <span class="Math">H_j(map)</span>. Note that if the action of <span class="Math">[r_0,(r_1 r_2)^{j-1} r_1, r_2]</span> on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Hole(Bk2lStar(5,7),2);</span>
+3-maniplex with 140 flags
+</pre></div>
 
 <p><a id="X86C3B52C82ABE6EF" name="X86C3B52C82ABE6EF"></a></p>
 

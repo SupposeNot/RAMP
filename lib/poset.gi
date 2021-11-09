@@ -11,35 +11,38 @@
 
 
 
-
 InstallMethod(DisplayString,
-	[IsPosetOfFlags],
+	[IsPoset],
 	function(poset)
-	local string, ranks, n, shift, i;
-	string:="This is a poset of rank ";
-	Append(string,String(Rank(poset)));
-	Append(string, Concatenation(" with ", String(Size(ElementsList(poset))), " elements"));
-	if HasMaximalChains(poset) then
-		Append(string, Concatenation(" and ", String(Size(MaximalChains(poset)))," flags"));
-		fi;
-	Append(string,".\n");
-	if HasIsPolytope(poset) then
-		if IsPolytope(poset) then Append(string, "It is a polytope.\n");fi;
-	elif HasIsPrePolytope(poset) then
-		if IsPrePolytope(poset) then Append(string, "It is  pre-polytope.\n");fi;
-	fi;
+	local string, prop, attr;
+	string:="A poset of rank ";
+	Append(string, String(Rank(poset)));
+	Append(string, " with ");
+	Append(string, String(Size(ElementsList(poset))));
+	Append(string," elements.\n");
+	for prop in KnownPropertiesOfObject(poset) do
+		Append(string, prop);
+		Append(string, ": ");
+		Append(string, String(Tester(EvalString(prop))(poset)));
+		Append(string, "\n");
+	od;
+	Append(string, "Information is available for the following attributes of the poset have already been computed: \n");
+	attr:=KnownAttributesOfObject(poset);
+	Append(string, String(attr));
 	return string;
 	end);
-	
 
+	
 InstallMethod(PrintString,
 	[IsPosetOfFlags],
 	function(poset)
 	local string;
-	string:= Concatenation("PosetFromFaceListOfFlags(", String(poset!.faces_list_by_rank), ");");
+	string:="PosetFromSuccessorList(";
+	Append(string,String(HasseDiagramOfPoset(poset).adjacencies));
+	Append(string,");");
 	return string;
 	end);
-
+	
 InstallMethod(ViewString,
 	[IsPoset],
 	function(poset)
@@ -53,36 +56,11 @@ InstallMethod(ViewString,
 	return string;
 	end);
 
-InstallMethod(PrintString,
-	[IsPosetOfIndices and HasElementsList],
-	function(poset)
-	local string, successors, PO, els;
-	els:=List(ElementsList(poset),ElementObject);
-	PO:=ElementOrderingFunction(ElementsList(poset)[1]);
-	string:=Concatenation("PosetFromElements(",String(els),",",String(PO),")");
-	return string;
-	end);
-
-InstallMethod(PrintString,
-	[IsPosetOfIndices],
-	function(poset)
-	local string, successors,PO;
-	successors:=Successors(PartialOrder(poset));
-# 	PO:=BinaryRelationOnPoints(successors);
-	string:=Concatenation( "PosetFromPartialOrder( BinaryRelationOnPoints(", String(successors), "))");
-	return string;
-	end);
-
-
-
-
-
-# InstallMethod(Rank,[IsFace],RankFace);
 
 InstallMethod(DisplayString,
 	[IsFace],
 	function(face)
-	local string, elobj;
+	local string, elobj, attr, prop;
 	string:="An element of a poset";
 	if HasElementObject(face) then
 		elobj:=ElementObject(face);
@@ -96,6 +74,14 @@ InstallMethod(DisplayString,
 		if HasAtomList(face) then Append(string, Concatenation(" made up of atoms ", String(AtomList(face))));fi;
 		if HasIndex(face) then Append(string,Concatenation(" with index=",String(Index(face)))); fi;
 	fi;
+	Append(string,".\n");
+	attr:=KnownAttributesOfObject(face);
+	prop:=KnownPropertiesOfObject(face);
+	Append(string,"Computed attributes of face are ");
+	Append(string, String(attr));
+	Append(string,".\n");	
+	Append(string,"Computed properties of face are ");
+	Append(string,String(prop));
 	Append(string,".\n");
 	return string;
 	end);

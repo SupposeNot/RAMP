@@ -415,8 +415,27 @@
     [4X[28X[ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ][128X[104X
   [4X[32X[104X
   
+  [1X12.2-7 PosetFromSuccessorList[101X
   
-  [1X12.2-7 [33X[0;0YHelper functions for special partial orders[133X[101X
+  [33X[1;0Y[29X[2XPosetFromSuccessorList[102X( [3XsuccessorsList[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yposet[133X
+  
+  [33X[0;0YGiven a list of immediate successors, will construct the poset. A valid list
+  of  successors  is of the form [10X[[2,3],[3],[]][110X where the [23Xi[123X-th entry is a list
+  of elements that are greater than the [23Xi[123X-th element in the partial order that
+  determines the poset. If the given list isn't reflexive and transitive, this
+  function will induce those properties from the given list of successors.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(HemiCube(3));;[127X[104X
+    [4X[25Xgap>[125X [27XPrint(p);[127X[104X
+    [4X[28XPosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], [128X[104X
+    [4X[28X[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], [128X[104X
+    [4X[28X[ 15 ], [ 15 ], [ 15 ], [ ] ]);[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X12.2-8 [33X[0;0YHelper functions for special partial orders[133X[101X
   
   [33X[1;0Y[29X[2XPairCompareFlagsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPairCompareAtomsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
@@ -430,7 +449,7 @@
   is  a  list  of  flags  in  the face and [10Xint[110X is the rank of the face. Allows
   comparison of HasAtomList elements.[133X
   
-  [1X12.2-8 DualPoset[101X
+  [1X12.2-9 DualPoset[101X
   
   [33X[1;0Y[29X[2XDualPoset[102X( [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ydual[133X
@@ -447,7 +466,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X12.2-9 Section[101X
+  [1X12.2-10 Section[101X
   
   [33X[1;0Y[29X[2XSection[102X( [3Xface1[103X, [3Xface2[103X, [3Xposet[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ysection[133X
@@ -467,7 +486,7 @@
   [4X[32X[104X
   
   
-  [1X12.2-10 [33X[0;0YCleaving polytopes[133X[101X
+  [1X12.2-11 [33X[0;0YCleaving polytopes[133X[101X
   
   [33X[1;0Y[29X[2XCleave[102X( [3Xpolytope[103X, [3Xk[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPartiallyCleave[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
