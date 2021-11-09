@@ -80,7 +80,24 @@ InstallGlobalFunction(MANIPLEX_STRING,
 InstallMethod(DisplayString,
 	[IsManiplex],
 	function(p)
-	return MANIPLEX_STRING(p);
+	local str, prop, att;
+	str := MANIPLEX_STRING(p);
+	Append(str, "\n");
+	for prop in KnownPropertiesOfObject(p) do
+		Append(str, prop);
+		Append(str, ": ");
+		Append(str, String(Tester(EvalString(prop))(p)));
+		Append(str, "\n");
+	od;
+	
+	# This stuff below gives an output that is too verbose
+	#for att in KnownAttributesOfObject(p) do
+	#	Append(str, att);
+	#	Append(str, ": ");
+	#	Append(str, String(EvalString(att)(p)));
+	#	Append(str, "\n");
+	#od;
+	return str;
 	end);
 	
 	
