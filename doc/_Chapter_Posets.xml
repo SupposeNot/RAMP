@@ -168,7 +168,7 @@ Given <A>list</A>, comprised of sublists of faces ordered by rank, each face lis
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset has property P1 from ARP.
+Determines whether a poset has property P1 from ARP. Recall that a poset is P1 if it has a unique least, and a unique maximal element/face.
  </Description>
 </ManSection>
 
@@ -190,7 +190,7 @@ false
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset has property P2 from ARP.
+Determines whether a poset has property P2 from ARP. Recall that a poset is P2 if each maximal chain in the poset has the same length (for <Math>n</Math>-polytopes, this means each flag containes <Math>n+2</Math> faces).
  </Description>
 </ManSection>
 
@@ -216,7 +216,7 @@ false
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time.
+Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time. This means that given flags <Math>\Phi</Math> and <Math>\Psi</Math>, not only is there a sequence of flags <Math>\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi</Math> such that each <Math>\Phi_i</Math> shares all but once face with <Math>\Phi_{i+1}</Math>, but that each <Math>\Phi_i\supseteq \Phi\cap\Psi</Math>.
  </Description>
 </ManSection>
 
@@ -237,7 +237,7 @@ Determines whether a poset is flag connected.
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
-Determines whether a poset satisfies the diamond condition. May also be invoked using <Code>IsDiamondCondition</Code>.
+Determines whether a poset satisfies the diamond condition. May also be invoked using <Code>IsDiamondCondition</Code>. Recall that this means that if <Math>F,G</Math> elements of the poset of ranks <Math>i-1</Math> and <Math>i+1</Math>, respectively, where <Math>F</Math> less than <Math>G</Math>, then there are precisely two <Math>i</Math>-faces <Math>H</Math> such that <Math>F</Math> is less than <Math>H</Math> and <Math>H</Math> is less than <Math>G</Math>.
  </Description>
 </ManSection>
 

@@ -124,7 +124,7 @@ DeclareOperation("ListIsP1Poset",[IsList]);
 
 
 #! @Arguments poset
-#! @Description Determines whether a poset has property P1 from ARP.
+#! @Description Determines whether a poset has property P1 from ARP. Recall that a poset is P1 if it has a unique least, and a unique maximal element/face.
 DeclareProperty("IsP1", IsPoset);
 #! @BeginExampleSession
 #! gap> p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
@@ -139,7 +139,7 @@ DeclareProperty("IsP1", IsPoset);
 
 
 #! @Arguments poset
-#! @Description Determines whether a poset has property P2 from ARP.
+#! @Description Determines whether a poset has property P2 from ARP. Recall that a poset is P2 if each maximal chain in the poset has the same length (for $n$-polytopes, this means each flag containes $n+2$ faces).
 DeclareProperty("IsP2", IsPoset);
 #! @BeginExampleSession
 #! gap> poset:=PosetFromManiplex(HemiCube(3)); 
@@ -155,7 +155,7 @@ DeclareProperty("IsP2", IsPoset);
 #! @EndExampleSession
 
 #! @Arguments poset
-#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time.
+#! @Description Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command `IsStronglyFlagConnected`. If you are not working with a pre-polytope, expect this to take a LONG time. This means that given flags $\Phi$ and $\Psi$, not only is there a sequence of flags $\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi$ such that each $\Phi_i$ shares all but once face with $\Phi_{i+1}$, but that each $\Phi_i\supseteq \Phi\cap\Psi$.
 DeclareProperty("IsP3", IsPoset);
 
 
@@ -168,7 +168,7 @@ DeclareProperty("IsFlagConnected", IsPoset);
 
 
 #! @Arguments poset
-#! @Description Determines whether a poset satisfies the diamond condition. May also be invoked using `IsDiamondCondition`.
+#! @Description Determines whether a poset satisfies the diamond condition. May also be invoked using `IsDiamondCondition`. Recall that this means that if $F,G$ elements of the poset of ranks $i-1$ and $i+1$, respectively, where $F$ less than $G$, then there are precisely two $i$-faces $H$ such that $F$ is less than $H$ and $H$ is less than $G$.
 DeclareProperty("IsP4", IsPoset);
 
 

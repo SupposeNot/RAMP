@@ -4052,7 +4052,8 @@ or not. }
 
 
 
- Determines whether a poset has property P1 from ARP. }
+ Determines whether a poset has property P1 from ARP. Recall that a poset is P1
+if it has a unique least, and a unique maximal element/face. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -4078,7 +4079,8 @@ or not. }
 
 
 
- Determines whether a poset has property P2 from ARP. }
+ Determines whether a poset has property P2 from ARP. Recall that a poset is P2
+if each maximal chain in the poset has the same length (for $n$-polytopes, this means each flag containes $n+2$ faces). }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -4107,7 +4109,8 @@ or not. }
 
 
  Determines whether a poset is strongly flag connected (property P3' from ARP).
-May also be called with command \texttt{IsStronglyFlagConnected}. If you are not working with a pre-polytope, expect this to take a LONG time. }
+May also be called with command \texttt{IsStronglyFlagConnected}. If you are not working with a pre-polytope, expect this to take a LONG time.
+This means that given flags $\Phi$ and $\Psi$, not only is there a sequence of flags $\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi$ such that each $\Phi_i$ shares all but once face with $\Phi_{i+1}$, but that each $\Phi_i\supseteq \Phi\cap\Psi$. }
 
  Helper for IsP3 
 
@@ -4138,7 +4141,7 @@ May also be called with command \texttt{IsStronglyFlagConnected}. If you are not
 
 
  Determines whether a poset satisfies the diamond condition. May also be
-invoked using \texttt{IsDiamondCondition}. }
+invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ elements of the poset of ranks $i-1$ and $i+1$, respectively, where $F$ less than $G$, then there are precisely two $i$-faces $H$ such that $F$ is less than $H$ and $H$ is less than $G$. }
 
  
 
@@ -5759,7 +5762,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
