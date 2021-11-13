@@ -13,7 +13,7 @@ InstallMethod(Deltak,
 	function(k)
 	local p;
 	if k<=0 then Error("Not an integer>0.");
-	else return ARP([2*k,2],Concatenation("(r0 r1)^",String(k)," r2"));
+	else return ReflexibleManiplex([2*k,2],Concatenation("(r0 r1)^",String(k)," r2"));
 	fi;
 	end);
 
@@ -22,9 +22,9 @@ InstallMethod(Mk,
 	function(k)
 	if k<=0 then Error("Not an integer >0");
 	elif k mod 2=0 then
-		return ARP([2*k,2*k],Concatenation("(r0 r1)^",String(k)," r0 = r2"));
+		return ReflexibleManiplex([2*k,2*k],Concatenation("(r0 r1)^",String(k)," r0 = r2"));
 	else
-		return ARP([2*k, k], Concatenation("(r0 r1)^",String(k)," r0 = r2"));
+		return ReflexibleManiplex([2*k, k], Concatenation("(r0 r1)^",String(k)," r0 = r2"));
 	fi;
 	end);
 
@@ -78,7 +78,7 @@ InstallOtherMethod(MkPrime,
 	if  ((i^2 mod k) <>1) then Error("Need i^2 mod k<>1.");
 	else 
 		q:=2*(k)/Gcd(k,i+1);
-		return ARP([k , q],Concatenation("r2 r1 r0 r2 (r1 r0)^",String(i)));
+		return ReflexibleManiplex([k , q],Concatenation("r2 r1 r0 r2 (r1 r0)^",String(i)));
 	fi;
 	end);
 	
