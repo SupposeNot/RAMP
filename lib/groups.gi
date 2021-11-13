@@ -181,7 +181,7 @@ InstallMethod(ConnectionGroup,
 	connectionGroup := ComputeAttr(M, ConnectionGroup);
 	if connectionGroup = fail then
 		if IsReflexibleManiplexAutGpRep(M) or IsRotaryManiplexRotGpRep(M) and IsReflexible(M) then
-			if Size(AutomorphismGroup(M)) = infinity then
+			if HasSize(M) and Size(M) = infinity then
 				connectionGroup := fail;
 			else
 				connectionGroup := Action(AutomorphismGroup(M), AutomorphismGroup(M), OnLeftInverse, "surjective");
