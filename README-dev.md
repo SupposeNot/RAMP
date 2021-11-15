@@ -312,7 +312,7 @@ attribute computer for the connection group probably. This will fail for infinit
 maniplexes, but that is to be expected.
 
 
-We can add citations and links to our documentation. Bibliographic items need to be added to ramp.bib in the doc folder. Here's an example of citing/using one as well as linking to the article:
+We can add citations and links to our documentation. Bibliographic items need to be added to ramp.bib in the doc folder. Note that adding the URL is somewhat redundant since the bibliography will link to the MathSciNet page or DOI automagically. Here's an example of citing/using one as well as linking to the article:
 
 #! @BeginGroup Cleaving
 #! @GroupTitle Cleaving polytopes
