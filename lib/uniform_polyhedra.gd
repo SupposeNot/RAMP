@@ -3,6 +3,7 @@
 
 #! @Chapter Families of Polytopes
 #! @Section Uniform Polyhedra
+#! Representations of the uniform polyhedra here are from <Cite Key="HarWil10"/>.
 
 #! @Arguments
 #! @Returns maniplex

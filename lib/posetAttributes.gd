@@ -3,6 +3,7 @@
 #! @Section Poset attributes
 
 #! Posets have many properties we might be interested in. Here's a few.
+#! All abstract polytope definitions in use here are from Schulte and McMullen's **Abstract Regular Polytopes** <Cite Key="McMSch02"/>.
 
 
 #! @Arguments poset

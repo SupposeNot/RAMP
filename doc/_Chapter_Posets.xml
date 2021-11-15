@@ -8,6 +8,7 @@
 <Heading>Poset attributes</Heading>
 
  Posets have many properties we might be interested in. Here's a few.
+ All abstract polytope definitions in use here are from Schulte and McMullen's <Emph>Abstract Regular Polytopes</Emph> <Cite Key="McMSch02"/>.
 <ManSection>
   <Attr Arg="poset" Name="MaximalChains" Label="for IsPoset"/>
  <Description>

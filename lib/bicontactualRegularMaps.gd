@@ -1,7 +1,7 @@
 
 #! @Chapter Regular maps
 #! @Section Bicontactual regular maps
-#! The names for the maps in this section are from S.E. Wilson's paper of the same title.
+#! The names for the maps in this section are from S.E. Wilson's paper of the same title (<URL>https://doi.org/10.2140/pjm.1985.120.437</URL>). 
 
 #! @Arguments k
 #! @Returns maniplex
