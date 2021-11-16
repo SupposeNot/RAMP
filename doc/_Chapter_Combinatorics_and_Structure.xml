@@ -116,7 +116,7 @@
 <ManSection>
   <Oper Arg="M, k" Name="VertexFigure" Label="for IsManiplex, IsInt"/>
  <Description>
- Returns the vertex-figures of <A>M</A> that contains flag number <A>k</A>.
+ Returns the vertex-figure of <A>M</A> that contains flag number <A>k</A>.
  </Description>
 </ManSection>
 
@@ -124,7 +124,7 @@
 <ManSection>
   <Attr Arg="M" Name="VertexFigure" Label="for IsManiplex"/>
  <Description>
- Returns the vertex-figures of <A>M</A> that contains the base flag.
+ Returns the vertex-figure of <A>M</A> that contains the base flag.
  </Description>
 </ManSection>
 
@@ -216,6 +216,106 @@
  2 k_1 ... k_{n-1} flags, which is the minimum possible.
  This property doesn't make any sense for non-polytopal maniplexes, which
  aren't constrained by this lower bound.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="EulerCharacteristic" Label="for IsManiplex"/>
+ <Returns>The Euler characteristic of the maniplex, given by  <Math>f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}</Math>.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="Genus" Label="for IsManiplex"/>
+ <Returns>The genus of the given 3-maniplex.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsSpherical" Label="for IsManiplex"/>
+ <Returns>Whether the 3-maniplex <A>M</A> is spherical, which is to say, whether the Euler characteristic is  equal to 2. 
+</Returns>
+ <Description>
+<Example><![CDATA[
+gap> IsSpherical(Simplex(3));
+true
+gap> IsSpherical(AbstractRegularPolytope([4,4],"h2^3"));
+false
+gap> IsSpherical(Pyramid(5));
+true
+gap> IsSpherical(CubicTiling(2));
+false
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsLocallySpherical" Label="for IsManiplex"/>
+ <Returns>Whether the 4-maniplex <A>M</A> is locally spherical, which is to say, whether its facets and vertex-figures  are both spherical.
+</Returns>
+ <Description>
+<Example><![CDATA[
+gap> IsLocallySpherical(Simplex(4));
+true
+gap> IsLocallySpherical(AbstractRegularPolytope([4,4,4]));
+false
+gap> IsLocallySpherical(CubicTiling(3));
+true
+gap> IsLocallySpherical(Pyramid(Cube(3)));
+true
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsToroidal" Label="for IsManiplex"/>
+ <Returns>Whether the 3-maniplex <A>M</A> is toroidal, which is to say, whether the Euler characteristic is  equal to 0. 
+</Returns>
+ <Description>
+<Example><![CDATA[
+gap> IsToroidal(Simplex(3));
+false
+gap> IsToroidal(AbstractRegularPolytope([4,4],"h2^3"));
+true
+gap> IsToroidal(Pyramid(5));
+false
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsLocallyToroidal" Label="for IsManiplex"/>
+ <Returns>Whether the 4-maniplex <A>M</A> is locally toroidal, which is to say, whether it has at least one toroidal facet  or vertex-figure, and all of its facets and vertex-figures are either spherical or toroidal.
+</Returns>
+ <Description>
+<Example><![CDATA[
+gap> IsLocallyToroidal(Simplex(4));
+false
+gap> IsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));
+true
+gap> IsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));
+true
+]]></Example>
+
+
  </Description>
 </ManSection>
 

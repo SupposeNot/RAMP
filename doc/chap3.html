@@ -55,6 +55,12 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7E9CCE9D794DC285">3.3-3 IsEquivelar</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8483BE798579B521">3.3-4 IsDegenerate</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8088FFB2851334AB">3.3-5 IsTight</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7CEC34DF795B8DDF">3.3-6 EulerCharacteristic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7FA861D87C58E1EF">3.3-7 Genus</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X84F212F485BA012F">3.3-8 IsSpherical</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X85B48E0678A65F40">3.3-9 IsLocallySpherical</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7886C68887E4DD20">3.3-10 IsToroidal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7E0FF0C982FC49D2">3.3-11 IsLocallyToroidal</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X868F7BAB7AC2EEBC">3.4 <span class="Heading">Basics</span></a>
 </span>
@@ -175,14 +181,14 @@
 <h5>3.1-14 VertexFigure</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the vertex-figures of <var class="Arg">M</var> that contains flag number <var class="Arg">k</var>.</p>
+<p>Returns the vertex-figure of <var class="Arg">M</var> that contains flag number <var class="Arg">k</var>.</p>
 
 <p><a id="X7B18EFD87B76AF0E" name="X7B18EFD87B76AF0E"></a></p>
 
 <h5>3.1-15 VertexFigure</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the vertex-figures of <var class="Arg">M</var> that contains the base flag.</p>
+<p>Returns the vertex-figure of <var class="Arg">M</var> that contains the base flag.</p>
 
 <p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
 
@@ -240,6 +246,92 @@
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
+
+<p><a id="X7CEC34DF795B8DDF" name="X7CEC34DF795B8DDF"></a></p>
+
+<h5>3.3-6 EulerCharacteristic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EulerCharacteristic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Euler characteristic of the maniplex, given by <span class="Math">f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}</span>.</p>
+
+<p><a id="X7FA861D87C58E1EF" name="X7FA861D87C58E1EF"></a></p>
+
+<h5>3.3-7 Genus</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Genus</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The genus of the given 3-maniplex.</p>
+
+<p><a id="X84F212F485BA012F" name="X84F212F485BA012F"></a></p>
+
+<h5>3.3-8 IsSpherical</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSpherical</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 3-maniplex <var class="Arg">M</var> is spherical, which is to say, whether the Euler characteristic is equal to 2.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(Simplex(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(AbstractRegularPolytope([4,4],"h2^3"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(Pyramid(5));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(CubicTiling(2));</span>
+false
+</pre></div>
+
+<p><a id="X85B48E0678A65F40" name="X85B48E0678A65F40"></a></p>
+
+<h5>3.3-9 IsLocallySpherical</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocallySpherical</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 4-maniplex <var class="Arg">M</var> is locally spherical, which is to say, whether its facets and vertex-figures are both spherical.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(Simplex(4));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(AbstractRegularPolytope([4,4,4]));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(CubicTiling(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(Pyramid(Cube(3)));</span>
+true
+</pre></div>
+
+<p><a id="X7886C68887E4DD20" name="X7886C68887E4DD20"></a></p>
+
+<h5>3.3-10 IsToroidal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsToroidal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 3-maniplex <var class="Arg">M</var> is toroidal, which is to say, whether the Euler characteristic is equal to 0.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(Simplex(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(AbstractRegularPolytope([4,4],"h2^3"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(Pyramid(5));</span>
+false
+</pre></div>
+
+<p><a id="X7E0FF0C982FC49D2" name="X7E0FF0C982FC49D2"></a></p>
+
+<h5>3.3-11 IsLocallyToroidal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocallyToroidal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 4-maniplex <var class="Arg">M</var> is locally toroidal, which is to say, whether it has at least one toroidal facet or vertex-figure, and all of its facets and vertex-figures are either spherical or toroidal.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));</span>
+true
+</pre></div>
 
 <p><a id="X868F7BAB7AC2EEBC" name="X868F7BAB7AC2EEBC"></a></p>
 

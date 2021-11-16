@@ -93,13 +93,13 @@
   
   [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the vertex-figures of [3XM[103X that contains flag number [3Xk[103X.[133X
+  [33X[0;0YReturns the vertex-figure of [3XM[103X that contains flag number [3Xk[103X.[133X
   
   [1X3.1-15 VertexFigure[101X
   
   [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns the vertex-figures of [3XM[103X that contains the base flag.[133X
+  [33X[0;0YReturns the vertex-figure of [3XM[103X that contains the base flag.[133X
   
   
   [1X3.2 [33X[0;0YFlatness[133X[101X
@@ -160,6 +160,83 @@
   symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
   minimum  possible.  This  property  doesn't make any sense for non-polytopal
   maniplexes, which aren't constrained by this lower bound.[133X
+  
+  [1X3.3-6 EulerCharacteristic[101X
+  
+  [33X[1;0Y[29X[2XEulerCharacteristic[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe Euler characteristic of the maniplex, given by [23Xf_0 - f_1 + f_2
+            - \cdots + (-1)^{n-1} f_{n-1}[123X.[133X
+  
+  [1X3.3-7 Genus[101X
+  
+  [33X[1;0Y[29X[2XGenus[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe genus of the given 3-maniplex.[133X
+  
+  [1X3.3-8 IsSpherical[101X
+  
+  [33X[1;0Y[29X[2XIsSpherical[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  3-maniplex  [3XM[103X is spherical, which is to say, whether
+            the Euler characteristic is equal to 2.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(Simplex(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(AbstractRegularPolytope([4,4],"h2^3"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(Pyramid(5));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(CubicTiling(2));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-9 IsLocallySpherical[101X
+  
+  [33X[1;0Y[29X[2XIsLocallySpherical[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  4-maniplex  [3XM[103X is locally spherical, which is to say,
+            whether its facets and vertex-figures are both spherical.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(Simplex(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(AbstractRegularPolytope([4,4,4]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(CubicTiling(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(Pyramid(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-10 IsToroidal[101X
+  
+  [33X[1;0Y[29X[2XIsToroidal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the 3-maniplex [3XM[103X is toroidal, which is to say, whether the
+            Euler characteristic is equal to 0.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(Simplex(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(AbstractRegularPolytope([4,4],"h2^3"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(Pyramid(5));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X3.3-11 IsLocallyToroidal[101X
+  
+  [33X[1;0Y[29X[2XIsLocallyToroidal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  4-maniplex  [3XM[103X  is locally toroidal, which is to say,
+            whether  it  has at least one toroidal facet or vertex-figure, and
+            all  of  its  facets  and  vertex-figures  are either spherical or
+            toroidal.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(Simplex(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   
   [1X3.4 [33X[0;0YBasics[133X[101X

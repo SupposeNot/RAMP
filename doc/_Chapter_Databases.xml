@@ -114,6 +114,17 @@ L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
 </ManSection>
 
 
+<ManSection>
+  <Func Arg="sizerange" Name="SmallReflexible3Maniplexes" />
+ <Description>
+ Returns all regular 4-polytopes with sizes in <A>sizerange</A> flags.
+ Currently supports a maxsize of 2000 or less.
+ If the option 'nonpolytopal' is set, only returns maniplexes that
+ are not polyhedra.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

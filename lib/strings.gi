@@ -42,6 +42,7 @@ InstallOtherMethod(ManiplexFromDatabaseString,
 	i := 2;
 	for attr in attrList do
 		Setter(attr)(maniplex, EvalString(parameters[i]));
+		i := i + 1;
 	od;
 	return maniplex;
 	end);

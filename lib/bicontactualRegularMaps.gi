@@ -5,7 +5,7 @@ InstallMethod(Epsilonk,
 	function(k)
 	local p, q;
 	if k<=0 then Error("Not an integer>0."); fi;
-	return ARP([k,2]);
+	return ReflexibleManiplex([k,2]);
 	end);
 
 InstallMethod(Deltak,
@@ -28,9 +28,20 @@ InstallMethod(Mk,
 	fi;
 	end);
 
+#InstallMethod(MkPrime,
+#	[IsInt],
+#	k->Opp(Epsilonk(k)));
+
 InstallMethod(MkPrime,
 	[IsInt],
-	k->Opp(Epsilonk(k)));
+	function(k)
+	if IsEvenInt(k) then
+		return ReflexibleManiplex([k, k], "(r0 r1 r2)^2");
+	else
+		return ReflexibleManiplex([k, 2*k], "(r0 r1 r2)^2");
+	fi;
+	end);
+
 
 InstallOtherMethod(MkPrime,
 	[IsInt,IsBool],
@@ -202,3 +213,4 @@ InstallMethod(Hole,
 	act:=Action(hgp,orbs[1]);
 	return Maniplex(act);
 	end);	
+	
