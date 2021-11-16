@@ -370,3 +370,68 @@ InstallMethod(IsTight,
 	return val;
 	end);
 	
+InstallMethod(EulerCharacteristic,
+	[IsManiplex],
+	function(M)
+	local fv;
+	if HasIsFinite(M) and not(IsFinite(M)) then
+		return fail;
+	else
+		fv := List([0..Rank(M)-1], i -> NumberOfIFaces(M,i) * (-1)^i);
+		return Sum(fv);
+	fi;
+	end);
+	
+InstallMethod(Genus,
+	[IsManiplex],
+	function(M)
+	local char;
+	if Rank(M) <> 3 then
+		Error("Genus is only defined for maniplexes of rank 3.");
+	fi;
+	char := EulerCharacteristic(M);
+	if IsOrientable(M) then
+		return (2-char)/2;
+	else
+		return 2-char;
+	fi;
+	end);
+	
+InstallMethod(IsSpherical,
+	[IsManiplex],
+	function(M)
+	if Rank(M) <> 3 then
+		Error("IsSpherical is only supported for maniplexes of rank 3.");
+	fi;
+	return EulerCharacteristic(M) = 2;
+	end);
+	
+InstallMethod(IsLocallySpherical,
+	[IsManiplex],
+	function(M)
+	return ForAll(Facets(M), IsSpherical) and ForAll(VertexFigures(M), IsSpherical);
+	end);	
+	
+InstallMethod(IsToroidal,
+	[IsManiplex],
+	function(M)
+	if Rank(M) <> 3 then
+		Error("IsToroidal is only supported for maniplexes of rank 3.");
+	fi;
+	return EulerCharacteristic(M) = 0;
+	end);
+	
+InstallMethod(IsLocallyToroidal,
+	[IsManiplex],
+	function(M)
+	local facets, vfigs;
+	facets := Facets(M);
+	vfigs := VertexFigures(M);
+	if not(ForAny(facets, IsToroidal)) and not(ForAny(vfigs, IsToroidal)) then
+		return false;
+	else
+		return ForAll(facets, F -> IsSpherical(F) or IsToroidal(F)) and ForAll(vfigs, v -> IsSpherical(v) or IsToroidal(v));
+	fi;
+	end);	
+	
+	
