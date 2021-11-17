@@ -42,9 +42,9 @@ InstallMethod(ReflexibleManiplex,
 	[IsList],
 	function(sym)
 	local n, w, p;
-	if ForAny(sym, x -> not(IsInt(x) or x = infinity) or x < 2) then
-		Error("Each entry of the Schlafli symbol must be a positive integer at least 2.");
-	fi;
+	#if ForAny(sym, x -> not(IsInt(x) or x = infinity) or x < 2) then
+	#	Error("Each entry of the Schlafli symbol must be a positive integer at least 2.");
+	#fi;
 	n := Size(sym)+1;
 
 	if n = 1 then

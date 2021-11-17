@@ -495,3 +495,88 @@ Read4Polys := function(filename)
 	return maniplexes;
 	end;
 
+InstallGlobalFunction(SmallReflexible3Maniplexes,
+	function(sizerange)
+	local manis, minsize, maxsize, L, wilsons, k, l, M, BMaps;
+	
+	manis := [];
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	if maxsize > 2000 then
+		Info(InfoRamp, 1, "The list of reflexible maniplexes with more than 2000 flags is incomplete.");
+	fi;
+	
+	# Get the polyhedra unless nonpolytopal option is set
+	if ValueOption("nonpolytopal") <> true then
+		Append(manis, SmallRegularPolyhedra(sizerange));
+	fi;
+	
+	# Get the Steve Wilson maps
+	wilsons := [];
+	
+	#Deltak, Mk, and MkPrime are all size 4k
+	for k in [1..Int(maxsize/4)] do
+		if 4*k >= minsize then
+			M := Deltak(k);
+			if k > 1 then
+				Append(wilsons, [M, Dual(M)]); 
+				Add(wilsons, Mk(k));
+			else
+				Add(wilsons, M); #Deltak(1) is self-dual
+				# Mk(1) is a pre-maniplex only, so we skip it
+			fi;
+			
+			if k > 2 then
+				# MkPrime(1) is not a maniplex
+				# MkPrime(2) = ARP([2,2]), which will be included elsewhere
+				Add(wilsons, MkPrime(k));
+			fi;
+		fi;
+	od;
+	
+	# BMaps := [];
+	# According to Steve's paper, these are all equal to maps in other classes (Mk etc):
+	# Bk2l(k,1) k even
+	# Bk2lStar(k,1) k odd
+	# Bk2lStar(1,l)
+	# Bk2l(2,l)
+	# Bk2lStar(2,l) l even. This is MkPrime(2l,l+1) which I am currently not building - maybe I should.
+	# So... 
+	# 1. Don't want k = 1 in Bk2lStar. (Can't have it in Bk2l anyway). So start at k = 2.
+	# 2. Don't want k = 2 in Bk2l
+	# 4. Don't want l = 1 in either	
+	#for k in [2..Int(maxsize/4)] do
+	#	for l in [2..Int(maxsize/(4*k))] do
+	#		if 4*k*l >= minsize then
+	#			if IsEvenInt(k) then
+	#				if k > 2 then
+	#					Append(BMaps, Unique([Bk2l(k,l), Dual(Bk2l(k,l))]));
+	#				fi;
+	#				if IsEvenInt(l) and (k > 2 or l > 2) then # Bk2lStar(2,2) = ARP([4,2])
+	#					Append(BMaps, Unique([Bk2lStar(k,l), Dual(Bk2lStar(k,l))]));
+	#				fi;
+	#			elif IsOddInt(l) then
+	#				Append(BMaps, Unique([Bk2lStar(k,l), Dual(Bk2lStar(k,l))]));
+	#			fi;
+	#		fi;
+	#	od;
+	#od;
+
+	# Later I should try to be cleverer about preventing duplicates, because this can take a lot of time
+	#Append(wilsons, Filtered(BMaps, M -> not(IsPolytopal(M))));
+	# We force computation of Schlafli Symbols here to speed up isomorphism testing
+	# for M in wilsons do
+	#	SchlafliSymbol(M);
+	# od;
+	# Append(manis, Unique(wilsons));
+	
+	Append(manis, wilsons);
+
+	# Get the rest from a file
+	L := ManiplexesFromFile("Reflexible3ManiplexesNonPolytopal.txt");
+	Append(manis, Filtered(L, M -> minsize <= Size(M) and Size(M) <= maxsize));
+	
+	return manis;
+	end);

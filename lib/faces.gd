@@ -57,11 +57,11 @@ DeclareAttribute("Facet", IsManiplex);
 DeclareAttribute("VertexFigures", IsManiplex);
 
 #! @Arguments M, k
-#! Returns the vertex-figures of <A>M</A> that contains flag number <A>k</A>.
+#! Returns the vertex-figure of <A>M</A> that contains flag number <A>k</A>.
 DeclareOperation("VertexFigure", [IsManiplex, IsInt]);
 
 #! @Arguments M
-#! Returns the vertex-figures of <A>M</A> that contains the base flag.
+#! Returns the vertex-figure of <A>M</A> that contains the base flag.
 DeclareAttribute("VertexFigure", IsManiplex);
 
 
@@ -129,4 +129,72 @@ DeclareProperty("IsDegenerate", IsManiplex);
 DeclareProperty("IsTight", IsManiplex);
 
 
+#! @Arguments M
+#! @Returns The Euler characteristic of the maniplex, given by
+#! $f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}$.
+DeclareAttribute("EulerCharacteristic", IsManiplex);
+
+#! @Arguments M
+#! @Returns The genus of the given 3-maniplex.
+DeclareAttribute("Genus", IsManiplex);
+
+#! @Arguments M
+#! @Returns Whether the 3-maniplex <A>M</A> is spherical, which is to say, whether the Euler characteristic is
+#! equal to 2. 
+#! @Description
+#! @BeginExampleSession
+#! gap> IsSpherical(Simplex(3));
+#! true
+#! gap> IsSpherical(AbstractRegularPolytope([4,4],"h2^3"));
+#! false
+#! gap> IsSpherical(Pyramid(5));
+#! true
+#! gap> IsSpherical(CubicTiling(2));
+#! false
+#! @EndExampleSession
+DeclareProperty("IsSpherical", IsManiplex);
+
+#! @Arguments M
+#! @Returns Whether the 4-maniplex <A>M</A> is locally spherical, which is to say, whether its facets and vertex-figures
+#! are both spherical.
+#! @Description
+#! @BeginExampleSession
+#! gap> IsLocallySpherical(Simplex(4));
+#! true
+#! gap> IsLocallySpherical(AbstractRegularPolytope([4,4,4]));
+#! false
+#! gap> IsLocallySpherical(CubicTiling(3));
+#! true
+#! gap> IsLocallySpherical(Pyramid(Cube(3)));
+#! true
+#! @EndExampleSession
+DeclareProperty("IsLocallySpherical", IsManiplex);
+
+#! @Arguments M
+#! @Returns Whether the 3-maniplex <A>M</A> is toroidal, which is to say, whether the Euler characteristic is
+#! equal to 0. 
+#! @Description
+#! @BeginExampleSession
+#! gap> IsToroidal(Simplex(3));
+#! false
+#! gap> IsToroidal(AbstractRegularPolytope([4,4],"h2^3"));
+#! true
+#! gap> IsToroidal(Pyramid(5));
+#! false
+#! @EndExampleSession
+DeclareProperty("IsToroidal", IsManiplex);
+
+#! @Arguments M
+#! @Returns Whether the 4-maniplex <A>M</A> is locally toroidal, which is to say, whether it has at least one toroidal facet
+#! or vertex-figure, and all of its facets and vertex-figures are either spherical or toroidal.
+#! @Description
+#! @BeginExampleSession
+#! gap> IsLocallyToroidal(Simplex(4));
+#! false
+#! gap> IsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));
+#! true
+#! gap> IsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));
+#! true
+#! @EndExampleSession
+DeclareProperty("IsLocallyToroidal", IsManiplex);
 

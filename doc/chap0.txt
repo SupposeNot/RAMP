@@ -126,6 +126,12 @@
       3.3-3 IsEquivelar
       3.3-4 IsDegenerate
       3.3-5 IsTight
+      3.3-6 EulerCharacteristic
+      3.3-7 Genus
+      3.3-8 IsSpherical
+      3.3-9 IsLocallySpherical
+      3.3-10 IsToroidal
+      3.3-11 IsLocallyToroidal
     3.4 [33X[0;0YBasics[133X
       3.4-1 Size
       3.4-2 RankManiplex
@@ -219,6 +225,7 @@
       7.1-8 SmallRegular4Polytopes
       7.1-9 SmallChiralPolyhedra
       7.1-10 SmallChiral4Polytopes
+      7.1-11 SmallReflexible3Maniplexes
   8 [33X[0;0YFamilies of Polytopes[133X
     8.1 [33X[0;0YClassical Polytopes[133X
       8.1-1 Vertex
@@ -392,6 +399,8 @@
       15.1-7 DatabaseString
       15.1-8 ManiplexFromDatabaseString
       15.1-9 Tomotope
+    15.2 [33X[0;0Yramp automatic generated documentation of attributes[133X
+      15.2-1 AtlasID
   16 [33X[0;0YStratified Operations[133X
     16.1 [33X[0;0YComputational tools[133X
   17 [33X[0;0YUtility functions[133X
