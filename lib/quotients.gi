@@ -211,7 +211,7 @@ InstallMethod( \=,
 	return IsIsomorphicManiplex(p,q);
 	end);
 
-InstallMethod(SmallestRegularCover,
+InstallMethod(SmallestReflexibleCover,
 	[IsManiplex],
 	function(p)
 	return ReflexibleManiplexNC(ConnectionGroup(p));
