@@ -42,10 +42,10 @@
 
 
 <ManSection>
-  <Attr Arg="M" Name="SmallestRegularCover" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="SmallestReflexibleCover" Label="for IsManiplex"/>
  <Description>
  Returns the smallest regular cover of <A>M</A>, which is the
- maniplex whose automorphism group is the connection group
+ maniplex whose automorphism group is isomorphic to the connection group
  of <A>M</A>.
  </Description>
 </ManSection>

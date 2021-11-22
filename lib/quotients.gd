@@ -24,9 +24,9 @@ DeclareOperation("IsIsomorphicManiplex", [IsManiplex, IsManiplex]);
 
 #! @Arguments M
 #! Returns the smallest regular cover of <A>M</A>, which is the
-#! maniplex whose automorphism group is the connection group
+#! maniplex whose automorphism group is isomorphic to the connection group
 #! of <A>M</A>.
-DeclareAttribute("SmallestRegularCover", IsManiplex);
+DeclareAttribute("SmallestReflexibleCover", IsManiplex);
 
 #! @Arguments M, relStr
 #! Given a reflexible maniplex <A>M</A>, generates the subgroup S of
