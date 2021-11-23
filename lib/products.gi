@@ -130,7 +130,7 @@ InstallMethod(Prism,
 		conn := ConnectionGroup(M!.base);
 		n := Rank(M!.base);
 		k := Size(M!.base);
-		flagNum := function(i, j, d, k)
+		flagNum := function(i, j, d)
 			return i + j*k + (d-1)*2*k;
 			end;
 		perms := [];
@@ -138,25 +138,22 @@ InstallMethod(Prism,
 			r_t := ();
 			for i in [1..k] do
 				for d in [1..n+1] do
-					thisFlag := flagNum(i, 0, d, k);
+					thisFlag := flagNum(i, 0, d);
 					# Only add a new perm if thisFlag isn't already matched
 					if (thisFlag^(r_t) = thisFlag) then
 						if (t < d-1) then
 							s := GeneratorsOfGroup(conn)[t+1];
-							r_t := r_t * (flagNum(i,0,d,k), flagNum(i^s, 0, d, k));
-							r_t := r_t * (flagNum(i,1,d,k), flagNum(i^s, 1, d, k));
+							r_t := r_t * (flagNum(i,0,d), flagNum(i^s, 0, d)) * (flagNum(i,1,d), flagNum(i^s, 1, d));
 						fi;
 						if (t > d) then
 							s := GeneratorsOfGroup(conn)[t];
-							r_t := r_t * (flagNum(i,0,d,k), flagNum(i^s, 0, d, k));
-							r_t := r_t * (flagNum(i,1,d,k), flagNum(i^s, 1, d, k));
+							r_t := r_t * (flagNum(i,0,d), flagNum(i^s, 0, d)) * (flagNum(i,1,d), flagNum(i^s, 1, d));
 						fi;
 						if (t = d-1 and t = 0) then
-							r_t := r_t * (flagNum(i,0,d,k), flagNum(i,1,d,k));
+							r_t := r_t * (flagNum(i,0,d), flagNum(i,1,d));
 						fi;
 						if (t = d-1 and t > 0) then
-							r_t := r_t * (flagNum(i,0,d,k), flagNum(i,0,d-1,k));
-							r_t := r_t * (flagNum(i,1,d,k), flagNum(i,1,d-1,k));
+							r_t := r_t * (flagNum(i,0,d), flagNum(i,0,d-1)) * (flagNum(i,1,d), flagNum(i,1,d-1));
 						fi;
 					fi;
 				od;

@@ -14,7 +14,7 @@ InstallMethod(Edge,
 InstallMethod(Pgon,
 	[IsInt],
 	function(n)
-	local p;
+	local p, r0, r1;
 	if n < 2 then
 		Error("Number of sides must be at least 2.\n");
 		return fail;
@@ -24,6 +24,11 @@ InstallMethod(Pgon,
 	SetSchlafliSymbol(p, [n]);
 	SetSize(p, 2*n);
 	SetExtraRelators(p, []);
+	
+	r0 := PermFromRange((1,2), (2*n-1, 2*n));
+	r1 := (1, 2*n) * PermFromRange((2,3), (2*n-2, 2*n-1));
+	SetConnectionGroup(p, Group(r0,r1));
+	
 	return p;
 	end);	
 
