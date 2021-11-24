@@ -47,13 +47,10 @@ InstallGlobalFunction(AbstractRotaryPolytope,
 # Modifies the permutation perm by adding k to each entry.
 InstallGlobalFunction(TranslatePerm,
 	function(perm, k)
-	local n, l, l2;
-	l := ListPerm(perm);
-	Apply(l, i -> i+k);
-	l2 := [1..k];
-	Append(l2, l);
-	perm := PermList(l2);
-	return perm;
+	local l, newperm;
+	l := ListPerm(perm) + k;
+	newperm := AsPermutation(PartialPerm([1+k..Size(l)+k], l));
+	return newperm;
 	end);
 
 # Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with multiplier terms.	
