@@ -4,7 +4,7 @@
 
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A>.
-#! This group is not guaranteed to be in any particular form.
+#! This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions.
 DeclareAttribute("AutomorphismGroup", IsManiplex);
 
 #! @Arguments M
