@@ -47,27 +47,22 @@ InstallGlobalFunction(AbstractRotaryPolytope,
 # Modifies the permutation perm by adding k to each entry.
 InstallGlobalFunction(TranslatePerm,
 	function(perm, k)
-	local l, newperm;
-	l := ListPerm(perm) + k;
-	newperm := AsPermutation(PartialPerm([1+k..Size(l)+k], l));
-	return newperm;
+	local src, dest;
+	src := MovedPoints(perm)+k;
+	dest := List(MovedPoints(perm), i -> i^perm + k);
+	return MappingPermListList(src, dest);
 	end);
 
 # Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with multiplier terms.	
 InstallGlobalFunction(MultPerm,
 	function(perm, multiplier, offset)
-	local newperm, k, i;
+	local newperm, k, i, perms;
 
 	if multiplier = 0 then
 		return ();
 	else
-		k := 0;
-		newperm := ();
-		for i in [1..multiplier] do
-			newperm := newperm * TranslatePerm(perm, k);
-			k := k + offset;
-		od;
-		return newperm;
+		perms := List([0, offset..(multiplier-1)*offset], i -> TranslatePerm(perm, i));
+		return Product(perms);
 	fi;
 
 	end);
