@@ -2,6 +2,19 @@
 #! @Chapter Comparing maniplexes
 #! @Section Quotients and covers
 
+#! Many of the quotient operations let you describe some relations in terms of a string.
+#! We assume that Sggis have a generating set of $\{r0, r1, ..., r_{n-1}\}$, so
+#! these relation strings will look something like "(r0 r1 r2)^5, r2 = (r0 r1)^3".
+#! Notice that we can mix relations like "r2 = (r0 r1)^3" with relators like "(r0 r1 r2)^5";
+#! the latter is treated as the relation "(r0 r1 r2)^5 = 1".
+#! For convenience, we also allow relations to contain the following strings:
+#! s1, s2, s3, etc, where si is expanded to r(i-1) ri. For example, s2 becomes r1 r2.
+#! z1, z2, z3, etc, where zi is expanded to r0 (r1 r2)^i (the "i-zigzag" word).
+#! h1, h2, h3, etc, where hi is expanded to r0 (r1 r2)^(j-1) r1 (the "i-hole" word).
+#! We note that these strings are all restricted to have $i \leq 9$, **including ri**.
+#! This restriction might be changed eventually, but it will require a rewrite of the
+#! method ParseStringCRels that underlies many quotient operations.
+
 DeclareGlobalFunction("CouldBeQuotient");
 
 #! @Arguments M1, M2

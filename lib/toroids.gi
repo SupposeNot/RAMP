@@ -1,9 +1,7 @@
-# Return the Toroidal Map {4,4}_u,v.
-# Accepts both a single argument (for the regular / chiral toroids) and two arguments.
-# Currently assumes that at least one of the vectors has nonnegative components.
+
 InstallGlobalFunction(ToroidalMap44,
 	function(u, arg...)
-	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, u_angle, v_angle, swap, w;
+	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, u_angle, v_angle, swap, w, M, g;
 	if Size(arg) = 0 then
 		if u[2] = 0 then
 			v := [0, u[1]];
@@ -21,21 +19,23 @@ InstallGlobalFunction(ToroidalMap44,
 	# If y-coordinate is 0, make x-coordinate positive
 	if u[2] = 0 then u[1] := AbsoluteValue(u[1]); fi;
 	if v[2] = 0 then v[1] := AbsoluteValue(v[1]); fi;
+
+	# If both vectors are in the 2nd quadrant, rotate them 90 degrees
+	if u[1] < 0 and v[1] < 0 then
+		u := [u[2], -u[1]];
+		v := [v[2], -v[1]];
+	fi;
 	
-	# We assume later that u is in the first quadrant and has a smaller angle than v.
+	# Now at least one of the vectors u or v is in the first quadrant.
+	# We rename the vectors so that u is in the first quadrant, and if both vectors
+	# are in the first quadrant, we let u be the one with minimal angle.
 	swap := false;
-	if u[1] = 0 then
-		if v[1] > 0 then
-			swap := true;
-		fi;
-	elif v[1] = 0 then
-		if u[1] < 0 then
-			swap := true;
-		fi;
-	else
+	if u[1] < 0 then
+		swap := true;
+	elif v[1] > 0 then
 		u_angle := Atan(Float(u[2]/u[1]));
 		v_angle := Atan(Float(v[2]/v[1]));
-		if u_angle > v_angle and v[1] > 0 then
+		if u_angle > v_angle then
 			swap := true;
 		fi;
 	fi;
@@ -155,7 +155,10 @@ InstallGlobalFunction(ToroidalMap44,
 		r2 := r2 * (n+1, n_h+6) * (n+2, n_h+5) * (n+3, n_v+8) * (n+4, n_v+7);
 	od;
 	
-	return Maniplex(Group([r0,r1,r2]));
+	g := Group([r0,r1,r2]);
+	M := Maniplex(g);
+	
+	return M;
 	end);
 
 InstallMethod(CubicalToroid,
