@@ -52,7 +52,9 @@ gap> Size(Filtered(SmallRegularPolyhedra(200), IsDegenerate)) = Size(DegenerateP
 true
 gap> Size(Filtered(SmallRegularPolyhedra(200), IsTight)) = Size(FlatRegularPolyhedra(200));
 true
-gap> Size(SmallRegularPolyhedra(4000));
-22415
-gap> Size(SmallRegularPolyhedra(4000 : nonflat));
-15860
+
+# These take too long to be very useful
+#gap> Size(SmallRegularPolyhedra(4000));
+#22415
+#gap> Size(SmallRegularPolyhedra(4000 : nonflat));
+#15860

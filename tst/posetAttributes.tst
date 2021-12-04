@@ -1,9 +1,5 @@
-gap> poset:=PosetFromManiplex(HemiCube(3));
-A poset using the IsPosetOfFlags representation.
-gap> MaximalChains(poset)[1];
-[ An element of a poset made of flags, An element of a poset made of flags, 
-  An element of a poset made of flags, An element of a poset made of flags, 
-  An element of a poset made of flags ]
+gap> poset:=PosetFromManiplex(HemiCube(3));;
+gap> MaximalChains(poset)[1];;
 gap> List(last,x->RankInPoset(x,poset));
 [ -1, 0, 1, 2, 3 ]
 gap> p:=PosetFromManiplex(Cube(2));;
@@ -24,46 +20,38 @@ gap> IsLattice(poset);
 true
 gap> bad:=PosetFromManiplex(HemiCube(3));;
 gap> IsLattice(bad);
-fail
+false
 gap> l:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;
 gap> b:=BinaryRelationOnPoints(l);; 
-po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
+gap> po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
 gap> poset:=PosetFromPartialOrder(po);;
 gap> IsLattice(poset);
 true
 gap> IsAtomic(poset);
 false
-gap> p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
-A poset using the IsPosetOfIndices representation 
+gap> p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);;
 gap> IsP1(p);
 true
-gap> p2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);
-A poset using the IsPosetOfFlags representation with 3 faces.
+gap> p2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);;
 gap> IsP1(p2);
 false
-gap> poset:=PosetFromManiplex(HemiCube(3)); 
+gap> poset:=PosetFromManiplex(HemiCube(3));;
 gap> IsP2(poset);
 true
-gap> g:=AlternatingGroup(4);; a:=AllSubgroups(g);; poset:=PosetFromElements(a,IsSubgroup);
-A poset using the IsPosetOfIndices representation 
+gap> g:=AlternatingGroup(4);; a:=AllSubgroups(g);; poset:=PosetFromElements(a,IsSubgroup);;
 gap> IsP2(poset);
 false
-gap> poset:=PosetFromManiplex(Cube(3));
-A poset using the IsPosetOfFlags representation with 28 faces.
+gap> poset:=PosetFromManiplex(Cube(3));;
 gap> IsPolytope(poset);
 true
-gap> KnownPropertiesOfObject(poset);
-[ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ]
-gap> poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);
-A poset using the IsPosetOfIndices representation 
+gap> poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);;
 gap> IsPolytope(poset2);
 false
-gap> KnownPropertiesOfObject(poset2);
-[ "IsP1", "IsP2", "IsPolytope" ]
+gap> IsP1(poset2);
+true
 gap> poset:=PosetFromManiplex(Simplex(5));;
-A poset using the IsPosetOfFlags representation.
 gap> IsSelfDual(poset);
 true
-gap> poset2:=PosetFromManiplex(PyramidOver(Cube(3)));;
+gap> poset2:=PosetFromManiplex(Pyramid(Cube(3)));;
 gap> IsSelfDual(poset2);
 false
