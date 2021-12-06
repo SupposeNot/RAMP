@@ -35,7 +35,7 @@ InstallMethod(Pgon,
 InstallMethod(Cube,
 	[IsInt],
 	function(n)
-	local sym, p, g;
+	local sym, p, g, perms;
 	if n < 0 then
 		Error("n must be at least 0.\n");
 		return fail;
@@ -54,6 +54,10 @@ InstallMethod(Cube,
 	SetSchlafliSymbol(p, sym);
 	SetString(p, Concatenation("Cube(", String(n), ")"));
 	SetExtraRelators(p, []);
+
+	perms := [(n, n+1)];
+	Append(perms, List([1..n-1], i -> (n-i, n-i+1)(n+i, n+i+1)));
+	SetAutomorphismGroupPermGroup(p, Group(perms));
 	return p;
 	end);
 	
@@ -78,7 +82,7 @@ InstallMethod(HemiCube,
 InstallMethod(CrossPolytope,
 	[IsInt],
 	function(n)
-	local sym, p, g;
+	local sym, p, g, perms;
 	if n < 0 then
 		Error("n must be at least 0.\n");
 		return fail;
@@ -96,6 +100,10 @@ InstallMethod(CrossPolytope,
 	SetSchlafliSymbol(p, sym);
 	SetString(p, Concatenation("CrossPolytope(", String(n), ")"));
 	SetExtraRelators(p, []);
+
+	perms := [(n, n+1)];
+	Append(perms, List([1..n-1], i -> (n-i, n-i+1)(n+i, n+i+1)));
+	SetAutomorphismGroupPermGroup(p, Group(Reversed(perms)));
 	return p;
 	end);
 
@@ -119,7 +127,7 @@ InstallMethod(HemiCrossPolytope,
 InstallMethod(Simplex,
 	[IsInt],
 	function(n)
-	local sym, p, g;
+	local sym, p, g, permgp;
 	sym := List([1..n-1], i -> 3);
 	if n < 0 then
 		Error("n must be at least 0.\n");
@@ -136,6 +144,9 @@ InstallMethod(Simplex,
 	SetString(p, Concatenation("Simplex(", String(n), ")"));
 	SetSchlafliSymbol(p, sym);
 	SetExtraRelators(p, []);
+	
+	permgp := Group(List([1..n], i -> (i,i+1)));
+	SetAutomorphismGroupPermGroup(p, permgp);
 	return p;
 	end);
 	
