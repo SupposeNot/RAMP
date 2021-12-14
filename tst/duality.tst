@@ -28,9 +28,9 @@ gap> IsExternallySelfDual(ARP([4,4], "h2^5"));
 false
 gap> IsExternallySelfDual(Cube(3));
 false
-gap> IsInternallySelfDual(CubicalToroid(3,1,3));
+gap> IsInternallySelfDual(CubicToroid(3,1,3));
 true
-gap> IsInternallySelfDual(CubicalToroid(4,1,3));
+gap> IsInternallySelfDual(CubicToroid(4,1,3));
 false
 gap> M := InternallySelfDualPolyhedron2(10,1);;
 gap> g := AutomorphismGroup(M);;

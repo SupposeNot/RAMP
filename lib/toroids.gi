@@ -1,7 +1,7 @@
 
 InstallGlobalFunction(ToroidalMap44,
 	function(u, arg...)
-	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, u_angle, v_angle, swap, w, M, g;
+	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
 	if Size(arg) = 0 then
 		if u[2] = 0 then
 			v := [0, u[1]];
@@ -30,12 +30,10 @@ InstallGlobalFunction(ToroidalMap44,
 	# We rename the vectors so that u is in the first quadrant, and if both vectors
 	# are in the first quadrant, we let u be the one with minimal angle.
 	swap := false;
-	if u[1] < 0 then
+	if u[1] <= 0 then
 		swap := true;
 	elif v[1] > 0 then
-		u_angle := Atan(Float(u[2]/u[1]));
-		v_angle := Atan(Float(v[2]/v[1]));
-		if u_angle > v_angle then
+		if Float(u[2]/u[1]) > Float(v[2]/v[1]) then
 			swap := true;
 		fi;
 	fi;
@@ -161,7 +159,7 @@ InstallGlobalFunction(ToroidalMap44,
 	return M;
 	end);
 
-InstallMethod(CubicalToroid,
+InstallMethod(CubicToroid,
 	[IsInt,IsInt,IsInt],
 	function(s,k,n)
 	local i, l, m;
@@ -182,6 +180,38 @@ InstallMethod(CubicalToroid,
 	if s>=2 then SetIsPolytopal(m,true);
 		else SetIsPolytopal(m,false); fi;
 	return m;
+	end);
+	
+InstallMethod(CubicToroid,
+	[IsInt, IsList],
+	function(n, vecs)
+	local M, gens, x, i, basis, vec_words, translate_vector;
+	
+	if Size(vecs) < n then
+		Error("vecs must have at least n vectors to generate an n-dimensional translation group.");
+	fi;
+	
+	M := CubicTiling(n);
+
+	gens := GeneratorsOfGroup(AutomorphismGroup(M));
+	x := Product(gens) * Product(Reversed(gens{[2..n]}));
+	basis := [x];
+	for i in [2..n] do
+		Add(basis, Last(basis)^gens[i]);
+	od;
+	
+	translate_vector := function(v)
+		local word;
+		word := basis[1]^0;
+		for i in [1..Size(v)] do
+			word := word * basis[i]^v[i];
+		od;
+		return word;
+		end;
+	
+	vec_words := List(vecs, translate_vector);
+	
+	return Maniplex(M, Group(vec_words));
 	end);
 
 InstallMethod(3343Toroid,

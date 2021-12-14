@@ -18,3 +18,6 @@ gap> SmallestReflexibleCover(M) = ToroidalMap44([6,0]);
 true
 gap> ToroidalMap44([2,3],[4,1]) = ToroidalMap44([-3,2],[-1,4]);
 true
+gap> M := CubicToroid(4, [[1,0,1,0],[1,0,-1,0],[0,1,0,1],[0,1,0,-1]]);;
+gap> NumberOfFlagOrbits(M);
+3
