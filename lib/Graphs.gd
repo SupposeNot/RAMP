@@ -380,6 +380,27 @@ DeclareOperation("LabeledSemiEdges",[IsEdgeLabeledGraph]);
 #! @Description Takes in an edge labeled graph and outputs the labeled darts.
 DeclareOperation("LabeledDarts",[IsEdgeLabeledGraph]);
 
+#! @Arguments list, list, list
+#! @Returns `IsEdgeLabeledGraph`. 
+#! @Description Given a a pre-maniplex 
+#! (entered as its vertices and labeled darts) and voltages
+#! Return the connected derived graph from a pre-maniplex 
+#! Careful, the order of our automorphisms.  Do we want them on left or right? Does it matter?
+#! Can make another version with non-connected results, where the group is also an input
+DeclareOperation("DerivedGraph",[IsList,IsList,IsList]);
+#! Here we can build the flag graph of a 3-orbit polyhedron.
+#! @BeginExampleSession
+#! gap> V:=[1,2,3];;
+#! gap> Ed:=[[1],[1],[1,2],[2],[2,3],[3],[3]];;
+#! gap> L:=[1,2,0,2,1,0,2];;
+#! gap> g:=EdgeLabeledGraphFromEdges(V,Ed,L);;
+#! gap> L:=LabeledDarts(g);;
+#! gap> volt:=[ (1,2), (3,4), (), (), (3,4), (), (), (4,5), (2,3) ];;
+#! gap> D:=DerivedGraph(V,L,volt);
+#! Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
+#! @EndExampleSession
+
+
 
 #! @Arguments EdgeLabeledGraph, String
 #! @Returns `IsString`. 
