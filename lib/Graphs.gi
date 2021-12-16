@@ -534,6 +534,45 @@ InstallMethod(LabeledDarts,
 
 
 
+InstallMethod(DerivedGraph,
+	[IsList, IsList,IsList],
+	function(verts, labdarts,voltages)
+	local G, L, C,  newdarts, newlabels, g, h, i,S ;
+
+	# Want to use CtoL for speed.  
+	# (i,j) to k.  i is place in L, j is place in verts.
+	# Currently uses Position in cartesian product
+
+	G:=Group(voltages);
+	L:=List(G);
+	C:=Cartesian(verts,L);
+	S:=Size(L)*Size(verts);
+	newdarts:=[];
+	newlabels:=[];
+	for i in [1..Size(labdarts)] do	
+	g:=voltages[i];
+	for h in L do
+	if Size(labdarts[i][1]) = 2 then
+		#call this dart (u to v) 
+		#want a new dart (u,h) to (v,gh)
+		Add(newdarts, 
+		[Position(C,[labdarts[i][1][1],h]), Position(C,[labdarts[i][1][2],g*h])]);
+		Add(newlabels,labdarts[i][2]);
+	fi;
+	if Size(labdarts[i][1]) = 1 then
+		#call this dart (u to u) 
+		#want a new dart (u,h) to (v,gh)
+		Add(newdarts, 
+		[Position(C,[labdarts[i][1][1],h]), Position(C,[labdarts[i][1][1],g*h])]);
+		Add(newlabels,labdarts[i][2]);
+	fi;
+	od;
+	od;
+	return EdgeLabeledGraphFromEdges([1..S],newdarts,newlabels);
+
+	end);
+
+
 
 
 
