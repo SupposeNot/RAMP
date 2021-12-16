@@ -513,6 +513,28 @@ end);
 
 
 
+InstallMethod(LabeledDarts,
+	[IsEdgeLabeledGraph],
+	function(g)
+	local labs, eds, i, labdarts;
+	labs:=g!.labels;
+	eds:=g!.edges;
+	labdarts:=[];
+	for i in [1..Size(eds)] do
+	if Size(eds[i]) = 2 then
+	Add(labdarts,[eds[i],labs[i]]);
+	Add(labdarts,[Reversed(eds[i]),labs[i]]);
+	fi;
+	if Size(eds[i]) = 1 then
+	Add(labdarts,[eds[i],labs[i]]);
+	fi;
+	od;
+	return labdarts;
+	end);
+
+
+
+
 
 
 InstallMethod(ViewGraph,
