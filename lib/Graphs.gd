@@ -375,6 +375,11 @@ DeclareOperation("SemiEdges",[IsEdgeLabeledGraph]);
 DeclareOperation("LabeledSemiEdges",[IsEdgeLabeledGraph]);
 
 
+#! @Arguments EdgeLabeledGraph
+#! @Returns `IsList`. 
+#! @Description Takes in an edge labeled graph and outputs the labeled darts.
+DeclareOperation("LabeledDarts",[IsEdgeLabeledGraph]);
+
 
 #! @Arguments EdgeLabeledGraph, String
 #! @Returns `IsString`. 
