@@ -276,3 +276,28 @@ InstallMethod(ExtraRotRelators,
 	return rels;
 	end);
 	
+	
+InstallMethod(IsManiplexable,
+	[IsPermGroup],
+	function(g)
+	local test, D, gens, r, i, j ;
+	test:=true;
+	D:=NrMovedPoints(g);
+	gens:=GeneratorsOfGroup(g);
+	r:=Size(gens);	
+	for i in [1..r] do
+	if Order(gens[i]) <> 2 or NrMovedPoints(gens[i]) < D then
+	test:=false;
+	fi;
+	od;
+	for i in [1..r-1] do
+	for j in [i+1..r] do
+	if NrMovedPoints(gens[i]*gens[j]) < D then
+	test:=false;
+	fi;
+	od;
+	od;
+	return test;
+	end);
+	
+	
