@@ -63,3 +63,9 @@ DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
 #! the rotation group of a string Coxeter group given by its Schlafli symbol.
 #! Not particularly robust at the moment.
 DeclareAttribute("ExtraRotRelators", IsRotaryManiplex);
+
+#! @Arguments permgroup
+#! @Returns `Boolean`. 
+#! @Description Given a permutation group, it asks if the generators could be the connection group of a maniplex
+#! That is to say, are each of the generators and their products fixed point free.
+DeclareOperation("IsManiplexable",[IsPermGroup]);
