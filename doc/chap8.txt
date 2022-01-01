@@ -227,12 +227,22 @@
   
   [33X[0;0YConstructs the cuboctahedron.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Cuboctahedron());[127X[104X
+    [4X[28X[ [ 3, 4 ], 4 ][128X[104X
+  [4X[32X[104X
+  
   [1X8.4-2 TruncatedTetrahedron[101X
   
   [33X[1;0Y[29X[2XTruncatedTetrahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated tetrahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TruncatedTetrahedron());[127X[104X
+    [4X[28X[ [ 3, 6 ], 3 ][128X[104X
+  [4X[32X[104X
   
   [1X8.4-3 TruncatedOctahedron[101X
   
@@ -241,12 +251,24 @@
   
   [33X[0;0YConstructs the truncated octahedron.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(TruncatedOctahedron());[127X[104X
+    [4X[28X[ 24, 36, 14 ][128X[104X
+  [4X[32X[104X
+  
   [1X8.4-4 TruncatedCube[101X
   
   [33X[1;0Y[29X[2XTruncatedCube[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated octahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(TruncatedCube());[127X[104X
+    [4X[28X[ 24, 36, 14 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TruncatedCube());[127X[104X
+    [4X[28X[ [ 3, 8 ], 3 ][128X[104X
+  [4X[32X[104X
   
   [1X8.4-5 Icosadodecahedron[101X
   
@@ -255,12 +277,22 @@
   
   [33X[0;0YConstructs the icosadodecahedron.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XVertexFigure(Icosadodecahedron());[127X[104X
+    [4X[28XPgon(4)[128X[104X
+    [4X[25Xgap>[125X [27XFacets(Icosadodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(3) ][128X[104X
+  [4X[32X[104X
+  
   [1X8.4-6 TruncatedIcosahedron[101X
   
   [33X[1;0Y[29X[2XTruncatedIcosahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the truncated icosahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+  [4X[32X[104X
   
   [1X8.4-7 SmallRhombicuboctahedron[101X
   
@@ -269,12 +301,22 @@
   
   [33X[0;0YConstructs the small rhombicuboctahedron.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XZigzagVector(SmallRhombicuboctahedron());[127X[104X
+    [4X[28X[ 12, 8 ][128X[104X
+  [4X[32X[104X
+  
   [1X8.4-8 Pseudorhombicuboctahedron[101X
   
   [33X[1;0Y[29X[2XPseudorhombicuboctahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the pseudorhombicuboctahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(Pseudorhombicuboctahedron()));[127X[104X
+    [4X[28X16072626615091200[128X[104X
+  [4X[32X[104X
   
   [1X8.4-9 SnubCube[101X
   
@@ -283,12 +325,28 @@
   
   [33X[0;0YConstructs the snub cube.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(PetrieDual(SnubCube()));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(PetrieDual(SnubCube()));[127X[104X
+    [4X[28X[ 30, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(PetrieDual(SnubCube())));[127X[104X
+    [4X[28X3804202857922560[128X[104X
+    [4X[25Xgap>[125X [27XSize(AutomorphismGroup(PetrieDual(SnubCube())));[127X[104X
+    [4X[28X24[128X[104X
+  [4X[32X[104X
+  
   [1X8.4-10 SmallRhombicosidodecahedron[101X
   
   [33X[1;0Y[29X[2XSmallRhombicosidodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the small rhombicosidodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(SmallRhombicosidodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(4), Pgon(3) ][128X[104X
+  [4X[32X[104X
   
   [1X8.4-11 GreatRhombicosidodecahedron[101X
   
@@ -297,12 +355,24 @@
   
   [33X[0;0YConstructs the great rhombicosidodecahedron.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(GreatRhombicosidodecahedron());[127X[104X
+    [4X[28X[ Pgon(10), Pgon(4), Pgon(6) ][128X[104X
+  [4X[32X[104X
+  
   [1X8.4-12 SnubDodecahedron[101X
   
   [33X[1;0Y[29X[2XSnubDodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
   [33X[0;0YConstructs the small snub dodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(SnubDodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(3) ][128X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(PetrieDual(SnubDodecahedron()));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X8.4-13 TruncatedDodecahedron[101X
   

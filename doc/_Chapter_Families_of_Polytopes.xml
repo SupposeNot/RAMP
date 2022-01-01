@@ -368,6 +368,12 @@ Constructs the cuboctahedron.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> SchlafliSymbol(Cuboctahedron());
+[ [ 3, 4 ], 4 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="TruncatedTetrahedron" />
  <Returns>maniplex
@@ -376,6 +382,12 @@ Constructs the cuboctahedron.
 Constructs the truncated tetrahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(TruncatedTetrahedron());
+[ [ 3, 6 ], 3 ]
+]]></Example>
 
 
 <ManSection>
@@ -388,6 +400,12 @@ Constructs the truncated octahedron.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Fvector(TruncatedOctahedron());
+[ 24, 36, 14 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="TruncatedCube" />
  <Returns>maniplex
@@ -396,6 +414,14 @@ Constructs the truncated octahedron.
 Constructs the truncated octahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Fvector(TruncatedCube());
+[ 24, 36, 14 ]
+gap> SchlafliSymbol(TruncatedCube());
+[ [ 3, 8 ], 3 ]
+]]></Example>
 
 
 <ManSection>
@@ -408,6 +434,14 @@ Constructs the icosadodecahedron.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> VertexFigure(Icosadodecahedron());
+Pgon(4)
+gap> Facets(Icosadodecahedron());
+[ Pgon(5), Pgon(3) ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="TruncatedIcosahedron" />
  <Returns>maniplex
@@ -416,6 +450,10 @@ Constructs the icosadodecahedron.
 Constructs the truncated icosahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+]]></Example>
 
 
 <ManSection>
@@ -428,6 +466,12 @@ Constructs the small rhombicuboctahedron.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> ZigzagVector(SmallRhombicuboctahedron());
+[ 12, 8 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="Pseudorhombicuboctahedron" />
  <Returns>maniplex
@@ -436,6 +480,12 @@ Constructs the small rhombicuboctahedron.
 Constructs the pseudorhombicuboctahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Size(ConnectionGroup(Pseudorhombicuboctahedron()));
+16072626615091200
+]]></Example>
 
 
 <ManSection>
@@ -448,6 +498,18 @@ Constructs the snub cube.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsEquivelar(PetrieDual(SnubCube()));
+true
+gap> SchlafliSymbol(PetrieDual(SnubCube()));
+[ 30, 5 ]
+gap> Size(ConnectionGroup(PetrieDual(SnubCube())));
+3804202857922560
+gap> Size(AutomorphismGroup(PetrieDual(SnubCube())));
+24
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="SmallRhombicosidodecahedron" />
  <Returns>maniplex
@@ -456,6 +518,12 @@ Constructs the snub cube.
 Constructs the small rhombicosidodecahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Facets(SmallRhombicosidodecahedron());
+[ Pgon(5), Pgon(4), Pgon(3) ]
+]]></Example>
 
 
 <ManSection>
@@ -468,6 +536,12 @@ Constructs the great rhombicosidodecahedron.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Facets(GreatRhombicosidodecahedron());
+[ Pgon(10), Pgon(4), Pgon(6) ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="SnubDodecahedron" />
  <Returns>maniplex
@@ -476,6 +550,14 @@ Constructs the great rhombicosidodecahedron.
 Constructs the small snub dodecahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Facets(SnubDodecahedron());
+[ Pgon(5), Pgon(3) ]
+gap> IsEquivelar(PetrieDual(SnubDodecahedron()));
+true
+]]></Example>
 
 
 <ManSection>

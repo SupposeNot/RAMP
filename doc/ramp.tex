@@ -721,8 +721,53 @@ and their labels }
 
  
 
-\subsection{\textcolor{Chapter }{ViewGraph (for IsEdgeLabeledGraph, IsString)}}
+\subsection{\textcolor{Chapter }{LabeledDarts (for IsEdgeLabeledGraph)}}
 \logpage{[ 1, 1, 22 ]}\nobreak
+\hyperdef{L}{X811C8FB3842D6D2E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape EdgeLabeledGraph})\index{LabeledDarts@\texttt{LabeledDarts}!for IsEdgeLabeledGraph}
+\label{LabeledDarts:for IsEdgeLabeledGraph}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsList}. 
+
+
+
+ Takes in an edge labeled graph and outputs the labeled darts. }
+
+ 
+
+\subsection{\textcolor{Chapter }{DerivedGraph (for IsList,IsList,IsList)}}
+\logpage{[ 1, 1, 23 ]}\nobreak
+\hyperdef{L}{X8529379678912775}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DerivedGraph({\mdseries\slshape list, list, list})\index{DerivedGraph@\texttt{DerivedGraph}!for IsList,IsList,IsList}
+\label{DerivedGraph:for IsList,IsList,IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsEdgeLabeledGraph}. 
+
+
+
+ Given a a pre-maniplex (entered as its vertices and labeled darts) and
+voltages Return the connected derived graph from a pre-maniplex Careful, the
+order of our automorphisms. Do we want them on left or right? Does it matter?
+Can make another version with non-connected results, where the group is also
+an input }
+
+ Here we can build the flag graph of a 3-orbit polyhedron. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@V:=[1,2,3];;|
+  !gapprompt@gap>| !gapinput@Ed:=[[1],[1],[1,2],[2],[2,3],[3],[3]];;|
+  !gapprompt@gap>| !gapinput@L:=[1,2,0,2,1,0,2];;|
+  !gapprompt@gap>| !gapinput@g:=EdgeLabeledGraphFromEdges(V,Ed,L);;|
+  !gapprompt@gap>| !gapinput@L:=LabeledDarts(g);;|
+  !gapprompt@gap>| !gapinput@volt:=[ (1,2), (3,4), (), (), (3,4), (), (), (4,5), (2,3) ];;|
+  !gapprompt@gap>| !gapinput@D:=DerivedGraph(V,L,volt);|
+  Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ViewGraph (for IsEdgeLabeledGraph, IsString)}}
+\logpage{[ 1, 1, 24 ]}\nobreak
 \hyperdef{L}{X7FF9E3FC7DD66BA4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape EdgeLabeledGraph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsEdgeLabeledGraph, IsString}
 \label{ViewGraph:for IsEdgeLabeledGraph, IsString}
@@ -738,7 +783,7 @@ software. Currently mathematica and sage are supported. }
  
 
 \subsection{\textcolor{Chapter }{ViewGraph (for IsObject, IsString)}}
-\logpage{[ 1, 1, 23 ]}\nobreak
+\logpage{[ 1, 1, 25 ]}\nobreak
 \hyperdef{L}{X83990BFD7D887A02}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape Graph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsObject, IsString}
 \label{ViewGraph:for IsObject, IsString}
@@ -3446,6 +3491,11 @@ maniplex
  Constructs the cuboctahedron. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Cuboctahedron());|
+  [ [ 3, 4 ], 4 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{TruncatedTetrahedron}}
 \logpage{[ 8, 4, 2 ]}\nobreak
@@ -3460,6 +3510,11 @@ maniplex
 
  Constructs the truncated tetrahedron. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(TruncatedTetrahedron());|
+  [ [ 3, 6 ], 3 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{TruncatedOctahedron}}
@@ -3476,6 +3531,11 @@ maniplex
  Constructs the truncated octahedron. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Fvector(TruncatedOctahedron());|
+  [ 24, 36, 14 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{TruncatedCube}}
 \logpage{[ 8, 4, 4 ]}\nobreak
@@ -3490,6 +3550,13 @@ maniplex
 
  Constructs the truncated octahedron. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Fvector(TruncatedCube());|
+  [ 24, 36, 14 ]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(TruncatedCube());|
+  [ [ 3, 8 ], 3 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Icosadodecahedron}}
@@ -3506,6 +3573,13 @@ maniplex
  Constructs the icosadodecahedron. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@VertexFigure(Icosadodecahedron());|
+  Pgon(4)
+  !gapprompt@gap>| !gapinput@Facets(Icosadodecahedron());|
+  [ Pgon(5), Pgon(3) ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{TruncatedIcosahedron}}
 \logpage{[ 8, 4, 6 ]}\nobreak
@@ -3520,6 +3594,9 @@ maniplex
 
  Constructs the truncated icosahedron. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicuboctahedron}}
@@ -3536,6 +3613,11 @@ maniplex
  Constructs the small rhombicuboctahedron. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@ZigzagVector(SmallRhombicuboctahedron());|
+  [ 12, 8 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Pseudorhombicuboctahedron}}
 \logpage{[ 8, 4, 8 ]}\nobreak
@@ -3550,6 +3632,11 @@ maniplex
 
  Constructs the pseudorhombicuboctahedron. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Size(ConnectionGroup(Pseudorhombicuboctahedron()));|
+  16072626615091200
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{SnubCube}}
@@ -3566,6 +3653,17 @@ maniplex
  Constructs the snub cube. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsEquivelar(PetrieDual(SnubCube()));|
+  true
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(PetrieDual(SnubCube()));|
+  [ 30, 5 ]
+  !gapprompt@gap>| !gapinput@Size(ConnectionGroup(PetrieDual(SnubCube())));|
+  3804202857922560
+  !gapprompt@gap>| !gapinput@Size(AutomorphismGroup(PetrieDual(SnubCube())));|
+  24
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{SmallRhombicosidodecahedron}}
 \logpage{[ 8, 4, 10 ]}\nobreak
@@ -3580,6 +3678,11 @@ maniplex
 
  Constructs the small rhombicosidodecahedron. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Facets(SmallRhombicosidodecahedron());|
+  [ Pgon(5), Pgon(4), Pgon(3) ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicosidodecahedron}}
@@ -3596,6 +3699,11 @@ maniplex
  Constructs the great rhombicosidodecahedron. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Facets(GreatRhombicosidodecahedron());|
+  [ Pgon(10), Pgon(4), Pgon(6) ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{SnubDodecahedron}}
 \logpage{[ 8, 4, 12 ]}\nobreak
@@ -3610,6 +3718,13 @@ maniplex
 
  Constructs the small snub dodecahedron. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Facets(SnubDodecahedron());|
+  [ Pgon(5), Pgon(3) ]
+  !gapprompt@gap>| !gapinput@IsEquivelar(PetrieDual(SnubDodecahedron()));|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{TruncatedDodecahedron}}
@@ -3781,6 +3896,23 @@ robust at the moment. }
  For a reflexible maniplex \mbox{\texttt{\mdseries\slshape M}}, returns the relators needed to define its rotation group as a quotient of
 the rotation group of a string Coxeter group given by its Schlafli symbol. Not
 particularly robust at the moment. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsManiplexable (for IsPermGroup)}}
+\logpage{[ 9, 1, 11 ]}\nobreak
+\hyperdef{L}{X85C1BC3D85D78ECC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsManiplexable({\mdseries\slshape permgroup})\index{IsManiplexable@\texttt{IsManiplexable}!for IsPermGroup}
+\label{IsManiplexable:for IsPermGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{Boolean}. 
+
+
+
+ Given a permutation group, it asks if the generators could be the connection
+group of a maniplex That is to say, are each of the generators and their
+products fixed point free. }
 
  }
 

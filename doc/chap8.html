@@ -362,6 +362,12 @@ true
 
 <p>Constructs the cuboctahedron.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Cuboctahedron());</span>
+[ [ 3, 4 ], 4 ]
+</pre></div>
+
 <p><a id="X7914BBCD85B92572" name="X7914BBCD85B92572"></a></p>
 
 <h5>8.4-2 TruncatedTetrahedron</h5>
@@ -370,6 +376,12 @@ true
 <p>Returns: maniplex</p>
 
 <p>Constructs the truncated tetrahedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(TruncatedTetrahedron());</span>
+[ [ 3, 6 ], 3 ]
+</pre></div>
 
 <p><a id="X82251B0B7FF0867C" name="X82251B0B7FF0867C"></a></p>
 
@@ -380,6 +392,12 @@ true
 
 <p>Constructs the truncated octahedron.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(TruncatedOctahedron());</span>
+[ 24, 36, 14 ]
+</pre></div>
+
 <p><a id="X83E8732F7B5723CA" name="X83E8732F7B5723CA"></a></p>
 
 <h5>8.4-4 TruncatedCube</h5>
@@ -388,6 +406,14 @@ true
 <p>Returns: maniplex</p>
 
 <p>Constructs the truncated octahedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(TruncatedCube());</span>
+[ 24, 36, 14 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(TruncatedCube());</span>
+[ [ 3, 8 ], 3 ]
+</pre></div>
 
 <p><a id="X7C262C2B7B88190E" name="X7C262C2B7B88190E"></a></p>
 
@@ -398,6 +424,14 @@ true
 
 <p>Constructs the icosadodecahedron.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(Icosadodecahedron());</span>
+Pgon(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(Icosadodecahedron());</span>
+[ Pgon(5), Pgon(3) ]
+</pre></div>
+
 <p><a id="X81B089967C16B074" name="X81B089967C16B074"></a></p>
 
 <h5>8.4-6 TruncatedIcosahedron</h5>
@@ -406,6 +440,10 @@ true
 <p>Returns: maniplex</p>
 
 <p>Constructs the truncated icosahedron.</p>
+
+
+<div class="example"><pre>
+</pre></div>
 
 <p><a id="X838FD696802FEFD8" name="X838FD696802FEFD8"></a></p>
 
@@ -416,6 +454,12 @@ true
 
 <p>Constructs the small rhombicuboctahedron.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagVector(SmallRhombicuboctahedron());</span>
+[ 12, 8 ]
+</pre></div>
+
 <p><a id="X84853A907A3EF1C5" name="X84853A907A3EF1C5"></a></p>
 
 <h5>8.4-8 Pseudorhombicuboctahedron</h5>
@@ -424,6 +468,12 @@ true
 <p>Returns: maniplex</p>
 
 <p>Constructs the pseudorhombicuboctahedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ConnectionGroup(Pseudorhombicuboctahedron()));</span>
+16072626615091200
+</pre></div>
 
 <p><a id="X7EA8AA0C84A43469" name="X7EA8AA0C84A43469"></a></p>
 
@@ -434,6 +484,18 @@ true
 
 <p>Constructs the snub cube.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivelar(PetrieDual(SnubCube()));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(PetrieDual(SnubCube()));</span>
+[ 30, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ConnectionGroup(PetrieDual(SnubCube())));</span>
+3804202857922560
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(AutomorphismGroup(PetrieDual(SnubCube())));</span>
+24
+</pre></div>
+
 <p><a id="X7A2FC231845204F5" name="X7A2FC231845204F5"></a></p>
 
 <h5>8.4-10 SmallRhombicosidodecahedron</h5>
@@ -442,6 +504,12 @@ true
 <p>Returns: maniplex</p>
 
 <p>Constructs the small rhombicosidodecahedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(SmallRhombicosidodecahedron());</span>
+[ Pgon(5), Pgon(4), Pgon(3) ]
+</pre></div>
 
 <p><a id="X87A29A6B8375339F" name="X87A29A6B8375339F"></a></p>
 
@@ -452,6 +520,12 @@ true
 
 <p>Constructs the great rhombicosidodecahedron.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(GreatRhombicosidodecahedron());</span>
+[ Pgon(10), Pgon(4), Pgon(6) ]
+</pre></div>
+
 <p><a id="X874B90BD82EA1192" name="X874B90BD82EA1192"></a></p>
 
 <h5>8.4-12 SnubDodecahedron</h5>
@@ -460,6 +534,14 @@ true
 <p>Returns: maniplex</p>
 
 <p>Constructs the small snub dodecahedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(SnubDodecahedron());</span>
+[ Pgon(5), Pgon(3) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivelar(PetrieDual(SnubDodecahedron()));</span>
+true
+</pre></div>
 
 <p><a id="X79A2DEE48126C748" name="X79A2DEE48126C748"></a></p>
 

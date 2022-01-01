@@ -430,7 +430,38 @@
   [33X[0;0YTakes  in  an  edge  labeled  graph  and  a  vertex,  and outputs two lists:
   SemiEdges and their labels[133X
   
-  [1X1.1-22 ViewGraph[101X
+  [1X1.1-22 LabeledDarts[101X
+  
+  [33X[1;0Y[29X[2XLabeledDarts[102X( [3XEdgeLabeledGraph[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
+  
+  [33X[0;0YTakes in an edge labeled graph and outputs the labeled darts.[133X
+  
+  [1X1.1-23 DerivedGraph[101X
+  
+  [33X[1;0Y[29X[2XDerivedGraph[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
+  
+  [33X[0;0YGiven  a  a  pre-maniplex  (entered  as  its vertices and labeled darts) and
+  voltages Return the connected derived graph from a pre-maniplex Careful, the
+  order  of  our  automorphisms.  Do  we  want  them on left or right? Does it
+  matter? Can make another version with non-connected results, where the group
+  is also an input[133X
+  
+  [33X[0;0YHere we can build the flag graph of a 3-orbit polyhedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XV:=[1,2,3];;[127X[104X
+    [4X[25Xgap>[125X [27XEd:=[[1],[1],[1,2],[2],[2,3],[3],[3]];;[127X[104X
+    [4X[25Xgap>[125X [27XL:=[1,2,0,2,1,0,2];;[127X[104X
+    [4X[25Xgap>[125X [27Xg:=EdgeLabeledGraphFromEdges(V,Ed,L);;[127X[104X
+    [4X[25Xgap>[125X [27XL:=LabeledDarts(g);;[127X[104X
+    [4X[25Xgap>[125X [27Xvolt:=[ (1,2), (3,4), (), (), (3,4), (), (), (4,5), (2,3) ];;[127X[104X
+    [4X[25Xgap>[125X [27XD:=DerivedGraph(V,L,volt);[127X[104X
+    [4X[28XEdge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ][128X[104X
+  [4X[32X[104X
+  
+  [1X1.1-24 ViewGraph[101X
   
   [33X[1;0Y[29X[2XViewGraph[102X( [3XEdgeLabeledGraph[103X, [3XString[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
@@ -438,7 +469,7 @@
   [33X[0;0YThis takes an edge labeled graph and outputs code to view the graph in other
   software. Currently mathematica and sage are supported.[133X
   
-  [1X1.1-23 ViewGraph[101X
+  [1X1.1-25 ViewGraph[101X
   
   [33X[1;0Y[29X[2XViewGraph[102X( [3XGraph[103X, [3XString[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
