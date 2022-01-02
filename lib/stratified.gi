@@ -25,7 +25,7 @@ testList:=function(list)
 	while Length(templist)<>Length(elements) do
 		templist:=elements; #templist stores the old list
 		for i in list do
-			newEls:=List(elements, x->StratifiedProduct(x,i));
+			newEls:=List(elements, x->ChunkMultiply(x,i));
 			elements:=Union(elements,newEls);
 			od;
 # 			Print(elements,"\n\n");
