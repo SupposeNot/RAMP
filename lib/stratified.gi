@@ -1,6 +1,6 @@
 
 
-InstallMethod(StratifiedProduct,
+InstallMethod(ChunkMultiply,
 	[IsList,IsList],
 	function(el1,el2)
 	local perm1, list1, perm2, list2, newlist, newperm, n;
