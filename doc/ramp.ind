@@ -10,10 +10,10 @@
 
   \indexspace
 
-  \item \texttt  {AbstractPolytope}, \hyperpage{76}
-  \item \texttt  {AbstractRegularPolytope}, \hyperpage{76}
-  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{76}
-  \item \texttt  {AddOrAppend}, \hyperpage{78}
+  \item \texttt  {AbstractPolytope}, \hyperpage{78}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{78}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{78}
+  \item \texttt  {AddOrAppend}, \hyperpage{80}
   \item \texttt  {AddRanksInPosets}
     \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{62}
   \item \texttt  {AdjacentFlag}
@@ -71,6 +71,15 @@
     \subitem for IsPoset,IsPoset, \hyperpage{67}
   \item \texttt  {ChiralityGroup}
     \subitem for IsRotaryManiplex, \hyperpage{48}
+  \item \texttt  {ChunkGeneratedGroup}
+    \subitem for IsList, IsGroup, \hyperpage{75}
+    \subitem for IsList, IsPermGroup, \hyperpage{76}
+  \item \texttt  {ChunkGeneratedGroupElements}
+    \subitem for IsList, IsGroup, \hyperpage{76}
+  \item \texttt  {ChunkMultiply}
+    \subitem for IsList,IsList, \hyperpage{76}
+  \item \texttt  {ChunkPower}
+    \subitem for IsList,IsInt, \hyperpage{76}
   \item \texttt  {Cleave}
     \subitem for IsPoset,IsInt, \hyperpage{61}
   \item \texttt  {Comix}
@@ -220,7 +229,7 @@
 
   \item \texttt  {Icosadodecahedron}, \hyperpage{44}
   \item \texttt  {Icosahedron}, \hyperpage{40}
-  \item \texttt  {InfoRamp}, \hyperpage{76}
+  \item \texttt  {InfoRamp}, \hyperpage{78}
   \item \texttt  {InternallySelfDualPolyhedron1}
     \subitem for IsInt, \hyperpage{41}
   \item \texttt  {InternallySelfDualPolyhedron2}
@@ -388,7 +397,7 @@
     \subitem for IsInt, \hyperpage{28}
   \item \texttt  {MkPrime}
     \subitem for IsInt, \hyperpage{29}
-  \item \texttt  {MultPerm}, \hyperpage{77}
+  \item \texttt  {MultPerm}, \hyperpage{79}
 
   \indexspace
 
@@ -430,13 +439,13 @@
     \subitem for IsList,IsList, \hyperpage{60}
   \item \texttt  {PairCompareFlagsList}
     \subitem for IsList,IsList, \hyperpage{60}
-  \item \texttt  {ParseRotGpRels}, \hyperpage{77}
-  \item \texttt  {ParseStringCRels}, \hyperpage{77}
+  \item \texttt  {ParseRotGpRels}, \hyperpage{79}
+  \item \texttt  {ParseStringCRels}, \hyperpage{79}
   \item \texttt  {PartiallyCleave}
     \subitem for IsPoset,IsInt, \hyperpage{61}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{55}
-  \item \texttt  {PermFromRange}, \hyperpage{77}
+  \item \texttt  {PermFromRange}, \hyperpage{79}
   \item \texttt  {Petrial}
     \subitem for IsManiplex, \hyperpage{33}
   \item \texttt  {PetrieLength}
@@ -573,7 +582,7 @@
     \subitem for IsManiplex, IsManiplex, \hyperpage{35}
     \subitem for IsPoset,IsPoset, \hyperpage{68}
   \item \texttt  {ToroidalMap44}, \hyperpage{42}
-  \item \texttt  {TranslatePerm}, \hyperpage{76}
+  \item \texttt  {TranslatePerm}, \hyperpage{78}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{31}
   \item \texttt  {TruncatedCube}, \hyperpage{44}
@@ -614,7 +623,7 @@
 
   \indexspace
 
-  \item \texttt  {WrappedPosetOperation}, \hyperpage{78}
+  \item \texttt  {WrappedPosetOperation}, \hyperpage{80}
 
   \indexspace
 

@@ -18,6 +18,102 @@ InstallMethod(ChunkMultiply,
 	return [newperm,newlist];
 	end);
 
+
+InstallMethod(ChunkPower,
+	[IsList,IsInt],
+	function(el1,n)
+	local elnew, i;
+	elnew:=el1;
+	for i in [1..n-1] do
+		elnew:=ChunkMultiply(elnew,el1);
+		od;
+	return elnew;
+	end);
+
+InstallMethod(ChunkGeneratedGroup,
+	[IsList, IsPermGroup],
+	function(gens, grp)
+	local nGens, nChunk, e, id, grpEls, grpElsTemp, permGroup, x,y, newEls, permList, grpEls2, inGrpEls;
+	nGens:=Length(gens);
+	e:=One(grp);
+# 	if not(IsPermGroup(grp)) then SetReducedMultiplication(grp.1);fi;
+	grpEls:=ShallowCopy(gens);
+	grpElsTemp:=[];
+	nChunk:=Length(gens[1][2]);
+	id:=[(),List([1..nChunk],x->e)];
+	Append(grpEls,[id]);
+	while grpEls<>grpElsTemp do
+		grpElsTemp:=ShallowCopy(grpEls);
+		newEls:=Unique(Concatenation(List(grpEls,x->List(gens,y->ChunkMultiply(x,y)))));
+		newEls:=Filtered(newEls,x->not(x in grpEls));
+		grpEls:=Concatenation(grpEls,newEls);
+# 		Print(grpEls[Length(grpEls)],",",Length(grpEls),"\n");
+		od;
+	permList:=[];
+	for x in gens do
+		grpEls2:=List(grpEls,y->ChunkMultiply(y,x));
+		Add(permList,PermListList(grpEls,grpEls2));
+		od;
+	return Group(permList);
+	end);
+
+InstallOtherMethod(ChunkGeneratedGroup,
+	[IsList,IsGroup],
+	function(gens,grp)
+	local newgens, phi, permRep, x, y,z ;
+	phi:=IsomorphismPermGroup(grp);
+	newgens:=[];
+	for x in gens do
+		y:=[];
+		Add(y,x[1]);
+		Add(y,List(x[2],z->Image(phi,z)));
+		Add(newgens,y);
+		od;
+	return ChunkGeneratedGroup(newgens,Image(phi));
+	end);
+
+
+InstallMethod(ChunkGeneratedGroupElements,
+	[IsList, IsGroup],
+	function(gens, grp)
+	local nGens, nChunk, e, id, grpEls, grpElsTemp, permGroup, x,y, newEls, permList, grpEls2, testPair, inGrpEls;
+	nGens:=Length(gens);
+	e:=One(grp);
+#  	if not(IsPermGroup(grp)) then SetReducedMultiplication(grp.1);fi;
+	SetReducedMultiplication(grp.1);
+	grpEls:=ShallowCopy(gens);
+	grpElsTemp:=[];
+	nChunk:=Length(gens[1][2]);
+	id:=[(),List([1..nChunk],x->e)];
+	Append(grpEls,[id]);
+	testPair:=function(l1,l2)
+		local l11, l12, l21, l22, ind;
+		l11:=l1[1];l12:=l1[2];l21:=l2[1];l22:=l2[2];
+		if l11<>l21 then return false; fi;
+		for ind in [1..nChunk] do
+			if l12<>l22 then return false; fi;
+			od;
+		return true;
+		end;
+	inGrpEls:=function(l)
+		local elt;
+		for elt in grpEls do
+			if testPair(l,elt) then return true;fi;
+			od;
+		return false;
+		end;
+	Print("Elements generated so far:\n");
+	while grpEls<>grpElsTemp do
+		grpElsTemp:=ShallowCopy(grpEls);
+		newEls:=Unique(Concatenation(List(grpEls,x->List(gens,y->ChunkMultiply(x,y)))));
+		newEls:=Filtered(newEls,x->not(inGrpEls(x)));
+		grpEls:=Concatenation(grpEls,newEls);
+		Print(Length(grpEls),"\n");
+		od;
+		Print("\n Done\n");
+	return grpEls;
+	end);
+
 testList:=function(list)
 	local elements,templist, i, newEls, x;
 	elements:=list;

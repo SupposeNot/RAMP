@@ -6,23 +6,24 @@
 
 #! @Arguments element1, element2
 #! @Returns element
-#! @Description Elements are ordered pairs of the form [perm, list], where the elements of list are members of a group. Operation performed is consistent with that in defined in <Cite Key="PelWil18"/>.
+# Description Elements are ordered pairs of the form [perm, list], where the elements of list are members of a group. Operation performed is consistent with that in defined in <Cite Key="PelWil18">.
 DeclareOperation("ChunkMultiply", [IsList,IsList]);
 
 #! @Arguments element, integer
 #! @Returns element
-#! @Description Given an element compatible with the  ChunkMultiply operation, this function will compute the product of element with itself integer times.
+# Description Given an element compatible with the  ChunkMultiply operation, this function will compute the product of element with itself integer times.
 DeclareOperation("ChunkPower", [IsList,IsInt]);
 
 #! @Arguments list, group
 #! @Returns newList
-#! @Description Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.
+# Description Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.
 DeclareOperation("ChunkGeneratedGroupElements", [IsList, IsGroup]);
 
 #! @Arguments list, group
 #! @Returns permGroup
-#! @Description Given a list of generators compatible with the ChunkMultiply operation, this function will construct a representation of the group as a permutation group. Note that generators are of the form [perm, list], and each list is a list of elements from group.
-DeclareOperation("ChunkGeneratedGroup", [IsList, IsPermGroup]);
+#! Description Given a list of generators compatible with the ChunkMultiply operation, this function will construct a representation of the group as a permutation group. Note that generators are of the form [perm, list], and each list is a list of elements from group.
+DeclareOperation("ChunkGeneratedGroup", [IsList, IsGroup]);
+
 #! @BeginExampleSession
 #! gap> p:=Simplex(2); a:=AutomorphismGroup(p);
 #! Pgon(3)
