@@ -606,11 +606,17 @@ true
 
 <h5>12.2-11 <span class="Heading">Cleaving polytopes</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cleave</code>( <var class="Arg">polytope</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartiallyCleave</code>( <var class="Arg">arg1</var>, <var class="Arg">arg2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: cleavedPolytope</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cleave</code>( <var class="Arg">p</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartiallyCleave</code>( <var class="Arg">p</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPolytope</p>
 
-<p>Given a <var class="Arg">polytope</var> <span class="Math">\mathcal P</span>, and an integer <var class="Arg">k</var>, <code class="code">Cleave(polytope,k)</code> will construct the <span class="Math">k^{th}</span>-cleaved polytope of <span class="Math">\mathcal P</span>. Cleaved polytopes were introduced by Daniel Pellicer <a href="chapBib.html#biBPel18">[Pel18]</a> (<span class="URL"><a href="https://doi.org/10.1007/s00493-016-3518-3">https://doi.org/10.1007/s00493-016-3518-3</a></span>). Given a <var class="Arg">polytope</var> <span class="Math">\mathcal P</span>, and an integer <var class="Arg">k</var>, <code class="code">PartiallyCleave(polytope,k)</code> will construct the <span class="Math">k^{th}</span>-partially cleaved polytope of <span class="Math">\mathcal P</span>.</p>
+<p>Given an IsPolytope <var class="Arg">p</var>, and an IsInt <var class="Arg">k</var>, <code class="code">Cleave(polytope,k)</code> will construct the <span class="Math">k^{th}</span>-cleaved polytope of <var class="Arg">p</var>. Cleaved polytopes were introduced by Daniel Pellicer <a href="chapBib.html#biBPel18">[Pel18]</a>. <code class="code">PartiallyCleave(p,k)</code> will construct the <span class="Math">k^{\textrm{th}}</span>-partially cleaved polytope of <var class="Arg">p</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cleave(PosetFromManiplex(Cube(4)),3);</span>
+A poset on 290 elements using the IsPosetOfIndices representation.
+</pre></div>
 
 <p><a id="X85445BE07F161F88" name="X85445BE07F161F88"></a></p>
 

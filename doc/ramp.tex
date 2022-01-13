@@ -2416,7 +2416,7 @@ the trivial extension of \mbox{\texttt{\mdseries\slshape M}}, also known as \tex
 \label{FlatExtension:for IsManiplex, IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the flat extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. (As defined in "Flat Extensions of Abstract Polytopes".) 
+the flat extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. (As defined in \emph{Flat Extensions of Abstract Polytopes} \cite{Cun21}.) 
 
 
 
@@ -2838,8 +2838,7 @@ generators. }
 }\hfill{\scriptsize (function)}}\\
 
 
- Returns all regular polyhedra with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 4000 or less. You can also set options
-"nondegenerate", "nonflat", and "nontoroidal". 
+ Returns all regular polyhedra with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 4000 or less. You can also set options \texttt{nondegenerate}, \texttt{nonflat}, and \texttt{nontoroidal}. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   L1 := SmallRegularPolyhedra(500);;
   L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
@@ -2905,8 +2904,7 @@ generators. }
 }\hfill{\scriptsize (function)}}\\
 
 
- Returns all regular 4-polytopes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 2000 or less. If the option
-'nonpolytopal' is set, only returns maniplexes that are not polyhedra. }
+ Returns all regular 4-polytopes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a maxsize of 2000 or less. If the option \texttt{nonpolytopal} is set, only returns maniplexes that are not polyhedra. }
 
  }
 
@@ -2931,13 +2929,11 @@ generators. }
 \label{Vertex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the universal 0-polytope. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the universal 0-polytope. }
 
  
 
@@ -2948,13 +2944,11 @@ the universal 0-polytope.
 \label{Edge}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the universal 1-polytope. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the universal 1-polytope. }
 
  
 
@@ -2965,13 +2959,11 @@ the universal 1-polytope.
 \label{Pgon:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the p-gon. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the p-gon. }
 
  
 
@@ -2982,13 +2974,11 @@ the p-gon.
 \label{Cube:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the n-cube. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the n-cube. }
 
  
 
@@ -2999,13 +2989,11 @@ the n-cube.
 \label{HemiCube:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the n-hemi-cube. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the n-hemi-cube. }
 
  
 
@@ -3016,13 +3004,11 @@ the n-hemi-cube.
 \label{CrossPolytope:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the n-cross-polytope. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the n-cross-polytope. }
 
  
 
@@ -3033,13 +3019,11 @@ the n-cross-polytope.
 \label{HemiCrossPolytope:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the n-hemi-cross-polytope. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the n-hemi-cross-polytope. }
 
  
 
@@ -3050,13 +3034,11 @@ the n-hemi-cross-polytope.
 \label{Simplex:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the n-simplex. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the n-simplex. }
 
  
 
@@ -3067,13 +3049,11 @@ the n-simplex.
 \label{CubicTiling:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the rank n+1 polytope; the tiling of E\texttt{\symbol{94}}n by n-cubes. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the rank $n+1$ polytope; the tiling of $E^n$ by $n$-cubes. }
 
  
 
@@ -3084,13 +3064,11 @@ the rank n+1 polytope; the tiling of E\texttt{\symbol{94}}n by n-cubes.
 \label{Dodecahedron}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the dodecahedron, \texttt{\symbol{123}}5, 3\texttt{\symbol{125}}. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the dodecahedron, \texttt{\texttt{\symbol{123}}5, 3\texttt{\symbol{125}}}. }
 
  
 
@@ -3101,14 +3079,11 @@ the dodecahedron, \texttt{\symbol{123}}5, 3\texttt{\symbol{125}}.
 \label{HemiDodecahedron}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the hemi-dodecahedron, \texttt{\symbol{123}}5,
-3\texttt{\symbol{125}}{\textunderscore}5. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the hemi-dodecahedron, \texttt{\texttt{\symbol{123}}5, 3\texttt{\symbol{125}}{\textunderscore}5}. }
 
  
 
@@ -3119,13 +3094,11 @@ the hemi-dodecahedron, \texttt{\symbol{123}}5,
 \label{Icosahedron}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the icosahedron, \texttt{\symbol{123}}3, 5\texttt{\symbol{125}}. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the icosahedron, \texttt{\texttt{\symbol{123}}3, 5\texttt{\symbol{125}}}. }
 
  
 
@@ -3136,14 +3109,11 @@ the icosahedron, \texttt{\symbol{123}}3, 5\texttt{\symbol{125}}.
 \label{HemiIcosahedron}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the hemi-icosahedron, \texttt{\symbol{123}}3,
-5\texttt{\symbol{125}}{\textunderscore}5. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the hemi-icosahedron, \texttt{\texttt{\symbol{123}}3, 5\texttt{\symbol{125}}{\textunderscore}5}. }
 
  
 
@@ -3154,13 +3124,11 @@ the hemi-icosahedron, \texttt{\symbol{123}}3,
 \label{24Cell}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the 24-cell, \texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the 24-cell, \texttt{\texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}}. }
 
  
 
@@ -3171,14 +3139,11 @@ the 24-cell, \texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}.
 \label{Hemi24Cell}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the hemi-24-cell, \texttt{\symbol{123}}3, 4,
-3\texttt{\symbol{125}}{\textunderscore}6. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the hemi-24-cell, \texttt{\texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}{\textunderscore}6}. }
 
  
 
@@ -3189,13 +3154,11 @@ the hemi-24-cell, \texttt{\symbol{123}}3, 4,
 \label{120Cell}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}. }
 
  
 
@@ -3206,14 +3169,11 @@ the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}.
 \label{Hemi120Cell}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the hemi-120-cell, \texttt{\symbol{123}}5, 3,
-3\texttt{\symbol{125}}{\textunderscore}15. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the hemi-120-cell, \texttt{\texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}{\textunderscore}15}. }
 
  
 
@@ -3224,13 +3184,11 @@ the hemi-120-cell, \texttt{\symbol{123}}5, 3,
 \label{600Cell}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the 600-cell, \texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the 600-cell, \texttt{\texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}}. }
 
  
 
@@ -3241,14 +3199,11 @@ the 600-cell, \texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}.
 \label{Hemi600Cell}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the hemi-600-cell, \texttt{\symbol{123}}3, 3,
-5\texttt{\symbol{125}}{\textunderscore}15. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns the hemi-600-cell, \texttt{\texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}{\textunderscore}15}. }
 
  
 
@@ -3259,13 +3214,11 @@ the hemi-600-cell, \texttt{\symbol{123}}3, 3,
 \label{BrucknerSphere}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-Bruckner's sphere. 
+IsPolytope 
 
 
 
- 
-
- }
+ Returns Bruckner's sphere. }
 
  
 
@@ -3276,14 +3229,11 @@ Bruckner's sphere.
 \label{InternallySelfDualPolyhedron1:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the internally self-dual polyhedron of type \texttt{\symbol{123}}p,
-p\texttt{\symbol{125}} described in Theorem 5.3 of \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). p must be at least 7. 
+IsPolytope 
 
 
 
- 
-
- }
+ Constructs the internally self-dual polyhedron of type \texttt{\texttt{\symbol{123}}p, p\texttt{\symbol{125}}} described in Theorem 5.3 of \cite{CunMix17}. \#(\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). p must be at least 7. }
 
  
 
@@ -3294,14 +3244,11 @@ p\texttt{\symbol{125}} described in Theorem 5.3 of \cite{CunMix17} (\href{ https
 \label{InternallySelfDualPolyhedron2:for IsInt, IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the internally self-dual polyhedron of type \texttt{\symbol{123}}p,
-p\texttt{\symbol{125}} described in Theorem 5.8 of \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). p must be even and at least 6, and k must be odd. 
+IsPolytope 
 
 
 
- 
-
- }
+ Constructs the internally self-dual polyhedron of type \texttt{\texttt{\symbol{123}}p, p\texttt{\symbol{125}}} described in Theorem 5.8 of \cite{CunMix17}.\# (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). \texttt{p} must be even and at least 6, and \texttt{k} must be odd. }
 
  }
 
@@ -3319,12 +3266,13 @@ p\texttt{\symbol{125}} described in Theorem 5.8 of \cite{CunMix17} (\href{ https
 \label{FlatOrientablyRegularPolyhedron:for IsInt, IsInt, IsInt, IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-the flat orientably regular polyhedron with automorphism group [p, q] / (r2 r1
-r0 r1 = (r0 r1)\texttt{\symbol{94}}i (r1 r2)\texttt{\symbol{94}}j). 
+polyhedron 
 
 
 
- This function validates the inputs to make sure that the polyhedron is
+ \texttt{polyhedron} is the flat orientably regular polyhedron with automorphism group [p, q] / (r2
+r1 r0 r1 = (r0 r1)\texttt{\symbol{94}}i (r1 r2)\texttt{\symbol{94}}j). This
+function validates the inputs to make sure that the polyhedron is
 well-defined. Use FlatOrientablyRegularPolyhedronNC if you do not want this
 validation. }
 
@@ -3336,14 +3284,9 @@ validation. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedraOfType({\mdseries\slshape sym})\index{FlatOrientablyRegularPolyhedraOfType@\texttt{Flat}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polyhedra}\-\texttt{Of}\-\texttt{Type}!for IsList}
 \label{FlatOrientablyRegularPolyhedraOfType:for IsList}
 }\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-a list of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
 
 
-
- 
-
- }
+ Returns a list of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. }
 
  
 
@@ -3353,12 +3296,9 @@ a list of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\tex
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TightOrientablyRegularPolytopesOfType({\mdseries\slshape sym})\index{TightOrientablyRegularPolytopesOfType@\texttt{Tight}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polytopes}\-\texttt{Of}\-\texttt{Type}!for IsList}
 \label{TightOrientablyRegularPolytopesOfType:for IsList}
 }\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-a list of all tight, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
 
 
-
- When \mbox{\texttt{\mdseries\slshape sym}} has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(\mbox{\texttt{\mdseries\slshape sym}}). }
+ Returns a list of all tight, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. When \mbox{\texttt{\mdseries\slshape sym}} has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(\mbox{\texttt{\mdseries\slshape sym}}). }
 
  }
 
@@ -3596,6 +3536,8 @@ maniplex
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Facets(TruncatedIcosahedron());|
+  [ Pgon(6), Pgon(5) ]
 \end{Verbatim}
  
 
@@ -3911,7 +3853,7 @@ particularly robust at the moment. }
 
 
  Given a permutation group, it asks if the generators could be the connection
-group of a maniplex That is to say, are each of the generators and their
+group of a maniplex. That is to say, are each of the generators and their
 products fixed point free. }
 
  }
@@ -4835,21 +4777,24 @@ section
 \logpage{[ 12, 2, 11 ]}
 \hyperdef{L}{X7B693D8884B77C7C}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape polytope, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape p, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
 \label{Cleave:for IsPoset,IsInt}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartiallyCleave({\mdseries\slshape arg1, arg2})\index{PartiallyCleave@\texttt{PartiallyCleave}!for IsPoset,IsInt}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartiallyCleave({\mdseries\slshape p, k})\index{PartiallyCleave@\texttt{PartiallyCleave}!for IsPoset,IsInt}
 \label{PartiallyCleave:for IsPoset,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-cleavedPolytope 
+IsPolytope 
 
 
 
- Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{Cleave(polytope,k)} will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Cleaved polytopes were introduced by Daniel Pellicer \cite{Pel18} (\href{https://doi.org/10.1007/s00493-016-3518-3} {\texttt{https://doi.org/10.1007/s00493-016-3518-3}}). Given a \mbox{\texttt{\mdseries\slshape polytope}} $\mathcal P$, and an integer \mbox{\texttt{\mdseries\slshape k}}, \texttt{PartiallyCleave(polytope,k)} will construct the $k^{th}$-partially cleaved polytope of $\mathcal P$. }
+ Given an IsPolytope \mbox{\texttt{\mdseries\slshape p}}, and an IsInt \mbox{\texttt{\mdseries\slshape k}}, \texttt{Cleave(polytope,k)} will construct the $k^{th}$-cleaved polytope of \mbox{\texttt{\mdseries\slshape p}}. Cleaved polytopes were introduced by Daniel Pellicer \cite{Pel18}. \texttt{PartiallyCleave(p,k)} will construct the $k^{\textrm{th}}$-partially cleaved polytope of \mbox{\texttt{\mdseries\slshape p}}. }
 
  
-
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Cleave(PosetFromManiplex(Cube(4)),3);|
+  A poset on 290 elements using the IsPosetOfIndices representation.
+\end{Verbatim}
  }
 
  
@@ -5881,7 +5826,7 @@ maniplex
 
 
 
- Constructs the \emph{Tomotope} from \cite{MonPelWil11} }
+ Constructs the \emph{Tomotope} from \cite{MonPelWil12} }
 
  }
 
@@ -5991,6 +5936,49 @@ elements from group. }
   <permutation group with 3 generators>
   !gapprompt@gap>| !gapinput@Size(last);|
   1296
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{FullyStratifiedGroup (for IsList, IsGroup)}}
+\logpage{[ 16, 1, 5 ]}\nobreak
+\hyperdef{L}{X7C67C6B77C6C2114}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullyStratifiedGroup({\mdseries\slshape list, group})\index{FullyStratifiedGroup@\texttt{FullyStratifiedGroup}!for IsList, IsGroup}
+\label{FullyStratifiedGroup:for IsList, IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsPermGroup 
+
+
+
+ Implements fully stratified operations on maniplexes from \cite{CunPelWil22}. Given \mbox{\texttt{\mdseries\slshape list}} of generators compatible with the \texttt{ChunkMultiply} operation, \mbox{\texttt{\mdseries\slshape group}} is the underlying group in the representation (usually the connection group of
+the base), this will calculate the connection group of the resulting maniplex
+acting on the implicit flags of the construction. Function assumes that \mbox{\texttt{\mdseries\slshape list}} are the generators of the connection group of the resulting maniplex in the
+order $\langle r_0, r_1, \ldots, r_{d-1}\rangle$. It is possible that for some groups this function will behave poorly because
+GAP won't recognize equivalent representations of a group element. If so, try
+again with a permutation representation and let us know so we can modify the
+code to handle this problem better (didn't show up in our testing, but is a
+theoretical possibility). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=Simplex(2);; a:=AutomorphismGroup(p);|
+  <fp group of size 6 on the generators [ r0, r1 ]>
+  !gapprompt@gap>| !gapinput@e:=One(a);|
+  <identity ...>
+  !gapprompt@gap>| !gapinput@AssignGeneratorVariables(a);|
+  #I  Assigned the global variables [ r0, r1 ]
+  !gapprompt@gap>| !gapinput@s0:=[(3,4),[r0,r0,e,e,r0,r0]];|
+  [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ]
+  !gapprompt@gap>| !gapinput@s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];|
+  [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ]
+  !gapprompt@gap>| !gapinput@s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];|
+  [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ]
+  !gapprompt@gap>| !gapinput@gens:=[s0,s1,s2];|
+  [ [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ], 
+    [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ], 
+    [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ] ]
+  !gapprompt@gap>| !gapinput@Maniplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));|
+  true
 \end{Verbatim}
  }
 
@@ -6219,8 +6207,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

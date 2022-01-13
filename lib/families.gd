@@ -2,94 +2,102 @@
 #! @Chapter Families of Polytopes
 #! @Section Classical Polytopes
 
-#! @Arguments
-#! @Returns the universal 0-polytope.
+#! @Returns IsPolytope
+#! @Description Returns the universal 0-polytope.
 DeclareOperation("Vertex", []);
 
-#! @Arguments
-#! @Returns the universal 1-polytope.
+#! @Returns IsPolytope
+#! @Description Returns the universal 1-polytope.
 DeclareOperation("Edge", []);
 
 #! @Arguments p
-#! @Returns the p-gon.
+#! @Returns IsPolytope
+#! @Description Returns the p-gon.
 DeclareOperation("Pgon", [IsInt]);
 
 #! @Arguments n
-#! @Returns the n-cube.
+#! @Returns IsPolytope
+#! @Description Returns the n-cube.
 DeclareOperation("Cube", [IsInt]);
 
 #! @Arguments n
-#! @Returns the n-hemi-cube.
+#! @Returns IsPolytope
+#! @Description Returns the n-hemi-cube.
 DeclareOperation("HemiCube", [IsInt]);
 
 #! @Arguments n
-#! @Returns the n-cross-polytope.
+#! @Returns IsPolytope
+#! @Description Returns the n-cross-polytope.
 DeclareOperation("CrossPolytope", [IsInt]);
 
 #! @Arguments n
-#! @Returns the n-hemi-cross-polytope.
+#! @Returns IsPolytope
+#! @Description Returns the n-hemi-cross-polytope.
 DeclareOperation("HemiCrossPolytope", [IsInt]);
 
 #! @Arguments n
-#! @Returns the n-simplex.
+#! @Returns IsPolytope
+#! @Description Returns the n-simplex.
 DeclareOperation("Simplex", [IsInt]);
 
 #! @Arguments n
-#! @Returns the rank n+1 polytope; the tiling of E^n by n-cubes.
+#! @Returns IsPolytope
+#! @Description Returns the rank $n+1$ polytope; the tiling of $E^n$ by $n$-cubes.
 DeclareOperation("CubicTiling", [IsInt]);
 
-#! @Arguments
-#! @Returns the dodecahedron, {5, 3}.
+#! @Returns IsPolytope
+#! @Description Returns the dodecahedron, `{5, 3}`.
 DeclareOperation("Dodecahedron", []);
 
-#! @Arguments
-#! @Returns the hemi-dodecahedron, {5, 3}_5.
+#! @Returns IsPolytope
+#! @Description Returns the hemi-dodecahedron, `{5, 3}_5`.
 DeclareOperation("HemiDodecahedron", []);
 
-#! @Arguments
-#! @Returns the icosahedron, {3, 5}.
+#! @Returns IsPolytope
+#! @Description Returns the icosahedron, `{3, 5}`.
 DeclareOperation("Icosahedron", []);
 
-#! @Arguments
-#! @Returns the hemi-icosahedron, {3, 5}_5.
+#! @Returns IsPolytope
+#! @Description Returns the hemi-icosahedron, `{3, 5}_5`.
 DeclareOperation("HemiIcosahedron", []);
 
-#! @Arguments
-#! @Returns the 24-cell, {3, 4, 3}.
+#! @Returns IsPolytope
+#! @Description Returns the 24-cell, `{3, 4, 3}`.
 DeclareOperation("24Cell", []);
 
-#! @Arguments
-#! @Returns the hemi-24-cell, {3, 4, 3}_6.
+#! @Returns IsPolytope
+#! @Description Returns the hemi-24-cell, `{3, 4, 3}_6`.
 DeclareOperation("Hemi24Cell", []);
 
-#! @Arguments
-#! @Returns the 120-cell, {5, 3, 3}.
+#! @Returns IsPolytope
+#! @Description Returns the 120-cell, {5, 3, 3}.
 DeclareOperation("120Cell", []);
 
-#! @Arguments
-#! @Returns the hemi-120-cell, {5, 3, 3}_15.
+#! @Returns IsPolytope
+#! @Description Returns the hemi-120-cell, `{5, 3, 3}_15`.
 DeclareOperation("Hemi120Cell", []);
 
-#! @Arguments
-#! @Returns the 600-cell, {3, 3, 5}.
+#! @Returns IsPolytope
+#! @Description Returns the 600-cell, `{3, 3, 5}`.
 DeclareOperation("600Cell", []);
 
-#! @Arguments
-#! @Returns the hemi-600-cell, {3, 3, 5}_15.
+#! @Returns IsPolytope
+#! @Description Returns the hemi-600-cell, `{3, 3, 5}_15`.
 DeclareOperation("Hemi600Cell", []);
 
-#! @Arguments
-#! @Returns Bruckner's sphere.
+#! @Returns IsPolytope
+#! @Description Returns Bruckner's sphere.
 DeclareOperation("BrucknerSphere",[]);
 
 #! @Arguments p
-#! @Returns the internally self-dual polyhedron of type {p, p} described in Theorem 5.3 of
-#! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+#! @Returns IsPolytope
+#! @Description Constructs the internally self-dual polyhedron of type `{p, p}` described in Theorem 5.3 of
+#! <Cite Key="CunMix17"/>. #(<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
 #! p must be at least 7.
 DeclareOperation("InternallySelfDualPolyhedron1",[IsInt]);
 
 #! @Arguments p, k
-#! @Returns the internally self-dual polyhedron of type {p, p} described in Theorem 5.8 of
-#! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
-#! p must be even and at least 6, and k must be odd.
+#! @Returns IsPolytope
+#! @Description Constructs  the internally self-dual polyhedron of type `{p, p}` described in Theorem 5.8 of <Cite Key="CunMix17"/>.# (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+#! `p` must be even and at least 6, and `k` must be odd.
 DeclareOperation("InternallySelfDualPolyhedron2",[IsInt, IsInt]);

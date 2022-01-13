@@ -24,7 +24,7 @@ DeclareOperation("TrivialExtension", [IsManiplex]);
 
 #! @Arguments M, k
 #! @Returns the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
-#! (As defined in "Flat Extensions of Abstract Polytopes".)
+#! (As defined in **Flat Extensions of Abstract Polytopes** <Cite Key="Cun21"/>.)
 #! @Description Currently only defined for reflexible maniplexes.
 DeclareOperation("FlatExtension", [IsManiplex, IsInt]);
 

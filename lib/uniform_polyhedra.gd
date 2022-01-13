@@ -64,8 +64,8 @@ DeclareOperation("Icosadodecahedron",[]);
 #! @Description Constructs the truncated icosahedron.
 DeclareOperation("TruncatedIcosahedron",[]);
 #! @BeginExampleSession
-# gap> Facets(TruncatedIcosahedron());
-# [ Pgon(6), Pgon(5) ]
+#! gap> Facets(TruncatedIcosahedron());
+#! [ Pgon(6), Pgon(5) ]
 #! @EndExampleSession
 
 #! @Arguments

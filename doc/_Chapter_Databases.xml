@@ -66,7 +66,7 @@
  <Description>
  Returns all regular polyhedra with sizes in <A>sizerange</A> flags.
  Currently supports a maxsize of 4000 or less.
- You can also set options "nondegenerate", "nonflat", and "nontoroidal".
+ You can also set options <Code>nondegenerate</Code>, <Code>nonflat</Code>, and <Code>nontoroidal</Code>.
 <Example><![CDATA[
 L1 := SmallRegularPolyhedra(500);;
 L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
@@ -119,7 +119,7 @@ L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
  <Description>
  Returns all regular 4-polytopes with sizes in <A>sizerange</A> flags.
  Currently supports a maxsize of 2000 or less.
- If the option 'nonpolytopal' is set, only returns maniplexes that
+ If the option <Code>nonpolytopal</Code> is set, only returns maniplexes that
  are not polyhedra.
  </Description>
 </ManSection>

@@ -162,12 +162,19 @@ DeclareOperation("Section",[IsFace, IsFace, IsPoset]);
 
 #! @BeginGroup Cleaving
 #! @GroupTitle Cleaving polytopes
-#! @Arguments polytope, k
-#! @Returns cleavedPolytope
-#! @Description Given a <A>polytope</A> $\mathcal P$, and an integer <A>k</A>, `Cleave(polytope,k)` will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/> (<URL>https://doi.org/10.1007/s00493-016-3518-3</URL>). 
+#! @Arguments p, k
+#! @Returns IsPolytope
+#! @Description Given an IsPolytope <A>p</A>, and an IsInt <A>k</A>, `Cleave(polytope,k)` will construct the $k^{th}$-cleaved polytope of <A>p</A>. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/>. 
 DeclareOperation("Cleave", [IsPoset,IsInt]);
+#! @BeginExampleSession
+#! gap> Cleave(PosetFromManiplex(Cube(4)),3);
+#! A poset on 290 elements using the IsPosetOfIndices representation.
+#! @EndExampleSession
 
-#! 
-#! @Description Given a <A>polytope</A> $\mathcal P$, and an integer <A>k</A>, `PartiallyCleave(polytope,k)` will construct the $k^{th}$-partially cleaved polytope of $\mathcal P$.
+#! @Arguments p, k
+#! @Returns IsPolytope
+#! @Description `PartiallyCleave(p,k)` will construct the $k^{\textrm{th}}$-partially cleaved polytope of <A>p</A>.
 DeclareOperation("PartiallyCleave", [IsPoset,IsInt]);
+
+
 #! @EndGroup Cleaving

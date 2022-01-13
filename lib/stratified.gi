@@ -114,6 +114,29 @@ InstallMethod(ChunkGeneratedGroupElements,
 	return grpEls;
 	end);
 
+InstallMethod(FullyStratifiedGroup,
+	[IsList, IsGroup],
+	function(gens,grp)
+	local nGrp, nBlocks, els, flags, permedFlags, permGens, x, y, applyGen, gen, elt;
+	nGrp:=Size(grp);
+	if IsPermGroup(grp)=false then SetReducedMultiplication(grp.1);fi;
+# 	We could, if it turns out to cause trouble, do a conversion that sends grp to a permutation group. Hopefully we don't have problems there.
+	nBlocks:=Length(gens[1][2]);
+	els:=Elements(grp);
+	flags:=Cartesian([1..nBlocks],els);
+	permGens:=[];
+	applyGen:=function(gen, elt)
+		return [elt[1]^gen[1],elt[2]*gen[2][elt[1]]];
+		end;
+	for x in gens do
+		permedFlags:=List(flags,y->applyGen(x,y));
+# 		Print(permedFlags,"\n");
+		Add(permGens,PermListList(flags,permedFlags));
+		od;
+# 	Print(flags,"\n");
+	return Group(permGens);
+	end);
+
 testList:=function(list)
 	local elements,templist, i, newEls, x;
 	elements:=list;

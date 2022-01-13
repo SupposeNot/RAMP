@@ -33,7 +33,7 @@
   
   [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe  flat extension of [3XM[103X with last entry of Schlafli symbol [3Xk[103X. (As
-            defined in "Flat Extensions of Abstract Polytopes".)[133X
+            defined in [13XFlat Extensions of Abstract Polytopes[113X [Cun21].)[133X
   
   [33X[0;0YCurrently only defined for reflexible maniplexes.[133X
   
@@ -71,7 +71,7 @@
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YReturns  whether  this  maniplex  is  "internally  self-dual", as defined by
-  Cunningham  and  Mixer in [CM17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
   That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
   that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
   automorphism.  If the optional group element [3Xx[103X is given, then we first check
@@ -99,7 +99,7 @@
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YReturns  whether  this  maniplex  is  "externally  self-dual", as defined by
-  Cunningham  and  Mixer in [CM17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
   That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
   that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  outer
   automorphism.[133X

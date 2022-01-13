@@ -499,16 +499,19 @@
   
   [1X12.2-11 [33X[0;0YCleaving polytopes[133X[101X
   
-  [33X[1;0Y[29X[2XCleave[102X( [3Xpolytope[103X, [3Xk[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XPartiallyCleave[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YcleavedPolytope[133X
+  [33X[1;0Y[29X[2XCleave[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPartiallyCleave[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YGiven  a  [3Xpolytope[103X  [23X\mathcal  P[123X,  and  an integer [3Xk[103X, [10XCleave(polytope,k)[110X will
-  construct  the [23Xk^{th}[123X-cleaved polytope of [23X\mathcal P[123X. Cleaved polytopes were
-  introduced           by           Daniel           Pellicer          [Pel18]
-  ([7Xhttps://doi.org/10.1007/s00493-016-3518-3[107X).  Given  a  [3Xpolytope[103X [23X\mathcal P[123X,
-  and   an   integer   [3Xk[103X,   [10XPartiallyCleave(polytope,k)[110X   will  construct  the
-  [23Xk^{th}[123X-partially cleaved polytope of [23X\mathcal P[123X.[133X
+  [33X[0;0YGiven an IsPolytope [3Xp[103X, and an IsInt [3Xk[103X, [10XCleave(polytope,k)[110X will construct the
+  [23Xk^{th}[123X-cleaved  polytope  of  [3Xp[103X. Cleaved polytopes were introduced by Daniel
+  Pellicer     [Pel18].     [10XPartiallyCleave(p,k)[110X     will     construct    the
+  [23Xk^{\textrm{th}}[123X-partially cleaved polytope of [3Xp[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCleave(PosetFromManiplex(Cube(4)),3);[127X[104X
+    [4X[28XA poset on 290 elements using the IsPosetOfIndices representation.[128X[104X
+  [4X[32X[104X
   
   
   [1X12.3 [33X[0;0YElement Constructors[133X[101X

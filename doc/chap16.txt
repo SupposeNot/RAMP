@@ -67,3 +67,42 @@
     [4X[28X1296[128X[104X
   [4X[32X[104X
   
+  [1X16.1-5 FullyStratifiedGroup[101X
+  
+  [33X[1;0Y[29X[2XFullyStratifiedGroup[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
+  
+  [33X[0;0YImplements  fully  stratified  operations  on maniplexes from [CPW22]. Given
+  [3Xlist[103X of generators compatible with the [10XChunkMultiply[110X operation, [3Xgroup[103X is the
+  underlying  group in the representation (usually the connection group of the
+  base),  this  will  calculate the connection group of the resulting maniplex
+  acting on the implicit flags of the construction. Function assumes that [3Xlist[103X
+  are  the generators of the connection group of the resulting maniplex in the
+  order [23X\langle r_0, r_1, \ldots, r_{d-1}\rangle[123X. It is possible that for some
+  groups  this  function  will  behave  poorly  because  GAP  won't  recognize
+  equivalent  representations  of  a  group  element.  If so, try again with a
+  permutation  representation  and  let  us  know so we can modify the code to
+  handle  this  problem  better  (didn't  show  up  in  our  testing, but is a
+  theoretical possibility).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=Simplex(2);; a:=AutomorphismGroup(p);[127X[104X
+    [4X[28X<fp group of size 6 on the generators [ r0, r1 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xe:=One(a);[127X[104X
+    [4X[28X<identity ...>[128X[104X
+    [4X[25Xgap>[125X [27XAssignGeneratorVariables(a);[127X[104X
+    [4X[28X#I  Assigned the global variables [ r0, r1 ][128X[104X
+    [4X[25Xgap>[125X [27Xs0:=[(3,4),[r0,r0,e,e,r0,r0]];[127X[104X
+    [4X[28X[ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xs1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];[127X[104X
+    [4X[28X[ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xs2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];[127X[104X
+    [4X[28X[ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ][128X[104X
+    [4X[25Xgap>[125X [27Xgens:=[s0,s1,s2];[127X[104X
+    [4X[28X[ [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ], [128X[104X
+    [4X[28X  [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ], [128X[104X
+    [4X[28X  [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XManiplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  

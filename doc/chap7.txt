@@ -51,8 +51,8 @@
   [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  regular  polyhedra  with  sizes  in [3Xsizerange[103X flags. Currently
-  supports   a   maxsize   of   4000   or  less.  You  can  also  set  options
-  "nondegenerate", "nonflat", and "nontoroidal".[133X
+  supports  a maxsize of 4000 or less. You can also set options [10Xnondegenerate[110X,
+  [10Xnonflat[110X, and [10Xnontoroidal[110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[28XL1 := SmallRegularPolyhedra(500);;[128X[104X
@@ -93,6 +93,6 @@
   [33X[1;0Y[29X[2XSmallReflexible3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
   
   [33X[0;0YReturns  all  regular  4-polytopes  with sizes in [3Xsizerange[103X flags. Currently
-  supports  a  maxsize  of  2000 or less. If the option 'nonpolytopal' is set,
-  only returns maniplexes that are not polyhedra.[133X
+  supports  a maxsize of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
+  returns maniplexes that are not polyhedra.[133X
   
