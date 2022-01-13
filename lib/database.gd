@@ -76,3 +76,20 @@ DeclareGlobalFunction("SmallChiral4Polytopes");
 #! If the option 'nonpolytopal' is set, only returns maniplexes that
 #! are not polyhedra.
 DeclareGlobalFunction("SmallReflexible3Maniplexes");
+
+#! @Arguments minsize, maxsize[, func1, val1, func2, val2, ...]
+#! @Returns IsList
+#! @Description Returns a list of all regular polyhedra with at least <A>minsize</A>
+#! at at most <A>maxsize</A> flags. Optionally, you may include any number of pairs
+#! of functions and values, in which case this only returns those polyhedra such that
+#! the given functions have the given values.
+#! The name of this function is temporary and this function is here as a proof-of-concept.
+DeclareGlobalFunction("SRP");
+#! @BeginExampleSession
+#! gap> SRP(1,200,SchlafliSymbol,[4,4]);
+#! [ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
+#! gap> SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);
+#! [ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
+#! gap> SRP(1,32,p->SchlafliSymbol(p)[1], 4);
+#! [ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+#! @EndExampleSession
