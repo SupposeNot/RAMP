@@ -39,6 +39,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7C5BEAD87A858EE7">7.1-9 SmallChiralPolyhedra</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X85ED37A97CE7F77C">7.1-10 SmallChiral4Polytopes</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7ED0E4347B0192A6">7.1-11 SmallReflexible3Maniplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X78C0C8BD81743643">7.1-12 SRP</a></span>
 </div></div>
 </div>
 
@@ -131,6 +132,25 @@ L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallReflexible3Maniplexes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a maxsize of 2000 or less. If the option <code class="code">nonpolytopal</code> is set, only returns maniplexes that are not polyhedra.</p>
+
+<p><a id="X78C0C8BD81743643" name="X78C0C8BD81743643"></a></p>
+
+<h5>7.1-12 SRP</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SRP</code>( <var class="Arg">minsize</var>, <var class="Arg">maxsize</var>[, <var class="Arg">func1</var>, <var class="Arg">val1</var>, <var class="Arg">func2</var>, <var class="Arg">val2</var>, <var class="Arg">...</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list of all regular polyhedra with at least <var class="Arg">minsize</var> at at most <var class="Arg">maxsize</var> flags. Optionally, you may include any number of pairs of functions and values, in which case this only returns those polyhedra such that the given functions have the given values. The name of this function is temporary and this function is here as a proof-of-concept.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4]);</span>
+[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);</span>
+[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,32,p-&gt;SchlafliSymbol(p)[1], 4);</span>
+[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap6_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Next Chapter]</a>&nbsp;  </div>

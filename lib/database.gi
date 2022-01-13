@@ -580,3 +580,13 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 	
 	return manis;
 	end);
+	
+InstallGlobalFunction(SRP,
+	function(minsize, maxsize, arg...)
+	local L, i;
+	L := SmallRegularPolyhedra([minsize, maxsize]);
+	for i in [1..Size(arg)/2] do
+		L := Filtered(L, x -> arg[2*i-1](x) = arg[2*i]);
+	od;
+	return L;
+	end);
