@@ -48,3 +48,30 @@ DeclareOperation("ChunkGeneratedGroup", [IsList, IsPermGroup]);
 #! gap> Size(last);
 #! 1296
 #! @EndExampleSession
+
+
+#! @Arguments list, group
+#! @Returns IsPermGroup
+#! @Description Implements fully stratified operations on maniplexes from <Cite Key="CunPelWil22"/>. Given <A>list</A> of generators compatible with the `ChunkMultiply` operation, <A>group</A> is the underlying group in the representation (usually the connection group of the base), this will calculate the connection group of the resulting maniplex acting on the implicit flags of the construction. Function assumes that <A>list</A> are the generators of the connection group of the resulting maniplex in the order $\langle r_0, r_1, \ldots, r_{d-1}\rangle$.
+#! It is possible that for some groups this function will behave poorly because GAP won't recognize equivalent representations of a group element. If so, try again with a permutation representation and let us know so we can modify the code to handle this problem better (didn't show up in our testing, but is a theoretical possibility).
+DeclareOperation("FullyStratifiedGroup", [IsList, IsGroup]);
+#! @BeginExampleSession
+#! gap> p:=Simplex(2);; a:=AutomorphismGroup(p);
+#! <fp group of size 6 on the generators [ r0, r1 ]>
+#! gap> e:=One(a);
+#! <identity ...>
+#! gap> AssignGeneratorVariables(a);
+#! #I  Assigned the global variables [ r0, r1 ]
+#! gap> s0:=[(3,4),[r0,r0,e,e,r0,r0]];
+#! [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ]
+#! gap> s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];
+#! [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ]
+#! gap> s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];
+#! [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ]
+#! gap> gens:=[s0,s1,s2];
+#! [ [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ], 
+#!   [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ], 
+#!   [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ] ]
+#! gap> Maniplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));
+#! true
+#! @EndExampleSession

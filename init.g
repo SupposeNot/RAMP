@@ -5,6 +5,8 @@
 ##    
 ##
 
+# ReadPackage( "ramp", "lib/_dochack.gd");
+
 ReadPackage( "ramp", "lib/types.gd" ); 
 ReadPackage( "ramp", "lib/sggi.gd" );
 

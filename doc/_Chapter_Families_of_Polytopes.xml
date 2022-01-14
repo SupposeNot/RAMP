@@ -9,222 +9,223 @@
 
 <ManSection>
   <Oper Arg="" Name="Vertex" />
- <Returns>the universal 0-polytope.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the universal 0-polytope.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Edge" />
- <Returns>the universal 1-polytope.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the universal 1-polytope.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="p" Name="Pgon" Label="for IsInt"/>
- <Returns>the p-gon.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the p-gon.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="Cube" Label="for IsInt"/>
- <Returns>the n-cube.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the n-cube.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="HemiCube" Label="for IsInt"/>
- <Returns>the n-hemi-cube.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the n-hemi-cube.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="CrossPolytope" Label="for IsInt"/>
- <Returns>the n-cross-polytope.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the n-cross-polytope.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="HemiCrossPolytope" Label="for IsInt"/>
- <Returns>the n-hemi-cross-polytope.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the n-hemi-cross-polytope.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="Simplex" Label="for IsInt"/>
- <Returns>the n-simplex.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the n-simplex.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="n" Name="CubicTiling" Label="for IsInt"/>
- <Returns>the rank n+1 polytope; the tiling of E^n by n-cubes.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the rank <Math>n+1</Math> polytope; the tiling of <Math>E^n</Math> by <Math>n</Math>-cubes.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Dodecahedron" />
- <Returns>the dodecahedron, {5, 3}.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the dodecahedron, <Code>{5, 3}</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="HemiDodecahedron" />
- <Returns>the hemi-dodecahedron, {5, 3}_5.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the hemi-dodecahedron, <Code>{5, 3}_5</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Icosahedron" />
- <Returns>the icosahedron, {3, 5}.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the icosahedron, <Code>{3, 5}</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="HemiIcosahedron" />
- <Returns>the hemi-icosahedron, {3, 5}_5.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the hemi-icosahedron, <Code>{3, 5}_5</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="24Cell" />
- <Returns>the 24-cell, {3, 4, 3}.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the 24-cell, <Code>{3, 4, 3}</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Hemi24Cell" />
- <Returns>the hemi-24-cell, {3, 4, 3}_6.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the hemi-24-cell, <Code>{3, 4, 3}_6</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="120Cell" />
- <Returns>the 120-cell, {5, 3, 3}.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the 120-cell, {5, 3, 3}.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Hemi120Cell" />
- <Returns>the hemi-120-cell, {5, 3, 3}_15.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the hemi-120-cell, <Code>{5, 3, 3}_15</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="600Cell" />
- <Returns>the 600-cell, {3, 3, 5}.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the 600-cell, <Code>{3, 3, 5}</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="Hemi600Cell" />
- <Returns>the hemi-600-cell, {3, 3, 5}_15.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns the hemi-600-cell, <Code>{3, 3, 5}_15</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="" Name="BrucknerSphere" />
- <Returns>Bruckner's sphere.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Returns Bruckner's sphere.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="p" Name="InternallySelfDualPolyhedron1" Label="for IsInt"/>
- <Returns>the internally self-dual polyhedron of type {p, p} described in Theorem 5.3 of  <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
-  p must be at least 7.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Constructs the internally self-dual polyhedron of type <Code>{p, p}</Code> described in Theorem 5.3 of
+ <Cite Key="CunMix17"/>. #(<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
+ p must be at least 7.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="p, k" Name="InternallySelfDualPolyhedron2" Label="for IsInt, IsInt"/>
- <Returns>the internally self-dual polyhedron of type {p, p} described in Theorem 5.8 of  <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
-  p must be even and at least 6, and k must be odd.
+ <Returns>IsPolytope
 </Returns>
  <Description>
-<P/>
+Constructs the internally self-dual polyhedron of type <Code>{p, p}</Code> described in Theorem 5.8 of <Cite Key="CunMix17"/>.# (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>).
+ <Code>p</Code> must be even and at least 6, and <Code>k</Code> must be odd.
  </Description>
 </ManSection>
 
@@ -237,10 +238,10 @@
 
 <ManSection>
   <Oper Arg="p, q, i, j" Name="FlatOrientablyRegularPolyhedron" Label="for IsInt, IsInt, IsInt, IsInt"/>
- <Returns>the flat orientably regular polyhedron with automorphism group  [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j).
+ <Returns>polyhedron
 </Returns>
  <Description>
-This function validates the inputs to make sure that the polyhedron is well-defined.
+<Code>polyhedron</Code> is the flat orientably regular polyhedron with automorphism group [p, q] / (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function validates the inputs to make sure that the polyhedron is well-defined.
  Use FlatOrientablyRegularPolyhedronNC if you do not want this validation.
  </Description>
 </ManSection>
@@ -248,20 +249,16 @@ This function validates the inputs to make sure that the polyhedron is well-defi
 
 <ManSection>
   <Oper Arg="sym" Name="FlatOrientablyRegularPolyhedraOfType" Label="for IsList"/>
- <Returns>a list of all flat, orientably regular polyhedra with Schlafli symbol <A>sym</A>.
-</Returns>
  <Description>
-<P/>
+Returns a list of all flat, orientably regular polyhedra with Schlafli symbol <A>sym</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="sym" Name="TightOrientablyRegularPolytopesOfType" Label="for IsList"/>
- <Returns>a list of all tight, orientably regular polytopes with Schlafli symbol <A>sym</A>.
-</Returns>
  <Description>
-When <A>sym</A> has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(<A>sym</A>).
+Returns a list of all tight, orientably regular polytopes with Schlafli symbol <A>sym</A>. When <A>sym</A> has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(<A>sym</A>).
  </Description>
 </ManSection>
 
@@ -453,6 +450,8 @@ Constructs the truncated icosahedron.
 
 
 <Example><![CDATA[
+gap> Facets(TruncatedIcosahedron());
+[ Pgon(6), Pgon(5) ]
 ]]></Example>
 
 

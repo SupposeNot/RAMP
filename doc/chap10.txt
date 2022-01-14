@@ -1,76 +1,115 @@
   
-  [1X10 [33X[0;0YMixing of Maniplexes[133X[101X
+  [1X10 [33X[0;0YBasics[133X[101X
   
   
-  [1X10.1 [33X[0;0YMixing of Maniplexes functions[133X[101X
+  [1X10.1 [33X[0;0YConstructors[133X[101X
   
-  [1X10.1-1 Mix[101X
   
-  [33X[1;0Y[29X[2XMix[102X( [3Xpermgroup[103X, [3Xpermgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGroup [110X.[133X
+  [1X10.1-1 [33X[0;0YReflexibleManiplex[133X[101X
   
-  [33X[0;0YGiven  two  (permutation) groups returns the mix of those groups. Note, also
-  works with FPgroups.[133X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
   
-  [33X[0;0YHere we build the mix of the connection groups of a 3-cube and an edge.[133X
+  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
+  maniplex  with  that automorphism group, where the privileged generators are
+  those returned by GeneratorsOfGroup(g).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg1:=ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27Xg2:=ConnectionGroup(Edge());[127X[104X
-    [4X[28XGroup([ (1,2) ])[128X[104X
-    [4X[25Xgap>[125X [27XMix(g1,g2);[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
+    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
+    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X10.1-2 Mix[101X
+  [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
+  bypass that check. The second form returns the universal reflexible maniplex
+  with  Schlafli symbol [3Xsym[103X. If the optional argument [3Xrelations[103X is given, then
+  we  return  the  reflexible  maniplex with the given defining relations. The
+  relations  can be given by a list of Tietze words or as a string of relators
+  or relations that involve r0 etc.[133X
   
-  [33X[1;0Y[29X[2XMix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
+    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
+  [4X[32X[104X
   
-  [33X[0;0YReturns the Mix of two Finitely Presented groups gp and gq.[133X
+  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
+  one  given. This may not be the correct Schlafli symbol, since the relations
+  may  cause  a  collapse,  so  this  should only be used if you know that the
+  Schlafli symbol is correct.[133X
   
-  [1X10.1-3 Mix[101X
+  [1X10.1-2 Maniplex[101X
   
-  [33X[1;0Y[29X[2XMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[0;0YGiven  maniplexes  returns  the  IsReflexibleManiplex  from the mix of their
-  connection groups[133X
+  [33X[0;0YGiven  a  permutation  group  [3XG[103X on the set [1..N], returns a maniplex with N
+  flags  with connection group [3XG[103X. The output may not make sense if [3XG[103X is not an
+  sggi.[133X
   
-  [1X10.1-4 Mix[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
+    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
+    [4X[28XPgon(3)[128X[104X
+    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
+    [4X[28X<permutation group with 3 generators>[128X[104X
+    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
-  [33X[1;0Y[29X[2XMix[102X( [3Xarg1[103X, [3Xarg2[103X ) [32X operation[133X
+  [1X10.1-3 Maniplex[101X
   
-  [1X10.1-5 Comix[101X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XH[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[1;0Y[29X[2XComix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
+  [33X[0;0YLet   [3XM[103X   be   a   reflexible   maniplex   and   let  [3XH[103X  be  a  subgroup  of
+  AutomorphismGroup([3XM[103X). This returns the maniplex [3XM/H[103X. This will be reflexible
+  if  and only if [3XH[103X is normal. For most purposes, it is probably easier to use
+  QuotientManiplex,  which  takes  a string of relations as input instead of a
+  subgroup. The example below builds the map [23X\{4, 4\}_{(1,0), (0,2)}[123X.[133X
   
-  [33X[0;0YReturns the comix of two Finitely Presented groups gp and gq.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
+    [4X[28XCubicTiling(2)[128X[104X
+    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
+    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
+    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
+    [4X[28X3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
+    [4X[28X16[128X[104X
+  [4X[32X[104X
   
-  [1X10.1-6 Comix[101X
+  [1X10.1-4 Maniplex[101X
   
-  [33X[1;0Y[29X[2XComix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[0;0YGiven  maniplexes  returns  the IsReflexibleManiplex from the comix of their
-  connection groups[133X
+  [33X[0;0YConstructs  a  formal  maniplex, represented by an operation [3XF[103X and a list of
+  arguments  [3Xinputs[103X.  By  itself,  this  does  not  really _do_ anything -- it
+  creates  a  maniplex  object that only knows the operation [3XF[103X and the [3Xinputs[103X.
+  However,  many  polytope operations (such as Pyramid(M), Medial(M), etc) use
+  this  construction  as  a base, and then add "attribute computers" that tell
+  the  formal maniplex how to compute certain things in terms of properties of
+  the base. See AddAttrComputer for more information.[133X
   
-  [1X10.1-7 CtoL[101X
+  [1X10.1-5 Maniplex[101X
   
-  [33X[1;0Y[29X[2XCtoL[102X( [3Xint[103X, [3Xint[103X, [3Xint[103X, [3Xint[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsInteger [110X.[133X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[0;0YCtoL  Returns  an  integer between 1 and N*M associated with the pair [a,b].
-  LtoC Returns an ordered pair [a,b] associated with the integer between 1 and
-  N*M. a should range between 1 and N, and b should range between 1 and M N is
-  how  many  columns  (x coordinates), M is how many rows (y coordinates) in a
-  matrix Functions are inverses.[133X
+  [33X[0;0YConstructs the maniplex from the given poset [3XP[103X. This assumes that P actually
+  defines a maniplex.[133X
   
-  [1X10.1-8 FlagMix[101X
+  [1X10.1-6 IsPolytopal[101X
   
-  [33X[1;0Y[29X[2XFlagMix[102X( [3Xpermgroup[103X, [3Xpermgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex [110X.[133X
+  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YGiven  two  (permutation)  groups  gp,  gg  this returns the maniplex of the
-  "flag" mix of two maniplexes with connection groups gp and gq.[133X
+  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
+  polytope.[133X
   

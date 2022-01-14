@@ -126,7 +126,7 @@ DeclareSynonymAttr("NumberOfFlags", Size);
 DeclareAttribute("RankManiplex", IsManiplex);
 
 
-#! @Chapter Actions
+#! @Chapter Maniplex Properties
 #! @Section Faithfulness
 
 #! @Arguments M

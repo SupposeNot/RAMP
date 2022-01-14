@@ -9,20 +9,22 @@
 
 <ManSection>
   <Oper Arg="n" Name="UniversalPolytope" Label="for IsInt"/>
- <Returns>the universal polytope of rank <A>n</A>.
+ <Returns>IsManiplex
 </Returns>
  <Description>
-<P/>
+Constructs the universal polytope of rank <A>n</A>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="M" Name="UniversalExtension" Label="for IsManiplex"/>
- <Returns>the universal extension of <A>M</A>, i.e. the maniplex with facets  isomorphic to <A>M</A> that covers all other maniplexes with facets
-  isomorphic to <A>M</A>.
+ <Returns>IsManiplex
 </Returns>
  <Description>
+Constructs the universal extension of <A>M</A>, i.e. the maniplex with facets
+ isomorphic to <A>M</A> that covers all other maniplexes with facets
+ isomorphic to <A>M</A>.
 Currently only defined for reflexible maniplexes.
  </Description>
 </ManSection>
@@ -30,27 +32,28 @@ Currently only defined for reflexible maniplexes.
 
 <ManSection>
   <Oper Arg="M, k" Name="UniversalExtension" Label="for IsManiplex, IsInt"/>
- <Returns>the universal extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.  Currently only defined for reflexible maniplexes.
+ <Returns>IsManiplex
 </Returns>
  <Description>
-<P/>
+Constructs the universal extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
+ Currently only defined for reflexible maniplexes.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="M" Name="TrivialExtension" Label="for IsManiplex"/>
- <Returns>the trivial extension of <A>M</A>, also known as {<A>M</A>, 2}.
+ <Returns>IsManiplex
 </Returns>
  <Description>
-<P/>
+Constructs the trivial extension of <A>M</A>, also known as {<A>M</A>, 2}.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Oper Arg="M, k" Name="FlatExtension" Label="for IsManiplex, IsInt"/>
- <Returns>the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.  (As defined in "Flat Extensions of Abstract Polytopes".)
+ <Returns>IsManiplex#! @Description Constructs the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.  (As defined in <Emph>Flat Extensions of Abstract Polytopes</Emph> <Cite Key="Cun21"/>.)
 </Returns>
  <Description>
 Currently only defined for reflexible maniplexes.
@@ -60,9 +63,11 @@ Currently only defined for reflexible maniplexes.
 
 <ManSection>
   <Oper Arg="M1, M2" Name="Amalgamate" Label="for IsManiplex, IsManiplex"/>
- <Returns>the amalgamation of <A>M1</A> and <A>M2</A>.  Implicitly assumes that <A>M1</A> and <A>M2</A> are compatible.
+ <Returns>IsManiplex
 </Returns>
  <Description>
+Constructs the amalgamation of <A>M1</A> and <A>M2</A>.
+ Implicitly assumes that <A>M1</A> and <A>M2</A> are compatible.
 Currently only defined for reflexible maniplexes.
  </Description>
 </ManSection>
@@ -70,10 +75,10 @@ Currently only defined for reflexible maniplexes.
 
 <ManSection>
   <Oper Arg="M" Name="Medial" Label="for IsManiplex"/>
- <Returns>Given a 3-maniplex <A>M</A>, returns its medial.
+ <Returns>IsManiplex
 </Returns>
  <Description>
-<P/>
+Given a 3-maniplex <A>M</A>, returns its medial.
  </Description>
 </ManSection>
 

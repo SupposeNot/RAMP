@@ -1,93 +1,108 @@
   
-  [1X15 [33X[0;0Yramp automatic generated documentation[133X[101X
+  [1X15 [33X[0;0YStratified Operations[133X[101X
   
   
-  [1X15.1 [33X[0;0Yramp automatic generated documentation of methods[133X[101X
+  [1X15.1 [33X[0;0YComputational tools[133X[101X
   
-  [1X15.1-1 UniversalRotationGroup[101X
+  [33X[0;0YI should say something more here.[133X
   
-  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xn[103X ) [32X operation[133X
+  [1X15.1-1 ChunkMultiply[101X
   
-  [33X[0;0YReturns the rotation subgroup of the universal Coxeter Group of rank n.[133X
+  [33X[1;0Y[29X[2XChunkMultiply[102X( [3Xelement1[103X, [3Xelement2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yelement[133X
   
-  [1X15.1-2 UniversalRotationGroup[101X
+  [33X[0;0YElements  are  ordered pairs of the form [perm, list], where the elements of
+  list  are members of a group. Operation performed is consistent with that in
+  defined in [PW18].[133X
   
-  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xsym[103X ) [32X operation[133X
+  [1X15.1-2 ChunkPower[101X
   
-  [33X[0;0YReturns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.[133X
+  [33X[1;0Y[29X[2XChunkPower[102X( [3Xelement[103X, [3Xinteger[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yelement[133X
   
-  [1X15.1-3 RotaryManiplex[101X
+  [33X[0;0YGiven  an element compatible with the ChunkMultiply operation, this function
+  will compute the product of element with itself integer times.[133X
   
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xg[103X ) [32X operation[133X
+  [1X15.1-3 ChunkGeneratedGroupElements[101X
   
-  [33X[0;0YGiven  a  group  g  (which  should  be a string rotation group), returns the
-  rotary  maniplex  with  that rotation group, where the privileged generators
-  are those returned by GeneratorsOfGroup(g).[133X
+  [33X[1;0Y[29X[2XChunkGeneratedGroupElements[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YnewList[133X
   
-  [1X15.1-4 RotaryManiplex[101X
+  [33X[0;0YGiven a list of generators compatible with the ChunkMultiply operation, this
+  function  will  construct  the  associated  list of group elements in a form
+  suitable for taking ChunkMultiply and ChunkPower.[133X
   
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X ) [32X operation[133X
+  [1X15.1-4 ChunkGeneratedGroup[101X
   
-  [33X[0;0YReturns  the  universal  rotary  maniplex  (in  fact, regular polytope) with
-  Schlafli symbol [3Xsym[103X.[133X
+  [33X[1;0Y[29X[2XChunkGeneratedGroup[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YpermGroup[133X
   
-  [1X15.1-5 RotaryManiplex[101X
-  
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsymbol[103X, [3Xrelations[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  rotary  maniplex  with  the given Schlafli symbol and with the
-  given  relations.  The  relations  are  given by a string that refers to the
-  generators s1, s2, etc. For example:[133X
+  [33X[0;0YGiven a list of generators compatible with the ChunkMultiply operation, this
+  function  will  construct  a  representation  of  the group as a permutation
+  group. Note that generators are of the form [perm, list], and each list is a
+  list of elements from group.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex([4,4], "(s2^-1 s1)^6");;[127X[104X
+    [4X[25Xgap>[125X [27Xp:=Simplex(2); a:=AutomorphismGroup(p);[127X[104X
+    [4X[28XPgon(3)[128X[104X
+    [4X[28X<fp group of size 6 on the generators [ r0, r1 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xe:=One(a);; AssignGeneratorVariables(a);[127X[104X
+    [4X[25Xgap>[125X [27Xs0:=[(3,4),[r0,r0,e,e,r0,r0]];[127X[104X
+    [4X[28X[ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xs1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];[127X[104X
+    [4X[28X[ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xs2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];[127X[104X
+    [4X[28X[ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ][128X[104X
+    [4X[25Xgap>[125X [27X gens:=[s0,s1,s2];;[127X[104X
+    [4X[25Xgap>[125X [27XChunkMultiply(s0,s1);[127X[104X
+    [4X[28X[ (2,3,5,4), [ r0*r1, <identity ...>, r0, r0, <identity ...>, r0*r1 ] ][128X[104X
+    [4X[25Xgap>[125X [27XChunkMultiply(s0,s0);[127X[104X
+    [4X[28X[ (), [ r0^2, r0^2, <identity ...>, <identity ...>, r0^2, r0^2 ] ][128X[104X
+    [4X[25Xgap>[125X [27XSetReducedMultiplication(r1);[127X[104X
+    [4X[25Xgap>[125X [27XChunkMultiply(s0,s0);[127X[104X
+    [4X[28X[ (), [ <identity ...>, <identity ...>, <identity ...>, <identity ...>, <identity ...>,  <identity ...> ] ][128X[104X
+    [4X[25Xgap>[125X [27XChunkGeneratedGroup(gens,a);[127X[104X
+    [4X[28X<permutation group with 3 generators>[128X[104X
+    [4X[25Xgap>[125X [27XSize(last);[127X[104X
+    [4X[28X1296[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
-  one  given. This may not be the correct Schlafli symbol, since the relations
-  may  cause  a  collapse,  so  this  should only be used if you know that the
-  Schlafli symbol is correct.[133X
+  [1X15.1-5 FullyStratifiedGroup[101X
   
-  [1X15.1-6 EnantiomorphicForm[101X
+  [33X[1;0Y[29X[2XFullyStratifiedGroup[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
   
-  [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
+  [33X[0;0YImplements  fully  stratified  operations  on maniplexes from [CPW22]. Given
+  [3Xlist[103X of generators compatible with the [10XChunkMultiply[110X operation, [3Xgroup[103X is the
+  underlying  group in the representation (usually the connection group of the
+  base),  this  will  calculate the connection group of the resulting maniplex
+  acting on the implicit flags of the construction. Function assumes that [3Xlist[103X
+  are  the generators of the connection group of the resulting maniplex in the
+  order [23X\langle r_0, r_1, \ldots, r_{d-1}\rangle[123X. It is possible that for some
+  groups  this  function  will  behave  poorly  because  GAP  won't  recognize
+  equivalent  representations  of  a  group  element.  If so, try again with a
+  permutation  representation  and  let  us  know so we can modify the code to
+  handle  this  problem  better  (didn't  show  up  in  our  testing, but is a
+  theoretical possibility).[133X
   
-  [33X[0;0YThe [13Xenantiomorphic form[113X of a rotary maniplex is the same maniplex, but where
-  we  choose  the new base flag to be one of the flags that is adjacent to the
-  original  base  flag.  If  M  is reflexible, then this choice has no effect.
-  Otherwise, if M is chiral, then the enantiomorphic form gives us a different
-  presentation for the rotation group.[133X
-  
-  [1X15.1-7 DatabaseString[101X
-  
-  [33X[1;0Y[29X[2XDatabaseString[102X( [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YString[133X
-  
-  [33X[0;0YGiven a maniplex [3XM[103X, returns a string representation of [3XM[103X suitable for saving
-  in a database for later retrieval.[133X
-  
-  [1X15.1-8 ManiplexFromDatabaseString[101X
-  
-  [33X[1;0Y[29X[2XManiplexFromDatabaseString[102X( [3XmaniplexString[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
-  
-  [33X[0;0YGiven a string [3XmaniplexString[103X, representing a maniplex stored in a database,
-  returns the maniplex that is represented.[133X
-  
-  [1X15.1-9 Tomotope[101X
-  
-  [33X[1;0Y[29X[2XTomotope[102X(  ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
-  
-  [33X[0;0YConstructs the [13XTomotope[113X from [MPW12][133X
-  
-  
-  [1X15.2 [33X[0;0Yramp automatic generated documentation of attributes[133X[101X
-  
-  [1X15.2-1 AtlasID[101X
-  
-  [33X[1;0Y[29X[2XAtlasID[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YString[133X
-  
-  [33X[0;0YReturns the ID of [3XM[103X in Hartley's Atlas.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=Simplex(2);; a:=AutomorphismGroup(p);[127X[104X
+    [4X[28X<fp group of size 6 on the generators [ r0, r1 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xe:=One(a);[127X[104X
+    [4X[28X<identity ...>[128X[104X
+    [4X[25Xgap>[125X [27XAssignGeneratorVariables(a);[127X[104X
+    [4X[28X#I  Assigned the global variables [ r0, r1 ][128X[104X
+    [4X[25Xgap>[125X [27Xs0:=[(3,4),[r0,r0,e,e,r0,r0]];[127X[104X
+    [4X[28X[ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xs1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];[127X[104X
+    [4X[28X[ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xs2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];[127X[104X
+    [4X[28X[ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ][128X[104X
+    [4X[25Xgap>[125X [27Xgens:=[s0,s1,s2];[127X[104X
+    [4X[28X[ [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ], [128X[104X
+    [4X[28X  [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ], [128X[104X
+    [4X[28X  [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XManiplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   

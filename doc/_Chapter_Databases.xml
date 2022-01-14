@@ -9,20 +9,24 @@
 
 <ManSection>
   <Func Arg="sizerange" Name="DegeneratePolyhedra" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all degenerate polyhedra (of type {2, q} and {p, 2}) with 
+Gives all degenerate polyhedra (of type <Math>\{2, q\}</Math> and <Math>\{p, 2\}</Math>) with
  sizes in <A>sizerange</A>. Also accepts a single integer
- <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
+ <Emph>maxsize</Emph> as input to indicate a sizerange of <Code>[1..maxsize]</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="FlatRegularPolyhedra" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all nondegenerate flat regular polyhedra with 
+Gives all nondegenerate flat regular polyhedra with
  sizes in <A>sizerange</A>. Also accepts a single integer
- <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
+ <Emph>maxsize</Emph> as input to indicate a sizerange of <Code>[1..maxsize]</Code>.
  Currently supports a maxsize of 4000 or less.
  </Description>
 </ManSection>
@@ -30,28 +34,34 @@
 
 <ManSection>
   <Func Arg="sizerange" Name="RegularToroidalPolyhedra44" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all regular toroidal polyhedra of type {4,4}
+Gives all regular toroidal polyhedra of type <Math>\{4,4\}</Math>
  with sizes in <A>sizerange</A>. Also accepts a single integer
- <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
+ <Emph>maxsize</Emph> as input to indicate a sizerange of <Code>[1..maxsize]</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="RegularToroidalPolyhedra36" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all regular toroidal polyhedra of type {3,6}
+Gives all regular toroidal polyhedra of type <Math>\{3,6\}</Math>
  with sizes in <A>sizerange</A>. Also accepts a single integer
- <Emph>maxsize</Emph> as input to indicate a sizerange of [1..maxsize].
+ <Emph>maxsize</Emph> as input to indicate a sizerange of <Code>[1..maxsize]</Code>.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallRegularPolyhedraFromFile" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all regular polyhedra with sizes in <A>sizerange</A> flags
+Gives all regular polyhedra with sizes in <A>sizerange</A> flags
  that are stored separately in a file. These are polyhedra that
  are not part of one of several infinite families that are covered
  by the other generators. The return value of this function is
@@ -63,10 +73,12 @@
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallRegularPolyhedra" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all regular polyhedra with sizes in <A>sizerange</A> flags.
- Currently supports a maxsize of 4000 or less.
- You can also set options "nondegenerate", "nonflat", and "nontoroidal".
+Gives all regular polyhedra with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 4000 or less.
+ You can also set options <Code>nondegenerate</Code>, <Code>nonflat</Code>, and <Code>nontoroidal</Code>.
 <Example><![CDATA[
 L1 := SmallRegularPolyhedra(500);;
 L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
@@ -80,46 +92,56 @@ L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallDegenerateRegular4Polytopes" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all degenerate regular 4-polytopes with sizes in <A>sizerange</A> flags.
- Currently supports a maxsize of 8000 or less. 
+Gives all degenerate regular 4-polytopes with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 8000 or less. 
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallRegular4Polytopes" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all regular 4-polytopes with sizes in <A>sizerange</A> flags.
- Currently supports a maxsize of 4000 or less.
+Gives all regular 4-polytopes with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 4000 or less.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallChiralPolyhedra" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all chiral polyhedra with sizes in <A>sizerange</A> flags.
- Currently supports a maxsize of 4000 or less.
+Gives all chiral polyhedra with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 4000 or less.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallChiral4Polytopes" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all chiral 4-polytopes with sizes in <A>sizerange</A> flags.
- Currently supports a maxsize of 4000 or less.
+Gives all chiral 4-polytopes with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 4000 or less.
  </Description>
 </ManSection>
 
 
 <ManSection>
   <Func Arg="sizerange" Name="SmallReflexible3Maniplexes" />
+ <Returns>IsList
+</Returns>
  <Description>
- Returns all regular 4-polytopes with sizes in <A>sizerange</A> flags.
- Currently supports a maxsize of 2000 or less.
- If the option 'nonpolytopal' is set, only returns maniplexes that
+Gives all regular 4-polytopes with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 2000 or less.
+ If the option <Code>nonpolytopal</Code> is set, only returns maniplexes that
  are not polyhedra.
  </Description>
 </ManSection>
@@ -147,6 +169,34 @@ gap> SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);
 gap> SRP(1,32,p->SchlafliSymbol(p)[1], 4);
 [ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
 ]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Databases_Section_System_internal_representations">
+<Heading>System internal representations</Heading>
+
+<ManSection>
+  <Oper Arg="M" Name="DatabaseString" Label="for IsManiplex"/>
+ <Returns>String
+</Returns>
+ <Description>
+Given a maniplex <A>M</A>, returns a string representation of
+ <A>M</A> suitable for saving in a database for later retrieval.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="maniplexString" Name="ManiplexFromDatabaseString" Label="for IsString"/>
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Given a string <A>maniplexString</A>, representing a maniplex stored
+ in a database, returns the maniplex that is represented.
+ </Description>
+</ManSection>
 
 
 </Section>

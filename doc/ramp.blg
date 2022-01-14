@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ramp.aux
 The style file: alpha.bst
 Database file #1: ramp.bib
-You've used 9 entries,
+You've used 12 entries,
             2543 wiz_defined-function locations,
-            623 strings with 5474 characters,
-and the built_in function-call counts, 3649 in all, are:
-= -- 376
-> -- 161
-< -- 2
-+ -- 53
-- -- 52
-* -- 283
-:= -- 612
-add.period$ -- 27
-call.type$ -- 9
-change.case$ -- 53
-chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 129
-empty$ -- 267
-format.name$ -- 63
-if$ -- 727
+            653 strings with 6194 characters,
+and the built_in function-call counts, 4842 in all, are:
+= -- 497
+> -- 202
+< -- 4
++ -- 66
+- -- 65
+* -- 393
+:= -- 801
+add.period$ -- 36
+call.type$ -- 12
+change.case$ -- 70
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 172
+empty$ -- 360
+format.name$ -- 81
+if$ -- 962
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 10
-newline$ -- 48
-num.names$ -- 27
-pop$ -- 35
+missing$ -- 13
+newline$ -- 63
+num.names$ -- 36
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 63
+purify$ -- 83
 quote$ -- 0
-skip$ -- 109
+skip$ -- 143
 stack$ -- 0
-substring$ -- 272
-swap$ -- 9
-text.length$ -- 2
-text.prefix$ -- 2
+substring$ -- 376
+swap$ -- 12
+text.length$ -- 4
+text.prefix$ -- 4
 top$ -- 0
-type$ -- 68
+type$ -- 92
 warning$ -- 0
-while$ -- 40
-width$ -- 12
-write$ -- 118
+while$ -- 51
+width$ -- 15
+write$ -- 156

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is an automatically generated file. -->
-<Chapter Label="Chapter_Actions">
-<Heading>Actions</Heading>
+<Chapter Label="Chapter_Maniplex_Properties">
+<Heading>Maniplex Properties</Heading>
 
-<Section Label="Chapter_Actions_Section_Automorphism_group_acting_on_faces_and_chains">
+<Section Label="Chapter_Maniplex_Properties_Section_Automorphism_group_acting_on_faces_and_chains">
 <Heading>Automorphism group acting on faces and chains</Heading>
 
 <ManSection>
   <Oper Arg="M, I" Name="AutomorphismGroupOnChains" Label="for IsManiplex, IsCollection"/>
+ <Returns>IsPermGroup
+</Returns>
  <Description>
 Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the chains of <A>M</A> of type <A>I</A>.
@@ -16,8 +18,17 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnChains(HemiCube(3),[0,2]);
+Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
+  (9,12) ])
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, i" Name="AutomorphismGroupOnIFaces" Label="for IsManiplex, IsInt"/>
+ <Returns>IsPermGroup
+</Returns>
  <Description>
 Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the <A>i</A>-faces of <A>M</A>.
@@ -25,8 +36,16 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnIFaces(HemiCube(3),2);
+Group([ (), (2,3), (1,2) ])
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="AutomorphismGroupOnVertices" Label="for IsManiplex"/>
+ <Returns>IsPermGroup
+</Returns>
  <Description>
 Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the vertices of <A>M</A>.
@@ -34,8 +53,16 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnVertices(HemiCube(4));
+Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,8), (3,5)(4,6), (5,7)(6,8) ])
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="AutomorphismGroupOnEdges" Label="for IsManiplex"/>
+ <Returns>IsPermGroup
+</Returns>
  <Description>
 Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the edges of <A>M</A>.
@@ -43,8 +70,16 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnEdges(Simplex(4));
+Group([ (2,5)(3,6)(4,7), (1,2)(6,8)(7,9), (2,3)(5,6)(9,10), (3,4)(6,7)(8,9) ])
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="AutomorphismGroupOnFacets" Label="for IsManiplex"/>
+ <Returns>IsPermGroup
+</Returns>
  <Description>
 Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the facets of <A>M</A>.
@@ -52,14 +87,22 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnFacets(HemiCube(5));
+Group([ (), (4,5), (3,4), (2,3), (1,2) ])
+]]></Example>
+
+
 </Section>
 
 
-<Section Label="Chapter_Actions_Section_Number_of_orbits_and_transitivity">
+<Section Label="Chapter_Maniplex_Properties_Section_Number_of_orbits_and_transitivity">
 <Heading>Number of orbits and transitivity</Heading>
 
 <ManSection>
   <Oper Arg="M, I" Name="NumberOfChainOrbits" Label="for IsManiplex, IsCollection"/>
+ <Returns>IsInt
+</Returns>
  <Description>
 Returns the number of orbits of chains of type <A>I</A> under
  the action of AutomorphismGroup(<A>M</A>).
@@ -67,8 +110,16 @@ Returns the number of orbits of chains of type <A>I</A> under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfChainOrbits(Cuboctahedron(),[0,2]);
+2
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, i" Name="NumberOfIFaceOrbits" Label="for IsManiplex, IsInt"/>
+ <Returns>IsInt
+</Returns>
  <Description>
 Returns the number of orbits of <A>i</A>-faces under
  the action of AutomorphismGroup(<A>M</A>).
@@ -76,8 +127,16 @@ Returns the number of orbits of <A>i</A>-faces under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfIFaceOrbits(SnubDodecahedron(),2);
+3
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="NumberOfVertexOrbits" Label="for IsManiplex"/>
+ <Returns>IsInt
+</Returns>
  <Description>
 Returns the number of orbits of vertices under
  the action of AutomorphismGroup(<A>M</A>).
@@ -85,8 +144,16 @@ Returns the number of orbits of vertices under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfVertexOrbits(Dual(SnubDodecahedron()));
+3
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="NumberOfEdgeOrbits" Label="for IsManiplex"/>
+ <Returns>IsInt
+</Returns>
  <Description>
 Returns the number of orbits of edges under
  the action of AutomorphismGroup(<A>M</A>).
@@ -94,8 +161,16 @@ Returns the number of orbits of edges under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfEdgeOrbits(SnubDodecahedron());
+3
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="NumberOfFacetOrbits" Label="for IsManiplex"/>
+ <Returns>IsInt
+</Returns>
  <Description>
 Returns the number of orbits of facets under
  the action of AutomorphismGroup(<A>M</A>).
@@ -103,72 +178,124 @@ Returns the number of orbits of facets under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfFacetOrbits(SnubCube());
+3
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, I" Name="IsChainTransitive" Label="for IsManiplex, IsCollection"/>
+ <Returns>IsBool
+</Returns>
  <Description>
-Returns whether the action of AutomorphismGroup(<A>M</A>) on
+Determines whether the action of AutomorphismGroup(<A>M</A>) on
  chains of type <A>I</A> is transitive.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,2]);
+false
+gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,1]);
+false
+gap> IsChainTransitive(Cuboctahedron(),[0,1]);
+true
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, i" Name="IsIFaceTransitive" Label="for IsManiplex, IsInt"/>
+ <Returns>IsBool
+</Returns>
  <Description>
-Returns whether the action of AutomorphismGroup(<A>M</A>) on
+Determines whether the action of AutomorphismGroup(<A>M</A>) on
  <A>i</A>-faces is transitive.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsIFaceTransitive(Cuboctahedron(),1);
+true
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsVertexTransitive" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns>IsBool
 </Returns>
  <Description>
-Returns whether the action of AutomorphismGroup(<A>M</A>) on
+Determines whether the action of AutomorphismGroup(<A>M</A>) on
  vertices is transitive.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsVertexTransitive(Bk2l(4,5));
+true
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsEdgeTransitive" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns>IsBool
 </Returns>
  <Description>
-Returns whether the action of AutomorphismGroup(<A>M</A>) on
+Determines whether the action of AutomorphismGroup(<A>M</A>) on
  edges is transitive.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsEdgeTransitive(Prism(Simplex(3)));
+false
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsFacetTransitive" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns>IsBool
 </Returns>
  <Description>
-Returns whether the action of AutomorphismGroup(<A>M</A>) on
+Determines whether the action of AutomorphismGroup(<A>M</A>) on
  facets is transitive.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsFacetTransitive(Prism(HemiCube(3)));
+false
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsFullyTransitive" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns>IsBool
 </Returns>
  <Description>
-Returns whether the action of AutomorphismGroup(<A>M</A>) on
+Determines whether the action of AutomorphismGroup(<A>M</A>) on
  i-faces is transitive for every i.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsFullyTransitive(SmallRhombicuboctahedron());
+false
+gap> IsFullyTransitive(Bk2l(4,5));
+true
+]]></Example>
+
+
 </Section>
 
 
-<Section Label="Chapter_Actions_Section_Flag_orbits">
+<Section Label="Chapter_Maniplex_Properties_Section_Flag_orbits">
 <Heading>Flag orbits</Heading>
 
 <ManSection>
@@ -260,7 +387,73 @@ true
 </Section>
 
 
-<Section Label="Chapter_Actions_Section_Faithfulness">
+<Section Label="Chapter_Maniplex_Properties_Section_Orientability">
+<Heading>Orientability</Heading>
+
+<ManSection>
+  <Prop Arg="M" Name="IsOrientable" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+A maniplex is orientable if its flag graph is bipartite.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, I" Name="IsIOrientable" Label="for IsManiplex, IsList"/>
+ <Description>
+For a subset I of {0, ..., n-1}, a maniplex is I-orientable
+ if every closed path in its flag graph contains an even number
+ of edges with colors in I.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsVertexBipartite" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+A maniplex is vertex-bipartite if its 1-skeleton is
+ bipartite. This is equivalent to being I-orientable for
+ I = {0}.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsFacetBipartite" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+A maniplex is facet-bipartite if the 1-skeleton of its
+ dual is bipartite. This is equivalent to being I-orientable for
+ I = {n-1}.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="M" Name="OrientableCover" Label="for IsManiplex"/>
+ <Description>
+Returns the minimal <Emph>orientable cover</Emph> of the maniplex <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="IOrientableCover" Label="for IsManiplex, IsList"/>
+ <Description>
+Returns the minimal <Emph>I-orientable cover</Emph> of the maniplex <A>M</A>.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplex_Properties_Section_Faithfulness">
 <Heading>Faithfulness</Heading>
 
 <ManSection>
