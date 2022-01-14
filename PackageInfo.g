@@ -176,6 +176,15 @@ Persons := [
     IsAuthor      := true,
     IsMaintainer  := true,
     Email         := "giwilliams@alaska.edu",
+    WWWHome       := "http://williams.alaska.edu",
+    PostalAddress := Concatenation( [
+                       "Gordon Williams\n",
+                       "PO Box 756660\n",
+                       "Department of Mathematics and Statistics\n",
+                       "University of Alaska Fairbanks\n",
+                       "Fairbanks, AK 99775-6660\n" ] ),
+    Place         := "Fairbanks",
+    Institution   := "University of Alaska Fairbanks"
   )
 ],
 

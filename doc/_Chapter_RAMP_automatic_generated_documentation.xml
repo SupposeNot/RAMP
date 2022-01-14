@@ -76,28 +76,6 @@ The <Emph>enantiomorphic form</Emph> of a rotary maniplex is
 
 
 <ManSection>
-  <Oper Arg="M" Name="DatabaseString" Label="for IsManiplex"/>
- <Returns>String
-</Returns>
- <Description>
-Given a maniplex <A>M</A>, returns a string representation of
- <A>M</A> suitable for saving in a database for later retrieval.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="maniplexString" Name="ManiplexFromDatabaseString" Label="for IsString"/>
- <Returns>IsManiplex
-</Returns>
- <Description>
-Given a string <A>maniplexString</A>, representing a maniplex stored
- in a database, returns the maniplex that is represented.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="" Name="Tomotope" />
  <Returns>maniplex
 </Returns>

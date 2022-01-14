@@ -1,10 +1,10 @@
 
 #! @Chapter Regular maps
 #! @Section Bicontactual regular maps
-#! The names for the maps in this section are from S.E. Wilson's paper of the same title (<URL>https://doi.org/10.2140/pjm.1985.120.437</URL>). 
+#! The names for the maps in this section are from S.E. Wilson's <Cite Key="Wil85"/>. 
 
 #! @Arguments k
-#! @Returns maniplex
+#! @Returns IsManiplex
 #! @Description Given an integer <A>k</A>, gives the map $\epsilon_k$, which is $\{k,2\}_k$ when <A>k</A> is even, and $\{k,2\}_{2k}$ when <A>k</A> is odd.
 DeclareOperation("Epsilonk",[IsInt]);
 #! @BeginExampleSession
@@ -15,7 +15,7 @@ DeclareOperation("Epsilonk",[IsInt]);
 #! @EndExampleSession
 
 #! @Arguments k
-#! @Returns maniplex
+#! @Returns IsManiplex
 #! @Description Given an integer <A>k</A>, gives the map $\delta_k$, which is $\{2k,2\}/2$ when <A>k</A> is even, and $\{2k,2\}_{k}$ when <A>k</A> is odd.
 DeclareOperation("Deltak",[IsInt]);
 #! @BeginExampleSession
@@ -27,7 +27,7 @@ DeclareOperation("Deltak",[IsInt]);
 
 
 #! @Arguments k
-#! @Returns maniplex
+#! @Returns IsManiplex
 #! @Description Given an integer <A>k</A>, gives the map $M_k$, which is $\{2k,2k\}_{1,0}$ when <A>k</A> is even, and $\{2k,k\}_{2}$ when <A>k</A> is odd.
 DeclareOperation("Mk",[IsInt]);
 #! @BeginExampleSession
@@ -37,7 +37,7 @@ DeclareOperation("Mk",[IsInt]);
 #! @EndExampleSession
 
 #! @Arguments k
-#! @Returns maniplex
+#! @Returns IsManiplex
 #! @Description Given an integer <A>k</A>, gives the map $M'_k$, which is $\{k,k\}_2$ when <A>k</A> is even, and $\{k,2k\}_{2}$ when <A>k</A> is odd. 
 #! `MkPrime(k,i)` gives the map $M'_{k,i}$.
 DeclareOperation("MkPrime",[IsInt]);
@@ -48,7 +48,7 @@ DeclareOperation("MkPrime",[IsInt]);
 #! @EndExampleSession
 
 #! @Arguments k, l
-#! @Returns maniplex
+#! @Returns IsManiplex
 #! @Description Given integers <A>k,l</A>, gives the map $B(k,2l)$. 
 DeclareOperation("Bk2l",[IsInt,IsInt]);
 #! @BeginExampleSession
@@ -57,7 +57,7 @@ DeclareOperation("Bk2l",[IsInt,IsInt]);
 #! @EndExampleSession
 
 #! @Arguments k, l
-#! @Returns maniplex
+#! @Returns IsManiplex
 #! @Description Given integers <A>k,l</A>, gives the map $B^*(k,2l)$. 
 DeclareOperation("Bk2lStar",[IsInt,IsInt]);
 #! @BeginExampleSession
@@ -68,7 +68,7 @@ DeclareOperation("Bk2lStar",[IsInt,IsInt]);
 #! @Section Operators on reflexible maps
 
 #! @Arguments map
-#! @Returns oppositeMap
+#! @Returns IsManiplex
 #! @Description Forms the opposite map of the maniplex <A>map</A>.
 DeclareOperation("Opp", [IsManiplex]);
 #! @BeginExampleSession
@@ -77,7 +77,7 @@ DeclareOperation("Opp", [IsManiplex]);
 #! @EndExampleSession
 
 #! @Arguments map, j
-#! @Returns newMap
+#! @Returns IsManiplex
 #! @Description Given <A>map</A> and integer $j$, will form the map $H_j(map)$. Note that if the action of $[r_0,(r_1 r_2)^{j-1} r_1, r_2]$ on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.
 DeclareOperation("Hole", [IsManiplex,IsInt]);
 #! @BeginExampleSession
@@ -85,6 +85,3 @@ DeclareOperation("Hole", [IsManiplex,IsInt]);
 #! 3-maniplex with 140 flags
 #! @EndExampleSession
 
-
-#! @Section Operations on Reflexible and Regular Maps
-#! The goal would be to implement the operations in BerPisWil17, as well as those suggested in the conclusion.

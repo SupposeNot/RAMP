@@ -1,6 +1,6 @@
 
-#! @Chapter Groups
-#! @Section Groups
+#! @Chapter Groups for Maps, Polytopes, and Maniplexes
+#! @Section Groups of Maps, Polytopes, and Maniplexes
 
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A>.

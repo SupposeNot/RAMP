@@ -1,118 +1,436 @@
   
-  [1X7 [33X[0;0YDatabases[133X[101X
+  [1X7 [33X[0;0YFamilies of Polytopes[133X[101X
   
   
-  [1X7.1 [33X[0;0YRegular polyhedra[133X[101X
+  [1X7.1 [33X[0;0YClassical Polytopes[133X[101X
   
-  [1X7.1-1 DegeneratePolyhedra[101X
+  [1X7.1-1 Vertex[101X
   
-  [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XVertex[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns  all  degenerate polyhedra (of type {2, q} and {p, 2}) with sizes in
-  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
-  sizerange of [1..maxsize].[133X
+  [33X[0;0YReturns the universal 0-polytope.[133X
   
-  [1X7.1-2 FlatRegularPolyhedra[101X
+  [1X7.1-2 Edge[101X
   
-  [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XEdge[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns  all  nondegenerate  flat regular polyhedra with sizes in [3Xsizerange[103X.
-  Also  accepts  a  single integer [13Xmaxsize[113X as input to indicate a sizerange of
-  [1..maxsize]. Currently supports a maxsize of 4000 or less.[133X
+  [33X[0;0YReturns the universal 1-polytope.[133X
   
-  [1X7.1-3 RegularToroidalPolyhedra44[101X
+  [1X7.1-3 Pgon[101X
   
-  [33X[1;0Y[29X[2XRegularToroidalPolyhedra44[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XPgon[102X( [3Xp[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns  all  regular  toroidal  polyhedra  of  type  {4,4}  with  sizes  in
-  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
-  sizerange of [1..maxsize].[133X
+  [33X[0;0YReturns the p-gon.[133X
   
-  [1X7.1-4 RegularToroidalPolyhedra36[101X
+  [1X7.1-4 Cube[101X
   
-  [33X[1;0Y[29X[2XRegularToroidalPolyhedra36[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XCube[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns  all  regular  toroidal  polyhedra  of  type  {3,6}  with  sizes  in
-  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
-  sizerange of [1..maxsize].[133X
+  [33X[0;0YReturns the n-cube.[133X
   
-  [1X7.1-5 SmallRegularPolyhedraFromFile[101X
+  [1X7.1-5 HemiCube[101X
   
-  [33X[1;0Y[29X[2XSmallRegularPolyhedraFromFile[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XHemiCube[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns  all regular polyhedra with sizes in [3Xsizerange[103X flags that are stored
-  separately  in  a  file.  These  are  polyhedra  that are not part of one of
-  several  infinite  families  that  are  covered by the other generators. The
-  return  value  of  this function is unstable and may change as more infinite
-  familes of polyhedra are identified and written as separate generators.[133X
+  [33X[0;0YReturns the n-hemi-cube.[133X
   
-  [1X7.1-6 SmallRegularPolyhedra[101X
+  [1X7.1-6 CrossPolytope[101X
   
-  [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns  all  regular  polyhedra  with  sizes  in [3Xsizerange[103X flags. Currently
-  supports  a maxsize of 4000 or less. You can also set options [10Xnondegenerate[110X,
-  [10Xnonflat[110X, and [10Xnontoroidal[110X.[133X
+  [33X[0;0YReturns the n-cross-polytope.[133X
+  
+  [1X7.1-7 HemiCrossPolytope[101X
+  
+  [33X[1;0Y[29X[2XHemiCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-hemi-cross-polytope.[133X
+  
+  [1X7.1-8 Simplex[101X
+  
+  [33X[1;0Y[29X[2XSimplex[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-simplex.[133X
+  
+  [1X7.1-9 CubicTiling[101X
+  
+  [33X[1;0Y[29X[2XCubicTiling[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the rank [23Xn+1[123X polytope; the tiling of [23XE^n[123X by [23Xn[123X-cubes.[133X
+  
+  [1X7.1-10 Dodecahedron[101X
+  
+  [33X[1;0Y[29X[2XDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the dodecahedron, [10X{5, 3}[110X.[133X
+  
+  [1X7.1-11 HemiDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XHemiDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-dodecahedron, [10X{5, 3}_5[110X.[133X
+  
+  [1X7.1-12 Icosahedron[101X
+  
+  [33X[1;0Y[29X[2XIcosahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the icosahedron, [10X{3, 5}[110X.[133X
+  
+  [1X7.1-13 HemiIcosahedron[101X
+  
+  [33X[1;0Y[29X[2XHemiIcosahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-icosahedron, [10X{3, 5}_5[110X.[133X
+  
+  [1X7.1-14 24Cell[101X
+  
+  [33X[1;0Y[29X[2X24Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the 24-cell, [10X{3, 4, 3}[110X.[133X
+  
+  [1X7.1-15 Hemi24Cell[101X
+  
+  [33X[1;0Y[29X[2XHemi24Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-24-cell, [10X{3, 4, 3}_6[110X.[133X
+  
+  [1X7.1-16 120Cell[101X
+  
+  [33X[1;0Y[29X[2X120Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the 120-cell, {5, 3, 3}.[133X
+  
+  [1X7.1-17 Hemi120Cell[101X
+  
+  [33X[1;0Y[29X[2XHemi120Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-120-cell, [10X{5, 3, 3}_15[110X.[133X
+  
+  [1X7.1-18 600Cell[101X
+  
+  [33X[1;0Y[29X[2X600Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the 600-cell, [10X{3, 3, 5}[110X.[133X
+  
+  [1X7.1-19 Hemi600Cell[101X
+  
+  [33X[1;0Y[29X[2XHemi600Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-600-cell, [10X{3, 3, 5}_15[110X.[133X
+  
+  [1X7.1-20 BrucknerSphere[101X
+  
+  [33X[1;0Y[29X[2XBrucknerSphere[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns Bruckner's sphere.[133X
+  
+  [1X7.1-21 InternallySelfDualPolyhedron1[101X
+  
+  [33X[1;0Y[29X[2XInternallySelfDualPolyhedron1[102X( [3Xp[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YConstructs  the  internally self-dual polyhedron of type [10X{p, p}[110X described in
+  Theorem  5.3  of [tt17]. #([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X). p must
+  be at least 7.[133X
+  
+  [1X7.1-22 InternallySelfDualPolyhedron2[101X
+  
+  [33X[1;0Y[29X[2XInternallySelfDualPolyhedron2[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YConstructs  the  internally self-dual polyhedron of type [10X{p, p}[110X described in
+  Theorem  5.8  of [tt17].# ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X). [10Xp[110X must
+  be even and at least 6, and [10Xk[110X must be odd.[133X
+  
+  
+  [1X7.2 [33X[0;0YFlat and tight polytopes[133X[101X
+  
+  [1X7.2-1 FlatOrientablyRegularPolyhedron[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedron[102X( [3Xp[103X, [3Xq[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolyhedron[133X
+  
+  [33X[0;0Y[10Xpolyhedron[110X is the flat orientably regular polyhedron with automorphism group
+  [p,  q]  /  (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function validates the
+  inputs   to   make   sure   that   the   polyhedron   is  well-defined.  Use
+  FlatOrientablyRegularPolyhedronNC if you do not want this validation.[133X
+  
+  [1X7.2-2 FlatOrientablyRegularPolyhedraOfType[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedraOfType[102X( [3Xsym[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  a  list  of  all  flat,  orientably regular polyhedra with Schlafli
+  symbol [3Xsym[103X.[133X
+  
+  [1X7.2-3 TightOrientablyRegularPolytopesOfType[101X
+  
+  [33X[1;0Y[29X[2XTightOrientablyRegularPolytopesOfType[102X( [3Xsym[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  a  list  of  all  tight, orientably regular polytopes with Schlafli
+  symbol    [3Xsym[103X.    When    [3Xsym[103X    has    length    2,    this    just   calls
+  FlatOrientablyRegularPolyhedraOfType([3Xsym[103X).[133X
+  
+  
+  [1X7.3 [33X[0;0YToroids[133X[101X
+  
+  [1X7.3-1 ToroidalMap44[101X
+  
+  [33X[1;0Y[29X[2XToroidalMap44[102X( [3Xu[103X[, [3Xv[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YReturns  the toroidal map [23X\{4,4\}_{\vec u, \vec v}[123X. If only [3Xu[103X is given, then
+  [3Xv[103X  is  taken  to be [3Xu[103X rotated 90 degrees, in which case the resulting map is
+  either reflexible or chiral.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XL1 := SmallRegularPolyhedra(500);;[128X[104X
-    [4X[28XL2 := SmallRegularPolyhedra(1000 : nondegenerate);;[128X[104X
-    [4X[28XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap44([3,0]) = ARP([4,4], "(r0 r1 r2 r1)^3");[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ToroidalMap44([1,2]);; IsChiral(M);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap44([5,0]) = SmallestReflexibleCover(M);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ToroidalMap44([2,0],[0,3]);; NumberOfFlagOrbits(M);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XM = ARP([4,4]) / "(r0 r1 r2 r1)^2, (r1 r0 r1 r2)^3";[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSmallestReflexibleCover(M) = ToroidalMap44([6,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap44([2,3],[4,1]) = ToroidalMap44([-3,2],[-1,4]);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-7 SmallDegenerateRegular4Polytopes[101X
+  [1X7.3-2 CubicToroid[101X
   
-  [33X[1;0Y[29X[2XSmallDegenerateRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XCubicToroid[102X( [3Xs[103X, [3Xk[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YReturns  all  degenerate  regular 4-polytopes with sizes in [3Xsizerange[103X flags.
-  Currently supports a maxsize of 8000 or less.[133X
-  
-  [1X7.1-8 SmallRegular4Polytopes[101X
-  
-  [33X[1;0Y[29X[2XSmallRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
-  
-  [33X[0;0YReturns  all  regular  4-polytopes  with sizes in [3Xsizerange[103X flags. Currently
-  supports a maxsize of 4000 or less.[133X
-  
-  [1X7.1-9 SmallChiralPolyhedra[101X
-  
-  [33X[1;0Y[29X[2XSmallChiralPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
-  
-  [33X[0;0YReturns  all  chiral  polyhedra  with  sizes  in  [3Xsizerange[103X flags. Currently
-  supports a maxsize of 4000 or less.[133X
-  
-  [1X7.1-10 SmallChiral4Polytopes[101X
-  
-  [33X[1;0Y[29X[2XSmallChiral4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
-  
-  [33X[0;0YReturns  all  chiral  4-polytopes  with  sizes in [3Xsizerange[103X flags. Currently
-  supports a maxsize of 4000 or less.[133X
-  
-  [1X7.1-11 SmallReflexible3Maniplexes[101X
-  
-  [33X[1;0Y[29X[2XSmallReflexible3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
-  
-  [33X[0;0YReturns  all  regular  4-polytopes  with sizes in [3Xsizerange[103X flags. Currently
-  supports  a maxsize of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
-  returns maniplexes that are not polyhedra.[133X
-  
-  [1X7.1-12 SRP[101X
-  
-  [33X[1;0Y[29X[2XSRP[102X( [3Xminsize[103X, [3Xmaxsize[103X[, [3Xfunc1[103X, [3Xval1[103X, [3Xfunc2[103X, [3Xval2[103X, [3X...[103X] ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
-  
-  [33X[0;0YReturns  a  list  of  all regular polyhedra with at least [3Xminsize[103X at at most
-  [3Xmaxsize[103X  flags. Optionally, you may include any number of pairs of functions
-  and  values,  in  which case this only returns those polyhedra such that the
-  given  functions  have  the  given  values.  The  name  of  this function is
-  temporary and this function is here as a proof-of-concept.[133X
+  [33X[0;0YGiven   IsInt   triple  [3Xs,  k,  n[103X,  will  return  the  regular  toroid  [23X\{4,
+  3^{n-2},4\}_{\vec s}[123X where [23X\vec s=(s^k, 0^{n-k})[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSRP(1,200,SchlafliSymbol,[4,4]);[127X[104X
-    [4X[28X[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ][128X[104X
-    [4X[25Xgap>[125X [27XSRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);[127X[104X
-    [4X[28X[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ][128X[104X
-    [4X[25Xgap>[125X [27XSRP(1,32,p->SchlafliSymbol(p)[1], 4);[127X[104X
-    [4X[28X[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ][128X[104X
+    [4X[25Xgap>[125X [27Xm44:=CubicToroid(3,2,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xm44=ToroidalMap44([3,3]);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
+  
+  [1X7.3-3 CubicToroid[101X
+  
+  [33X[1;0Y[29X[2XCubicToroid[102X( [3Xn[103X, [3Xvecs[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven an integer n and a list of vectors [3Xvecs[103X, returns the cubic toroid that
+  is a quotient of CubicTiling(n) by the translation subgroup generated by the
+  given  vectors.  The results may be nonsensical if [3Xvecs[103X does not generate an
+  n-dimensional translation group.[133X
+  
+  [1X7.3-4 3343Toroid[101X
+  
+  [33X[1;0Y[29X[2X3343Toroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,3,4,3\}_{\vec s}[123X
+  where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 0 or 1.[133X
+  
+  [1X7.3-5 24CellToroid[101X
+  
+  [33X[1;0Y[29X[2X24CellToroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,4,3,3\}_{\vec s}[123X
+  where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 0 or 1.[133X
+  
+  
+  [1X7.4 [33X[0;0YUniform Polyhedra[133X[101X
+  
+  [33X[0;0YRepresentations of the uniform polyhedra here are from [HW10].[133X
+  
+  [1X7.4-1 Cuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XCuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the cuboctahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Cuboctahedron());[127X[104X
+    [4X[28X[ [ 3, 4 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-2 TruncatedTetrahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedTetrahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated tetrahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TruncatedTetrahedron());[127X[104X
+    [4X[28X[ [ 3, 6 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-3 TruncatedOctahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedOctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated octahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(TruncatedOctahedron());[127X[104X
+    [4X[28X[ 24, 36, 14 ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-4 TruncatedCube[101X
+  
+  [33X[1;0Y[29X[2XTruncatedCube[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated octahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(TruncatedCube());[127X[104X
+    [4X[28X[ 24, 36, 14 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TruncatedCube());[127X[104X
+    [4X[28X[ [ 3, 8 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-5 Icosadodecahedron[101X
+  
+  [33X[1;0Y[29X[2XIcosadodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the icosadodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XVertexFigure(Icosadodecahedron());[127X[104X
+    [4X[28XPgon(4)[128X[104X
+    [4X[25Xgap>[125X [27XFacets(Icosadodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(3) ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-6 TruncatedIcosahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedIcosahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated icosahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(TruncatedIcosahedron());[127X[104X
+    [4X[28X[ Pgon(6), Pgon(5) ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-7 SmallRhombicuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XSmallRhombicuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the small rhombicuboctahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XZigzagVector(SmallRhombicuboctahedron());[127X[104X
+    [4X[28X[ 12, 8 ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-8 Pseudorhombicuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XPseudorhombicuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the pseudorhombicuboctahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(Pseudorhombicuboctahedron()));[127X[104X
+    [4X[28X16072626615091200[128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-9 SnubCube[101X
+  
+  [33X[1;0Y[29X[2XSnubCube[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the snub cube.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(PetrieDual(SnubCube()));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(PetrieDual(SnubCube()));[127X[104X
+    [4X[28X[ 30, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(PetrieDual(SnubCube())));[127X[104X
+    [4X[28X3804202857922560[128X[104X
+    [4X[25Xgap>[125X [27XSize(AutomorphismGroup(PetrieDual(SnubCube())));[127X[104X
+    [4X[28X24[128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-10 SmallRhombicosidodecahedron[101X
+  
+  [33X[1;0Y[29X[2XSmallRhombicosidodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the small rhombicosidodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(SmallRhombicosidodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(4), Pgon(3) ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-11 GreatRhombicosidodecahedron[101X
+  
+  [33X[1;0Y[29X[2XGreatRhombicosidodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the great rhombicosidodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(GreatRhombicosidodecahedron());[127X[104X
+    [4X[28X[ Pgon(10), Pgon(4), Pgon(6) ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-12 SnubDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XSnubDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the small snub dodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(SnubDodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(3) ][128X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(PetrieDual(SnubDodecahedron()));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-13 TruncatedDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated dodecahedron.[133X
+  
+  [1X7.4-14 GreatRhombicuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XGreatRhombicuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the great rhombicuboctahedron.[133X
   

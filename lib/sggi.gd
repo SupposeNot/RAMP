@@ -2,7 +2,7 @@
 # Basic constructors
 DeclareGlobalVariable("UNIVERSAL_SGGI_FREE_GROUPS");
 
-#! @Chapter Basics
+#! @Chapter Groups for Maps, Polytopes, and Maniplexes
 #! @Section Sggis
 
 DeclareGlobalFunction("COXETER_GROUP_SIZES");

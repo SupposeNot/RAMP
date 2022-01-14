@@ -1,5 +1,5 @@
 
-#! @Chapter Actions
+#! @Chapter Maniplex Properties
 #! @Section Flag orbits
 
 #! @Arguments M

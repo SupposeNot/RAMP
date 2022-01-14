@@ -1,4 +1,4 @@
-#! @Chapter Properties
+#! @Chapter Maniplex Properties
 #! @Section Orientability
 
 
