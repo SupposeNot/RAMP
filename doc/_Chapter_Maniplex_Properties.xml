@@ -18,6 +18,13 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnChains(HemiCube(3),[0,2]);
+Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
+  (9,12) ])
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, i" Name="AutomorphismGroupOnIFaces" Label="for IsManiplex, IsInt"/>
  <Returns>IsPermGroup
@@ -27,6 +34,12 @@ Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the <A>i</A>-faces of <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> AutomorphismGroupOnIFaces(HemiCube(3),2);
+Group([ (), (2,3), (1,2) ])
+]]></Example>
 
 
 <ManSection>
@@ -40,6 +53,12 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnVertices(HemiCube(4));
+Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,8), (3,5)(4,6), (5,7)(6,8) ])
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="AutomorphismGroupOnEdges" Label="for IsManiplex"/>
  <Returns>IsPermGroup
@@ -51,6 +70,12 @@ Returns a permutation group, representing the action of
 </ManSection>
 
 
+<Example><![CDATA[
+gap> AutomorphismGroupOnEdges(Simplex(4));
+Group([ (2,5)(3,6)(4,7), (1,2)(6,8)(7,9), (2,3)(5,6)(9,10), (3,4)(6,7)(8,9) ])
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="AutomorphismGroupOnFacets" Label="for IsManiplex"/>
  <Returns>IsPermGroup
@@ -60,6 +85,12 @@ Returns a permutation group, representing the action of
  AutomorphismGroup(<A>M</A>) on the facets of <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> AutomorphismGroupOnFacets(HemiCube(5));
+Group([ (), (4,5), (3,4), (2,3), (1,2) ])
+]]></Example>
 
 
 </Section>
@@ -79,6 +110,12 @@ Returns the number of orbits of chains of type <A>I</A> under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfChainOrbits(Cuboctahedron(),[0,2]);
+2
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, i" Name="NumberOfIFaceOrbits" Label="for IsManiplex, IsInt"/>
  <Returns>IsInt
@@ -88,6 +125,12 @@ Returns the number of orbits of <A>i</A>-faces under
  the action of AutomorphismGroup(<A>M</A>).
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfIFaceOrbits(SnubDodecahedron(),2);
+3
+]]></Example>
 
 
 <ManSection>
@@ -101,6 +144,12 @@ Returns the number of orbits of vertices under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfVertexOrbits(Dual(SnubDodecahedron()));
+3
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="NumberOfEdgeOrbits" Label="for IsManiplex"/>
  <Returns>IsInt
@@ -110,6 +159,12 @@ Returns the number of orbits of edges under
  the action of AutomorphismGroup(<A>M</A>).
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfEdgeOrbits(SnubDodecahedron());
+3
+]]></Example>
 
 
 <ManSection>
@@ -123,6 +178,12 @@ Returns the number of orbits of facets under
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfFacetOrbits(SnubCube());
+3
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, I" Name="IsChainTransitive" Label="for IsManiplex, IsCollection"/>
  <Returns>IsBool
@@ -132,6 +193,16 @@ Determines whether the action of AutomorphismGroup(<A>M</A>) on
  chains of type <A>I</A> is transitive.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,2]);
+false
+gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,1]);
+false
+gap> IsChainTransitive(Cuboctahedron(),[0,1]);
+true
+]]></Example>
 
 
 <ManSection>
@@ -145,6 +216,12 @@ Determines whether the action of AutomorphismGroup(<A>M</A>) on
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsIFaceTransitive(Cuboctahedron(),1);
+true
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsVertexTransitive" Label="for IsManiplex"/>
  <Returns>IsBool
@@ -154,6 +231,12 @@ Determines whether the action of AutomorphismGroup(<A>M</A>) on
  vertices is transitive.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsVertexTransitive(Bk2l(4,5));
+true
+]]></Example>
 
 
 <ManSection>
@@ -167,6 +250,12 @@ Determines whether the action of AutomorphismGroup(<A>M</A>) on
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsEdgeTransitive(Prism(Simplex(3)));
+false
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsFacetTransitive" Label="for IsManiplex"/>
  <Returns>IsBool
@@ -178,6 +267,12 @@ Determines whether the action of AutomorphismGroup(<A>M</A>) on
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsFacetTransitive(Prism(HemiCube(3)));
+false
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsFullyTransitive" Label="for IsManiplex"/>
  <Returns>IsBool
@@ -187,6 +282,14 @@ Determines whether the action of AutomorphismGroup(<A>M</A>) on
  i-faces is transitive for every i.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsFullyTransitive(SmallRhombicuboctahedron());
+false
+gap> IsFullyTransitive(Bk2l(4,5));
+true
+]]></Example>
 
 
 </Section>

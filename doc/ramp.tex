@@ -1423,6 +1423,12 @@ IsPermGroup
  Returns a permutation group, representing the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on the chains of \mbox{\texttt{\mdseries\slshape M}} of type \mbox{\texttt{\mdseries\slshape I}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@AutomorphismGroupOnChains(HemiCube(3),[0,2]);|
+  Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
+    (9,12) ])
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnIFaces (for IsManiplex, IsInt)}}
 \logpage{[ 3, 1, 2 ]}\nobreak
@@ -1437,6 +1443,11 @@ IsPermGroup
 
  Returns a permutation group, representing the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on the \mbox{\texttt{\mdseries\slshape i}}-faces of \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@AutomorphismGroupOnIFaces(HemiCube(3),2);|
+  Group([ (), (2,3), (1,2) ])
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnVertices (for IsManiplex)}}
@@ -1453,6 +1464,11 @@ IsPermGroup
  Returns a permutation group, representing the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on the vertices of \mbox{\texttt{\mdseries\slshape M}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@AutomorphismGroupOnVertices(HemiCube(4));|
+  Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,8), (3,5)(4,6), (5,7)(6,8) ])
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnEdges (for IsManiplex)}}
 \logpage{[ 3, 1, 4 ]}\nobreak
@@ -1468,6 +1484,11 @@ IsPermGroup
  Returns a permutation group, representing the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on the edges of \mbox{\texttt{\mdseries\slshape M}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@AutomorphismGroupOnEdges(Simplex(4));|
+  Group([ (2,5)(3,6)(4,7), (1,2)(6,8)(7,9), (2,3)(5,6)(9,10), (3,4)(6,7)(8,9) ])
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}
 \logpage{[ 3, 1, 5 ]}\nobreak
@@ -1482,6 +1503,11 @@ IsPermGroup
 
  Returns a permutation group, representing the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on the facets of \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@AutomorphismGroupOnFacets(HemiCube(5));|
+  Group([ (), (4,5), (3,4), (2,3), (1,2) ])
+\end{Verbatim}
  }
 
  
@@ -1505,6 +1531,11 @@ IsInt
  Returns the number of orbits of chains of type \mbox{\texttt{\mdseries\slshape I}} under the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfChainOrbits(Cuboctahedron(),[0,2]);|
+  2
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{NumberOfIFaceOrbits (for IsManiplex, IsInt)}}
 \logpage{[ 3, 2, 2 ]}\nobreak
@@ -1519,6 +1550,11 @@ IsInt
 
  Returns the number of orbits of \mbox{\texttt{\mdseries\slshape i}}-faces under the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfIFaceOrbits(SnubDodecahedron(),2);|
+  3
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{NumberOfVertexOrbits (for IsManiplex)}}
@@ -1536,6 +1572,11 @@ IsInt
 AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfVertexOrbits(Dual(SnubDodecahedron()));|
+  3
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{NumberOfEdgeOrbits (for IsManiplex)}}
 \logpage{[ 3, 2, 4 ]}\nobreak
@@ -1550,6 +1591,11 @@ IsInt
 
  Returns the number of orbits of edges under the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfEdgeOrbits(SnubDodecahedron());|
+  3
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{NumberOfFacetOrbits (for IsManiplex)}}
@@ -1566,6 +1612,11 @@ IsInt
  Returns the number of orbits of facets under the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfFacetOrbits(SnubCube());|
+  3
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsChainTransitive (for IsManiplex, IsCollection)}}
 \logpage{[ 3, 2, 6 ]}\nobreak
@@ -1580,6 +1631,15 @@ IsBool
 
  Determines whether the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on chains of type \mbox{\texttt{\mdseries\slshape I}} is transitive. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsChainTransitive(SmallRhombicuboctahedron(),[0,2]);|
+  false
+  !gapprompt@gap>| !gapinput@IsChainTransitive(SmallRhombicuboctahedron(),[0,1]);|
+  false
+  !gapprompt@gap>| !gapinput@IsChainTransitive(Cuboctahedron(),[0,1]);|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{IsIFaceTransitive (for IsManiplex, IsInt)}}
@@ -1596,6 +1656,11 @@ IsBool
  Determines whether the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on \mbox{\texttt{\mdseries\slshape i}}-faces is transitive. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsIFaceTransitive(Cuboctahedron(),1);|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsVertexTransitive (for IsManiplex)}}
 \logpage{[ 3, 2, 8 ]}\nobreak
@@ -1610,6 +1675,11 @@ IsBool
 
  Determines whether the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on vertices is transitive. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsVertexTransitive(Bk2l(4,5));|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{IsEdgeTransitive (for IsManiplex)}}
@@ -1626,6 +1696,11 @@ IsBool
  Determines whether the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on edges is transitive. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsEdgeTransitive(Prism(Simplex(3)));|
+  false
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsFacetTransitive (for IsManiplex)}}
 \logpage{[ 3, 2, 10 ]}\nobreak
@@ -1641,6 +1716,11 @@ IsBool
  Determines whether the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on facets is transitive. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsFacetTransitive(Prism(HemiCube(3)));|
+  false
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsFullyTransitive (for IsManiplex)}}
 \logpage{[ 3, 2, 11 ]}\nobreak
@@ -1655,6 +1735,13 @@ IsBool
 
  Determines whether the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}) on i-faces is transitive for every i. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsFullyTransitive(SmallRhombicuboctahedron());|
+  false
+  !gapprompt@gap>| !gapinput@IsFullyTransitive(Bk2l(4,5));|
+  true
+\end{Verbatim}
  }
 
  
@@ -6290,7 +6377,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
