@@ -311,12 +311,25 @@ you the size of the truncation and absolutely nothing else. So we would want to 
 attribute computer for the connection group probably. This will fail for infinite
 maniplexes, but that is to be expected.
 
+Documentation notes:
+Some general rules:
+- @Returns should always be followed by a type, e.g. IsPolytope
+- @Description should tell you information about which thing of that type we are getting (i.e., "Creates the cube of dimension <A>p</A>."
+- we have inconsistent formatting for things like {3,p}. I think we should go ahead and put these in math format (i.e., ${3,p}$).
+- Where we want a cite a book, we include the title in italics as well as a citation, for articles we just use <Cite Key="CunMixWil22"/> formatting. Be careful not to forget the slash at the end of the command, it will make AutoDoc shit large bricks.
+- Literals should be escaped using  single quotes.
 
-We can add citations and links to our documentation. Bibliographic items need to be added to ramp.bib in the doc folder. Note that adding the URL is somewhat redundant since the bibliography will link to the MathSciNet page or DOI automagically. Here's an example of citing/using one as well as linking to the article:
 
-#! @BeginGroup Cleaving
-#! @GroupTitle Cleaving polytopes
-#! @Arguments polytope, k
-#! @Returns cleavedPolytope
-#! @Description Given a <A>polytope</A> $\mathcal P$, and an integer <A>k</A>, `Cleave(polytope,k)` will construct the $k^{th}$-cleaved polytope of $\mathcal P$. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/> (<URL>https://doi.org/10.1007/s00493-016-3518-3</URL>). 
+We can add citations and links to our documentation. Bibliographic items need to be added to ramp.bib in the doc folder. Note that adding the URL is somewhat redundant since the bibliography will link to the MathSciNet page or DOI automagically. 
+
+Here's an example of a properly formatted bit of documentation.
+
+
+#! @Arguments p, k
+#! @Returns IsPolytope
+#! @Description Given an IsPolytope <A>p</A>, and an IsInt <A>k</A>, `Cleave(polytope,k)` will construct the $k^{th}$-cleaved polytope of <A>p</A>. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/>. 
 DeclareOperation("Cleave", [IsPoset,IsInt]);
+#! @BeginExampleSession
+#! gap> Cleave(PosetFromManiplex(Cube(4)),3);
+#! A poset on 290 elements using the IsPosetOfIndices representation.
+#! @EndExampleSession

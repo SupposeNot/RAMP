@@ -168,7 +168,7 @@ DeclareProperty("IsFacetTransitive", IsManiplex);
 #! false
 #! @EndExampleSession
 
-
+   
 #! @Arguments M
 #! @Returns IsBool
 #! @Description Determines whether the action of AutomorphismGroup(<A>M</A>) on
