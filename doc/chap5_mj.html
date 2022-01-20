@@ -78,6 +78,14 @@
 
 <p>Constructs the universal polytope of rank <var class="Arg">n</var>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalPolytope(3);</span>
+UniversalPolytope(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(last);</span>
+3
+</pre></div>
+
 <p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
 
 <h5>5.1-2 UniversalExtension</h5>
@@ -86,6 +94,12 @@
 <p>Returns: IsManiplex</p>
 
 <p>Constructs the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3));</span>
+regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
+</pre></div>
 
 <p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
 
@@ -96,6 +110,12 @@
 
 <p>Constructs the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3),2);</span>
+regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
+</pre></div>
+
 <p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
 
 <h5>5.1-4 TrivialExtension</h5>
@@ -104,6 +124,12 @@
 <p>Returns: IsManiplex</p>
 
 <p>Constructs the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M</var>, 2}.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TrivialExtension(Dodecahedron());</span>
+regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
+</pre></div>
 
 <p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
 
@@ -114,6 +140,12 @@
 
 <p>Currently only defined for reflexible maniplexes.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatExtension(Simplex(3),4);</span>
+reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
+</pre></div>
+
 <p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
 
 <h5>5.1-6 Amalgamate</h5>
@@ -123,6 +155,12 @@
 
 <p>Constructs the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3),CrossPolytope(3));</span>
+reflexible 4-maniplex of type [ 4, 3, 4 ]
+</pre></div>
+
 <p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
 
 <h5>5.1-7 Medial</h5>
@@ -131,6 +169,12 @@
 <p>Returns: IsManiplex</p>
 
 <p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Medial(Dodecahedron()));</span>
+[ [ 3, 5 ], 4 ]
+</pre></div>
 
 <p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
 

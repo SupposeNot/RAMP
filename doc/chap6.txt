@@ -13,6 +13,15 @@
   [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
   sizerange of [10X[1..maxsize][110X.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDegeneratePolyhedra(24);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
+  [4X[32X[104X
+  
   [1X6.1-2 FlatRegularPolyhedra[101X
   
   [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
@@ -21,6 +30,17 @@
   [33X[0;0YGives all nondegenerate flat regular polyhedra with sizes in [3Xsizerange[103X. Also
   accepts  a  single  integer  [13Xmaxsize[113X  as  input  to  indicate a sizerange of
   [10X[1..maxsize][110X. Currently supports a maxsize of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlatRegularPolyhedra([10..24]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\[128X[104X
+    [4X[28X r1)^3 (r1 r2)^2"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\[128X[104X
+    [4X[28X), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
+  [4X[32X[104X
   
   [1X6.1-3 RegularToroidalPolyhedra44[101X
   
@@ -31,6 +51,12 @@
   [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
   sizerange of [10X[1..maxsize][110X.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XRegularToroidalPolyhedra44([60..100]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ][128X[104X
+  [4X[32X[104X
+  
   [1X6.1-4 RegularToroidalPolyhedra36[101X
   
   [33X[1;0Y[29X[2XRegularToroidalPolyhedra36[102X( [3Xsizerange[103X ) [32X function[133X
@@ -39,6 +65,12 @@
   [33X[0;0YGives  all  regular  toroidal  polyhedra  of  type  [23X\{3,6\}[123X  with  sizes  in
   [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
   sizerange of [10X[1..maxsize][110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XRegularToroidalPolyhedra36([100..150]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ][128X[104X
+  [4X[32X[104X
   
   [1X6.1-5 SmallRegularPolyhedraFromFile[101X
   
@@ -51,6 +83,15 @@
   return  value  of  this function is unstable and may change as more infinite
   familes of polyhedra are identified and written as separate generators.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallRegularPolyhedraFromFile(64);[127X[104X
+    [4X[28X[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ][128X[104X
+  [4X[32X[104X
+  
   [1X6.1-6 SmallRegularPolyhedra[101X
   
   [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
@@ -61,9 +102,11 @@
   [10Xnonflat[110X, and [10Xnontoroidal[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XL1 := SmallRegularPolyhedra(500);;[128X[104X
-    [4X[28XL2 := SmallRegularPolyhedra(1000 : nondegenerate);;[128X[104X
-    [4X[28XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[128X[104X
+    [4X[25Xgap>[125X [27XL1 := SmallRegularPolyhedra(500);;[127X[104X
+    [4X[25Xgap>[125X [27XL2 := SmallRegularPolyhedra(1000 : nondegenerate);;[127X[104X
+    [4X[25Xgap>[125X [27XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[127X[104X
+    [4X[25Xgap>[125X [27XLength(SmallRegularPolyhedra(64));[127X[104X
+    [4X[28X53[128X[104X
   [4X[32X[104X
   
   [1X6.1-7 SmallDegenerateRegular4Polytopes[101X

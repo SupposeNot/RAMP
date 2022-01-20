@@ -8,6 +8,14 @@
 #! sizes in <A>sizerange</A>. Also accepts a single integer
 #! __maxsize__ as input to indicate a sizerange of `[1..maxsize]`.
 DeclareGlobalFunction("DegeneratePolyhedra");
+#! @BeginExampleSession
+#! gap> DegeneratePolyhedra(24);
+#! [ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), 
+#!   AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), 
+#!   AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), 
+#!   AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), 
+#!   AbstractRegularPolytope([ 6, 2 ]) ]
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList
@@ -16,6 +24,16 @@ DeclareGlobalFunction("DegeneratePolyhedra");
 #! __maxsize__ as input to indicate a sizerange of `[1..maxsize]`.
 #! Currently supports a maxsize of 4000 or less.
 DeclareGlobalFunction("FlatRegularPolyhedra");
+#! @BeginExampleSession
+#! gap> FlatRegularPolyhedra([10..24]);
+#! [ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), 
+#!   AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), 
+#!   AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), 
+#!   AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\
+#!  r1)^3 (r1 r2)^2"), 
+#!   ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\
+#! ), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ]
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList
@@ -23,6 +41,11 @@ DeclareGlobalFunction("FlatRegularPolyhedra");
 #! with sizes in <A>sizerange</A>. Also accepts a single integer
 #! __maxsize__ as input to indicate a sizerange of `[1..maxsize]`.
 DeclareGlobalFunction("RegularToroidalPolyhedra44");
+#! @BeginExampleSession
+#! gap> RegularToroidalPolyhedra44([60..100]);
+#! [ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), 
+#!   AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ]
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList
@@ -30,6 +53,11 @@ DeclareGlobalFunction("RegularToroidalPolyhedra44");
 #! with sizes in <A>sizerange</A>. Also accepts a single integer
 #! __maxsize__ as input to indicate a sizerange of `[1..maxsize]`.
 DeclareGlobalFunction("RegularToroidalPolyhedra36");
+#! @BeginExampleSession
+#! gap> RegularToroidalPolyhedra36([100..150]);
+#! [ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), 
+#!   AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ]
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList
@@ -40,18 +68,28 @@ DeclareGlobalFunction("RegularToroidalPolyhedra36");
 #! unstable and may change as more infinite familes of polyhedra
 #! are identified and written as separate generators.
 DeclareGlobalFunction("SmallRegularPolyhedraFromFile");
+#! @BeginExampleSession
+#! gap> SmallRegularPolyhedraFromFile(64);
+#! [ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), 
+#!   AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), 
+#!   AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), 
+#!   AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), 
+#!   AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ]
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList
 #! @Description Gives all regular polyhedra with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 4000 or less.
 #! You can also set options `nondegenerate`, `nonflat`, and `nontoroidal`.
-#! @BeginExampleSession
-#! L1 := SmallRegularPolyhedra(500);;
-#! L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
-#! L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
-#! @EndExampleSession
 DeclareGlobalFunction("SmallRegularPolyhedra");
+#! @BeginExampleSession
+#! gap> L1 := SmallRegularPolyhedra(500);;
+#! gap> L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
+#! gap> L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
+#! gap> Length(SmallRegularPolyhedra(64));
+#! 53
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList

@@ -17,6 +17,14 @@ Constructs the universal polytope of rank <A>n</A>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> UniversalPolytope(3);
+UniversalPolytope(3)
+gap> Rank(last);
+3
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M" Name="UniversalExtension" Label="for IsManiplex"/>
  <Returns>IsManiplex
@@ -30,6 +38,12 @@ Currently only defined for reflexible maniplexes.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> UniversalExtension(Cube(3));
+regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, k" Name="UniversalExtension" Label="for IsManiplex, IsInt"/>
  <Returns>IsManiplex
@@ -39,6 +53,12 @@ Constructs the universal extension of <A>M</A> with last entry of Schlafli symbo
  Currently only defined for reflexible maniplexes.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> UniversalExtension(Cube(3),2);
+regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
+]]></Example>
 
 
 <ManSection>
@@ -51,6 +71,12 @@ Constructs the trivial extension of <A>M</A>, also known as {<A>M</A>, 2}.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> TrivialExtension(Dodecahedron());
+regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, k" Name="FlatExtension" Label="for IsManiplex, IsInt"/>
  <Returns>IsManiplex#! @Description Constructs the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.  (As defined in <Emph>Flat Extensions of Abstract Polytopes</Emph> <Cite Key="Cun21"/>.)
@@ -59,6 +85,12 @@ Constructs the trivial extension of <A>M</A>, also known as {<A>M</A>, 2}.
 Currently only defined for reflexible maniplexes.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> FlatExtension(Simplex(3),4);
+reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
+]]></Example>
 
 
 <ManSection>
@@ -73,6 +105,12 @@ Currently only defined for reflexible maniplexes.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Amalgamate(Cube(3),CrossPolytope(3));
+reflexible 4-maniplex of type [ 4, 3, 4 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M" Name="Medial" Label="for IsManiplex"/>
  <Returns>IsManiplex
@@ -81,6 +119,12 @@ Currently only defined for reflexible maniplexes.
 Given a 3-maniplex <A>M</A>, returns its medial.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Medial(Dodecahedron()));
+[ [ 3, 5 ], 4 ]
+]]></Example>
 
 
 </Section>

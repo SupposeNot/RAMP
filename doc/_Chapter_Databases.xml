@@ -19,6 +19,16 @@ Gives all degenerate polyhedra (of type <Math>\{2, q\}</Math> and <Math>\{p, 2\}
 </ManSection>
 
 
+<Example><![CDATA[
+gap> DegeneratePolyhedra(24);
+[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), 
+  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), 
+  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), 
+  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), 
+  AbstractRegularPolytope([ 6, 2 ]) ]
+]]></Example>
+
+
 <ManSection>
   <Func Arg="sizerange" Name="FlatRegularPolyhedra" />
  <Returns>IsList
@@ -30,6 +40,18 @@ Gives all nondegenerate flat regular polyhedra with
  Currently supports a maxsize of 4000 or less.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> FlatRegularPolyhedra([10..24]);
+[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), 
+  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), 
+  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), 
+  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\
+ r1)^3 (r1 r2)^2"), 
+  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\
+), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ]
+]]></Example>
 
 
 <ManSection>
@@ -44,6 +66,13 @@ Gives all regular toroidal polyhedra of type <Math>\{4,4\}</Math>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> RegularToroidalPolyhedra44([60..100]);
+[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), 
+  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ]
+]]></Example>
+
+
 <ManSection>
   <Func Arg="sizerange" Name="RegularToroidalPolyhedra36" />
  <Returns>IsList
@@ -54,6 +83,13 @@ Gives all regular toroidal polyhedra of type <Math>\{3,6\}</Math>
  <Emph>maxsize</Emph> as input to indicate a sizerange of <Code>[1..maxsize]</Code>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> RegularToroidalPolyhedra36([100..150]);
+[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), 
+  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ]
+]]></Example>
 
 
 <ManSection>
@@ -71,6 +107,16 @@ Gives all regular polyhedra with sizes in <A>sizerange</A> flags
 </ManSection>
 
 
+<Example><![CDATA[
+gap> SmallRegularPolyhedraFromFile(64);
+[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), 
+  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), 
+  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), 
+  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), 
+  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ]
+]]></Example>
+
+
 <ManSection>
   <Func Arg="sizerange" Name="SmallRegularPolyhedra" />
  <Returns>IsList
@@ -79,15 +125,17 @@ Gives all regular polyhedra with sizes in <A>sizerange</A> flags
 Gives all regular polyhedra with sizes in <A>sizerange</A> flags.
  Currently supports a <Code>maxsize</Code> of 4000 or less.
  You can also set options <Code>nondegenerate</Code>, <Code>nonflat</Code>, and <Code>nontoroidal</Code>.
-<Example><![CDATA[
-L1 := SmallRegularPolyhedra(500);;
-L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
-L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
-]]></Example>
-
-
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> L1 := SmallRegularPolyhedra(500);;
+gap> L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
+gap> L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
+gap> Length(SmallRegularPolyhedra(64));
+53
+]]></Example>
 
 
 <ManSection>

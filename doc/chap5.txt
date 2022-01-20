@@ -11,6 +11,13 @@
   
   [33X[0;0YConstructs the universal polytope of rank [3Xn[103X.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalPolytope(3);[127X[104X
+    [4X[28XUniversalPolytope(3)[128X[104X
+    [4X[25Xgap>[125X [27XRank(last);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
   [1X5.1-2 UniversalExtension[101X
   
   [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X ) [32X operation[133X
@@ -20,6 +27,11 @@
   isomorphic  to  [3XM[103X that covers all other maniplexes with facets isomorphic to
   [3XM[103X. Currently only defined for reflexible maniplexes.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3));[127X[104X
+    [4X[28Xregular 4-polytope of type [ 4, 3, infinity ] with infinity flags[128X[104X
+  [4X[32X[104X
+  
   [1X5.1-3 UniversalExtension[101X
   
   [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
@@ -28,12 +40,22 @@
   [33X[0;0YConstructs  the  universal extension of [3XM[103X with last entry of Schlafli symbol
   [3Xk[103X. Currently only defined for reflexible maniplexes.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3),2);[127X[104X
+    [4X[28Xregular 4-polytope of type [ 4, 3, 2 ] with 96 flags[128X[104X
+  [4X[32X[104X
+  
   [1X5.1-4 TrivialExtension[101X
   
   [33X[1;0Y[29X[2XTrivialExtension[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
   [33X[0;0YConstructs the trivial extension of [3XM[103X, also known as {[3XM[103X, 2}.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTrivialExtension(Dodecahedron());[127X[104X
+    [4X[28Xregular 4-polytope of type [ 5, 3, 2 ] with 240 flags[128X[104X
+  [4X[32X[104X
   
   [1X5.1-5 FlatExtension[101X
   
@@ -44,6 +66,11 @@
   
   [33X[0;0YCurrently only defined for reflexible maniplexes.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlatExtension(Simplex(3),4);[127X[104X
+    [4X[28Xreflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags[128X[104X
+  [4X[32X[104X
+  
   [1X5.1-6 Amalgamate[101X
   
   [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
@@ -52,12 +79,22 @@
   [33X[0;0YConstructs  the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X
   are compatible. Currently only defined for reflexible maniplexes.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAmalgamate(Cube(3),CrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 4-maniplex of type [ 4, 3, 4 ][128X[104X
+  [4X[32X[104X
+  
   [1X5.1-7 Medial[101X
   
   [33X[1;0Y[29X[2XMedial[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
   [33X[0;0YGiven a 3-maniplex [3XM[103X, returns its medial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Medial(Dodecahedron()));[127X[104X
+    [4X[28X[ [ 3, 5 ], 4 ][128X[104X
+  [4X[32X[104X
   
   
   [1X5.2 [33X[0;0YDuality[133X[101X

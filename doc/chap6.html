@@ -61,6 +61,16 @@
 
 <p>Gives all degenerate polyhedra (of type <span class="Math">\{2, q\}</span> and <span class="Math">\{p, 2\}</span>) with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegeneratePolyhedra(24);</span>
+[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), 
+  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), 
+  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), 
+  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), 
+  AbstractRegularPolytope([ 6, 2 ]) ]
+</pre></div>
+
 <p><a id="X86869B8A80564ACF" name="X86869B8A80564ACF"></a></p>
 
 <h5>6.1-2 FlatRegularPolyhedra</h5>
@@ -69,6 +79,18 @@
 <p>Returns: IsList</p>
 
 <p>Gives all nondegenerate flat regular polyhedra with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>. Currently supports a maxsize of 4000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatRegularPolyhedra([10..24]);</span>
+[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), 
+  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), 
+  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), 
+  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\
+ r1)^3 (r1 r2)^2"), 
+  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\
+), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ]
+</pre></div>
 
 <p><a id="X8229CA838473FF2B" name="X8229CA838473FF2B"></a></p>
 
@@ -79,6 +101,13 @@
 
 <p>Gives all regular toroidal polyhedra of type <span class="Math">\{4,4\}</span> with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RegularToroidalPolyhedra44([60..100]);</span>
+[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), 
+  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ]
+</pre></div>
+
 <p><a id="X783D35FD79C25457" name="X783D35FD79C25457"></a></p>
 
 <h5>6.1-4 RegularToroidalPolyhedra36</h5>
@@ -88,6 +117,13 @@
 
 <p>Gives all regular toroidal polyhedra of type <span class="Math">\{3,6\}</span> with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RegularToroidalPolyhedra36([100..150]);</span>
+[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), 
+  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ]
+</pre></div>
+
 <p><a id="X814F1BC07C480F5D" name="X814F1BC07C480F5D"></a></p>
 
 <h5>6.1-5 SmallRegularPolyhedraFromFile</h5>
@@ -96,6 +132,16 @@
 <p>Returns: IsList</p>
 
 <p>Gives all regular polyhedra with sizes in <var class="Arg">sizerange</var> flags that are stored separately in a file. These are polyhedra that are not part of one of several infinite families that are covered by the other generators. The return value of this function is unstable and may change as more infinite familes of polyhedra are identified and written as separate generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallRegularPolyhedraFromFile(64);</span>
+[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), 
+  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), 
+  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), 
+  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), 
+  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ]
+</pre></div>
 
 <p><a id="X7BD5DABD833B9700" name="X7BD5DABD833B9700"></a></p>
 
@@ -108,9 +154,11 @@
 
 
 <div class="example"><pre>
-L1 := SmallRegularPolyhedra(500);;
-L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
-L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L1 := SmallRegularPolyhedra(500);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L2 := SmallRegularPolyhedra(1000 : nondegenerate);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(SmallRegularPolyhedra(64));</span>
+53
 </pre></div>
 
 <p><a id="X8670A2B078096E46" name="X8670A2B078096E46"></a></p>

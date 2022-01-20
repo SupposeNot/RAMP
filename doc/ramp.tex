@@ -2239,6 +2239,13 @@ IsManiplex
  Constructs the universal polytope of rank \mbox{\texttt{\mdseries\slshape n}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@UniversalPolytope(3);|
+  UniversalPolytope(3)
+  !gapprompt@gap>| !gapinput@Rank(last);|
+  3
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{UniversalExtension (for IsManiplex)}}
 \logpage{[ 5, 1, 2 ]}\nobreak
@@ -2253,6 +2260,11 @@ IsManiplex
 
  Constructs the universal extension of \mbox{\texttt{\mdseries\slshape M}}, i.e. the maniplex with facets isomorphic to \mbox{\texttt{\mdseries\slshape M}} that covers all other maniplexes with facets isomorphic to \mbox{\texttt{\mdseries\slshape M}}. Currently only defined for reflexible maniplexes. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@UniversalExtension(Cube(3));|
+  regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{UniversalExtension (for IsManiplex, IsInt)}}
@@ -2269,6 +2281,11 @@ IsManiplex
  Constructs the universal extension of \mbox{\texttt{\mdseries\slshape M}} with last entry of Schlafli symbol \mbox{\texttt{\mdseries\slshape k}}. Currently only defined for reflexible maniplexes. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@UniversalExtension(Cube(3),2);|
+  regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{TrivialExtension (for IsManiplex)}}
 \logpage{[ 5, 1, 4 ]}\nobreak
@@ -2283,6 +2300,11 @@ IsManiplex
 
  Constructs the trivial extension of \mbox{\texttt{\mdseries\slshape M}}, also known as \texttt{\symbol{123}}\mbox{\texttt{\mdseries\slshape M}}, 2\texttt{\symbol{125}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@TrivialExtension(Dodecahedron());|
+  regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{FlatExtension (for IsManiplex, IsInt)}}
@@ -2299,6 +2321,11 @@ IsManiplex\#! @Description Constructs the flat extension of \mbox{\texttt{\mdser
  Currently only defined for reflexible maniplexes. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@FlatExtension(Simplex(3),4);|
+  reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Amalgamate (for IsManiplex, IsManiplex)}}
 \logpage{[ 5, 1, 6 ]}\nobreak
@@ -2314,6 +2341,11 @@ IsManiplex
  Constructs the amalgamation of \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. Implicitly assumes that \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible. Currently only defined for reflexible maniplexes. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Amalgamate(Cube(3),CrossPolytope(3));|
+  reflexible 4-maniplex of type [ 4, 3, 4 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Medial (for IsManiplex)}}
 \logpage{[ 5, 1, 7 ]}\nobreak
@@ -2328,6 +2360,11 @@ IsManiplex
 
  Given a 3-maniplex \mbox{\texttt{\mdseries\slshape M}}, returns its medial. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Medial(Dodecahedron()));|
+  [ [ 3, 5 ], 4 ]
+\end{Verbatim}
  }
 
  
@@ -2649,6 +2686,15 @@ IsList
  Gives all degenerate polyhedra (of type $\{2, q\}$ and $\{p, 2\}$) with sizes in \mbox{\texttt{\mdseries\slshape sizerange}}. Also accepts a single integer \emph{maxsize} as input to indicate a sizerange of \texttt{[1..maxsize]}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@DegeneratePolyhedra(24);|
+  [ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), 
+    AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), 
+    AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), 
+    AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), 
+    AbstractRegularPolytope([ 6, 2 ]) ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{FlatRegularPolyhedra}}
 \logpage{[ 6, 1, 2 ]}\nobreak
@@ -2663,6 +2709,17 @@ IsList
 
  Gives all nondegenerate flat regular polyhedra with sizes in \mbox{\texttt{\mdseries\slshape sizerange}}. Also accepts a single integer \emph{maxsize} as input to indicate a sizerange of \texttt{[1..maxsize]}. Currently supports a maxsize of 4000 or less. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@FlatRegularPolyhedra([10..24]);|
+  [ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), 
+    AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), 
+    AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), 
+    AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\
+   r1)^3 (r1 r2)^2"), 
+    ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\
+  ), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{RegularToroidalPolyhedra44}}
@@ -2679,6 +2736,12 @@ IsList
  Gives all regular toroidal polyhedra of type $\{4,4\}$ with sizes in \mbox{\texttt{\mdseries\slshape sizerange}}. Also accepts a single integer \emph{maxsize} as input to indicate a sizerange of \texttt{[1..maxsize]}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@RegularToroidalPolyhedra44([60..100]);|
+  [ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), 
+    AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{RegularToroidalPolyhedra36}}
 \logpage{[ 6, 1, 4 ]}\nobreak
@@ -2693,6 +2756,12 @@ IsList
 
  Gives all regular toroidal polyhedra of type $\{3,6\}$ with sizes in \mbox{\texttt{\mdseries\slshape sizerange}}. Also accepts a single integer \emph{maxsize} as input to indicate a sizerange of \texttt{[1..maxsize]}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@RegularToroidalPolyhedra36([100..150]);|
+  [ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), 
+    AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{SmallRegularPolyhedraFromFile}}
@@ -2713,6 +2782,15 @@ more infinite familes of polyhedra are identified and written as separate
 generators. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SmallRegularPolyhedraFromFile(64);|
+  [ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), 
+    AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), 
+    AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), 
+    AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), 
+    AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{SmallRegularPolyhedra}}
 \logpage{[ 6, 1, 6 ]}\nobreak
@@ -2725,14 +2803,16 @@ IsList
 
 
 
- Gives all regular polyhedra with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a \texttt{maxsize} of 4000 or less. You can also set options \texttt{nondegenerate}, \texttt{nonflat}, and \texttt{nontoroidal}. 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  L1 := SmallRegularPolyhedra(500);;
-  L2 := SmallRegularPolyhedra(1000 : nondegenerate);;
-  L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;
-\end{Verbatim}
- }
+ Gives all regular polyhedra with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a \texttt{maxsize} of 4000 or less. You can also set options \texttt{nondegenerate}, \texttt{nonflat}, and \texttt{nontoroidal}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@L1 := SmallRegularPolyhedra(500);;|
+  !gapprompt@gap>| !gapinput@L2 := SmallRegularPolyhedra(1000 : nondegenerate);;|
+  !gapprompt@gap>| !gapinput@L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;|
+  !gapprompt@gap>| !gapinput@Length(SmallRegularPolyhedra(64));|
+  53
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{SmallDegenerateRegular4Polytopes}}
@@ -6377,6 +6457,8 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
