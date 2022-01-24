@@ -149,6 +149,14 @@ Gives all degenerate regular 4-polytopes with sizes in <A>sizerange</A> flags.
 </ManSection>
 
 
+<Example><![CDATA[
+gap>  SmallDegenerateRegular4Polytopes([64]);
+[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), 
+  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, 
+  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ]
+]]></Example>
+
+
 <ManSection>
   <Func Arg="sizerange" Name="SmallRegular4Polytopes" />
  <Returns>IsList
@@ -158,6 +166,12 @@ Gives all regular 4-polytopes with sizes in <A>sizerange</A> flags.
  Currently supports a <Code>maxsize</Code> of 4000 or less.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SmallRegular4Polytopes([100]);
+[ AbstractRegularPolytope([ 5, 2, 5 ]) ]
+]]></Example>
 
 
 <ManSection>
@@ -171,6 +185,15 @@ Gives all chiral polyhedra with sizes in <A>sizerange</A> flags.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> SmallChiralPolyhedra(100);
+[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ]
+]]></Example>
+
+
 <ManSection>
   <Func Arg="sizerange" Name="SmallChiral4Polytopes" />
  <Returns>IsList
@@ -180,6 +203,14 @@ Gives all chiral 4-polytopes with sizes in <A>sizerange</A> flags.
  Currently supports a <Code>maxsize</Code> of 4000 or less.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SmallChiral4Polytopes([200..250]);
+[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), 
+  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ]
+]]></Example>
 
 
 <ManSection>

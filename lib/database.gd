@@ -96,12 +96,23 @@ DeclareGlobalFunction("SmallRegularPolyhedra");
 #! @Description Gives all degenerate regular 4-polytopes with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 8000 or less. 
 DeclareGlobalFunction("SmallDegenerateRegular4Polytopes");
+#! @BeginExampleSession
+#! gap>  SmallDegenerateRegular4Polytopes([64]);
+#! [ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), 
+#!   regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, 
+#!   ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ]
+#! @EndExampleSession
 
 #! @Arguments sizerange
 #! @Returns IsList
 #! @Description Gives all regular 4-polytopes with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 4000 or less.
 DeclareGlobalFunction("SmallRegular4Polytopes");
+#! @BeginExampleSession
+#! gap> SmallRegular4Polytopes([100]);
+#! [ AbstractRegularPolytope([ 5, 2, 5 ]) ]
+#! @EndExampleSession
+
 
 
 DeclareGlobalFunction("ReadChiralPolytopesFromFile");
@@ -111,12 +122,27 @@ DeclareGlobalFunction("ReadChiralPolytopesFromFile");
 #! @Description Gives all chiral polyhedra with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 4000 or less.
 DeclareGlobalFunction("SmallChiralPolyhedra");
+#! @BeginExampleSession
+#! gap> SmallChiralPolyhedra(100);
+#! [ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), 
+#!   AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), 
+#!   AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), 
+#!   AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ]
+#! @EndExampleSession
+
 
 #! @Arguments sizerange
 #! @Returns IsList
 #! @Description Gives all chiral 4-polytopes with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 4000 or less.
 DeclareGlobalFunction("SmallChiral4Polytopes");
+#! @BeginExampleSession
+#! gap> SmallChiral4Polytopes([200..250]);
+#! [ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), 
+#!   AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), 
+#!   AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ]
+#! @EndExampleSession
+
 
 #! @Arguments sizerange
 #! @Returns IsList

@@ -117,6 +117,13 @@
   [33X[0;0YGives  all  degenerate  regular  4-polytopes  with sizes in [3Xsizerange[103X flags.
   Currently supports a [10Xmaxsize[110X of 8000 or less.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X SmallDegenerateRegular4Polytopes([64]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), [128X[104X
+    [4X[28X  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, [128X[104X
+    [4X[28X  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ][128X[104X
+  [4X[32X[104X
+  
   [1X6.1-8 SmallRegular4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
@@ -124,6 +131,11 @@
   
   [33X[0;0YGives  all  regular  4-polytopes  with  sizes  in [3Xsizerange[103X flags. Currently
   supports a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallRegular4Polytopes([100]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 5, 2, 5 ]) ][128X[104X
+  [4X[32X[104X
   
   [1X6.1-9 SmallChiralPolyhedra[101X
   
@@ -133,6 +145,14 @@
   [33X[0;0YGives all chiral polyhedra with sizes in [3Xsizerange[103X flags. Currently supports
   a [10Xmaxsize[110X of 4000 or less.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallChiralPolyhedra(100);[127X[104X
+    [4X[28X[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ][128X[104X
+  [4X[32X[104X
+  
   [1X6.1-10 SmallChiral4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallChiral4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
@@ -140,6 +160,13 @@
   
   [33X[0;0YGives  all  chiral  4-polytopes  with  sizes  in  [3Xsizerange[103X flags. Currently
   supports a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallChiral4Polytopes([200..250]);[127X[104X
+    [4X[28X[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ][128X[104X
+  [4X[32X[104X
   
   [1X6.1-11 SmallReflexible3Maniplexes[101X
   

@@ -170,6 +170,14 @@
 
 <p>Gives all degenerate regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 8000 or less.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> SmallDegenerateRegular4Polytopes([64]);</span>
+[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), 
+  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, 
+  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ]
+</pre></div>
+
 <p><a id="X83C76844861B7B5A" name="X83C76844861B7B5A"></a></p>
 
 <h5>6.1-8 SmallRegular4Polytopes</h5>
@@ -178,6 +186,12 @@
 <p>Returns: IsList</p>
 
 <p>Gives all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallRegular4Polytopes([100]);</span>
+[ AbstractRegularPolytope([ 5, 2, 5 ]) ]
+</pre></div>
 
 <p><a id="X7C5BEAD87A858EE7" name="X7C5BEAD87A858EE7"></a></p>
 
@@ -188,6 +202,15 @@
 
 <p>Gives all chiral polyhedra with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallChiralPolyhedra(100);</span>
+[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ]
+</pre></div>
+
 <p><a id="X85ED37A97CE7F77C" name="X85ED37A97CE7F77C"></a></p>
 
 <h5>6.1-10 SmallChiral4Polytopes</h5>
@@ -196,6 +219,14 @@
 <p>Returns: IsList</p>
 
 <p>Gives all chiral 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallChiral4Polytopes([200..250]);</span>
+[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), 
+  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ]
+</pre></div>
 
 <p><a id="X7ED0E4347B0192A6" name="X7ED0E4347B0192A6"></a></p>
 
