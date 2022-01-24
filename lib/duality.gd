@@ -15,6 +15,12 @@ DeclareOperation("Dual", [IsManiplex]);
 #! @Returns Whether this maniplex is isomorphic to its dual.
 #! @Description Also works for IsPoset objects.
 DeclareProperty("IsSelfDual", IsManiplex);
+# ! @BeginExampleSession
+# ! gap> IsSelfDual(Cube(3));
+# ! false
+# ! gap> IsSelfDual(Simplex(5));
+# ! true
+# ! @EndExampleSession
 
 #! @Arguments M[, x]
 #! @Description Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in
@@ -23,6 +29,7 @@ DeclareProperty("IsSelfDual", IsManiplex);
 #! the isomorphism between <A>M</A> and its dual is an inner automorphism.
 #! If the optional group element <A>x</A> is given, then we first check whether <A>x</A> is a dualizing
 #! automorphism of <A>M</A>, and if not, then we search the whole automorphism group of <A>M</A>.
+DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
 #! @BeginExampleSession
 #! gap> IsInternallySelfDual(Simplex(4));
 #! true
@@ -37,13 +44,14 @@ DeclareProperty("IsSelfDual", IsManiplex);
 #! gap> IsInternallySelfDual(M, (g.1*g.3*g.2)^6);
 #! true
 #! @EndExampleSession
-DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
+
 
 #! @Arguments M
 #! @Description Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in
 #! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
 #! That is, if <A>M</A> is self-dual, and the automorphism of AutomorphismGroup(M) that induces
 #! the isomorphism between <A>M</A> and its dual is an outer automorphism.
+DeclareProperty("IsExternallySelfDual", IsReflexibleManiplex);
 #! @BeginExampleSession
 #! gap> IsExternallySelfDual(Simplex(4));
 #! false
@@ -54,7 +62,6 @@ DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
 #! gap> IsExternallySelfDual(Cube(3));
 #! false
 #! @EndExampleSession
-DeclareProperty("IsExternallySelfDual", IsReflexibleManiplex);
 
 
 #! @Arguments M
@@ -64,11 +71,28 @@ DeclareProperty("IsExternallySelfDual", IsReflexibleManiplex);
 #! replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
 DeclareAttribute("Petrial", IsManiplex);
 
+
 DeclareSynonymAttr("PetrieDual", Petrial);
+
+#! @BeginExampleSession
+#! gap> Petrial(HemiCube(3));
+#! ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
+#! @EndExampleSession
+
 
 #! @Arguments M
 #! @Returns Whether this maniplex is isomorphic to its Petrial.
 DeclareProperty("IsSelfPetrial", IsManiplex);
+#! @BeginExampleSession
+#! gap> s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;
+#! gap> s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;
+#! gap> s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;
+#! gap> poly := Group([s0,s1,s2]);;
+#! gap> p:=ARP(poly);
+#! regular 3-polytope
+#! gap> IsSelfPetrial(p);
+#! true
+#! @EndExampleSession
 
 #! @Arguments M
 #! Returns a list of the __direct derivates__ of <A>M</A>, which are
@@ -77,3 +101,9 @@ DeclareProperty("IsSelfPetrial", IsManiplex);
 #! If the option 'polytopal' is set, then only returns those direct
 #! derivates that are polytopal.
 DeclareOperation("DirectDerivates", [IsManiplex]);
+#! @BeginExampleSession
+#! gap> DirectDerivates(Cube(3));
+#! [ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
+#!   ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
+#!   ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+#! @EndExampleSession

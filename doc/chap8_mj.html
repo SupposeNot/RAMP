@@ -255,6 +255,12 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>. Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="SimpleMath">\(r_{n-3}\)</span> with <span class="SimpleMath">\(r_{n-3} r_{n-1}\)</span> in the set of generators.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(HemiCube(3));</span>
+ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
+</pre></div>
+
 <p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
 <h5>8.2-6 IsSelfPetrial</h5>
@@ -262,12 +268,32 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);</span>
+regular 3-polytope
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfPetrial(p);</span>
+true
+</pre></div>
+
 <p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
 
 <h5>8.2-7 DirectDerivates</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectDerivates(Cube(3));</span>
+[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
+  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
+  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+</pre></div>
 
 <p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
 

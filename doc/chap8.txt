@@ -174,10 +174,26 @@
             "generalized  Petrial"  which  essentially  replaces  [23Xr_{n-3}[123X with
             [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPetrial(HemiCube(3));[127X[104X
+    [4X[28XReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")[128X[104X
+  [4X[32X[104X
+  
   [1X8.2-6 IsSelfPetrial[101X
   
   [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;[127X[104X
+    [4X[25Xgap>[125X [27Xs1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;[127X[104X
+    [4X[25Xgap>[125X [27Xs2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;[127X[104X
+    [4X[25Xgap>[125X [27Xpoly := Group([s0,s1,s2]);;[127X[104X
+    [4X[25Xgap>[125X [27Xp:=ARP(poly);[127X[104X
+    [4X[28Xregular 3-polytope[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfPetrial(p);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X8.2-7 DirectDerivates[101X
   
@@ -187,6 +203,13 @@
   duality  and  Petriality.  A 3-maniplex has up to 6 direct derivates, and an
   n-maniplex with [23Xn \geq 4[123X has up to 8. If the option 'polytopal' is set, then
   only returns those direct derivates that are polytopal.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDirectDerivates(Cube(3));[127X[104X
+    [4X[28X[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ][128X[104X
+  [4X[32X[104X
   
   
   [1X8.3 [33X[0;0YProducts[133X[101X

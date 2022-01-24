@@ -4702,7 +4702,9 @@ Whether this maniplex is isomorphic to its dual.
 
  Returns whether this maniplex is "internally self-dual", as defined by
 Cunningham and Mixer in \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). That is, if \mbox{\texttt{\mdseries\slshape M}} is self-dual, and the automorphism of AutomorphismGroup(M) that induces the
-isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner automorphism. If the optional group element \mbox{\texttt{\mdseries\slshape x}} is given, then we first check whether \mbox{\texttt{\mdseries\slshape x}} is a dualizing automorphism of \mbox{\texttt{\mdseries\slshape M}}, and if not, then we search the whole automorphism group of \mbox{\texttt{\mdseries\slshape M}}. 
+isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner automorphism. If the optional group element \mbox{\texttt{\mdseries\slshape x}} is given, then we first check whether \mbox{\texttt{\mdseries\slshape x}} is a dualizing automorphism of \mbox{\texttt{\mdseries\slshape M}}, and if not, then we search the whole automorphism group of \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@IsInternallySelfDual(Simplex(4));|
   true
@@ -4717,8 +4719,6 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner
   !gapprompt@gap>| !gapinput@IsInternallySelfDual(M, (g.1*g.3*g.2)^6);|
   true
 \end{Verbatim}
- }
-
  
 
 \subsection{\textcolor{Chapter }{IsExternallySelfDual (for IsReflexibleManiplex)}}
@@ -4734,7 +4734,9 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner
 
  Returns whether this maniplex is "externally self-dual", as defined by
 Cunningham and Mixer in \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). That is, if \mbox{\texttt{\mdseries\slshape M}} is self-dual, and the automorphism of AutomorphismGroup(M) that induces the
-isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an outer automorphism. 
+isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an outer automorphism. }
+
+ 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@IsExternallySelfDual(Simplex(4));|
   false
@@ -4745,8 +4747,6 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an outer
   !gapprompt@gap>| !gapinput@IsExternallySelfDual(Cube(3));|
   false
 \end{Verbatim}
- }
-
  
 
 \subsection{\textcolor{Chapter }{Petrial (for IsManiplex)}}
@@ -4766,6 +4766,11 @@ essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
  }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Petrial(HemiCube(3));|
+  ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsSelfPetrial (for IsManiplex)}}
 \logpage{[ 8, 2, 6 ]}\nobreak
@@ -4783,6 +4788,17 @@ Whether this maniplex is isomorphic to its Petrial.
  }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;|
+  !gapprompt@gap>| !gapinput@s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;|
+  !gapprompt@gap>| !gapinput@s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;|
+  !gapprompt@gap>| !gapinput@poly := Group([s0,s1,s2]);;|
+  !gapprompt@gap>| !gapinput@p:=ARP(poly);|
+  regular 3-polytope
+  !gapprompt@gap>| !gapinput@IsSelfPetrial(p);|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{DirectDerivates (for IsManiplex)}}
 \logpage{[ 8, 2, 7 ]}\nobreak
@@ -4796,6 +4812,13 @@ Whether this maniplex is isomorphic to its Petrial.
 to 6 direct derivates, and an n-maniplex with $n \geq 4$ has up to 8. If the option 'polytopal' is set, then only returns those direct
 derivates that are polytopal. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@DirectDerivates(Cube(3));|
+  [ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
+    ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
+    ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+\end{Verbatim}
  }
 
  
@@ -6475,7 +6498,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

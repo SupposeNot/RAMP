@@ -170,6 +170,10 @@ Returns whether this maniplex is "internally self-dual", as defined by Cunningha
  the isomorphism between <A>M</A> and its dual is an inner automorphism.
  If the optional group element <A>x</A> is given, then we first check whether <A>x</A> is a dualizing
  automorphism of <A>M</A>, and if not, then we search the whole automorphism group of <A>M</A>.
+ </Description>
+</ManSection>
+
+
 <Example><![CDATA[
 gap> IsInternallySelfDual(Simplex(4));
 true
@@ -186,10 +190,6 @@ true
 ]]></Example>
 
 
- </Description>
-</ManSection>
-
-
 <ManSection>
   <Prop Arg="M" Name="IsExternallySelfDual" Label="for IsReflexibleManiplex"/>
  <Returns><C>true</C> or <C>false</C>
@@ -199,6 +199,10 @@ Returns whether this maniplex is "externally self-dual", as defined by Cunningha
  <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
  That is, if <A>M</A> is self-dual, and the automorphism of AutomorphismGroup(M) that induces
  the isomorphism between <A>M</A> and its dual is an outer automorphism.
+ </Description>
+</ManSection>
+
+
 <Example><![CDATA[
 gap> IsExternallySelfDual(Simplex(4));
 false
@@ -209,10 +213,6 @@ false
 gap> IsExternallySelfDual(Cube(3));
 false
 ]]></Example>
-
-
- </Description>
-</ManSection>
 
 
 <ManSection>
@@ -227,6 +227,12 @@ false
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Petrial(HemiCube(3));
+ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsSelfPetrial" Label="for IsManiplex"/>
  <Returns>Whether this maniplex is isomorphic to its Petrial.
@@ -235,6 +241,18 @@ false
 <P/>
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;
+gap> s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;
+gap> s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;
+gap> poly := Group([s0,s1,s2]);;
+gap> p:=ARP(poly);
+regular 3-polytope
+gap> IsSelfPetrial(p);
+true
+]]></Example>
 
 
 <ManSection>
@@ -247,6 +265,14 @@ false
  derivates that are polytopal.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> DirectDerivates(Cube(3));
+[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
+  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
+  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+]]></Example>
 
 
 </Section>
