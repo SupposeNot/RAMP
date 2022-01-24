@@ -2,7 +2,7 @@
 
 
 #! @Chapter Families of Polytopes
-#! @Section Uniform Polyhedra
+#! @Section Uniform polyhedra
 #! Representations of the uniform polyhedra here are from <Cite Key="HarWil10"/>.
 
 #! @Arguments

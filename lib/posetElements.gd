@@ -6,7 +6,7 @@
 #! @Section Elements of posets, also known as faces.
 
 
-#! @Section Element Constructors
+#! @Section Element constructors
 
 #! @Arguments obj, func
 #! @Returns `IsFace`

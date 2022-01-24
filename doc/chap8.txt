@@ -1,189 +1,261 @@
   
-  [1X8 [33X[0;0YGroups for Maps, Polytopes, and Maniplexes[133X[101X
+  [1X8 [33X[0;0YPolytope Constructions and Operations[133X[101X
   
   
-  [1X8.1 [33X[0;0YGroups of Maps, Polytopes, and Maniplexes[133X[101X
+  [1X8.1 [33X[0;0YExtensions, amalgamations, and quotients[133X[101X
   
-  [1X8.1-1 AutomorphismGroup[101X
+  [1X8.1-1 UniversalPolytope[101X
   
-  [33X[1;0Y[29X[2XAutomorphismGroup[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XUniversalPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YReturns  the  automorphism group of [3XM[103X. This group is not guaranteed to be in
-  any  particular  form. For particular permutation representations you should
-  consider the various AutomorphismGroupOn... functions.[133X
-  
-  [1X8.1-2 AutomorphismGroupFpGroup[101X
-  
-  [33X[1;0Y[29X[2XAutomorphismGroupFpGroup[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the automorphism group of [3XM[103X as a finitely presented group.[133X
-  
-  [1X8.1-3 AutomorphismGroupPermGroup[101X
-  
-  [33X[1;0Y[29X[2XAutomorphismGroupPermGroup[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the automorphism group of [3XM[103X as a permutation group.[133X
-  
-  [1X8.1-4 AutomorphismGroupOnFlags[101X
-  
-  [33X[1;0Y[29X[2XAutomorphismGroupOnFlags[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  automorphism  group  of [3XM[103X as a permutation group action on the
-  flags of [3XM[103X.[133X
-  
-  [1X8.1-5 ConnectionGroup[101X
-  
-  [33X[1;0Y[29X[2XConnectionGroup[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the connection group of [3XM[103X as a permutation group. We may eventually
-  allow other types of connection groups. Synonym: MonodromyGroup[133X
-  
-  [1X8.1-6 EvenConnectionGroup[101X
-  
-  [33X[1;0Y[29X[2XEvenConnectionGroup[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns the even-word subgroup of the connection group of [3XM[103X as a permutation
-  group.[133X
-  
-  [1X8.1-7 RotationGroup[101X
-  
-  [33X[1;0Y[29X[2XRotationGroup[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the  rotation group of [3XM[103X. This group is not guaranteed to be in any
-  particular form.[133X
-  
-  [1X8.1-8 ChiralityGroup[101X
-  
-  [33X[1;0Y[29X[2XChiralityGroup[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the chirality group of the rotary maniplex [3XM[103X. This is the kernel of
-  the  group epimorphism from the rotation group of [3XM[103X to the rotation group of
-  its  maximal  reflexible  quotient.  In  particular,  the chirality group is
-  trivial if and only if [3XM[103X is reflexible.[133X
-  
-  [1X8.1-9 ExtraRelators[101X
-  
-  [33X[1;0Y[29X[2XExtraRelators[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YFor  a  reflexible  maniplex  [3XM[103X,  returns  the relators needed to define its
-  automorphism  group  as  a quotient of the string Coxeter group given by its
-  Schlafli symbol. Not particularly robust at the moment.[133X
-  
-  [1X8.1-10 ExtraRotRelators[101X
-  
-  [33X[1;0Y[29X[2XExtraRotRelators[102X( [3XM[103X ) [32X attribute[133X
-  
-  [33X[0;0YFor  a  reflexible  maniplex  [3XM[103X,  returns  the relators needed to define its
-  rotation group as a quotient of the rotation group of a string Coxeter group
-  given by its Schlafli symbol. Not particularly robust at the moment.[133X
-  
-  [1X8.1-11 IsManiplexable[101X
-  
-  [33X[1;0Y[29X[2XIsManiplexable[102X( [3Xpermgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XBoolean[110X.[133X
-  
-  [33X[0;0YGiven a permutation group, it asks if the generators could be the connection
-  group  of  a  maniplex. That is to say, are each of the generators and their
-  products fixed point free.[133X
-  
-  
-  [1X8.2 [33X[0;0YSggis[133X[101X
-  
-  
-  [1X8.2-1 [33X[0;0YUniversalSggi[133X[101X
-  
-  [33X[1;0Y[29X[2XUniversalSggi[102X( [3Xn[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XUniversalSggi[102X( [3Xsym[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsFpGroup[110X[133X
-  
-  [33X[0;0YIn  the  first  form,  returns the universal Coxeter Group of rank n. In the
-  second form, returns the Coxeter Group with Schlafli symbol sym.[133X
-  
-  [1X8.2-2 Sggi[101X
-  
-  [33X[1;0Y[29X[2XSggi[102X( [3Xsymbol[103X[, [3Xrelations[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsFpGroup[110X[133X
-  
-  [33X[0;0YReturns  the  sggi  defined  by the given Schlafli symbol and with the given
-  relations.  The  relations  can  be  given by a list of Tietze words or as a
-  string  of  relators  or  relations that involve r0 etc. If no relations are
-  given, then returns the universal sggi with the given Schlafli symbol.[133X
+  [33X[0;0YConstructs the universal polytope of rank [3Xn[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
-    [4X[25Xgap>[125X [27Xh := Sggi([4,4], "r0 = r2");;[127X[104X
-    [4X[25Xgap>[125X [27Xk := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;[127X[104X
-    [4X[25Xgap>[125X [27Xk = Sggi([3,3]);[127X[104X
+    [4X[25Xgap>[125X [27XUniversalPolytope(3);[127X[104X
+    [4X[28XUniversalPolytope(3)[128X[104X
+    [4X[25Xgap>[125X [27XRank(last);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-2 UniversalExtension[101X
+  
+  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YConstructs  the  universal  extension  of  [3XM[103X,  i.e. the maniplex with facets
+  isomorphic  to  [3XM[103X that covers all other maniplexes with facets isomorphic to
+  [3XM[103X. Currently only defined for reflexible maniplexes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3));[127X[104X
+    [4X[28Xregular 4-polytope of type [ 4, 3, infinity ] with infinity flags[128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-3 UniversalExtension[101X
+  
+  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YConstructs  the  universal extension of [3XM[103X with last entry of Schlafli symbol
+  [3Xk[103X. Currently only defined for reflexible maniplexes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3),2);[127X[104X
+    [4X[28Xregular 4-polytope of type [ 4, 3, 2 ] with 96 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-4 TrivialExtension[101X
+  
+  [33X[1;0Y[29X[2XTrivialExtension[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YConstructs the trivial extension of [3XM[103X, also known as {[3XM[103X, 2}.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTrivialExtension(Dodecahedron());[127X[104X
+    [4X[28Xregular 4-polytope of type [ 5, 3, 2 ] with 240 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-5 FlatExtension[101X
+  
+  [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex#!  @Description Constructs the flat extension of [3XM[103X with
+            last entry of Schlafli symbol [3Xk[103X. (As defined in [13XFlat Extensions of
+            Abstract Polytopes[113X [Cun21].)[133X
+  
+  [33X[0;0YCurrently only defined for reflexible maniplexes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlatExtension(Simplex(3),4);[127X[104X
+    [4X[28Xreflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-6 Amalgamate[101X
+  
+  [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YConstructs  the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X
+  are compatible. Currently only defined for reflexible maniplexes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAmalgamate(Cube(3),CrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 4-maniplex of type [ 4, 3, 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.1-7 Medial[101X
+  
+  [33X[1;0Y[29X[2XMedial[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven a 3-maniplex [3XM[103X, returns its medial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Medial(Dodecahedron()));[127X[104X
+    [4X[28X[ [ 3, 5 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.2 [33X[0;0YDuality[133X[101X
+  
+  [1X8.2-1 Dual[101X
+  
+  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe maniplex that is dual to [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(CrossPolytope(3));[127X[104X
+    [4X[28XCube(3)[128X[104X
+  [4X[32X[104X
+  
+  [1X8.2-2 IsSelfDual[101X
+  
+  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its dual.[133X
+  
+  [33X[0;0YAlso works for IsPoset objects.[133X
+  
+  [1X8.2-3 IsInternallySelfDual[101X
+  
+  [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X[, [3Xx[103X] ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  this  maniplex  is  "internally  self-dual", as defined by
+  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
+  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
+  automorphism.  If the optional group element [3Xx[103X is given, then we first check
+  whether  [3Xx[103X  is a dualizing automorphism of [3XM[103X, and if not, then we search the
+  whole automorphism group of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Cube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron2(10,1);;[127X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(M);;[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(M, (g.1*g.3*g.2)^6);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X8.2-3 IsGgi[101X
+  [1X8.2-4 IsExternallySelfDual[101X
   
-  [33X[1;0Y[29X[2XIsGgi[102X( [3Xg[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Ywhether  [3Xg[103X  is  generated  by  involutions.  Or more specifically,
-            whether GeneratorsOfGroup([3Xg[103X) all have order 2 or less.[133X
+  [33X[1;0Y[29X[2XIsExternallySelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [1X8.2-4 IsStringy[101X
-  
-  [33X[1;0Y[29X[2XIsStringy[102X( [3Xg[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Ywhether every pair of non-adjacent generators of [3Xg[103X commute.[133X
-  
-  [1X8.2-5 IsSggi[101X
-  
-  [33X[1;0Y[29X[2XIsSggi[102X( [3Xg[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Ywhether  [3Xg[103X  is a string group generated by involutions. Equivalent
-            to [10XIsGgi(g) and IsStringy(g)[110X.[133X
-  
-  [1X8.2-6 IsStringC[101X
-  
-  [33X[1;0Y[29X[2XIsStringC[102X( [3XG[103X ) [32X operation[133X
-  
-  [33X[0;0YFor an sggi [3XG[103X, returns whether the group is a string C group.[133X
-  
-  [1X8.2-7 IsStringCPlus[101X
-  
-  [33X[1;0Y[29X[2XIsStringCPlus[102X( [3XG[103X ) [32X operation[133X
-  
-  [33X[0;0YFor  a  "string  rotation group" [3XG[103X, returns whether the group is a string C+
-  group. It does not check whether [3XG[103X is a string rotation group.[133X
-  
-  [1X8.2-8 SggiElement[101X
-  
-  [33X[1;0Y[29X[2XSggiElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ythe element of [3Xg[103X with underlying word [3Xstr[103X.[133X
+  [33X[0;0YReturns  whether  this  maniplex  is  "externally  self-dual", as defined by
+  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
+  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  outer
+  automorphism.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group((1,2),(2,3),(3,4));;[127X[104X
-    [4X[25Xgap>[125X [27XSggiElement(g, "r0 r1");[127X[104X
-    [4X[28X(1,3,2)[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YFor  convenience, you can also use a reflexible maniplex M in place of g, in
-  which case [10XAutomorphismGroup(M)[110X is used for g.[133X
-  
-  [1X8.2-9 SggiFamily[101X
-  
-  [33X[1;0Y[29X[2XSggiFamily[102X( [3Xparent[103X, [3Xwords[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven  a  [3Xparent[103X group and a list of strings that represent words in r0, r1,
-  etc,  returns  a function. That function accepts a list of positive integers
-  L, and returns the quotient of [3Xparent[103X by the relations that set the order of
-  each [3Xwords[i][103X to L[i].[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xf := SggiFamily(Sggi([4,4]), ["r0 r1 r2 r1"]);[127X[104X
-    [4X[28Xfunction( orders ) ... end[128X[104X
-    [4X[25Xgap>[125X [27Xg := f([3]);[127X[104X
-    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XSize(g);[127X[104X
-    [4X[28X72[128X[104X
-    [4X[25Xgap>[125X [27Xh := f([6]);[127X[104X
-    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XIsQuotient(h,g);[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(Simplex(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(Cube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YOne  of the advantages of building an SggiFamily is that testing whether one
-  member  of  the  family  is  a  quotient of another member can be done quite
-  quickly.[133X
+  [1X8.2-5 Petrial[101X
+  
+  [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XM[103X. Note that this is not necessarily
+            a  polytope,  even  if  [3XM[103X  is.  When  Rank(M)  >  3,  this  is the
+            "generalized  Petrial"  which  essentially  replaces  [23Xr_{n-3}[123X with
+            [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
+  
+  [1X8.2-6 IsSelfPetrial[101X
+  
+  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
+  
+  [1X8.2-7 DirectDerivates[101X
+  
+  [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns a list of the [13Xdirect derivates[113X of [3XM[103X, which are the images of M under
+  duality  and  Petriality.  A 3-maniplex has up to 6 direct derivates, and an
+  n-maniplex with [23Xn \geq 4[123X has up to 8. If the option 'polytopal' is set, then
+  only returns those direct derivates that are polytopal.[133X
+  
+  
+  [1X8.3 [33X[0;0YProducts[133X[101X
+  
+  [1X8.3-1 Pyramid[101X
+  
+  [33X[1;0Y[29X[2XPyramid[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the pyramid over [3XM[103X.[133X
+  
+  [1X8.3-2 Pyramid[101X
+  
+  [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the pyramid over a [3Xk[103X-gon.[133X
+  
+  [1X8.3-3 Prism[101X
+  
+  [33X[1;0Y[29X[2XPrism[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the prism over [3XM[103X.[133X
+  
+  [1X8.3-4 Prism[101X
+  
+  [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the prism over a [3Xk[103X-gon.[133X
+  
+  [1X8.3-5 Antiprism[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the antiprism over [3XM[103X.[133X
+  
+  [1X8.3-6 Antiprism[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the antiprism over a [3Xk[103X-gon.[133X
+  
+  [1X8.3-7 JoinProduct[101X
+  
+  [33X[1;0Y[29X[2XJoinProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven two maniplexes, this forms the join product. May give weird results if
+  the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [1X8.3-8 CartesianProduct[101X
+  
+  [33X[1;0Y[29X[2XCartesianProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven  two  maniplexes,  this  forms  the  cartesian product. May give weird
+  results if the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [1X8.3-9 DirectSumOfManiplexes[101X
+  
+  [33X[1;0Y[29X[2XDirectSumOfManiplexes[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
+  the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [1X8.3-10 TopologicalProduct[101X
+  
+  [33X[1;0Y[29X[2XTopologicalProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
+  the maniplexes aren't faithfully represented by their posets.[133X
   

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Maniplexes">
+<Heading>Maniplexes</Heading>
+
+<Section Label="Chapter_Maniplexes_Section_Constructors">
+<Heading>Constructors</Heading>
+
+<ManSection Label="ReflexibleManiplex">
+<Heading>ReflexibleManiplex</Heading>
+  <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
+  <Oper Arg="sym[, relations]" Name="ReflexibleManiplex" Label="for IsList"/>
+ <Returns><Code>IsReflexibleManiplex</Code>
+</Returns>
+ <Description>
+In the first form, we are given an Sggi <A>g</A>
+ and we return the reflexible maniplex with that automorphism group,
+ where the privileged generators are those returned by GeneratorsOfGroup(g).
+<Example><![CDATA[
+gap> g := Group([(1,2), (2,3), (3,4)]);
+gap> M := ReflexibleManiplex(g);
+gap> M = Simplex(3);
+true
+]]></Example>
+
+
+ This function first checks whether g is an Sggi. Use <Code>ReflexibleManiplexNC</Code> to
+ bypass that check.
+The second form returns the universal reflexible maniplex
+ with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
+ then we return the reflexible maniplex with the given defining relations.
+ The relations can be given by a list of Tietze words or as a string of relators 
+ or relations that involve r0 etc.
+<Example><![CDATA[
+gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
+gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
+true
+gap> p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;
+]]></Example>
+
+
+ If the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="G" Name="Maniplex" Label="for IsPermGroup"/>
+ <Returns><Code>IsManiplex</Code>
+</Returns>
+ <Description>
+Given a permutation group <A>G</A> on the set [1..N],
+ returns a maniplex with N flags with connection group <A>G</A>.
+ The output may not make sense if <A>G</A> is not an sggi.
+<Example><![CDATA[
+gap> G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;
+gap> M := Maniplex(G);
+Pgon(3)
+gap> c := ConnectionGroup(Cube(3));
+<permutation group with 3 generators>
+gap> Maniplex(c) = Cube(3);
+true
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, H" Name="Maniplex" Label="for IsReflexibleManiplex, IsGroup"/>
+ <Returns><Code>IsManiplex</Code>
+</Returns>
+ <Description>
+Let <A>M</A> be a reflexible maniplex and let <A>H</A> be a subgroup
+ of AutomorphismGroup(<A>M</A>). This returns the maniplex <A>M/H</A>. This will be
+ reflexible if and only if <A>H</A> is normal.
+ For most purposes, it is probably easier to use QuotientManiplex, which takes a
+ string of relations as input instead of a subgroup.
+ The example below builds the map <Math>\{4, 4\}_{(1,0), (0,2)}</Math>.
+<Example><![CDATA[
+gap> M := ReflexibleManiplex([4,4]);
+CubicTiling(2)
+gap> G := AutomorphismGroup(M);
+<fp group of size infinity on the generators [ r0, r1, r2 ]>
+gap> H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);
+Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
+gap> M2 := Maniplex(M, H);
+3-maniplex
+gap> Size(M2);
+16
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="F, inputs" Name="Maniplex" Label="for IsFunction, IsList"/>
+ <Returns><Code>IsManiplex</Code>
+</Returns>
+ <Description>
+Constructs a formal maniplex, represented by an operation <A>F</A> and
+ a list of arguments <A>inputs</A>. By itself, this does not really _do_
+ anything -- it creates a maniplex object that only knows the operation <A>F</A> and 
+ the <A>inputs</A>. However, many polytope operations (such as Pyramid(M), Medial(M), etc)
+ use this construction as a base, and then add "attribute computers" that tell the formal
+ maniplex how to compute certain things in terms of properties of the base.
+ See AddAttrComputer for more information.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="P" Name="Maniplex" Label="for IsPoset"/>
+ <Returns><Code>IsManiplex</Code>
+</Returns>
+ <Description>
+Constructs the maniplex from the given poset <A>P</A>.
+ This assumes that P actually defines a maniplex.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
+ <Returns><C>true</C> or <C>false</C>
+</Returns>
+ <Description>
+Returns whether the maniplex <A>M</A> is polytopal;
+ i.e., the flag graph of a polytope.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplexes_Section_Mixing_of_Maniplexes_functions">
+<Heading>Mixing of Maniplexes functions</Heading>
+
+<ManSection>
+  <Oper Arg="permgroup, permgroup" Name="Mix" Label="for IsPermGroup, IsPermGroup"/>
+ <Returns><Code>IsGroup </Code>.
+</Returns>
+ <Description>
+Given two (permutation) groups returns the mix of those groups. Note, also works with FPgroups.
+ </Description>
+</ManSection>
+
+
+ Here we build the mix of the connection groups of a 3-cube and an edge.
+<Example><![CDATA[
+gap> g1:=ConnectionGroup(Cube(3));
+<permutation group with 3 generators>
+gap> g2:=ConnectionGroup(Edge());
+Group([ (1,2) ])
+gap> Mix(g1,g2);
+<permutation group with 3 generators>
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="fpgroup, fpgroup" Name="Mix" Label="for IsFpGroup, IsFpGroup"/>
+ <Description>
+ Returns the Mix of two Finitely Presented groups gp and gq.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="maniplex, maniplex" Name="Mix" Label="for IsReflexibleManiplex, IsReflexibleManiplex"/>
+ <Returns><Code>IsReflexibleManiplex </Code>.
+</Returns>
+ <Description>
+Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="arg1,arg2" Name="Mix" Label="for IsManiplex, IsManiplex"/>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="fpgroup, fpgroup" Name="Comix" Label="for IsFpGroup, IsFpGroup"/>
+ <Description>
+ Returns the comix of two Finitely Presented groups gp and gq.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="maniplex, maniplex" Name="Comix" Label="for IsReflexibleManiplex, IsReflexibleManiplex"/>
+ <Returns><Code>IsReflexibleManiplex </Code>.
+</Returns>
+ <Description>
+Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="int, int, int, int" Name="CtoL" Label="for IsInt,IsInt,IsInt,IsInt"/>
+ <Returns><Code>IsInteger </Code>.
+</Returns>
+ <Description>
+CtoL Returns an integer between 1 and N*M associated with the pair [a,b].
+ LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M.
+ a should range between 1 and N, and b should range between 1 and M
+ N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix
+ Functions are inverses.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="permgroup, permgroup" Name="FlagMix" Label="for IsManiplex, IsManiplex"/>
+ <Returns><Code>IsManiplex </Code>.
+</Returns>
+ <Description>
+Given two (permutation) groups gp, gg this returns the maniplex of the
+ "flag" mix of two maniplexes with connection groups gp and gq.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplexes_Section_Rotary_maniplexes_and_rotation_groups">
+<Heading>Rotary maniplexes and rotation groups</Heading>
+
+<ManSection>
+  <Oper Arg="n" Name="UniversalRotationGroup" Label="for IsInt"/>
+ <Description>
+ Returns the rotation subgroup of the universal Coxeter Group of rank n.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="sym" Name="UniversalRotationGroup" Label="for IsList"/>
+ <Description>
+ Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="g" Name="RotaryManiplex" Label="for IsGroup"/>
+ <Description>
+Given a group g (which should be a string rotation group),
+ returns the rotary maniplex with that rotation group,
+ where the privileged generators are those returned by GeneratorsOfGroup(g).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="sym" Name="RotaryManiplex" Label="for IsList"/>
+ <Description>
+ Returns the universal rotary maniplex (in fact, regular polytope)
+ with Schlafli symbol <A>sym</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="symbol, relations" Name="RotaryManiplex" Label="for IsList, IsList"/>
+ <Description>
+Returns the rotary maniplex with the given Schlafli
+ symbol and with the given relations.
+ The relations are given by a string that refers to the generators
+ s1, s2, etc. For example:
+<Example><![CDATA[
+gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
+]]></Example>
+
+
+ If the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="EnantiomorphicForm" Label="for IsRotaryManiplex"/>
+ <Description>
+The <Emph>enantiomorphic form</Emph> of a rotary maniplex is
+ the same maniplex, but where we choose the new base flag to be
+ one of the flags that is adjacent to the original base flag.
+ If M is reflexible, then this choice has no effect.
+ Otherwise, if M is chiral, then the enantiomorphic form
+ gives us a different presentation for the rotation group.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

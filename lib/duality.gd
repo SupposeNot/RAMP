@@ -1,5 +1,5 @@
 
-#! @Chapter Constructions
+#! @Chapter Polytope Constructions and Operations
 #! @Section Duality
 
 #! @Arguments M

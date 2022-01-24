@@ -1,5 +1,5 @@
 
-#! @Chapter Basics
+#! @Chapter Maniplexes
 #! @Section Constructors
 
 

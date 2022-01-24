@@ -1,6 +1,6 @@
 
 #! @Chapter Families of Polytopes
-#! @Section Classical Polytopes
+#! @Section Classical polytopes
 
 #! @Returns IsPolytope
 #! @Description Returns the universal 0-polytope.

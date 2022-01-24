@@ -1,4 +1,6 @@
 
+#! @Chapter Maniplexes
+#! @Section Rotary maniplexes and rotation groups
 
 DeclareGlobalVariable("UNIVERSAL_ROT_FREE_GROUPS");
 

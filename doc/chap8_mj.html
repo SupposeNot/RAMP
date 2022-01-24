@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 8: Groups for Maps, Polytopes, and Maniplexes</title>
+<title>GAP (RAMP) - Chapter 8: Polytope Constructions and Operations</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -18,240 +18,344 @@
 <body class="chap8"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap8.html">[MathJax off]</a></p>
-<p><a id="X84EB3BF4805FF034" name="X84EB3BF4805FF034"></a></p>
-<div class="ChapSects"><a href="chap8_mj.html#X84EB3BF4805FF034">8 <span class="Heading">Groups for Maps, Polytopes, and Maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8_mj.html#X7F53D040850C7587">8.1 <span class="Heading">Groups of Maps, Polytopes, and Maniplexes</span></a>
+<p><a id="X823655C77BD84AB5" name="X823655C77BD84AB5"></a></p>
+<div class="ChapSects"><a href="chap8_mj.html#X823655C77BD84AB5">8 <span class="Heading">Polytope Constructions and Operations</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8_mj.html#X871C2D73829F1FC1">8.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X78746F0385216D57">8.1-1 AutomorphismGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X837641127998923F">8.1-2 AutomorphismGroupFpGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7D6651587DF3790A">8.1-3 AutomorphismGroupPermGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X810F4F4A864B1B39">8.1-4 AutomorphismGroupOnFlags</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7815931C7E926F4F">8.1-5 ConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7CE8CFB183A4FFEE">8.1-6 EvenConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7D194510834667C8">8.1-7 RotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7FDCA212782DC0E3">8.1-8 ChiralityGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7D2CE6707B452C0D">8.1-9 ExtraRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X797752A88078CF22">8.1-10 ExtraRotRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X85C1BC3D85D78ECC">8.1-11 IsManiplexable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X808AEA5281D52911">8.1-1 UniversalPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X8582D0CF7EA1CB34">8.1-2 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X78B4610E7DE67E32">8.1-3 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X84BB6B21853173FD">8.1-4 TrivialExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7A5853E278A83D74">8.1-5 FlatExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X790F22D47CD222EB">8.1-6 Amalgamate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X840BC19484E0E9CC">8.1-7 Medial</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8_mj.html#X8547ABE882A26E43">8.2 <span class="Heading">Sggis</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8_mj.html#X87FD993F7F6F2FAB">8.2 <span class="Heading">Duality</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7AE843CE7878951F">8.2-1 <span class="Heading">UniversalSggi</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7D62BD3E7F941F5B">8.2-1 Dual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7FF8B96C83DA60CB">8.2-2 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X79132A9583296ED0">8.2-3 IsInternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X86041B6684EFE1C2">8.2-4 IsExternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7E6D0732862D6BA3">8.2-5 Petrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X78FDB0047E3388A5">8.2-6 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7F8BED777CD6B80F">8.2-7 DirectDerivates</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8_mj.html#X86CE352C7851221F">8.3 <span class="Heading">Products</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X841E3F0F84465DCA">8.2-2 Sggi</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X81A3AE37837A4B8D">8.2-3 IsGgi</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7BBA245D7DBAAE7A">8.2-4 IsStringy</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X802333F880B11196">8.2-5 IsSggi</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X835FA8527E2442F4">8.2-6 IsStringC</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X8445AFAB7CF3F319">8.2-7 IsStringCPlus</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X815ADF0A7B5A456A">8.2-8 SggiElement</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X87C1FF7481A1D9B2">8.2-9 SggiFamily</a></span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X830A34BA7E8BC096">8.3-1 Pyramid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X80EEFF7F7FE1B752">8.3-2 Pyramid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X822C7D527BC2A7F1">8.3-3 Prism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X86E5C03286E992CA">8.3-4 Prism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X79B6A83C7EBC21C2">8.3-5 Antiprism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X82EED70583F7F8CD">8.3-6 Antiprism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7FA28B5C7AC1C32E">8.3-7 JoinProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7C116F2C83963ADC">8.3-8 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X8022B9AC85D38D7D">8.3-9 DirectSumOfManiplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X833534418543FB94">8.3-10 TopologicalProduct</a></span>
 </div></div>
 </div>
 
-<h3>8 <span class="Heading">Groups for Maps, Polytopes, and Maniplexes</span></h3>
+<h3>8 <span class="Heading">Polytope Constructions and Operations</span></h3>
 
-<p><a id="X7F53D040850C7587" name="X7F53D040850C7587"></a></p>
+<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
 
-<h4>8.1 <span class="Heading">Groups of Maps, Polytopes, and Maniplexes</span></h4>
+<h4>8.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
 
-<p><a id="X78746F0385216D57" name="X78746F0385216D57"></a></p>
+<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
 
-<h5>8.1-1 AutomorphismGroup</h5>
+<h5>8.1-1 UniversalPolytope</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p><a id="X837641127998923F" name="X837641127998923F"></a></p>
-
-<h5>8.1-2 AutomorphismGroupFpGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupFpGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var> as a finitely presented group.</p>
-
-<p><a id="X7D6651587DF3790A" name="X7D6651587DF3790A"></a></p>
-
-<h5>8.1-3 AutomorphismGroupPermGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupPermGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var> as a permutation group.</p>
-
-<p><a id="X810F4F4A864B1B39" name="X810F4F4A864B1B39"></a></p>
-
-<h5>8.1-4 AutomorphismGroupOnFlags</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnFlags</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the automorphism group of <var class="Arg">M</var> as a permutation group action on the flags of <var class="Arg">M</var>.</p>
-
-<p><a id="X7815931C7E926F4F" name="X7815931C7E926F4F"></a></p>
-
-<h5>8.1-5 ConnectionGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the connection group of <var class="Arg">M</var> as a permutation group. We may eventually allow other types of connection groups. Synonym: MonodromyGroup</p>
-
-<p><a id="X7CE8CFB183A4FFEE" name="X7CE8CFB183A4FFEE"></a></p>
-
-<h5>8.1-6 EvenConnectionGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EvenConnectionGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the even-word subgroup of the connection group of <var class="Arg">M</var> as a permutation group.</p>
-
-<p><a id="X7D194510834667C8" name="X7D194510834667C8"></a></p>
-
-<h5>8.1-7 RotationGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotationGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the rotation group of <var class="Arg">M</var>. This group is not guaranteed to be in any particular form.</p>
-
-<p><a id="X7FDCA212782DC0E3" name="X7FDCA212782DC0E3"></a></p>
-
-<h5>8.1-8 ChiralityGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChiralityGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the chirality group of the rotary maniplex <var class="Arg">M</var>. This is the kernel of the group epimorphism from the rotation group of <var class="Arg">M</var> to the rotation group of its maximal reflexible quotient. In particular, the chirality group is trivial if and only if <var class="Arg">M</var> is reflexible.</p>
-
-<p><a id="X7D2CE6707B452C0D" name="X7D2CE6707B452C0D"></a></p>
-
-<h5>8.1-9 ExtraRelators</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its automorphism group as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
-
-<p><a id="X797752A88078CF22" name="X797752A88078CF22"></a></p>
-
-<h5>8.1-10 ExtraRotRelators</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRotRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its rotation group as a quotient of the rotation group of a string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
-
-<p><a id="X85C1BC3D85D78ECC" name="X85C1BC3D85D78ECC"></a></p>
-
-<h5>8.1-11 IsManiplexable</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsManiplexable</code>( <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">Boolean</code>.</p>
-
-<p>Given a permutation group, it asks if the generators could be the connection group of a maniplex. That is to say, are each of the generators and their products fixed point free.</p>
-
-<p><a id="X8547ABE882A26E43" name="X8547ABE882A26E43"></a></p>
-
-<h4>8.2 <span class="Heading">Sggis</span></h4>
-
-<p><a id="X7AE843CE7878951F" name="X7AE843CE7878951F"></a></p>
-
-<h5>8.2-1 <span class="Heading">UniversalSggi</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalSggi</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalSggi</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsFpGroup</code></p>
-
-<p>In the first form, returns the universal Coxeter Group of rank n. In the second form, returns the Coxeter Group with Schlafli symbol sym.</p>
-
-<p><a id="X841E3F0F84465DCA" name="X841E3F0F84465DCA"></a></p>
-
-<h5>8.2-2 Sggi</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sggi</code>( <var class="Arg">symbol</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsFpGroup</code></p>
-
-<p>Returns the sggi defined by the given Schlafli symbol and with the given relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. If no relations are given, then returns the universal sggi with the given Schlafli symbol.</p>
+<p>Constructs the universal polytope of rank <var class="Arg">n</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := Sggi([4,4], "r0 = r2");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k = Sggi([3,3]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalPolytope(3);</span>
+UniversalPolytope(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(last);</span>
+3
+</pre></div>
+
+<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
+
+<h5>8.1-2 UniversalExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3));</span>
+regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
+</pre></div>
+
+<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
+
+<h5>8.1-3 UniversalExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3),2);</span>
+regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
+</pre></div>
+
+<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
+
+<h5>8.1-4 TrivialExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M</var>, 2}.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TrivialExtension(Dodecahedron());</span>
+regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
+</pre></div>
+
+<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
+
+<h5>8.1-5 FlatExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex#! @Description Constructs the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in <em>Flat Extensions of Abstract Polytopes</em> <a href="chapBib_mj.html#biBCun21">[Cun21]</a>.)</p>
+
+<p>Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatExtension(Simplex(3),4);</span>
+reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
+</pre></div>
+
+<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
+
+<h5>8.1-6 Amalgamate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3),CrossPolytope(3));</span>
+reflexible 4-maniplex of type [ 4, 3, 4 ]
+</pre></div>
+
+<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
+
+<h5>8.1-7 Medial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Medial(Dodecahedron()));</span>
+[ [ 3, 5 ], 4 ]
+</pre></div>
+
+<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
+
+<h4>8.2 <span class="Heading">Duality</span></h4>
+
+<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
+
+<h5>8.2-1 Dual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(CrossPolytope(3));</span>
+Cube(3)
+</pre></div>
+
+<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
+
+<h5>8.2-2 IsSelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its dual.</p>
+
+<p>Also works for IsPoset objects.</p>
+
+<p><a id="X79132A9583296ED0" name="X79132A9583296ED0"></a></p>
+
+<h5>8.2-3 IsInternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[tt17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(4));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^6"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^5"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Cube(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron2(10,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(M, (g.1*g.3*g.2)^6);</span>
 true
 </pre></div>
 
-<p><a id="X81A3AE37837A4B8D" name="X81A3AE37837A4B8D"></a></p>
+<p><a id="X86041B6684EFE1C2" name="X86041B6684EFE1C2"></a></p>
 
-<h5>8.2-3 IsGgi</h5>
+<h5>8.2-4 IsExternallySelfDual</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsGgi</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: whether <var class="Arg">g</var> is generated by involutions. Or more specifically, whether GeneratorsOfGroup(<var class="Arg">g</var>) all have order 2 or less.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p><a id="X7BBA245D7DBAAE7A" name="X7BBA245D7DBAAE7A"></a></p>
-
-<h5>8.2-4 IsStringy</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringy</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: whether every pair of non-adjacent generators of <var class="Arg">g</var> commute.</p>
-
-<p><a id="X802333F880B11196" name="X802333F880B11196"></a></p>
-
-<h5>8.2-5 IsSggi</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSggi</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: whether <var class="Arg">g</var> is a string group generated by involutions. Equivalent to <code class="code">IsGgi(g) and IsStringy(g)</code>.</p>
-
-<p><a id="X835FA8527E2442F4" name="X835FA8527E2442F4"></a></p>
-
-<h5>8.2-6 IsStringC</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringC</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>For an sggi <var class="Arg">G</var>, returns whether the group is a string C group.</p>
-
-<p><a id="X8445AFAB7CF3F319" name="X8445AFAB7CF3F319"></a></p>
-
-<h5>8.2-7 IsStringCPlus</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStringCPlus</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>For a "string rotation group" <var class="Arg">G</var>, returns whether the group is a string C+ group. It does not check whether <var class="Arg">G</var> is a string rotation group.</p>
-
-<p><a id="X815ADF0A7B5A456A" name="X815ADF0A7B5A456A"></a></p>
-
-<h5>8.2-8 SggiElement</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SggiElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: the element of <var class="Arg">g</var> with underlying word <var class="Arg">str</var>.</p>
+<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[tt17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group((1,2),(2,3),(3,4));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SggiElement(g, "r0 r1");</span>
-(1,3,2)
-</pre></div>
-
-<p>For convenience, you can also use a reflexible maniplex M in place of g, in which case <code class="code">AutomorphismGroup(M)</code> is used for g.</p>
-
-<p><a id="X87C1FF7481A1D9B2" name="X87C1FF7481A1D9B2"></a></p>
-
-<h5>8.2-9 SggiFamily</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SggiFamily</code>( <var class="Arg">parent</var>, <var class="Arg">words</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given a <var class="Arg">parent</var> group and a list of strings that represent words in r0, r1, etc, returns a function. That function accepts a list of positive integers L, and returns the quotient of <var class="Arg">parent</var> by the relations that set the order of each <var class="Arg">words[i]</var> to L[i].</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := SggiFamily(Sggi([4,4]), ["r0 r1 r2 r1"]);</span>
-function( orders ) ... end
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := f([3]);</span>
-&lt;fp group on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(g);</span>
-72
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := f([6]);</span>
-&lt;fp group on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsQuotient(h,g);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^6"));</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^5"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Cube(3));</span>
+false
 </pre></div>
 
-<p>One of the advantages of building an SggiFamily is that testing whether one member of the family is a quotient of another member can be done quite quickly.</p>
+<p><a id="X7E6D0732862D6BA3" name="X7E6D0732862D6BA3"></a></p>
+
+<h5>8.2-5 Petrial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>. Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="SimpleMath">\(r_{n-3}\)</span> with <span class="SimpleMath">\(r_{n-3} r_{n-1}\)</span> in the set of generators.</p>
+
+<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
+
+<h5>8.2-6 IsSelfPetrial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
+
+<p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
+
+<h5>8.2-7 DirectDerivates</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
+
+<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
+
+<h4>8.3 <span class="Heading">Products</span></h4>
+
+<p><a id="X830A34BA7E8BC096" name="X830A34BA7E8BC096"></a></p>
+
+<h5>8.3-1 Pyramid</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over <var class="Arg">M</var>.</p>
+
+<p><a id="X80EEFF7F7FE1B752" name="X80EEFF7F7FE1B752"></a></p>
+
+<h5>8.3-2 Pyramid</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
+
+<p><a id="X822C7D527BC2A7F1" name="X822C7D527BC2A7F1"></a></p>
+
+<h5>8.3-3 Prism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over <var class="Arg">M</var>.</p>
+
+<p><a id="X86E5C03286E992CA" name="X86E5C03286E992CA"></a></p>
+
+<h5>8.3-4 Prism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over a <var class="Arg">k</var>-gon.</p>
+
+<p><a id="X79B6A83C7EBC21C2" name="X79B6A83C7EBC21C2"></a></p>
+
+<h5>8.3-5 Antiprism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the antiprism over <var class="Arg">M</var>.</p>
+
+<p><a id="X82EED70583F7F8CD" name="X82EED70583F7F8CD"></a></p>
+
+<h5>8.3-6 Antiprism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the antiprism over a <var class="Arg">k</var>-gon.</p>
+
+<p><a id="X7FA28B5C7AC1C32E" name="X7FA28B5C7AC1C32E"></a></p>
+
+<h5>8.3-7 JoinProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the join product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+<p><a id="X7C116F2C83963ADC" name="X7C116F2C83963ADC"></a></p>
+
+<h5>8.3-8 CartesianProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the cartesian product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+<p><a id="X8022B9AC85D38D7D" name="X8022B9AC85D38D7D"></a></p>
+
+<h5>8.3-9 DirectSumOfManiplexes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfManiplexes</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+<p><a id="X833534418543FB94" name="X833534418543FB94"></a></p>
+
+<h5>8.3-10 TopologicalProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

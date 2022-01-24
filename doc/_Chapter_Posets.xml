@@ -4,6 +4,250 @@
 <Chapter Label="Chapter_Posets">
 <Heading>Posets</Heading>
 
+<Section Label="Chapter_Posets_Section_Poset_constructors">
+<Heading>Poset constructors</Heading>
+
+ I'm in the process of reconciling all of this, but there are going to be a number of ways to <Code>define</Code> a poset:
+<List>
+<Item>
+As an <Code>IsPosetOfFlags</Code>, where the underlying description is an ordered list of length <Math>n+2</Math>. Each of the <Math>n+2</Math> list elements is a list of faces, and the assumption is that these are the faces of rank <Math>i-2</Math>, where <Math>i</Math> is the index in the master list (e.g., <Code>l[1][1]</Code> would usually correspond to the unique <Math>-1</Math> face of a polytope -- and there won't be an <Code>l[1][2]</Code>). Each face is then a list of the flags incident with that face.
+</Item>
+<Item>
+As an <Code>IsPosetOfIndices</Code>, where the underlying description is a binary relation on a set of indices, which correspond to labels for the elements of the poset.
+</Item>
+<Item>
+If the poset is known to be atomic, then by a description of the faces in terms of the atoms... usually we'll just need the list of the elements of maximal rank, from which all other elements may be obtained.
+</Item>
+<Item>
+As an <Code>IsPosetOfElements</Code>, where the elements could be anything, and we have a known function determining the partial order on the elements.
+</Item>
+</List>
+ Usually, we assume that the poset will have a natural rank function on it. More information on the poset attributes that are important in the study of abstract polytopes and maniplexes is available in <Cite Key="McMSch02"/>, <Cite Key="MonPelWil14"/>, and <Cite Key="Wil12"/>.
+<ManSection>
+  <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
+ <Returns><Code>IsPosetOfFlags</Code>.
+</Returns>
+ <Description>
+Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
+ Posets constructed this way are assumed to be IsP1 and IsP2.
+ </Description>
+</ManSection>
+
+
+ Here we have a poset using the <Code>IsPosetOfFlags</Code> description for the triangle.
+<Example><![CDATA[
+gap> poset:=PosetFromFaceListOfFlags([[[1,2,3,4,5,6]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);
+A poset using the IsPosetOfFlags representation with 8 faces.
+gap> FaceListOfPoset(poset);
+[ [ [ 1, 2, 3, 4, 5, 6 ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="g" Name="PosetFromConnectionGroup" Label="for IsPermGroup"/>
+ <Returns><Code>IsPosetOfFlags</Code> with <Code>IsP1</Code>=true.
+</Returns>
+ <Description>
+Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function includes the minimal (empty) face and the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);
+Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
+gap> PosetFromConnectionGroup(g);
+A poset using the IsPosetOfFlags representation with 8 faces.
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="mani" Name="PosetFromManiplex" Label="for IsManiplex"/>
+ <Returns><Code>IsPosetOfFlags</Code>
+</Returns>
+ <Description>
+Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=HemiCube(3);
+Regular 3-polytope of type [ 4, 3 ] with 24 flags
+gap> PosetFromManiplex(p);
+A poset using the IsPosetOfFlags representation with 15 faces.
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="partialOrder" Name="PosetFromPartialOrder" Label="for IsBinaryRelation"/>
+ <Returns><Code>IsPosetOfIndices</Code>
+</Returns>
+ <Description>
+Given a partial order on a finite set of size <Math>n</Math>, this function will create a partial order on <Code>[1..n]</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> l:=List([[1,1],[1,2],[1,3],[1,4],[2,4],[2,2],[3,3],[4,4]],x->Tuple(x));
+gap> r:=BinaryRelationByElements(Domain([1..4]), l);
+<general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >
+gap> poset:=PosetFromPartialOrder(r);
+A poset using the IsPosetOfIndices representation 
+gap> h:=HasseDiagramBinaryRelation(PartialOrder(poset));
+<general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >
+gap> Successors(h);
+[ [ 2, 3 ], [ 4 ], [  ], [  ] ]
+]]></Example>
+
+
+ Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.
+<ManSection>
+  <Oper Arg="list" Name="PosetFromAtomicList" Label="for IsList"/>
+ <Returns><Code>IsPosetOfAtoms</Code>
+</Returns>
+ <Description>
+Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> list:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];
+[ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]
+gap> poset:=PosetFromAtomicList(list);;
+gap> List(Faces(poset),AtomList);
+[ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
+  [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="list_of_faces, func" Name="PosetFromElements" Label="for IsList,IsFunction"/>
+ <Returns><Code>IsPosetOfElements</Code>
+</Returns>
+ <Description>
+This is for gathering elements with a known ordering <A>func</A> on two variables into a poset. Also note, the expectation is that <A>func</A> behaves similarly to IsSubset, i.e., <A>func</A> (x,y)=true means <Math>y</Math> is less than <Math>x</Math> in the order.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap>  g:=SymmetricGroup(3);
+Sym( [ 1 .. 3 ] )
+gap> asg:=AllSubgroups(g);
+[ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]),   Group([ (1,2,3), (2,3) ]) ]
+gap> poset:=PosetFromElements(asg,IsSubgroup);
+A poset on 6 elements using the IsPosetOfIndices representation.
+gap> HasseDiagramBinaryRelation(PartialOrder(poset));
+<general mapping: Domain([ 1 .. 6 ]) -> Domain([ 1 .. 6 ]) >
+gap> Successors(last);
+[ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ]
+gap> List( ElementsList(poset){[2,6]}, ElementObject);
+[ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="successorsList" Name="PosetFromSuccessorList" Label="for IsList"/>
+ <Returns>poset
+</Returns>
+ <Description>
+Given a list of immediate successors, will construct the poset. A valid list of successors is of the form <Code>[[2,3],[3],[]]</Code> where the <Math>i</Math>-th entry is a list of elements that are greater than the <Math>i</Math>-th element in the partial order that determines the poset. If the given list isn't reflexive and transitive, this function will induce those properties from the given list of successors.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(HemiCube(3));;
+gap> Print(p);
+PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
+[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
+[ 15 ], [ 15 ], [ 15 ], [ ] ]);
+]]></Example>
+
+
+<ManSection Label="Helper_functions">
+<Heading>Helper functions for special partial orders</Heading>
+  <Oper Arg="list1, list2" Name="PairCompareFlagsList" Label="for IsList,IsList"/>
+  <Oper Arg="list1, list2" Name="PairCompareAtomsList" Label="for IsList,IsList"/>
+ <Returns><Code>true</Code> or <Code>false</Code>
+</Returns>
+ <Description>
+ The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
+Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlags</Code>,<Code>i</Code>] where <Code>listOfFlags</Code> is a list of flags in the face and <Code>i</Code> is the rank of the face. Allows comparison of HasFlagList elements.
+Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtoms,int]</Code> where <Code>listOfAtoms</Code> is a list of flags in the face and <Code>int</Code> is the rank of the face. Allows comparison of HasAtomList elements.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="poset" Name="DualPoset" Label="for IsPoset"/>
+ <Returns>dual
+</Returns>
+ <Description>
+Given a <A>poset</A>, will construct a poset isomorphic to the dual of <A>poset</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;
+gap> IsIsomorphicPoset(DualPoset(DualPoset(p)),p);
+true
+gap> IsIsomorphicPoset(DualPoset(p),c);
+true
+gap> IsIsomorphicPoset(DualPoset(p),p);
+false
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="face1, face2, poset" Name="Section" Label="for IsFace, IsFace, IsPoset"/>
+ <Returns>section
+</Returns>
+ <Description>
+Constructs the section of the <A>poset</A> <A>face1</A><Math>/</Math><A>face2</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> poset:=PosetFromManiplex(PyramidOver(Cube(2)));;
+gap> faces:=Faces(poset);;List(faces,x->RankInPoset(x,poset));
+[ -1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3 ]
+gap> IsIsomorphicPoset(Section(faces[15],faces[1],poset),PosetFromManiplex(Simplex(2)));
+true
+gap> IsIsomorphicPoset(Section(faces[16],faces[1],poset),PosetFromManiplex(Cube(2)));
+true
+gap> IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));
+true
+]]></Example>
+
+
+<ManSection Label="Cleaving">
+<Heading>Cleaving polytopes</Heading>
+  <Oper Arg="p, k" Name="Cleave" Label="for IsPoset,IsInt"/>
+  <Oper Arg="p, k" Name="PartiallyCleave" Label="for IsPoset,IsInt"/>
+ <Returns>IsPolytope
+</Returns>
+ <Description>
+Given an IsPolytope <A>p</A>, and an IsInt <A>k</A>, <Code>Cleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-cleaved polytope of <A>p</A>. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/>.
+<Code>PartiallyCleave(p,k)</Code> will construct the <Math>k^{\textrm{th}}</Math>-partially cleaved polytope of <A>p</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Cleave(PosetFromManiplex(Cube(4)),3);
+A poset on 290 elements using the IsPosetOfIndices representation.
+]]></Example>
+
+
+</Section>
+
+
 <Section Label="Chapter_Posets_Section_Poset_attributes">
 <Heading>Poset attributes</Heading>
 
@@ -303,419 +547,6 @@ false
 </Section>
 
 
-<Section Label="Chapter_Posets_Section_Poset_constructors">
-<Heading>Poset constructors</Heading>
-
- I'm in the process of reconciling all of this, but there are going to be a number of ways to <Code>define</Code> a poset:
-<List>
-<Item>
-As an <Code>IsPosetOfFlags</Code>, where the underlying description is an ordered list of length <Math>n+2</Math>. Each of the <Math>n+2</Math> list elements is a list of faces, and the assumption is that these are the faces of rank <Math>i-2</Math>, where <Math>i</Math> is the index in the master list (e.g., <Code>l[1][1]</Code> would usually correspond to the unique <Math>-1</Math> face of a polytope -- and there won't be an <Code>l[1][2]</Code>). Each face is then a list of the flags incident with that face.
-</Item>
-<Item>
-As an <Code>IsPosetOfIndices</Code>, where the underlying description is a binary relation on a set of indices, which correspond to labels for the elements of the poset.
-</Item>
-<Item>
-If the poset is known to be atomic, then by a description of the faces in terms of the atoms... usually we'll just need the list of the elements of maximal rank, from which all other elements may be obtained.
-</Item>
-<Item>
-As an <Code>IsPosetOfElements</Code>, where the elements could be anything, and we have a known function determining the partial order on the elements.
-</Item>
-</List>
- Usually, we assume that the poset will have a natural rank function on it. More information on the poset attributes that are important in the study of abstract polytopes and maniplexes is available in <Cite Key="McMSch02"/>, <Cite Key="MonPelWil14"/>, and <Cite Key="Wil12"/>.
-<ManSection>
-  <Oper Arg="list" Name="PosetFromFaceListOfFlags" Label="for IsList"/>
- <Returns><Code>IsPosetOfFlags</Code>.
-</Returns>
- <Description>
-Given a <A>list</A> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back.
- Posets constructed this way are assumed to be IsP1 and IsP2.
- </Description>
-</ManSection>
-
-
- Here we have a poset using the <Code>IsPosetOfFlags</Code> description for the triangle.
-<Example><![CDATA[
-gap> poset:=PosetFromFaceListOfFlags([[[1,2,3,4,5,6]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);
-A poset using the IsPosetOfFlags representation with 8 faces.
-gap> FaceListOfPoset(poset);
-[ [ [ 1, 2, 3, 4, 5, 6 ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ]
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="g" Name="PosetFromConnectionGroup" Label="for IsPermGroup"/>
- <Returns><Code>IsPosetOfFlags</Code> with <Code>IsP1</Code>=true.
-</Returns>
- <Description>
-Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function includes the minimal (empty) face and the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);
-Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
-gap> PosetFromConnectionGroup(g);
-A poset using the IsPosetOfFlags representation with 8 faces.
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="mani" Name="PosetFromManiplex" Label="for IsManiplex"/>
- <Returns><Code>IsPosetOfFlags</Code>
-</Returns>
- <Description>
-Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <Math>i</Math>-faces correspond to the <Math>i+1</Math> item in the list because of how GAP indexes lists.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> p:=HemiCube(3);
-Regular 3-polytope of type [ 4, 3 ] with 24 flags
-gap> PosetFromManiplex(p);
-A poset using the IsPosetOfFlags representation with 15 faces.
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="partialOrder" Name="PosetFromPartialOrder" Label="for IsBinaryRelation"/>
- <Returns><Code>IsPosetOfIndices</Code>
-</Returns>
- <Description>
-Given a partial order on a finite set of size <Math>n</Math>, this function will create a partial order on <Code>[1..n]</Code>.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> l:=List([[1,1],[1,2],[1,3],[1,4],[2,4],[2,2],[3,3],[4,4]],x->Tuple(x));
-gap> r:=BinaryRelationByElements(Domain([1..4]), l);
-<general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >
-gap> poset:=PosetFromPartialOrder(r);
-A poset using the IsPosetOfIndices representation 
-gap> h:=HasseDiagramBinaryRelation(PartialOrder(poset));
-<general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >
-gap> Successors(h);
-[ [ 2, 3 ], [ 4 ], [  ], [  ] ]
-]]></Example>
-
-
- Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.
-<ManSection>
-  <Oper Arg="list" Name="PosetFromAtomicList" Label="for IsList"/>
- <Returns><Code>IsPosetOfAtoms</Code>
-</Returns>
- <Description>
-Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> list:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];
-[ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]
-gap> poset:=PosetFromAtomicList(list);;
-gap> List(Faces(poset),AtomList);
-[ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
-  [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="list_of_faces, func" Name="PosetFromElements" Label="for IsList,IsFunction"/>
- <Returns><Code>IsPosetOfElements</Code>
-</Returns>
- <Description>
-This is for gathering elements with a known ordering <A>func</A> on two variables into a poset. Also note, the expectation is that <A>func</A> behaves similarly to IsSubset, i.e., <A>func</A> (x,y)=true means <Math>y</Math> is less than <Math>x</Math> in the order.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap>  g:=SymmetricGroup(3);
-Sym( [ 1 .. 3 ] )
-gap> asg:=AllSubgroups(g);
-[ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]),   Group([ (1,2,3), (2,3) ]) ]
-gap> poset:=PosetFromElements(asg,IsSubgroup);
-A poset on 6 elements using the IsPosetOfIndices representation.
-gap> HasseDiagramBinaryRelation(PartialOrder(poset));
-<general mapping: Domain([ 1 .. 6 ]) -> Domain([ 1 .. 6 ]) >
-gap> Successors(last);
-[ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ]
-gap> List( ElementsList(poset){[2,6]}, ElementObject);
-[ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="successorsList" Name="PosetFromSuccessorList" Label="for IsList"/>
- <Returns>poset
-</Returns>
- <Description>
-Given a list of immediate successors, will construct the poset. A valid list of successors is of the form <Code>[[2,3],[3],[]]</Code> where the <Math>i</Math>-th entry is a list of elements that are greater than the <Math>i</Math>-th element in the partial order that determines the poset. If the given list isn't reflexive and transitive, this function will induce those properties from the given list of successors.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> p:=PosetFromManiplex(HemiCube(3));;
-gap> Print(p);
-PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
-[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
-[ 15 ], [ 15 ], [ 15 ], [ ] ]);
-]]></Example>
-
-
-<ManSection Label="Helper_functions">
-<Heading>Helper functions for special partial orders</Heading>
-  <Oper Arg="list1, list2" Name="PairCompareFlagsList" Label="for IsList,IsList"/>
-  <Oper Arg="list1, list2" Name="PairCompareAtomsList" Label="for IsList,IsList"/>
- <Returns><Code>true</Code> or <Code>false</Code>
-</Returns>
- <Description>
- The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction.
-Function assumes <A>list1</A> and <A>list2</A> are of the form [<Code>listOfFlags</Code>,<Code>i</Code>] where <Code>listOfFlags</Code> is a list of flags in the face and <Code>i</Code> is the rank of the face. Allows comparison of HasFlagList elements.
-Function assumes <A>list1</A> and <A>list2</A> are of the form <Code>[listOfAtoms,int]</Code> where <Code>listOfAtoms</Code> is a list of flags in the face and <Code>int</Code> is the rank of the face. Allows comparison of HasAtomList elements.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="poset" Name="DualPoset" Label="for IsPoset"/>
- <Returns>dual
-</Returns>
- <Description>
-Given a <A>poset</A>, will construct a poset isomorphic to the dual of <A>poset</A>.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;
-gap> IsIsomorphicPoset(DualPoset(DualPoset(p)),p);
-true
-gap> IsIsomorphicPoset(DualPoset(p),c);
-true
-gap> IsIsomorphicPoset(DualPoset(p),p);
-false
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="face1, face2, poset" Name="Section" Label="for IsFace, IsFace, IsPoset"/>
- <Returns>section
-</Returns>
- <Description>
-Constructs the section of the <A>poset</A> <A>face1</A><Math>/</Math><A>face2</A>.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> poset:=PosetFromManiplex(PyramidOver(Cube(2)));;
-gap> faces:=Faces(poset);;List(faces,x->RankInPoset(x,poset));
-[ -1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3 ]
-gap> IsIsomorphicPoset(Section(faces[15],faces[1],poset),PosetFromManiplex(Simplex(2)));
-true
-gap> IsIsomorphicPoset(Section(faces[16],faces[1],poset),PosetFromManiplex(Cube(2)));
-true
-gap> IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));
-true
-]]></Example>
-
-
-<ManSection Label="Cleaving">
-<Heading>Cleaving polytopes</Heading>
-  <Oper Arg="p, k" Name="Cleave" Label="for IsPoset,IsInt"/>
-  <Oper Arg="p, k" Name="PartiallyCleave" Label="for IsPoset,IsInt"/>
- <Returns>IsPolytope
-</Returns>
- <Description>
-Given an IsPolytope <A>p</A>, and an IsInt <A>k</A>, <Code>Cleave(polytope,k)</Code> will construct the <Math>k^{th}</Math>-cleaved polytope of <A>p</A>. Cleaved polytopes were introduced by Daniel Pellicer <Cite Key="Pel18"/>.
-<Code>PartiallyCleave(p,k)</Code> will construct the <Math>k^{\textrm{th}}</Math>-partially cleaved polytope of <A>p</A>.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> Cleave(PosetFromManiplex(Cube(4)),3);
-A poset on 290 elements using the IsPosetOfIndices representation.
-]]></Example>
-
-
-</Section>
-
-
-
-<Section Label="Chapter_Posets_Section_Element_Constructors">
-<Heading>Element Constructors</Heading>
-
-<ManSection>
-  <Oper Arg="obj, func" Name="PosetElementWithOrder" Label="for IsObject,IsFunction"/>
- <Returns><Code>IsFace</Code>
-</Returns>
- <Description>
-Creates a <Code>face</Code> with <A>obj</A> and ordering function <Code>func</Code>. Note that by convetiontion <Code>func(a,b)</Code> should return true when <Math>b\le a</Math>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="list, poset, n" Name="PosetElementFromListOfFlags" Label="for IsList,IsPoset,IsInt"/>
- <Returns><Code>IsPosetElement</Code>
-</Returns>
- <Description>
-This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of <A>poset</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="list" Name="PosetElementFromAtomList" Label="for IsList"/>
- <Returns><Code>IsFace</Code>
-</Returns>
- <Description>
-Creates a <Code>face</Code> with <A>list</A> of atoms. If you wish to assign ranks or membership in a poset, you must do this separately.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="obj" Name="PosetElementFromIndex" Label="for IsObject"/>
- <Returns><Code>IsFace</Code>
-</Returns>
- <Description>
-Creates a <Code>face</Code> with index <A>obj</A> at rank <A>n</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="obj, order" Name="PosetElementWithPartialOrder" Label="for IsObject, IsBinaryRelation"/>
- <Returns><Code>IsFace</Code>
-</Returns>
- <Description>
-Creates a <Code>face</Code> with index <A>obj</A> and BinaryRelation <A>order</A> on <A>obj</A>. Function does not check to make sure <A>order</A> has <A>obj</A> in its domain.
- </Description>
-</ManSection>
-
-
-
-<ManSection>
-  <Attr Arg="posetelement" Name="RanksInPosets" Label="for IsPosetElement"/>
- <Returns>list
-</Returns>
- <Description>
-Gives the <Code>list</Code> of posets <A>posetelement</A> is in, and the corresponding rank (if available) as a list of ordered pairs of the form <Code>[poset,rank]</Code>. #!
- Note that this attribute is mutable, so if you modify it you may break things.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="posetelement, poset, int" Name="AddRanksInPosets" Label="for IsPosetElement,IsPoset,IsInt"/>
- <Returns>null
-</Returns>
- <Description>
-Adds an entry in the list of RanksInPosets for <A>posetelement</A> corresponding to <A>poset</A> with assigned rank <A>int</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="posetelement {face}" Name="FlagList" Label="for IsPosetElement"/>
- <Returns><Code>list</Code>
-</Returns>
- <Description>
-Description of <A>posetelement</A> n as a list of incident flags (when present).
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Attr Arg="posetelement {face}" Name="AtomList" Label="for IsPosetElement"/>
- <Returns><Code>list</Code>
-</Returns>
- <Description>
-Description of <A>posetelement</A> n as a list of atoms (when present).
- </Description>
-</ManSection>
-
-
-</Section>
-
-
-<Section Label="Chapter_Posets_Section_Element_operations">
-<Heading>Element operations</Heading>
-
-<ManSection>
-  <Oper Arg="[face,poset]" Name="RankInPoset" Label="for IsPosetElement,IsPoset"/>
- <Returns><Code>IsInt</Code>
-</Returns>
- <Description>
-Given an element <A>face</A> and a poset <A>poset</A> to which it belongs, will give you the rank of <A>face</A> in <A>poset</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="[face1,face2,poset]" Name="IsSubface" Label="for IsFace,IsFace,IsPoset"/>
- <Returns><Code>true</Code> or <Code>false</Code>
-</Returns>
- <Description>
-<A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. IsSubface will check to see if <A>face2</A> is a subface of <A>face1</A> in <A>poset</A>. You may drop the argument <A>poset</A> if the faces only belong to one poset in common.
- Warning: if the elements are made up of atoms, then IsSubface doesn't need to know what poset you are working with.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="arg1,arg2,arg3" Name="IsEqualFaces" Label="for IsFace, IsFace, IsPoset"/>
- <Description>
-Determines whether two faces are equal in a poset. Note that <Code>\=</Code> tests whether they are the identical object or not.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="object1, object2" Name="AreIncidentElements" Label="for IsObject,IsObject"/>
- <Returns><Code>true</Code> or <Code>false</Code>
-</Returns>
- <Description>
-Given two poset elements, will tell you if they are incident.
-<List>
-<Item>
-Synonym function: <Code>AreIncidentFaces</Code>.
-</Item>
-</List>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="face1, face2, poset" Name="Meet" Label="for IsFace, IsFace, IsPoset"/>
- <Returns>meet
-</Returns>
- <Description>
-Finds (when possible) the meet of two elements in a poset.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="face1, face2, poset" Name="Join" Label="for IsFace, IsFace, IsPoset"/>
- <Returns>meet
-</Returns>
- <Description>
-Finds (when possible) the join of two elements in a poset.
- </Description>
-</ManSection>
-
-
-</Section>
-
-
 <Section Label="Chapter_Posets_Section_Working_with_posets">
 <Heading>Working with posets</Heading>
 
@@ -899,6 +730,304 @@ Gives the minimal/maximal face of a <A>poset</A> when it IsP1 and IsP2.
 <P/>
  </Description>
 </ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Posets_Section_Element_constructors">
+<Heading>Element constructors</Heading>
+
+<ManSection>
+  <Oper Arg="obj, func" Name="PosetElementWithOrder" Label="for IsObject,IsFunction"/>
+ <Returns><Code>IsFace</Code>
+</Returns>
+ <Description>
+Creates a <Code>face</Code> with <A>obj</A> and ordering function <Code>func</Code>. Note that by convetiontion <Code>func(a,b)</Code> should return true when <Math>b\le a</Math>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="list, poset, n" Name="PosetElementFromListOfFlags" Label="for IsList,IsPoset,IsInt"/>
+ <Returns><Code>IsPosetElement</Code>
+</Returns>
+ <Description>
+This is used to create a face of rank <A>n</A> from a <A>list</A> of flags of <A>poset</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="list" Name="PosetElementFromAtomList" Label="for IsList"/>
+ <Returns><Code>IsFace</Code>
+</Returns>
+ <Description>
+Creates a <Code>face</Code> with <A>list</A> of atoms. If you wish to assign ranks or membership in a poset, you must do this separately.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="obj" Name="PosetElementFromIndex" Label="for IsObject"/>
+ <Returns><Code>IsFace</Code>
+</Returns>
+ <Description>
+Creates a <Code>face</Code> with index <A>obj</A> at rank <A>n</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="obj, order" Name="PosetElementWithPartialOrder" Label="for IsObject, IsBinaryRelation"/>
+ <Returns><Code>IsFace</Code>
+</Returns>
+ <Description>
+Creates a <Code>face</Code> with index <A>obj</A> and BinaryRelation <A>order</A> on <A>obj</A>. Function does not check to make sure <A>order</A> has <A>obj</A> in its domain.
+ </Description>
+</ManSection>
+
+
+
+<ManSection>
+  <Attr Arg="posetelement" Name="RanksInPosets" Label="for IsPosetElement"/>
+ <Returns>list
+</Returns>
+ <Description>
+Gives the <Code>list</Code> of posets <A>posetelement</A> is in, and the corresponding rank (if available) as a list of ordered pairs of the form <Code>[poset,rank]</Code>. #!
+ Note that this attribute is mutable, so if you modify it you may break things.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="posetelement, poset, int" Name="AddRanksInPosets" Label="for IsPosetElement,IsPoset,IsInt"/>
+ <Returns>null
+</Returns>
+ <Description>
+Adds an entry in the list of RanksInPosets for <A>posetelement</A> corresponding to <A>poset</A> with assigned rank <A>int</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="posetelement {face}" Name="FlagList" Label="for IsPosetElement"/>
+ <Returns><Code>list</Code>
+</Returns>
+ <Description>
+Description of <A>posetelement</A> n as a list of incident flags (when present).
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="posetelement {face}" Name="AtomList" Label="for IsPosetElement"/>
+ <Returns><Code>list</Code>
+</Returns>
+ <Description>
+Description of <A>posetelement</A> n as a list of atoms (when present).
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Posets_Section_Element_operations">
+<Heading>Element operations</Heading>
+
+<ManSection>
+  <Oper Arg="[face,poset]" Name="RankInPoset" Label="for IsPosetElement,IsPoset"/>
+ <Returns><Code>IsInt</Code>
+</Returns>
+ <Description>
+Given an element <A>face</A> and a poset <A>poset</A> to which it belongs, will give you the rank of <A>face</A> in <A>poset</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="[face1,face2,poset]" Name="IsSubface" Label="for IsFace,IsFace,IsPoset"/>
+ <Returns><Code>true</Code> or <Code>false</Code>
+</Returns>
+ <Description>
+<A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. IsSubface will check to see if <A>face2</A> is a subface of <A>face1</A> in <A>poset</A>. You may drop the argument <A>poset</A> if the faces only belong to one poset in common.
+ Warning: if the elements are made up of atoms, then IsSubface doesn't need to know what poset you are working with.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="arg1,arg2,arg3" Name="IsEqualFaces" Label="for IsFace, IsFace, IsPoset"/>
+ <Description>
+Determines whether two faces are equal in a poset. Note that <Code>\=</Code> tests whether they are the identical object or not.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="object1, object2" Name="AreIncidentElements" Label="for IsObject,IsObject"/>
+ <Returns><Code>true</Code> or <Code>false</Code>
+</Returns>
+ <Description>
+Given two poset elements, will tell you if they are incident.
+<List>
+<Item>
+Synonym function: <Code>AreIncidentFaces</Code>.
+</Item>
+</List>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="face1, face2, poset" Name="Meet" Label="for IsFace, IsFace, IsPoset"/>
+ <Returns>meet
+</Returns>
+ <Description>
+Finds (when possible) the meet of two elements in a poset.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="face1, face2, poset" Name="Join" Label="for IsFace, IsFace, IsPoset"/>
+ <Returns>meet
+</Returns>
+ <Description>
+Finds (when possible) the join of two elements in a poset.
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+
+ This uses the work of Gleason and Hubard.
+<Section Label="Chapter_Posets_Section_Product_operations">
+<Heading>Product operations</Heading>
+
+ The products documented in this section were defined by Gleason and Hubard in <Cite Key="GleHub18"/> (<URL>https://doi.org/10.1016/j.jcta.2018.02.002</URL>). 
+<ManSection>
+  <Oper Arg="poset1, poset2" Name="JoinProduct" Label="for IsPoset,IsPoset"/>
+ <Returns>poset
+</Returns>
+ <Description>
+Given two posets, this forms the join product.
+ If given two partial orders, returns the join product of the partial orders.
+ If given two maniplexes, returns the join product of the maniplexes.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Cube(2));
+A poset
+gap> rel:=BinaryRelationOnPoints([[1,2],[2]]);
+Binary Relation on 2 points
+gap> p1:=PosetFromPartialOrder(rel);
+A poset using the IsPosetOfIndices representation
+gap> j:=JoinProduct(p,p1);
+A poset using the IsPosetOfIndices representation
+gap> IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="polytope1, polytope2" Name="CartesianProduct" Label="for IsPoset,IsPoset"/>
+ <Returns>polytope
+</Returns>
+ <Description>
+Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets.
+ If given two maniplexes, returns the join product of the maniplexes.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p1:=PosetFromManiplex(Edge());
+A poset
+gap> p2:=PosetFromManiplex(Simplex(2));
+A poset
+gap> c:=CartesianProduct(p1,p2);
+A poset using the IsPosetOfIndices representation
+gap> IsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="polytope1, polytope2" Name="DirectSumOfPosets" Label="for IsPoset,IsPoset"/>
+ <Returns>polytope
+</Returns>
+ <Description>
+Given two polytopes, forms the direct sum of the polytopes.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p1:=PosetFromManiplex(Cube(2));;p2:=PosetFromManiplex(Edge());;
+gap> ds:=DirectSumOfPosets(p1,p2);
+A poset using the IsPosetOfIndices representation.
+gap> IsIsomorphicPoset(ds,PosetFromManiplex(CrossPolytope(3)));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="polytope1, polytope2" Name="TopologicalProduct" Label="for IsPoset,IsPoset"/>
+ <Returns>polytope
+</Returns>
+ <Description>
+Given two polytopes, forms the topological product of the polytopes.
+ If given two maniplexes, returns the join product of the maniplexes.
+ </Description>
+</ManSection>
+
+
+ Here we demonstrate that the topological product (as expected) when taking the product of a triangle with itself gives us the torus <Math>\{4,4\}_{(3,0)}</Math> with 72 flags.
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Pgon(3));
+A poset using the IsPosetOfFlags representation.
+gap> tp:=TopologicalProduct(p,p);
+A poset using the IsPosetOfIndices representation.
+gap> s0 := (5,6);;
+gap> s1 := (1,2)(3,5)(4,6);;
+gap> s2 := (2,3);;
+gap> poly := Group([s0,s1,s2]);;
+gap> torus:=PosetFromManiplex(ReflexibleManiplex(poly));
+A poset using the IsPosetOfFlags representation.
+gap> IsIsomorphicPoset(p,tp);
+false
+gap> IsIsomorphicPoset(torus,tp);
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="polytope" Name="Antiprism" Label="for IsPoset"/>
+ <Returns>poset
+</Returns>
+ <Description>
+Given a <A>polytope</A> (actually, should work for any poset), will return the antiprism of the <A>polytope</A> (poset).
+ If given two maniplexes, returns the join product of the maniplexes.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PosetFromManiplex(Pgon(3));;
+gap> a:=Antiprism(p);;
+gap> IsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));
+true
+gap> p:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;
+gap> d:=DualPoset(p);;ad:=Antiprism(d);;
+gap> IsIsomorphicPoset(a,ad);
+true
+]]></Example>
 
 
 </Section>

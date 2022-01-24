@@ -4,8 +4,8 @@
 <Chapter Label="Chapter_Families_of_Polytopes">
 <Heading>Families of Polytopes</Heading>
 
-<Section Label="Chapter_Families_of_Polytopes_Section_Classical_Polytopes">
-<Heading>Classical Polytopes</Heading>
+<Section Label="Chapter_Families_of_Polytopes_Section_Classical_polytopes">
+<Heading>Classical polytopes</Heading>
 
 <ManSection>
   <Oper Arg="" Name="Vertex" />
@@ -266,6 +266,22 @@ Returns a list of all tight, orientably regular polytopes with Schlafli symbol <
 </Section>
 
 
+<Section Label="Chapter_Families_of_Polytopes_Section_The_Tomotope">
+<Heading>The Tomotope</Heading>
+
+<ManSection>
+  <Oper Arg="" Name="Tomotope" />
+ <Returns>maniplex
+</Returns>
+ <Description>
+Constructs the <Emph>Tomotope</Emph> from <Cite Key="MonPelWil12"/>
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Families_of_Polytopes_Section_Toroids">
 <Heading>Toroids</Heading>
 
@@ -351,8 +367,8 @@ Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,4,3,3\}_{
 </Section>
 
 
-<Section Label="Chapter_Families_of_Polytopes_Section_Uniform_Polyhedra">
-<Heading>Uniform Polyhedra</Heading>
+<Section Label="Chapter_Families_of_Polytopes_Section_Uniform_polyhedra">
+<Heading>Uniform polyhedra</Heading>
 
  Representations of the uniform polyhedra here are from <Cite Key="HarWil10"/>.
 <ManSection>

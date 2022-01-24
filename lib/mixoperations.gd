@@ -1,6 +1,6 @@
 
 # Dealing with mixes of maniplexes
-#! @Chapter Mixing of Maniplexes
+#! @Chapter Maniplexes
 #! @Section Mixing of Maniplexes functions
 
 #! @Arguments permgroup, permgroup

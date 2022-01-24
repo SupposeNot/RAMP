@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 15: Stratified Operations</title>
+<title>GAP (RAMP) - Chapter 15: Utility functions</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,130 +15,169 @@
 <body class="chap15"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
-<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap14.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap16.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap14.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap15_mj.html">[MathJax on]</a></p>
-<p><a id="X7B9A7024825B378C" name="X7B9A7024825B378C"></a></p>
-<div class="ChapSects"><a href="chap15.html#X7B9A7024825B378C">15 <span class="Heading">Stratified Operations</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap15.html#X871D56AE7EFE6B58">15.1 <span class="Heading">Computational tools</span></a>
+<p><a id="X810FFB1C8035C8BE" name="X810FFB1C8035C8BE"></a></p>
+<div class="ChapSects"><a href="chap15.html#X810FFB1C8035C8BE">15 <span class="Heading">Utility functions</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap15.html#X810FFB1C8035C8BE">15.1 <span class="Heading">Utility functions</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X794A197182124FB1">15.1-1 ChunkMultiply</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X858FD5C2809828C3">15.1-2 ChunkPower</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X81AD40D884608C3B">15.1-3 ChunkGeneratedGroupElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7E759EE8836E55E0">15.1-4 ChunkGeneratedGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C67C6B77C6C2114">15.1-5 FullyStratifiedGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X863ECFAD85CFFCB0">15.1-1 InfoRamp</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7D63A6087BD7F5F8">15.1-2 AbstractPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C2837FB8174C8DC">15.1-3 AbstractRegularPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X79AB055B7DDFB160">15.1-4 AbstractRotaryPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7CDF25897D4DBE57">15.1-5 TranslatePerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X83788BBF7EF52486">15.1-6 MultPerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X85D36D93795A336D">15.1-7 PermFromRange</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7E84DB4E8746344A">15.1-8 ParseStringCRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X79C6D76380B9F364">15.1-9 ParseRotGpRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X829B5DA779342A28">15.1-10 AddOrAppend</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C4A431283A32F67">15.1-11 WrappedPosetOperation</a></span>
 </div></div>
 </div>
 
-<h3>15 <span class="Heading">Stratified Operations</span></h3>
+<h3>15 <span class="Heading">Utility functions</span></h3>
 
-<p><a id="X871D56AE7EFE6B58" name="X871D56AE7EFE6B58"></a></p>
+<p><a id="X810FFB1C8035C8BE" name="X810FFB1C8035C8BE"></a></p>
 
-<h4>15.1 <span class="Heading">Computational tools</span></h4>
+<h4>15.1 <span class="Heading">Utility functions</span></h4>
 
-<p>I should say something more here.</p>
+<p><a id="X863ECFAD85CFFCB0" name="X863ECFAD85CFFCB0"></a></p>
 
-<p><a id="X794A197182124FB1" name="X794A197182124FB1"></a></p>
+<h5>15.1-1 InfoRamp</h5>
 
-<h5>15.1-1 ChunkMultiply</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoRamp</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
+<p>The InfoClass for the Ramp package.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkMultiply</code>( <var class="Arg">element1</var>, <var class="Arg">element2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: element</p>
+<p><a id="X7D63A6087BD7F5F8" name="X7D63A6087BD7F5F8"></a></p>
 
-<p>Elements are ordered pairs of the form [perm, list], where the elements of list are members of a group. Operation performed is consistent with that in defined in <a href="chapBib.html#biBPelWil18">[PW18]</a>.</p>
+<h5>15.1-2 AbstractPolytope</h5>
 
-<p><a id="X858FD5C2809828C3" name="X858FD5C2809828C3"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">Maniplex(args)</code> and marks the output as polytopal.</p>
 
-<h5>15.1-2 ChunkPower</h5>
+<p><a id="X7C2837FB8174C8DC" name="X7C2837FB8174C8DC"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkPower</code>( <var class="Arg">element</var>, <var class="Arg">integer</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: element</p>
+<h5>15.1-3 AbstractRegularPolytope</h5>
 
-<p>Given an element compatible with the ChunkMultiply operation, this function will compute the product of element with itself integer times.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRegularPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">ReflexibleManiplex(args)</code> and marks the output as polytopal. Also available as <code class="code">ARP(args)</code>.</p>
 
-<p><a id="X81AD40D884608C3B" name="X81AD40D884608C3B"></a></p>
+<p><a id="X79AB055B7DDFB160" name="X79AB055B7DDFB160"></a></p>
 
-<h5>15.1-3 ChunkGeneratedGroupElements</h5>
+<h5>15.1-4 AbstractRotaryPolytope</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroupElements</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: newList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRotaryPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">RotaryManiplex(args)</code> and marks the output as polytopal.</p>
 
-<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.</p>
+<p><a id="X7CDF25897D4DBE57" name="X7CDF25897D4DBE57"></a></p>
 
-<p><a id="X7E759EE8836E55E0" name="X7E759EE8836E55E0"></a></p>
+<h5>15.1-5 TranslatePerm</h5>
 
-<h5>15.1-4 ChunkGeneratedGroup</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TranslatePerm</code>( <var class="Arg">perm</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns a new permutation obtained from <var class="Arg">perm</var> by adding k to each moved point.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: permGroup</p>
+<p><a id="X83788BBF7EF52486" name="X83788BBF7EF52486"></a></p>
 
-<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct a representation of the group as a permutation group. Note that generators are of the form [perm, list], and each list is a list of elements from group.</p>
+<h5>15.1-6 MultPerm</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MultPerm</code>( <var class="Arg">perm</var>, <var class="Arg">multiplier</var>, <var class="Arg">offset</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result.</p>
+
+<p><a id="X85D36D93795A336D" name="X85D36D93795A336D"></a></p>
+
+<h5>15.1-7 PermFromRange</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermFromRange</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: Permutation</p>
+
+<p>This attempts to construct a permutation that we would write as perm1 ... perm2. Probably it is clearest to look at some examples:</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2); a:=AutomorphismGroup(p);</span>
-Pgon(3)
-&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);; AssignGeneratorVariables(a);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
-[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
-[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
-[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> gens:=[s0,s1,s2];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s1);</span>
-[ (2,3,5,4), [ r0*r1, &lt;identity ...&gt;, r0, r0, &lt;identity ...&gt;, r0*r1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
-[ (), [ r0^2, r0^2, &lt;identity ...&gt;, &lt;identity ...&gt;, r0^2, r0^2 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r1);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
-[ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;,  &lt;identity ...&gt; ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroup(gens,a);</span>
-&lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(last);</span>
-1296
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,2), (9,10));</span>
+(1,2)(3,4)(5,6)(7,8)(9,10)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,3), (13,15));</span>
+(1,3)(4,6)(7,9)(10,12)(13,15)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((2,3,4), (8,9,10));</span>
+(2,3,4)(5,6,7)(8,9,10)
 </pre></div>
 
-<p><a id="X7C67C6B77C6C2114" name="X7C67C6B77C6C2114"></a></p>
+<p><a id="X7E84DB4E8746344A" name="X7E84DB4E8746344A"></a></p>
 
-<h5>15.1-5 FullyStratifiedGroup</h5>
+<h5>15.1-8 ParseStringCRels</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FullyStratifiedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsPermGroup</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseStringCRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a list of relators</p>
 
-<p>Implements fully stratified operations on maniplexes from <a href="chapBib.html#biBCunPelWil22">[CPW22]</a>. Given <var class="Arg">list</var> of generators compatible with the <code class="code">ChunkMultiply</code> operation, <var class="Arg">group</var> is the underlying group in the representation (usually the connection group of the base), this will calculate the connection group of the resulting maniplex acting on the implicit flags of the construction. Function assumes that <var class="Arg">list</var> are the generators of the connection group of the resulting maniplex in the order <span class="Math">\langle r_0, r_1, \ldots, r_{d-1}\rangle</span>. It is possible that for some groups this function will behave poorly because GAP won't recognize equivalent representations of a group element. If so, try again with a permutation representation and let us know so we can modify the code to handle this problem better (didn't show up in our testing, but is a theoretical possibility).</p>
+<p>This helper function is used in several maniplex constructors. Given a string <var class="Arg">rels</var> that represents relations in an sggi, and an sggi g, returns a list of elements in the free group of g represented by <var class="Arg">rels</var>. These can then be used to form a quotient of g.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2);; a:=AutomorphismGroup(p);</span>
-&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);</span>
-&lt;identity ...&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(a);</span>
-#I  Assigned the global variables [ r0, r1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
-[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
-[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
-[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gens:=[s0,s1,s2];</span>
-[ [ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ], 
-  [ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ], 
-  [ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(CubicTiling(2));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := "(r0 r1 r2 r1)^6";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseStringCRels(rels, g);</span>
+[ (r0*r1*r2*r1)^6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels[1] in FreeGroupOfFpGroup(g);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := FactorGroupFpGroupByRels(g, newrels);</span>
+&lt;fp group on the generators [ r0, r1, r2 ]&gt;
+</pre></div>
+
+<p>For convenience, you may use z1, z2, etc and h1, h2, etc in relations, where zj means r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1 (the "j-hole" word).</p>
+
+<p><a id="X79C6D76380B9F364" name="X79C6D76380B9F364"></a></p>
+
+<h5>15.1-9 ParseRotGpRels</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseRotGpRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>This helper function is used in several maniplex constructors. It is analogous to ParseStringCRels, but for rotation groups instead.</p>
+
+<p><a id="X829B5DA779342A28" name="X829B5DA779342A28"></a></p>
+
+<h5>15.1-10 AddOrAppend</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := [1, 2, 3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AddOrAppend(L, 4);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
+[1, 2, 3, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AddOrAppend(L, [5, 6]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
+[1, 2, 3, 4, 5, 6];
+</pre></div>
+
+<p><a id="X7C4A431283A32F67" name="X7C4A431283A32F67"></a></p>
+
+<h5>15.1-11 WrappedPosetOperation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WrappedPosetOperation</code>( <var class="Arg">posetOp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a poset operation, creates a bare-bones maniplex operation that delegates to the poset operation.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">myjoin := WrappedPosetOperation(JoinProduct);</span>
+function( arg... ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := myjoin(Pgon(4), Vertex());</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Pyramid(4);</span>
 true
 </pre></div>
 
+<p>Usually, you will want to eventually create a fuller-featured wrapper of the poset operation -- one that can infer more information from its arguments. But this method is a good way to quickly test whether a poset operation works on maniplexes the way one expects.</p>
 
-<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap14.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap16.html">[Next Chapter]</a>&nbsp;  </div>
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap14.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

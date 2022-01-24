@@ -1,5 +1,5 @@
 
-#! @Chapter Constructions
+#! @Chapter Polytope Constructions and Operations
 #! @Section Extensions, amalgamations, and quotients
 
 #! @Arguments n

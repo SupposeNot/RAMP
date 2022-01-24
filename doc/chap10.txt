@@ -1,115 +1,218 @@
   
-  [1X10 [33X[0;0YBasics[133X[101X
+  [1X10 [33X[0;0YDatabases[133X[101X
   
   
-  [1X10.1 [33X[0;0YConstructors[133X[101X
+  [1X10.1 [33X[0;0YRegular polyhedra[133X[101X
   
+  [1X10.1-1 DegeneratePolyhedra[101X
   
-  [1X10.1-1 [33X[0;0YReflexibleManiplex[133X[101X
+  [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
-  
-  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
-  maniplex  with  that automorphism group, where the privileged generators are
-  those returned by GeneratorsOfGroup(g).[133X
+  [33X[0;0YGives all degenerate polyhedra (of type [23X\{2, q\}[123X and [23X\{p, 2\}[123X) with sizes in
+  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
+  sizerange of [10X[1..maxsize][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDegeneratePolyhedra(24);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
-  bypass that check. The second form returns the universal reflexible maniplex
-  with  Schlafli symbol [3Xsym[103X. If the optional argument [3Xrelations[103X is given, then
-  we  return  the  reflexible  maniplex with the given defining relations. The
-  relations  can be given by a list of Tietze words or as a string of relators
-  or relations that involve r0 etc.[133X
+  [1X10.1-2 FlatRegularPolyhedra[101X
+  
+  [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives all nondegenerate flat regular polyhedra with sizes in [3Xsizerange[103X. Also
+  accepts  a  single  integer  [13Xmaxsize[113X  as  input  to  indicate a sizerange of
+  [10X[1..maxsize][110X. Currently supports a maxsize of 4000 or less.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
-    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
+    [4X[25Xgap>[125X [27XFlatRegularPolyhedra([10..24]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\[128X[104X
+    [4X[28X r1)^3 (r1 r2)^2"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\[128X[104X
+    [4X[28X), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
-  one  given. This may not be the correct Schlafli symbol, since the relations
-  may  cause  a  collapse,  so  this  should only be used if you know that the
-  Schlafli symbol is correct.[133X
+  [1X10.1-3 RegularToroidalPolyhedra44[101X
   
-  [1X10.1-2 Maniplex[101X
+  [33X[1;0Y[29X[2XRegularToroidalPolyhedra44[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YGiven  a  permutation  group  [3XG[103X on the set [1..N], returns a maniplex with N
-  flags  with connection group [3XG[103X. The output may not make sense if [3XG[103X is not an
-  sggi.[133X
+  [33X[0;0YGives  all  regular  toroidal  polyhedra  of  type  [23X\{4,4\}[123X  with  sizes  in
+  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
+  sizerange of [10X[1..maxsize][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
-    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
-    [4X[28XPgon(3)[128X[104X
-    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XRegularToroidalPolyhedra44([60..100]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ][128X[104X
   [4X[32X[104X
   
-  [1X10.1-3 Maniplex[101X
+  [1X10.1-4 RegularToroidalPolyhedra36[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XH[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [33X[1;0Y[29X[2XRegularToroidalPolyhedra36[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YLet   [3XM[103X   be   a   reflexible   maniplex   and   let  [3XH[103X  be  a  subgroup  of
-  AutomorphismGroup([3XM[103X). This returns the maniplex [3XM/H[103X. This will be reflexible
-  if  and only if [3XH[103X is normal. For most purposes, it is probably easier to use
-  QuotientManiplex,  which  takes  a string of relations as input instead of a
-  subgroup. The example below builds the map [23X\{4, 4\}_{(1,0), (0,2)}[123X.[133X
+  [33X[0;0YGives  all  regular  toroidal  polyhedra  of  type  [23X\{3,6\}[123X  with  sizes  in
+  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
+  sizerange of [10X[1..maxsize][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
-    [4X[28XCubicTiling(2)[128X[104X
-    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
-    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
-    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
-    [4X[28X3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
-    [4X[28X16[128X[104X
+    [4X[25Xgap>[125X [27XRegularToroidalPolyhedra36([100..150]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ][128X[104X
   [4X[32X[104X
   
-  [1X10.1-4 Maniplex[101X
+  [1X10.1-5 SmallRegularPolyhedraFromFile[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [33X[1;0Y[29X[2XSmallRegularPolyhedraFromFile[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YConstructs  a  formal  maniplex, represented by an operation [3XF[103X and a list of
-  arguments  [3Xinputs[103X.  By  itself,  this  does  not  really _do_ anything -- it
-  creates  a  maniplex  object that only knows the operation [3XF[103X and the [3Xinputs[103X.
-  However,  many  polytope operations (such as Pyramid(M), Medial(M), etc) use
-  this  construction  as  a base, and then add "attribute computers" that tell
-  the  formal maniplex how to compute certain things in terms of properties of
-  the base. See AddAttrComputer for more information.[133X
+  [33X[0;0YGives  all  regular  polyhedra with sizes in [3Xsizerange[103X flags that are stored
+  separately  in  a  file.  These  are  polyhedra  that are not part of one of
+  several  infinite  families  that  are  covered by the other generators. The
+  return  value  of  this function is unstable and may change as more infinite
+  familes of polyhedra are identified and written as separate generators.[133X
   
-  [1X10.1-5 Maniplex[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallRegularPolyhedraFromFile(64);[127X[104X
+    [4X[28X[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ][128X[104X
+  [4X[32X[104X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [1X10.1-6 SmallRegularPolyhedra[101X
   
-  [33X[0;0YConstructs the maniplex from the given poset [3XP[103X. This assumes that P actually
-  defines a maniplex.[133X
+  [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [1X10.1-6 IsPolytopal[101X
+  [33X[0;0YGives  all  regular  polyhedra  with  sizes  in  [3Xsizerange[103X  flags. Currently
+  supports  a [10Xmaxsize[110X of 4000 or less. You can also set options [10Xnondegenerate[110X,
+  [10Xnonflat[110X, and [10Xnontoroidal[110X.[133X
   
-  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL1 := SmallRegularPolyhedra(500);;[127X[104X
+    [4X[25Xgap>[125X [27XL2 := SmallRegularPolyhedra(1000 : nondegenerate);;[127X[104X
+    [4X[25Xgap>[125X [27XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[127X[104X
+    [4X[25Xgap>[125X [27XLength(SmallRegularPolyhedra(64));[127X[104X
+    [4X[28X53[128X[104X
+  [4X[32X[104X
   
-  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
-  polytope.[133X
+  [1X10.1-7 SmallDegenerateRegular4Polytopes[101X
+  
+  [33X[1;0Y[29X[2XSmallDegenerateRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  degenerate  regular  4-polytopes  with sizes in [3Xsizerange[103X flags.
+  Currently supports a [10Xmaxsize[110X of 8000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X SmallDegenerateRegular4Polytopes([64]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), [128X[104X
+    [4X[28X  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, [128X[104X
+    [4X[28X  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ][128X[104X
+  [4X[32X[104X
+  
+  [1X10.1-8 SmallRegular4Polytopes[101X
+  
+  [33X[1;0Y[29X[2XSmallRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  4-polytopes  with  sizes  in [3Xsizerange[103X flags. Currently
+  supports a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallRegular4Polytopes([100]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 5, 2, 5 ]) ][128X[104X
+  [4X[32X[104X
+  
+  [1X10.1-9 SmallChiralPolyhedra[101X
+  
+  [33X[1;0Y[29X[2XSmallChiralPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives all chiral polyhedra with sizes in [3Xsizerange[103X flags. Currently supports
+  a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallChiralPolyhedra(100);[127X[104X
+    [4X[28X[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ][128X[104X
+  [4X[32X[104X
+  
+  [1X10.1-10 SmallChiral4Polytopes[101X
+  
+  [33X[1;0Y[29X[2XSmallChiral4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  chiral  4-polytopes  with  sizes  in  [3Xsizerange[103X flags. Currently
+  supports a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallChiral4Polytopes([200..250]);[127X[104X
+    [4X[28X[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ][128X[104X
+  [4X[32X[104X
+  
+  [1X10.1-11 SmallReflexible3Maniplexes[101X
+  
+  [33X[1;0Y[29X[2XSmallReflexible3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  4-polytopes  with  sizes  in [3Xsizerange[103X flags. Currently
+  supports  a [10Xmaxsize[110X of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
+  returns maniplexes that are not polyhedra.[133X
+  
+  [1X10.1-12 SRP[101X
+  
+  [33X[1;0Y[29X[2XSRP[102X( [3Xminsize[103X, [3Xmaxsize[103X[, [3Xfunc1[103X, [3Xval1[103X, [3Xfunc2[103X, [3Xval2[103X, [3X...[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YReturns  a  list  of  all regular polyhedra with at least [3Xminsize[103X at at most
+  [3Xmaxsize[103X  flags. Optionally, you may include any number of pairs of functions
+  and  values,  in  which case this only returns those polyhedra such that the
+  given  functions  have  the  given  values.  The  name  of  this function is
+  temporary and this function is here as a proof-of-concept.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSRP(1,200,SchlafliSymbol,[4,4]);[127X[104X
+    [4X[28X[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ][128X[104X
+    [4X[25Xgap>[125X [27XSRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ][128X[104X
+    [4X[25Xgap>[125X [27XSRP(1,32,p->SchlafliSymbol(p)[1], 4);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X10.2 [33X[0;0YSystem internal representations[133X[101X
+  
+  [1X10.2-1 DatabaseString[101X
+  
+  [33X[1;0Y[29X[2XDatabaseString[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YString[133X
+  
+  [33X[0;0YGiven a maniplex [3XM[103X, returns a string representation of [3XM[103X suitable for saving
+  in a database for later retrieval.[133X
+  
+  [1X10.2-2 ManiplexFromDatabaseString[101X
+  
+  [33X[1;0Y[29X[2XManiplexFromDatabaseString[102X( [3XmaniplexString[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven a string [3XmaniplexString[103X, representing a maniplex stored in a database,
+  returns the maniplex that is represented.[133X
   

@@ -1,7 +1,7 @@
 
-# Dealing with graphs from maniplexes
+
 #! @Chapter Graphs for Maniplexes
-#! @Section Graphs for maniplexes functions
+#! @Section Graph constructors for maniplexes
 
 #! @Arguments list, list
 #! @Returns `IsGraph`. Note this returns a directed graph.

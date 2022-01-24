@@ -1,256 +1,289 @@
   
-  [1X5 [33X[0;0YConstructions[133X[101X
+  [1X5 [33X[0;0YCombinatorics and Structure[133X[101X
   
   
-  [1X5.1 [33X[0;0YExtensions, amalgamations, and quotients[133X[101X
+  [1X5.1 [33X[0;0YFaces[133X[101X
   
-  [1X5.1-1 UniversalPolytope[101X
+  [1X5.1-1 NumberOfIFaces[101X
   
-  [33X[1;0Y[29X[2XUniversalPolytope[102X( [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
   
-  [33X[0;0YConstructs the universal polytope of rank [3Xn[103X.[133X
+  [33X[0;0YReturns The number of [3Xi[103X-faces of [3XM[103X.[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XUniversalPolytope(3);[127X[104X
-    [4X[28XUniversalPolytope(3)[128X[104X
-    [4X[25Xgap>[125X [27XRank(last);[127X[104X
-    [4X[28X3[128X[104X
-  [4X[32X[104X
+  [1X5.1-2 NumberOfVertices[101X
   
-  [1X5.1-2 UniversalExtension[101X
+  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [33X[0;0YReturns the number of vertices of [3XM[103X.[133X
   
-  [33X[0;0YConstructs  the  universal  extension  of  [3XM[103X,  i.e. the maniplex with facets
-  isomorphic  to  [3XM[103X that covers all other maniplexes with facets isomorphic to
-  [3XM[103X. Currently only defined for reflexible maniplexes.[133X
+  [1X5.1-3 NumberOfEdges[101X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3));[127X[104X
-    [4X[28Xregular 4-polytope of type [ 4, 3, infinity ] with infinity flags[128X[104X
-  [4X[32X[104X
+  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XM[103X ) [32X attribute[133X
   
-  [1X5.1-3 UniversalExtension[101X
+  [33X[0;0YReturns the number of edges of [3XM[103X.[133X
   
-  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [1X5.1-4 NumberOfFacets[101X
   
-  [33X[0;0YConstructs  the  universal extension of [3XM[103X with last entry of Schlafli symbol
-  [3Xk[103X. Currently only defined for reflexible maniplexes.[133X
+  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XM[103X ) [32X attribute[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3),2);[127X[104X
-    [4X[28Xregular 4-polytope of type [ 4, 3, 2 ] with 96 flags[128X[104X
-  [4X[32X[104X
+  [33X[0;0YReturns the number of facets of [3XM[103X.[133X
   
-  [1X5.1-4 TrivialExtension[101X
+  [1X5.1-5 NumberOfRidges[101X
   
-  [33X[1;0Y[29X[2XTrivialExtension[102X( [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YConstructs the trivial extension of [3XM[103X, also known as {[3XM[103X, 2}.[133X
+  [33X[0;0YReturns the number of ridges ((n-2)-faces) of [3XM[103X.[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XTrivialExtension(Dodecahedron());[127X[104X
-    [4X[28Xregular 4-polytope of type [ 5, 3, 2 ] with 240 flags[128X[104X
-  [4X[32X[104X
+  [1X5.1-6 Fvector[101X
   
-  [1X5.1-5 FlatExtension[101X
+  [33X[1;0Y[29X[2XFvector[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex#!  @Description Constructs the flat extension of [3XM[103X with
-            last entry of Schlafli symbol [3Xk[103X. (As defined in [13XFlat Extensions of
-            Abstract Polytopes[113X [Cun21].)[133X
+  [33X[0;0YReturns the f-vector of [3XM[103X.[133X
   
-  [33X[0;0YCurrently only defined for reflexible maniplexes.[133X
+  [1X5.1-7 Section[101X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XFlatExtension(Simplex(3),4);[127X[104X
-    [4X[28Xreflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags[128X[104X
-  [4X[32X[104X
+  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
   
-  [1X5.1-6 Amalgamate[101X
+  [33X[0;0YReturns the section F_j / F_i, where F_j is the j-face of the base flag of [3XM[103X
+  and F_i is the i-face of the base flag.[133X
   
-  [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [1X5.1-8 Section[101X
   
-  [33X[0;0YConstructs  the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X
-  are compatible. Currently only defined for reflexible maniplexes.[133X
+  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X, [3Xk[103X ) [32X operation[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XAmalgamate(Cube(3),CrossPolytope(3));[127X[104X
-    [4X[28Xreflexible 4-maniplex of type [ 4, 3, 4 ][128X[104X
-  [4X[32X[104X
+  [33X[0;0YReturns the section F_j / F_i, where F_j is the j-face of flag number [3Xk[103X of [3XM[103X
+  and F_i is the i-face of the same flag.[133X
   
-  [1X5.1-7 Medial[101X
+  [1X5.1-9 Sections[101X
   
-  [33X[1;0Y[29X[2XMedial[102X( [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [33X[1;0Y[29X[2XSections[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
   
-  [33X[0;0YGiven a 3-maniplex [3XM[103X, returns its medial.[133X
+  [33X[0;0YReturns  all sections of type F_j / F_i, where F_j is a j-face and F_i is an
+  incident i-face.[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(Medial(Dodecahedron()));[127X[104X
-    [4X[28X[ [ 3, 5 ], 4 ][128X[104X
-  [4X[32X[104X
+  [1X5.1-10 Facets[101X
+  
+  [33X[1;0Y[29X[2XFacets[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  facet-types  of  [3XM[103X  (i.e.  the maniplexes corresponding to the
+  facets).[133X
+  
+  [1X5.1-11 Facet[101X
+  
+  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  the  facet  of  [3XM[103X  that  contains  the  flag number [3Xk[103X (that is, the
+  maniplex corresponding to the facet).[133X
+  
+  [1X5.1-12 Facet[101X
+  
+  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  facet  of [3XM[103X that contains flag number 1 (that is, the maniplex
+  corresponding to the facet).[133X
+  
+  [1X5.1-13 VertexFigures[101X
+  
+  [33X[1;0Y[29X[2XVertexFigures[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the types of vertex-figures of [3XM[103X (i.e. the maniplexes corresponding
+  to the vertex-figures).[133X
+  
+  [1X5.1-14 VertexFigure[101X
+  
+  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the vertex-figure of [3XM[103X that contains flag number [3Xk[103X.[133X
+  
+  [1X5.1-15 VertexFigure[101X
+  
+  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the vertex-figure of [3XM[103X that contains the base flag.[133X
   
   
-  [1X5.2 [33X[0;0YDuality[133X[101X
+  [1X5.2 [33X[0;0YFlatness[133X[101X
   
-  [1X5.2-1 Dual[101X
   
-  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YThe maniplex that is dual to [3XM[103X.[133X
+  [1X5.2-1 [33X[0;0YIsFlat[133X[101X
   
-  [1X5.2-2 IsSelfDual[101X
-  
-  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its dual.[133X
-  
-  [33X[0;0YAlso works for IsPoset objects.[133X
-  
-  [1X5.2-3 IsInternallySelfDual[101X
-  
-  [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X[, [3Xx[103X] ) [32X property[133X
+  [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YReturns  whether  this  maniplex  is  "internally  self-dual", as defined by
-  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
-  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
-  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
-  automorphism.  If the optional group element [3Xx[103X is given, then we first check
-  whether  [3Xx[103X  is a dualizing automorphism of [3XM[103X, and if not, then we search the
-  whole automorphism group of [3XM[103X.[133X
+  [33X[0;0YIn  the  first  form,  returns  true  if  every  vertex of the maniplex [3XM[103X is
+  incident to every facet. In the second form, returns true if every i-face of
+  the maniplex [3XM[103X is incident to every j-face.[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(4));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(Cube(3));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron2(10,1);;[127X[104X
-    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(M);;[127X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(M, (g.1*g.3*g.2)^6);[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
   
-  [1X5.2-4 IsExternallySelfDual[101X
+  [1X5.3 [33X[0;0YSchlafli symbol[133X[101X
   
-  [33X[1;0Y[29X[2XIsExternallySelfDual[102X( [3XM[103X ) [32X property[133X
+  [1X5.3-1 SchlafliSymbol[101X
+  
+  [33X[1;0Y[29X[2XSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  Schlafli  symbol  of  the  maniplex [3XM[103X. Each entry is either an
+  integer  or  a set of integers, where entry number i shows the polygons that
+  we obtain as sections of (i+1)-faces over (i-2)-faces.[133X
+  
+  [1X5.3-2 PseudoSchlafliSymbol[101X
+  
+  [33X[1;0Y[29X[2XPseudoSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YSometimes  when we make a maniplex, we know that the Schlafli symbol must be
+  a  quotient  of  some  symbol. This most frequently happens because we start
+  with a maniplex with a given Schlafli symbol and then take a quotient of it.
+  In   this   case,  we  store  the  given  Schlafli  symbol  and  call  it  a
+  [13Xpseudo-Schlafli  symbol[113X  of  [3XM[103X.  Note  that  whenever  we compute the actual
+  Schlafli symbol of [3XM[103X, we update the pseudo-Schlafli symbol to match.[133X
+  
+  [1X5.3-3 IsEquivelar[101X
+  
+  [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ythe the maniplex [3XM[103X is equivelar; i.e., whether its Schlafli Symbol
+            consists of integers at each position (no lists).[133X
+  
+  [1X5.3-4 IsDegenerate[101X
+  
+  [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YReturns  whether  this  maniplex  is  "externally  self-dual", as defined by
-  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
-  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
-  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  outer
-  automorphism.[133X
+  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
+  eventually want to include maniplexes with even smaller sections.[133X
+  
+  [1X5.3-5 IsTight[101X
+  
+  [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  the  polytope  [3XP[103X  is tight, meaning that it has a Schlafli
+  symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
+  minimum  possible.  This  property  doesn't make any sense for non-polytopal
+  maniplexes, which aren't constrained by this lower bound.[133X
+  
+  [1X5.3-6 EulerCharacteristic[101X
+  
+  [33X[1;0Y[29X[2XEulerCharacteristic[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe Euler characteristic of the maniplex, given by [23Xf_0 - f_1 + f_2
+            - \cdots + (-1)^{n-1} f_{n-1}[123X.[133X
+  
+  [1X5.3-7 Genus[101X
+  
+  [33X[1;0Y[29X[2XGenus[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe genus of the given 3-maniplex.[133X
+  
+  [1X5.3-8 IsSpherical[101X
+  
+  [33X[1;0Y[29X[2XIsSpherical[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  3-maniplex  [3XM[103X is spherical, which is to say, whether
+            the Euler characteristic is equal to 2.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsExternallySelfDual(Simplex(4));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(Simplex(3));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(AbstractRegularPolytope([4,4],"h2^3"));[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsExternallySelfDual(Cube(3));[127X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(Pyramid(5));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(CubicTiling(2));[127X[104X
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X5.2-5 Petrial[101X
+  [1X5.3-9 IsLocallySpherical[101X
   
-  [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YThe  Petrial (Petrie dual) of [3XM[103X. Note that this is not necessarily
-            a  polytope,  even  if  [3XM[103X  is.  When  Rank(M)  >  3,  this  is the
-            "generalized  Petrial"  which  essentially  replaces  [23Xr_{n-3}[123X with
-            [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
+  [33X[1;0Y[29X[2XIsLocallySpherical[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  4-maniplex  [3XM[103X is locally spherical, which is to say,
+            whether its facets and vertex-figures are both spherical.[133X
   
-  [1X5.2-6 IsSelfPetrial[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(Simplex(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(AbstractRegularPolytope([4,4,4]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(CubicTiling(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(Pyramid(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
-  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
+  [1X5.3-10 IsToroidal[101X
   
-  [1X5.2-7 DirectDerivates[101X
+  [33X[1;0Y[29X[2XIsToroidal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the 3-maniplex [3XM[103X is toroidal, which is to say, whether the
+            Euler characteristic is equal to 0.[133X
   
-  [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(Simplex(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(AbstractRegularPolytope([4,4],"h2^3"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(Pyramid(5));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
   
-  [33X[0;0YReturns a list of the [13Xdirect derivates[113X of [3XM[103X, which are the images of M under
-  duality  and  Petriality.  A 3-maniplex has up to 6 direct derivates, and an
-  n-maniplex with [23Xn \geq 4[123X has up to 8. If the option 'polytopal' is set, then
-  only returns those direct derivates that are polytopal.[133X
+  [1X5.3-11 IsLocallyToroidal[101X
+  
+  [33X[1;0Y[29X[2XIsLocallyToroidal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  4-maniplex  [3XM[103X  is locally toroidal, which is to say,
+            whether  it  has at least one toroidal facet or vertex-figure, and
+            all  of  its  facets  and  vertex-figures  are either spherical or
+            toroidal.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(Simplex(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   
-  [1X5.3 [33X[0;0YProducts[133X[101X
+  [1X5.4 [33X[0;0YBasics[133X[101X
   
-  [1X5.3-1 Pyramid[101X
+  [1X5.4-1 Size[101X
   
-  [33X[1;0Y[29X[2XPyramid[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSize[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe number of flags of the maniplex [3XM[103X.[133X
   
-  [33X[0;0YReturns the pyramid over [3XM[103X.[133X
+  [33X[0;0YSynonym: [10XNumberOfFlags[110X.[133X
   
-  [1X5.3-2 Pyramid[101X
+  [1X5.4-2 RankManiplex[101X
   
-  [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRankManiplex[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe rank of the maniplex [3XM[103X.[133X
   
-  [33X[0;0YReturns the pyramid over a [3Xk[103X-gon.[133X
   
-  [1X5.3-3 Prism[101X
+  [1X5.5 [33X[0;0YZigzags and holes[133X[101X
   
-  [33X[1;0Y[29X[2XPrism[102X( [3XM[103X ) [32X operation[133X
+  [1X5.5-1 ZigzagLength[101X
   
-  [33X[0;0YReturns the prism over [3XM[103X.[133X
+  [33X[1;0Y[29X[2XZigzagLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths of [3Xj[103X-zigzags of the 3-maniplex [3XM[103X. This corresponds to
+            the lengths of orbits under r0 (r1 r2)^j.[133X
   
-  [1X5.3-4 Prism[101X
+  [1X5.5-2 ZigzagVector[101X
   
-  [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XZigzagVector[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths of all zigzags of the 3-maniplex [3XM[103X. A rank 3 maniplex
+            of  type {p, q} has Floor(q/2) distinct zigzag lengths because the
+            j-zigzags are the same as the (q-j)-zigzags.[133X
   
-  [33X[0;0YReturns the prism over a [3Xk[103X-gon.[133X
+  [1X5.5-3 PetrieLength[101X
   
-  [1X5.3-5 Antiprism[101X
+  [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe length of the petrie polygons of the maniplex [3XM[103X.[133X
   
-  [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
+  [1X5.5-4 HoleLength[101X
   
-  [33X[0;0YReturns the antiprism over [3XM[103X.[133X
+  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths  of  [3Xj[103X-holes of the 3-maniplex [3XM[103X. This corresponds to
+            the lengths of orbits under r0 (r1 r2)^(j-1) r2.[133X
   
-  [1X5.3-6 Antiprism[101X
+  [1X5.5-5 HoleVector[101X
   
-  [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the antiprism over a [3Xk[103X-gon.[133X
-  
-  [1X5.3-7 JoinProduct[101X
-  
-  [33X[1;0Y[29X[2XJoinProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YManiplex[133X
-  
-  [33X[0;0YGiven two maniplexes, this forms the join product. May give weird results if
-  the maniplexes aren't faithfully represented by their posets.[133X
-  
-  [1X5.3-8 CartesianProduct[101X
-  
-  [33X[1;0Y[29X[2XCartesianProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YManiplex[133X
-  
-  [33X[0;0YGiven  two  maniplexes,  this  forms  the  cartesian product. May give weird
-  results if the maniplexes aren't faithfully represented by their posets.[133X
-  
-  [1X5.3-9 DirectSumOfManiplexes[101X
-  
-  [33X[1;0Y[29X[2XDirectSumOfManiplexes[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YManiplex[133X
-  
-  [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
-  the maniplexes aren't faithfully represented by their posets.[133X
-  
-  [1X5.3-10 TopologicalProduct[101X
-  
-  [33X[1;0Y[29X[2XTopologicalProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YManiplex[133X
-  
-  [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
-  the maniplexes aren't faithfully represented by their posets.[133X
+  [33X[1;0Y[29X[2XHoleVector[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe  lengths of all zigzags of the 3-maniplex [3XM[103X. A rank 3 maniplex
+            of  type {p, q} has Floor(q/2) distinct zigzag lengths because the
+            j-zigzags are the same as the (q-j)-zigzags.[133X
   
