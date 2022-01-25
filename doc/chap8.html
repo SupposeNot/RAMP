@@ -47,16 +47,16 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X86CE352C7851221F">8.3 <span class="Heading">Products</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X830A34BA7E8BC096">8.3-1 Pyramid</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X80EEFF7F7FE1B752">8.3-2 Pyramid</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X822C7D527BC2A7F1">8.3-3 Prism</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X86E5C03286E992CA">8.3-4 Prism</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X79B6A83C7EBC21C2">8.3-5 Antiprism</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X82EED70583F7F8CD">8.3-6 Antiprism</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7FA28B5C7AC1C32E">8.3-7 JoinProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C116F2C83963ADC">8.3-8 CartesianProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8022B9AC85D38D7D">8.3-9 DirectSumOfManiplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X833534418543FB94">8.3-10 TopologicalProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7CBB470F7D3135BC">8.3-1 <span class="Heading">Pyramids</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7B13F48A7AF5DF42">8.3-2 <span class="Heading">Prisms</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X808566B57F296C93">8.3-3 <span class="Heading">Antiprisms</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7FA28B5C7AC1C32E">8.3-4 JoinProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C116F2C83963ADC">8.3-5 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8022B9AC85D38D7D">8.3-6 DirectSumOfManiplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X833534418543FB94">8.3-7 TopologicalProduct</a></span>
 </div></div>
 </div>
 
@@ -296,83 +296,113 @@ true
 
 <h4>8.3 <span class="Heading">Products</span></h4>
 
-<p><a id="X830A34BA7E8BC096" name="X830A34BA7E8BC096"></a></p>
+<p><a id="X7CBB470F7D3135BC" name="X7CBB470F7D3135BC"></a></p>
 
-<h5>8.3-1 Pyramid</h5>
+<h5>8.3-1 <span class="Heading">Pyramids</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the pyramid over <var class="Arg">M</var>.</p>
-
-<p><a id="X80EEFF7F7FE1B752" name="X80EEFF7F7FE1B752"></a></p>
-
-<h5>8.3-2 Pyramid</h5>
-
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
+<p>Returns the pyramid over <var class="Arg">M</var>. Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
 
-<p><a id="X822C7D527BC2A7F1" name="X822C7D527BC2A7F1"></a></p>
 
-<h5>8.3-3 Prism</h5>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(Cube(3)));</span>
+[ [ 3, 4 ], [ 3, 4 ], 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(4));</span>
+[ [ 3, 4 ], [ 3, 4 ] ]
+</pre></div>
+
+<p><a id="X7B13F48A7AF5DF42" name="X7B13F48A7AF5DF42"></a></p>
+
+<h5>8.3-2 <span class="Heading">Prisms</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the prism over <var class="Arg">M</var>.</p>
-
-<p><a id="X86E5C03286E992CA" name="X86E5C03286E992CA"></a></p>
-
-<h5>8.3-4 Prism</h5>
-
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the prism over a <var class="Arg">k</var>-gon.</p>
+<p>Returns the prism over <var class="Arg">M</var>. Returns the prism over a <var class="Arg">k</var>-gon.</p>
 
-<p><a id="X79B6A83C7EBC21C2" name="X79B6A83C7EBC21C2"></a></p>
 
-<h5>8.3-5 Antiprism</h5>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cube(3)=Prism(Cube(2));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Prism(4)=Cube(3);</span>
+true
+</pre></div>
+
+<p><a id="X808566B57F296C93" name="X808566B57F296C93"></a></p>
+
+<h5>8.3-3 <span class="Heading">Antiprisms</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the antiprism over <var class="Arg">M</var>.</p>
-
-<p><a id="X82EED70583F7F8CD" name="X82EED70583F7F8CD"></a></p>
-
-<h5>8.3-6 Antiprism</h5>
-
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the antiprism over a <var class="Arg">k</var>-gon.</p>
+<p>Returns the antiprism over <var class="Arg">M</var>. Returns the antiprism over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(Dodecahedron()));</span>
+[ [ 3, 5 ], [ 3, 5 ], 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(5));</span>
+[ [ 3, 5 ], 4 ]
+</pre></div>
 
 <p><a id="X7FA28B5C7AC1C32E" name="X7FA28B5C7AC1C32E"></a></p>
 
-<h5>8.3-7 JoinProduct</h5>
+<h5>8.3-4 JoinProduct</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
 
 <p>Given two maniplexes, this forms the join product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
+</pre></div>
+
 <p><a id="X7C116F2C83963ADC" name="X7C116F2C83963ADC"></a></p>
 
-<h5>8.3-8 CartesianProduct</h5>
+<h5>8.3-5 CartesianProduct</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
 
 <p>Given two maniplexes, this forms the cartesian product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));</span>
+[ [ 3, 4 ], 3, 3, 3 ]
+</pre></div>
+
 <p><a id="X8022B9AC85D38D7D" name="X8022B9AC85D38D7D"></a></p>
 
-<h5>8.3-9 DirectSumOfManiplexes</h5>
+<h5>8.3-6 DirectSumOfManiplexes</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfManiplexes</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
 
 <p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));</span>
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
+</pre></div>
+
 <p><a id="X833534418543FB94" name="X833534418543FB94"></a></p>
 
-<h5>8.3-10 TopologicalProduct</h5>
+<h5>8.3-7 TopologicalProduct</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
 
 <p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));</span>
+[ 4, 3, [ 3, 4 ] ]
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9.html">[Next Chapter]</a>&nbsp;  </div>

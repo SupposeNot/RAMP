@@ -7,6 +7,7 @@
 #! @Returns `IsGroup `. 
 #! @Description Given two (permutation) groups returns the mix of those groups.  Note, also works with FPgroups.
 DeclareOperation("Mix", [IsPermGroup, IsPermGroup]);
+
 #! Here we build the mix of the connection groups of a 3-cube and an edge.
 #! @BeginExampleSession
 #! gap> g1:=ConnectionGroup(Cube(3));
@@ -21,20 +22,25 @@ DeclareOperation("Mix", [IsPermGroup, IsPermGroup]);
 #! Returns the Mix of two Finitely Presented groups gp and gq.
 DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 
+
 #! @Arguments maniplex, maniplex
 #! @Returns `IsReflexibleManiplex `. 
 #! @Description Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
 # DeclareOperation("Mix", [IsReflexibleManiplex, IsReflexibleManiplex]);
+
 DeclareOperation("Mix", [IsManiplex, IsManiplex]);
+
 
 #! @Arguments fpgroup, fpgroup
 #! Returns the comix of two Finitely Presented groups gp and gq.
 DeclareOperation("Comix", [IsFpGroup, IsFpGroup]);
 
+
 #! @Arguments maniplex, maniplex
 #! @Returns `IsReflexibleManiplex `. 
 #! @Description Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups
 DeclareOperation("Comix", [IsReflexibleManiplex, IsReflexibleManiplex]);
+
 
 #! @Arguments int, int, int, int
 #! @Returns `IsInteger `. 
@@ -45,7 +51,9 @@ DeclareOperation("Comix", [IsReflexibleManiplex, IsReflexibleManiplex]);
 #! Functions are inverses.
 DeclareOperation("CtoL",[IsInt,IsInt,IsInt,IsInt]);
 
+
 DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
+
 
 
 #! @Arguments permgroup, permgroup
@@ -53,6 +61,7 @@ DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
 #! @Description Given two (permutation) groups gp, gg this returns the maniplex of the 
 #! "flag" mix of two maniplexes with connection groups gp and gq.
 DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
+
 
 
 

@@ -214,43 +214,52 @@
   
   [1X8.3 [33X[0;0YProducts[133X[101X
   
-  [1X8.3-1 Pyramid[101X
+  
+  [1X8.3-1 [33X[0;0YPyramids[133X[101X
   
   [33X[1;0Y[29X[2XPyramid[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the pyramid over [3XM[103X.[133X
-  
-  [1X8.3-2 Pyramid[101X
-  
   [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the pyramid over a [3Xk[103X-gon.[133X
+  [33X[0;0YReturns the pyramid over [3XM[103X. Returns the pyramid over a [3Xk[103X-gon.[133X
   
-  [1X8.3-3 Prism[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Pyramid(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ], 3 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Pyramid(4));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.3-2 [33X[0;0YPrisms[133X[101X
   
   [33X[1;0Y[29X[2XPrism[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the prism over [3XM[103X.[133X
-  
-  [1X8.3-4 Prism[101X
-  
   [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the prism over a [3Xk[103X-gon.[133X
+  [33X[0;0YReturns the prism over [3XM[103X. Returns the prism over a [3Xk[103X-gon.[133X
   
-  [1X8.3-5 Antiprism[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCube(3)=Prism(Cube(2));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XPrism(4)=Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.3-3 [33X[0;0YAntiprisms[133X[101X
   
   [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the antiprism over [3XM[103X.[133X
-  
-  [1X8.3-6 Antiprism[101X
-  
   [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the antiprism over a [3Xk[103X-gon.[133X
+  [33X[0;0YReturns the antiprism over [3XM[103X. Returns the antiprism over a [3Xk[103X-gon.[133X
   
-  [1X8.3-7 JoinProduct[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Antiprism(Dodecahedron()));[127X[104X
+    [4X[28X[ [ 3, 5 ], [ 3, 5 ], 4 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Antiprism(5));[127X[104X
+    [4X[28X[ [ 3, 5 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-4 JoinProduct[101X
   
   [33X[1;0Y[29X[2XJoinProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
@@ -258,7 +267,12 @@
   [33X[0;0YGiven two maniplexes, this forms the join product. May give weird results if
   the maniplexes aren't faithfully represented by their posets.[133X
   
-  [1X8.3-8 CartesianProduct[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-5 CartesianProduct[101X
   
   [33X[1;0Y[29X[2XCartesianProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
@@ -266,7 +280,12 @@
   [33X[0;0YGiven  two  maniplexes,  this  forms  the  cartesian product. May give weird
   results if the maniplexes aren't faithfully represented by their posets.[133X
   
-  [1X8.3-9 DirectSumOfManiplexes[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));[127X[104X
+    [4X[28X[ [ 3, 4 ], 3, 3, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-6 DirectSumOfManiplexes[101X
   
   [33X[1;0Y[29X[2XDirectSumOfManiplexes[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
@@ -274,11 +293,21 @@
   [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
   the maniplexes aren't faithfully represented by their posets.[133X
   
-  [1X8.3-10 TopologicalProduct[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-7 TopologicalProduct[101X
   
   [33X[1;0Y[29X[2XTopologicalProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
   
   [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
   the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));[127X[104X
+    [4X[28X[ 4, 3, [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
   

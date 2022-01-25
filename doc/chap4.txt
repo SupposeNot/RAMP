@@ -332,12 +332,24 @@
   
   [33X[0;0YA maniplex is orientable if its flag graph is bipartite.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsOrientable(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsOrientable(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [1X4.4-2 IsIOrientable[101X
   
   [33X[1;0Y[29X[2XIsIOrientable[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
   [33X[0;0YFor  a subset I of {0, ..., n-1}, a maniplex is I-orientable if every closed
   path in its flag graph contains an even number of edges with colors in I.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsIOrientable(HemiCube(3),[1,2]);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X4.4-3 IsVertexBipartite[101X
   
@@ -347,6 +359,11 @@
   [33X[0;0YA  maniplex  is  vertex-bipartite  if  its  1-skeleton is bipartite. This is
   equivalent to being I-orientable for I = {0}.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsVertexBipartite(HemiCube(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [1X4.4-4 IsFacetBipartite[101X
   
   [33X[1;0Y[29X[2XIsFacetBipartite[102X( [3XM[103X ) [32X property[133X
@@ -355,11 +372,21 @@
   [33X[0;0YA  maniplex  is  facet-bipartite if the 1-skeleton of its dual is bipartite.
   This is equivalent to being I-orientable for I = {n-1}.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFacetBipartite(HemiCube(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
   [1X4.4-5 OrientableCover[101X
   
   [33X[1;0Y[29X[2XOrientableCover[102X( [3XM[103X ) [32X attribute[133X
   
   [33X[0;0YReturns the minimal [13Xorientable cover[113X of the maniplex [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOrientableCover(HemiCube(3))=Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X4.4-6 IOrientableCover[101X
   
@@ -378,6 +405,11 @@
   [33X[0;0YReturns  whether the reflexible maniplex [3XM[103X is vertex-faithful; i.e., whether
   the action of the automorphism group on the vertices is faithful.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [1X4.5-2 IsFacetFaithful[101X
   
   [33X[1;0Y[29X[2XIsFacetFaithful[102X( [3XM[103X ) [32X property[133X
@@ -386,9 +418,23 @@
   [33X[0;0YReturns  whether  the reflexible maniplex [3XM[103X is facet-faithful; i.e., whether
   the action of the automorphism group on the facets is faithful.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [1X4.5-3 MaxVertexFaithfulQuotient[101X
   
   [33X[1;0Y[29X[2XMaxVertexFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
   
   [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ 3, 2 ][128X[104X
+  [4X[32X[104X
   

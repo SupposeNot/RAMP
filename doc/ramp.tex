@@ -1639,22 +1639,8 @@ connection groups }
 
  
 
-\subsection{\textcolor{Chapter }{Mix (for IsManiplex, IsManiplex)}}
-\logpage{[ 3, 2, 4 ]}\nobreak
-\hyperdef{L}{X7FB8D59C83B5819C}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape arg1, arg2})\index{Mix@\texttt{Mix}!for IsManiplex, IsManiplex}
-\label{Mix:for IsManiplex, IsManiplex}
-}\hfill{\scriptsize (operation)}}\\
-
-
- 
-
- }
-
- 
-
 \subsection{\textcolor{Chapter }{Comix (for IsFpGroup, IsFpGroup)}}
-\logpage{[ 3, 2, 5 ]}\nobreak
+\logpage{[ 3, 2, 4 ]}\nobreak
 \hyperdef{L}{X8688A51E816A5176}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape fpgroup, fpgroup})\index{Comix@\texttt{Comix}!for IsFpGroup, IsFpGroup}
 \label{Comix:for IsFpGroup, IsFpGroup}
@@ -1666,7 +1652,7 @@ connection groups }
  
 
 \subsection{\textcolor{Chapter }{Comix (for IsReflexibleManiplex, IsReflexibleManiplex)}}
-\logpage{[ 3, 2, 6 ]}\nobreak
+\logpage{[ 3, 2, 5 ]}\nobreak
 \hyperdef{L}{X8287C9F684CA66F5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape maniplex, maniplex})\index{Comix@\texttt{Comix}!for IsReflexibleManiplex, IsReflexibleManiplex}
 \label{Comix:for IsReflexibleManiplex, IsReflexibleManiplex}
@@ -1682,7 +1668,7 @@ connection groups }
  
 
 \subsection{\textcolor{Chapter }{CtoL (for IsInt,IsInt,IsInt,IsInt)}}
-\logpage{[ 3, 2, 7 ]}\nobreak
+\logpage{[ 3, 2, 6 ]}\nobreak
 \hyperdef{L}{X7CD7AB1C7DF21CFE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CtoL({\mdseries\slshape int, int, int, int})\index{CtoL@\texttt{CtoL}!for IsInt,IsInt,IsInt,IsInt}
 \label{CtoL:for IsInt,IsInt,IsInt,IsInt}
@@ -1701,7 +1687,7 @@ Functions are inverses. }
  
 
 \subsection{\textcolor{Chapter }{FlagMix (for IsManiplex, IsManiplex)}}
-\logpage{[ 3, 2, 8 ]}\nobreak
+\logpage{[ 3, 2, 7 ]}\nobreak
 \hyperdef{L}{X853A36497F3AF41E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagMix({\mdseries\slshape permgroup, permgroup})\index{FlagMix@\texttt{FlagMix}!for IsManiplex, IsManiplex}
 \label{FlagMix:for IsManiplex, IsManiplex}
@@ -2351,6 +2337,13 @@ action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
  A maniplex is orientable if its flag graph is bipartite. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsOrientable(HemiCube(3));|
+  false
+  !gapprompt@gap>| !gapinput@IsOrientable(Cube(3));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsIOrientable (for IsManiplex, IsList)}}
 \logpage{[ 4, 4, 2 ]}\nobreak
@@ -2364,6 +2357,11 @@ action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 maniplex is I-orientable if every closed path in its flag graph contains an
 even number of edges with colors in I. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsIOrientable(HemiCube(3),[1,2]);|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{IsVertexBipartite (for IsManiplex)}}
@@ -2382,6 +2380,11 @@ equivalent to being I-orientable for I =
 \texttt{\symbol{123}}0\texttt{\symbol{125}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsVertexBipartite(HemiCube(4));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsFacetBipartite (for IsManiplex)}}
 \logpage{[ 4, 4, 4 ]}\nobreak
@@ -2399,6 +2402,11 @@ is equivalent to being I-orientable for I =
 \texttt{\symbol{123}}n-1\texttt{\symbol{125}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsFacetBipartite(HemiCube(4));|
+  false
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{OrientableCover (for IsManiplex)}}
 \logpage{[ 4, 4, 5 ]}\nobreak
@@ -2410,6 +2418,11 @@ is equivalent to being I-orientable for I =
 
  Returns the minimal \emph{orientable cover} of the maniplex \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@OrientableCover(HemiCube(3))=Cube(3);|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{IOrientableCover (for IsManiplex, IsList)}}
@@ -2446,6 +2459,11 @@ is equivalent to being I-orientable for I =
 vertices is faithful. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsFacetFaithful (for IsReflexibleManiplex)}}
 \logpage{[ 4, 5, 2 ]}\nobreak
@@ -2462,6 +2480,13 @@ vertices is faithful. }
 facets is faithful. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  false
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{MaxVertexFaithfulQuotient (for IsReflexibleManiplex)}}
 \logpage{[ 4, 5, 3 ]}\nobreak
@@ -2473,6 +2498,13 @@ facets is faithful. }
 
  Returns the maximal vertex-faithful reflexible maniplex covered by \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  reflexible 3-maniplex
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  [ 3, 2 ]
+\end{Verbatim}
  }
 
  }
@@ -5003,81 +5035,75 @@ derivates that are polytopal. }
 \hyperdef{L}{X86CE352C7851221F}{}
 {
   
-
-\subsection{\textcolor{Chapter }{Pyramid (for IsManiplex)}}
-\logpage{[ 8, 3, 1 ]}\nobreak
-\hyperdef{L}{X830A34BA7E8BC096}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape M})\index{Pyramid@\texttt{Pyramid}!for IsManiplex}
+\subsection{\textcolor{Chapter }{Pyramids}}\label{Pyramid}
+\logpage{[ 8, 3, 1 ]}
+\hyperdef{L}{X7CBB470F7D3135BC}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape M})\index{Pyramid@\texttt{Pyramid}!for IsManiplex}
 \label{Pyramid:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
-
-
- Returns the pyramid over \mbox{\texttt{\mdseries\slshape M}}. }
-
- 
-
-\subsection{\textcolor{Chapter }{Pyramid (for IsInt)}}
-\logpage{[ 8, 3, 2 ]}\nobreak
-\hyperdef{L}{X80EEFF7F7FE1B752}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape k})\index{Pyramid@\texttt{Pyramid}!for IsInt}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape k})\index{Pyramid@\texttt{Pyramid}!for IsInt}
 \label{Pyramid:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns the pyramid over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
+ Returns the pyramid over \mbox{\texttt{\mdseries\slshape M}}. Returns the pyramid over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
 
  
-
-\subsection{\textcolor{Chapter }{Prism (for IsManiplex)}}
-\logpage{[ 8, 3, 3 ]}\nobreak
-\hyperdef{L}{X822C7D527BC2A7F1}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape M})\index{Prism@\texttt{Prism}!for IsManiplex}
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Pyramid(Cube(3)));|
+  [ [ 3, 4 ], [ 3, 4 ], 3 ]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Pyramid(4));|
+  [ [ 3, 4 ], [ 3, 4 ] ]
+\end{Verbatim}
+ 
+\subsection{\textcolor{Chapter }{Prisms}}\label{Prisms}
+\logpage{[ 8, 3, 2 ]}
+\hyperdef{L}{X7B13F48A7AF5DF42}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape M})\index{Prism@\texttt{Prism}!for IsManiplex}
 \label{Prism:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
-
-
- Returns the prism over \mbox{\texttt{\mdseries\slshape M}}. }
-
- 
-
-\subsection{\textcolor{Chapter }{Prism (for IsInt)}}
-\logpage{[ 8, 3, 4 ]}\nobreak
-\hyperdef{L}{X86E5C03286E992CA}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape k})\index{Prism@\texttt{Prism}!for IsInt}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape k})\index{Prism@\texttt{Prism}!for IsInt}
 \label{Prism:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns the prism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
+ Returns the prism over \mbox{\texttt{\mdseries\slshape M}}. Returns the prism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
 
  
-
-\subsection{\textcolor{Chapter }{Antiprism (for IsManiplex)}}
-\logpage{[ 8, 3, 5 ]}\nobreak
-\hyperdef{L}{X79B6A83C7EBC21C2}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape M})\index{Antiprism@\texttt{Antiprism}!for IsManiplex}
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Cube(3)=Prism(Cube(2));|
+  true
+  !gapprompt@gap>| !gapinput@Prism(4)=Cube(3);|
+  true
+\end{Verbatim}
+ 
+\subsection{\textcolor{Chapter }{Antiprisms}}\label{Antiprisms}
+\logpage{[ 8, 3, 3 ]}
+\hyperdef{L}{X808566B57F296C93}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape M})\index{Antiprism@\texttt{Antiprism}!for IsManiplex}
 \label{Antiprism:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
-
-
- Returns the antiprism over \mbox{\texttt{\mdseries\slshape M}}. }
-
- 
-
-\subsection{\textcolor{Chapter }{Antiprism (for IsInt)}}
-\logpage{[ 8, 3, 6 ]}\nobreak
-\hyperdef{L}{X82EED70583F7F8CD}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape k})\index{Antiprism@\texttt{Antiprism}!for IsInt}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape k})\index{Antiprism@\texttt{Antiprism}!for IsInt}
 \label{Antiprism:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns the antiprism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
+ Returns the antiprism over \mbox{\texttt{\mdseries\slshape M}}. Returns the antiprism over a \mbox{\texttt{\mdseries\slshape k}}-gon. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Antiprism(Dodecahedron()));|
+  [ [ 3, 5 ], [ 3, 5 ], 4 ]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Antiprism(5));|
+  [ [ 3, 5 ], 4 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{JoinProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 7 ]}\nobreak
+\logpage{[ 8, 3, 4 ]}\nobreak
 \hyperdef{L}{X7FA28B5C7AC1C32E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinProduct({\mdseries\slshape M1, M2})\index{JoinProduct@\texttt{JoinProduct}!for IsManiplex, IsManiplex}
 \label{JoinProduct:for IsManiplex, IsManiplex}
@@ -5091,9 +5117,14 @@ Maniplex
 the maniplexes aren't faithfully represented by their posets. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  [ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{CartesianProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 8 ]}\nobreak
+\logpage{[ 8, 3, 5 ]}\nobreak
 \hyperdef{L}{X7C116F2C83963ADC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CartesianProduct({\mdseries\slshape M1, M2})\index{CartesianProduct@\texttt{CartesianProduct}!for IsManiplex, IsManiplex}
 \label{CartesianProduct:for IsManiplex, IsManiplex}
@@ -5107,9 +5138,14 @@ Maniplex
 if the maniplexes aren't faithfully represented by their posets. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));|
+  [ [ 3, 4 ], 3, 3, 3 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{DirectSumOfManiplexes (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 9 ]}\nobreak
+\logpage{[ 8, 3, 6 ]}\nobreak
 \hyperdef{L}{X8022B9AC85D38D7D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectSumOfManiplexes({\mdseries\slshape M1, M2})\index{DirectSumOfManiplexes@\texttt{DirectSumOfManiplexes}!for IsManiplex, IsManiplex}
 \label{DirectSumOfManiplexes:for IsManiplex, IsManiplex}
@@ -5123,9 +5159,14 @@ Maniplex
 maniplexes aren't faithfully represented by their posets. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));|
+  [ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{TopologicalProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 10 ]}\nobreak
+\logpage{[ 8, 3, 7 ]}\nobreak
 \hyperdef{L}{X833534418543FB94}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TopologicalProduct({\mdseries\slshape M1, M2})\index{TopologicalProduct@\texttt{TopologicalProduct}!for IsManiplex, IsManiplex}
 \label{TopologicalProduct:for IsManiplex, IsManiplex}
@@ -5138,6 +5179,11 @@ Maniplex
  Given two maniplexes, this forms the direct sum. May give weird results if the
 maniplexes aren't faithfully represented by their posets. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));|
+  [ 4, 3, [ 3, 4 ] ]
+\end{Verbatim}
  }
 
  }

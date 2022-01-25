@@ -443,6 +443,14 @@ A maniplex is orientable if its flag graph is bipartite.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsOrientable(HemiCube(3));
+false
+gap> IsOrientable(Cube(3));
+true
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, I" Name="IsIOrientable" Label="for IsManiplex, IsList"/>
  <Description>
@@ -451,6 +459,12 @@ For a subset I of {0, ..., n-1}, a maniplex is I-orientable
  of edges with colors in I.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsIOrientable(HemiCube(3),[1,2]);
+true
+]]></Example>
 
 
 <ManSection>
@@ -465,6 +479,12 @@ A maniplex is vertex-bipartite if its 1-skeleton is
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsVertexBipartite(HemiCube(4));
+true
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsFacetBipartite" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
@@ -477,12 +497,24 @@ A maniplex is facet-bipartite if the 1-skeleton of its
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsFacetBipartite(HemiCube(4));
+false
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="OrientableCover" Label="for IsManiplex"/>
  <Description>
 Returns the minimal <Emph>orientable cover</Emph> of the maniplex <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> OrientableCover(HemiCube(3))=Cube(3);
+true
+]]></Example>
 
 
 <ManSection>
@@ -511,6 +543,12 @@ Returns whether the reflexible maniplex <A>M</A> is
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsVertexFaithful(HemiCube(3));
+true
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsFacetFaithful" Label="for IsReflexibleManiplex"/>
  <Returns><C>true</C> or <C>false</C>
@@ -523,12 +561,28 @@ Returns whether the reflexible maniplex <A>M</A> is
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsFacetFaithful(HemiCube(3));
+false
+gap> IsFacetFaithful(Cube(3));
+true
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsReflexibleManiplex"/>
  <Description>
  Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
+reflexible 3-maniplex
+gap> SchlafliSymbol(last);
+[ 3, 2 ]
+]]></Example>
 
 
 </Section>
