@@ -527,6 +527,11 @@ IsPolytope
  Returns the universal 0-polytope. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Vertex();|
+  UniversalPolytope(0)
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Edge}}
 \logpage{[ 2, 1, 2 ]}\nobreak
@@ -541,6 +546,11 @@ IsPolytope
 
  Returns the universal 1-polytope. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Edge();|
+  UniversalPolytope(1)
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Pgon (for IsInt)}}
@@ -557,6 +567,11 @@ IsPolytope
  Returns the p-gon. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Facets(Pgon(5));|
+  [ UniversalPolytope(1) ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Cube (for IsInt)}}
 \logpage{[ 2, 1, 4 ]}\nobreak
@@ -571,6 +586,11 @@ IsPolytope
 
  Returns the n-cube. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Fvector(Cube(4));|
+  [ 16, 32, 24, 8 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{HemiCube (for IsInt)}}
@@ -587,6 +607,11 @@ IsPolytope
  Returns the n-hemi-cube. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Fvector(HemiCube(4));|
+  [ 8, 16, 12, 4 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{CrossPolytope (for IsInt)}}
 \logpage{[ 2, 1, 6 ]}\nobreak
@@ -601,6 +626,11 @@ IsPolytope
 
  Returns the n-cross-polytope. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfVertices(CrossPolytope(5));|
+  10
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{HemiCrossPolytope (for IsInt)}}
@@ -617,6 +647,11 @@ IsPolytope
  Returns the n-hemi-cross-polytope. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfVertices(HemiCrossPolytope(5));|
+  5
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Simplex (for IsInt)}}
 \logpage{[ 2, 1, 8 ]}\nobreak
@@ -631,6 +666,11 @@ IsPolytope
 
  Returns the n-simplex. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Petrial(Simplex(3))=HemiCube(3);|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{CubicTiling (for IsInt)}}
@@ -647,6 +687,11 @@ IsPolytope
  Returns the rank $n+1$ polytope; the tiling of $E^n$ by $n$-cubes. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(CubicTiling(3));|
+  [ 4, 3, 4 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Dodecahedron}}
 \logpage{[ 2, 1, 10 ]}\nobreak
@@ -661,6 +706,11 @@ IsPolytope
 
  Returns the dodecahedron, \texttt{\texttt{\symbol{123}}5, 3\texttt{\symbol{125}}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Dual(Dodecahedron());|
+  Icosahedron()
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{HemiDodecahedron}}
@@ -677,6 +727,11 @@ IsPolytope
  Returns the hemi-dodecahedron, \texttt{\texttt{\symbol{123}}5, 3\texttt{\symbol{125}}{\textunderscore}5}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Dual(HemiDodecahedron());|
+  ReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Icosahedron}}
 \logpage{[ 2, 1, 12 ]}\nobreak
@@ -691,6 +746,11 @@ IsPolytope
 
  Returns the icosahedron, \texttt{\texttt{\symbol{123}}3, 5\texttt{\symbol{125}}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Dual(Icosahedron());|
+  Dodecahedron()
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{HemiIcosahedron}}
@@ -707,6 +767,11 @@ IsPolytope
  Returns the hemi-icosahedron, \texttt{\texttt{\symbol{123}}3, 5\texttt{\symbol{125}}{\textunderscore}5}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Fvector(HemiIcosahedron());|
+  [ 6, 15, 10 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{24Cell}}
 \logpage{[ 2, 1, 14 ]}\nobreak
@@ -721,6 +786,11 @@ IsPolytope
 
  Returns the 24-cell, \texttt{\texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(24Cell());|
+  [ 3, 4, 3 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Hemi24Cell}}
@@ -737,6 +807,11 @@ IsPolytope
  Returns the hemi-24-cell, \texttt{\texttt{\symbol{123}}3, 4, 3\texttt{\symbol{125}}{\textunderscore}6}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Hemi24Cell());|
+  [ 3, 4, 3 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{120Cell}}
 \logpage{[ 2, 1, 16 ]}\nobreak
@@ -751,6 +826,11 @@ IsPolytope
 
  Returns the 120-cell, \texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfIFaces(120Cell(),3);|
+  120
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Hemi120Cell}}
@@ -767,6 +847,11 @@ IsPolytope
  Returns the hemi-120-cell, \texttt{\texttt{\symbol{123}}5, 3, 3\texttt{\symbol{125}}{\textunderscore}15}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfIFaces(Hemi120Cell(),3);|
+  60
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{600Cell}}
 \logpage{[ 2, 1, 18 ]}\nobreak
@@ -781,6 +866,11 @@ IsPolytope
 
  Returns the 600-cell, \texttt{\texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Dual(600Cell());|
+  120Cell()
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Hemi600Cell}}
@@ -797,6 +887,11 @@ IsPolytope
  Returns the hemi-600-cell, \texttt{\texttt{\symbol{123}}3, 3, 5\texttt{\symbol{125}}{\textunderscore}15}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Dual(Hemi600Cell())=Hemi120Cell();|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{BrucknerSphere}}
 \logpage{[ 2, 1, 20 ]}\nobreak
@@ -805,12 +900,17 @@ IsPolytope
 \label{BrucknerSphere}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-IsPolytope 
+IsPoset 
 
 
 
  Returns Bruckner's sphere. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsLattice(BrucknerSphere());|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{InternallySelfDualPolyhedron1 (for IsInt)}}
@@ -827,6 +927,11 @@ IsPolytope
  Constructs the internally self-dual polyhedron of type \texttt{\texttt{\symbol{123}}p, p\texttt{\symbol{125}}} described in Theorem 5.3 of \cite{CunMix17}. \#(\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). p must be at least 7. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(InternallySelfDualPolyhedron1(40));|
+  [ 40, 40 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{InternallySelfDualPolyhedron2 (for IsInt, IsInt)}}
 \logpage{[ 2, 1, 22 ]}\nobreak
@@ -841,6 +946,11 @@ IsPolytope
 
  Constructs the internally self-dual polyhedron of type \texttt{\texttt{\symbol{123}}p, p\texttt{\symbol{125}}} described in Theorem 5.8 of \cite{CunMix17}.\# (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). \texttt{p} must be even and at least 6, and \texttt{k} must be odd. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));|
+  [ 40, 40 ]
+\end{Verbatim}
  }
 
  
@@ -2068,6 +2178,11 @@ IsBool
  Returns the Symmetry Type Graph of the maniplex \mbox{\texttt{\mdseries\slshape M}}, encoded as a permutation group on Rank(\mbox{\texttt{\mdseries\slshape M}}) generators. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SymmetryTypeGraph(Prism(Simplex(3)));|
+  Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsManiplex)}}
 \logpage{[ 4, 3, 2 ]}\nobreak
@@ -2080,6 +2195,11 @@ IsBool
  Returns the number of orbits of the automorphism group of \mbox{\texttt{\mdseries\slshape M}} on its flags. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfFlagOrbits(Prism(Simplex(3)));|
+  4
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{FlagOrbitRepresentatives (for IsManiplex)}}
 \logpage{[ 4, 3, 3 ]}\nobreak
@@ -2091,6 +2211,11 @@ IsBool
 
  Returns one flag from each orbit under the action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@FlagOrbitRepresentatives(Prism(Simplex(3)));|
+  [ 1, 49, 97, 145 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitsStabilizer (for IsManiplex)}}
@@ -2136,6 +2261,11 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
  }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsReflexible(Epsilonk(6));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsManiplex)}}
 \logpage{[ 4, 3, 6 ]}\nobreak
@@ -2152,6 +2282,11 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is chrial.
 
  }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsChiral(ToroidalMap44([2,3]));|
+  true
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
@@ -2170,6 +2305,11 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsRotary(ToroidalMap44([3,5]));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{FlagOrbits (for IsManiplex)}}
 \logpage{[ 4, 3, 8 ]}\nobreak
@@ -2182,6 +2322,12 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  Returns a list of lists of flags, representing the orbits of flags under the
 action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@FlagOrbits(ToroidalMap44([3,2]));|
+  [ [ 1, 9, 7, 33, 15, 63, 5, 65, 39, 23, 13, 71, 61, 101, 3, 89, 47, 37, 95, 21, 11, 79, 69, 29, 59, 77, 99, 51, 49, 55, 45, 35, 103, 93, 19, 83, 87, 67, 85, 27, 57, 75, 91, 97, 43, 81, 53, 31, 17, 25, 73, 41 ], 
+    [ 2, 10, 8, 34, 16, 64, 6, 66, 40, 24, 14, 72, 62, 102, 4, 90, 48, 38, 96, 22, 12, 80, 70, 30, 60, 78, 100, 52, 50, 56, 46, 36, 104, 94, 20, 84, 88, 68, 86, 28, 58, 76, 92, 98, 44, 82, 54, 32, 18, 26, 74, 42 ] ]
+\end{Verbatim}
  }
 
  
@@ -2354,6 +2500,11 @@ facets is faithful. }
  Returns The number of \mbox{\texttt{\mdseries\slshape i}}-faces of \mbox{\texttt{\mdseries\slshape M}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfIFaces(Dodecahedron(),1);|
+  30
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{NumberOfVertices (for IsManiplex)}}
 \logpage{[ 5, 1, 2 ]}\nobreak
@@ -2365,6 +2516,11 @@ facets is faithful. }
 
  Returns the number of vertices of \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfVertices(HemiDodecahedron());|
+  10
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{NumberOfEdges (for IsManiplex)}}
@@ -2378,6 +2534,11 @@ facets is faithful. }
  Returns the number of edges of \mbox{\texttt{\mdseries\slshape M}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfEdges(HemiIcosahedron());|
+  15
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{NumberOfFacets (for IsManiplex)}}
 \logpage{[ 5, 1, 4 ]}\nobreak
@@ -2389,6 +2550,11 @@ facets is faithful. }
 
  Returns the number of facets of \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfFacets(Bk2l(4,6));|
+  4
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{NumberOfRidges (for IsManiplex)}}
@@ -2402,6 +2568,11 @@ facets is faithful. }
  Returns the number of ridges ((n-2)-faces) of \mbox{\texttt{\mdseries\slshape M}}. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfRidges(CrossPolytope(5));|
+  80
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{Fvector (for IsManiplex)}}
 \logpage{[ 5, 1, 6 ]}\nobreak
@@ -2413,6 +2584,11 @@ facets is faithful. }
 
  Returns the f-vector of \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Fvector(HemiIcosahedron());|
+  [ 6, 15, 10 ]
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{Section (for IsManiplex, IsInt, IsInt)}}

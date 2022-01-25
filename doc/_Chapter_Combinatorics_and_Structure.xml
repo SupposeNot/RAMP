@@ -15,12 +15,24 @@
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfIFaces(Dodecahedron(),1);
+30
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="NumberOfVertices" Label="for IsManiplex"/>
  <Description>
  Returns the number of vertices of <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfVertices(HemiDodecahedron());
+10
+]]></Example>
 
 
 <ManSection>
@@ -31,12 +43,24 @@
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfEdges(HemiIcosahedron());
+15
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="NumberOfFacets" Label="for IsManiplex"/>
  <Description>
  Returns the number of facets of <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfFacets(Bk2l(4,6));
+4
+]]></Example>
 
 
 <ManSection>
@@ -47,12 +71,24 @@
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfRidges(CrossPolytope(5));
+80
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="Fvector" Label="for IsManiplex"/>
  <Description>
  Returns the f-vector of <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Fvector(HemiIcosahedron());
+[ 6, 15, 10 ]
+]]></Example>
 
 
 <ManSection>

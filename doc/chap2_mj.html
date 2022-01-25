@@ -107,6 +107,12 @@
 
 <p>Returns the universal 0-polytope.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Vertex();</span>
+UniversalPolytope(0)
+</pre></div>
+
 <p><a id="X7DA6B54B7F300B92" name="X7DA6B54B7F300B92"></a></p>
 
 <h5>2.1-2 Edge</h5>
@@ -115,6 +121,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the universal 1-polytope.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Edge();</span>
+UniversalPolytope(1)
+</pre></div>
 
 <p><a id="X8436B8097852EF9B" name="X8436B8097852EF9B"></a></p>
 
@@ -125,6 +137,12 @@
 
 <p>Returns the p-gon.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(Pgon(5));</span>
+[ UniversalPolytope(1) ]
+</pre></div>
+
 <p><a id="X8306D0C17A6BDDCE" name="X8306D0C17A6BDDCE"></a></p>
 
 <h5>2.1-4 Cube</h5>
@@ -133,6 +151,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the n-cube.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(Cube(4));</span>
+[ 16, 32, 24, 8 ]
+</pre></div>
 
 <p><a id="X828C02F4861F0CD3" name="X828C02F4861F0CD3"></a></p>
 
@@ -143,6 +167,12 @@
 
 <p>Returns the n-hemi-cube.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(HemiCube(4));</span>
+[ 8, 16, 12, 4 ]
+</pre></div>
+
 <p><a id="X78DC5BA486C3288C" name="X78DC5BA486C3288C"></a></p>
 
 <h5>2.1-6 CrossPolytope</h5>
@@ -151,6 +181,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the n-cross-polytope.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfVertices(CrossPolytope(5));</span>
+10
+</pre></div>
 
 <p><a id="X7B0D84B87F00A73F" name="X7B0D84B87F00A73F"></a></p>
 
@@ -161,6 +197,12 @@
 
 <p>Returns the n-hemi-cross-polytope.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfVertices(HemiCrossPolytope(5));</span>
+5
+</pre></div>
+
 <p><a id="X82C75D12838D3FD0" name="X82C75D12838D3FD0"></a></p>
 
 <h5>2.1-8 Simplex</h5>
@@ -169,6 +211,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the n-simplex.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(Simplex(3))=HemiCube(3);</span>
+true
+</pre></div>
 
 <p><a id="X7CCDE7817EC0E5B5" name="X7CCDE7817EC0E5B5"></a></p>
 
@@ -179,6 +227,12 @@
 
 <p>Returns the rank <span class="SimpleMath">\(n+1\)</span> polytope; the tiling of <span class="SimpleMath">\(E^n\)</span> by <span class="SimpleMath">\(n\)</span>-cubes.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(CubicTiling(3));</span>
+[ 4, 3, 4 ]
+</pre></div>
+
 <p><a id="X81A6D8FE876EB3BE" name="X81A6D8FE876EB3BE"></a></p>
 
 <h5>2.1-10 Dodecahedron</h5>
@@ -187,6 +241,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the dodecahedron, <code class="code">{5, 3}</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Dodecahedron());</span>
+Icosahedron()
+</pre></div>
 
 <p><a id="X7A49325F782047CC" name="X7A49325F782047CC"></a></p>
 
@@ -197,6 +257,12 @@
 
 <p>Returns the hemi-dodecahedron, <code class="code">{5, 3}_5</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(HemiDodecahedron());</span>
+ReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")
+</pre></div>
+
 <p><a id="X83E0EF8F7CCD6979" name="X83E0EF8F7CCD6979"></a></p>
 
 <h5>2.1-12 Icosahedron</h5>
@@ -205,6 +271,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the icosahedron, <code class="code">{3, 5}</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Icosahedron());</span>
+Dodecahedron()
+</pre></div>
 
 <p><a id="X7CBB4FC88050D25F" name="X7CBB4FC88050D25F"></a></p>
 
@@ -215,6 +287,12 @@
 
 <p>Returns the hemi-icosahedron, <code class="code">{3, 5}_5</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(HemiIcosahedron());</span>
+[ 6, 15, 10 ]
+</pre></div>
+
 <p><a id="X7C7194D3826A9287" name="X7C7194D3826A9287"></a></p>
 
 <h5>2.1-14 24Cell</h5>
@@ -223,6 +301,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the 24-cell, <code class="code">{3, 4, 3}</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(24Cell());</span>
+[ 3, 4, 3 ]
+</pre></div>
 
 <p><a id="X863C4F1D85F017B3" name="X863C4F1D85F017B3"></a></p>
 
@@ -233,6 +317,12 @@
 
 <p>Returns the hemi-24-cell, <code class="code">{3, 4, 3}_6</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Hemi24Cell());</span>
+[ 3, 4, 3 ]
+</pre></div>
+
 <p><a id="X7A7A51CC878450C4" name="X7A7A51CC878450C4"></a></p>
 
 <h5>2.1-16 120Cell</h5>
@@ -241,6 +331,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the 120-cell, {5, 3, 3}.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(120Cell(),3);</span>
+120
+</pre></div>
 
 <p><a id="X80EBD6F28447F653" name="X80EBD6F28447F653"></a></p>
 
@@ -251,6 +347,12 @@
 
 <p>Returns the hemi-120-cell, <code class="code">{5, 3, 3}_15</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(Hemi120Cell(),3);</span>
+60
+</pre></div>
+
 <p><a id="X82FCA8347D417FB6" name="X82FCA8347D417FB6"></a></p>
 
 <h5>2.1-18 600Cell</h5>
@@ -259,6 +361,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Returns the 600-cell, <code class="code">{3, 3, 5}</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(600Cell());</span>
+120Cell()
+</pre></div>
 
 <p><a id="X786D2F0A7BB97182" name="X786D2F0A7BB97182"></a></p>
 
@@ -269,14 +377,26 @@
 
 <p>Returns the hemi-600-cell, <code class="code">{3, 3, 5}_15</code>.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Hemi600Cell())=Hemi120Cell();</span>
+true
+</pre></div>
+
 <p><a id="X7E949BC7808403F4" name="X7E949BC7808403F4"></a></p>
 
 <h5>2.1-20 BrucknerSphere</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BrucknerSphere</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsPolytope</p>
+<p>Returns: IsPoset</p>
 
 <p>Returns Bruckner's sphere.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLattice(BrucknerSphere());</span>
+true
+</pre></div>
 
 <p><a id="X84DFF70F81CD6FF8" name="X84DFF70F81CD6FF8"></a></p>
 
@@ -287,6 +407,12 @@
 
 <p>Constructs the internally self-dual polyhedron of type <code class="code">{p, p}</code> described in Theorem 5.3 of <a href="chapBib_mj.html#biBCunMix17">[tt17]</a>. #(<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). p must be at least 7.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(InternallySelfDualPolyhedron1(40));</span>
+[ 40, 40 ]
+</pre></div>
+
 <p><a id="X8724E56280B600E1" name="X8724E56280B600E1"></a></p>
 
 <h5>2.1-22 InternallySelfDualPolyhedron2</h5>
@@ -295,6 +421,12 @@
 <p>Returns: IsPolytope</p>
 
 <p>Constructs the internally self-dual polyhedron of type <code class="code">{p, p}</code> described in Theorem 5.8 of <a href="chapBib_mj.html#biBCunMix17">[tt17]</a>.# (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). <code class="code">p</code> must be even and at least 6, and <code class="code">k</code> must be odd.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));</span>
+[ 40, 40 ]
+</pre></div>
 
 <p><a id="X7808135A8376515A" name="X7808135A8376515A"></a></p>
 

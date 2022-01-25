@@ -17,6 +17,12 @@ Returns the universal 0-polytope.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Vertex();
+UniversalPolytope(0)
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="Edge" />
  <Returns>IsPolytope
@@ -25,6 +31,12 @@ Returns the universal 0-polytope.
 Returns the universal 1-polytope.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Edge();
+UniversalPolytope(1)
+]]></Example>
 
 
 <ManSection>
@@ -37,6 +49,12 @@ Returns the p-gon.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Facets(Pgon(5));
+[ UniversalPolytope(1) ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="n" Name="Cube" Label="for IsInt"/>
  <Returns>IsPolytope
@@ -45,6 +63,12 @@ Returns the p-gon.
 Returns the n-cube.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Fvector(Cube(4));
+[ 16, 32, 24, 8 ]
+]]></Example>
 
 
 <ManSection>
@@ -57,6 +81,12 @@ Returns the n-hemi-cube.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Fvector(HemiCube(4));
+[ 8, 16, 12, 4 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="n" Name="CrossPolytope" Label="for IsInt"/>
  <Returns>IsPolytope
@@ -65,6 +95,12 @@ Returns the n-hemi-cube.
 Returns the n-cross-polytope.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfVertices(CrossPolytope(5));
+10
+]]></Example>
 
 
 <ManSection>
@@ -77,6 +113,12 @@ Returns the n-hemi-cross-polytope.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfVertices(HemiCrossPolytope(5));
+5
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="n" Name="Simplex" Label="for IsInt"/>
  <Returns>IsPolytope
@@ -85,6 +127,12 @@ Returns the n-hemi-cross-polytope.
 Returns the n-simplex.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Petrial(Simplex(3))=HemiCube(3);
+true
+]]></Example>
 
 
 <ManSection>
@@ -97,6 +145,12 @@ Returns the rank <Math>n+1</Math> polytope; the tiling of <Math>E^n</Math> by <M
 </ManSection>
 
 
+<Example><![CDATA[
+gap> SchlafliSymbol(CubicTiling(3));
+[ 4, 3, 4 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="Dodecahedron" />
  <Returns>IsPolytope
@@ -105,6 +159,12 @@ Returns the rank <Math>n+1</Math> polytope; the tiling of <Math>E^n</Math> by <M
 Returns the dodecahedron, <Code>{5, 3}</Code>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Dual(Dodecahedron());
+Icosahedron()
+]]></Example>
 
 
 <ManSection>
@@ -117,6 +177,12 @@ Returns the hemi-dodecahedron, <Code>{5, 3}_5</Code>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Dual(HemiDodecahedron());
+ReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="Icosahedron" />
  <Returns>IsPolytope
@@ -125,6 +191,12 @@ Returns the hemi-dodecahedron, <Code>{5, 3}_5</Code>.
 Returns the icosahedron, <Code>{3, 5}</Code>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Dual(Icosahedron());
+Dodecahedron()
+]]></Example>
 
 
 <ManSection>
@@ -137,6 +209,12 @@ Returns the hemi-icosahedron, <Code>{3, 5}_5</Code>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Fvector(HemiIcosahedron());
+[ 6, 15, 10 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="24Cell" />
  <Returns>IsPolytope
@@ -145,6 +223,12 @@ Returns the hemi-icosahedron, <Code>{3, 5}_5</Code>.
 Returns the 24-cell, <Code>{3, 4, 3}</Code>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(24Cell());
+[ 3, 4, 3 ]
+]]></Example>
 
 
 <ManSection>
@@ -157,6 +241,12 @@ Returns the hemi-24-cell, <Code>{3, 4, 3}_6</Code>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> SchlafliSymbol(Hemi24Cell());
+[ 3, 4, 3 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="120Cell" />
  <Returns>IsPolytope
@@ -165,6 +255,12 @@ Returns the hemi-24-cell, <Code>{3, 4, 3}_6</Code>.
 Returns the 120-cell, {5, 3, 3}.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfIFaces(120Cell(),3);
+120
+]]></Example>
 
 
 <ManSection>
@@ -177,6 +273,12 @@ Returns the hemi-120-cell, <Code>{5, 3, 3}_15</Code>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> NumberOfIFaces(Hemi120Cell(),3);
+60
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="600Cell" />
  <Returns>IsPolytope
@@ -185,6 +287,12 @@ Returns the hemi-120-cell, <Code>{5, 3, 3}_15</Code>.
 Returns the 600-cell, <Code>{3, 3, 5}</Code>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Dual(600Cell());
+120Cell()
+]]></Example>
 
 
 <ManSection>
@@ -197,14 +305,26 @@ Returns the hemi-600-cell, <Code>{3, 3, 5}_15</Code>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Dual(Hemi600Cell())=Hemi120Cell();
+true
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="BrucknerSphere" />
- <Returns>IsPolytope
+ <Returns>IsPoset
 </Returns>
  <Description>
 Returns Bruckner's sphere.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsLattice(BrucknerSphere());
+true
+]]></Example>
 
 
 <ManSection>
@@ -219,6 +339,12 @@ Constructs the internally self-dual polyhedron of type <Code>{p, p}</Code> descr
 </ManSection>
 
 
+<Example><![CDATA[
+gap> SchlafliSymbol(InternallySelfDualPolyhedron1(40));
+[ 40, 40 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="p, k" Name="InternallySelfDualPolyhedron2" Label="for IsInt, IsInt"/>
  <Returns>IsPolytope
@@ -228,6 +354,12 @@ Constructs the internally self-dual polyhedron of type <Code>{p, p}</Code> descr
  <Code>p</Code> must be even and at least 6, and <Code>k</Code> must be odd.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));
+[ 40, 40 ]
+]]></Example>
 
 
 </Section>

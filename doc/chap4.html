@@ -345,6 +345,12 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var>, encoded as a permutation group on Rank(<var class="Arg">M</var>) generators.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SymmetryTypeGraph(Prism(Simplex(3)));</span>
+Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
+</pre></div>
+
 <p><a id="X78060E3A788D2D3C" name="X78060E3A788D2D3C"></a></p>
 
 <h5>4.3-2 NumberOfFlagOrbits</h5>
@@ -352,12 +358,24 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(Prism(Simplex(3)));</span>
+4
+</pre></div>
+
 <p><a id="X852C679D8338AB53" name="X852C679D8338AB53"></a></p>
 
 <h5>4.3-3 FlagOrbitRepresentatives</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagOrbitRepresentatives(Prism(Simplex(3)));</span>
+[ 1, 49, 97, 145 ]
+</pre></div>
 
 <p><a id="X81C0D5667D83EB88" name="X81C0D5667D83EB88"></a></p>
 
@@ -387,12 +405,24 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsReflexible(Epsilonk(6));</span>
+true
+</pre></div>
+
 <p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
 
 <h5>4.3-6 IsChiral</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is chrial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsChiral(ToroidalMap44([2,3]));</span>
+true
+</pre></div>
 
 <p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
 
@@ -401,12 +431,25 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRotary(ToroidalMap44([3,5]));</span>
+true
+</pre></div>
+
 <p><a id="X7B29BD1C87239567" name="X7B29BD1C87239567"></a></p>
 
 <h5>4.3-8 FlagOrbits</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagOrbits(ToroidalMap44([3,2]));</span>
+[ [ 1, 9, 7, 33, 15, 63, 5, 65, 39, 23, 13, 71, 61, 101, 3, 89, 47, 37, 95, 21, 11, 79, 69, 29, 59, 77, 99, 51, 49, 55, 45, 35, 103, 93, 19, 83, 87, 67, 85, 27, 57, 75, 91, 97, 43, 81, 53, 31, 17, 25, 73, 41 ], 
+  [ 2, 10, 8, 34, 16, 64, 6, 66, 40, 24, 14, 72, 62, 102, 4, 90, 48, 38, 96, 22, 12, 80, 70, 30, 60, 78, 100, 52, 50, 56, 46, 36, 104, 94, 20, 84, 88, 68, 86, 28, 58, 76, 92, 98, 44, 82, 54, 32, 18, 26, 74, 42 ] ]
+</pre></div>
 
 <p><a id="X861E4BAD800B2785" name="X861E4BAD800B2785"></a></p>
 
