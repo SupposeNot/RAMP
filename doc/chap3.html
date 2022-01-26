@@ -15,7 +15,7 @@
 <body class="chap3"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
 
@@ -36,13 +36,13 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X7EE6BE9E7BB852DC">3.2 <span class="Heading">Mixing of Maniplexes functions</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7AE60EBC7BA2392A">3.2-1 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X79E9662F7D4043A1">3.2-2 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8441A4DC7C59EDB5">3.2-3 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8688A51E816A5176">3.2-4 Comix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X8287C9F684CA66F5">3.2-5 Comix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X7CD7AB1C7DF21CFE">3.2-6 CtoL</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X853A36497F3AF41E">3.2-7 FlagMix</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X855F9FB584E2A1E2">3.2-1 <span class="Heading">Mix of maniplexes</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X86B6B5DB7850FCA9">3.2-2 <span class="Heading">Comix</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X82C3A3447A93CDD6">3.2-3 <span class="Heading">Indexed array tools</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3.html#X853A36497F3AF41E">3.2-4 FlagMix</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3.html#X8064E656804172CF">3.3 <span class="Heading">Rotary maniplexes and rotation groups</span></a>
 </span>
@@ -166,14 +166,16 @@ Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
 
 <h4>3.2 <span class="Heading">Mixing of Maniplexes functions</span></h4>
 
-<p><a id="X7AE60EBC7BA2392A" name="X7AE60EBC7BA2392A"></a></p>
+<p><a id="X855F9FB584E2A1E2" name="X855F9FB584E2A1E2"></a></p>
 
-<h5>3.2-1 Mix</h5>
+<h5>3.2-1 <span class="Heading">Mix of maniplexes</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">permgroup</var>, <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">fpgroup</var>, <var class="Arg">fpgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGroup </code>.</p>
 
-<p>Given two (permutation) groups returns the mix of those groups. Note, also works with FPgroups.</p>
+<p>Given two (permutation) groups returns the mix of those groups. Note, also works with FPgroups. Returns the Mix of two Finitely Presented groups gp and gq. Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups</p>
 
 <p>Here we build the mix of the connection groups of a 3-cube and an edge.</p>
 
@@ -187,55 +189,43 @@ Group([ (1,2) ])
 &lt;permutation group with 3 generators&gt;
 </pre></div>
 
-<p><a id="X79E9662F7D4043A1" name="X79E9662F7D4043A1"></a></p>
+<p><a id="X86B6B5DB7850FCA9" name="X86B6B5DB7850FCA9"></a></p>
 
-<h5>3.2-2 Mix</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">fpgroup</var>, <var class="Arg">fpgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the Mix of two Finitely Presented groups gp and gq.</p>
-
-<p><a id="X8441A4DC7C59EDB5" name="X8441A4DC7C59EDB5"></a></p>
-
-<h5>3.2-3 Mix</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsReflexibleManiplex </code>.</p>
-
-<p>Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups</p>
-
-<p><a id="X8688A51E816A5176" name="X8688A51E816A5176"></a></p>
-
-<h5>3.2-4 Comix</h5>
+<h5>3.2-2 <span class="Heading">Comix</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Comix</code>( <var class="Arg">fpgroup</var>, <var class="Arg">fpgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the comix of two Finitely Presented groups gp and gq.</p>
-
-<p><a id="X8287C9F684CA66F5" name="X8287C9F684CA66F5"></a></p>
-
-<h5>3.2-5 Comix</h5>
-
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Comix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsReflexibleManiplex </code>.</p>
 
-<p>Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups</p>
+<p>Returns the comix of two Finitely Presented groups gp and gq. Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups</p>
 
-<p><a id="X7CD7AB1C7DF21CFE" name="X7CD7AB1C7DF21CFE"></a></p>
+<p><a id="X82C3A3447A93CDD6" name="X82C3A3447A93CDD6"></a></p>
 
-<h5>3.2-6 CtoL</h5>
+<h5>3.2-3 <span class="Heading">Indexed array tools</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CtoL</code>( <var class="Arg">int</var>, <var class="Arg">int</var>, <var class="Arg">int</var>, <var class="Arg">int</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsInteger </code>.</p>
 
 <p>CtoL Returns an integer between 1 and N*M associated with the pair [a,b]. LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M. a should range between 1 and N, and b should range between 1 and M N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix Functions are inverses.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LtoC(5,4,14);</span>
+[ 1, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CtoL(3,2,5,4);</span>
+8
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LtoC(8,5,4);</span>
+[ 3, 2 ]
+</pre></div>
+
 <p><a id="X853A36497F3AF41E" name="X853A36497F3AF41E"></a></p>
 
-<h5>3.2-7 FlagMix</h5>
+<h5>3.2-4 FlagMix</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagMix</code>( <var class="Arg">permgroup</var>, <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsManiplex </code>.</p>
 
-<p>Given two (permutation) groups gp, gg this returns the maniplex of the "flag" mix of two maniplexes with connection groups gp and gq.</p>
+<p>Given two (permutation) groups gp, gq this returns the maniplex of the "flag" mix of two maniplexes with connection groups gp and gq.</p>
 
 <p><a id="X8064E656804172CF" name="X8064E656804172CF"></a></p>
 
@@ -294,7 +284,7 @@ Group([ (1,2) ])
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

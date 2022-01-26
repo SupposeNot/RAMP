@@ -379,6 +379,12 @@ gap> SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));
 </ManSection>
 
 
+<Example><![CDATA[
+gap> FlatOrientablyRegularPolyhedron(4,2,3,3);
+FlatOrientablyRegularPolyhedron(4,2,-1,1)
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="sym" Name="FlatOrientablyRegularPolyhedraOfType" Label="for IsList"/>
  <Description>
@@ -387,12 +393,26 @@ Returns a list of all flat, orientably regular polyhedra with Schlafli symbol <A
 </ManSection>
 
 
+<Example><![CDATA[
+ap> FlatOrientablyRegularPolyhedraOfType([6,6]);
+[ FlatOrientablyRegularPolyhedron(6,6,3,1), FlatOrientablyRegularPolyhedron(6,6,-1,1), 
+  FlatOrientablyRegularPolyhedron(6,6,-1,3) ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="sym" Name="TightOrientablyRegularPolytopesOfType" Label="for IsList"/>
  <Description>
 Returns a list of all tight, orientably regular polytopes with Schlafli symbol <A>sym</A>. When <A>sym</A> has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(<A>sym</A>).
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> TightOrientablyRegularPolytopesOfType([6,6]);
+[ FlatOrientablyRegularPolyhedron(6,6,3,1), FlatOrientablyRegularPolyhedron(6,6,-1,1), 
+  FlatOrientablyRegularPolyhedron(6,6,-1,3) ]
+]]></Example>
 
 
 </Section>
@@ -409,6 +429,12 @@ Returns a list of all tight, orientably regular polytopes with Schlafli symbol <
 Constructs the <Emph>Tomotope</Emph> from <Cite Key="MonPelWil12"/>
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Tomotope());
+[ 3, [ 3, 4 ], 4 ]
+]]></Example>
 
 
 </Section>
@@ -474,6 +500,14 @@ Given an integer n and a list of vectors <A>vecs</A>, returns the cubic toroid t
  The results may be nonsensical if <A>vecs</A> does not generate an n-dimensional translation group.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> CubicToroid(2,[[2,0],[0,2]]);
+3-maniplex
+gap> last=ToroidalMap44([2,0]);
+true
+]]></Example>
 
 
 <ManSection>

@@ -333,3 +333,5 @@ DeclareOperation("Cleave", [IsPoset,IsInt]);
 #! gap> Cleave(PosetFromManiplex(Cube(4)),3);
 #! A poset on 290 elements using the IsPosetOfIndices representation.
 #! @EndExampleSession
+
+You can also use @BeginGroup/@EndGroup combined with @GroupTitle to make it easier to find things that are synonyms. For an example of this use case look at Petrie Dual in duality.gd

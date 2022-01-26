@@ -215,14 +215,17 @@ false
 ]]></Example>
 
 
-<ManSection>
+<ManSection Label="AutoDoc_generated_group1">
+<Heading>Petrie Dual</Heading>
   <Attr Arg="M" Name="Petrial" Label="for IsManiplex"/>
- <Returns>The Petrial (Petrie dual) of <A>M</A>.  Note that this is not necessarily a polytope, even if <A>M</A> is.
-  When Rank(M) > 3, this is the "generalized Petrial" which essentially
-  replaces <Math>r_{n-3}</Math> with <Math>r_{n-3} r_{n-1}</Math> in the set of generators.
+ <Returns>The Petrial (Petrie dual) of <A>M</A>.
 </Returns>
  <Description>
+Note that this is not necessarily a polytope, even if <A>M</A> is.
+ When Rank(M) > 3, this is the "generalized Petrial" which essentially
+ replaces <Math>r_{n-3}</Math> with <Math>r_{n-3} r_{n-1}</Math> in the set of generators. 
 <P/>
+ Synonym for the command is <Code>PetrieDual</Code>.
  </Description>
 </ManSection>
 

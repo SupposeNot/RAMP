@@ -144,12 +144,17 @@ Returns whether the maniplex <A>M</A> is polytopal;
 <Section Label="Chapter_Maniplexes_Section_Mixing_of_Maniplexes_functions">
 <Heading>Mixing of Maniplexes functions</Heading>
 
-<ManSection>
+<ManSection Label="Mix">
+<Heading>Mix of maniplexes</Heading>
   <Oper Arg="permgroup, permgroup" Name="Mix" Label="for IsPermGroup, IsPermGroup"/>
+  <Oper Arg="fpgroup, fpgroup" Name="Mix" Label="for IsFpGroup, IsFpGroup"/>
+  <Oper Arg="maniplex, maniplex" Name="Mix" Label="for IsReflexibleManiplex, IsReflexibleManiplex"/>
  <Returns><Code>IsGroup </Code>.
 </Returns>
  <Description>
 Given two (permutation) groups returns the mix of those groups. Note, also works with FPgroups.
+ Returns the Mix of two Finitely Presented groups gp and gq.
+Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
  </Description>
 </ManSection>
 
@@ -165,43 +170,21 @@ gap> Mix(g1,g2);
 ]]></Example>
 
 
-<ManSection>
-  <Oper Arg="fpgroup, fpgroup" Name="Mix" Label="for IsFpGroup, IsFpGroup"/>
- <Description>
- Returns the Mix of two Finitely Presented groups gp and gq.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="maniplex, maniplex" Name="Mix" Label="for IsReflexibleManiplex, IsReflexibleManiplex"/>
- <Returns><Code>IsReflexibleManiplex </Code>.
-</Returns>
- <Description>
-Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
- </Description>
-</ManSection>
-
-
-<ManSection>
+<ManSection Label="AutoDoc_generated_group2">
+<Heading>Comix</Heading>
   <Oper Arg="fpgroup, fpgroup" Name="Comix" Label="for IsFpGroup, IsFpGroup"/>
- <Description>
- Returns the comix of two Finitely Presented groups gp and gq.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="maniplex, maniplex" Name="Comix" Label="for IsReflexibleManiplex, IsReflexibleManiplex"/>
  <Returns><Code>IsReflexibleManiplex </Code>.
 </Returns>
  <Description>
+ Returns the comix of two Finitely Presented groups gp and gq.
 Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups
  </Description>
 </ManSection>
 
 
-<ManSection>
+<ManSection Label="AutoDoc_generated_group3">
+<Heading>Indexed array tools</Heading>
   <Oper Arg="int, int, int, int" Name="CtoL" Label="for IsInt,IsInt,IsInt,IsInt"/>
  <Returns><Code>IsInteger </Code>.
 </Returns>
@@ -215,12 +198,22 @@ CtoL Returns an integer between 1 and N*M associated with the pair [a,b].
 </ManSection>
 
 
+<Example><![CDATA[
+gap> LtoC(5,4,14);
+[ 1, 2 ]
+gap> CtoL(3,2,5,4);
+8
+gap> LtoC(8,5,4);
+[ 3, 2 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="permgroup, permgroup" Name="FlagMix" Label="for IsManiplex, IsManiplex"/>
  <Returns><Code>IsManiplex </Code>.
 </Returns>
  <Description>
-Given two (permutation) groups gp, gg this returns the maniplex of the
+Given two (permutation) groups gp, gq this returns the maniplex of the
  "flag" mix of two maniplexes with connection groups gp and gq.
  </Description>
 </ManSection>

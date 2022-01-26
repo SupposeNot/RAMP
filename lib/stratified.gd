@@ -18,6 +18,26 @@ DeclareOperation("ChunkPower", [IsList,IsInt]);
 #! @Returns newList
 #! @Description Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.
 DeclareOperation("ChunkGeneratedGroupElements", [IsList, IsGroup]);
+#! @BeginExampleSession
+#! gap> g:=AutomorphismGroup(Simplex(2));
+#! <fp group of size 6 on the generators [ r0, r1 ]>
+#! gap> AssignGeneratorVariables(g);
+#! #I  Assigned the global variables [ r0, r1 ]
+#! gap> SetReducedMultiplication(r0);
+#! gap> s0:=[(1,2),[r0,r0,r1]];;s1:=[(2,3),[r0,r1,r1]];;
+#! gap> ChunkGeneratedGroupElements([s0,s1],g);
+#! [ [ (1,2), [ r0, r0, r1 ] ], [ (2,3), [ r0, r1, r1 ] ], 
+#!   [ (), [ <identity ...>, <identity ...>, <identity ...> ] ], 
+#!   [ (1,3,2), [ <identity ...>, <identity ...>, r0*r1 ] ], 
+#!   [ (1,2,3), [ r1*r0, <identity ...>, <identity ...> ] ], [ (1,3), [ r0, r0, r0 ] ], 
+#!   [ (1,3), [ r1, r1, r1 ] ], [ (1,2,3), [ <identity ...>, r0*r1, r0*r1 ] ], 
+#!   [ (1,3,2), [ r1*r0, r1*r0, <identity ...> ] ], [ (2,3), [ r0*r1*r0, r0, r0 ] ], 
+#!   [ (1,2), [ r1, r1, r0*r1*r0 ] ], [ (), [ r0*r1, r0*r1, r0*r1 ] ], 
+#!   [ (), [ r1*r0, r1*r0, r1*r0 ] ], [ (1,2), [ r0*r1*r0, r0*r1*r0, r0 ] ], 
+#!   [ (2,3), [ r1, r0*r1*r0, r0*r1*r0 ] ], [ (1,3,2), [ r0*r1, r0*r1, r1*r0 ] ], 
+#!   [ (1,2,3), [ r0*r1, r1*r0, r1*r0 ] ], [ (1,3), [ r0*r1*r0, r0*r1*r0, r0*r1*r0 ] ] ]
+#! @EndExampleSession
+
 
 #! @Arguments list, group
 #! @Returns permGroup

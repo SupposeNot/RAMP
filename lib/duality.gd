@@ -63,12 +63,15 @@ DeclareProperty("IsExternallySelfDual", IsReflexibleManiplex);
 #! false
 #! @EndExampleSession
 
-
+#! @BeginGroup
+#! @GroupTitle Petrie Dual
 #! @Arguments M
 #! @Returns The Petrial (Petrie dual) of <A>M</A>.
-#! Note that this is not necessarily a polytope, even if <A>M</A> is.
+#! @Description Note that this is not necessarily a polytope, even if <A>M</A> is.
 #! When Rank(M) > 3, this is the "generalized Petrial" which essentially
-#! replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
+#! replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators. 
+#! 
+#! Synonym for the command is `PetrieDual`.
 DeclareAttribute("Petrial", IsManiplex);
 
 
@@ -78,7 +81,7 @@ DeclareSynonymAttr("PetrieDual", Petrial);
 #! gap> Petrial(HemiCube(3));
 #! ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
 #! @EndExampleSession
-
+#! @EndGroup
 
 #! @Arguments M
 #! @Returns Whether this maniplex is isomorphic to its Petrial.

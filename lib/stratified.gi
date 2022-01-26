@@ -102,15 +102,15 @@ InstallMethod(ChunkGeneratedGroupElements,
 			od;
 		return false;
 		end;
-	Print("Elements generated so far:\n");
+# 	Print("Elements generated so far:\n");
 	while grpEls<>grpElsTemp do
 		grpElsTemp:=ShallowCopy(grpEls);
 		newEls:=Unique(Concatenation(List(grpEls,x->List(gens,y->ChunkMultiply(x,y)))));
 		newEls:=Filtered(newEls,x->not(inGrpEls(x)));
 		grpEls:=Concatenation(grpEls,newEls);
-		Print(Length(grpEls),"\n");
+# 		Print(Length(grpEls),"\n");
 		od;
-		Print("\n Done\n");
+# 		Print("\n Done\n");
 	return grpEls;
 	end);
 

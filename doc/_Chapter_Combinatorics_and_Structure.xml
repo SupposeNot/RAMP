@@ -91,78 +91,79 @@ gap> Fvector(HemiIcosahedron());
 ]]></Example>
 
 
-<ManSection>
+<ManSection Label="Sections">
+<Heading>Section(s)</Heading>
   <Oper Arg="M, j, i" Name="Section" Label="for IsManiplex, IsInt, IsInt"/>
- <Description>
- Returns the section F_j / F_i, where F_j is the j-face of the base flag of <A>M</A> and
- F_i is the i-face of the base flag.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="M, j, i, k" Name="Section" Label="for IsManiplex, IsInt, IsInt, IsInt"/>
- <Description>
- Returns the section F_j / F_i, where F_j is the j-face of flag number <A>k</A> of <A>M</A> and
- F_i is the i-face of the same flag.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="M, j, i" Name="Sections" Label="for IsManiplex, IsInt, IsInt"/>
  <Description>
- Returns all sections of type F_j / F_i, where F_j is a j-face and F_i is an incident i-face.
+ <Code>Section(M,j,i)</Code> returns the section <Code>F_j / F_i</Code>, where <Code>F_j</Code> is the <Math>j</Math>-face of the base flag of <A>M</A> and
+ <Code>F_i</Code> is the <Math>i</Math>-face of the base flag.
+ <Code>Section(M,j,i,k)</Code> returns the section <Code>F_j / F_i</Code>, where <Code>F_j</Code> is the <Math>j</Math>-face of flag number <A>k</A> of <A>M</A> and
+ <Code>F_i</Code> is the <Math>i</Math>-face of the same flag.
+ <Code>Sections(M,j,i)</Code> returns all sections of type <Code>F_j / F_i</Code>, where <Code>F_j</Code> is a <Math>j</Math>-face and <Code>F_i</Code> is an incident <Math>i</Math>-face.
  </Description>
 </ManSection>
 
 
-<ManSection>
+<Example><![CDATA[
+gap> Section(ToroidalMap44([2,2]),3,0);
+Pgon(4)
+gap> Section(Cuboctahedron(),2,-1,1);
+Pgon(4)
+gap> Section(Cuboctahedron(),2,-1,4);
+Pgon(3)
+gap> Sections(Cuboctahedron(),2,-1);
+[ Pgon(4), Pgon(3) ]
+]]></Example>
+
+
+<ManSection Label="Facet">
+<Heading>Facet(s)</Heading>
   <Attr Arg="M" Name="Facets" Label="for IsManiplex"/>
- <Description>
- Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="M, k" Name="Facet" Label="for IsManiplex, IsInt"/>
- <Description>
- Returns the facet of <A>M</A> that contains the flag number <A>k</A> (that is, the maniplex corresponding to the facet).
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Attr Arg="M" Name="Facet" Label="for IsManiplex"/>
  <Description>
+ Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
+ Returns the facet of <A>M</A> that contains the flag number <A>k</A> (that is, the maniplex corresponding to the facet).
  Returns the facet of <A>M</A> that contains flag number 1 (that is, the maniplex corresponding to the facet).
  </Description>
 </ManSection>
 
 
-<ManSection>
+<Example><![CDATA[
+gap> Facets(Cuboctahedron());
+[ Pgon(4), Pgon(3) ]
+gap> Facet(Cuboctahedron(),4);
+Pgon(3)
+gap> Facet(Cuboctahedron());
+Pgon(4)
+]]></Example>
+
+
+<ManSection Label="VertexFigure">
+<Heading>Vertex Figure(s)</Heading>
   <Attr Arg="M" Name="VertexFigures" Label="for IsManiplex"/>
- <Description>
- Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="M, k" Name="VertexFigure" Label="for IsManiplex, IsInt"/>
- <Description>
- Returns the vertex-figure of <A>M</A> that contains flag number <A>k</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Attr Arg="M" Name="VertexFigure" Label="for IsManiplex"/>
  <Description>
+ Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
+ Returns the vertex-figure of <A>M</A> that contains flag number <A>k</A>.
  Returns the vertex-figure of <A>M</A> that contains the base flag.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> p:=Dual(SmallRhombicosidodecahedron());
+Dual(3-maniplex)
+gap> VertexFigures(p);
+[ Pgon(5), Pgon(4), Pgon(3) ]
+gap> VertexFigure(p,4);
+Pgon(4)
+gap> VertexFigure(p);
+Pgon(5)
+]]></Example>
 
 
 </Section>
@@ -172,7 +173,7 @@ gap> Fvector(HemiIcosahedron());
 <Heading>Flatness</Heading>
 
 <ManSection Label="IsFlat">
-<Heading>IsFlat</Heading>
+<Heading>Flatness</Heading>
   <Prop Arg="M" Name="IsFlat" Label="for IsManiplex"/>
   <Oper Arg="M, i, j" Name="IsFlat" Label="for IsManiplex, IsInt, IsInt"/>
  <Returns><C>true</C> or <C>false</C>
@@ -184,6 +185,14 @@ gap> Fvector(HemiIcosahedron());
  incident to every j-face.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsFlat(HemiCube(3));
+true
+gap> IsFlat(Simplex(3),0,2);
+false
+]]></Example>
 
 
 </Section>
@@ -201,6 +210,12 @@ gap> Fvector(HemiIcosahedron());
  as sections of (i+1)-faces over (i-2)-faces.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(SmallRhombicosidodecahedron());
+[ [ 3, 4, 5 ], 4 ]
+]]></Example>
 
 
 <ManSection>
@@ -230,6 +245,12 @@ gap> Fvector(HemiIcosahedron());
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsEquivelar(Bk2l(6,18));
+true
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
@@ -240,6 +261,18 @@ gap> Fvector(HemiIcosahedron());
  even smaller sections.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> F := FreeGroup("s0","s1","s2","s3");;
+gap> s0 := F.1;;  s1 := F.2;;  s2 := F.3;;  s3 := F.4;;  
+gap> rels := [ s0*s0, s1*s1, s2*s2, s3*s3, s0*s2*s0*s2, 
+> s1*s2*s1*s2, s0*s3*s0*s3, s1*s3*s1*s3, 
+> s2*s3*s2*s3*s2*s3*s2*s3, s0*s1*s0*s1*s0*s1*s0*s1*s0*s1 ];;
+gap> poly := F / rels;;
+gap> IsDegenerate(ARP(poly));
+true
+]]></Example>
 
 
 <ManSection>
@@ -256,6 +289,12 @@ gap> Fvector(HemiIcosahedron());
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsTight(ToroidalMap44([2,0]));
+true
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="EulerCharacteristic" Label="for IsManiplex"/>
  <Returns>The Euler characteristic of the maniplex, given by  <Math>f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}</Math>.
@@ -266,6 +305,12 @@ gap> Fvector(HemiIcosahedron());
 </ManSection>
 
 
+<Example><![CDATA[
+gap> EulerCharacteristic(Bk2lStar(3,5));
+-10
+]]></Example>
+
+
 <ManSection>
   <Attr Arg="M" Name="Genus" Label="for IsManiplex"/>
  <Returns>The genus of the given 3-maniplex.
@@ -274,6 +319,12 @@ gap> Fvector(HemiIcosahedron());
 <P/>
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Genus(Bk2lStar(3,5));
+6
+]]></Example>
 
 
 <ManSection>

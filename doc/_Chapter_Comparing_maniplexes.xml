@@ -19,22 +19,25 @@
  We note that these strings are all restricted to have <Math>i \leq 9</Math>, <Emph>including ri</Emph>.
  This restriction might be changed eventually, but it will require a rewrite of the
  method ParseStringCRels that underlies many quotient operations.
-<ManSection>
+<ManSection Label="AutoDoc_generated_group4">
+<Heading>IsQuotient</Heading>
   <Oper Arg="M1, M2" Name="IsQuotient" Label="for IsManiplex, IsManiplex"/>
- <Description>
- Returns whether <A>M2</A> is a quotient of <A>M1</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="g, h" Name="IsQuotient" Label="for IsSggi, IsSggi"/>
  <Description>
+ Returns whether <A>M2</A> is a quotient of <A>M1</A>.
  Returns whether <A>h</A> is a quotient of <A>g</A>.
  That is, whether there is a homomorphism sending each generator of g
  to the corresponding generator of h.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsQuotient(Cube(3),HemiCube(3));
+true
+gap> IsQuotient(UniversalSggi([4,3]),AutomorphismGroup(HemiCube(3)));
+true
+]]></Example>
 
 
 <ManSection>
@@ -45,12 +48,24 @@
 </ManSection>
 
 
+<Example><![CDATA[
+gap> IsCover(HemiDodecahedron(),Dodecahedron());
+true
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M1, M2" Name="IsIsomorphicManiplex" Label="for IsManiplex, IsManiplex"/>
  <Description>
  Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> IsIsomorphicManiplex(HemiCube(3),Petrial(Simplex(3)));
+true
+]]></Example>
 
 
 <ManSection>
@@ -61,6 +76,14 @@
  of <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SmallestReflexibleCover(ToroidalMap44([2,3],[3,2]));
+reflexible 3-maniplex
+gap> last=ToroidalMap44([5,0]);
+true
+]]></Example>
 
 
 <ManSection>
@@ -76,6 +99,14 @@
 </ManSection>
 
 
+<Example><![CDATA[
+gap> q:=QuotientManiplex(CubicTiling(2),"(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2");
+3-maniplex
+gap> SchlafliSymbol(q);
+[ 4, 4 ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M, rels" Name="ReflexibleQuotientManiplex" Label="for IsManiplex, IsList"/>
  <Description>
@@ -88,6 +119,14 @@
  and r1 r0 r1 r2.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> q:=ReflexibleQuotientManiplex(CubicTiling(2),"(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2");
+reflexible 3-maniplex with 8 flags
+gap> last=ToroidalMap44([1,0]);
+true
+]]></Example>
 
 
 <ManSection>

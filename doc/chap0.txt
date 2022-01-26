@@ -68,17 +68,14 @@
   
   1 [33X[0;0YGroups for Maps, Polytopes, and Maniplexes[133X
     1.1 [33X[0;0YGroups of Maps, Polytopes, and Maniplexes[133X
-      1.1-1 AutomorphismGroup
-      1.1-2 AutomorphismGroupFpGroup
-      1.1-3 AutomorphismGroupPermGroup
-      1.1-4 AutomorphismGroupOnFlags
-      1.1-5 ConnectionGroup
-      1.1-6 EvenConnectionGroup
-      1.1-7 RotationGroup
-      1.1-8 ChiralityGroup
-      1.1-9 ExtraRelators
-      1.1-10 ExtraRotRelators
-      1.1-11 IsManiplexable
+      1.1-1 [33X[0;0YAutomorphism Groups[133X
+      1.1-2 ConnectionGroup
+      1.1-3 EvenConnectionGroup
+      1.1-4 RotationGroup
+      1.1-5 ChiralityGroup
+      1.1-6 ExtraRelators
+      1.1-7 ExtraRotRelators
+      1.1-8 IsManiplexable
     1.2 [33X[0;0YSggis[133X
       1.2-1 [33X[0;0YUniversalSggi[133X
       1.2-2 Sggi
@@ -149,13 +146,10 @@
       3.1-5 Maniplex
       3.1-6 IsPolytopal
     3.2 [33X[0;0YMixing of Maniplexes functions[133X
-      3.2-1 Mix
-      3.2-2 Mix
-      3.2-3 Mix
-      3.2-4 Comix
-      3.2-5 Comix
-      3.2-6 CtoL
-      3.2-7 FlagMix
+      3.2-1 [33X[0;0YMix of maniplexes[133X
+      3.2-2 [33X[0;0YComix[133X
+      3.2-3 [33X[0;0YIndexed array tools[133X
+      3.2-4 FlagMix
     3.3 [33X[0;0YRotary maniplexes and rotation groups[133X
       3.3-1 UniversalRotationGroup
       3.3-2 UniversalRotationGroup
@@ -202,155 +196,148 @@
       4.5-1 IsVertexFaithful
       4.5-2 IsFacetFaithful
       4.5-3 MaxVertexFaithfulQuotient
-  5 [33X[0;0YCombinatorics and Structure[133X
-    5.1 [33X[0;0YFaces[133X
-      5.1-1 NumberOfIFaces
-      5.1-2 NumberOfVertices
-      5.1-3 NumberOfEdges
-      5.1-4 NumberOfFacets
-      5.1-5 NumberOfRidges
-      5.1-6 Fvector
-      5.1-7 Section
-      5.1-8 Section
-      5.1-9 Sections
-      5.1-10 Facets
-      5.1-11 Facet
-      5.1-12 Facet
-      5.1-13 VertexFigures
-      5.1-14 VertexFigure
-      5.1-15 VertexFigure
-    5.2 [33X[0;0YFlatness[133X
-      5.2-1 [33X[0;0YIsFlat[133X
-    5.3 [33X[0;0YSchlafli symbol[133X
-      5.3-1 SchlafliSymbol
-      5.3-2 PseudoSchlafliSymbol
-      5.3-3 IsEquivelar
-      5.3-4 IsDegenerate
-      5.3-5 IsTight
-      5.3-6 EulerCharacteristic
-      5.3-7 Genus
-      5.3-8 IsSpherical
-      5.3-9 IsLocallySpherical
-      5.3-10 IsToroidal
-      5.3-11 IsLocallyToroidal
-    5.4 [33X[0;0YBasics[133X
-      5.4-1 Size
-      5.4-2 RankManiplex
-    5.5 [33X[0;0YZigzags and holes[133X
-      5.5-1 ZigzagLength
-      5.5-2 ZigzagVector
-      5.5-3 PetrieLength
-      5.5-4 HoleLength
-      5.5-5 HoleVector
-  6 [33X[0;0YComparing maniplexes[133X
-    6.1 [33X[0;0YQuotients and covers[133X
-      6.1-1 IsQuotient
-      6.1-2 IsQuotient
-      6.1-3 IsCover
-      6.1-4 IsIsomorphicManiplex
-      6.1-5 SmallestReflexibleCover
-      6.1-6 QuotientManiplex
-      6.1-7 ReflexibleQuotientManiplex
-      6.1-8 QuotientSggi
-      6.1-9 QuotientSggiByNormalSubgroup
-      6.1-10 QuotientManiplexByAutomorphismSubgroup
-  7 [33X[0;0YPosets[133X
-    7.1 [33X[0;0YPoset constructors[133X
-      7.1-1 PosetFromFaceListOfFlags
-      7.1-2 PosetFromConnectionGroup
-      7.1-3 PosetFromManiplex
-      7.1-4 PosetFromPartialOrder
-      7.1-5 PosetFromAtomicList
-      7.1-6 PosetFromElements
-      7.1-7 PosetFromSuccessorList
-      7.1-8 [33X[0;0YHelper functions for special partial orders[133X
-      7.1-9 DualPoset
-      7.1-10 Section
-      7.1-11 [33X[0;0YCleaving polytopes[133X
-    7.2 [33X[0;0YPoset attributes[133X
-      7.2-1 MaximalChains
-      7.2-2 RankPoset
-      7.2-3 ElementsList
-      7.2-4 OrderingFunction
-      7.2-5 IsFlaggable
-      7.2-6 IsAtomic
-      7.2-7 PartialOrder
-      7.2-8 [33X[0;0YLattices[133X
-      7.2-9 ListIsP1Poset
-      7.2-10 IsP1
-      7.2-11 IsP2
-      7.2-12 IsP3
-      7.2-13 IsFlagConnected
-      7.2-14 IsP4
-      7.2-15 IsPolytope
-      7.2-16 IsPrePolytope
-      7.2-17 IsSelfDual
-    7.3 [33X[0;0YWorking with posets[133X
-      7.3-1 IsIsomorphicPoset
-      7.3-2 PosetIsomorphism
-      7.3-3 FlagsAsFlagListFaces
-      7.3-4 RankedFaceListOfPoset
-      7.3-5 AdjacentFlag
-      7.3-6 AdjacentFlags
-      7.3-7 EqualChains
-      7.3-8 ConnectionGeneratorOfPoset
-      7.3-9 ConnectionGroup
-      7.3-10 AutomorphismGroup
-      7.3-11 AutomorphismGroupOnElements
-      7.3-12 FaceListOfPoset
-      7.3-13 RankPosetElements
-      7.3-14 FacesByRankOfPoset
-      7.3-15 HasseDiagramOfPoset
-      7.3-16 AsPosetOfAtoms
-      7.3-17 [33X[0;0YMax/min faces[133X
-    7.4 [33X[0;0YElement constructors[133X
-      7.4-1 PosetElementWithOrder
-      7.4-2 PosetElementFromListOfFlags
-      7.4-3 PosetElementFromAtomList
-      7.4-4 PosetElementFromIndex
-      7.4-5 PosetElementWithPartialOrder
-      7.4-6 RanksInPosets
-      7.4-7 AddRanksInPosets
-      7.4-8 FlagList
-      7.4-9 AtomList
-    7.5 [33X[0;0YElement operations[133X
-      7.5-1 RankInPoset
-      7.5-2 IsSubface
-      7.5-3 IsEqualFaces
-      7.5-4 AreIncidentElements
-      7.5-5 Meet
-      7.5-6 Join
-    7.6 [33X[0;0YProduct operations[133X
-      7.6-1 JoinProduct
-      7.6-2 CartesianProduct
-      7.6-3 DirectSumOfPosets
-      7.6-4 TopologicalProduct
-      7.6-5 Antiprism
-  8 [33X[0;0YPolytope Constructions and Operations[133X
-    8.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
-      8.1-1 UniversalPolytope
-      8.1-2 UniversalExtension
-      8.1-3 UniversalExtension
-      8.1-4 TrivialExtension
-      8.1-5 FlatExtension
-      8.1-6 Amalgamate
-      8.1-7 Medial
-    8.2 [33X[0;0YDuality[133X
-      8.2-1 Dual
-      8.2-2 IsSelfDual
-      8.2-3 IsInternallySelfDual
-      8.2-4 IsExternallySelfDual
-      8.2-5 Petrial
-      8.2-6 IsSelfPetrial
-      8.2-7 DirectDerivates
-    8.3 [33X[0;0YProducts[133X
-      8.3-1 [33X[0;0YPyramids[133X
-      8.3-2 [33X[0;0YPrisms[133X
-      8.3-3 [33X[0;0YAntiprisms[133X
-      8.3-4 JoinProduct
-      8.3-5 CartesianProduct
-      8.3-6 DirectSumOfManiplexes
-      8.3-7 TopologicalProduct
+  5 [33X[0;0YComparing maniplexes[133X
+    5.1 [33X[0;0YQuotients and covers[133X
+      5.1-1 [33X[0;0YIsQuotient[133X
+      5.1-2 IsCover
+      5.1-3 IsIsomorphicManiplex
+      5.1-4 SmallestReflexibleCover
+      5.1-5 QuotientManiplex
+      5.1-6 ReflexibleQuotientManiplex
+      5.1-7 QuotientSggi
+      5.1-8 QuotientSggiByNormalSubgroup
+      5.1-9 QuotientManiplexByAutomorphismSubgroup
+  6 [33X[0;0YPosets[133X
+    6.1 [33X[0;0YPoset constructors[133X
+      6.1-1 PosetFromFaceListOfFlags
+      6.1-2 PosetFromConnectionGroup
+      6.1-3 PosetFromManiplex
+      6.1-4 PosetFromPartialOrder
+      6.1-5 PosetFromAtomicList
+      6.1-6 PosetFromElements
+      6.1-7 PosetFromSuccessorList
+      6.1-8 [33X[0;0YHelper functions for special partial orders[133X
+      6.1-9 DualPoset
+      6.1-10 Section
+      6.1-11 [33X[0;0YCleaving polytopes[133X
+    6.2 [33X[0;0YPoset attributes[133X
+      6.2-1 MaximalChains
+      6.2-2 RankPoset
+      6.2-3 ElementsList
+      6.2-4 OrderingFunction
+      6.2-5 IsFlaggable
+      6.2-6 IsAtomic
+      6.2-7 PartialOrder
+      6.2-8 [33X[0;0YLattices[133X
+      6.2-9 ListIsP1Poset
+      6.2-10 IsP1
+      6.2-11 IsP2
+      6.2-12 IsP3
+      6.2-13 IsFlagConnected
+      6.2-14 IsP4
+      6.2-15 IsPolytope
+      6.2-16 IsPrePolytope
+      6.2-17 IsSelfDual
+    6.3 [33X[0;0YWorking with posets[133X
+      6.3-1 IsIsomorphicPoset
+      6.3-2 PosetIsomorphism
+      6.3-3 FlagsAsFlagListFaces
+      6.3-4 RankedFaceListOfPoset
+      6.3-5 AdjacentFlag
+      6.3-6 AdjacentFlags
+      6.3-7 EqualChains
+      6.3-8 ConnectionGeneratorOfPoset
+      6.3-9 ConnectionGroup
+      6.3-10 AutomorphismGroup
+      6.3-11 AutomorphismGroupOnElements
+      6.3-12 FaceListOfPoset
+      6.3-13 RankPosetElements
+      6.3-14 FacesByRankOfPoset
+      6.3-15 HasseDiagramOfPoset
+      6.3-16 AsPosetOfAtoms
+      6.3-17 [33X[0;0YMax/min faces[133X
+    6.4 [33X[0;0YElement constructors[133X
+      6.4-1 PosetElementWithOrder
+      6.4-2 PosetElementFromListOfFlags
+      6.4-3 PosetElementFromAtomList
+      6.4-4 PosetElementFromIndex
+      6.4-5 PosetElementWithPartialOrder
+      6.4-6 RanksInPosets
+      6.4-7 AddRanksInPosets
+      6.4-8 FlagList
+      6.4-9 AtomList
+    6.5 [33X[0;0YElement operations[133X
+      6.5-1 RankInPoset
+      6.5-2 IsSubface
+      6.5-3 IsEqualFaces
+      6.5-4 AreIncidentElements
+      6.5-5 Meet
+      6.5-6 Join
+    6.6 [33X[0;0YProduct operations[133X
+      6.6-1 JoinProduct
+      6.6-2 CartesianProduct
+      6.6-3 DirectSumOfPosets
+      6.6-4 TopologicalProduct
+      6.6-5 Antiprism
+  7 [33X[0;0YPolytope Constructions and Operations[133X
+    7.1 [33X[0;0YExtensions, amalgamations, and quotients[133X
+      7.1-1 UniversalPolytope
+      7.1-2 UniversalExtension
+      7.1-3 UniversalExtension
+      7.1-4 TrivialExtension
+      7.1-5 FlatExtension
+      7.1-6 Amalgamate
+      7.1-7 Medial
+    7.2 [33X[0;0YDuality[133X
+      7.2-1 Dual
+      7.2-2 IsSelfDual
+      7.2-3 IsInternallySelfDual
+      7.2-4 IsExternallySelfDual
+      7.2-5 [33X[0;0YPetrie Dual[133X
+      7.2-6 IsSelfPetrial
+      7.2-7 DirectDerivates
+    7.3 [33X[0;0YProducts[133X
+      7.3-1 [33X[0;0YPyramids[133X
+      7.3-2 [33X[0;0YPrisms[133X
+      7.3-3 [33X[0;0YAntiprisms[133X
+      7.3-4 JoinProduct
+      7.3-5 CartesianProduct
+      7.3-6 DirectSumOfManiplexes
+      7.3-7 TopologicalProduct
+  8 [33X[0;0YCombinatorics and Structure[133X
+    8.1 [33X[0;0YFaces[133X
+      8.1-1 NumberOfIFaces
+      8.1-2 NumberOfVertices
+      8.1-3 NumberOfEdges
+      8.1-4 NumberOfFacets
+      8.1-5 NumberOfRidges
+      8.1-6 Fvector
+      8.1-7 [33X[0;0YSection(s)[133X
+      8.1-8 [33X[0;0YFacet(s)[133X
+      8.1-9 [33X[0;0YVertex Figure(s)[133X
+    8.2 [33X[0;0YFlatness[133X
+      8.2-1 [33X[0;0YFlatness[133X
+    8.3 [33X[0;0YSchlafli symbol[133X
+      8.3-1 SchlafliSymbol
+      8.3-2 PseudoSchlafliSymbol
+      8.3-3 IsEquivelar
+      8.3-4 IsDegenerate
+      8.3-5 IsTight
+      8.3-6 EulerCharacteristic
+      8.3-7 Genus
+      8.3-8 IsSpherical
+      8.3-9 IsLocallySpherical
+      8.3-10 IsToroidal
+      8.3-11 IsLocallyToroidal
+    8.4 [33X[0;0YBasics[133X
+      8.4-1 Size
+      8.4-2 RankManiplex
+    8.5 [33X[0;0YZigzags and holes[133X
+      8.5-1 ZigzagLength
+      8.5-2 ZigzagVector
+      8.5-3 PetrieLength
+      8.5-4 HoleLength
+      8.5-5 HoleVector
   9 [33X[0;0YGraphs for Maniplexes[133X
     9.1 [33X[0;0YGraph constructors for maniplexes[133X
       9.1-1 DirectedGraphFromListOfEdges
@@ -402,30 +389,31 @@
       11.1-3 ChunkGeneratedGroupElements
       11.1-4 ChunkGeneratedGroup
       11.1-5 FullyStratifiedGroup
-  12 [33X[0;0YRegular maps[133X
-    12.1 [33X[0;0YBicontactual regular maps[133X
-      12.1-1 Epsilonk
-      12.1-2 Deltak
-      12.1-3 Mk
-      12.1-4 MkPrime
-      12.1-5 Bk2l
-      12.1-6 Bk2lStar
-    12.2 [33X[0;0YOperators on reflexible maps[133X
-      12.2-1 Opp
-      12.2-2 Hole
-  13 [33X[0;0YUtility functions[133X
-    13.1 [33X[0;0YUtility functions[133X
-      13.1-1 InfoRamp
-      13.1-2 AbstractPolytope
-      13.1-3 AbstractRegularPolytope
-      13.1-4 AbstractRotaryPolytope
-      13.1-5 TranslatePerm
-      13.1-6 MultPerm
-      13.1-7 PermFromRange
-      13.1-8 ParseStringCRels
-      13.1-9 ParseRotGpRels
-      13.1-10 AddOrAppend
-      13.1-11 WrappedPosetOperation
+  12 [33X[0;0YSynonyms for Commands[133X
+  13 [33X[0;0YRegular maps[133X
+    13.1 [33X[0;0YBicontactual regular maps[133X
+      13.1-1 Epsilonk
+      13.1-2 Deltak
+      13.1-3 Mk
+      13.1-4 MkPrime
+      13.1-5 Bk2l
+      13.1-6 Bk2lStar
+    13.2 [33X[0;0YOperators on reflexible maps[133X
+      13.2-1 Opp
+      13.2-2 Hole
+  14 [33X[0;0YUtility functions[133X
+    14.1 [33X[0;0YUtility functions[133X
+      14.1-1 InfoRamp
+      14.1-2 AbstractPolytope
+      14.1-3 AbstractRegularPolytope
+      14.1-4 AbstractRotaryPolytope
+      14.1-5 TranslatePerm
+      14.1-6 MultPerm
+      14.1-7 PermFromRange
+      14.1-8 ParseStringCRels
+      14.1-9 ParseRotGpRels
+      14.1-10 AddOrAppend
+      14.1-11 WrappedPosetOperation
   
   
   [32X

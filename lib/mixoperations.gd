@@ -3,6 +3,8 @@
 #! @Chapter Maniplexes
 #! @Section Mixing of Maniplexes functions
 
+#! @BeginGroup Mix
+#! @GroupTitle Mix of maniplexes
 #! @Arguments permgroup, permgroup
 #! @Returns `IsGroup `. 
 #! @Description Given two (permutation) groups returns the mix of those groups.  Note, also works with FPgroups.
@@ -30,6 +32,10 @@ DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 
 DeclareOperation("Mix", [IsManiplex, IsManiplex]);
 
+#! @EndGroup
+
+#! @BeginGroup 
+#! @GroupTitle Comix
 
 #! @Arguments fpgroup, fpgroup
 #! Returns the comix of two Finitely Presented groups gp and gq.
@@ -41,7 +47,10 @@ DeclareOperation("Comix", [IsFpGroup, IsFpGroup]);
 #! @Description Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups
 DeclareOperation("Comix", [IsReflexibleManiplex, IsReflexibleManiplex]);
 
+#! @EndGroup
 
+#! @BeginGroup
+#! @GroupTitle Indexed array tools
 #! @Arguments int, int, int, int
 #! @Returns `IsInteger `. 
 #! @Description CtoL Returns an integer between 1 and N*M associated with the pair [a,b].  
@@ -53,12 +62,19 @@ DeclareOperation("CtoL",[IsInt,IsInt,IsInt,IsInt]);
 
 
 DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
-
-
+#! @BeginExampleSession
+#! gap> LtoC(5,4,14);
+#! [ 1, 2 ]
+#! gap> CtoL(3,2,5,4);
+#! 8
+#! gap> LtoC(8,5,4);
+#! [ 3, 2 ]
+#! @EndExampleSession
+#! @EndGroup
 
 #! @Arguments permgroup, permgroup
 #! @Returns `IsManiplex `. 
-#! @Description Given two (permutation) groups gp, gg this returns the maniplex of the 
+#! @Description Given two (permutation) groups gp, gq this returns the maniplex of the 
 #! "flag" mix of two maniplexes with connection groups gp and gq.
 DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
 

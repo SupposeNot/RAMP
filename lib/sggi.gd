@@ -18,7 +18,14 @@ DeclareOperation("UniversalSggi", [IsInt]);
 #! @Arguments sym
 #! In the second form, returns the Coxeter Group with Schlafli symbol sym.
 DeclareOperation("UniversalSggi", [IsList]);
-
+#! @BeginExampleSession
+#! gap> g:=UniversalSggi(3);
+#! <fp group of size infinity on the generators [ r0, r1, r2 ]>
+#! gap> q:=UniversalSggi([3,4]);
+#! <fp group of size 48 on the generators [ r0, r1, r2 ]>
+#! gap> IsQuotient(g,q);
+#! true
+#! @EndExampleSession
 #! @EndGroup
 
 #! @Arguments symbol[, relations]
@@ -43,6 +50,12 @@ DeclareOperation("Sggi", [IsList, IsList]);
 #! Or more specifically, whether GeneratorsOfGroup(<A>g</A>) all have
 #! order 2 or less.
 DeclareProperty("IsGgi", IsGroup);
+#! @BeginExampleSession
+#! gap> IsGgi(SymmetricGroup(4));
+#! false
+#! gap> IsGgi(Group([(1,2),(2,3)]));
+#! true
+#! @EndExampleSession
 
 #! @Arguments g
 #! @Returns whether every pair of non-adjacent generators of <A>g</A> commute.
