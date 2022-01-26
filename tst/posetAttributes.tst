@@ -6,9 +6,9 @@ gap> p:=PosetFromManiplex(Cube(2));;
 gap> p3:=PosetFromElements(RankedFaceListOfPoset(p),PairCompareFlagsList);;
 gap> f3:=FacesList(p3);;
 gap> OrderingFunction(p3)(ElementObject(f3[2]),ElementObject(f3[1]));
-true
-gap> OrderingFunction(p3)(ElementObject(f3[1]),ElementObject(f3[2]));
 false
+gap> OrderingFunction(p3)(ElementObject(f3[1]),ElementObject(f3[2]));
+true
 gap> po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;
 gap> po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;
 gap> p:=PosetFromPartialOrder(po);; IsAtomic(p);

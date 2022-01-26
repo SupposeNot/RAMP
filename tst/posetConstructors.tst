@@ -31,11 +31,10 @@ gap> Successors(last);
 [ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ]
 gap> List( ElementsList(poset){[2,6]}, ElementObject);
 [ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
-gap> p:=PosetFromManiplex(HemiCube(3));;
-gap> Print(p);
-PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
-[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
-[ 15 ], [ 15 ], [ 15 ], [ ] ]);
+gap> p:=PosetFromManiplex(HemiCube(3));
+A poset using the IsPosetOfFlags representation.
+gap> Length(Faces(p));
+15
 gap> p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;
 gap> IsIsomorphicPoset(DualPoset(DualPoset(p)),p);
 true
