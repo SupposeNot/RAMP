@@ -136,9 +136,16 @@ DeclareOperation("SnubDodecahedron",[]);
 #! @Returns maniplex
 #! @Description Constructs the truncated dodecahedron.
 DeclareOperation("TruncatedDodecahedron",[]);
+#! @BeginExampleSession
+#! gap> Facets(TruncatedDodecahedron());
+#! [ Pgon(10), Pgon(3) ]
+#! @EndExampleSession
 
 #! @Arguments
 #! @Returns maniplex
 #! @Description Constructs the great rhombicuboctahedron.
 DeclareOperation("GreatRhombicuboctahedron",[]);
-
+#! @BeginExampleSession
+#! gap> Size(ConnectionGroup(GreatRhombicuboctahedron()));
+#! 5308416
+#! @EndExampleSession

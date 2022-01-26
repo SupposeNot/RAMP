@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 11: Stratified Operations</title>
+<title>GAP (RAMP) - Chapter 11: Databases</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,151 +15,274 @@
 <body class="chap11"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap10.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap12.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap11_mj.html">[MathJax on]</a></p>
-<p><a id="X7B9A7024825B378C" name="X7B9A7024825B378C"></a></p>
-<div class="ChapSects"><a href="chap11.html#X7B9A7024825B378C">11 <span class="Heading">Stratified Operations</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11.html#X871D56AE7EFE6B58">11.1 <span class="Heading">Computational tools</span></a>
+<p><a id="X7EB183C3780A475B" name="X7EB183C3780A475B"></a></p>
+<div class="ChapSects"><a href="chap11.html#X7EB183C3780A475B">11 <span class="Heading">Databases</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11.html#X8062E376879531A7">11.1 <span class="Heading">Regular polyhedra</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X794A197182124FB1">11.1-1 ChunkMultiply</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X858FD5C2809828C3">11.1-2 ChunkPower</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X81AD40D884608C3B">11.1-3 ChunkGeneratedGroupElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7E759EE8836E55E0">11.1-4 ChunkGeneratedGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7C67C6B77C6C2114">11.1-5 FullyStratifiedGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7B2285CD79A7DF27">11.1-1 DegeneratePolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X86869B8A80564ACF">11.1-2 FlatRegularPolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X8229CA838473FF2B">11.1-3 RegularToroidalPolyhedra44</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X783D35FD79C25457">11.1-4 RegularToroidalPolyhedra36</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X814F1BC07C480F5D">11.1-5 SmallRegularPolyhedraFromFile</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7BD5DABD833B9700">11.1-6 SmallRegularPolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X8670A2B078096E46">11.1-7 SmallDegenerateRegular4Polytopes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X83C76844861B7B5A">11.1-8 SmallRegular4Polytopes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7C5BEAD87A858EE7">11.1-9 SmallChiralPolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X85ED37A97CE7F77C">11.1-10 SmallChiral4Polytopes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7ED0E4347B0192A6">11.1-11 SmallReflexible3Maniplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X78C0C8BD81743643">11.1-12 SRP</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11.html#X84020A6879FBFF00">11.2 <span class="Heading">System internal representations</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X7B89A32E7D94769F">11.2-1 DatabaseString</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X84FC221B80847F84">11.2-2 ManiplexFromDatabaseString</a></span>
 </div></div>
 </div>
 
-<h3>11 <span class="Heading">Stratified Operations</span></h3>
+<h3>11 <span class="Heading">Databases</span></h3>
 
-<p><a id="X871D56AE7EFE6B58" name="X871D56AE7EFE6B58"></a></p>
+<p><a id="X8062E376879531A7" name="X8062E376879531A7"></a></p>
 
-<h4>11.1 <span class="Heading">Computational tools</span></h4>
+<h4>11.1 <span class="Heading">Regular polyhedra</span></h4>
 
-<p>I should say something more here.</p>
+<p><a id="X7B2285CD79A7DF27" name="X7B2285CD79A7DF27"></a></p>
 
-<p><a id="X794A197182124FB1" name="X794A197182124FB1"></a></p>
+<h5>11.1-1 DegeneratePolyhedra</h5>
 
-<h5>11.1-1 ChunkMultiply</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DegeneratePolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkMultiply</code>( <var class="Arg">element1</var>, <var class="Arg">element2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: element</p>
-
-<p>Elements are ordered pairs of the form [perm, list], where the elements of list are members of a group. Operation performed is consistent with that in defined in <a href="chapBib.html#biBPelWil18">[PW18]</a>.</p>
-
-<p><a id="X858FD5C2809828C3" name="X858FD5C2809828C3"></a></p>
-
-<h5>11.1-2 ChunkPower</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkPower</code>( <var class="Arg">element</var>, <var class="Arg">integer</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: element</p>
-
-<p>Given an element compatible with the ChunkMultiply operation, this function will compute the product of element with itself integer times.</p>
-
-<p><a id="X81AD40D884608C3B" name="X81AD40D884608C3B"></a></p>
-
-<h5>11.1-3 ChunkGeneratedGroupElements</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroupElements</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: newList</p>
-
-<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.</p>
+<p>Gives all degenerate polyhedra (of type <span class="Math">\{2, q\}</span> and <span class="Math">\{p, 2\}</span>) with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AutomorphismGroup(Simplex(2));</span>
-&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(g);</span>
-#I  Assigned the global variables [ r0, r1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r0);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(1,2),[r0,r0,r1]];;s1:=[(2,3),[r0,r1,r1]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroupElements([s0,s1],g);</span>
-[ [ (1,2), [ r0, r0, r1 ] ], [ (2,3), [ r0, r1, r1 ] ], 
-  [ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt; ] ], 
-  [ (1,3,2), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r0*r1 ] ], 
-  [ (1,2,3), [ r1*r0, &lt;identity ...&gt;, &lt;identity ...&gt; ] ], [ (1,3), [ r0, r0, r0 ] ], 
-  [ (1,3), [ r1, r1, r1 ] ], [ (1,2,3), [ &lt;identity ...&gt;, r0*r1, r0*r1 ] ], 
-  [ (1,3,2), [ r1*r0, r1*r0, &lt;identity ...&gt; ] ], [ (2,3), [ r0*r1*r0, r0, r0 ] ], 
-  [ (1,2), [ r1, r1, r0*r1*r0 ] ], [ (), [ r0*r1, r0*r1, r0*r1 ] ], 
-  [ (), [ r1*r0, r1*r0, r1*r0 ] ], [ (1,2), [ r0*r1*r0, r0*r1*r0, r0 ] ], 
-  [ (2,3), [ r1, r0*r1*r0, r0*r1*r0 ] ], [ (1,3,2), [ r0*r1, r0*r1, r1*r0 ] ], 
-  [ (1,2,3), [ r0*r1, r1*r0, r1*r0 ] ], [ (1,3), [ r0*r1*r0, r0*r1*r0, r0*r1*r0 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegeneratePolyhedra(24);</span>
+[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), 
+  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), 
+  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), 
+  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), 
+  AbstractRegularPolytope([ 6, 2 ]) ]
 </pre></div>
 
-<p><a id="X7E759EE8836E55E0" name="X7E759EE8836E55E0"></a></p>
+<p><a id="X86869B8A80564ACF" name="X86869B8A80564ACF"></a></p>
 
-<h5>11.1-4 ChunkGeneratedGroup</h5>
+<h5>11.1-2 FlatRegularPolyhedra</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: permGroup</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
 
-<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct a representation of the group as a permutation group. Note that generators are of the form [perm, list], and each list is a list of elements from group.</p>
+<p>Gives all nondegenerate flat regular polyhedra with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>. Currently supports a maxsize of 4000 or less.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2); a:=AutomorphismGroup(p);</span>
-Pgon(3)
-&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);; AssignGeneratorVariables(a);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
-[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
-[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
-[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> gens:=[s0,s1,s2];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s1);</span>
-[ (2,3,5,4), [ r0*r1, &lt;identity ...&gt;, r0, r0, &lt;identity ...&gt;, r0*r1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
-[ (), [ r0^2, r0^2, &lt;identity ...&gt;, &lt;identity ...&gt;, r0^2, r0^2 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r1);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
-[ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;,  &lt;identity ...&gt; ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroup(gens,a);</span>
-&lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(last);</span>
-1296
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatRegularPolyhedra([10..24]);</span>
+[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), 
+  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), 
+  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), 
+  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\
+ r1)^3 (r1 r2)^2"), 
+  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\
+), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ]
 </pre></div>
 
-<p><a id="X7C67C6B77C6C2114" name="X7C67C6B77C6C2114"></a></p>
+<p><a id="X8229CA838473FF2B" name="X8229CA838473FF2B"></a></p>
 
-<h5>11.1-5 FullyStratifiedGroup</h5>
+<h5>11.1-3 RegularToroidalPolyhedra44</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FullyStratifiedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsPermGroup</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RegularToroidalPolyhedra44</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
 
-<p>Implements fully stratified operations on maniplexes from <a href="chapBib.html#biBCunPelWil22">[CPW22]</a>. Given <var class="Arg">list</var> of generators compatible with the <code class="code">ChunkMultiply</code> operation, <var class="Arg">group</var> is the underlying group in the representation (usually the connection group of the base), this will calculate the connection group of the resulting maniplex acting on the implicit flags of the construction. Function assumes that <var class="Arg">list</var> are the generators of the connection group of the resulting maniplex in the order <span class="Math">\langle r_0, r_1, \ldots, r_{d-1}\rangle</span>. It is possible that for some groups this function will behave poorly because GAP won't recognize equivalent representations of a group element. If so, try again with a permutation representation and let us know so we can modify the code to handle this problem better (didn't show up in our testing, but is a theoretical possibility).</p>
+<p>Gives all regular toroidal polyhedra of type <span class="Math">\{4,4\}</span> with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2);; a:=AutomorphismGroup(p);</span>
-&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);</span>
-&lt;identity ...&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(a);</span>
-#I  Assigned the global variables [ r0, r1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
-[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
-[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
-[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gens:=[s0,s1,s2];</span>
-[ [ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ], 
-  [ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ], 
-  [ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));</span>
-true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RegularToroidalPolyhedra44([60..100]);</span>
+[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), 
+  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ]
 </pre></div>
+
+<p><a id="X783D35FD79C25457" name="X783D35FD79C25457"></a></p>
+
+<h5>11.1-4 RegularToroidalPolyhedra36</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RegularToroidalPolyhedra36</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all regular toroidal polyhedra of type <span class="Math">\{3,6\}</span> with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RegularToroidalPolyhedra36([100..150]);</span>
+[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), 
+  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ]
+</pre></div>
+
+<p><a id="X814F1BC07C480F5D" name="X814F1BC07C480F5D"></a></p>
+
+<h5>11.1-5 SmallRegularPolyhedraFromFile</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegularPolyhedraFromFile</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all regular polyhedra with sizes in <var class="Arg">sizerange</var> flags that are stored separately in a file. These are polyhedra that are not part of one of several infinite families that are covered by the other generators. The return value of this function is unstable and may change as more infinite familes of polyhedra are identified and written as separate generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallRegularPolyhedraFromFile(64);</span>
+[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), 
+  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), 
+  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), 
+  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), 
+  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ]
+</pre></div>
+
+<p><a id="X7BD5DABD833B9700" name="X7BD5DABD833B9700"></a></p>
+
+<h5>11.1-6 SmallRegularPolyhedra</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegularPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all regular polyhedra with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less. You can also set options <code class="code">nondegenerate</code>, <code class="code">nonflat</code>, and <code class="code">nontoroidal</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L1 := SmallRegularPolyhedra(500);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L2 := SmallRegularPolyhedra(1000 : nondegenerate);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(SmallRegularPolyhedra(64));</span>
+53
+</pre></div>
+
+<p><a id="X8670A2B078096E46" name="X8670A2B078096E46"></a></p>
+
+<h5>11.1-7 SmallDegenerateRegular4Polytopes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallDegenerateRegular4Polytopes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all degenerate regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 8000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> SmallDegenerateRegular4Polytopes([64]);</span>
+[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), 
+  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, 
+  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ]
+</pre></div>
+
+<p><a id="X83C76844861B7B5A" name="X83C76844861B7B5A"></a></p>
+
+<h5>11.1-8 SmallRegular4Polytopes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegular4Polytopes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallRegular4Polytopes([100]);</span>
+[ AbstractRegularPolytope([ 5, 2, 5 ]) ]
+</pre></div>
+
+<p><a id="X7C5BEAD87A858EE7" name="X7C5BEAD87A858EE7"></a></p>
+
+<h5>11.1-9 SmallChiralPolyhedra</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallChiralPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all chiral polyhedra with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallChiralPolyhedra(100);</span>
+[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ]
+</pre></div>
+
+<p><a id="X85ED37A97CE7F77C" name="X85ED37A97CE7F77C"></a></p>
+
+<h5>11.1-10 SmallChiral4Polytopes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallChiral4Polytopes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all chiral 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallChiral4Polytopes([200..250]);</span>
+[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), 
+  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), 
+  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ]
+</pre></div>
+
+<p><a id="X7ED0E4347B0192A6" name="X7ED0E4347B0192A6"></a></p>
+
+<h5>11.1-11 SmallReflexible3Maniplexes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallReflexible3Maniplexes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 2000 or less. If the option <code class="code">nonpolytopal</code> is set, only returns maniplexes that are not polyhedra.</p>
+
+<p><a id="X78C0C8BD81743643" name="X78C0C8BD81743643"></a></p>
+
+<h5>11.1-12 SRP</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SRP</code>( <var class="Arg">minsize</var>, <var class="Arg">maxsize</var>[, <var class="Arg">func1</var>, <var class="Arg">val1</var>, <var class="Arg">func2</var>, <var class="Arg">val2</var>, <var class="Arg">...</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list of all regular polyhedra with at least <var class="Arg">minsize</var> at at most <var class="Arg">maxsize</var> flags. Optionally, you may include any number of pairs of functions and values, in which case this only returns those polyhedra such that the given functions have the given values. The name of this function is temporary and this function is here as a proof-of-concept.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4]);</span>
+[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);</span>
+[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,32,p-&gt;SchlafliSymbol(p)[1], 4);</span>
+[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+</pre></div>
+
+<p><a id="X84020A6879FBFF00" name="X84020A6879FBFF00"></a></p>
+
+<h4>11.2 <span class="Heading">System internal representations</span></h4>
+
+<p><a id="X7B89A32E7D94769F" name="X7B89A32E7D94769F"></a></p>
+
+<h5>11.2-1 DatabaseString</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DatabaseString</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: String</p>
+
+<p>Given a maniplex <var class="Arg">M</var>, returns a string representation of <var class="Arg">M</var> suitable for saving in a database for later retrieval.</p>
+
+<p><a id="X84FC221B80847F84" name="X84FC221B80847F84"></a></p>
+
+<h5>11.2-2 ManiplexFromDatabaseString</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ManiplexFromDatabaseString</code>( <var class="Arg">maniplexString</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Given a string <var class="Arg">maniplexString</var>, representing a maniplex stored in a database, returns the maniplex that is represented.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap10.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap12.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

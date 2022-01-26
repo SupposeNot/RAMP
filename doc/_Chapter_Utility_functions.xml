@@ -4,8 +4,8 @@
 <Chapter Label="Chapter_Utility_functions">
 <Heading>Utility functions</Heading>
 
-<Section Label="Chapter_Utility_functions_Section_Utility_functions">
-<Heading>Utility functions</Heading>
+<Section Label="Chapter_Utility_functions_Section_System">
+<Heading>System</Heading>
 
 <ManSection>
   <InfoClass Name="InfoRamp" />
@@ -15,12 +15,24 @@ The InfoClass for the Ramp package.
 </ManSection>
 
 
+</Section>
+
+
+<Section Label="Chapter_Utility_functions_Section_Polytopes">
+<Heading>Polytopes</Heading>
+
 <ManSection>
   <Func Arg="args" Name="AbstractPolytope" />
  <Description>
 Calls <Code>Maniplex(args)</Code> and marks the output as polytopal.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> AbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));
+Pgon(5)
+]]></Example>
 
 
 <ManSection>
@@ -32,6 +44,12 @@ Calls <Code>ReflexibleManiplex(args)</Code> and marks the output as polytopal.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Pgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));
+true
+]]></Example>
+
+
 <ManSection>
   <Func Arg="args" Name="AbstractRotaryPolytope" />
  <Description>
@@ -39,6 +57,12 @@ Calls <Code>RotaryManiplex(args)</Code> and marks the output as polytopal.
  </Description>
 </ManSection>
 
+
+</Section>
+
+
+<Section Label="Chapter_Utility_functions_Section_Permutations">
+<Heading>Permutations</Heading>
 
 <ManSection>
   <Func Arg="perm, k" Name="TranslatePerm" />
@@ -78,6 +102,12 @@ gap> PermFromRange((2,3,4), (8,9,10));
  </Description>
 </ManSection>
 
+
+</Section>
+
+
+<Section Label="Chapter_Utility_functions_Section_Words_on_relations">
+<Heading>Words on relations</Heading>
 
 <ManSection>
   <Func Arg="rels, g" Name="ParseStringCRels" />

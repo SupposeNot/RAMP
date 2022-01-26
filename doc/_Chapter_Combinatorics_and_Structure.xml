@@ -441,23 +441,39 @@ Synonym: <Code>NumberOfFlags</Code>.
 
 <ManSection>
   <Oper Arg="M, j" Name="ZigzagLength" Label="for IsManiplex, IsInt"/>
- <Returns>The lengths of <A>j</A>-zigzags of the 3-maniplex <A>M</A>.  This corresponds to the lengths of orbits under r0 (r1 r2)^j.
+ <Returns>The lengths of <A>j</A>-zigzags of the 3-maniplex <A>M</A>.
 </Returns>
  <Description>
-<P/>
+This corresponds to the lengths of orbits under r0 (r1 r2)^j.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> ZigzagLength(Cube(3),1);
+6
+gap> ZigzagLength(Cube(3),2);
+6
+gap> ZigzagLength(Cube(3),3);
+2
+]]></Example>
 
 
 <ManSection>
   <Attr Arg="M" Name="ZigzagVector" Label="for IsManiplex"/>
- <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.  A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
-  because the j-zigzags are the same as the (q-j)-zigzags.
+ <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.
 </Returns>
  <Description>
-<P/>
+A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
+ because the j-zigzags are the same as the (q-j)-zigzags.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> ZigzagVector(Pseudorhombicuboctahedron());
+[ [ 40, 56 ], [ 8, 32 ] ]
+]]></Example>
 
 
 <ManSection>
@@ -470,25 +486,63 @@ Synonym: <Code>NumberOfFlags</Code>.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> PetrieLength(Cube(3));
+6
+]]></Example>
+
+
 <ManSection>
-  <Oper Arg="M, j" Name="HoleLength" Label="for IsManiplex, IsInt"/>
- <Returns>The lengths of <A>j</A>-holes of the 3-maniplex <A>M</A>.  This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.
+  <Oper Arg="i, j" Name="PetrieRelation" Label="for IsInt, IsInt"/>
+ <Returns>relation
 </Returns>
  <Description>
-<P/>
+Returns the Petrie relation for a rank <A>i</A> maniplex of length <A>j</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PetrieRelation(3,3);
+"(r0r1r2)^3"
+gap> q:=Cube(3)/p;
+3-maniplex
+gap> Size(q);
+24
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M, j" Name="HoleLength" Label="for IsManiplex, IsInt"/>
+ <Returns>The lengths of <A>j</A>-holes of the 3-maniplex <A>M</A>.
+</Returns>
+ <Description>
+This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> HoleLength(ToroidalMap44([3,0]),2);
+3
+]]></Example>
 
 
 <ManSection>
   <Attr Arg="M" Name="HoleVector" Label="for IsManiplex"/>
- <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.  A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
-  because the j-zigzags are the same as the (q-j)-zigzags.
+ <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.
 </Returns>
  <Description>
-<P/>
+A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
+ because the j-zigzags are the same as the (q-j)-zigzags.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> HoleVector(ToroidalMap44([3,0],[0,5]));
+[ [ 3, 5 ] ]
+]]></Example>
 
 
 </Section>

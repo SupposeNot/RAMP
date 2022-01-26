@@ -2,15 +2,20 @@
 
 
 #! @Chapter Utility functions
-#! @Section Utility functions
+#! @Section System
 
 
 #! @Description The InfoClass for the Ramp package.
 DeclareInfoClass("InfoRamp");
 
+#! @Section Polytopes
 #! @Arguments args
 #! @Description Calls `Maniplex(args)` and marks the output as polytopal.
 DeclareGlobalFunction("AbstractPolytope");
+#! @BeginExampleSession
+#! gap> AbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));
+#! Pgon(5)
+#! @EndExampleSession
 
 #! @Arguments args
 #! @Description Calls `ReflexibleManiplex(args)` and marks the output as polytopal.
@@ -18,10 +23,16 @@ DeclareGlobalFunction("AbstractPolytope");
 DeclareGlobalFunction("AbstractRegularPolytope");
 
 DeclareSynonym("ARP", AbstractRegularPolytope);
+#! @BeginExampleSession
+#! gap> Pgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));
+#! true
+#! @EndExampleSession
 
 #! @Arguments args
 #! @Description Calls `RotaryManiplex(args)` and marks the output as polytopal.
 DeclareGlobalFunction("AbstractRotaryPolytope");
+
+#! @Section Permutations
 
 #! @Arguments perm, k
 #! Returns a new permutation obtained from <A>perm</A> by adding k
@@ -47,6 +58,8 @@ DeclareGlobalFunction("MultPerm");
 #! (2,3,4)(5,6,7)(8,9,10)
 #! @EndExampleSession
 DeclareGlobalFunction("PermFromRange");
+
+#! @Section Words on relations
 
 DeclareGlobalFunction("TranslateWord");
 

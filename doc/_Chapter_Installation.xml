@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Installation">
+<Heading>Installation</Heading>
+
+<Section Label="Chapter_Installation_Section_Basics">
+<Heading>Basics</Heading>
+
+ Some quick notes on installation:
+<List>
+<Item>
+RAMP is confirmed to work with version 4.11.1 of GAP, but is known not to work with some earlier versions. 
+</Item>
+<Item>
+Copy the RAMP folder and its contents to your GAP <Code>/pkg</Code> folder.
+<List>
+<Item>
+If using the GAP.app on macOS, this should be your user <Code>Library/Preferences/GAP/pkg</Code> folder. Probably the easiest way to do this if you have received RAMP as a <Code>.zip</Code> file is to copy the file into this location, and then unpack it. After that, you can delete the <Code>.zip</Code> file.
+</Item>
+</List>
+</Item>
+</List>
+<P/>
+</Section>
+
+
+</Chapter>
+

@@ -1,3 +1,4 @@
+
 InstallMethod(ZigzagLength,
 	[IsReflexibleManiplex, IsInt],
 	function(M, j)

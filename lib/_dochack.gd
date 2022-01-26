@@ -1,3 +1,10 @@
+#! @Chapter Installation
+#! @Section Basics
+#! Some quick notes on installation:
+#! - RAMP is confirmed to work with version 4.11.1 of GAP, but is known not to work with some earlier versions. 
+#! - Copy the RAMP folder and its contents to your GAP `/pkg` folder.
+#!   - If using the GAP.app on macOS, this should be your user `Library/Preferences/GAP/pkg` folder. Probably the easiest way to do this if you have received RAMP as a `.zip` file is to copy the file into this location, and then unpack it. After that, you can delete the `.zip` file.
+#! 
 
 #! @Chapter Groups for Maps, Polytopes, and Maniplexes
 #! @Chapter Regular Maps

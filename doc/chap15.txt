@@ -2,7 +2,7 @@
   [1X15 [33X[0;0YUtility functions[133X[101X
   
   
-  [1X15.1 [33X[0;0YUtility functions[133X[101X
+  [1X15.1 [33X[0;0YSystem[133X[101X
   
   [1X15.1-1 InfoRamp[101X
   
@@ -10,40 +10,56 @@
   
   [33X[0;0YThe InfoClass for the Ramp package.[133X
   
-  [1X15.1-2 AbstractPolytope[101X
+  
+  [1X15.2 [33X[0;0YPolytopes[133X[101X
+  
+  [1X15.2-1 AbstractPolytope[101X
   
   [33X[1;0Y[29X[2XAbstractPolytope[102X( [3Xargs[103X ) [32X function[133X
   
   [33X[0;0YCalls [10XManiplex(args)[110X and marks the output as polytopal.[133X
   
-  [1X15.1-3 AbstractRegularPolytope[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));[127X[104X
+    [4X[28XPgon(5)[128X[104X
+  [4X[32X[104X
+  
+  [1X15.2-2 AbstractRegularPolytope[101X
   
   [33X[1;0Y[29X[2XAbstractRegularPolytope[102X( [3Xargs[103X ) [32X function[133X
   
   [33X[0;0YCalls  [10XReflexibleManiplex(args)[110X  and  marks  the  output  as polytopal. Also
   available as [10XARP(args)[110X.[133X
   
-  [1X15.1-4 AbstractRotaryPolytope[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X15.2-3 AbstractRotaryPolytope[101X
   
   [33X[1;0Y[29X[2XAbstractRotaryPolytope[102X( [3Xargs[103X ) [32X function[133X
   
   [33X[0;0YCalls [10XRotaryManiplex(args)[110X and marks the output as polytopal.[133X
   
-  [1X15.1-5 TranslatePerm[101X
+  
+  [1X15.3 [33X[0;0YPermutations[133X[101X
+  
+  [1X15.3-1 TranslatePerm[101X
   
   [33X[1;0Y[29X[2XTranslatePerm[102X( [3Xperm[103X, [3Xk[103X ) [32X function[133X
   
   [33X[0;0YReturns  a  new  permutation  obtained  from  [3Xperm[103X by adding k to each moved
   point.[133X
   
-  [1X15.1-6 MultPerm[101X
+  [1X15.3-2 MultPerm[101X
   
   [33X[1;0Y[29X[2XMultPerm[102X( [3Xperm[103X, [3Xmultiplier[103X, [3Xoffset[103X ) [32X function[133X
   
   [33X[0;0YMultiplies  together  perm, TranslatePerm(perm, offset), TranslatePerm(perm,
   offset*2), ..., with [3Xmultiplier[103X terms, and returns the result.[133X
   
-  [1X15.1-7 PermFromRange[101X
+  [1X15.3-3 PermFromRange[101X
   
   [33X[1;0Y[29X[2XPermFromRange[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YPermutation[133X
@@ -60,7 +76,10 @@
     [4X[28X(2,3,4)(5,6,7)(8,9,10)[128X[104X
   [4X[32X[104X
   
-  [1X15.1-8 ParseStringCRels[101X
+  
+  [1X15.4 [33X[0;0YWords on relations[133X[101X
+  
+  [1X15.4-1 ParseStringCRels[101X
   
   [33X[1;0Y[29X[2XParseStringCRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ya list of relators[133X
@@ -85,14 +104,14 @@
   zj  means  r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1
   (the "j-hole" word).[133X
   
-  [1X15.1-9 ParseRotGpRels[101X
+  [1X15.4-2 ParseRotGpRels[101X
   
   [33X[1;0Y[29X[2XParseRotGpRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
   
   [33X[0;0YThis  helper  function  is  used  in  several  maniplex  constructors. It is
   analogous to ParseStringCRels, but for rotation groups instead.[133X
   
-  [1X15.1-10 AddOrAppend[101X
+  [1X15.4-3 AddOrAppend[101X
   
   [33X[1;0Y[29X[2XAddOrAppend[102X( [3XL[103X, [3Xx[103X ) [32X function[133X
   
@@ -111,7 +130,7 @@
     [4X[28X[1, 2, 3, 4, 5, 6];[128X[104X
   [4X[32X[104X
   
-  [1X15.1-11 WrappedPosetOperation[101X
+  [1X15.4-4 WrappedPosetOperation[101X
   
   [33X[1;0Y[29X[2XWrappedPosetOperation[102X( [3XposetOp[103X ) [32X function[133X
   

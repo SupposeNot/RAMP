@@ -751,6 +751,12 @@ Constructs the truncated dodecahedron.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> Facets(TruncatedDodecahedron());
+[ Pgon(10), Pgon(3) ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="" Name="GreatRhombicuboctahedron" />
  <Returns>maniplex
@@ -759,6 +765,12 @@ Constructs the truncated dodecahedron.
 Constructs the great rhombicuboctahedron.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> Size(ConnectionGroup(GreatRhombicuboctahedron()));
+5308416
+]]></Example>
 
 
 </Section>

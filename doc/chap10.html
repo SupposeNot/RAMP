@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 10: Databases</title>
+<title>GAP (RAMP) - Chapter 10: Graphs for Maniplexes</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,274 +15,539 @@
 <body class="chap10"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap10_mj.html">[MathJax on]</a></p>
-<p><a id="X7EB183C3780A475B" name="X7EB183C3780A475B"></a></p>
-<div class="ChapSects"><a href="chap10.html#X7EB183C3780A475B">10 <span class="Heading">Databases</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X8062E376879531A7">10.1 <span class="Heading">Regular polyhedra</span></a>
+<p><a id="X84DE212D847339C0" name="X84DE212D847339C0"></a></p>
+<div class="ChapSects"><a href="chap10.html#X84DE212D847339C0">10 <span class="Heading">Graphs for Maniplexes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X8142EE7180458E04">10.1 <span class="Heading">Graph constructors for maniplexes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7B2285CD79A7DF27">10.1-1 DegeneratePolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X86869B8A80564ACF">10.1-2 FlatRegularPolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8229CA838473FF2B">10.1-3 RegularToroidalPolyhedra44</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X783D35FD79C25457">10.1-4 RegularToroidalPolyhedra36</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X814F1BC07C480F5D">10.1-5 SmallRegularPolyhedraFromFile</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7BD5DABD833B9700">10.1-6 SmallRegularPolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8670A2B078096E46">10.1-7 SmallDegenerateRegular4Polytopes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83C76844861B7B5A">10.1-8 SmallRegular4Polytopes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C5BEAD87A858EE7">10.1-9 SmallChiralPolyhedra</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85ED37A97CE7F77C">10.1-10 SmallChiral4Polytopes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7ED0E4347B0192A6">10.1-11 SmallReflexible3Maniplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X78C0C8BD81743643">10.1-12 SRP</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X84020A6879FBFF00">10.2 <span class="Heading">System internal representations</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7B89A32E7D94769F">10.2-1 DatabaseString</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84FC221B80847F84">10.2-2 ManiplexFromDatabaseString</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FB3733D81739F2C">10.1-1 DirectedGraphFromListOfEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82810A0A7CF30BB4">10.1-2 GraphFromListOfEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X86BE61C88420C6F6">10.1-3 UnlabeledFlagGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X791AEF1C7AA7138C">10.1-4 FlagGraphWithLabels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X809815D08250B57F">10.1-5 LayerGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7BB443CD832DAC12">10.1-6 Skeleton</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85F3D43E7D1BA8E5">10.1-7 CoSkeleton</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A0FB13C7EF68CBB">10.1-8 Hasse</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X860AACCF860A3F66">10.1-9 QuotientByLabel</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84FE2C317CFA6AFD">10.1-10 EdgeLabeledGraphFromEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A958E7C821DD8F8">10.1-11 FlagGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82A8C3AD871EC6D7">10.1-12 UnlabeledSimpleGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84263C6C81AB458C">10.1-13 EdgeLabelPreservingAutomorphismGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7D7BF5608431FED8">10.1-14 Simple</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8159C96B8757873F">10.1-15 ConnectedComponents</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A53CE8B820FD6A1">10.1-16 PRGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85BBB22F8196DC0B">10.1-17 CPRGraphFromGroups</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E52D3CB7A84139A">10.1-18 AdjacentVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X78BAE96984A79ACD">10.1-19 LabeledAdjacentVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X791A59B97A44470F">10.1-20 SemiEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82490C307F022606">10.1-21 LabeledSemiEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X811C8FB3842D6D2E">10.1-22 LabeledDarts</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8529379678912775">10.1-23 DerivedGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FF9E3FC7DD66BA4">10.1-24 ViewGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83990BFD7D887A02">10.1-25 ViewGraph</a></span>
 </div></div>
 </div>
 
-<h3>10 <span class="Heading">Databases</span></h3>
+<h3>10 <span class="Heading">Graphs for Maniplexes</span></h3>
 
-<p><a id="X8062E376879531A7" name="X8062E376879531A7"></a></p>
+<p><a id="X8142EE7180458E04" name="X8142EE7180458E04"></a></p>
 
-<h4>10.1 <span class="Heading">Regular polyhedra</span></h4>
+<h4>10.1 <span class="Heading">Graph constructors for maniplexes</span></h4>
 
-<p><a id="X7B2285CD79A7DF27" name="X7B2285CD79A7DF27"></a></p>
+<p><a id="X7FB3733D81739F2C" name="X7FB3733D81739F2C"></a></p>
 
-<h5>10.1-1 DegeneratePolyhedra</h5>
+<h5>10.1-1 DirectedGraphFromListOfEdges</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DegeneratePolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectedGraphFromListOfEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns a directed graph.</p>
 
-<p>Gives all degenerate polyhedra (of type <span class="Math">\{2, q\}</span> and <span class="Math">\{p, 2\}</span>) with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
+<p>Given a list of vertices and a list of directed-edges (represented as ordered pairs), this outputs the directed graph with the appropriate vertex and directed-edge set.</p>
 
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DegeneratePolyhedra(24);</span>
-[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), 
-  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), 
-  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), 
-  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), 
-  AbstractRegularPolytope([ 6, 2 ]) ]
-</pre></div>
-
-<p><a id="X86869B8A80564ACF" name="X86869B8A80564ACF"></a></p>
-
-<h5>10.1-2 FlatRegularPolyhedra</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatRegularPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
-
-<p>Gives all nondegenerate flat regular polyhedra with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>. Currently supports a maxsize of 4000 or less.</p>
+<p>Here we have a directed cycle on 3 vertices.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatRegularPolyhedra([10..24]);</span>
-[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), 
-  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), 
-  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), 
-  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\
- r1)^3 (r1 r2)^2"), 
-  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\
-), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= DirectedGraphFromListOfEdges([1,2,3],[[1,2],[2,3],[3,1]]);</span>
+rec( adjacencies := [ [ 2 ], [ 3 ], [ 1 ] ], group := Group(()), 
+ isGraph := true, names := [ 1, 2, 3 ], order := 3, 
+ representatives := [ 1, 2, 3 ], schreierVector := [ -1, -2, -3 ] )
 </pre></div>
 
-<p><a id="X8229CA838473FF2B" name="X8229CA838473FF2B"></a></p>
+<p><a id="X82810A0A7CF30BB4" name="X82810A0A7CF30BB4"></a></p>
 
-<h5>10.1-3 RegularToroidalPolyhedra44</h5>
+<h5>10.1-2 GraphFromListOfEdges</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RegularToroidalPolyhedra44</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GraphFromListOfEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
 
-<p>Gives all regular toroidal polyhedra of type <span class="Math">\{4,4\}</span> with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
+<p>Given a list of vertices and a list of (directed) edges (represented as ordered pairs), this outputs the simple underlying graph with the appropriate vertex and directed-edge set.</p>
+
+<p>Here we have a simple complete graph on 4 vertices.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RegularToroidalPolyhedra44([60..100]);</span>
-[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), 
-  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= GraphFromListOfEdges([1,2,3,4],[[1,2],[2,3],[3,1], [1,4], [2,4], [3,4]]);</span>
+rec( 
+ adjacencies := [ [ 2, 3, 4 ], [ 1, 3, 4 ], [ 1, 2, 4 ], [ 1, 2, 3 ] ],
+ group := Group(()), isGraph := true, isSimple := true, 
+ names := [ 1, 2, 3, 4 ], order := 4, representatives := [ 1, 2, 3, 4 ]
+   , schreierVector := [ -1, -2, -3, -4 ] )
 </pre></div>
 
-<p><a id="X783D35FD79C25457" name="X783D35FD79C25457"></a></p>
+<p><a id="X86BE61C88420C6F6" name="X86BE61C88420C6F6"></a></p>
 
-<h5>10.1-4 RegularToroidalPolyhedra36</h5>
+<h5>10.1-3 UnlabeledFlagGraph</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RegularToroidalPolyhedra36</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnlabeledFlagGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
 
-<p>Gives all regular toroidal polyhedra of type <span class="Math">\{3,6\}</span> with sizes in <var class="Arg">sizerange</var>. Also accepts a single integer <em>maxsize</em> as input to indicate a sizerange of <code class="code">[1..maxsize]</code>.</p>
+<p>Given a group (assumed to be the connection group of a maniplex), this outputs the simple underlying flag graph.</p>
+
+<p>Here we build the flag graph for the cube from its connection group.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RegularToroidalPolyhedra36([100..150]);</span>
-[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), 
-  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= UnlabeledFlagGraph(ConnectionGroup(Cube(3)));</span>
+rec( 
+ adjacencies := [ [ 3, 11, 20 ], [ 7, 13, 18 ], [ 1, 4, 10 ], 
+     [ 3, 25, 34 ], [ 26, 28, 35 ], [ 7, 13, 41 ], [ 2, 6, 8 ], 
+     [ 7, 27, 32 ], [ 28, 33, 35 ], [ 3, 20, 45 ], [ 1, 14, 23 ], 
+     [ 15, 17, 24 ], [ 2, 6, 31 ], [ 11, 25, 44 ], [ 12, 45, 47 ], 
+     [ 18, 28, 40 ], [ 12, 19, 27 ], [ 2, 16, 21 ], [ 17, 22, 24 ], 
+     [ 1, 10, 38 ], [ 18, 32, 40 ], [ 19, 41, 48 ], [ 11, 35, 44 ], 
+     [ 12, 19, 34 ], [ 4, 14, 37 ], [ 5, 38, 42 ], [ 8, 17, 30 ], 
+     [ 5, 9, 16 ], [ 39, 41, 48 ], [ 27, 32, 47 ], [ 13, 33, 39 ], 
+     [ 8, 21, 30 ], [ 9, 31, 46 ], [ 4, 24, 37 ], [ 5, 9, 23 ], 
+     [ 43, 45, 47 ], [ 25, 34, 48 ], [ 20, 26, 43 ], [ 29, 31, 46 ], 
+     [ 16, 21, 42 ], [ 6, 22, 29 ], [ 26, 40, 43 ], [ 36, 38, 42 ], 
+     [ 14, 23, 46 ], [ 10, 15, 36 ], [ 33, 39, 44 ], [ 15, 30, 36 ], 
+     [ 22, 29, 37 ] ], group := Group(()), isGraph := true, 
+ isSimple := true, names := [ 1 .. 48 ], order := 48, 
+ representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 
+     15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 
+     31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 
+     47, 48 ], 
+ schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, 
+     -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, 
+     -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, 
+     -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, -48 ] )
 </pre></div>
 
-<p><a id="X814F1BC07C480F5D" name="X814F1BC07C480F5D"></a></p>
-
-<h5>10.1-5 SmallRegularPolyhedraFromFile</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegularPolyhedraFromFile</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
-
-<p>Gives all regular polyhedra with sizes in <var class="Arg">sizerange</var> flags that are stored separately in a file. These are polyhedra that are not part of one of several infinite families that are covered by the other generators. The return value of this function is unstable and may change as more infinite familes of polyhedra are identified and written as separate generators.</p>
+<p>This also works with a maniplex input. Here we build the flag graph for the cube.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallRegularPolyhedraFromFile(64);</span>
-[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), 
-  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), 
-  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), 
-  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), 
-  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= UnlabeledFlagGraph(Cube(3));</span>
 </pre></div>
 
-<p><a id="X7BD5DABD833B9700" name="X7BD5DABD833B9700"></a></p>
+<p><a id="X791AEF1C7AA7138C" name="X791AEF1C7AA7138C"></a></p>
 
-<h5>10.1-6 SmallRegularPolyhedra</h5>
+<h5>10.1-4 FlagGraphWithLabels</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegularPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraphWithLabels</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a triple [<code class="code">IsGraph</code>, <code class="code">IsList</code>, <code class="code">IsList</code>].</p>
 
-<p>Gives all regular polyhedra with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less. You can also set options <code class="code">nondegenerate</code>, <code class="code">nonflat</code>, and <code class="code">nontoroidal</code>.</p>
+<p>Given a group (assumed to be the connection group of a maniplex), this outputs a triple [graph,list,list]. The graph is the unlabeled flag graph of the connection group. The first list gives the undirected edges in the flag graphs. The second list gives the labels for these edges.</p>
+
+<p>Here we again build the flag graph for the cube from its connection group, but this time keep track of labels of the edges.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L1 := SmallRegularPolyhedra(500);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L2 := SmallRegularPolyhedra(1000 : nondegenerate);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(SmallRegularPolyhedra(64));</span>
-53
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= FlagGraphWithLabels(ConnectionGroup(Cube(3)));</span>
+[ rec( 
+     adjacencies := [ [ 3, 11, 20 ], [ 7, 13, 18 ], [ 1, 4, 10 ], 
+         [ 3, 25, 34 ], [ 26, 28, 35 ], [ 7, 13, 41 ], [ 2, 6, 8 ], 
+         [ 7, 27, 32 ], [ 28, 33, 35 ], [ 3, 20, 45 ], [ 1, 14, 23 ], 
+         [ 15, 17, 24 ], [ 2, 6, 31 ], [ 11, 25, 44 ], [ 12, 45, 47 ], 
+         [ 18, 28, 40 ], [ 12, 19, 27 ], [ 2, 16, 21 ], 
+         [ 17, 22, 24 ], [ 1, 10, 38 ], [ 18, 32, 40 ], 
+         [ 19, 41, 48 ], [ 11, 35, 44 ], [ 12, 19, 34 ], 
+         [ 4, 14, 37 ], [ 5, 38, 42 ], [ 8, 17, 30 ], [ 5, 9, 16 ], 
+         [ 39, 41, 48 ], [ 27, 32, 47 ], [ 13, 33, 39 ], 
+         [ 8, 21, 30 ], [ 9, 31, 46 ], [ 4, 24, 37 ], [ 5, 9, 23 ], 
+         [ 43, 45, 47 ], [ 25, 34, 48 ], [ 20, 26, 43 ], 
+         [ 29, 31, 46 ], [ 16, 21, 42 ], [ 6, 22, 29 ], 
+         [ 26, 40, 43 ], [ 36, 38, 42 ], [ 14, 23, 46 ], 
+         [ 10, 15, 36 ], [ 33, 39, 44 ], [ 15, 30, 36 ], 
+         [ 22, 29, 37 ] ], group := Group(()), isGraph := true, 
+     isSimple := true, names := [ 1 .. 48 ], order := 48, 
+     representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 
+         14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 
+         29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 
+         44, 45, 46, 47, 48 ], 
+     schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, 
+         -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, 
+         -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, 
+         -36, -37, -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, 
+         -48 ] ), 
+ [ [ 1, 3 ], [ 1, 11 ], [ 1, 20 ], [ 2, 7 ], [ 2, 13 ], [ 2, 18 ], 
+     [ 3, 4 ], [ 3, 10 ], [ 4, 25 ], [ 4, 34 ], [ 5, 26 ], [ 5, 28 ], 
+     [ 5, 35 ], [ 6, 7 ], [ 6, 13 ], [ 6, 41 ], [ 7, 8 ], [ 8, 27 ], 
+     [ 8, 32 ], [ 9, 28 ], [ 9, 33 ], [ 9, 35 ], [ 10, 20 ], 
+     [ 10, 45 ], [ 11, 14 ], [ 11, 23 ], [ 12, 15 ], [ 12, 17 ], 
+     [ 12, 24 ], [ 13, 31 ], [ 14, 25 ], [ 14, 44 ], [ 15, 45 ], 
+     [ 15, 47 ], [ 16, 18 ], [ 16, 28 ], [ 16, 40 ], [ 17, 19 ], 
+     [ 17, 27 ], [ 18, 21 ], [ 19, 22 ], [ 19, 24 ], [ 20, 38 ], 
+     [ 21, 32 ], [ 21, 40 ], [ 22, 41 ], [ 22, 48 ], [ 23, 35 ], 
+     [ 23, 44 ], [ 24, 34 ], [ 25, 37 ], [ 26, 38 ], [ 26, 42 ], 
+     [ 27, 30 ], [ 29, 39 ], [ 29, 41 ], [ 29, 48 ], [ 30, 32 ], 
+     [ 30, 47 ], [ 31, 33 ], [ 31, 39 ], [ 33, 46 ], [ 34, 37 ], 
+     [ 36, 43 ], [ 36, 45 ], [ 36, 47 ], [ 37, 48 ], [ 38, 43 ], 
+     [ 39, 46 ], [ 40, 42 ], [ 42, 43 ], [ 44, 46 ] ], 
+ [ 3, 2, 1, 3, 1, 2, 2, 1, 3, 1, 2, 3, 1, 1, 3, 2, 2, 1, 3, 1, 2, 3, 
+     3, 2, 3, 1, 2, 3, 1, 2, 2, 1, 1, 3, 1, 2, 3, 1, 2, 3, 2, 3, 2, 2, 
+     1, 1, 3, 2, 3, 2, 1, 1, 3, 3, 2, 3, 1, 1, 2, 1, 3, 3, 3, 2, 3, 1, 
+     2, 3, 1, 2, 1, 2 ] ]
 </pre></div>
 
-<p><a id="X8670A2B078096E46" name="X8670A2B078096E46"></a></p>
-
-<h5>10.1-7 SmallDegenerateRegular4Polytopes</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallDegenerateRegular4Polytopes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
-
-<p>Gives all degenerate regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 8000 or less.</p>
+<p>This also works with a maniplex input. Here we build the flag graph for the cube.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> SmallDegenerateRegular4Polytopes([64]);</span>
-[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), 
-  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, 
-  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= FlagGraphWithLabels(Cube(3));</span>
 </pre></div>
 
-<p><a id="X83C76844861B7B5A" name="X83C76844861B7B5A"></a></p>
+<p><a id="X809815D08250B57F" name="X809815D08250B57F"></a></p>
 
-<h5>10.1-8 SmallRegular4Polytopes</h5>
+<h5>10.1-5 LayerGraph</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallRegular4Polytopes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LayerGraph</code>( [<var class="Arg">group</var>, <var class="Arg">int</var>, <var class="Arg">int</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
 
-<p>Gives all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+<p>Given a group (assumed to be the connection group of a maniplex), and two integers, this outputs the simple underlying graph given by incidences of faces of those ranks. Note: There are no warnings yet to make sure that i,j are bounded by the rank.</p>
+
+<p>Here we build the graph given by the 6 faces and 12 edges of a cube from its connection group.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallRegular4Polytopes([100]);</span>
-[ AbstractRegularPolytope([ 5, 2, 5 ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= LayerGraph(ConnectionGroup(Cube(3)),2,1);</span>
+rec( 
+ adjacencies := [ [ 7, 10, 12, 17 ], [ 8, 10, 15, 18 ], 
+     [ 7, 9, 13, 14 ], [ 8, 11, 13, 16 ], [ 9, 12, 16, 18 ], 
+     [ 11, 14, 15, 17 ], [ 1, 3 ], [ 2, 4 ], [ 3, 5 ], [ 1, 2 ], 
+     [ 4, 6 ], [ 1, 5 ], [ 3, 4 ], [ 3, 6 ], [ 2, 6 ], [ 4, 5 ], 
+     [ 1, 6 ], [ 2, 5 ] ], group := Group(()), isGraph := true, 
+ isSimple := true, names := [ 1 .. 18 ], order := 18, 
+ representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 
+     15, 16, 17, 18 ], 
+ schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, 
+     -12, -13, -14, -15, -16, -17, -18 ] )
 </pre></div>
 
-<p><a id="X7C5BEAD87A858EE7" name="X7C5BEAD87A858EE7"></a></p>
-
-<h5>10.1-9 SmallChiralPolyhedra</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallChiralPolyhedra</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
-
-<p>Gives all chiral polyhedra with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+<p>This also works with a maniplex input. Here we build the graph given by the 6 faces and 12 edges of a cube.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallChiralPolyhedra(100);</span>
-[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), 
-  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), 
-  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), 
-  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= LayerGraph(Cube(3),2,1);;</span>
 </pre></div>
 
-<p><a id="X85ED37A97CE7F77C" name="X85ED37A97CE7F77C"></a></p>
+<p><a id="X7BB443CD832DAC12" name="X7BB443CD832DAC12"></a></p>
 
-<h5>10.1-10 SmallChiral4Polytopes</h5>
+<h5>10.1-6 Skeleton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallChiral4Polytopes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Skeleton</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
 
-<p>Gives all chiral 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 4000 or less.</p>
+<p>Given a maniplex, this outputs the 0-1 skeleton. The vertices are the 0-faces, and the edges are the 1-faces.</p>
+
+<p>Here we build the skeleton of the dodecahedron.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallChiral4Polytopes([200..250]);</span>
-[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), 
-  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), 
-  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:= Skeleton(Dodecahedron());;</span>
 </pre></div>
 
-<p><a id="X7ED0E4347B0192A6" name="X7ED0E4347B0192A6"></a></p>
+<p><a id="X85F3D43E7D1BA8E5" name="X85F3D43E7D1BA8E5"></a></p>
 
-<h5>10.1-11 SmallReflexible3Maniplexes</h5>
+<h5>10.1-7 CoSkeleton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallReflexible3Maniplexes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoSkeleton</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
 
-<p>Gives all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 2000 or less. If the option <code class="code">nonpolytopal</code> is set, only returns maniplexes that are not polyhedra.</p>
+<p>Given a maniplex, this outputs the <span class="Math">(n-1)</span>-<span class="Math">(n-2)</span> skeleton, i.e., the 0-1 skeleton of the dual. The vertices are the <span class="Math">(n-1)</span>-faces, and the edges are the <span class="Math">(n-2)</span>-faces.</p>
 
-<p><a id="X78C0C8BD81743643" name="X78C0C8BD81743643"></a></p>
-
-<h5>10.1-12 SRP</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SRP</code>( <var class="Arg">minsize</var>, <var class="Arg">maxsize</var>[, <var class="Arg">func1</var>, <var class="Arg">val1</var>, <var class="Arg">func2</var>, <var class="Arg">val2</var>, <var class="Arg">...</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
-
-<p>Returns a list of all regular polyhedra with at least <var class="Arg">minsize</var> at at most <var class="Arg">maxsize</var> flags. Optionally, you may include any number of pairs of functions and values, in which case this only returns those polyhedra such that the given functions have the given values. The name of this function is temporary and this function is here as a proof-of-concept.</p>
+<p>Here we build the co-skeleton of the dodecahedron and verify that it is the skeleton of the icosahedron.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4]);</span>
-[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);</span>
-[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,32,p-&gt;SchlafliSymbol(p)[1], 4);</span>
-[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=CoSkeleton(Dodecahedron());;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h:=Skeleton(Icosahedron());;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g=h;</span>
+true
 </pre></div>
 
-<p><a id="X84020A6879FBFF00" name="X84020A6879FBFF00"></a></p>
+<p><a id="X7A0FB13C7EF68CBB" name="X7A0FB13C7EF68CBB"></a></p>
 
-<h4>10.2 <span class="Heading">System internal representations</span></h4>
+<h5>10.1-8 Hasse</h5>
 
-<p><a id="X7B89A32E7D94769F" name="X7B89A32E7D94769F"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hasse</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns a directed graph.</p>
 
-<h5>10.2-1 DatabaseString</h5>
+<p>Given a group, assumed to be the connection group of a maniplex, this outputs the Hasse Diagram as a directed graph. Note: The unique minimal and maximal face are assumed.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DatabaseString</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: String</p>
+<p>Here we build the Hasse Diagram of a 3-simplex from its representation as a maniplex.</p>
 
-<p>Given a maniplex <var class="Arg">M</var>, returns a string representation of <var class="Arg">M</var> suitable for saving in a database for later retrieval.</p>
 
-<p><a id="X84FC221B80847F84" name="X84FC221B80847F84"></a></p>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Hasse(Simplex(3));</span>
+rec( 
+ adjacencies := [ [  ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 4 ], 
+     [ 2, 3 ], [ 3, 5 ], [ 2, 5 ], [ 4, 5 ], [ 3, 4 ], [ 6, 9, 10 ], 
+     [ 6, 7, 11 ], [ 8, 10, 11 ], [ 7, 8, 9 ], [ 12, 13, 14, 15 ] ], 
+ group := Group(()), isGraph := true, names := [ 1 .. 16 ], 
+ order := 16, 
+ representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 
+     15, 16 ], 
+ schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, 
+     -12, -13, -14, -15, -16 ] )
+</pre></div>
 
-<h5>10.2-2 ManiplexFromDatabaseString</h5>
+<p><a id="X860AACCF860A3F66" name="X860AACCF860A3F66"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ManiplexFromDatabaseString</code>( <var class="Arg">maniplexString</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<h5>10.1-9 QuotientByLabel</h5>
 
-<p>Given a string <var class="Arg">maniplexString</var>, representing a maniplex stored in a database, returns the maniplex that is represented.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientByLabel</code>( <var class="Arg">object</var>, <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
+
+<p>Given a graph, its edges, and its edge labels, and a sublist of labels, this creates the underlying simple graph of the quotient identifying vertices connected by labels not in the sublist.</p>
+
+<p>Here we start with the flag graph of the 3-cube (with edge labels 1,2,3), and identify any vertices not connected by edge by edges of label 1. We can then check that this new graph is bipartite.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=Cube(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f:=FlagGraphWithLabels(P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=f[1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ed:=f[2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">lab:=f[3];  #Note This triple is to be replace by a single object.</span>
+[ 3, 2, 1, 3, 1, 2, 1, 2, 3, 2, 1, 3, 2, 1, 1, 3, 2, 2, 3, 1, 3, 1, 2, 3, 2, 1, 1, 2, 2, 3, 1, 3, 1, 2, 
+  3, 1, 2, 1, 3, 2, 2, 1, 2, 2, 3, 1, 1, 3, 1, 3, 3, 2, 1, 2, 1, 3, 3, 1, 3, 2, 2, 2, 2, 3, 3, 1, 3, 1, 1, 3, 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q:=QuotientByLabel(g,ed,lab,[1]);</span>
+rec( adjacencies := [ [ 5, 6, 8 ], [ 3, 4, 7 ], [ 2, 6, 8 ], [ 2, 5, 8 ], [ 1, 4, 7 ], [ 1, 3, 7 ], [ 2, 5, 6 ], [ 1, 3, 4 ] ], group := Group(()), isGraph := true, 
+ isSimple := true, names := [ 1 .. 8 ], order := 8, representatives := [ 1, 2, 3, 4, 5, 6, 7, 8 ], schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsBipartite(Q);</span>
+true
+</pre></div>
+
+<p><a id="X84FE2C317CFA6AFD" name="X84FE2C317CFA6AFD"></a></p>
+
+<h5>10.1-10 EdgeLabeledGraphFromEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabeledGraphFromEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
+
+<p>Given a list of vertices, a list of edges, and a list of edge labels, this represents the edge labeled (multi)-graph with those parameters. Semi-edges are represented by a singleton in the edge list. Loops are represented by edges [i,i]</p>
+
+<p>Here we have an edge labeled cycle graph with 6 vertices and edges alternating in labels 0,1.</p>
+
+
+<div class="example"><pre>
+V:=[1..6];;
+Edges:=[[1,2],[2,3],[3,4],[4,5],[5,6],[6,1]];;
+L:=[0,1,0,1,0,1];;
+gamma:=EdgeLabeledGraphFromEdges(V,Edges,L);
+</pre></div>
+
+<p><a id="X7A958E7C821DD8F8" name="X7A958E7C821DD8F8"></a></p>
+
+<h5>10.1-11 FlagGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
+
+<p>Given group, assumed to be a connection group, output the labeled flag graph. The input could also be a maniplex, then the connection group is calculated.</p>
+
+<p>Here we have the flag graph of the 3-simplex from its connection group.</p>
+
+
+<div class="example"><pre>
+C:=ConnectionGroup(Simplex(3));;
+gamma:=FlagGraph(C);
+</pre></div>
+
+<p><a id="X82A8C3AD871EC6D7" name="X82A8C3AD871EC6D7"></a></p>
+
+<h5>10.1-12 UnlabeledSimpleGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnlabeledSimpleGraph</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>.</p>
+
+<p>Given an edge labeled (multi) graph, it returns the underlying simple graph, with semi-edges, loops, and muliple-edges removed.</p>
+
+<p>Here we have underlying simple graph for the flag graph of the cube.</p>
+
+
+<div class="example"><pre>
+gamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));
+</pre></div>
+
+<p><a id="X84263C6C81AB458C" name="X84263C6C81AB458C"></a></p>
+
+<h5>10.1-13 EdgeLabelPreservingAutomorphismGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabelPreservingAutomorphismGroup</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGroup</code>.</p>
+
+<p>Given an edge labeled (multi) graph, it returns automorphism group (preserving the labels). Note, for now the labels are assumed to be [1..n]. Note This tends to be very slow. I would like to look for a way to go back and forth between flag automorphisms and poset automorphisms, as the latter are much faster to compute.</p>
+
+<p>Here we have the automorphism group of the flag graph of the cube.</p>
+
+
+<div class="example"><pre>
+g:=EdgeLabelPreservingAutomorphismGroup(FlagGraph(Cube(3)));;
+Size(g);
+</pre></div>
+
+<p><a id="X7D7BF5608431FED8" name="X7D7BF5608431FED8"></a></p>
+
+<h5>10.1-14 Simple</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Simple</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsEdgeLabeledGraph </code>.</p>
+
+<p>Given an edge labeled (multi) graph, it returns another edge labeled graph where semi-edges, loops, and multiple edges are removed. Note only the "first" edge label is retained if there are multiple edges.</p>
+
+<p><a id="X8159C96B8757873F" name="X8159C96B8757873F"></a></p>
+
+<h5>10.1-15 ConnectedComponents</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectedComponents</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code>.</p>
+
+<p>Given an edge labeled (multi) graph and a list of labels, it returns connected components of the graph not using edges in the list of labels. Note if the second argument is not used, it is assumed to be an empty list, and the connected components of the original graph are returned.</p>
+
+<p>Here we see that each connected component of the flag graph of the cube (which has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.</p>
+
+
+<div class="example"><pre>
+gamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);
+</pre></div>
+
+<p><a id="X7A53CE8B820FD6A1" name="X7A53CE8B820FD6A1"></a></p>
+
+<h5>10.1-16 PRGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PRGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsEdgeLabeledGraph </code>.</p>
+
+<p>Given a group, it returns the permutation representation graph for that group. When the group is a string C-group this is also called a CPR graph. The labels of the edges are [1...r] where r is the number of generators of the group.</p>
+
+<p>Here we see the CPR graph of the automorphism group of a cube (acting on its 8 vertices).</p>
+
+
+<div class="example"><pre>
+G:=AutomorphismGroup(Cube(3));
+H:=Group(G.2,G.3);
+phi:=FactorCosetAction(G,H);
+G2:=Range(phi);
+gamma:=PRGraph(G2);
+</pre></div>
+
+<p><a id="X85BBB22F8196DC0B" name="X85BBB22F8196DC0B"></a></p>
+
+<h5>10.1-17 CPRGraphFromGroups</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CPRGraphFromGroups</code>( <var class="Arg">group</var>, <var class="Arg">subgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
+
+<p>Given a group and a subgroup. Returns the graph of the action of the first group on cosets of the subgroup.</p>
+
+<p><a id="X7E52D3CB7A84139A" name="X7E52D3CB7A84139A"></a></p>
+
+<h5>10.1-18 AdjacentVertices</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentVertices</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">vertex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs a list of the adjacent vertices.</p>
+
+<p><a id="X78BAE96984A79ACD" name="X78BAE96984A79ACD"></a></p>
+
+<h5>10.1-19 LabeledAdjacentVertices</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledAdjacentVertices</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">vertex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList, IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs two lists: the list of adjacent vertices, and the labels of the corresponding edges.</p>
+
+<p><a id="X791A59B97A44470F" name="X791A59B97A44470F"></a></p>
+
+<h5>10.1-20 SemiEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SemiEdges</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs a list of semiedges</p>
+
+<p><a id="X82490C307F022606" name="X82490C307F022606"></a></p>
+
+<h5>10.1-21 LabeledSemiEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledSemiEdges</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList, IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges and their labels</p>
+
+<p><a id="X811C8FB3842D6D2E" name="X811C8FB3842D6D2E"></a></p>
+
+<h5>10.1-22 LabeledDarts</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledDarts</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code>.</p>
+
+<p>Takes in an edge labeled graph and outputs the labeled darts.</p>
+
+<p><a id="X8529379678912775" name="X8529379678912775"></a></p>
+
+<h5>10.1-23 DerivedGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DerivedGraph</code>( <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
+
+<p>Given a a pre-maniplex (entered as its vertices and labeled darts) and voltages Return the connected derived graph from a pre-maniplex Careful, the order of our automorphisms. Do we want them on left or right? Does it matter? Can make another version with non-connected results, where the group is also an input</p>
+
+<p>Here we can build the flag graph of a 3-orbit polyhedron.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=[1,2,3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Ed:=[[1],[1],[1,2],[2],[2,3],[3],[3]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[1,2,0,2,1,0,2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=EdgeLabeledGraphFromEdges(V,Ed,L);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=LabeledDarts(g);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">volt:=[ (1,2), (3,4), (), (), (3,4), (), (), (4,5), (2,3) ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D:=DerivedGraph(V,L,volt);</span>
+Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
+</pre></div>
+
+<p><a id="X7FF9E3FC7DD66BA4" name="X7FF9E3FC7DD66BA4"></a></p>
+
+<h5>10.1-24 ViewGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ViewGraph</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">String</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsString</code>.</p>
+
+<p>This takes an edge labeled graph and outputs code to view the graph in other software. Currently mathematica and sage are supported.</p>
+
+<p><a id="X83990BFD7D887A02" name="X83990BFD7D887A02"></a></p>
+
+<h5>10.1-25 ViewGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ViewGraph</code>( <var class="Arg">Graph</var>, <var class="Arg">String</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsString</code>.</p>
+
+<p>This takes a graph and outputs code to view the graph in other software. Currently mathematica and sage are supported.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

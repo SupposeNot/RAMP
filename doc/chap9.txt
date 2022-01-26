@@ -1,479 +1,417 @@
   
-  [1X9 [33X[0;0YGraphs for Maniplexes[133X[101X
+  [1X9 [33X[0;0YCombinatorics and Structure[133X[101X
   
   
-  [1X9.1 [33X[0;0YGraph constructors for maniplexes[133X[101X
+  [1X9.1 [33X[0;0YFaces[133X[101X
   
-  [1X9.1-1 DirectedGraphFromListOfEdges[101X
+  [1X9.1-1 NumberOfIFaces[101X
   
-  [33X[1;0Y[29X[2XDirectedGraphFromListOfEdges[102X( [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns a directed graph.[133X
+  [33X[1;0Y[29X[2XNumberOfIFaces[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
   
-  [33X[0;0YGiven  a  list  of  vertices  and  a  list of directed-edges (represented as
-  ordered  pairs), this outputs the directed graph with the appropriate vertex
-  and directed-edge set.[133X
-  
-  [33X[0;0YHere we have a directed cycle on 3 vertices.[133X
+  [33X[0;0YReturns The number of [3Xi[103X-faces of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= DirectedGraphFromListOfEdges([1,2,3],[[1,2],[2,3],[3,1]]);[127X[104X
-    [4X[28Xrec( adjacencies := [ [ 2 ], [ 3 ], [ 1 ] ], group := Group(()), [128X[104X
-    [4X[28X isGraph := true, names := [ 1, 2, 3 ], order := 3, [128X[104X
-    [4X[28X representatives := [ 1, 2, 3 ], schreierVector := [ -1, -2, -3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfIFaces(Dodecahedron(),1);[127X[104X
+    [4X[28X30[128X[104X
   [4X[32X[104X
   
-  [1X9.1-2 GraphFromListOfEdges[101X
+  [1X9.1-2 NumberOfVertices[101X
   
-  [33X[1;0Y[29X[2XGraphFromListOfEdges[102X( [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
+  [33X[1;0Y[29X[2XNumberOfVertices[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YGiven  a  list  of  vertices  and a list of (directed) edges (represented as
-  ordered   pairs),   this  outputs  the  simple  underlying  graph  with  the
-  appropriate vertex and directed-edge set.[133X
-  
-  [33X[0;0YHere we have a simple complete graph on 4 vertices.[133X
+  [33X[0;0YReturns the number of vertices of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= GraphFromListOfEdges([1,2,3,4],[[1,2],[2,3],[3,1], [1,4], [2,4], [3,4]]);[127X[104X
-    [4X[28Xrec( [128X[104X
-    [4X[28X adjacencies := [ [ 2, 3, 4 ], [ 1, 3, 4 ], [ 1, 2, 4 ], [ 1, 2, 3 ] ],[128X[104X
-    [4X[28X group := Group(()), isGraph := true, isSimple := true, [128X[104X
-    [4X[28X names := [ 1, 2, 3, 4 ], order := 4, representatives := [ 1, 2, 3, 4 ][128X[104X
-    [4X[28X   , schreierVector := [ -1, -2, -3, -4 ] )[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfVertices(HemiDodecahedron());[127X[104X
+    [4X[28X10[128X[104X
   [4X[32X[104X
   
-  [1X9.1-3 UnlabeledFlagGraph[101X
+  [1X9.1-3 NumberOfEdges[101X
   
-  [33X[1;0Y[29X[2XUnlabeledFlagGraph[102X( [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
+  [33X[1;0Y[29X[2XNumberOfEdges[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YGiven  a  group  (assumed  to  be  the connection group of a maniplex), this
-  outputs the simple underlying flag graph.[133X
-  
-  [33X[0;0YHere we build the flag graph for the cube from its connection group.[133X
+  [33X[0;0YReturns the number of edges of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= UnlabeledFlagGraph(ConnectionGroup(Cube(3)));[127X[104X
-    [4X[28Xrec( [128X[104X
-    [4X[28X adjacencies := [ [ 3, 11, 20 ], [ 7, 13, 18 ], [ 1, 4, 10 ], [128X[104X
-    [4X[28X     [ 3, 25, 34 ], [ 26, 28, 35 ], [ 7, 13, 41 ], [ 2, 6, 8 ], [128X[104X
-    [4X[28X     [ 7, 27, 32 ], [ 28, 33, 35 ], [ 3, 20, 45 ], [ 1, 14, 23 ], [128X[104X
-    [4X[28X     [ 15, 17, 24 ], [ 2, 6, 31 ], [ 11, 25, 44 ], [ 12, 45, 47 ], [128X[104X
-    [4X[28X     [ 18, 28, 40 ], [ 12, 19, 27 ], [ 2, 16, 21 ], [ 17, 22, 24 ], [128X[104X
-    [4X[28X     [ 1, 10, 38 ], [ 18, 32, 40 ], [ 19, 41, 48 ], [ 11, 35, 44 ], [128X[104X
-    [4X[28X     [ 12, 19, 34 ], [ 4, 14, 37 ], [ 5, 38, 42 ], [ 8, 17, 30 ], [128X[104X
-    [4X[28X     [ 5, 9, 16 ], [ 39, 41, 48 ], [ 27, 32, 47 ], [ 13, 33, 39 ], [128X[104X
-    [4X[28X     [ 8, 21, 30 ], [ 9, 31, 46 ], [ 4, 24, 37 ], [ 5, 9, 23 ], [128X[104X
-    [4X[28X     [ 43, 45, 47 ], [ 25, 34, 48 ], [ 20, 26, 43 ], [ 29, 31, 46 ], [128X[104X
-    [4X[28X     [ 16, 21, 42 ], [ 6, 22, 29 ], [ 26, 40, 43 ], [ 36, 38, 42 ], [128X[104X
-    [4X[28X     [ 14, 23, 46 ], [ 10, 15, 36 ], [ 33, 39, 44 ], [ 15, 30, 36 ], [128X[104X
-    [4X[28X     [ 22, 29, 37 ] ], group := Group(()), isGraph := true, [128X[104X
-    [4X[28X isSimple := true, names := [ 1 .. 48 ], order := 48, [128X[104X
-    [4X[28X representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, [128X[104X
-    [4X[28X     15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, [128X[104X
-    [4X[28X     31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, [128X[104X
-    [4X[28X     47, 48 ], [128X[104X
-    [4X[28X schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, [128X[104X
-    [4X[28X     -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, [128X[104X
-    [4X[28X     -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, [128X[104X
-    [4X[28X     -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, -48 ] )[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdges(HemiIcosahedron());[127X[104X
+    [4X[28X15[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis  also works with a maniplex input. Here we build the flag graph for the
-  cube.[133X
+  [1X9.1-4 NumberOfFacets[101X
+  
+  [33X[1;0Y[29X[2XNumberOfFacets[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the number of facets of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= UnlabeledFlagGraph(Cube(3));[127X[104X
+    [4X[25Xgap>[125X [27XNumberOfFacets(Bk2l(4,6));[127X[104X
+    [4X[28X4[128X[104X
   [4X[32X[104X
   
-  [1X9.1-4 FlagGraphWithLabels[101X
+  [1X9.1-5 NumberOfRidges[101X
   
-  [33X[1;0Y[29X[2XFlagGraphWithLabels[102X( [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ya triple [[10XIsGraph[110X, [10XIsList[110X, [10XIsList[110X].[133X
+  [33X[1;0Y[29X[2XNumberOfRidges[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YGiven  a  group  (assumed  to  be  the connection group of a maniplex), this
-  outputs a triple [graph,list,list]. The graph is the unlabeled flag graph of
-  the  connection group. The first list gives the undirected edges in the flag
-  graphs. The second list gives the labels for these edges.[133X
-  
-  [33X[0;0YHere  we  again build the flag graph for the cube from its connection group,
-  but this time keep track of labels of the edges.[133X
+  [33X[0;0YReturns the number of ridges ((n-2)-faces) of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= FlagGraphWithLabels(ConnectionGroup(Cube(3)));[127X[104X
-    [4X[28X[ rec( [128X[104X
-    [4X[28X     adjacencies := [ [ 3, 11, 20 ], [ 7, 13, 18 ], [ 1, 4, 10 ], [128X[104X
-    [4X[28X         [ 3, 25, 34 ], [ 26, 28, 35 ], [ 7, 13, 41 ], [ 2, 6, 8 ], [128X[104X
-    [4X[28X         [ 7, 27, 32 ], [ 28, 33, 35 ], [ 3, 20, 45 ], [ 1, 14, 23 ], [128X[104X
-    [4X[28X         [ 15, 17, 24 ], [ 2, 6, 31 ], [ 11, 25, 44 ], [ 12, 45, 47 ], [128X[104X
-    [4X[28X         [ 18, 28, 40 ], [ 12, 19, 27 ], [ 2, 16, 21 ], [128X[104X
-    [4X[28X         [ 17, 22, 24 ], [ 1, 10, 38 ], [ 18, 32, 40 ], [128X[104X
-    [4X[28X         [ 19, 41, 48 ], [ 11, 35, 44 ], [ 12, 19, 34 ], [128X[104X
-    [4X[28X         [ 4, 14, 37 ], [ 5, 38, 42 ], [ 8, 17, 30 ], [ 5, 9, 16 ], [128X[104X
-    [4X[28X         [ 39, 41, 48 ], [ 27, 32, 47 ], [ 13, 33, 39 ], [128X[104X
-    [4X[28X         [ 8, 21, 30 ], [ 9, 31, 46 ], [ 4, 24, 37 ], [ 5, 9, 23 ], [128X[104X
-    [4X[28X         [ 43, 45, 47 ], [ 25, 34, 48 ], [ 20, 26, 43 ], [128X[104X
-    [4X[28X         [ 29, 31, 46 ], [ 16, 21, 42 ], [ 6, 22, 29 ], [128X[104X
-    [4X[28X         [ 26, 40, 43 ], [ 36, 38, 42 ], [ 14, 23, 46 ], [128X[104X
-    [4X[28X         [ 10, 15, 36 ], [ 33, 39, 44 ], [ 15, 30, 36 ], [128X[104X
-    [4X[28X         [ 22, 29, 37 ] ], group := Group(()), isGraph := true, [128X[104X
-    [4X[28X     isSimple := true, names := [ 1 .. 48 ], order := 48, [128X[104X
-    [4X[28X     representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, [128X[104X
-    [4X[28X         14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, [128X[104X
-    [4X[28X         29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, [128X[104X
-    [4X[28X         44, 45, 46, 47, 48 ], [128X[104X
-    [4X[28X     schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, [128X[104X
-    [4X[28X         -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, [128X[104X
-    [4X[28X         -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, [128X[104X
-    [4X[28X         -36, -37, -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, [128X[104X
-    [4X[28X         -48 ] ), [128X[104X
-    [4X[28X [ [ 1, 3 ], [ 1, 11 ], [ 1, 20 ], [ 2, 7 ], [ 2, 13 ], [ 2, 18 ], [128X[104X
-    [4X[28X     [ 3, 4 ], [ 3, 10 ], [ 4, 25 ], [ 4, 34 ], [ 5, 26 ], [ 5, 28 ], [128X[104X
-    [4X[28X     [ 5, 35 ], [ 6, 7 ], [ 6, 13 ], [ 6, 41 ], [ 7, 8 ], [ 8, 27 ], [128X[104X
-    [4X[28X     [ 8, 32 ], [ 9, 28 ], [ 9, 33 ], [ 9, 35 ], [ 10, 20 ], [128X[104X
-    [4X[28X     [ 10, 45 ], [ 11, 14 ], [ 11, 23 ], [ 12, 15 ], [ 12, 17 ], [128X[104X
-    [4X[28X     [ 12, 24 ], [ 13, 31 ], [ 14, 25 ], [ 14, 44 ], [ 15, 45 ], [128X[104X
-    [4X[28X     [ 15, 47 ], [ 16, 18 ], [ 16, 28 ], [ 16, 40 ], [ 17, 19 ], [128X[104X
-    [4X[28X     [ 17, 27 ], [ 18, 21 ], [ 19, 22 ], [ 19, 24 ], [ 20, 38 ], [128X[104X
-    [4X[28X     [ 21, 32 ], [ 21, 40 ], [ 22, 41 ], [ 22, 48 ], [ 23, 35 ], [128X[104X
-    [4X[28X     [ 23, 44 ], [ 24, 34 ], [ 25, 37 ], [ 26, 38 ], [ 26, 42 ], [128X[104X
-    [4X[28X     [ 27, 30 ], [ 29, 39 ], [ 29, 41 ], [ 29, 48 ], [ 30, 32 ], [128X[104X
-    [4X[28X     [ 30, 47 ], [ 31, 33 ], [ 31, 39 ], [ 33, 46 ], [ 34, 37 ], [128X[104X
-    [4X[28X     [ 36, 43 ], [ 36, 45 ], [ 36, 47 ], [ 37, 48 ], [ 38, 43 ], [128X[104X
-    [4X[28X     [ 39, 46 ], [ 40, 42 ], [ 42, 43 ], [ 44, 46 ] ], [128X[104X
-    [4X[28X [ 3, 2, 1, 3, 1, 2, 2, 1, 3, 1, 2, 3, 1, 1, 3, 2, 2, 1, 3, 1, 2, 3, [128X[104X
-    [4X[28X     3, 2, 3, 1, 2, 3, 1, 2, 2, 1, 1, 3, 1, 2, 3, 1, 2, 3, 2, 3, 2, 2, [128X[104X
-    [4X[28X     1, 1, 3, 2, 3, 2, 1, 1, 3, 3, 2, 3, 1, 1, 2, 1, 3, 3, 3, 2, 3, 1, [128X[104X
-    [4X[28X     2, 3, 1, 2, 1, 2 ] ][128X[104X
+    [4X[25Xgap>[125X [27XNumberOfRidges(CrossPolytope(5));[127X[104X
+    [4X[28X80[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis  also works with a maniplex input. Here we build the flag graph for the
-  cube.[133X
+  [1X9.1-6 Fvector[101X
+  
+  [33X[1;0Y[29X[2XFvector[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the f-vector of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= FlagGraphWithLabels(Cube(3));[127X[104X
+    [4X[25Xgap>[125X [27XFvector(HemiIcosahedron());[127X[104X
+    [4X[28X[ 6, 15, 10 ][128X[104X
   [4X[32X[104X
   
-  [1X9.1-5 LayerGraph[101X
   
-  [33X[1;0Y[29X[2XLayerGraph[102X( [[3Xgroup[103X, [3Xint[103X, [3Xint[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
+  [1X9.1-7 [33X[0;0YSection(s)[133X[101X
   
-  [33X[0;0YGiven  a  group  (assumed to be the connection group of a maniplex), and two
-  integers,  this  outputs  the simple underlying graph given by incidences of
-  faces  of those ranks. Note: There are no warnings yet to make sure that i,j
-  are bounded by the rank.[133X
+  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSection[102X( [3XM[103X, [3Xj[103X, [3Xi[103X, [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XSections[102X( [3XM[103X, [3Xj[103X, [3Xi[103X ) [32X operation[133X
   
-  [33X[0;0YHere we build the graph given by the 6 faces and 12 edges of a cube from its
-  connection group.[133X
+  [33X[0;0Y[10XSection(M,j,i)[110X returns the section [10XF_j / F_i[110X, where [10XF_j[110X is the [23Xj[123X-face of the
+  base  flag  of  [3XM[103X  and  [10XF_i[110X is the [23Xi[123X-face of the base flag. [10XSection(M,j,i,k)[110X
+  returns the section [10XF_j / F_i[110X, where [10XF_j[110X is the [23Xj[123X-face of flag number [3Xk[103X of [3XM[103X
+  and [10XF_i[110X is the [23Xi[123X-face of the same flag. [10XSections(M,j,i)[110X returns all sections
+  of type [10XF_j / F_i[110X, where [10XF_j[110X is a [23Xj[123X-face and [10XF_i[110X is an incident [23Xi[123X-face.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= LayerGraph(ConnectionGroup(Cube(3)),2,1);[127X[104X
-    [4X[28Xrec( [128X[104X
-    [4X[28X adjacencies := [ [ 7, 10, 12, 17 ], [ 8, 10, 15, 18 ], [128X[104X
-    [4X[28X     [ 7, 9, 13, 14 ], [ 8, 11, 13, 16 ], [ 9, 12, 16, 18 ], [128X[104X
-    [4X[28X     [ 11, 14, 15, 17 ], [ 1, 3 ], [ 2, 4 ], [ 3, 5 ], [ 1, 2 ], [128X[104X
-    [4X[28X     [ 4, 6 ], [ 1, 5 ], [ 3, 4 ], [ 3, 6 ], [ 2, 6 ], [ 4, 5 ], [128X[104X
-    [4X[28X     [ 1, 6 ], [ 2, 5 ] ], group := Group(()), isGraph := true, [128X[104X
-    [4X[28X isSimple := true, names := [ 1 .. 18 ], order := 18, [128X[104X
-    [4X[28X representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, [128X[104X
-    [4X[28X     15, 16, 17, 18 ], [128X[104X
-    [4X[28X schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, [128X[104X
-    [4X[28X     -12, -13, -14, -15, -16, -17, -18 ] )[128X[104X
+    [4X[25Xgap>[125X [27XSection(ToroidalMap44([2,2]),3,0);[127X[104X
+    [4X[28XPgon(4)[128X[104X
+    [4X[25Xgap>[125X [27XSection(Cuboctahedron(),2,-1,1);[127X[104X
+    [4X[28XPgon(4)[128X[104X
+    [4X[25Xgap>[125X [27XSection(Cuboctahedron(),2,-1,4);[127X[104X
+    [4X[28XPgon(3)[128X[104X
+    [4X[25Xgap>[125X [27XSections(Cuboctahedron(),2,-1);[127X[104X
+    [4X[28X[ Pgon(4), Pgon(3) ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis  also works with a maniplex input. Here we build the graph given by the
-  6 faces and 12 edges of a cube.[133X
+  
+  [1X9.1-8 [33X[0;0YFacet(s)[133X[101X
+  
+  [33X[1;0Y[29X[2XFacets[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XFacet[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  facet-types  of  [3XM[103X  (i.e.  the maniplexes corresponding to the
+  facets).  Returns  the  facet of [3XM[103X that contains the flag number [3Xk[103X (that is,
+  the  maniplex  corresponding  to  the  facet).  Returns  the facet of [3XM[103X that
+  contains flag number 1 (that is, the maniplex corresponding to the facet).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= LayerGraph(Cube(3),2,1);;[127X[104X
+    [4X[25Xgap>[125X [27XFacets(Cuboctahedron());[127X[104X
+    [4X[28X[ Pgon(4), Pgon(3) ][128X[104X
+    [4X[25Xgap>[125X [27XFacet(Cuboctahedron(),4);[127X[104X
+    [4X[28XPgon(3)[128X[104X
+    [4X[25Xgap>[125X [27XFacet(Cuboctahedron());[127X[104X
+    [4X[28XPgon(4)[128X[104X
   [4X[32X[104X
   
-  [1X9.1-6 Skeleton[101X
   
-  [33X[1;0Y[29X[2XSkeleton[102X( [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
+  [1X9.1-9 [33X[0;0YVertex Figure(s)[133X[101X
   
-  [33X[0;0YGiven  a  maniplex,  this  outputs  the  0-1  skeleton. The vertices are the
-  0-faces, and the edges are the 1-faces.[133X
+  [33X[1;0Y[29X[2XVertexFigures[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XVertexFigure[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YHere we build the skeleton of the dodecahedron.[133X
+  [33X[0;0YReturns  the types of vertex-figures of [3XM[103X (i.e. the maniplexes corresponding
+  to  the  vertex-figures).  Returns the vertex-figure of [3XM[103X that contains flag
+  number [3Xk[103X. Returns the vertex-figure of [3XM[103X that contains the base flag.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:= Skeleton(Dodecahedron());;[127X[104X
+    [4X[25Xgap>[125X [27Xp:=Dual(SmallRhombicosidodecahedron());[127X[104X
+    [4X[28XDual(3-maniplex)[128X[104X
+    [4X[25Xgap>[125X [27XVertexFigures(p);[127X[104X
+    [4X[28X[ Pgon(5), Pgon(4), Pgon(3) ][128X[104X
+    [4X[25Xgap>[125X [27XVertexFigure(p,4);[127X[104X
+    [4X[28XPgon(4)[128X[104X
+    [4X[25Xgap>[125X [27XVertexFigure(p);[127X[104X
+    [4X[28XPgon(5)[128X[104X
   [4X[32X[104X
   
-  [1X9.1-7 CoSkeleton[101X
   
-  [33X[1;0Y[29X[2XCoSkeleton[102X( [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
+  [1X9.2 [33X[0;0YFlatness[133X[101X
   
-  [33X[0;0YGiven  a  maniplex,  this  outputs  the  [23X(n-1)[123X-[23X(n-2)[123X skeleton, i.e., the 0-1
-  skeleton  of  the  dual. The vertices are the [23X(n-1)[123X-faces, and the edges are
-  the [23X(n-2)[123X-faces.[133X
   
-  [33X[0;0YHere  we build the co-skeleton of the dodecahedron and verify that it is the
-  skeleton of the icosahedron.[133X
+  [1X9.2-1 [33X[0;0YFlatness[133X[101X
+  
+  [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YIn  the  first  form,  returns  true  if  every  vertex of the maniplex [3XM[103X is
+  incident to every facet. In the second form, returns true if every i-face of
+  the maniplex [3XM[103X is incident to every j-face.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:=CoSkeleton(Dodecahedron());;[127X[104X
-    [4X[25Xgap>[125X [27Xh:=Skeleton(Icosahedron());;[127X[104X
-    [4X[25Xgap>[125X [27Xg=h;[127X[104X
+    [4X[25Xgap>[125X [27XIsFlat(HemiCube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsFlat(Simplex(3),0,2);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.3 [33X[0;0YSchlafli symbol[133X[101X
+  
+  [1X9.3-1 SchlafliSymbol[101X
+  
+  [33X[1;0Y[29X[2XSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  Schlafli  symbol  of  the  maniplex [3XM[103X. Each entry is either an
+  integer  or  a set of integers, where entry number i shows the polygons that
+  we obtain as sections of (i+1)-faces over (i-2)-faces.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(SmallRhombicosidodecahedron());[127X[104X
+    [4X[28X[ [ 3, 4, 5 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X9.3-2 PseudoSchlafliSymbol[101X
+  
+  [33X[1;0Y[29X[2XPseudoSchlafliSymbol[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YSometimes  when we make a maniplex, we know that the Schlafli symbol must be
+  a  quotient  of  some  symbol. This most frequently happens because we start
+  with a maniplex with a given Schlafli symbol and then take a quotient of it.
+  In   this   case,  we  store  the  given  Schlafli  symbol  and  call  it  a
+  [13Xpseudo-Schlafli  symbol[113X  of  [3XM[103X.  Note  that  whenever  we compute the actual
+  Schlafli symbol of [3XM[103X, we update the pseudo-Schlafli symbol to match.[133X
+  
+  [1X9.3-3 IsEquivelar[101X
+  
+  [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ythe the maniplex [3XM[103X is equivelar; i.e., whether its Schlafli Symbol
+            consists of integers at each position (no lists).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(Bk2l(6,18));[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.1-8 Hasse[101X
+  [1X9.3-4 IsDegenerate[101X
   
-  [33X[1;0Y[29X[2XHasse[102X( [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns a directed graph.[133X
+  [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YGiven  a  group,  assumed  to  be  the  connection group of a maniplex, this
-  outputs  the Hasse Diagram as a directed graph. Note: The unique minimal and
-  maximal face are assumed.[133X
-  
-  [33X[0;0YHere  we build the Hasse Diagram of a 3-simplex from its representation as a
-  maniplex.[133X
+  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
+  eventually want to include maniplexes with even smaller sections.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XHasse(Simplex(3));[127X[104X
-    [4X[28Xrec( [128X[104X
-    [4X[28X adjacencies := [ [  ], [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 2, 4 ], [128X[104X
-    [4X[28X     [ 2, 3 ], [ 3, 5 ], [ 2, 5 ], [ 4, 5 ], [ 3, 4 ], [ 6, 9, 10 ], [128X[104X
-    [4X[28X     [ 6, 7, 11 ], [ 8, 10, 11 ], [ 7, 8, 9 ], [ 12, 13, 14, 15 ] ], [128X[104X
-    [4X[28X group := Group(()), isGraph := true, names := [ 1 .. 16 ], [128X[104X
-    [4X[28X order := 16, [128X[104X
-    [4X[28X representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, [128X[104X
-    [4X[28X     15, 16 ], [128X[104X
-    [4X[28X schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, [128X[104X
-    [4X[28X     -12, -13, -14, -15, -16 ] )[128X[104X
-  [4X[32X[104X
-  
-  [1X9.1-9 QuotientByLabel[101X
-  
-  [33X[1;0Y[29X[2XQuotientByLabel[102X( [3Xobject[103X, [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
-  
-  [33X[0;0YGiven a graph, its edges, and its edge labels, and a sublist of labels, this
-  creates  the  underlying  simple  graph of the quotient identifying vertices
-  connected by labels not in the sublist.[133X
-  
-  [33X[0;0YHere  we  start  with the flag graph of the 3-cube (with edge labels 1,2,3),
-  and  identify any vertices not connected by edge by edges of label 1. We can
-  then check that this new graph is bipartite.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XP:=Cube(3);;[127X[104X
-    [4X[25Xgap>[125X [27Xf:=FlagGraphWithLabels(P);;[127X[104X
-    [4X[25Xgap>[125X [27Xg:=f[1];;[127X[104X
-    [4X[25Xgap>[125X [27Xed:=f[2];;[127X[104X
-    [4X[25Xgap>[125X [27Xlab:=f[3];  #Note This triple is to be replace by a single object.[127X[104X
-    [4X[28X[ 3, 2, 1, 3, 1, 2, 1, 2, 3, 2, 1, 3, 2, 1, 1, 3, 2, 2, 3, 1, 3, 1, 2, 3, 2, 1, 1, 2, 2, 3, 1, 3, 1, 2, [128X[104X
-    [4X[28X  3, 1, 2, 1, 3, 2, 2, 1, 2, 2, 3, 1, 1, 3, 1, 3, 3, 2, 1, 2, 1, 3, 3, 1, 3, 2, 2, 2, 2, 3, 3, 1, 3, 1, 1, 3, 2, 3 ][128X[104X
-    [4X[25Xgap>[125X [27XQ:=QuotientByLabel(g,ed,lab,[1]);[127X[104X
-    [4X[28Xrec( adjacencies := [ [ 5, 6, 8 ], [ 3, 4, 7 ], [ 2, 6, 8 ], [ 2, 5, 8 ], [ 1, 4, 7 ], [ 1, 3, 7 ], [ 2, 5, 6 ], [ 1, 3, 4 ] ], group := Group(()), isGraph := true, [128X[104X
-    [4X[28X isSimple := true, names := [ 1 .. 8 ], order := 8, representatives := [ 1, 2, 3, 4, 5, 6, 7, 8 ], schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8 ] )[128X[104X
-    [4X[25Xgap>[125X [27XIsBipartite(Q);[127X[104X
+    [4X[25Xgap>[125X [27XF := FreeGroup("s0","s1","s2","s3");;[127X[104X
+    [4X[25Xgap>[125X [27Xs0 := F.1;;  s1 := F.2;;  s2 := F.3;;  s3 := F.4;;  [127X[104X
+    [4X[25Xgap>[125X [27Xrels := [ s0*s0, s1*s1, s2*s2, s3*s3, s0*s2*s0*s2, [127X[104X
+    [4X[25X>[125X [27Xs1*s2*s1*s2, s0*s3*s0*s3, s1*s3*s1*s3, [127X[104X
+    [4X[25X>[125X [27Xs2*s3*s2*s3*s2*s3*s2*s3, s0*s1*s0*s1*s0*s1*s0*s1*s0*s1 ];;[127X[104X
+    [4X[25Xgap>[125X [27Xpoly := F / rels;;[127X[104X
+    [4X[25Xgap>[125X [27XIsDegenerate(ARP(poly));[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.1-10 EdgeLabeledGraphFromEdges[101X
+  [1X9.3-5 IsTight[101X
   
-  [33X[1;0Y[29X[2XEdgeLabeledGraphFromEdges[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
+  [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YGiven  a  list of vertices, a list of edges, and a list of edge labels, this
-  represents  the edge labeled (multi)-graph with those parameters. Semi-edges
-  are  represented  by  a singleton in the edge list. Loops are represented by
-  edges [i,i][133X
-  
-  [33X[0;0YHere  we  have  an  edge  labeled  cycle  graph  with  6  vertices and edges
-  alternating in labels 0,1.[133X
+  [33X[0;0YReturns  whether  the  polytope  [3XP[103X  is tight, meaning that it has a Schlafli
+  symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
+  minimum  possible.  This  property  doesn't make any sense for non-polytopal
+  maniplexes, which aren't constrained by this lower bound.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XV:=[1..6];;[128X[104X
-    [4X[28XEdges:=[[1,2],[2,3],[3,4],[4,5],[5,6],[6,1]];;[128X[104X
-    [4X[28XL:=[0,1,0,1,0,1];;[128X[104X
-    [4X[28Xgamma:=EdgeLabeledGraphFromEdges(V,Edges,L);[128X[104X
+    [4X[25Xgap>[125X [27XIsTight(ToroidalMap44([2,0]));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.1-11 FlagGraph[101X
+  [1X9.3-6 EulerCharacteristic[101X
   
-  [33X[1;0Y[29X[2XFlagGraph[102X( [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
-  
-  [33X[0;0YGiven  group,  assumed  to  be  a  connection group, output the labeled flag
-  graph.  The  input  could  also  be a maniplex, then the connection group is
-  calculated.[133X
-  
-  [33X[0;0YHere we have the flag graph of the 3-simplex from its connection group.[133X
+  [33X[1;0Y[29X[2XEulerCharacteristic[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe Euler characteristic of the maniplex, given by [23Xf_0 - f_1 + f_2
+            - \cdots + (-1)^{n-1} f_{n-1}[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XC:=ConnectionGroup(Simplex(3));;[128X[104X
-    [4X[28Xgamma:=FlagGraph(C);[128X[104X
+    [4X[25Xgap>[125X [27XEulerCharacteristic(Bk2lStar(3,5));[127X[104X
+    [4X[28X-10[128X[104X
   [4X[32X[104X
   
-  [1X9.1-12 UnlabeledSimpleGraph[101X
+  [1X9.3-7 Genus[101X
   
-  [33X[1;0Y[29X[2XUnlabeledSimpleGraph[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
-  
-  [33X[0;0YGiven an edge labeled (multi) graph, it returns the underlying simple graph,
-  with semi-edges, loops, and muliple-edges removed.[133X
-  
-  [33X[0;0YHere we have underlying simple graph for the flag graph of the cube.[133X
+  [33X[1;0Y[29X[2XGenus[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe genus of the given 3-maniplex.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28Xgamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));[128X[104X
+    [4X[25Xgap>[125X [27XGenus(Bk2lStar(3,5));[127X[104X
+    [4X[28X6[128X[104X
   [4X[32X[104X
   
-  [1X9.1-13 EdgeLabelPreservingAutomorphismGroup[101X
+  [1X9.3-8 IsSpherical[101X
   
-  [33X[1;0Y[29X[2XEdgeLabelPreservingAutomorphismGroup[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGroup[110X.[133X
-  
-  [33X[0;0YGiven   an  edge  labeled  (multi)  graph,  it  returns  automorphism  group
-  (preserving  the labels). Note, for now the labels are assumed to be [1..n].
-  Note  This  tends to be very slow. I would like to look for a way to go back
-  and  forth between flag automorphisms and poset automorphisms, as the latter
-  are much faster to compute.[133X
-  
-  [33X[0;0YHere we have the automorphism group of the flag graph of the cube.[133X
+  [33X[1;0Y[29X[2XIsSpherical[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  3-maniplex  [3XM[103X is spherical, which is to say, whether
+            the Euler characteristic is equal to 2.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28Xg:=EdgeLabelPreservingAutomorphismGroup(FlagGraph(Cube(3)));;[128X[104X
-    [4X[28XSize(g);[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(Simplex(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(AbstractRegularPolytope([4,4],"h2^3"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(Pyramid(5));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsSpherical(CubicTiling(2));[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X9.1-14 Simple[101X
+  [1X9.3-9 IsLocallySpherical[101X
   
-  [33X[1;0Y[29X[2XSimple[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph [110X.[133X
-  
-  [33X[0;0YGiven  an  edge labeled (multi) graph, it returns another edge labeled graph
-  where  semi-edges,  loops,  and  multiple  edges  are removed. Note only the
-  "first" edge label is retained if there are multiple edges.[133X
-  
-  [1X9.1-15 ConnectedComponents[101X
-  
-  [33X[1;0Y[29X[2XConnectedComponents[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
-  
-  [33X[0;0YGiven  an  edge  labeled  (multi)  graph  and  a  list of labels, it returns
-  connected  components  of  the  graph not using edges in the list of labels.
-  Note  if the second argument is not used, it is assumed to be an empty list,
-  and the connected components of the original graph are returned.[133X
-  
-  [33X[0;0YHere  we  see  that  each  connected component of the flag graph of the cube
-  (which has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.[133X
+  [33X[1;0Y[29X[2XIsLocallySpherical[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  4-maniplex  [3XM[103X is locally spherical, which is to say,
+            whether its facets and vertex-figures are both spherical.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28Xgamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(Simplex(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(AbstractRegularPolytope([4,4,4]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(CubicTiling(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallySpherical(Pyramid(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.1-16 PRGraph[101X
+  [1X9.3-10 IsToroidal[101X
   
-  [33X[1;0Y[29X[2XPRGraph[102X( [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph [110X.[133X
-  
-  [33X[0;0YGiven  a  group,  it  returns  the permutation representation graph for that
-  group.  When  the group is a string C-group this is also called a CPR graph.
-  The  labels  of the edges are [1...r] where r is the number of generators of
-  the group.[133X
-  
-  [33X[0;0YHere we see the CPR graph of the automorphism group of a cube (acting on its
-  8 vertices).[133X
+  [33X[1;0Y[29X[2XIsToroidal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the 3-maniplex [3XM[103X is toroidal, which is to say, whether the
+            Euler characteristic is equal to 0.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XG:=AutomorphismGroup(Cube(3));[128X[104X
-    [4X[28XH:=Group(G.2,G.3);[128X[104X
-    [4X[28Xphi:=FactorCosetAction(G,H);[128X[104X
-    [4X[28XG2:=Range(phi);[128X[104X
-    [4X[28Xgamma:=PRGraph(G2);[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(Simplex(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(AbstractRegularPolytope([4,4],"h2^3"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsToroidal(Pyramid(5));[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X9.1-17 CPRGraphFromGroups[101X
+  [1X9.3-11 IsLocallyToroidal[101X
   
-  [33X[1;0Y[29X[2XCPRGraphFromGroups[102X( [3Xgroup[103X, [3Xsubgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
-  
-  [33X[0;0YGiven  a  group and a subgroup. Returns the graph of the action of the first
-  group on cosets of the subgroup.[133X
-  
-  [1X9.1-18 AdjacentVertices[101X
-  
-  [33X[1;0Y[29X[2XAdjacentVertices[102X( [3XEdgeLabeledGraph[103X, [3Xvertex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
-  
-  [33X[0;0YTakes  in  an  edge  labeled  graph  and a vertex, and outputs a list of the
-  adjacent vertices.[133X
-  
-  [1X9.1-19 LabeledAdjacentVertices[101X
-  
-  [33X[1;0Y[29X[2XLabeledAdjacentVertices[102X( [3XEdgeLabeledGraph[103X, [3Xvertex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsList, IsList[110X.[133X
-  
-  [33X[0;0YTakes in an edge labeled graph and a vertex, and outputs two lists: the list
-  of adjacent vertices, and the labels of the corresponding edges.[133X
-  
-  [1X9.1-20 SemiEdges[101X
-  
-  [33X[1;0Y[29X[2XSemiEdges[102X( [3XEdgeLabeledGraph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
-  
-  [33X[0;0YTakes in an edge labeled graph and a vertex, and outputs a list of semiedges[133X
-  
-  [1X9.1-21 LabeledSemiEdges[101X
-  
-  [33X[1;0Y[29X[2XLabeledSemiEdges[102X( [3XEdgeLabeledGraph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsList, IsList[110X.[133X
-  
-  [33X[0;0YTakes  in  an  edge  labeled  graph  and  a  vertex,  and outputs two lists:
-  SemiEdges and their labels[133X
-  
-  [1X9.1-22 LabeledDarts[101X
-  
-  [33X[1;0Y[29X[2XLabeledDarts[102X( [3XEdgeLabeledGraph[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
-  
-  [33X[0;0YTakes in an edge labeled graph and outputs the labeled darts.[133X
-  
-  [1X9.1-23 DerivedGraph[101X
-  
-  [33X[1;0Y[29X[2XDerivedGraph[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
-  
-  [33X[0;0YGiven  a  a  pre-maniplex  (entered  as  its vertices and labeled darts) and
-  voltages Return the connected derived graph from a pre-maniplex Careful, the
-  order  of  our  automorphisms.  Do  we  want  them on left or right? Does it
-  matter? Can make another version with non-connected results, where the group
-  is also an input[133X
-  
-  [33X[0;0YHere we can build the flag graph of a 3-orbit polyhedron.[133X
+  [33X[1;0Y[29X[2XIsLocallyToroidal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  4-maniplex  [3XM[103X  is locally toroidal, which is to say,
+            whether  it  has at least one toroidal facet or vertex-figure, and
+            all  of  its  facets  and  vertex-figures  are either spherical or
+            toroidal.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XV:=[1,2,3];;[127X[104X
-    [4X[25Xgap>[125X [27XEd:=[[1],[1],[1,2],[2],[2,3],[3],[3]];;[127X[104X
-    [4X[25Xgap>[125X [27XL:=[1,2,0,2,1,0,2];;[127X[104X
-    [4X[25Xgap>[125X [27Xg:=EdgeLabeledGraphFromEdges(V,Ed,L);;[127X[104X
-    [4X[25Xgap>[125X [27XL:=LabeledDarts(g);;[127X[104X
-    [4X[25Xgap>[125X [27Xvolt:=[ (1,2), (3,4), (), (), (3,4), (), (), (4,5), (2,3) ];;[127X[104X
-    [4X[25Xgap>[125X [27XD:=DerivedGraph(V,L,volt);[127X[104X
-    [4X[28XEdge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(Simplex(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.1-24 ViewGraph[101X
   
-  [33X[1;0Y[29X[2XViewGraph[102X( [3XEdgeLabeledGraph[103X, [3XString[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
+  [1X9.4 [33X[0;0YBasics[133X[101X
   
-  [33X[0;0YThis takes an edge labeled graph and outputs code to view the graph in other
-  software. Currently mathematica and sage are supported.[133X
+  [1X9.4-1 Size[101X
   
-  [1X9.1-25 ViewGraph[101X
+  [33X[1;0Y[29X[2XSize[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe number of flags of the maniplex [3XM[103X.[133X
   
-  [33X[1;0Y[29X[2XViewGraph[102X( [3XGraph[103X, [3XString[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
+  [33X[0;0YSynonym: [10XNumberOfFlags[110X.[133X
   
-  [33X[0;0YThis  takes  a  graph  and outputs code to view the graph in other software.
-  Currently mathematica and sage are supported.[133X
+  [1X9.4-2 RankManiplex[101X
+  
+  [33X[1;0Y[29X[2XRankManiplex[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe rank of the maniplex [3XM[103X.[133X
+  
+  
+  [1X9.5 [33X[0;0YZigzags and holes[133X[101X
+  
+  [1X9.5-1 ZigzagLength[101X
+  
+  [33X[1;0Y[29X[2XZigzagLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe lengths of [3Xj[103X-zigzags of the 3-maniplex [3XM[103X.[133X
+  
+  [33X[0;0YThis corresponds to the lengths of orbits under r0 (r1 r2)^j.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XZigzagLength(Cube(3),1);[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XZigzagLength(Cube(3),2);[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XZigzagLength(Cube(3),3);[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  [1X9.5-2 ZigzagVector[101X
+  
+  [33X[1;0Y[29X[2XZigzagVector[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe lengths of all zigzags of the 3-maniplex [3XM[103X.[133X
+  
+  [33X[0;0YA  rank  3  maniplex  of  type {p, q} has Floor(q/2) distinct zigzag lengths
+  because the j-zigzags are the same as the (q-j)-zigzags.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XZigzagVector(Pseudorhombicuboctahedron());[127X[104X
+    [4X[28X[ [ 40, 56 ], [ 8, 32 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X9.5-3 PetrieLength[101X
+  
+  [33X[1;0Y[29X[2XPetrieLength[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe length of the petrie polygons of the maniplex [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPetrieLength(Cube(3));[127X[104X
+    [4X[28X6[128X[104X
+  [4X[32X[104X
+  
+  [1X9.5-4 PetrieRelation[101X
+  
+  [33X[1;0Y[29X[2XPetrieRelation[102X( [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yrelation[133X
+  
+  [33X[0;0YReturns the Petrie relation for a rank [3Xi[103X maniplex of length [3Xj[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=PetrieRelation(3,3);[127X[104X
+    [4X[28X"(r0r1r2)^3"[128X[104X
+    [4X[25Xgap>[125X [27Xq:=Cube(3)/p;[127X[104X
+    [4X[28X3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSize(q);[127X[104X
+    [4X[28X24[128X[104X
+  [4X[32X[104X
+  
+  [1X9.5-5 HoleLength[101X
+  
+  [33X[1;0Y[29X[2XHoleLength[102X( [3XM[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe lengths of [3Xj[103X-holes of the 3-maniplex [3XM[103X.[133X
+  
+  [33X[0;0YThis corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XHoleLength(ToroidalMap44([3,0]),2);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X9.5-6 HoleVector[101X
+  
+  [33X[1;0Y[29X[2XHoleVector[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe lengths of all zigzags of the 3-maniplex [3XM[103X.[133X
+  
+  [33X[0;0YA  rank  3  maniplex  of  type {p, q} has Floor(q/2) distinct zigzag lengths
+  because the j-zigzags are the same as the (q-j)-zigzags.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XHoleVector(ToroidalMap44([3,0],[0,5]));[127X[104X
+    [4X[28X[ [ 3, 5 ] ][128X[104X
+  [4X[32X[104X
   
