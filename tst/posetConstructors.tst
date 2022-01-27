@@ -31,6 +31,10 @@ gap> Successors(last);
 [ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ]
 gap> List( ElementsList(poset){[2,6]}, ElementObject);
 [ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
+gap> p:=PosetFromManiplex(HemiCube(3));;
+gap> q:=EvalString(PrintString(p));;
+gap> IsIsomorphicPoset(p,q);
+true
 gap> p:=PosetFromManiplex(HemiCube(3));
 A poset using the IsPosetOfFlags representation.
 gap> Length(Faces(p));

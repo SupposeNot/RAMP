@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 14: Regular maps</title>
+<title>GAP (RAMP) - Chapter 14: Maps On Surfaces</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -23,8 +23,8 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap13_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap15_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap14.html">[MathJax off]</a></p>
-<p><a id="X87A5AB287C58F478" name="X87A5AB287C58F478"></a></p>
-<div class="ChapSects"><a href="chap14_mj.html#X87A5AB287C58F478">14 <span class="Heading">Regular maps</span></a>
+<p><a id="X802F024B80294E55" name="X802F024B80294E55"></a></p>
+<div class="ChapSects"><a href="chap14_mj.html#X802F024B80294E55">14 <span class="Heading">Maps On Surfaces</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X81AFCB8E84DB41DE">14.1 <span class="Heading">Bicontactual regular maps</span></a>
 </span>
 <div class="ContSSBlock">
@@ -35,15 +35,25 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7EB8C646795CB285">14.1-5 Bk2l</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X8592D83D87DFCF3F">14.1-6 Bk2lStar</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X7D2C4BEC7E1C4528">14.2 <span class="Heading">Operators on reflexible maps</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X80E866D6862E1FD0">14.2 <span class="Heading">Operations on reflexible maps</span></a>
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7838C8F4843AD598">14.2-1 Opp</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X80DBA6CD87866B0C">14.2-2 Hole</a></span>
 </div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X7BF319E97DEC64D2">14.3 <span class="Heading">Map properties</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X829B976779067F1F">14.3-1 IsMapOnSurface</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X8688080A7A67C820">14.4 <span class="Heading">Operations on maps</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X86B0B0307BF7A16D">14.4-1 MapTruncation</a></span>
+</div></div>
 </div>
 
-<h3>14 <span class="Heading">Regular maps</span></h3>
+<h3>14 <span class="Heading">Maps On Surfaces</span></h3>
 
 <p><a id="X81AFCB8E84DB41DE" name="X81AFCB8E84DB41DE"></a></p>
 
@@ -147,9 +157,9 @@ ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
 3-maniplex with 140 flags
 </pre></div>
 
-<p><a id="X7D2C4BEC7E1C4528" name="X7D2C4BEC7E1C4528"></a></p>
+<p><a id="X80E866D6862E1FD0" name="X80E866D6862E1FD0"></a></p>
 
-<h4>14.2 <span class="Heading">Operators on reflexible maps</span></h4>
+<h4>14.2 <span class="Heading">Operations on reflexible maps</span></h4>
 
 <p><a id="X7838C8F4843AD598" name="X7838C8F4843AD598"></a></p>
 
@@ -179,6 +189,44 @@ Petrial(Dual(Petrial(3-maniplex with 140 flags)))
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Hole(Bk2lStar(5,7),2);</span>
 3-maniplex with 140 flags
+</pre></div>
+
+<p><a id="X7BF319E97DEC64D2" name="X7BF319E97DEC64D2"></a></p>
+
+<h4>14.3 <span class="Heading">Map properties</span></h4>
+
+<p><a id="X829B976779067F1F" name="X829B976779067F1F"></a></p>
+
+<h5>14.3-1 IsMapOnSurface</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMapOnSurface</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
+
+<p>Determines whether a given maniplex is a map on a surface</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);</span>
+[ HemiCube(3), Icosahedron() ]
+</pre></div>
+
+<p><a id="X8688080A7A67C820" name="X8688080A7A67C820"></a></p>
+
+<h4>14.4 <span class="Heading">Operations on maps</span></h4>
+
+<p><a id="X86B0B0307BF7A16D" name="X86B0B0307BF7A16D"></a></p>
+
+<h5>14.4-1 MapTruncation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapTruncation</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: trunc_map</p>
+
+<p>Given a <var class="Arg">map</var> on a surface, this function will return the truncation of <var class="Arg">map</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(MapTruncation(Simplex(3)));</span>
+[ [ 3, 6 ], 3 ]
 </pre></div>
 
 

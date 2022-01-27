@@ -152,7 +152,8 @@ DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);
 #! @EndExampleSession
 
 #! @Arguments M
-#! Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+#! @Returns Q
+#! @Description Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
 DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 #! @BeginExampleSession
 #! gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
@@ -164,4 +165,7 @@ DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 
 DeclareGlobalFunction("MANIPLEX_STRING");
 
+#! @Arguments M
+#! @Returns IsBool
+#! @Description Tests for the weak path intersection property in a maniplex. Definitions and description available in ...
 DeclareProperty("SatisfiesWeakPathIntersectionProperty", IsManiplex);

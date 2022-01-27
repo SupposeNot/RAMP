@@ -22,6 +22,7 @@ ReadPackage( "ramp", "lib/flagorbits.gi" );
 ReadPackage( "ramp", "lib/flat.gi" );
 ReadPackage( "ramp", "lib/graphs.gi" ); 
 ReadPackage( "ramp", "lib/groups.gi" ); 
+ReadPackage( "ramp", "lib/map_operations.gi" );
 ReadPackage( "ramp", "lib/mixoperations.gi" );
 ReadPackage( "ramp", "lib/orientable.gi" ); 
 ReadPackage( "ramp", "lib/polytope.gi" );

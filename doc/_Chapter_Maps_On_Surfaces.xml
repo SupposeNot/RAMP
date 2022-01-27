@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- This is an automatically generated file. -->
-<Chapter Label="Chapter_Regular_maps">
-<Heading>Regular maps</Heading>
+<Chapter Label="Chapter_Maps_On_Surfaces">
+<Heading>Maps On Surfaces</Heading>
 
-<Section Label="Chapter_Regular_maps_Section_Bicontactual_regular_maps">
+<Section Label="Chapter_Maps_On_Surfaces_Section_Bicontactual_regular_maps">
 <Heading>Bicontactual regular maps</Heading>
 
  The names for the maps in this section are from S.E. Wilson's <Cite Key="Wil85"/>. 
@@ -114,8 +114,8 @@ gap> Bk2lStar(5,7);
 </Section>
 
 
-<Section Label="Chapter_Regular_maps_Section_Operators_on_reflexible_maps">
-<Heading>Operators on reflexible maps</Heading>
+<Section Label="Chapter_Maps_On_Surfaces_Section_Operations_on_reflexible_maps">
+<Heading>Operations on reflexible maps</Heading>
 
 <ManSection>
   <Oper Arg="map" Name="Opp" Label="for IsManiplex"/>
@@ -146,6 +146,50 @@ Given <A>map</A> and integer <Math>j</Math>, will form the map <Math>H_j(map)</M
 <Example><![CDATA[
 gap> Hole(Bk2lStar(5,7),2);
 3-maniplex with 140 flags
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maps_On_Surfaces_Section_Map_properties">
+<Heading>Map properties</Heading>
+
+<ManSection>
+  <Attr Arg="M" Name="IsMapOnSurface" Label="for IsManiplex"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Determines whether a given maniplex is a map on a surface
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);
+[ HemiCube(3), Icosahedron() ]
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maps_On_Surfaces_Section_Operations_on_maps">
+<Heading>Operations on maps</Heading>
+
+<ManSection>
+  <Oper Arg="map" Name="MapTruncation" Label="for IsManiplex"/>
+ <Returns>trunc_map
+</Returns>
+ <Description>
+Given a <A>map</A> on a surface, this function will return the truncation of <A>map</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(MapTruncation(Simplex(3)));
+[ [ 3, 6 ], 3 ]
 ]]></Example>
 
 

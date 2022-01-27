@@ -1,5 +1,5 @@
   
-  [1X14 [33X[0;0YRegular maps[133X[101X
+  [1X14 [33X[0;0YMaps On Surfaces[133X[101X
   
   
   [1X14.1 [33X[0;0YBicontactual regular maps[133X[101X
@@ -89,7 +89,7 @@
   [4X[32X[104X
   
   
-  [1X14.2 [33X[0;0YOperators on reflexible maps[133X[101X
+  [1X14.2 [33X[0;0YOperations on reflexible maps[133X[101X
   
   [1X14.2-1 Opp[101X
   
@@ -115,5 +115,35 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XHole(Bk2lStar(5,7),2);[127X[104X
     [4X[28X3-maniplex with 140 flags[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.3 [33X[0;0YMap properties[133X[101X
+  
+  [1X14.3-1 IsMapOnSurface[101X
+  
+  [33X[1;0Y[29X[2XIsMapOnSurface[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines whether a given maniplex is a map on a surface[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFiltered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);[127X[104X
+    [4X[28X[ HemiCube(3), Icosahedron() ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.4 [33X[0;0YOperations on maps[133X[101X
+  
+  [1X14.4-1 MapTruncation[101X
+  
+  [33X[1;0Y[29X[2XMapTruncation[102X( [3Xmap[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ytrunc_map[133X
+  
+  [33X[0;0YGiven a [3Xmap[103X on a surface, this function will return the truncation of [3Xmap[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(MapTruncation(Simplex(3)));[127X[104X
+    [4X[28X[ [ 3, 6 ], 3 ][128X[104X
   [4X[32X[104X
   

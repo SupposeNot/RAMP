@@ -2578,6 +2578,9 @@ facets is faithful. }
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxVertexFaithfulQuotient({\mdseries\slshape M})\index{MaxVertexFaithfulQuotient@\texttt{MaxVertexFaithfulQuotient}!for IsReflexibleManiplex}
 \label{MaxVertexFaithfulQuotient:for IsReflexibleManiplex}
 }\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Q 
+
 
 
  Returns the maximal vertex-faithful reflexible maniplex covered by \mbox{\texttt{\mdseries\slshape M}}. }
@@ -2589,6 +2592,22 @@ facets is faithful. }
   !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}
+\logpage{[ 5, 5, 4 ]}\nobreak
+\hyperdef{L}{X7F788D2E7F41CD69}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesWeakPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesWeakPathIntersectionProperty@\texttt{Satisfies}\-\texttt{Weak}\-\texttt{Path}\-\texttt{Intersection}\-\texttt{Property}!for IsManiplex}
+\label{SatisfiesWeakPathIntersectionProperty:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+IsBool 
+
+
+
+ Tests for the weak path intersection property in a maniplex. Definitions and
+description available in ... }
+
  }
 
  }
@@ -6528,12 +6547,12 @@ theoretical possibility). }
  }
 
    
-\chapter{\textcolor{Chapter }{Regular maps}}\label{Chapter_Regular_maps}
+\chapter{\textcolor{Chapter }{Maps On Surfaces}}\label{Chapter_Maps_On_Surfaces}
 \logpage{[ 14, 0, 0 ]}
-\hyperdef{L}{X87A5AB287C58F478}{}
+\hyperdef{L}{X802F024B80294E55}{}
 {
   
-\section{\textcolor{Chapter }{Bicontactual regular maps}}\label{Chapter_Regular_maps_Section_Bicontactual_regular_maps}
+\section{\textcolor{Chapter }{Bicontactual regular maps}}\label{Chapter_Maps_On_Surfaces_Section_Bicontactual_regular_maps}
 \logpage{[ 14, 1, 0 ]}
 \hyperdef{L}{X81AFCB8E84DB41DE}{}
 {
@@ -6666,9 +6685,9 @@ IsManiplex
  }
 
  
-\section{\textcolor{Chapter }{Operators on reflexible maps}}\label{Chapter_Regular_maps_Section_Operators_on_reflexible_maps}
+\section{\textcolor{Chapter }{Operations on reflexible maps}}\label{Chapter_Maps_On_Surfaces_Section_Operations_on_reflexible_maps}
 \logpage{[ 14, 2, 0 ]}
-\hyperdef{L}{X7D2C4BEC7E1C4528}{}
+\hyperdef{L}{X80E866D6862E1FD0}{}
 {
   
 
@@ -6710,6 +6729,60 @@ of those orbits. }
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@Hole(Bk2lStar(5,7),2);|
   3-maniplex with 140 flags
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Map properties}}\label{Chapter_Maps_On_Surfaces_Section_Map_properties}
+\logpage{[ 14, 3, 0 ]}
+\hyperdef{L}{X7BF319E97DEC64D2}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{IsMapOnSurface (for IsManiplex)}}
+\logpage{[ 14, 3, 1 ]}\nobreak
+\hyperdef{L}{X829B976779067F1F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsMapOnSurface({\mdseries\slshape M})\index{IsMapOnSurface@\texttt{IsMapOnSurface}!for IsManiplex}
+\label{IsMapOnSurface:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+IsBool 
+
+
+
+ Determines whether a given maniplex is a map on a surface }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);|
+  [ HemiCube(3), Icosahedron() ]
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Operations on maps}}\label{Chapter_Maps_On_Surfaces_Section_Operations_on_maps}
+\logpage{[ 14, 4, 0 ]}
+\hyperdef{L}{X8688080A7A67C820}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{MapTruncation (for IsManiplex)}}
+\logpage{[ 14, 4, 1 ]}\nobreak
+\hyperdef{L}{X86B0B0307BF7A16D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapTruncation({\mdseries\slshape map})\index{MapTruncation@\texttt{MapTruncation}!for IsManiplex}
+\label{MapTruncation:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+trunc{\textunderscore}map 
+
+
+
+ Given a \mbox{\texttt{\mdseries\slshape map}} on a surface, this function will return the truncation of \mbox{\texttt{\mdseries\slshape map}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(MapTruncation(Simplex(3)));|
+  [ [ 3, 6 ], 3 ]
 \end{Verbatim}
  }
 

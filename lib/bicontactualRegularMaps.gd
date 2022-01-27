@@ -1,5 +1,5 @@
 
-#! @Chapter Regular maps
+#! @Chapter Maps On Surfaces
 #! @Section Bicontactual regular maps
 #! The names for the maps in this section are from S.E. Wilson's <Cite Key="Wil85"/>. 
 
@@ -65,7 +65,7 @@ DeclareOperation("Bk2lStar",[IsInt,IsInt]);
 #! 3-maniplex with 140 flags
 #! @EndExampleSession
 
-#! @Section Operators on reflexible maps
+#! @Section Operations on reflexible maps
 
 #! @Arguments map
 #! @Returns IsManiplex

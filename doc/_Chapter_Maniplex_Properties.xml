@@ -571,8 +571,10 @@ true
 
 <ManSection>
   <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsReflexibleManiplex"/>
+ <Returns>Q
+</Returns>
  <Description>
- Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
  </Description>
 </ManSection>
 
@@ -583,6 +585,16 @@ reflexible 3-maniplex
 gap> SchlafliSymbol(last);
 [ 3, 2 ]
 ]]></Example>
+
+
+<ManSection>
+  <Prop Arg="M" Name="SatisfiesWeakPathIntersectionProperty" Label="for IsManiplex"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Tests for the weak path intersection property in a maniplex. Definitions and description available in ...
+ </Description>
+</ManSection>
 
 
 </Section>
