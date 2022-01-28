@@ -6783,6 +6783,85 @@ trunc{\textunderscore}map
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@SchlafliSymbol(MapTruncation(Simplex(3)));|
   [ [ 3, 6 ], 3 ]
+  !gapprompt@gap>| !gapinput@TruncatedTetrahedron()=MapTruncation(Simplex(3));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{MapSnub (for IsManiplex)}}
+\logpage{[ 14, 4, 2 ]}\nobreak
+\hyperdef{L}{X793EEC567A0513B9}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapSnub({\mdseries\slshape M})\index{MapSnub@\texttt{MapSnub}!for IsManiplex}
+\label{MapSnub:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+snub{\textunderscore}map 
+
+
+
+ Returns the snub of a given map; we require that the map have triangles as
+vertex figures. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@MapSnub(Dodecahedron())=SnubDodecahedron();|
+  true
+  !gapprompt@gap>| !gapinput@MapSnub(Cube(3))=SnubCube();|
+  true
+  !gapprompt@gap>| !gapinput@MapSnub(Simplex(3))=Icosahedron();|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{MapChamfer (for IsManiplex)}}
+\logpage{[ 14, 4, 3 ]}\nobreak
+\hyperdef{L}{X7FA045DC78EB05CC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapChamfer({\mdseries\slshape M})\index{MapChamfer@\texttt{MapChamfer}!for IsManiplex}
+\label{MapChamfer:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+chamfered{\textunderscore}map 
+
+
+
+ Returns the map obtained from the chamfering operation described in \cite{Rio14} }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@s0 := (4,5)(6,7)(8,9);;|
+  !gapprompt@gap>| !gapinput@s1 := (2,6)(3,4)(5,7);;|
+  !gapprompt@gap>| !gapinput@s2 := (1,2)(4,8)(5,9);;|
+  !gapprompt@gap>| !gapinput@poly := Group([s0,s1,s2]);;|
+  !gapprompt@gap>| !gapinput@p:=ARP(poly);;|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(p);|
+  [ 6, 3 ]
+  !gapprompt@gap>| !gapinput@ch:=MapChamfer(p);|
+  3-maniplex with 432 flags
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(ch);|
+  [ 6, 3 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{MapSubdivision1 (for IsManiplex)}}
+\logpage{[ 14, 4, 4 ]}\nobreak
+\hyperdef{L}{X7A43D7AA833249B5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapSubdivision1({\mdseries\slshape M})\index{MapSubdivision1@\texttt{MapSubdivision1}!for IsManiplex}
+\label{MapSubdivision1:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Su1 
+
+
+
+ Returns the One-dimensional subdivision of a map, which replaces each edge
+with two edges. For more information on the oriented version of this, see \cite{BerPisWil17}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m:=MapSubdivision1(Simplex(3));|
+  3-maniplex with 48 flags
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(m);|
+  [ 6, [ 2, 3 ] ]
 \end{Verbatim}
  }
 
@@ -7042,6 +7121,8 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

@@ -190,6 +190,71 @@ Given a <A>map</A> on a surface, this function will return the truncation of <A>
 <Example><![CDATA[
 gap> SchlafliSymbol(MapTruncation(Simplex(3)));
 [ [ 3, 6 ], 3 ]
+gap> TruncatedTetrahedron()=MapTruncation(Simplex(3));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="MapSnub" Label="for IsManiplex"/>
+ <Returns>snub_map
+</Returns>
+ <Description>
+Returns the snub of a given map; we require that the map have triangles as vertex figures.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> MapSnub(Dodecahedron())=SnubDodecahedron();
+true
+gap> MapSnub(Cube(3))=SnubCube();
+true
+gap> MapSnub(Simplex(3))=Icosahedron();
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="MapChamfer" Label="for IsManiplex"/>
+ <Returns>chamfered_map
+</Returns>
+ <Description>
+Returns the map obtained from the chamfering operation described in <Cite Key="Rio14"/>
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> s0 := (4,5)(6,7)(8,9);;
+gap> s1 := (2,6)(3,4)(5,7);;
+gap> s2 := (1,2)(4,8)(5,9);;
+gap> poly := Group([s0,s1,s2]);;
+gap> p:=ARP(poly);;
+gap> SchlafliSymbol(p);
+[ 6, 3 ]
+gap> ch:=MapChamfer(p);
+3-maniplex with 432 flags
+gap> SchlafliSymbol(ch);
+[ 6, 3 ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="MapSubdivision1" Label="for IsManiplex"/>
+ <Returns>Su1
+</Returns>
+ <Description>
+Returns the One-dimensional subdivision of a map, which replaces each edge with two edges. For more information on the oriented version of this, see <Cite Key="BerPisWil17"/>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> m:=MapSubdivision1(Simplex(3));
+3-maniplex with 48 flags
+gap> SchlafliSymbol(m);
+[ 6, [ 2, 3 ] ]
 ]]></Example>
 
 

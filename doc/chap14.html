@@ -47,6 +47,9 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X86B0B0307BF7A16D">14.4-1 MapTruncation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X793EEC567A0513B9">14.4-2 MapSnub</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7FA045DC78EB05CC">14.4-3 MapChamfer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7A43D7AA833249B5">14.4-4 MapSubdivision1</a></span>
 </div></div>
 </div>
 
@@ -224,6 +227,68 @@ Petrial(Dual(Petrial(3-maniplex with 140 flags)))
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(MapTruncation(Simplex(3)));</span>
 [ [ 3, 6 ], 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TruncatedTetrahedron()=MapTruncation(Simplex(3));</span>
+true
+</pre></div>
+
+<p><a id="X793EEC567A0513B9" name="X793EEC567A0513B9"></a></p>
+
+<h5>14.4-2 MapSnub</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapSnub</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: snub_map</p>
+
+<p>Returns the snub of a given map; we require that the map have triangles as vertex figures.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MapSnub(Dodecahedron())=SnubDodecahedron();</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MapSnub(Cube(3))=SnubCube();</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MapSnub(Simplex(3))=Icosahedron();</span>
+true
+</pre></div>
+
+<p><a id="X7FA045DC78EB05CC" name="X7FA045DC78EB05CC"></a></p>
+
+<h5>14.4-3 MapChamfer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapChamfer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: chamfered_map</p>
+
+<p>Returns the map obtained from the chamfering operation described in <a href="chapBib.html#biBRio14">[dRF14]</a></p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := (4,5)(6,7)(8,9);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := (2,6)(3,4)(5,7);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := (1,2)(4,8)(5,9);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(p);</span>
+[ 6, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ch:=MapChamfer(p);</span>
+3-maniplex with 432 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(ch);</span>
+[ 6, 3 ]
+</pre></div>
+
+<p><a id="X7A43D7AA833249B5" name="X7A43D7AA833249B5"></a></p>
+
+<h5>14.4-4 MapSubdivision1</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapSubdivision1</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Su1</p>
+
+<p>Returns the One-dimensional subdivision of a map, which replaces each edge with two edges. For more information on the oriented version of this, see <a href="chapBib.html#biBBerPisWil17">[BPW17]</a>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=MapSubdivision1(Simplex(3));</span>
+3-maniplex with 48 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(m);</span>
+[ 6, [ 2, 3 ] ]
 </pre></div>
 
 
