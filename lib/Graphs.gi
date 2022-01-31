@@ -758,7 +758,7 @@ Print("P.show() 	\n");
 return;
 ##OUTPUT IS CODE TO COPY INTO MATHEMATICA.
 elif s = "Mathematica" or s = "mathematica" or s = "MATHEMATICA" then
-ans:= "GraphPlot[{";
+ans:= "GraphPlot3D[{";
 verts:=Vertices(g);
 eds:=UndirectedEdges(g);
 for i in [1..Size(eds)-1] do

@@ -10,10 +10,10 @@
 
   \indexspace
 
-  \item \texttt  {AbstractPolytope}, \hyperpage{88}
-  \item \texttt  {AbstractRegularPolytope}, \hyperpage{88}
-  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{88}
-  \item \texttt  {AddOrAppend}, \hyperpage{90}
+  \item \texttt  {AbstractPolytope}, \hyperpage{92}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{92}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{92}
+  \item \texttt  {AddOrAppend}, \hyperpage{94}
   \item \texttt  {AddRanksInPosets}
     \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{49}
   \item \texttt  {AdjacentFlag}
@@ -24,6 +24,8 @@
     \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{74}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{55}
+  \item \texttt  {Angle}
+    \subitem for IsManiplex, \hyperpage{88}
   \item \texttt  {Antiprism}
     \subitem for IsInt, \hyperpage{58}
     \subitem for IsManiplex, \hyperpage{58}
@@ -58,6 +60,10 @@
 
   \indexspace
 
+  \item \texttt  {BarycentricSubdivision}
+    \subitem for IsManiplex, \hyperpage{87}
+  \item \texttt  {Bevel}
+    \subitem for IsManiplex, \hyperpage{90}
   \item \texttt  {Bk2l}
     \subitem for IsInt,IsInt, \hyperpage{85}
   \item \texttt  {Bk2lStar}
@@ -69,6 +75,8 @@
   \item \texttt  {CartesianProduct}
     \subitem for IsManiplex, IsManiplex, \hyperpage{58}
     \subitem for IsPoset,IsPoset, \hyperpage{51}
+  \item \texttt  {Chamfer}
+    \subitem for IsManiplex, \hyperpage{87}
   \item \texttt  {ChiralityGroup}
     \subitem for IsRotaryManiplex, \hyperpage{7}
   \item \texttt  {ChunkGeneratedGroup}
@@ -81,6 +89,8 @@
     \subitem for IsList,IsInt, \hyperpage{80}
   \item \texttt  {Cleave}
     \subitem for IsPoset,IsInt, \hyperpage{41}
+  \item \texttt  {CombinatorialMap}
+    \subitem for IsManiplex, \hyperpage{88}
   \item \texttt  {Comix}
     \subitem for IsFpGroup, IsFpGroup, \hyperpage{23}
     \subitem for IsReflexibleManiplex, IsReflexibleManiplex, 
@@ -151,6 +161,8 @@
     \subitem for IsManiplex, \hyperpage{64}
   \item \texttt  {EvenConnectionGroup}
     \subitem for IsManiplex, \hyperpage{7}
+  \item \texttt  {Expand}
+    \subitem for IsManiplex, \hyperpage{90}
   \item \texttt  {ExtraRelators}
     \subitem for IsReflexibleManiplex, \hyperpage{7}
   \item \texttt  {ExtraRotRelators}
@@ -199,10 +211,14 @@
 
   \item \texttt  {Genus}
     \subitem for IsManiplex, \hyperpage{64}
+  \item \texttt  {Gothic}
+    \subitem for IsManiplex, \hyperpage{88}
   \item \texttt  {GraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{68}
   \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{20}
   \item \texttt  {GreatRhombicuboctahedron}, \hyperpage{20}
+  \item \texttt  {Gyro}
+    \subitem for IsManiplex, \hyperpage{90}
 
   \indexspace
 
@@ -230,7 +246,7 @@
 
   \item \texttt  {Icosadodecahedron}, \hyperpage{18}
   \item \texttt  {Icosahedron}, \hyperpage{13}
-  \item \texttt  {InfoRamp}, \hyperpage{88}
+  \item \texttt  {InfoRamp}, \hyperpage{92}
   \item \texttt  {InternallySelfDualPolyhedron1}
     \subitem for IsInt, \hyperpage{15}
   \item \texttt  {InternallySelfDualPolyhedron2}
@@ -357,6 +373,11 @@
 
   \indexspace
 
+  \item \texttt  {Kis}
+    \subitem for IsManiplex, \hyperpage{89}
+
+  \indexspace
+
   \item \texttt  {LabeledAdjacentVertices}
     \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{74}
   \item \texttt  {LabeledDarts}
@@ -365,6 +386,8 @@
     \subitem for IsEdgeLabeledGraph, \hyperpage{75}
   \item \texttt  {LayerGraph}
     \subitem for IsGroup, IsInt, IsInt, \hyperpage{70}
+  \item \texttt  {Leapfrog}
+    \subitem for IsManiplex, \hyperpage{88}
   \item License, \hyperpage{2}
   \item \texttt  {ListIsP1Poset}
     \subitem for IsList, \hyperpage{43}
@@ -378,14 +401,6 @@
     \subitem for IsReflexibleManiplex, IsGroup, \hyperpage{22}
   \item \texttt  {ManiplexFromDatabaseString}
     \subitem for IsString, \hyperpage{79}
-  \item \texttt  {MapChamfer}
-    \subitem for IsManiplex, \hyperpage{87}
-  \item \texttt  {MapSnub}
-    \subitem for IsManiplex, \hyperpage{86}
-  \item \texttt  {MapSubdivision1}
-    \subitem for IsManiplex, \hyperpage{87}
-  \item \texttt  {MapTruncation}
-    \subitem for IsManiplex, \hyperpage{86}
   \item \texttt  {MaxFace}
     \subitem for IsPoset, \hyperpage{48}
   \item \texttt  {MaximalChains}
@@ -396,6 +411,8 @@
     \subitem for IsManiplex, \hyperpage{55}
   \item \texttt  {Meet}
     \subitem for IsFace, IsFace, IsPoset, \hyperpage{50}
+  \item \texttt  {Meta}
+    \subitem for IsManiplex, \hyperpage{90}
   \item \texttt  {MinFace}
     \subitem for IsPoset, \hyperpage{48}
   \item \texttt  {Mix}
@@ -407,10 +424,12 @@
     \subitem for IsInt, \hyperpage{84}
   \item \texttt  {MkPrime}
     \subitem for IsInt, \hyperpage{85}
-  \item \texttt  {MultPerm}, \hyperpage{89}
+  \item \texttt  {MultPerm}, \hyperpage{93}
 
   \indexspace
 
+  \item \texttt  {Needle}
+    \subitem for IsManiplex, \hyperpage{89}
   \item \texttt  {NumberOfChainOrbits}
     \subitem for IsManiplex, IsCollection, \hyperpage{27}
   \item \texttt  {NumberOfEdgeOrbits}
@@ -442,6 +461,8 @@
     \subitem for IsPoset, \hyperpage{42}
   \item \texttt  {OrientableCover}
     \subitem for IsManiplex, \hyperpage{32}
+  \item \texttt  {Ortho}
+    \subitem for IsManiplex, \hyperpage{90}
 
   \indexspace
 
@@ -449,13 +470,13 @@
     \subitem for IsList,IsList, \hyperpage{40}
   \item \texttt  {PairCompareFlagsList}
     \subitem for IsList,IsList, \hyperpage{40}
-  \item \texttt  {ParseRotGpRels}, \hyperpage{90}
-  \item \texttt  {ParseStringCRels}, \hyperpage{89}
+  \item \texttt  {ParseRotGpRels}, \hyperpage{94}
+  \item \texttt  {ParseStringCRels}, \hyperpage{93}
   \item \texttt  {PartiallyCleave}
     \subitem for IsPoset,IsInt, \hyperpage{41}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{43}
-  \item \texttt  {PermFromRange}, \hyperpage{89}
+  \item \texttt  {PermFromRange}, \hyperpage{93}
   \item \texttt  {Petrial}
     \subitem for IsManiplex, \hyperpage{57}
   \item \texttt  {PetrieLength}
@@ -495,6 +516,8 @@
   \item \texttt  {Prism}
     \subitem for IsInt, \hyperpage{58}
     \subitem for IsManiplex, \hyperpage{58}
+  \item \texttt  {Propeller}
+    \subitem for IsManiplex, \hyperpage{91}
   \item \texttt  {Pseudorhombicuboctahedron}, \hyperpage{19}
   \item \texttt  {PseudoSchlafliSymbol}
     \subitem for IsManiplex, \hyperpage{63}
@@ -582,9 +605,15 @@
   \item \texttt  {SmallRegularPolyhedraFromFile}, \hyperpage{77}
   \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{20}
   \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{19}
+  \item \texttt  {Snub}
+    \subitem for IsManiplex, \hyperpage{86}
   \item \texttt  {SnubCube}, \hyperpage{19}
   \item \texttt  {SnubDodecahedron}, \hyperpage{20}
   \item \texttt  {SRP}, \hyperpage{79}
+  \item \texttt  {Subdivision1}
+    \subitem for IsManiplex, \hyperpage{87}
+  \item \texttt  {Subdivision2}
+    \subitem for IsManiplex, \hyperpage{87}
   \item \texttt  {SymmetryTypeGraph}
     \subitem for IsManiplex, \hyperpage{29}
 
@@ -597,7 +626,7 @@
     \subitem for IsManiplex, IsManiplex, \hyperpage{59}
     \subitem for IsPoset,IsPoset, \hyperpage{52}
   \item \texttt  {ToroidalMap44}, \hyperpage{16}
-  \item \texttt  {TranslatePerm}, \hyperpage{89}
+  \item \texttt  {TranslatePerm}, \hyperpage{93}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{55}
   \item \texttt  {TruncatedCube}, \hyperpage{18}
@@ -605,6 +634,8 @@
   \item \texttt  {TruncatedIcosahedron}, \hyperpage{19}
   \item \texttt  {TruncatedOctahedron}, \hyperpage{18}
   \item \texttt  {TruncatedTetrahedron}, \hyperpage{18}
+  \item \texttt  {Truncation}
+    \subitem for IsManiplex, \hyperpage{86}
 
   \indexspace
 
@@ -638,7 +669,7 @@
 
   \indexspace
 
-  \item \texttt  {WrappedPosetOperation}, \hyperpage{90}
+  \item \texttt  {WrappedPosetOperation}, \hyperpage{94}
 
   \indexspace
 
@@ -646,5 +677,7 @@
     \subitem for IsManiplex, IsInt, \hyperpage{66}
   \item \texttt  {ZigzagVector}
     \subitem for IsManiplex, \hyperpage{66}
+  \item \texttt  {Zip}
+    \subitem for IsManiplex, \hyperpage{89}
 
 \end{theindex}

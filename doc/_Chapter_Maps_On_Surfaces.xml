@@ -178,7 +178,7 @@ gap> Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);
 <Heading>Operations on maps</Heading>
 
 <ManSection>
-  <Oper Arg="map" Name="MapTruncation" Label="for IsManiplex"/>
+  <Oper Arg="map" Name="Truncation" Label="for IsManiplex"/>
  <Returns>trunc_map
 </Returns>
  <Description>
@@ -188,15 +188,19 @@ Given a <A>map</A> on a surface, this function will return the truncation of <A>
 
 
 <Example><![CDATA[
-gap> SchlafliSymbol(MapTruncation(Simplex(3)));
+gap> SchlafliSymbol(Truncation(Simplex(3)));
 [ [ 3, 6 ], 3 ]
-gap> TruncatedTetrahedron()=MapTruncation(Simplex(3));
+gap> TruncatedTetrahedron()=Truncation(Simplex(3));
+true
+gap> Truncation(CrossPolytope(3))=TruncatedOctahedron();
+true
+gap> Truncation(Cube(3))=TruncatedCube();
 true
 ]]></Example>
 
 
 <ManSection>
-  <Oper Arg="M" Name="MapSnub" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Snub" Label="for IsManiplex"/>
  <Returns>snub_map
 </Returns>
  <Description>
@@ -206,17 +210,19 @@ Returns the snub of a given map; we require that the map have triangles as verte
 
 
 <Example><![CDATA[
-gap> MapSnub(Dodecahedron())=SnubDodecahedron();
+gap> Snub(Dodecahedron())=SnubDodecahedron();
 true
-gap> MapSnub(Cube(3))=SnubCube();
+gap> Snub(Cube(3))=SnubCube();
 true
-gap> MapSnub(Simplex(3))=Icosahedron();
+gap> Snub(Simplex(3))=Icosahedron();
+true
+gap> Snub(CrossPolytope(3))=SnubCube();
 true
 ]]></Example>
 
 
 <ManSection>
-  <Oper Arg="M" Name="MapChamfer" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Chamfer" Label="for IsManiplex"/>
  <Returns>chamfered_map
 </Returns>
  <Description>
@@ -233,7 +239,7 @@ gap> poly := Group([s0,s1,s2]);;
 gap> p:=ARP(poly);;
 gap> SchlafliSymbol(p);
 [ 6, 3 ]
-gap> ch:=MapChamfer(p);
+gap> ch:=Chamfer(p);
 3-maniplex with 432 flags
 gap> SchlafliSymbol(ch);
 [ 6, 3 ]
@@ -241,7 +247,7 @@ gap> SchlafliSymbol(ch);
 
 
 <ManSection>
-  <Oper Arg="M" Name="MapSubdivision1" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Subdivision1" Label="for IsManiplex"/>
  <Returns>Su1
 </Returns>
  <Description>
@@ -251,10 +257,287 @@ Returns the One-dimensional subdivision of a map, which replaces each edge with 
 
 
 <Example><![CDATA[
-gap> m:=MapSubdivision1(Simplex(3));
+gap> m:=Subdivision1(Simplex(3));
 3-maniplex with 48 flags
 gap> SchlafliSymbol(m);
 [ 6, [ 2, 3 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Subdivision2" Label="for IsManiplex"/>
+ <Returns>Su2
+</Returns>
+ <Description>
+Returns the two-dimensional subdivision of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Subdivision2(Cube(3)));
+[ 3, [ 4, 6 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="BarycentricSubdivision" Label="for IsManiplex"/>
+ <Returns>barycentric_subdivision
+</Returns>
+ <Description>
+Gives the barycentric subdivision of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> m:=BarycentricSubdivision(Cube(3));;
+gap> SchlafliSymbol(m);NumberOfFacets(m);
+[ 3, [ 4, 6, 8 ] ]
+48
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Leapfrog" Label="for IsManiplex"/>
+ <Returns>leapfrog
+</Returns>
+ <Description>
+Gives the result of performing the leapfrog operation on a map on a surface
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Leapfrog(Dodecahedron());
+3-maniplex with 360 flags
+gap> SchlafliSymbol(last);
+[ [ 5, 6 ], 3 ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="CombinatorialMap" Label="for IsManiplex"/>
+ <Returns>combinatorial_map
+</Returns>
+ <Description>
+Gives the result of combinatorial operation on a map; this is equivalent to taking the dual of the barycentric subdivision.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfEdges(Cube(3));
+12
+gap> NumberOfEdges(CombinatorialMap(Cube(3)));
+72
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Angle" Label="for IsManiplex"/>
+ <Returns>angle_map
+</Returns>
+ <Description>
+Returns the angle map of a map. This is equivalent to taking the dual of the medial.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfEdges(ToroidalMap44([3,0]));
+18
+gap> NumberOfEdges(Angle(ToroidalMap44([3,0])));
+36
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Gothic" Label="for IsManiplex"/>
+ <Returns>gothic
+</Returns>
+ <Description>
+Returns the result of performing the gothic operation to a map. This is the same as taking the dual of the medial of the truncation of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> m:=AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6");;
+gap> NumberOfEdges(m); NumberOfEdges(Gothic(m));
+27
+162
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maps_On_Surfaces_Section_Conway_polyhedron_operator_notation">
+<Heading>Conway polyhedron operator notation</Heading>
+
+ We include here operators from Wikipedia that are not included above.
+<List>
+<Item>
+<Code>MapJoin</Code>: Creates quadrilateral faces by placing a node in each face, and then the set of edges are formed by the nodes corresponding to incident vertex-face pairs. This is another name for <Code>Angle</Code>.
+</Item>
+<Item>
+<Code>Ambo</Code>: This is another name for <Code>Medial</Code>.
+</Item>
+</List>
+ Additional functions are described below.
+<ManSection>
+  <Oper Arg="M" Name="Kis" Label="for IsManiplex"/>
+ <Returns>kis
+</Returns>
+ <Description>
+Returns the Kis of the map, which erects a pyramid over each of the faces.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Kis(Cube(3));
+3-maniplex with 144 flags
+gap> SchlafliSymbol(last);
+[ 3, [ 4, 6 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Needle" Label="for IsManiplex"/>
+ <Returns>needle
+</Returns>
+ <Description>
+Performs the needle operation to the map: edges connect adjacent face centers, and face centers to incident vertices.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Needle(Cube(3)));
+[ 3, [ 3, 8 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Zip" Label="for IsManiplex"/>
+ <Returns>zip
+</Returns>
+ <Description>
+Returns the zip of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Zip(Cube(3))=TruncatedOctahedron();
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Ortho" Label="for IsManiplex"/>
+ <Returns>ortho
+</Returns>
+ <Description>
+Returns the ortho of the map (this is the same as applying the join twice.).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Ortho(Cube(3)));
+[ 4, [ 3, 4 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Expand" Label="for IsManiplex"/>
+ <Returns>expand
+</Returns>
+ <Description>
+Returns the expand of the map (this is the same as applying the ambo operation twice.).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Expand(Cube(3))=SmallRhombicuboctahedron();
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Gyro" Label="for IsManiplex"/>
+ <Returns>gyro
+</Returns>
+ <Description>
+Returns the gyro of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Gyro(Dual(Cube(3)))=Gyro(Cube(3));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Meta" Label="for IsManiplex"/>
+ <Returns>meta
+</Returns>
+ <Description>
+Constructs the meta of the given map. (This is the same as applying first the join, and then the kis operation to the map).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Size(Cube(3))=NumberOfFacets(Meta(Cube(3)));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Bevel" Label="for IsManiplex"/>
+ <Returns>bevel
+</Returns>
+ <Description>
+Constructs the bevel of a given map. (This is the same as truncating the ambo of a map.)
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> CombinatorialMap(Cube(3))=Bevel(Cube(3));
+true
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maps_On_Surfaces_Section_Extended_operations">
+<Heading>Extended operations</Heading>
+
+ A number of these were introduced by George Hart.
+<ManSection>
+  <Oper Arg="M" Name="Propeller" Label="for IsManiplex"/>
+ <Returns>propeller
+</Returns>
+ <Description>
+Constructs the propeller of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Dual(Propeller(Cube(3)))=Propeller(Dual(Cube(3)));
+true
+gap> Dual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));
+true
 ]]></Example>
 
 

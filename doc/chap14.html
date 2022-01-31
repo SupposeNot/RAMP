@@ -46,10 +46,33 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14.html#X8688080A7A67C820">14.4 <span class="Heading">Operations on maps</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X86B0B0307BF7A16D">14.4-1 MapTruncation</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X793EEC567A0513B9">14.4-2 MapSnub</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7FA045DC78EB05CC">14.4-3 MapChamfer</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7A43D7AA833249B5">14.4-4 MapSubdivision1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X873B88EA78B9FBEF">14.4-1 Truncation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X818F804C82854C77">14.4-2 Snub</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X806CD87186F7191A">14.4-3 Chamfer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X835866E6846EBCE6">14.4-4 Subdivision1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X81C4EDA9831751C9">14.4-5 Subdivision2</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7F7E0435868F5355">14.4-6 BarycentricSubdivision</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X856DCBB17B221234">14.4-7 Leapfrog</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7D123D947CB76224">14.4-8 CombinatorialMap</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7EF004948027923B">14.4-9 Angle</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X8427514383188A05">14.4-10 Gothic</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14.html#X805E812282DDDFD7">14.5 <span class="Heading">Conway polyhedron operator notation</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7D70BF117DD868AD">14.5-1 Kis</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7D02E79D7FB30EAE">14.5-2 Needle</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X83F32AF17B570147">14.5-3 Zip</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X846ED35D7D804C13">14.5-4 Ortho</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X86B3389C80F214E1">14.5-5 Expand</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X804875A47C02859C">14.5-6 Gyro</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7CC7E258822D8E60">14.5-7 Meta</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X79762FF5815784F7">14.5-8 Bevel</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14.html#X8506DF867A281C52">14.6 <span class="Heading">Extended operations</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7CC92E4B8502ED4B">14.6-1 Propeller</a></span>
 </div></div>
 </div>
 
@@ -214,47 +237,53 @@ Petrial(Dual(Petrial(3-maniplex with 140 flags)))
 
 <h4>14.4 <span class="Heading">Operations on maps</span></h4>
 
-<p><a id="X86B0B0307BF7A16D" name="X86B0B0307BF7A16D"></a></p>
+<p><a id="X873B88EA78B9FBEF" name="X873B88EA78B9FBEF"></a></p>
 
-<h5>14.4-1 MapTruncation</h5>
+<h5>14.4-1 Truncation</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapTruncation</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Truncation</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: trunc_map</p>
 
 <p>Given a <var class="Arg">map</var> on a surface, this function will return the truncation of <var class="Arg">map</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(MapTruncation(Simplex(3)));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Truncation(Simplex(3)));</span>
 [ [ 3, 6 ], 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TruncatedTetrahedron()=MapTruncation(Simplex(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TruncatedTetrahedron()=Truncation(Simplex(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(CrossPolytope(3))=TruncatedOctahedron();</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(Cube(3))=TruncatedCube();</span>
 true
 </pre></div>
 
-<p><a id="X793EEC567A0513B9" name="X793EEC567A0513B9"></a></p>
+<p><a id="X818F804C82854C77" name="X818F804C82854C77"></a></p>
 
-<h5>14.4-2 MapSnub</h5>
+<h5>14.4-2 Snub</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapSnub</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Snub</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: snub_map</p>
 
 <p>Returns the snub of a given map; we require that the map have triangles as vertex figures.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MapSnub(Dodecahedron())=SnubDodecahedron();</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Dodecahedron())=SnubDodecahedron();</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MapSnub(Cube(3))=SnubCube();</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Cube(3))=SnubCube();</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MapSnub(Simplex(3))=Icosahedron();</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Simplex(3))=Icosahedron();</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(CrossPolytope(3))=SnubCube();</span>
 true
 </pre></div>
 
-<p><a id="X7FA045DC78EB05CC" name="X7FA045DC78EB05CC"></a></p>
+<p><a id="X806CD87186F7191A" name="X806CD87186F7191A"></a></p>
 
-<h5>14.4-3 MapChamfer</h5>
+<h5>14.4-3 Chamfer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapChamfer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Chamfer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: chamfered_map</p>
 
 <p>Returns the map obtained from the chamfering operation described in <a href="chapBib.html#biBRio14">[dRF14]</a></p>
@@ -268,27 +297,289 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(p);</span>
 [ 6, 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ch:=MapChamfer(p);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ch:=Chamfer(p);</span>
 3-maniplex with 432 flags
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(ch);</span>
 [ 6, 3 ]
 </pre></div>
 
-<p><a id="X7A43D7AA833249B5" name="X7A43D7AA833249B5"></a></p>
+<p><a id="X835866E6846EBCE6" name="X835866E6846EBCE6"></a></p>
 
-<h5>14.4-4 MapSubdivision1</h5>
+<h5>14.4-4 Subdivision1</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapSubdivision1</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Subdivision1</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Su1</p>
 
 <p>Returns the One-dimensional subdivision of a map, which replaces each edge with two edges. For more information on the oriented version of this, see <a href="chapBib.html#biBBerPisWil17">[BPW17]</a>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=MapSubdivision1(Simplex(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Subdivision1(Simplex(3));</span>
 3-maniplex with 48 flags
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(m);</span>
 [ 6, [ 2, 3 ] ]
+</pre></div>
+
+<p><a id="X81C4EDA9831751C9" name="X81C4EDA9831751C9"></a></p>
+
+<h5>14.4-5 Subdivision2</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Subdivision2</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Su2</p>
+
+<p>Returns the two-dimensional subdivision of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Subdivision2(Cube(3)));</span>
+[ 3, [ 4, 6 ] ]
+</pre></div>
+
+<p><a id="X7F7E0435868F5355" name="X7F7E0435868F5355"></a></p>
+
+<h5>14.4-6 BarycentricSubdivision</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BarycentricSubdivision</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: barycentric_subdivision</p>
+
+<p>Gives the barycentric subdivision of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=BarycentricSubdivision(Cube(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(m);NumberOfFacets(m);</span>
+[ 3, [ 4, 6, 8 ] ]
+48
+</pre></div>
+
+<p><a id="X856DCBB17B221234" name="X856DCBB17B221234"></a></p>
+
+<h5>14.4-7 Leapfrog</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Leapfrog</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: leapfrog</p>
+
+<p>Gives the result of performing the leapfrog operation on a map on a surface</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Leapfrog(Dodecahedron());</span>
+3-maniplex with 360 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+[ [ 5, 6 ], 3 ]
+</pre></div>
+
+<p><a id="X7D123D947CB76224" name="X7D123D947CB76224"></a></p>
+
+<h5>14.4-8 CombinatorialMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CombinatorialMap</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: combinatorial_map</p>
+
+<p>Gives the result of combinatorial operation on a map; this is equivalent to taking the dual of the barycentric subdivision.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(Cube(3));</span>
+12
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(CombinatorialMap(Cube(3)));</span>
+72
+</pre></div>
+
+<p><a id="X7EF004948027923B" name="X7EF004948027923B"></a></p>
+
+<h5>14.4-9 Angle</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Angle</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: angle_map</p>
+
+<p>Returns the angle map of a map. This is equivalent to taking the dual of the medial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(ToroidalMap44([3,0]));</span>
+18
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(Angle(ToroidalMap44([3,0])));</span>
+36
+</pre></div>
+
+<p><a id="X8427514383188A05" name="X8427514383188A05"></a></p>
+
+<h5>14.4-10 Gothic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Gothic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: gothic</p>
+
+<p>Returns the result of performing the gothic operation to a map. This is the same as taking the dual of the medial of the truncation of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(m); NumberOfEdges(Gothic(m));</span>
+27
+162
+</pre></div>
+
+<p><a id="X805E812282DDDFD7" name="X805E812282DDDFD7"></a></p>
+
+<h4>14.5 <span class="Heading">Conway polyhedron operator notation</span></h4>
+
+<p>We include here operators from Wikipedia that are not included above.</p>
+
+
+<ul>
+<li><p><code class="code">MapJoin</code>: Creates quadrilateral faces by placing a node in each face, and then the set of edges are formed by the nodes corresponding to incident vertex-face pairs. This is another name for <code class="code">Angle</code>.</p>
+
+</li>
+<li><p><code class="code">Ambo</code>: This is another name for <code class="code">Medial</code>.</p>
+
+</li>
+</ul>
+<p>Additional functions are described below.</p>
+
+<p><a id="X7D70BF117DD868AD" name="X7D70BF117DD868AD"></a></p>
+
+<h5>14.5-1 Kis</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Kis</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: kis</p>
+
+<p>Returns the Kis of the map, which erects a pyramid over each of the faces.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Kis(Cube(3));</span>
+3-maniplex with 144 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+[ 3, [ 4, 6 ] ]
+</pre></div>
+
+<p><a id="X7D02E79D7FB30EAE" name="X7D02E79D7FB30EAE"></a></p>
+
+<h5>14.5-2 Needle</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Needle</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: needle</p>
+
+<p>Performs the needle operation to the map: edges connect adjacent face centers, and face centers to incident vertices.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Needle(Cube(3)));</span>
+[ 3, [ 3, 8 ] ]
+</pre></div>
+
+<p><a id="X83F32AF17B570147" name="X83F32AF17B570147"></a></p>
+
+<h5>14.5-3 Zip</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Zip</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: zip</p>
+
+<p>Returns the zip of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Zip(Cube(3))=TruncatedOctahedron();</span>
+true
+</pre></div>
+
+<p><a id="X846ED35D7D804C13" name="X846ED35D7D804C13"></a></p>
+
+<h5>14.5-4 Ortho</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Ortho</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: ortho</p>
+
+<p>Returns the ortho of the map (this is the same as applying the join twice.).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Ortho(Cube(3)));</span>
+[ 4, [ 3, 4 ] ]
+</pre></div>
+
+<p><a id="X86B3389C80F214E1" name="X86B3389C80F214E1"></a></p>
+
+<h5>14.5-5 Expand</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Expand</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: expand</p>
+
+<p>Returns the expand of the map (this is the same as applying the ambo operation twice.).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Expand(Cube(3))=SmallRhombicuboctahedron();</span>
+true
+</pre></div>
+
+<p><a id="X804875A47C02859C" name="X804875A47C02859C"></a></p>
+
+<h5>14.5-6 Gyro</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Gyro</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: gyro</p>
+
+<p>Returns the gyro of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gyro(Dual(Cube(3)))=Gyro(Cube(3));</span>
+true
+</pre></div>
+
+<p><a id="X7CC7E258822D8E60" name="X7CC7E258822D8E60"></a></p>
+
+<h5>14.5-7 Meta</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Meta</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: meta</p>
+
+<p>Constructs the meta of the given map. (This is the same as applying first the join, and then the kis operation to the map).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Cube(3))=NumberOfFacets(Meta(Cube(3)));</span>
+true
+</pre></div>
+
+<p><a id="X79762FF5815784F7" name="X79762FF5815784F7"></a></p>
+
+<h5>14.5-8 Bevel</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bevel</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: bevel</p>
+
+<p>Constructs the bevel of a given map. (This is the same as truncating the ambo of a map.)</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CombinatorialMap(Cube(3))=Bevel(Cube(3));</span>
+true
+</pre></div>
+
+<p><a id="X8506DF867A281C52" name="X8506DF867A281C52"></a></p>
+
+<h4>14.6 <span class="Heading">Extended operations</span></h4>
+
+<p>A number of these were introduced by George Hart.</p>
+
+<p><a id="X7CC92E4B8502ED4B" name="X7CC92E4B8502ED4B"></a></p>
+
+<h5>14.6-1 Propeller</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Propeller</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: propeller</p>
+
+<p>Constructs the propeller of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Propeller(Cube(3)))=Propeller(Dual(Cube(3)));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));</span>
+true
 </pre></div>
 
 

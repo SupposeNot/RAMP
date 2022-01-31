@@ -6766,11 +6766,11 @@ IsBool
 {
   
 
-\subsection{\textcolor{Chapter }{MapTruncation (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Truncation (for IsManiplex)}}
 \logpage{[ 14, 4, 1 ]}\nobreak
-\hyperdef{L}{X86B0B0307BF7A16D}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapTruncation({\mdseries\slshape map})\index{MapTruncation@\texttt{MapTruncation}!for IsManiplex}
-\label{MapTruncation:for IsManiplex}
+\hyperdef{L}{X873B88EA78B9FBEF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Truncation({\mdseries\slshape map})\index{Truncation@\texttt{Truncation}!for IsManiplex}
+\label{Truncation:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 trunc{\textunderscore}map 
@@ -6781,18 +6781,22 @@ trunc{\textunderscore}map
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(MapTruncation(Simplex(3)));|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Truncation(Simplex(3)));|
   [ [ 3, 6 ], 3 ]
-  !gapprompt@gap>| !gapinput@TruncatedTetrahedron()=MapTruncation(Simplex(3));|
+  !gapprompt@gap>| !gapinput@TruncatedTetrahedron()=Truncation(Simplex(3));|
+  true
+  !gapprompt@gap>| !gapinput@Truncation(CrossPolytope(3))=TruncatedOctahedron();|
+  true
+  !gapprompt@gap>| !gapinput@Truncation(Cube(3))=TruncatedCube();|
   true
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{MapSnub (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Snub (for IsManiplex)}}
 \logpage{[ 14, 4, 2 ]}\nobreak
-\hyperdef{L}{X793EEC567A0513B9}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapSnub({\mdseries\slshape M})\index{MapSnub@\texttt{MapSnub}!for IsManiplex}
-\label{MapSnub:for IsManiplex}
+\hyperdef{L}{X818F804C82854C77}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Snub({\mdseries\slshape M})\index{Snub@\texttt{Snub}!for IsManiplex}
+\label{Snub:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 snub{\textunderscore}map 
@@ -6804,20 +6808,22 @@ vertex figures. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MapSnub(Dodecahedron())=SnubDodecahedron();|
+  !gapprompt@gap>| !gapinput@Snub(Dodecahedron())=SnubDodecahedron();|
   true
-  !gapprompt@gap>| !gapinput@MapSnub(Cube(3))=SnubCube();|
+  !gapprompt@gap>| !gapinput@Snub(Cube(3))=SnubCube();|
   true
-  !gapprompt@gap>| !gapinput@MapSnub(Simplex(3))=Icosahedron();|
+  !gapprompt@gap>| !gapinput@Snub(Simplex(3))=Icosahedron();|
+  true
+  !gapprompt@gap>| !gapinput@Snub(CrossPolytope(3))=SnubCube();|
   true
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{MapChamfer (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Chamfer (for IsManiplex)}}
 \logpage{[ 14, 4, 3 ]}\nobreak
-\hyperdef{L}{X7FA045DC78EB05CC}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapChamfer({\mdseries\slshape M})\index{MapChamfer@\texttt{MapChamfer}!for IsManiplex}
-\label{MapChamfer:for IsManiplex}
+\hyperdef{L}{X806CD87186F7191A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Chamfer({\mdseries\slshape M})\index{Chamfer@\texttt{Chamfer}!for IsManiplex}
+\label{Chamfer:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 chamfered{\textunderscore}map 
@@ -6835,18 +6841,18 @@ chamfered{\textunderscore}map
   !gapprompt@gap>| !gapinput@p:=ARP(poly);;|
   !gapprompt@gap>| !gapinput@SchlafliSymbol(p);|
   [ 6, 3 ]
-  !gapprompt@gap>| !gapinput@ch:=MapChamfer(p);|
+  !gapprompt@gap>| !gapinput@ch:=Chamfer(p);|
   3-maniplex with 432 flags
   !gapprompt@gap>| !gapinput@SchlafliSymbol(ch);|
   [ 6, 3 ]
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{MapSubdivision1 (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Subdivision1 (for IsManiplex)}}
 \logpage{[ 14, 4, 4 ]}\nobreak
-\hyperdef{L}{X7A43D7AA833249B5}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MapSubdivision1({\mdseries\slshape M})\index{MapSubdivision1@\texttt{MapSubdivision1}!for IsManiplex}
-\label{MapSubdivision1:for IsManiplex}
+\hyperdef{L}{X835866E6846EBCE6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision1({\mdseries\slshape M})\index{Subdivision1@\texttt{Subdivision1}!for IsManiplex}
+\label{Subdivision1:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 Su1 
@@ -6858,10 +6864,352 @@ with two edges. For more information on the oriented version of this, see \cite{
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@m:=MapSubdivision1(Simplex(3));|
+  !gapprompt@gap>| !gapinput@m:=Subdivision1(Simplex(3));|
   3-maniplex with 48 flags
   !gapprompt@gap>| !gapinput@SchlafliSymbol(m);|
   [ 6, [ 2, 3 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Subdivision2 (for IsManiplex)}}
+\logpage{[ 14, 4, 5 ]}\nobreak
+\hyperdef{L}{X81C4EDA9831751C9}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision2({\mdseries\slshape M})\index{Subdivision2@\texttt{Subdivision2}!for IsManiplex}
+\label{Subdivision2:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Su2 
+
+
+
+ Returns the two-dimensional subdivision of \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Subdivision2(Cube(3)));|
+  [ 3, [ 4, 6 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{BarycentricSubdivision (for IsManiplex)}}
+\logpage{[ 14, 4, 6 ]}\nobreak
+\hyperdef{L}{X7F7E0435868F5355}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BarycentricSubdivision({\mdseries\slshape M})\index{BarycentricSubdivision@\texttt{BarycentricSubdivision}!for IsManiplex}
+\label{BarycentricSubdivision:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+barycentric{\textunderscore}subdivision 
+
+
+
+ Gives the barycentric subdivision of \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m:=BarycentricSubdivision(Cube(3));;|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(m);NumberOfFacets(m);|
+  [ 3, [ 4, 6, 8 ] ]
+  48
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Leapfrog (for IsManiplex)}}
+\logpage{[ 14, 4, 7 ]}\nobreak
+\hyperdef{L}{X856DCBB17B221234}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Leapfrog({\mdseries\slshape M})\index{Leapfrog@\texttt{Leapfrog}!for IsManiplex}
+\label{Leapfrog:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+leapfrog 
+
+
+
+ Gives the result of performing the leapfrog operation on a map on a surface }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Leapfrog(Dodecahedron());|
+  3-maniplex with 360 flags
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  [ [ 5, 6 ], 3 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{CombinatorialMap (for IsManiplex)}}
+\logpage{[ 14, 4, 8 ]}\nobreak
+\hyperdef{L}{X7D123D947CB76224}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CombinatorialMap({\mdseries\slshape M})\index{CombinatorialMap@\texttt{CombinatorialMap}!for IsManiplex}
+\label{CombinatorialMap:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+combinatorial{\textunderscore}map 
+
+
+
+ Gives the result of combinatorial operation on a map; this is equivalent to
+taking the dual of the barycentric subdivision. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfEdges(Cube(3));|
+  12
+  !gapprompt@gap>| !gapinput@NumberOfEdges(CombinatorialMap(Cube(3)));|
+  72
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Angle (for IsManiplex)}}
+\logpage{[ 14, 4, 9 ]}\nobreak
+\hyperdef{L}{X7EF004948027923B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Angle({\mdseries\slshape M})\index{Angle@\texttt{Angle}!for IsManiplex}
+\label{Angle:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+angle{\textunderscore}map 
+
+
+
+ Returns the angle map of a map. This is equivalent to taking the dual of the
+medial. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfEdges(ToroidalMap44([3,0]));|
+  18
+  !gapprompt@gap>| !gapinput@NumberOfEdges(Angle(ToroidalMap44([3,0])));|
+  36
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Gothic (for IsManiplex)}}
+\logpage{[ 14, 4, 10 ]}\nobreak
+\hyperdef{L}{X8427514383188A05}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gothic({\mdseries\slshape M})\index{Gothic@\texttt{Gothic}!for IsManiplex}
+\label{Gothic:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+gothic 
+
+
+
+ Returns the result of performing the gothic operation to a map. This is the
+same as taking the dual of the medial of the truncation of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m:=AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6");;|
+  !gapprompt@gap>| !gapinput@NumberOfEdges(m); NumberOfEdges(Gothic(m));|
+  27
+  162
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Conway polyhedron operator notation}}\label{Chapter_Maps_On_Surfaces_Section_Conway_polyhedron_operator_notation}
+\logpage{[ 14, 5, 0 ]}
+\hyperdef{L}{X805E812282DDDFD7}{}
+{
+  We include here operators from Wikipedia that are not included above. 
+\begin{itemize}
+\item  \texttt{MapJoin}: Creates quadrilateral faces by placing a node in each face, and then the set
+of edges are formed by the nodes corresponding to incident vertex-face pairs.
+This is another name for \texttt{Angle}. 
+\item  \texttt{Ambo}: This is another name for \texttt{Medial}. 
+\end{itemize}
+ Additional functions are described below. 
+
+\subsection{\textcolor{Chapter }{Kis (for IsManiplex)}}
+\logpage{[ 14, 5, 1 ]}\nobreak
+\hyperdef{L}{X7D70BF117DD868AD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Kis({\mdseries\slshape M})\index{Kis@\texttt{Kis}!for IsManiplex}
+\label{Kis:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+kis 
+
+
+
+ Returns the Kis of the map, which erects a pyramid over each of the faces. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Kis(Cube(3));|
+  3-maniplex with 144 flags
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  [ 3, [ 4, 6 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Needle (for IsManiplex)}}
+\logpage{[ 14, 5, 2 ]}\nobreak
+\hyperdef{L}{X7D02E79D7FB30EAE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Needle({\mdseries\slshape M})\index{Needle@\texttt{Needle}!for IsManiplex}
+\label{Needle:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+needle 
+
+
+
+ Performs the needle operation to the map: edges connect adjacent face centers,
+and face centers to incident vertices. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Needle(Cube(3)));|
+  [ 3, [ 3, 8 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Zip (for IsManiplex)}}
+\logpage{[ 14, 5, 3 ]}\nobreak
+\hyperdef{L}{X83F32AF17B570147}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Zip({\mdseries\slshape M})\index{Zip@\texttt{Zip}!for IsManiplex}
+\label{Zip:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+zip 
+
+
+
+ Returns the zip of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Zip(Cube(3))=TruncatedOctahedron();|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Ortho (for IsManiplex)}}
+\logpage{[ 14, 5, 4 ]}\nobreak
+\hyperdef{L}{X846ED35D7D804C13}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Ortho({\mdseries\slshape M})\index{Ortho@\texttt{Ortho}!for IsManiplex}
+\label{Ortho:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+ortho 
+
+
+
+ Returns the ortho of the map (this is the same as applying the join twice.). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Ortho(Cube(3)));|
+  [ 4, [ 3, 4 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Expand (for IsManiplex)}}
+\logpage{[ 14, 5, 5 ]}\nobreak
+\hyperdef{L}{X86B3389C80F214E1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Expand({\mdseries\slshape M})\index{Expand@\texttt{Expand}!for IsManiplex}
+\label{Expand:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+expand 
+
+
+
+ Returns the expand of the map (this is the same as applying the ambo operation
+twice.). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Expand(Cube(3))=SmallRhombicuboctahedron();|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Gyro (for IsManiplex)}}
+\logpage{[ 14, 5, 6 ]}\nobreak
+\hyperdef{L}{X804875A47C02859C}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gyro({\mdseries\slshape M})\index{Gyro@\texttt{Gyro}!for IsManiplex}
+\label{Gyro:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+gyro 
+
+
+
+ Returns the gyro of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Gyro(Dual(Cube(3)))=Gyro(Cube(3));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Meta (for IsManiplex)}}
+\logpage{[ 14, 5, 7 ]}\nobreak
+\hyperdef{L}{X7CC7E258822D8E60}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Meta({\mdseries\slshape M})\index{Meta@\texttt{Meta}!for IsManiplex}
+\label{Meta:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+meta 
+
+
+
+ Constructs the meta of the given map. (This is the same as applying first the
+join, and then the kis operation to the map). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Size(Cube(3))=NumberOfFacets(Meta(Cube(3)));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Bevel (for IsManiplex)}}
+\logpage{[ 14, 5, 8 ]}\nobreak
+\hyperdef{L}{X79762FF5815784F7}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bevel({\mdseries\slshape M})\index{Bevel@\texttt{Bevel}!for IsManiplex}
+\label{Bevel:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+bevel 
+
+
+
+ Constructs the bevel of a given map. (This is the same as truncating the ambo
+of a map.) }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@CombinatorialMap(Cube(3))=Bevel(Cube(3));|
+  true
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Extended operations}}\label{Chapter_Maps_On_Surfaces_Section_Extended_operations}
+\logpage{[ 14, 6, 0 ]}
+\hyperdef{L}{X8506DF867A281C52}{}
+{
+  A number of these were introduced by George Hart. 
+
+\subsection{\textcolor{Chapter }{Propeller (for IsManiplex)}}
+\logpage{[ 14, 6, 1 ]}\nobreak
+\hyperdef{L}{X7CC92E4B8502ED4B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Propeller({\mdseries\slshape M})\index{Propeller@\texttt{Propeller}!for IsManiplex}
+\label{Propeller:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+propeller 
+
+
+
+ Constructs the propeller of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Dual(Propeller(Cube(3)))=Propeller(Dual(Cube(3)));|
+  true
+  !gapprompt@gap>| !gapinput@Dual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));|
+  true
 \end{Verbatim}
  }
 
@@ -7121,7 +7469,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
