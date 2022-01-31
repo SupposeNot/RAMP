@@ -73,6 +73,8 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7CC92E4B8502ED4B">14.6-1 Propeller</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X8560A8A67D755EEA">14.6-2 Loft</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7C0A7F617AB56136">14.6-3 Quinto</a></span>
 </div></div>
 </div>
 
@@ -580,6 +582,38 @@ true
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));</span>
 true
+</pre></div>
+
+<p><a id="X8560A8A67D755EEA" name="X8560A8A67D755EEA"></a></p>
+
+<h5>14.6-2 Loft</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Loft</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: loft</p>
+
+<p>Constructs the loft of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFacets(Loft(Cube(3)));</span>
+30
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Loft(Cube(3)));</span>
+[ 4, [ 3, 6 ] ]
+</pre></div>
+
+<p><a id="X7C0A7F617AB56136" name="X7C0A7F617AB56136"></a></p>
+
+<h5>14.6-3 Quinto</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Quinto</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: quinto</p>
+
+<p>Constructs the quinto of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Quinto(Cube(3)));</span>
+[ [ 4, 5 ], [ 3, 4 ] ]
 </pre></div>
 
 

@@ -541,6 +541,40 @@ true
 ]]></Example>
 
 
+<ManSection>
+  <Oper Arg="M" Name="Loft" Label="for IsManiplex"/>
+ <Returns>loft
+</Returns>
+ <Description>
+Constructs the loft of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfFacets(Loft(Cube(3)));
+30
+gap> SchlafliSymbol(Loft(Cube(3)));
+[ 4, [ 3, 6 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Quinto" Label="for IsManiplex"/>
+ <Returns>quinto
+</Returns>
+ <Description>
+Constructs the quinto of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Quinto(Cube(3)));
+[ [ 4, 5 ], [ 3, 4 ] ]
+]]></Example>
+
+
 </Section>
 
 

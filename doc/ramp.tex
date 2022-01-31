@@ -7211,6 +7211,48 @@ propeller
   !gapprompt@gap>| !gapinput@Dual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));|
   true
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Loft (for IsManiplex)}}
+\logpage{[ 14, 6, 2 ]}\nobreak
+\hyperdef{L}{X8560A8A67D755EEA}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Loft({\mdseries\slshape M})\index{Loft@\texttt{Loft}!for IsManiplex}
+\label{Loft:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+loft 
+
+
+
+ Constructs the loft of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@NumberOfFacets(Loft(Cube(3)));|
+  30
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Loft(Cube(3)));|
+  [ 4, [ 3, 6 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Quinto (for IsManiplex)}}
+\logpage{[ 14, 6, 3 ]}\nobreak
+\hyperdef{L}{X7C0A7F617AB56136}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Quinto({\mdseries\slshape M})\index{Quinto@\texttt{Quinto}!for IsManiplex}
+\label{Quinto:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+quinto 
+
+
+
+ Constructs the quinto of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Quinto(Cube(3)));|
+  [ [ 4, 5 ], [ 3, 4 ] ]
+\end{Verbatim}
  }
 
  }
@@ -7469,6 +7511,7 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
