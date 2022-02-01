@@ -340,3 +340,18 @@ InstallMethod(Quinto,
 	s2:=c.3* TranslatePerm(c.3,len)* TranslatePerm(c.1,2*len)* TranslatePerm(c.1,3*len)* PermList(Concatenation([1..4*len],k+5*len, k+4*len));
 	return Maniplex(Group([s0,s1,s2]));
 	end);
+
+InstallMethod(JoinLace,
+	[IsManiplex],
+		function(m)
+	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
+	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
+	c:=ConnectionGroup(m);
+	points:=MovedPoints(c);
+	l:=Length(MovedPoints(c));
+	k:=[1..l];
+	s0:=c.1*PermList(Concatenation( k, k+2*l, k+l, k+4*l, k+3*l))* TranslatePerm(c.2,5*l)* TranslatePerm(c.2,6*l);
+	s1:=PermList(Concatenation(k+l, k, [2*l+1..4*l], k+5*l, k+4*l))* TranslatePerm(c.2,3*l)* TranslatePerm(c.1,6*l);
+	s2:=c.3*PermList(Concatenation(k, k+3*l, k+4*l, k+l, k+2*l, k+6*l, k+5*l));
+	return Maniplex(Group([s0,s1,s2]));
+	end);
