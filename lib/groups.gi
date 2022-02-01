@@ -24,7 +24,7 @@ InstallMethod(AutomorphismGroup,
 	# group is just the rotation group.
 	
 	n := Rank(M);
-	g := Image(IsomorphismFpGroup(RotationGroup(M)));
+	g := Image(IsomorphismFpGroupByGenerators(RotationGroup(M), GeneratorsOfGroup(RotationGroup(M))));
 	gens := List([1..n-1], i -> Concatenation("s", String(i)));
 	Add(gens, "r0");
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r, FreeGeneratorsOfFpGroup(g)));
@@ -171,6 +171,26 @@ InstallMethod(RotationGroup,
 		Add(new_gens, gens[i]*gens[i+1]);
 	od;
 	return Group(new_gens);
+	end);
+
+InstallMethod(RotationGroupFpGroup,
+	[IsManiplex],
+	function(M)
+	local g, fp, w, rels;
+	g := RotationGroup(M);
+	if IsFpGroup(g) then
+		return g;
+	else
+		fp := Image(IsomorphismFpGroupByGenerators(g, GeneratorsOfGroup(g)));
+		
+		# Retranslate everything in terms of s1, s2, etc.
+		w := UniversalRotationGroup(Rank(M));
+		rels := RelatorsOfFpGroup(fp);
+		rels := List(rels, r -> TietzeWordAbstractWord(r));
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+		fp := FactorGroupFpGroupByRels(w, rels);
+		return fp;
+	fi;
 	end);
 
 InstallMethod(ConnectionGroup,

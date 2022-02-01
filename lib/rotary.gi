@@ -118,7 +118,7 @@ InstallMethod(EnantiomorphicForm,
 	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2, relstr, polytopal;
 	if HasIsReflexible(M) and IsReflexible(M) then return M; fi;
 	
-	rotgp := RotationGroup(M);
+	rotgp := RotationGroupFpGroup(M);
 	n := Rank(M);
 	standardRels := List(RelatorsOfFpGroup(UniversalRotationGroup(SchlafliSymbol(M))), TietzeWordAbstractWord);
 	rels := List(RelatorsOfFpGroup(rotgp), TietzeWordAbstractWord);
@@ -146,9 +146,7 @@ InstallMethod(EnantiomorphicForm,
 
 	relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
 	
-	polytopal := (ValueOption("polytopal") = true);
-	
-	M2 := RotaryManiplex(SchlafliSymbol(M), relstr : polytopal);
+	M2 := RotaryManiplex(SchlafliSymbol(M), relstr);
 	return M2;
 	end);
 	

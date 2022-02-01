@@ -80,6 +80,17 @@ DeclareAttribute("RotationGroup", IsManiplex);
 #! @EndExampleSession
 
 #! @Arguments M
+#! Returns the rotation group of <A>M</A>, as a finitely presented group
+#! on the standard generators.
+DeclareAttribute("RotationGroupFpGroup", IsManiplex);
+#! @BeginExampleSession
+#! gap> RotationGroupFpGroup(ToroidalMap44([1,2]));
+#! <fp group on the generators [ s1, s2 ]>
+#! gap> RelatorsOfFpGroup(last);
+#! [ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+#! @EndExampleSession
+
+#! @Arguments M
 #! Returns the chirality group of the rotary maniplex <A>M</A>.
 #! This is the kernel of the group epimorphism from the
 #! rotation group of <A>M</A> to the rotation group of its maximal
