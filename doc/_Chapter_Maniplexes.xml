@@ -44,6 +44,8 @@ gap> p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;
  to the one given. This may not be the correct Schlafli symbol, since
  the relations may cause a collapse, so this should only be used if
  you know that the Schlafli symbol is correct.
+<P/>
+ The abbreviations <Code>RefMan</Code> and <Code>RefManNC</Code> are also available.
  </Description>
 </ManSection>
 

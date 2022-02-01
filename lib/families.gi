@@ -19,7 +19,7 @@ InstallMethod(Pgon,
 		Error("Number of sides must be at least 2.\n");
 		return fail;
 	fi;
-	p := AbstractRegularPolytope(UniversalSggi([n]));
+	p := AbstractRegularPolytopeNC(UniversalSggi([n]));
 	SetString(p, Concatenation("Pgon(", String(n), ")"));
 	SetSchlafliSymbol(p, [n]);
 	SetSize(p, 2*n);
@@ -50,7 +50,7 @@ InstallMethod(Cube,
 	sym := List([1..n-1], i -> 3);
 	sym[1] := 4;
 	g := UniversalSggi(sym);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetSchlafliSymbol(p, sym);
 	SetString(p, Concatenation("Cube(", String(n), ")"));
 	SetExtraRelators(p, []);
@@ -96,7 +96,7 @@ InstallMethod(CrossPolytope,
 	sym := List([1..n-1], i -> 3);
 	sym[n-1] := 4;
 	g := UniversalSggi(sym);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetSchlafliSymbol(p, sym);
 	SetString(p, Concatenation("CrossPolytope(", String(n), ")"));
 	SetExtraRelators(p, []);
@@ -140,7 +140,7 @@ InstallMethod(Simplex,
 		return Pgon(3);
 	fi;
 	g := UniversalSggi(sym);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetString(p, Concatenation("Simplex(", String(n), ")"));
 	SetSchlafliSymbol(p, sym);
 	SetExtraRelators(p, []);
@@ -162,7 +162,7 @@ InstallMethod(CubicTiling,
 	sym[1] := 4;
 	sym[n] := 4;
 	g := UniversalSggi(sym);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetSchlafliSymbol(p, sym);
 	SetExtraRelators(p, []);
 	SetString(p, Concatenation("CubicTiling(", String(n), ")"));
@@ -174,7 +174,7 @@ InstallMethod(Dodecahedron,
 	function()
 	local g, p;
 	g := UniversalSggi([5,3]);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetString(p, "Dodecahedron()");
 	SetSchlafliSymbol(p, [5,3]);
 	SetExtraRelators(p, []);
@@ -183,14 +183,14 @@ InstallMethod(Dodecahedron,
 InstallMethod(HemiDodecahedron,
 	[],
 	function()
-	return AbstractRegularPolytope([5,3], "z1^5" : set_schlafli);
+	return AbstractRegularPolytopeNC([5,3], "z1^5" : set_schlafli);
 	end);
 InstallMethod(Icosahedron,
 	[],
 	function()
 	local g, p;
 	g := UniversalSggi([3,5]);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetString(p, "Icosahedron()");
 	SetSchlafliSymbol(p, [3,5]);
 	SetExtraRelators(p, []);
@@ -199,14 +199,14 @@ InstallMethod(Icosahedron,
 InstallMethod(HemiIcosahedron,
 	[],
 	function()
-	return AbstractRegularPolytope([3,5], "z1^5" : set_schlafli);
+	return AbstractRegularPolytopeNC([3,5], "z1^5" : set_schlafli);
 	end);
 InstallMethod(24Cell,
 	[],
 	function()
 	local g, p;
 	g := UniversalSggi([3,4,3]);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetString(p, "24Cell");
 	SetSchlafliSymbol(p, [3,4,3]);
 	SetExtraRelators(p, []);
@@ -215,14 +215,14 @@ InstallMethod(24Cell,
 InstallMethod(Hemi24Cell,
 	[],
 	function()
-	return AbstractRegularPolytope([3,4,3], "(r0 r1 r2 r3)^6" : set_schlafli);
+	return AbstractRegularPolytopeNC([3,4,3], "(r0 r1 r2 r3)^6" : set_schlafli);
 	end);
 InstallMethod(120Cell,
 	[],
 	function()
 	local g, p;
 	g := UniversalSggi([5,3,3]);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetString(p, "120Cell()");
 	SetSchlafliSymbol(p, [5,3,3]);
 	SetExtraRelators(p, []);
@@ -231,14 +231,14 @@ InstallMethod(120Cell,
 InstallMethod(Hemi120Cell,
 	[],
 	function()
-	return AbstractRegularPolytope([5,3,3], "(r0 r1 r2 r3)^15" : set_schlafli);
+	return AbstractRegularPolytopeNC([5,3,3], "(r0 r1 r2 r3)^15" : set_schlafli);
 	end);
 InstallMethod(600Cell,
 	[],
 	function()
 	local g, p;
 	g := UniversalSggi([3,3,5]);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	SetString(p, "600Cell()");
 	SetSchlafliSymbol(p, [3,3,5]);
 	SetExtraRelators(p, []);
@@ -247,7 +247,7 @@ InstallMethod(600Cell,
 InstallMethod(Hemi600Cell,
 	[],
 	function()
-	return AbstractRegularPolytope([3,3,5], "(r0 r1 r2 r3)^15" : set_schlafli);
+	return AbstractRegularPolytopeNC([3,3,5], "(r0 r1 r2 r3)^15" : set_schlafli);
 	end);
 
 InstallMethod(BrucknerSphere,

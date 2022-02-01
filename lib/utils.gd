@@ -10,16 +10,22 @@ DeclareInfoClass("InfoRamp");
 
 #! @Section Polytopes
 #! @Arguments args
-#! @Description Calls `Maniplex(args)` and marks the output as polytopal.
+#! @Description Calls `Maniplex(args)` and verifies whether the output is polytopal.
+#! If not, this throws an error. Use `AbstractPolytopeNC` to assume that the output
+#! is polytopal and mark it as such.
 DeclareGlobalFunction("AbstractPolytope");
 #! @BeginExampleSession
 #! gap> AbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));
 #! Pgon(5)
 #! @EndExampleSession
 
+DeclareGlobalFunction("AbstractPolytopeNC");
+
 #! @Arguments args
-#! @Description Calls `ReflexibleManiplex(args)` and marks the output as polytopal.
-#! Also available as `ARP(args)`.
+#! @Description Calls `ReflexibleManiplex(args)` and verifies whether the output is polytopal.
+#! If not, this throws an error. Use `AbstractRegularPolytopeNC` to assume that the output
+#! is polytopal and mark it as such.
+#! Also available as `ARP(args)` and `ARPNC(args)`.
 DeclareGlobalFunction("AbstractRegularPolytope");
 
 DeclareSynonym("ARP", AbstractRegularPolytope);
@@ -28,9 +34,18 @@ DeclareSynonym("ARP", AbstractRegularPolytope);
 #! true
 #! @EndExampleSession
 
+DeclareGlobalFunction("AbstractRegularPolytopeNC");
+DeclareSynonym("ARPNC", AbstractRegularPolytopeNC);
+
+
 #! @Arguments args
-#! @Description Calls `RotaryManiplex(args)` and marks the output as polytopal.
+#! @Description Calls `RotaryManiplex(args)` and verifies whether the output is polytopal.
+#! If not, this throws an error. Use `AbstractRotaryPolytopeNC` to assume that the output
+#! is polytopal and mark it as such.
 DeclareGlobalFunction("AbstractRotaryPolytope");
+
+DeclareGlobalFunction("AbstractRotaryPolytopeNC");
+
 
 #! @Section Permutations
 

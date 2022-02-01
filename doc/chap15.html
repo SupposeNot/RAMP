@@ -73,7 +73,7 @@
 <h5>15.2-1 AbstractPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Calls <code class="code">Maniplex(args)</code> and marks the output as polytopal.</p>
+<p>Calls <code class="code">Maniplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractPolytopeNC</code> to assume that the output is polytopal and mark it as such.</p>
 
 
 <div class="example"><pre>
@@ -86,7 +86,7 @@ Pgon(5)
 <h5>15.2-2 AbstractRegularPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRegularPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Calls <code class="code">ReflexibleManiplex(args)</code> and marks the output as polytopal. Also available as <code class="code">ARP(args)</code>.</p>
+<p>Calls <code class="code">ReflexibleManiplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractRegularPolytopeNC</code> to assume that the output is polytopal and mark it as such. Also available as <code class="code">ARP(args)</code> and <code class="code">ARPNC(args)</code>.</p>
 
 
 <div class="example"><pre>
@@ -99,7 +99,7 @@ true
 <h5>15.2-3 AbstractRotaryPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRotaryPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Calls <code class="code">RotaryManiplex(args)</code> and marks the output as polytopal.</p>
+<p>Calls <code class="code">RotaryManiplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractRotaryPolytopeNC</code> to assume that the output is polytopal and mark it as such.</p>
 
 <p><a id="X80F808307A2D5AB8" name="X80F808307A2D5AB8"></a></p>
 
