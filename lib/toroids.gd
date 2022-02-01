@@ -51,10 +51,10 @@ DeclareOperation("CubicToroid",[IsInt,IsList]);
 
 #! @Arguments s, k
 #! @Returns IsManiplex
-#! @Description Given IsInt pair <A>s, k</A>, will return the regular toroid $\{3,3,4,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 0 or 1.
+#! @Description Given IsInt pair <A>s, k</A>, will return the regular toroid $\{3,3,4,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 1 or 2.
 DeclareOperation("3343Toroid",[IsInt,IsInt]);
 
 #! @Arguments s, k
 #! @Returns IsManiplex
-#! @Description Given IsInt pair <A>s, k</A>, will return the regular toroid $\{3,4,3,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 0 or 1.
+#! @Description Given IsInt pair <A>s, k</A>, will return the regular toroid $\{3,4,3,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 1 or 2.
 DeclareOperation("24CellToroid",[IsInt,IsInt]);
