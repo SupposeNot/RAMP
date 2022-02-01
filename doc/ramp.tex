@@ -1250,7 +1250,7 @@ IsManiplex
 
 
 
- Given IsInt pair \mbox{\texttt{\mdseries\slshape s, k}}, will return the regular toroid $\{3,3,4,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 0 or 1. }
+ Given IsInt pair \mbox{\texttt{\mdseries\slshape s, k}}, will return the regular toroid $\{3,3,4,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 1 or 2. }
 
  
 
@@ -1265,7 +1265,7 @@ IsManiplex
 
 
 
- Given IsInt pair \mbox{\texttt{\mdseries\slshape s, k}}, will return the regular toroid $\{3,4,3,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 0 or 1. }
+ Given IsInt pair \mbox{\texttt{\mdseries\slshape s, k}}, will return the regular toroid $\{3,4,3,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 1 or 2. }
 
  }
 
@@ -1617,7 +1617,9 @@ of relators or relations that involve r0 etc.
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
 the relations may cause a collapse, so this should only be used if you know
-that the Schlafli symbol is correct. }
+that the Schlafli symbol is correct. 
+
+ The abbreviations \texttt{RefMan} and \texttt{RefManNC} are also available. }
 
  
 
@@ -2648,7 +2650,7 @@ IsBool
 
 
  Tests for the weak path intersection property in a maniplex. Definitions and
-description available in ... }
+description available in \cite{GleHub18}. }
 
  }
 
@@ -7378,7 +7380,8 @@ lace
 }\hfill{\scriptsize (function)}}\\
 
 
- Calls \texttt{Maniplex(args)} and marks the output as polytopal. }
+ Calls \texttt{Maniplex(args)} and verifies whether the output is polytopal. If not, this throws an error.
+Use \texttt{AbstractPolytopeNC} to assume that the output is polytopal and mark it as such. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -7395,7 +7398,8 @@ lace
 }\hfill{\scriptsize (function)}}\\
 
 
- Calls \texttt{ReflexibleManiplex(args)} and marks the output as polytopal. Also available as \texttt{ARP(args)}. }
+ Calls \texttt{ReflexibleManiplex(args)} and verifies whether the output is polytopal. If not, this throws an error.
+Use \texttt{AbstractRegularPolytopeNC} to assume that the output is polytopal and mark it as such. Also available as \texttt{ARP(args)} and \texttt{ARPNC(args)}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -7412,7 +7416,8 @@ lace
 }\hfill{\scriptsize (function)}}\\
 
 
- Calls \texttt{RotaryManiplex(args)} and marks the output as polytopal. }
+ Calls \texttt{RotaryManiplex(args)} and verifies whether the output is polytopal. If not, this throws an error.
+Use \texttt{AbstractRotaryPolytopeNC} to assume that the output is polytopal and mark it as such. }
 
  }
 

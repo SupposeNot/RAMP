@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 8: Posets</title>
+<title>GAP (RAMP) - Chapter 8: Polytope Constructions and Operations</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -20,1041 +20,393 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap7.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap9.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap8_mj.html">[MathJax on]</a></p>
-<p><a id="X79540DAB85902432" name="X79540DAB85902432"></a></p>
-<div class="ChapSects"><a href="chap8.html#X79540DAB85902432">8 <span class="Heading">Posets</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X87ED175B85A4C5B7">8.1 <span class="Heading">Poset constructors</span></a>
+<p><a id="X823655C77BD84AB5" name="X823655C77BD84AB5"></a></p>
+<div class="ChapSects"><a href="chap8.html#X823655C77BD84AB5">8 <span class="Heading">Polytope Constructions and Operations</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X871C2D73829F1FC1">8.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D495B407CDFAEA2">8.1-1 PosetFromFaceListOfFlags</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8720C4757EE12082">8.1-2 PosetFromConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C4F3D307C5A7E7A">8.1-3 PosetFromManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7ECC2FBC7AF3A960">8.1-4 PosetFromPartialOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X80052F8E835F45A4">8.1-5 PosetFromAtomicList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X79AEF6FF8699020E">8.1-6 PosetFromElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X856446F583AAF703">8.1-7 PosetFromSuccessorList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X82DB1F987C68B392">8.1-8 <span class="Heading">Helper functions for special partial orders</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X878F761878BCB6B9">8.1-9 DualPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7923E0E47CAFBD9D">8.1-10 Section</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7B693D8884B77C7C">8.1-11 <span class="Heading">Cleaving polytopes</span></a>
-</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X808AEA5281D52911">8.1-1 UniversalPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8582D0CF7EA1CB34">8.1-2 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X78B4610E7DE67E32">8.1-3 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X84BB6B21853173FD">8.1-4 TrivialExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7A5853E278A83D74">8.1-5 FlatExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X790F22D47CD222EB">8.1-6 Amalgamate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X840BC19484E0E9CC">8.1-7 Medial</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X859F4CD47E3311AD">8.2 <span class="Heading">Poset attributes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X87FD993F7F6F2FAB">8.2 <span class="Heading">Duality</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X81E0832F7B92DB7A">8.2-1 MaximalChains</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C9B4AA77C73A761">8.2-2 RankPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8448C7067B0EF49D">8.2-3 ElementsList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C5580EC83A4955B">8.2-4 OrderingFunction</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X842B0F7E81670077">8.2-5 IsFlaggable</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X816460188169E650">8.2-6 IsAtomic</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X85A9CAA682FE56EB">8.2-7 PartialOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X851265E17D42FCAD">8.2-8 <span class="Heading">Lattices</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D62BD3E7F941F5B">8.2-1 Dual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7FF8B96C83DA60CB">8.2-2 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X79132A9583296ED0">8.2-3 IsInternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X86041B6684EFE1C2">8.2-4 IsExternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X86E347E67EE31555">8.2-5 <span class="Heading">Petrie Dual</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8455987F7E9A88FF">8.2-9 ListIsP1Poset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X81269ACB7EF202C4">8.2-10 IsP1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7AFA3C077FD9583A">8.2-11 IsP2</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8723519F84529E4C">8.2-12 IsP3</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X85F554347C5AEF30">8.2-13 IsFlagConnected</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X80F461FA7D8FEDC7">8.2-14 IsP4</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X83D63725789E745D">8.2-15 IsPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8085287683CCF81B">8.2-16 IsPrePolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7876E8577DB97677">8.2-17 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X78FDB0047E3388A5">8.2-6 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7F8BED777CD6B80F">8.2-7 DirectDerivates</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X8163385F7B822934">8.3 <span class="Heading">Working with posets</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X86CE352C7851221F">8.3 <span class="Heading">Products</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X80A2785B7D079FD1">8.3-1 IsIsomorphicPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8340F2597BD837A5">8.3-2 PosetIsomorphism</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X828C2C297FAAB627">8.3-3 FlagsAsFlagListFaces</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7A80223E83EF52E8">8.3-4 RankedFaceListOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7ACE88EC803EDE07">8.3-5 AdjacentFlag</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C94E895794BA41F">8.3-6 AdjacentFlags</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7E1C59DF835343FE">8.3-7 EqualChains</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X84E3B63C8639771B">8.3-8 ConnectionGeneratorOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X859C651184ED9424">8.3-9 ConnectionGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C6813D27F0BD0F8">8.3-10 AutomorphismGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X80C2783D7FD60E56">8.3-11 AutomorphismGroupOnElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X79F1837C835A5EFF">8.3-12 FaceListOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7980D74F7D8C1B95">8.3-13 RankPosetElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X82CBC68480F222C7">8.3-14 FacesByRankOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7AE5050E7F6182C8">8.3-15 HasseDiagramOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X83ACE1CB7DE65C44">8.3-16 AsPosetOfAtoms</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X838947F98660C2C4">8.3-17 <span class="Heading">Max/min faces</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7CBB470F7D3135BC">8.3-1 <span class="Heading">Pyramids</span></a>
 </span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X85445BE07F161F88">8.4 <span class="Heading">Element constructors</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7B13F48A7AF5DF42">8.3-2 <span class="Heading">Prisms</span></a>
 </span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X81CE0D9C872BE42B">8.4-1 PosetElementWithOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X79608DCB8749DEDC">8.4-2 PosetElementFromListOfFlags</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X794F736784C735B0">8.4-3 PosetElementFromAtomList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D7FDF76792A6C04">8.4-4 PosetElementFromIndex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8141EB127AA1FFE1">8.4-5 PosetElementWithPartialOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D43D66E82CC96DF">8.4-6 RanksInPosets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8399E8CD8022DF5F">8.4-7 AddRanksInPosets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X819B1AEF84E08B4D">8.4-8 FlagList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X878F991183754744">8.4-9 AtomList</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X874169E2825654E9">8.5 <span class="Heading">Element operations</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X808566B57F296C93">8.3-3 <span class="Heading">Antiprisms</span></a>
 </span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X78A47D5C8513F4E2">8.5-1 RankInPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X798D28CC83E97F05">8.5-2 IsSubface</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X855B0DBE82C67770">8.5-3 IsEqualFaces</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X84B2B67A805CD31D">8.5-4 AreIncidentElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X83066BBD80D8C755">8.5-5 Meet</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7A70132C85FB946E">8.5-6 Join</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap8.html#X84B6533683018DBA">8.6 <span class="Heading">Product operations</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X87B984FB860BDF3F">8.6-1 JoinProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X80F7AC5385F572D2">8.6-2 CartesianProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8124A8217B62E4D9">8.6-3 DirectSumOfPosets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7D5144DE79A8E5BF">8.6-4 TopologicalProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X78FB044D7B9F5DB6">8.6-5 Antiprism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7FA28B5C7AC1C32E">8.3-4 JoinProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X7C116F2C83963ADC">8.3-5 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X8022B9AC85D38D7D">8.3-6 DirectSumOfManiplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8.html#X833534418543FB94">8.3-7 TopologicalProduct</a></span>
 </div></div>
 </div>
 
-<h3>8 <span class="Heading">Posets</span></h3>
+<h3>8 <span class="Heading">Polytope Constructions and Operations</span></h3>
 
-<p><a id="X87ED175B85A4C5B7" name="X87ED175B85A4C5B7"></a></p>
+<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
 
-<h4>8.1 <span class="Heading">Poset constructors</span></h4>
+<h4>8.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
 
-<p>I'm in the process of reconciling all of this, but there are going to be a number of ways to <code class="code">define</code> a poset:</p>
+<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
 
+<h5>8.1-1 UniversalPolytope</h5>
 
-<ul>
-<li><p>As an <code class="code">IsPosetOfFlags</code>, where the underlying description is an ordered list of length <span class="Math">n+2</span>. Each of the <span class="Math">n+2</span> list elements is a list of faces, and the assumption is that these are the faces of rank <span class="Math">i-2</span>, where <span class="Math">i</span> is the index in the master list (e.g., <code class="code">l[1][1]</code> would usually correspond to the unique <span class="Math">-1</span> face of a polytope -- and there won't be an <code class="code">l[1][2]</code>). Each face is then a list of the flags incident with that face.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-</li>
-<li><p>As an <code class="code">IsPosetOfIndices</code>, where the underlying description is a binary relation on a set of indices, which correspond to labels for the elements of the poset.</p>
-
-</li>
-<li><p>If the poset is known to be atomic, then by a description of the faces in terms of the atoms... usually we'll just need the list of the elements of maximal rank, from which all other elements may be obtained.</p>
-
-</li>
-<li><p>As an <code class="code">IsPosetOfElements</code>, where the elements could be anything, and we have a known function determining the partial order on the elements.</p>
-
-</li>
-</ul>
-<p>Usually, we assume that the poset will have a natural rank function on it. More information on the poset attributes that are important in the study of abstract polytopes and maniplexes is available in <a href="chapBib.html#biBMcMSch02">[MS02]</a>, <a href="chapBib.html#biBMonPelWil14">[MPW14]</a>, and <a href="chapBib.html#biBWil12">[Wil12]</a>.</p>
-
-<p><a id="X7D495B407CDFAEA2" name="X7D495B407CDFAEA2"></a></p>
-
-<h5>8.1-1 PosetFromFaceListOfFlags</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromFaceListOfFlags</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfFlags</code>.</p>
-
-<p>Given a <var class="Arg">list</var> of lists of faces in increasing rank, where each face is described by the incident flags, gives you a IsPosetOfFlags object back. Posets constructed this way are assumed to be IsP1 and IsP2.</p>
-
-<p>Here we have a poset using the <code class="code">IsPosetOfFlags</code> description for the triangle.</p>
+<p>Constructs the universal polytope of rank <var class="Arg">n</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromFaceListOfFlags([[[1,2,3,4,5,6]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);</span>
-A poset using the IsPosetOfFlags representation with 8 faces.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceListOfPoset(poset);</span>
-[ [ [ 1, 2, 3, 4, 5, 6 ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalPolytope(3);</span>
+UniversalPolytope(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(last);</span>
+3
 </pre></div>
 
-<p><a id="X8720C4757EE12082" name="X8720C4757EE12082"></a></p>
+<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
 
-<h5>8.1-2 PosetFromConnectionGroup</h5>
+<h5>8.1-2 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromConnectionGroup</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfFlags</code> with <code class="code">IsP1</code>=true.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p>Given a group, returns a poset with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function includes the minimal (empty) face and the maximal face of the maniplex. Note that the <span class="Math">i</span>-faces correspond to the <span class="Math">i+1</span> item in the list because of how GAP indexes lists.</p>
+<p>Constructs the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);</span>
-Group([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PosetFromConnectionGroup(g);</span>
-A poset using the IsPosetOfFlags representation with 8 faces.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3));</span>
+regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
 </pre></div>
 
-<p><a id="X7C4F3D307C5A7E7A" name="X7C4F3D307C5A7E7A"></a></p>
+<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
 
-<h5>8.1-3 PosetFromManiplex</h5>
+<h5>8.1-3 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromManiplex</code>( <var class="Arg">mani</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfFlags</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p>Given a maniplex, returns a poset of the maniplex with an internal representation as a list of faces ordered by rank, where each face is represented as a list of the flags it contains. Note that this function does include the minimal (empty) face and the maximal face of the maniplex. Note that the <span class="Math">i</span>-faces correspond to the <span class="Math">i+1</span> item in the list because of how GAP indexes lists.</p>
+<p>Constructs the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=HemiCube(3);</span>
-Regular 3-polytope of type [ 4, 3 ] with 24 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PosetFromManiplex(p);</span>
-A poset using the IsPosetOfFlags representation with 15 faces.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3),2);</span>
+regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
 </pre></div>
 
-<p><a id="X7ECC2FBC7AF3A960" name="X7ECC2FBC7AF3A960"></a></p>
+<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
 
-<h5>8.1-4 PosetFromPartialOrder</h5>
+<h5>8.1-4 TrivialExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromPartialOrder</code>( <var class="Arg">partialOrder</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfIndices</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p>Given a partial order on a finite set of size <span class="Math">n</span>, this function will create a partial order on <code class="code">[1..n]</code>.</p>
+<p>Constructs the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M</var>, 2}.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=List([[1,1],[1,2],[1,3],[1,4],[2,4],[2,2],[3,3],[4,4]],x-&gt;Tuple(x));</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">r:=BinaryRelationByElements(Domain([1..4]), l);</span>
-&lt;general mapping: Domain([ 1 .. 4 ]) -&gt; Domain([ 1 .. 4 ]) &gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromPartialOrder(r);</span>
-A poset using the IsPosetOfIndices representation 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h:=HasseDiagramBinaryRelation(PartialOrder(poset));</span>
-&lt;general mapping: Domain([ 1 .. 4 ]) -&gt; Domain([ 1 .. 4 ]) &gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Successors(h);</span>
-[ [ 2, 3 ], [ 4 ], [  ], [  ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TrivialExtension(Dodecahedron());</span>
+regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
 </pre></div>
 
-<p>Note that what we've accomplished here is the poset containing the elements 1, 2, 3, 4 with partial order determined by whether the first element divides the second. The essential information about the poset can be obtained from the Hasse diagram.</p>
+<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
 
-<p><a id="X80052F8E835F45A4" name="X80052F8E835F45A4"></a></p>
+<h5>8.1-5 FlatExtension</h5>
 
-<h5>8.1-5 PosetFromAtomicList</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex#! @Description Constructs the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in <em>Flat Extensions of Abstract Polytopes</em> <a href="chapBib.html#biBCun21">[Cun21]</a>.)</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromAtomicList</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfAtoms</code></p>
-
-<p>Given a list of elements, where each element is given as a list of atoms, this function will construct the corresponding poset. Note that this will construct any implied faces as well (i.e., all possible intersections of the listed faces).</p>
+<p>Currently only defined for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">list:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];</span>
-[ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromAtomicList(list);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(Faces(poset),AtomList);</span>
-[ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
-  [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatExtension(Simplex(3),4);</span>
+reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
 </pre></div>
 
-<p><a id="X79AEF6FF8699020E" name="X79AEF6FF8699020E"></a></p>
+<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
 
-<h5>8.1-6 PosetFromElements</h5>
+<h5>8.1-6 Amalgamate</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromElements</code>( <var class="Arg">list_of_faces</var>, <var class="Arg">func</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetOfElements</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p>This is for gathering elements with a known ordering <var class="Arg">func</var> on two variables into a poset. Also note, the expectation is that <var class="Arg">func</var> behaves similarly to IsSubset, i.e., <var class="Arg">func</var> (x,y)=true means <span class="Math">y</span> is less than <span class="Math">x</span> in the order.</p>
+<p>Constructs the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> g:=SymmetricGroup(3);</span>
-Sym( [ 1 .. 3 ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">asg:=AllSubgroups(g);</span>
-[ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]),   Group([ (1,2,3), (2,3) ]) ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromElements(asg,IsSubgroup);</span>
-A poset on 6 elements using the IsPosetOfIndices representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasseDiagramBinaryRelation(PartialOrder(poset));</span>
-&lt;general mapping: Domain([ 1 .. 6 ]) -&gt; Domain([ 1 .. 6 ]) &gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Successors(last);</span>
-[ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( ElementsList(poset){[2,6]}, ElementObject);</span>
-[ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3),CrossPolytope(3));</span>
+reflexible 4-maniplex of type [ 4, 3, 4 ]
 </pre></div>
 
-<p><a id="X856446F583AAF703" name="X856446F583AAF703"></a></p>
+<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
 
-<h5>8.1-7 PosetFromSuccessorList</h5>
+<h5>8.1-7 Medial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetFromSuccessorList</code>( <var class="Arg">successorsList</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: poset</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p>Given a list of immediate successors, will construct the poset. A valid list of successors is of the form <code class="code">[[2,3],[3],[]]</code> where the <span class="Math">i</span>-th entry is a list of elements that are greater than the <span class="Math">i</span>-th element in the partial order that determines the poset. If the given list isn't reflexive and transitive, this function will induce those properties from the given list of successors.</p>
+<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(HemiCube(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(p);</span>
-PosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], 
-[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], 
-[ 15 ], [ 15 ], [ 15 ], [ ] ]);
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Medial(Dodecahedron()));</span>
+[ [ 3, 5 ], 4 ]
 </pre></div>
 
-<p><a id="X82DB1F987C68B392" name="X82DB1F987C68B392"></a></p>
+<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
 
-<h5>8.1-8 <span class="Heading">Helper functions for special partial orders</span></h5>
+<h4>8.2 <span class="Heading">Duality</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareFlagsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PairCompareAtomsList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
+
+<h5>8.2-1 Dual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(CrossPolytope(3));</span>
+Cube(3)
+</pre></div>
+
+<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
+
+<h5>8.2-2 IsSelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its dual.</p>
+
+<p>Also works for IsPoset objects.</p>
+
+<p><a id="X79132A9583296ED0" name="X79132A9583296ED0"></a></p>
+
+<h5>8.2-3 IsInternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>The functions PairCompareFlagsList and PairCompareAtomsList are used in poset construction. Function assumes <var class="Arg">list1</var> and <var class="Arg">list2</var> are of the form [<code class="code">listOfFlags</code>,<code class="code">i</code>] where <code class="code">listOfFlags</code> is a list of flags in the face and <code class="code">i</code> is the rank of the face. Allows comparison of HasFlagList elements. Function assumes <var class="Arg">list1</var> and <var class="Arg">list2</var> are of the form <code class="code">[listOfAtoms,int]</code> where <code class="code">listOfAtoms</code> is a list of flags in the face and <code class="code">int</code> is the rank of the face. Allows comparison of HasAtomList elements.</p>
-
-<p><a id="X878F761878BCB6B9" name="X878F761878BCB6B9"></a></p>
-
-<h5>8.1-9 DualPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DualPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: dual</p>
-
-<p>Given a <var class="Arg">poset</var>, will construct a poset isomorphic to the dual of <var class="Arg">poset</var>.</p>
+<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib.html#biBCunMix17">[tt17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(DualPoset(DualPoset(p)),p);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(4));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(DualPoset(p),c);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^6"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^5"));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(DualPoset(p),p);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Cube(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron2(10,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(M, (g.1*g.3*g.2)^6);</span>
+true
+</pre></div>
+
+<p><a id="X86041B6684EFE1C2" name="X86041B6684EFE1C2"></a></p>
+
+<h5>8.2-4 IsExternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib.html#biBCunMix17">[tt17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^6"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^5"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Cube(3));</span>
 false
 </pre></div>
 
-<p><a id="X7923E0E47CAFBD9D" name="X7923E0E47CAFBD9D"></a></p>
+<p><a id="X86E347E67EE31555" name="X86E347E67EE31555"></a></p>
 
-<h5>8.1-10 Section</h5>
+<h5>8.2-5 <span class="Heading">Petrie Dual</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: section</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>.</p>
 
-<p>Constructs the section of the <var class="Arg">poset</var> <var class="Arg">face1</var><span class="Math">/</span><var class="Arg">face2</var>.</p>
+<p>Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="Math">r_{n-3}</span> with <span class="Math">r_{n-3} r_{n-1}</span> in the set of generators.</p>
+
+<p>Synonym for the command is <code class="code">PetrieDual</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(PyramidOver(Cube(2)));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">faces:=Faces(poset);;List(faces,x-&gt;RankInPoset(x,poset));</span>
-[ -1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(Section(faces[15],faces[1],poset),PosetFromManiplex(Simplex(2)));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(Section(faces[16],faces[1],poset),PosetFromManiplex(Cube(2)));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));</span>
-true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(HemiCube(3));</span>
+ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
 </pre></div>
 
-<p><a id="X7B693D8884B77C7C" name="X7B693D8884B77C7C"></a></p>
+<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
-<h5>8.1-11 <span class="Heading">Cleaving polytopes</span></h5>
+<h5>8.2-6 IsSelfPetrial</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cleave</code>( <var class="Arg">p</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartiallyCleave</code>( <var class="Arg">p</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsPolytope</p>
-
-<p>Given an IsPolytope <var class="Arg">p</var>, and an IsInt <var class="Arg">k</var>, <code class="code">Cleave(polytope,k)</code> will construct the <span class="Math">k^{th}</span>-cleaved polytope of <var class="Arg">p</var>. Cleaved polytopes were introduced by Daniel Pellicer <a href="chapBib.html#biBPel18">[Pel18]</a>. <code class="code">PartiallyCleave(p,k)</code> will construct the <span class="Math">k^{\textrm{th}}</span>-partially cleaved polytope of <var class="Arg">p</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cleave(PosetFromManiplex(Cube(4)),3);</span>
-A poset on 290 elements using the IsPosetOfIndices representation.
-</pre></div>
-
-<p><a id="X859F4CD47E3311AD" name="X859F4CD47E3311AD"></a></p>
-
-<h4>8.2 <span class="Heading">Poset attributes</span></h4>
-
-<p>Posets have many properties we might be interested in. Here's a few. All abstract polytope definitions in use here are from Schulte and McMullen's <em>Abstract Regular Polytopes</em> <a href="chapBib.html#biBMcMSch02">[MS02]</a>.</p>
-
-<p><a id="X81E0832F7B92DB7A" name="X81E0832F7B92DB7A"></a></p>
-
-<h5>8.2-1 MaximalChains</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaximalChains</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Gives the list of maximal chains in a poset in terms of the elements of the poset. Synonyms are <code class="code">FlagsList</code> and <code class="code">Flags</code>. Tends to work faster (sometimes significantly) if the poset <code class="code">HasPartialOrder</code>.</p>
-
-<p>Synonym is <code class="code">FlagsList</code>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(HemiCube(3));</span>
-A poset using the IsPosetOfFlags representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MaximalChains(poset)[1];</span>
-[ An element of a poset made of flags, An element of a poset made of flags, 
-  An element of a poset made of flags, An element of a poset made of flags, 
-  An element of a poset made of flags ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(last,x-&gt;RankInPoset(x,poset));</span>
-[ -1, 0, 1, 2, 3 ]
-</pre></div>
-
-<p><a id="X7C9B4AA77C73A761" name="X7C9B4AA77C73A761"></a></p>
-
-<h5>8.2-2 RankPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>If the poset <code class="code">IsP1</code>, ranks are assumed to run from <span class="Math">-1</span> to <span class="Math">n</span>, and function will return <span class="Math">n</span>. If <code class="code">IsP1(poset)=false</code>, ranks are assumed to run from 1 to <span class="Math">n</span>. In RAMP, at least currently, we are assuming that graded/ranked posets are bounded. Note that in general what you <em>actually</em> want to do is call <code class="code">Rank(poset)</code>. The reason is that <code class="code">Rank</code> will calculate the <code class="code">RankPoset</code> if it isn't set, and then set and store the value in the poset.</p>
-
-<p><a id="X8448C7067B0EF49D" name="X8448C7067B0EF49D"></a></p>
-
-<h5>8.2-3 ElementsList</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ElementsList</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Will recover the list of faces of the poset, format may depend on <em>type</em> of representation of <code class="code">poset</code>.</p>
-
-
-<ul>
-<li><p>We also have <code class="code">FacesList</code> and <code class="code">Faces</code> as synonyms for this command.</p>
-
-</li>
-</ul>
-<p><a id="X7C5580EC83A4955B" name="X7C5580EC83A4955B"></a></p>
-
-<h5>8.2-4 OrderingFunction</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OrderingFunction</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p><code class="code">OrderingFunction</code> is an attribute of a poset which stores a function for ordering elements.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Cube(2));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p3:=PosetFromElements(RankedFaceListOfPoset(p),PairCompareFlagsList);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f3:=FacesList(p3);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">OrderingFunction(p3)(ElementObject(f3[2]),ElementObject(f3[1]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">OrderingFunction(p3)(ElementObject(f3[1]),ElementObject(f3[2]));</span>
-false
-</pre></div>
-
-<p><a id="X842B0F7E81670077" name="X842B0F7E81670077"></a></p>
-
-<h5>8.2-5 IsFlaggable</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlaggable</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Checks or creates the value of the attribute <code class="code">IsFlaggable</code> for an <code class="code">IsPoset</code>. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.) Now also works with generic poset element types (not just <code class="code">IsPosetOfFlags</code>).</p>
-
-<p><a id="X816460188169E650" name="X816460188169E650"></a></p>
-
-<h5>8.2-6 IsAtomic</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAtomic</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.</p>
-
-<p>The terminology as used here is approximately that of Ziegler's <em>Lectures on Polytopes</em> where a lattice is atomic if every element is the join of atoms.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromPartialOrder(po);; IsAtomic(p);</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);</span>
-true
-</pre></div>
-
-<p><a id="X85A9CAA682FE56EB" name="X85A9CAA682FE56EB"></a></p>
-
-<h5>8.2-7 PartialOrder</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartialOrder</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">partial order</code></p>
-
-<p>HasPartialOrder Checks if <var class="Arg">poset</var> has a declared partial order (binary relation). SetPartialOrder assigns a partial order to the <var class="Arg">poset</var>. In many cases, PartialOrder is able to compute one from structural information.</p>
-
-<p><a id="X851265E17D42FCAD" name="X851265E17D42FCAD"></a></p>
-
-<h5>8.2-8 <span class="Heading">Lattices</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLattice</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAllMeets</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAllJoins</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: IsBool</p>
-
-<p>IsLattice determines whether a poset is a lattice or not. IsAllMeets determines whether all meets in a poset are unique. IsAllJoins determines whether all joins in a poset are unique.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(Cube(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLattice(poset);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bad:=PosetFromManiplex(HemiCube(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLattice(bad);</span>
-fail
-</pre></div>
-
-<p>Here's a simple example of when a lattice isn't atomic.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">l:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">b:=BinaryRelationOnPoints(l);; </span>
-po:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromPartialOrder(po);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLattice(poset);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAtomic(poset);</span>
-false
-</pre></div>
-
-<p><a id="X8455987F7E9A88FF" name="X8455987F7E9A88FF"></a></p>
-
-<h5>8.2-9 ListIsP1Poset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ListIsP1Poset</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Given <var class="Arg">list</var>, comprised of sublists of faces ordered by rank, each face listing the flags on the face, this function will tell you if the list corresponds to a P1 poset or not.</p>
-
-<p><a id="X81269ACB7EF202C4" name="X81269ACB7EF202C4"></a></p>
-
-<h5>8.2-10 IsP1</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP1</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset has property P1 from ARP. Recall that a poset is P1 if it has a unique least, and a unique maximal element/face.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);</span>
-A poset using the IsPosetOfIndices representation 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsP1(p);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);</span>
-A poset using the IsPosetOfFlags representation with 3 faces.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsP1(p2);</span>
-false
-</pre></div>
-
-<p><a id="X7AFA3C077FD9583A" name="X7AFA3C077FD9583A"></a></p>
-
-<h5>8.2-11 IsP2</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP2</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset has property P2 from ARP. Recall that a poset is P2 if each maximal chain in the poset has the same length (for <span class="Math">n</span>-polytopes, this means each flag containes <span class="Math">n+2</span> faces).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(HemiCube(3)); </span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsP2(poset);</span>
-true
-</pre></div>
-
-<p>Another nice example</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AlternatingGroup(4);; a:=AllSubgroups(g);; poset:=PosetFromElements(a,IsSubgroup);</span>
-A poset using the IsPosetOfIndices representation 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsP2(poset);</span>
-false
-</pre></div>
-
-<p><a id="X8723519F84529E4C" name="X8723519F84529E4C"></a></p>
-
-<h5>8.2-12 IsP3</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP3</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <code class="code">IsStronglyFlagConnected</code>. If you are not working with a pre-polytope, expect this to take a LONG time. This means that given flags <span class="Math">\Phi</span> and <span class="Math">\Psi</span>, not only is there a sequence of flags <span class="Math">\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi</span> such that each <span class="Math">\Phi_i</span> shares all but once face with <span class="Math">\Phi_{i+1}</span>, but that each <span class="Math">\Phi_i\supseteq \Phi\cap\Psi</span>.</p>
-
-<p>Helper for IsP3</p>
-
-<p><a id="X85F554347C5AEF30" name="X85F554347C5AEF30"></a></p>
-
-<h5>8.2-13 IsFlagConnected</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlagConnected</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset is flag connected.</p>
-
-<p><a id="X80F461FA7D8FEDC7" name="X80F461FA7D8FEDC7"></a></p>
-
-<h5>8.2-14 IsP4</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP4</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset satisfies the diamond condition. May also be invoked using <code class="code">IsDiamondCondition</code>. Recall that this means that if <span class="Math">F,G</span> elements of the poset of ranks <span class="Math">i-1</span> and <span class="Math">i+1</span>, respectively, where <span class="Math">F</span> less than <span class="Math">G</span>, then there are precisely two <span class="Math">i</span>-faces <span class="Math">H</span> such that <span class="Math">F</span> is less than <span class="Math">H</span> and <span class="Math">H</span> is less than <span class="Math">G</span>.</p>
-
-<p><a id="X83D63725789E745D" name="X83D63725789E745D"></a></p>
-
-<h5>8.2-15 IsPolytope</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset is an abstract polytope.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(Cube(3));</span>
-A poset using the IsPosetOfFlags representation with 28 faces.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytope(poset);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(poset);</span>
-[ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);</span>
-A poset using the IsPosetOfIndices representation 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytope(poset2);</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">KnownPropertiesOfObject(poset2);</span>
-[ "IsP1", "IsP2", "IsPolytope" ]
-</pre></div>
-
-<p><a id="X8085287683CCF81B" name="X8085287683CCF81B"></a></p>
-
-<h5>8.2-16 IsPrePolytope</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPrePolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether a poset is an abstract pre-polytope.</p>
-
-<p><a id="X7876E8577DB97677" name="X7876E8577DB97677"></a></p>
-
-<h5>8.2-17 IsSelfDual</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: IsBool</p>
-
-<p>Determines whether a poset is self dual.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(Simplex(5));;</span>
-A poset using the IsPosetOfFlags representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(poset);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset2:=PosetFromManiplex(PyramidOver(Cube(3)));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(poset2);</span>
-false
-</pre></div>
-
-<p><a id="X8163385F7B822934" name="X8163385F7B822934"></a></p>
-
-<h4>8.3 <span class="Heading">Working with posets</span></h4>
-
-<p><a id="X80A2785B7D079FD1" name="X80A2785B7D079FD1"></a></p>
-
-<h5>8.3-1 IsIsomorphicPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicPoset</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Determines whether <var class="Arg">poset1</var> and <var class="Arg">poset2</var> are isomorphic by checking to see if their Hasse diagrams are isomorphic.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ),  PosetFromManiplex( PrismOver (PyramidOver( Cube(2) ) ) ) );</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ), PosetFromManiplex( PyramidOver( PrismOver( Cube(2) ) ) ) );</span>
-true
-</pre></div>
-
-<p><a id="X8340F2597BD837A5" name="X8340F2597BD837A5"></a></p>
-
-<h5>8.3-2 PosetIsomorphism</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetIsomorphism</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: map on face indices</p>
-
-<p>When <var class="Arg">poset1</var> and <var class="Arg">poset2</var> are isomorphic, will give you a map from the faces of <var class="Arg">poset1</var> to the faces of <var class="Arg">poset2</var>.</p>
-
-<p><a id="X828C2C297FAAB627" name="X828C2C297FAAB627"></a></p>
-
-<h5>8.3-3 FlagsAsFlagListFaces</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagsAsFlagListFaces</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsList</code></p>
-
-<p>Given a <var class="Arg">poset</var>, this will give you a version of the list of flags in terms of the proper faces described in the <var class="Arg">poset</var>; i.e., this gives a list of flags where each face is described in terms of its (enumerated) list of incident flags. Note that the flag list does not include the minimal face or the maximal face if the poset IsP2.</p>
-
-<p><a id="X7A80223E83EF52E8" name="X7A80223E83EF52E8"></a></p>
-
-<h5>8.3-4 RankedFaceListOfPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankedFaceListOfPoset</code>( <var class="Arg">IsPosetOfFlags</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">list</code></p>
-
-<p>Gives a list of [<var class="Arg">face</var>,<var class="Arg">rank</var>] pairs for all the faces of <var class="Arg">poset</var>. Assumptions here are that faces are lists of incident flags.</p>
-
-<p><a id="X7ACE88EC803EDE07" name="X7ACE88EC803EDE07"></a></p>
-
-<h5>8.3-5 AdjacentFlag</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlag</code>( <var class="Arg">poset</var>, <var class="Arg">flag</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">flag(s)</code></p>
-
-<p>Given a poset, a flag, and a rank, this function will give you the <var class="Arg">i</var>-adjacent flag. Note that adjacencies are listed from ranks 0 to one less than the dimension. You can replace <var class="Arg">flag</var> with the integer corresponding to that flag. Appending <code class="code">true</code> to the arguments will give the position of the flag instead of its description from <code class="code">FlagsAsFlagListFaces</code>.</p>
-
-<p><a id="X7C94E895794BA41F" name="X7C94E895794BA41F"></a></p>
-
-<h5>8.3-6 AdjacentFlags</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentFlags</code>( <var class="Arg">poset</var>, <var class="Arg">flagaslistoffaces</var>, <var class="Arg">adjacencyrank</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>If your poset isn't P4, there may be multiple adjacent maximal chains at a given rank. This function handles that case. May substitute <code class="code">IsInt</code> for <code class="code">flagaslistoffaces</code> corresponding to position of <code class="code">flag</code> in list of maximal chains.</p>
-
-<p><a id="X7E1C59DF835343FE" name="X7E1C59DF835343FE"></a></p>
-
-<h5>8.3-7 EqualChains</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EqualChains</code>( <var class="Arg">flag1</var>, <var class="Arg">flag2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Determines whether two chains are equal.</p>
-
-<p><a id="X84E3B63C8639771B" name="X84E3B63C8639771B"></a></p>
-
-<h5>8.3-8 ConnectionGeneratorOfPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGeneratorOfPoset</code>( <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: A permutation on the flags.</p>
-
-<p>Given a <var class="Arg">poset</var> and an integer <span class="Math">i</span>, this function will give you the associated permutation for the rank <span class="Math">i</span>-connection.</p>
-
-<p><a id="X859C651184ED9424" name="X859C651184ED9424"></a></p>
-
-<h5>8.3-9 ConnectionGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroup</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPermGroup</code></p>
-
-<p>Given a <var class="Arg">poset</var> that is <code class="code">IsPrePolytope</code>, this function will give you the connection group.</p>
-
-<p><a id="X7C6813D27F0BD0F8" name="X7C6813D27F0BD0F8"></a></p>
-
-<h5>8.3-10 AutomorphismGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroup</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Given a <var class="Arg">poset</var>, gives the automorphism group of the poset as an action on the maximal chains.</p>
-
-<p><a id="X80C2783D7FD60E56" name="X80C2783D7FD60E56"></a></p>
-
-<h5>8.3-11 AutomorphismGroupOnElements</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnElements</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Given a <var class="Arg">poset</var>, gives the automorphism group of the poset as an action on the elements.</p>
-
-<p><a id="X79F1837C835A5EFF" name="X79F1837C835A5EFF"></a></p>
-
-<h5>8.3-12 FaceListOfPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">list</code></p>
-
-<p>Gives a list of faces collected into lists ordered by increasing rank. Suitable as input for <code class="code">PosetFromFaceListOfFlags</code>. Argument must be IsPosetOfFlags.</p>
-
-<p><a id="X7980D74F7D8C1B95" name="X7980D74F7D8C1B95"></a></p>
-
-<h5>8.3-13 RankPosetElements</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankPosetElements</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Assigns to each face of a poset (when possible) the rank of the element in the poset.</p>
-
-<p><a id="X82CBC68480F222C7" name="X82CBC68480F222C7"></a></p>
-
-<h5>8.3-14 FacesByRankOfPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacesByRankOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">list</code></p>
-
-<p>Gives lists of faces ordered by rank. Also sets the rank for each of the faces.</p>
-
-<p><a id="X7AE5050E7F6182C8" name="X7AE5050E7F6182C8"></a></p>
-
-<h5>8.3-15 HasseDiagramOfPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HasseDiagramOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: directed graph</p>
-
-<p><a id="X83ACE1CB7DE65C44" name="X83ACE1CB7DE65C44"></a></p>
-
-<h5>8.3-16 AsPosetOfAtoms</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsPosetOfAtoms</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: posetFromAtoms</p>
-
-<p>If <var class="Arg">poset</var> is an IsP1 poset admits a description of its elements in terms of its atoms, this function will construct an isomorphic poset whose faces are described using PosetFromAtomList.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poset:=PosetFromManiplex(Cube(2));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p2:=AsPosetOfAtoms(poset);</span>
-A poset on 10 elements using the IsPosetOfIndices representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(poset,p2);</span>
-true
-</pre></div>
-
-<p><a id="X838947F98660C2C4" name="X838947F98660C2C4"></a></p>
-
-<h5>8.3-17 <span class="Heading">Max/min faces</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinFace</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxFace</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: face</p>
-
-<p>Gives the minimal/maximal face of a <var class="Arg">poset</var> when it IsP1 and IsP2.</p>
-
-<p><a id="X85445BE07F161F88" name="X85445BE07F161F88"></a></p>
-
-<h4>8.4 <span class="Heading">Element constructors</span></h4>
-
-<p><a id="X81CE0D9C872BE42B" name="X81CE0D9C872BE42B"></a></p>
-
-<h5>8.4-1 PosetElementWithOrder</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementWithOrder</code>( <var class="Arg">obj</var>, <var class="Arg">func</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsFace</code></p>
-
-<p>Creates a <code class="code">face</code> with <var class="Arg">obj</var> and ordering function <code class="code">func</code>. Note that by convetiontion <code class="code">func(a,b)</code> should return true when <span class="Math">b\le a</span>.</p>
-
-<p><a id="X79608DCB8749DEDC" name="X79608DCB8749DEDC"></a></p>
-
-<h5>8.4-2 PosetElementFromListOfFlags</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromListOfFlags</code>( <var class="Arg">list</var>, <var class="Arg">poset</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPosetElement</code></p>
-
-<p>This is used to create a face of rank <var class="Arg">n</var> from a <var class="Arg">list</var> of flags of <var class="Arg">poset</var>.</p>
-
-<p><a id="X794F736784C735B0" name="X794F736784C735B0"></a></p>
-
-<h5>8.4-3 PosetElementFromAtomList</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromAtomList</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsFace</code></p>
-
-<p>Creates a <code class="code">face</code> with <var class="Arg">list</var> of atoms. If you wish to assign ranks or membership in a poset, you must do this separately.</p>
-
-<p><a id="X7D7FDF76792A6C04" name="X7D7FDF76792A6C04"></a></p>
-
-<h5>8.4-4 PosetElementFromIndex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementFromIndex</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsFace</code></p>
-
-<p>Creates a <code class="code">face</code> with index <var class="Arg">obj</var> at rank <var class="Arg">n</var>.</p>
-
-<p><a id="X8141EB127AA1FFE1" name="X8141EB127AA1FFE1"></a></p>
-
-<h5>8.4-5 PosetElementWithPartialOrder</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PosetElementWithPartialOrder</code>( <var class="Arg">obj</var>, <var class="Arg">order</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsFace</code></p>
-
-<p>Creates a <code class="code">face</code> with index <var class="Arg">obj</var> and BinaryRelation <var class="Arg">order</var> on <var class="Arg">obj</var>. Function does not check to make sure <var class="Arg">order</var> has <var class="Arg">obj</var> in its domain.</p>
-
-<p><a id="X7D43D66E82CC96DF" name="X7D43D66E82CC96DF"></a></p>
-
-<h5>8.4-6 RanksInPosets</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RanksInPosets</code>( <var class="Arg">posetelement</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: list</p>
-
-<p>Gives the <code class="code">list</code> of posets <var class="Arg">posetelement</var> is in, and the corresponding rank (if available) as a list of ordered pairs of the form <code class="code">[poset,rank]</code>. #! Note that this attribute is mutable, so if you modify it you may break things.</p>
-
-<p><a id="X8399E8CD8022DF5F" name="X8399E8CD8022DF5F"></a></p>
-
-<h5>8.4-7 AddRanksInPosets</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddRanksInPosets</code>( <var class="Arg">posetelement</var>, <var class="Arg">poset</var>, <var class="Arg">int</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: null</p>
-
-<p>Adds an entry in the list of RanksInPosets for <var class="Arg">posetelement</var> corresponding to <var class="Arg">poset</var> with assigned rank <var class="Arg">int</var>.</p>
-
-<p><a id="X819B1AEF84E08B4D" name="X819B1AEF84E08B4D"></a></p>
-
-<h5>8.4-8 FlagList</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagList</code>( <var class="Arg">posetelement</var>, <var class="Arg">{face}</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">list</code></p>
-
-<p>Description of <var class="Arg">posetelement</var> n as a list of incident flags (when present).</p>
-
-<p><a id="X878F991183754744" name="X878F991183754744"></a></p>
-
-<h5>8.4-9 AtomList</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AtomList</code>( <var class="Arg">posetelement</var>, <var class="Arg">{face}</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">list</code></p>
-
-<p>Description of <var class="Arg">posetelement</var> n as a list of atoms (when present).</p>
-
-<p><a id="X874169E2825654E9" name="X874169E2825654E9"></a></p>
-
-<h4>8.5 <span class="Heading">Element operations</span></h4>
-
-<p><a id="X78A47D5C8513F4E2" name="X78A47D5C8513F4E2"></a></p>
-
-<h5>8.5-1 RankInPoset</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankInPoset</code>( [<var class="Arg">face</var>, <var class="Arg">poset</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsInt</code></p>
-
-<p>Given an element <var class="Arg">face</var> and a poset <var class="Arg">poset</var> to which it belongs, will give you the rank of <var class="Arg">face</var> in <var class="Arg">poset</var>.</p>
-
-<p><a id="X798D28CC83E97F05" name="X798D28CC83E97F05"></a></p>
-
-<h5>8.5-2 IsSubface</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubface</code>( [<var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p><var class="Arg">face1</var> and <var class="Arg">face2</var> are IsFace or IsPosetElement. IsSubface will check to see if <var class="Arg">face2</var> is a subface of <var class="Arg">face1</var> in <var class="Arg">poset</var>. You may drop the argument <var class="Arg">poset</var> if the faces only belong to one poset in common. Warning: if the elements are made up of atoms, then IsSubface doesn't need to know what poset you are working with.</p>
-
-<p><a id="X855B0DBE82C67770" name="X855B0DBE82C67770"></a></p>
-
-<h5>8.5-3 IsEqualFaces</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEqualFaces</code>( <var class="Arg">arg1</var>, <var class="Arg">arg2</var>, <var class="Arg">arg3</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Determines whether two faces are equal in a poset. Note that <code class="code">\=</code> tests whether they are the identical object or not.</p>
-
-<p><a id="X84B2B67A805CD31D" name="X84B2B67A805CD31D"></a></p>
-
-<h5>8.5-4 AreIncidentElements</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AreIncidentElements</code>( <var class="Arg">object1</var>, <var class="Arg">object2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Given two poset elements, will tell you if they are incident.</p>
-
-
-<ul>
-<li><p>Synonym function: <code class="code">AreIncidentFaces</code>.</p>
-
-</li>
-</ul>
-<p><a id="X83066BBD80D8C755" name="X83066BBD80D8C755"></a></p>
-
-<h5>8.5-5 Meet</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Meet</code>( <var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: meet</p>
-
-<p>Finds (when possible) the meet of two elements in a poset.</p>
-
-<p><a id="X7A70132C85FB946E" name="X7A70132C85FB946E"></a></p>
-
-<h5>8.5-6 Join</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Join</code>( <var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: meet</p>
-
-<p>Finds (when possible) the join of two elements in a poset.</p>
-
-<p>This uses the work of Gleason and Hubard.</p>
-
-<p><a id="X84B6533683018DBA" name="X84B6533683018DBA"></a></p>
-
-<h4>8.6 <span class="Heading">Product operations</span></h4>
-
-<p>The products documented in this section were defined by Gleason and Hubard in <a href="chapBib.html#biBGleHub18">[GH18]</a> (<span class="URL"><a href="https://doi.org/10.1016/j.jcta.2018.02.002">https://doi.org/10.1016/j.jcta.2018.02.002</a></span>).</p>
-
-<p><a id="X87B984FB860BDF3F" name="X87B984FB860BDF3F"></a></p>
-
-<h5>8.6-1 JoinProduct</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">poset1</var>, <var class="Arg">poset2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: poset</p>
-
-<p>Given two posets, this forms the join product. If given two partial orders, returns the join product of the partial orders. If given two maniplexes, returns the join product of the maniplexes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Cube(2));</span>
-A poset
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rel:=BinaryRelationOnPoints([[1,2],[2]]);</span>
-Binary Relation on 2 points
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p1:=PosetFromPartialOrder(rel);</span>
-A poset using the IsPosetOfIndices representation
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">j:=JoinProduct(p,p1);</span>
-A poset using the IsPosetOfIndices representation
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));</span>
-true
-</pre></div>
-
-<p><a id="X80F7AC5385F572D2" name="X80F7AC5385F572D2"></a></p>
-
-<h5>8.6-2 CartesianProduct</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: polytope</p>
-
-<p>Given two polytopes, forms the cartesian product of the polytopes. Should also work if you give it any two posets. If given two maniplexes, returns the join product of the maniplexes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p1:=PosetFromManiplex(Edge());</span>
-A poset
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p2:=PosetFromManiplex(Simplex(2));</span>
-A poset
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c:=CartesianProduct(p1,p2);</span>
-A poset using the IsPosetOfIndices representation
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));</span>
-true
-</pre></div>
-
-<p><a id="X8124A8217B62E4D9" name="X8124A8217B62E4D9"></a></p>
-
-<h5>8.6-3 DirectSumOfPosets</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfPosets</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: polytope</p>
-
-<p>Given two polytopes, forms the direct sum of the polytopes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p1:=PosetFromManiplex(Cube(2));;p2:=PosetFromManiplex(Edge());;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ds:=DirectSumOfPosets(p1,p2);</span>
-A poset using the IsPosetOfIndices representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(ds,PosetFromManiplex(CrossPolytope(3)));</span>
-true
-</pre></div>
-
-<p><a id="X7D5144DE79A8E5BF" name="X7D5144DE79A8E5BF"></a></p>
-
-<h5>8.6-4 TopologicalProduct</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">polytope1</var>, <var class="Arg">polytope2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: polytope</p>
-
-<p>Given two polytopes, forms the topological product of the polytopes. If given two maniplexes, returns the join product of the maniplexes.</p>
-
-<p>Here we demonstrate that the topological product (as expected) when taking the product of a triangle with itself gives us the torus <span class="Math">\{4,4\}_{(3,0)}</span> with 72 flags.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Pgon(3));</span>
-A poset using the IsPosetOfFlags representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tp:=TopologicalProduct(p,p);</span>
-A poset using the IsPosetOfIndices representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := (5,6);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := (1,2)(3,5)(4,6);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := (2,3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">torus:=PosetFromManiplex(ReflexibleManiplex(poly));</span>
-A poset using the IsPosetOfFlags representation.
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(p,tp);</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(torus,tp);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);</span>
+regular 3-polytope
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfPetrial(p);</span>
 true
 </pre></div>
 
-<p><a id="X78FB044D7B9F5DB6" name="X78FB044D7B9F5DB6"></a></p>
+<p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
 
-<h5>8.6-5 Antiprism</h5>
+<h5>8.2-7 DirectDerivates</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">polytope</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: poset</p>
-
-<p>Given a <var class="Arg">polytope</var> (actually, should work for any poset), will return the antiprism of the <var class="Arg">polytope</var> (poset). If given two maniplexes, returns the join product of the maniplexes.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="Math">n \geq 4</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Pgon(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=Antiprism(p);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectDerivates(Cube(3));</span>
+[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
+  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
+  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+</pre></div>
+
+<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
+
+<h4>8.3 <span class="Heading">Products</span></h4>
+
+<p><a id="X7CBB470F7D3135BC" name="X7CBB470F7D3135BC"></a></p>
+
+<h5>8.3-1 <span class="Heading">Pyramids</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over <var class="Arg">M</var>. Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(Cube(3)));</span>
+[ [ 3, 4 ], [ 3, 4 ], 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(4));</span>
+[ [ 3, 4 ], [ 3, 4 ] ]
+</pre></div>
+
+<p><a id="X7B13F48A7AF5DF42" name="X7B13F48A7AF5DF42"></a></p>
+
+<h5>8.3-2 <span class="Heading">Prisms</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over <var class="Arg">M</var>. Returns the prism over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cube(3)=Prism(Cube(2));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">d:=DualPoset(p);;ad:=Antiprism(d);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicPoset(a,ad);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Prism(4)=Cube(3);</span>
 true
+</pre></div>
+
+<p><a id="X808566B57F296C93" name="X808566B57F296C93"></a></p>
+
+<h5>8.3-3 <span class="Heading">Antiprisms</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the antiprism over <var class="Arg">M</var>. Returns the antiprism over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(Dodecahedron()));</span>
+[ [ 3, 5 ], [ 3, 5 ], 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(5));</span>
+[ [ 3, 5 ], 4 ]
+</pre></div>
+
+<p><a id="X7FA28B5C7AC1C32E" name="X7FA28B5C7AC1C32E"></a></p>
+
+<h5>8.3-4 JoinProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the join product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
+</pre></div>
+
+<p><a id="X7C116F2C83963ADC" name="X7C116F2C83963ADC"></a></p>
+
+<h5>8.3-5 CartesianProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the cartesian product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));</span>
+[ [ 3, 4 ], 3, 3, 3 ]
+</pre></div>
+
+<p><a id="X8022B9AC85D38D7D" name="X8022B9AC85D38D7D"></a></p>
+
+<h5>8.3-6 DirectSumOfManiplexes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfManiplexes</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));</span>
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
+</pre></div>
+
+<p><a id="X833534418543FB94" name="X833534418543FB94"></a></p>
+
+<h5>8.3-7 TopologicalProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));</span>
+[ 4, 3, [ 3, 4 ] ]
 </pre></div>
 
 

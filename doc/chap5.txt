@@ -1,241 +1,449 @@
   
-  [1X5 [33X[0;0YManiplexes[133X[101X
+  [1X5 [33X[0;0YManiplex Properties[133X[101X
   
   
-  [1X5.1 [33X[0;0YConstructors[133X[101X
+  [1X5.1 [33X[0;0YAutomorphism group acting on faces and chains[133X[101X
   
+  [1X5.1-1 AutomorphismGroupOnChains[101X
   
-  [1X5.1-1 [33X[0;0YReflexibleManiplex[133X[101X
+  [33X[1;0Y[29X[2XAutomorphismGroupOnChains[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
   
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
-  
-  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
-  maniplex  with  that automorphism group, where the privileged generators are
-  those returned by GeneratorsOfGroup(g).[133X
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the chains of [3XM[103X of type [3XI[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[25Xgap>[125X [27XAutomorphismGroupOnChains(HemiCube(3),[0,2]);[127X[104X
+    [4X[28XGroup([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)[128X[104X
+    [4X[28X  (9,12) ])[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-2 AutomorphismGroupOnIFaces[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismGroupOnIFaces[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
+  
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the [3Xi[103X-faces of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAutomorphismGroupOnIFaces(HemiCube(3),2);[127X[104X
+    [4X[28XGroup([ (), (2,3), (1,2) ])[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-3 AutomorphismGroupOnVertices[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismGroupOnVertices[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
+  
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the vertices of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAutomorphismGroupOnVertices(HemiCube(4));[127X[104X
+    [4X[28XGroup([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,8), (3,5)(4,6), (5,7)(6,8) ])[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-4 AutomorphismGroupOnEdges[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismGroupOnEdges[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
+  
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the edges of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAutomorphismGroupOnEdges(Simplex(4));[127X[104X
+    [4X[28XGroup([ (2,5)(3,6)(4,7), (1,2)(6,8)(7,9), (2,3)(5,6)(9,10), (3,4)(6,7)(8,9) ])[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-5 AutomorphismGroupOnFacets[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismGroupOnFacets[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
+  
+  [33X[0;0YReturns a permutation group, representing the action of AutomorphismGroup([3XM[103X)
+  on the facets of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAutomorphismGroupOnFacets(HemiCube(5));[127X[104X
+    [4X[28XGroup([ (), (4,5), (3,4), (2,3), (1,2) ])[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.2 [33X[0;0YNumber of orbits and transitivity[133X[101X
+  
+  [1X5.2-1 NumberOfChainOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfChainOrbits[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsInt[133X
+  
+  [33X[0;0YReturns  the  number  of  orbits  of  chains  of  type [3XI[103X under the action of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfChainOrbits(Cuboctahedron(),[0,2]);[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-2 NumberOfIFaceOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfIFaceOrbits[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsInt[133X
+  
+  [33X[0;0YReturns   the   number   of   orbits   of   [3Xi[103X-faces   under  the  action  of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfIFaceOrbits(SnubDodecahedron(),2);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-3 NumberOfVertexOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfVertexOrbits[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsInt[133X
+  
+  [33X[0;0YReturns   the   number   of   orbits   of   vertices  under  the  action  of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfVertexOrbits(Dual(SnubDodecahedron()));[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-4 NumberOfEdgeOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfEdgeOrbits[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsInt[133X
+  
+  [33X[0;0YReturns   the   number   of   orbits   of   edges   under   the   action  of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdgeOrbits(SnubDodecahedron());[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-5 NumberOfFacetOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfFacetOrbits[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsInt[133X
+  
+  [33X[0;0YReturns   the   number   of   orbits   of   facets   under   the  action  of
+  AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfFacetOrbits(SnubCube());[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-6 IsChainTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsChainTransitive[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines whether the action of AutomorphismGroup([3XM[103X) on chains of type [3XI[103X is
+  transitive.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsChainTransitive(SmallRhombicuboctahedron(),[0,2]);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsChainTransitive(SmallRhombicuboctahedron(),[0,1]);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsChainTransitive(Cuboctahedron(),[0,1]);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
-  bypass that check. The second form returns the universal reflexible maniplex
-  with  Schlafli symbol [3Xsym[103X. If the optional argument [3Xrelations[103X is given, then
-  we  return  the  reflexible  maniplex with the given defining relations. The
-  relations  can be given by a list of Tietze words or as a string of relators
-  or relations that involve r0 etc.[133X
+  [1X5.2-7 IsIFaceTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsIFaceTransitive[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines   whether  the  action  of  AutomorphismGroup([3XM[103X)  on  [3Xi[103X-faces  is
+  transitive.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
-    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
-  one  given. This may not be the correct Schlafli symbol, since the relations
-  may  cause  a  collapse,  so  this  should only be used if you know that the
-  Schlafli symbol is correct.[133X
-  
-  [33X[0;0YThe abbreviations [10XRefMan[110X and [10XRefManNC[110X are also available.[133X
-  
-  [1X5.1-2 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YGiven  a  permutation  group  [3XG[103X on the set [1..N], returns a maniplex with N
-  flags  with connection group [3XG[103X. The output may not make sense if [3XG[103X is not an
-  sggi.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
-    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
-    [4X[28XPgon(3)[128X[104X
-    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
+    [4X[25Xgap>[125X [27XIsIFaceTransitive(Cuboctahedron(),1);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.1-3 Maniplex[101X
+  [1X5.2-8 IsVertexTransitive[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XH[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [33X[1;0Y[29X[2XIsVertexTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
   
-  [33X[0;0YLet   [3XM[103X   be   a   reflexible   maniplex   and   let  [3XH[103X  be  a  subgroup  of
-  AutomorphismGroup([3XM[103X). This returns the maniplex [3XM/H[103X. This will be reflexible
-  if  and only if [3XH[103X is normal. For most purposes, it is probably easier to use
-  QuotientManiplex,  which  takes  a string of relations as input instead of a
-  subgroup. The example below builds the map [23X\{4, 4\}_{(1,0), (0,2)}[123X.[133X
+  [33X[0;0YDetermines  whether  the  action  of  AutomorphismGroup([3XM[103X)  on  vertices  is
+  transitive.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
-    [4X[28XCubicTiling(2)[128X[104X
-    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
-    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
-    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
-    [4X[28X3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
-    [4X[28X16[128X[104X
+    [4X[25Xgap>[125X [27XIsVertexTransitive(Bk2l(4,5));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.1-4 Maniplex[101X
+  [1X5.2-9 IsEdgeTransitive[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [33X[1;0Y[29X[2XIsEdgeTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
   
-  [33X[0;0YConstructs  a  formal  maniplex, represented by an operation [3XF[103X and a list of
-  arguments  [3Xinputs[103X.  By  itself,  this  does  not  really _do_ anything -- it
-  creates  a  maniplex  object that only knows the operation [3XF[103X and the [3Xinputs[103X.
-  However,  many  polytope operations (such as Pyramid(M), Medial(M), etc) use
-  this  construction  as  a base, and then add "attribute computers" that tell
-  the  formal maniplex how to compute certain things in terms of properties of
-  the base. See AddAttrComputer for more information.[133X
+  [33X[0;0YDetermines   whether   the   action  of  AutomorphismGroup([3XM[103X)  on  edges  is
+  transitive.[133X
   
-  [1X5.1-5 Maniplex[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsEdgeTransitive(Prism(Simplex(3)));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [1X5.2-10 IsFacetTransitive[101X
   
-  [33X[0;0YConstructs the maniplex from the given poset [3XP[103X. This assumes that P actually
-  defines a maniplex.[133X
+  [33X[1;0Y[29X[2XIsFacetTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
   
-  [1X5.1-6 IsPolytopal[101X
+  [33X[0;0YDetermines   whether   the  action  of  AutomorphismGroup([3XM[103X)  on  facets  is
+  transitive.[133X
   
-  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFacetTransitive(Prism(HemiCube(3)));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-11 IsFullyTransitive[101X
+  
+  [33X[1;0Y[29X[2XIsFullyTransitive[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines   whether  the  action  of  AutomorphismGroup([3XM[103X)  on  i-faces  is
+  transitive for every i.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFullyTransitive(SmallRhombicuboctahedron());[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsFullyTransitive(Bk2l(4,5));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.3 [33X[0;0YFlag orbits[133X[101X
+  
+  [1X5.3-1 SymmetryTypeGraph[101X
+  
+  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
+  group on Rank([3XM[103X) generators.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSymmetryTypeGraph(Prism(Simplex(3)));[127X[104X
+    [4X[28XEdge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-2 NumberOfFlagOrbits[101X
+  
+  [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the number of orbits of the automorphism group of [3XM[103X on its flags.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfFlagOrbits(Prism(Simplex(3)));[127X[104X
+    [4X[28X4[128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-3 FlagOrbitRepresentatives[101X
+  
+  [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns one flag from each orbit under the action of AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlagOrbitRepresentatives(Prism(Simplex(3)));[127X[104X
+    [4X[28X[ 1, 49, 97, 145 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-4 FlagOrbitsStabilizer[101X
+  
+  [33X[1;0Y[29X[2XFlagOrbitsStabilizer[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Yg[133X
+  
+  [33X[0;0YReturns  the subgroup of the connection group that preserves the flag orbits
+  under the action of the automorphism group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm:=Prism(Dodecahedron());[127X[104X
+    [4X[28XPrism(Dodecahedron())[128X[104X
+    [4X[25Xgap>[125X [27Xs:=FlagOrbitsStabilizer(m);[127X[104X
+    [4X[28X<permutation group of size 207360000 with 12 generators>[128X[104X
+    [4X[25Xgap>[125X [27XIsSubgroup(ConnectionGroup(m),s);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAsSet(Orbit(AutomorphismGroupOnFlags(m),1))=AsSet(Orbit(s,1));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-5 IsReflexible[101X
+  
+  [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsReflexible(Epsilonk(6));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-6 IsChiral[101X
+  
+  [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsChiral(ToroidalMap44([2,3]));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-7 IsRotary[101X
+  
+  [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
+            reflexible or chiral.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsRotary(ToroidalMap44([3,5]));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-8 FlagOrbits[101X
+  
+  [33X[1;0Y[29X[2XFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns a list of lists of flags, representing the orbits of flags under the
+  action of AutomorphismGroup([3XM[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlagOrbits(ToroidalMap44([3,2]));[127X[104X
+    [4X[28X[ [ 1, 9, 7, 33, 15, 63, 5, 65, 39, 23, 13, 71, 61, 101, 3, 89, 47, 37, 95, 21, 11, 79, 69, 29, 59, 77, 99, 51, 49, 55, 45, 35, 103, 93, 19, 83, 87, 67, 85, 27, 57, 75, 91, 97, 43, 81, 53, 31, 17, 25, 73, 41 ], [128X[104X
+    [4X[28X  [ 2, 10, 8, 34, 16, 64, 6, 66, 40, 24, 14, 72, 62, 102, 4, 90, 48, 38, 96, 22, 12, 80, 70, 30, 60, 78, 100, 52, 50, 56, 46, 36, 104, 94, 20, 84, 88, 68, 86, 28, 58, 76, 92, 98, 44, 82, 54, 32, 18, 26, 74, 42 ] ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.4 [33X[0;0YOrientability[133X[101X
+  
+  [1X5.4-1 IsOrientable[101X
+  
+  [33X[1;0Y[29X[2XIsOrientable[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
-  polytope.[133X
-  
-  
-  [1X5.2 [33X[0;0YMixing of Maniplexes functions[133X[101X
-  
-  
-  [1X5.2-1 [33X[0;0YMix of maniplexes[133X[101X
-  
-  [33X[1;0Y[29X[2XMix[102X( [3Xpermgroup[103X, [3Xpermgroup[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XMix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGroup [110X.[133X
-  
-  [33X[0;0YGiven  two  (permutation) groups returns the mix of those groups. Note, also
-  works with FPgroups. Returns the Mix of two Finitely Presented groups gp and
-  gq.  Given maniplexes returns the IsReflexibleManiplex from the mix of their
-  connection groups[133X
-  
-  [33X[0;0YHere we build the mix of the connection groups of a 3-cube and an edge.[133X
+  [33X[0;0YA maniplex is orientable if its flag graph is bipartite.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg1:=ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27Xg2:=ConnectionGroup(Edge());[127X[104X
-    [4X[28XGroup([ (1,2) ])[128X[104X
-    [4X[25Xgap>[125X [27XMix(g1,g2);[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
+    [4X[25Xgap>[125X [27XIsOrientable(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsOrientable(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [1X5.4-2 IsIOrientable[101X
   
-  [1X5.2-2 [33X[0;0YComix[133X[101X
+  [33X[1;0Y[29X[2XIsIOrientable[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XComix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XComix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
-  
-  [33X[0;0YReturns  the  comix  of  two  Finitely  Presented  groups  gp  and gq. Given
-  maniplexes   returns  the  IsReflexibleManiplex  from  the  comix  of  their
-  connection groups[133X
-  
-  
-  [1X5.2-3 [33X[0;0YIndexed array tools[133X[101X
-  
-  [33X[1;0Y[29X[2XCtoL[102X( [3Xint[103X, [3Xint[103X, [3Xint[103X, [3Xint[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsInteger [110X.[133X
-  
-  [33X[0;0YCtoL  Returns  an  integer between 1 and N*M associated with the pair [a,b].
-  LtoC Returns an ordered pair [a,b] associated with the integer between 1 and
-  N*M. a should range between 1 and N, and b should range between 1 and M N is
-  how  many  columns  (x coordinates), M is how many rows (y coordinates) in a
-  matrix Functions are inverses.[133X
+  [33X[0;0YFor  a subset I of {0, ..., n-1}, a maniplex is I-orientable if every closed
+  path in its flag graph contains an even number of edges with colors in I.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XLtoC(5,4,14);[127X[104X
-    [4X[28X[ 1, 2 ][128X[104X
-    [4X[25Xgap>[125X [27XCtoL(3,2,5,4);[127X[104X
-    [4X[28X8[128X[104X
-    [4X[25Xgap>[125X [27XLtoC(8,5,4);[127X[104X
-    [4X[28X[ 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XIsIOrientable(HemiCube(3),[1,2]);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.2-4 FlagMix[101X
+  [1X5.4-3 IsVertexBipartite[101X
   
-  [33X[1;0Y[29X[2XFlagMix[102X( [3Xpermgroup[103X, [3Xpermgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex [110X.[133X
+  [33X[1;0Y[29X[2XIsVertexBipartite[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YGiven  two  (permutation)  groups  gp,  gq  this returns the maniplex of the
-  "flag" mix of two maniplexes with connection groups gp and gq.[133X
-  
-  
-  [1X5.3 [33X[0;0YRotary maniplexes and rotation groups[133X[101X
-  
-  [1X5.3-1 UniversalRotationGroup[101X
-  
-  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xn[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the rotation subgroup of the universal Coxeter Group of rank n.[133X
-  
-  [1X5.3-2 UniversalRotationGroup[101X
-  
-  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xsym[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.[133X
-  
-  [1X5.3-3 RotaryManiplex[101X
-  
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xg[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven  a  group  g  (which  should  be a string rotation group), returns the
-  rotary  maniplex  with  that rotation group, where the privileged generators
-  are those returned by GeneratorsOfGroup(g).[133X
-  
-  [1X5.3-4 RotaryManiplex[101X
-  
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  universal  rotary  maniplex  (in  fact, regular polytope) with
-  Schlafli symbol [3Xsym[103X.[133X
-  
-  [1X5.3-5 RotaryManiplex[101X
-  
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsymbol[103X, [3Xrelations[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  rotary  maniplex  with  the given Schlafli symbol and with the
-  given  relations.  The  relations  are  given by a string that refers to the
-  generators s1, s2, etc. For example:[133X
+  [33X[0;0YA  maniplex  is  vertex-bipartite  if  its  1-skeleton is bipartite. This is
+  equivalent to being I-orientable for I = {0}.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex([4,4], "(s2^-1 s1)^6");;[127X[104X
+    [4X[25Xgap>[125X [27XIsVertexBipartite(HemiCube(4));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
-  one  given. This may not be the correct Schlafli symbol, since the relations
-  may  cause  a  collapse,  so  this  should only be used if you know that the
-  Schlafli symbol is correct.[133X
+  [1X5.4-4 IsFacetBipartite[101X
   
-  [1X5.3-6 EnantiomorphicForm[101X
+  [33X[1;0Y[29X[2XIsFacetBipartite[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
+  [33X[0;0YA  maniplex  is  facet-bipartite if the 1-skeleton of its dual is bipartite.
+  This is equivalent to being I-orientable for I = {n-1}.[133X
   
-  [33X[0;0YThe [13Xenantiomorphic form[113X of a rotary maniplex is the same maniplex, but where
-  we  choose  the new base flag to be one of the flags that is adjacent to the
-  original  base  flag.  If  M  is reflexible, then this choice has no effect.
-  Otherwise, if M is chiral, then the enantiomorphic form gives us a different
-  presentation for the rotation group.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFacetBipartite(HemiCube(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-5 OrientableCover[101X
+  
+  [33X[1;0Y[29X[2XOrientableCover[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns the minimal [13Xorientable cover[113X of the maniplex [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOrientableCover(HemiCube(3))=Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-6 IOrientableCover[101X
+  
+  [33X[1;0Y[29X[2XIOrientableCover[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the minimal [13XI-orientable cover[113X of the maniplex [3XM[103X.[133X
+  
+  
+  [1X5.5 [33X[0;0YFaithfulness[133X[101X
+  
+  [1X5.5-1 IsVertexFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsVertexFaithful[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether the reflexible maniplex [3XM[103X is vertex-faithful; i.e., whether
+  the action of the automorphism group on the vertices is faithful.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-2 IsFacetFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsFacetFaithful[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  the reflexible maniplex [3XM[103X is facet-faithful; i.e., whether
+  the action of the automorphism group on the facets is faithful.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-3 MaxVertexFaithfulQuotient[101X
+  
+  [33X[1;0Y[29X[2XMaxVertexFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YQ[133X
+  
+  [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ 3, 2 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-4 SatisfiesWeakPathIntersectionProperty[101X
+  
+  [33X[1;0Y[29X[2XSatisfiesWeakPathIntersectionProperty[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YTests for the weak path intersection property in a maniplex. Definitions and
+  description available in [GH18].[133X
   

@@ -1,909 +1,317 @@
   
-  [1X8 [33X[0;0YPosets[133X[101X
+  [1X8 [33X[0;0YPolytope Constructions and Operations[133X[101X
   
   
-  [1X8.1 [33X[0;0YPoset constructors[133X[101X
+  [1X8.1 [33X[0;0YExtensions, amalgamations, and quotients[133X[101X
   
-  [33X[0;0YI'm  in  the process of reconciling all of this, but there are going to be a
-  number of ways to [10Xdefine[110X a poset:[133X
+  [1X8.1-1 UniversalPolytope[101X
   
-  [30X    [33X[0;6YAs  an  [10XIsPosetOfFlags[110X, where the underlying description is an ordered
-        list  of length [23Xn+2[123X. Each of the [23Xn+2[123X list elements is a list of faces,
-        and the assumption is that these are the faces of rank [23Xi-2[123X, where [23Xi[123X is
-        the  index  in the master list (e.g., [10Xl[1][1][110X would usually correspond
-        to the unique [23X-1[123X face of a polytope -- and there won't be an [10Xl[1][2][110X).
-        Each face is then a list of the flags incident with that face.[133X
+  [33X[1;0Y[29X[2XUniversalPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [30X    [33X[0;6YAs  an  [10XIsPosetOfIndices[110X, where the underlying description is a binary
-        relation  on  a  set  of  indices,  which correspond to labels for the
-        elements of the poset.[133X
-  
-  [30X    [33X[0;6YIf the poset is known to be atomic, then by a description of the faces
-        in  terms  of  the  atoms...  usually  we'll just need the list of the
-        elements  of  maximal  rank,  from  which  all  other  elements may be
-        obtained.[133X
-  
-  [30X    [33X[0;6YAs  an [10XIsPosetOfElements[110X, where the elements could be anything, and we
-        have a known function determining the partial order on the elements.[133X
-  
-  [33X[0;0YUsually,  we  assume that the poset will have a natural rank function on it.
-  More  information on the poset attributes that are important in the study of
-  abstract  polytopes  and  maniplexes  is  available  in [MS02], [MPW14], and
-  [Wil12].[133X
-  
-  [1X8.1-1 PosetFromFaceListOfFlags[101X
-  
-  [33X[1;0Y[29X[2XPosetFromFaceListOfFlags[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfFlags[110X.[133X
-  
-  [33X[0;0YGiven  a  [3Xlist[103X  of  lists  of  faces  in increasing rank, where each face is
-  described  by  the  incident  flags, gives you a IsPosetOfFlags object back.
-  Posets constructed this way are assumed to be IsP1 and IsP2.[133X
-  
-  [33X[0;0YHere we have a poset using the [10XIsPosetOfFlags[110X description for the triangle.[133X
+  [33X[0;0YConstructs the universal polytope of rank [3Xn[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromFaceListOfFlags([[[1,2,3,4,5,6]],[[1,2],[3,6],[4,5]],[[1,4],[2,3],[5,6]],[[1,2,3,4,5,6]]]);[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation with 8 faces.[128X[104X
-    [4X[25Xgap>[125X [27XFaceListOfPoset(poset);[127X[104X
-    [4X[28X[ [ [ 1, 2, 3, 4, 5, 6 ] ], [ [ 1, 2 ], [ 3, 6 ], [ 4, 5 ] ], [ [ 1, 4 ], [ 2, 3 ], [ 5, 6 ] ], [ [ 1, 2, 3, 4, 5, 6 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XUniversalPolytope(3);[127X[104X
+    [4X[28XUniversalPolytope(3)[128X[104X
+    [4X[25Xgap>[125X [27XRank(last);[127X[104X
+    [4X[28X3[128X[104X
   [4X[32X[104X
   
-  [1X8.1-2 PosetFromConnectionGroup[101X
+  [1X8.1-2 UniversalExtension[101X
   
-  [33X[1;0Y[29X[2XPosetFromConnectionGroup[102X( [3Xg[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfFlags[110X with [10XIsP1[110X=true.[133X
+  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YGiven  a group, returns a poset with an internal representation as a list of
-  faces ordered by rank, where each face is represented as a list of the flags
-  it  contains.  Note that this function includes the minimal (empty) face and
-  the  maximal  face  of the maniplex. Note that the [23Xi[123X-faces correspond to the
-  [23Xi+1[123X item in the list because of how GAP indexes lists.[133X
+  [33X[0;0YConstructs  the  universal  extension  of  [3XM[103X,  i.e. the maniplex with facets
+  isomorphic  to  [3XM[103X that covers all other maniplexes with facets isomorphic to
+  [3XM[103X. Currently only defined for reflexible maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:=Group([(1,4)(2,3)(5,6),(1,2)(3,6)(4,5)]);[127X[104X
-    [4X[28XGroup([ (1,4)(2,3)(5,6), (1,2)(3,6)(4,5) ])[128X[104X
-    [4X[25Xgap>[125X [27XPosetFromConnectionGroup(g);[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation with 8 faces.[128X[104X
+    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3));[127X[104X
+    [4X[28Xregular 4-polytope of type [ 4, 3, infinity ] with infinity flags[128X[104X
   [4X[32X[104X
   
-  [1X8.1-3 PosetFromManiplex[101X
+  [1X8.1-3 UniversalExtension[101X
   
-  [33X[1;0Y[29X[2XPosetFromManiplex[102X( [3Xmani[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfFlags[110X[133X
+  [33X[1;0Y[29X[2XUniversalExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YGiven  a  maniplex,  returns  a  poset  of  the  maniplex  with  an internal
-  representation  as  a  list  of  faces  ordered  by rank, where each face is
-  represented as a list of the flags it contains. Note that this function does
-  include  the minimal (empty) face and the maximal face of the maniplex. Note
-  that  the  [23Xi[123X-faces correspond to the [23Xi+1[123X item in the list because of how GAP
-  indexes lists.[133X
+  [33X[0;0YConstructs  the  universal extension of [3XM[103X with last entry of Schlafli symbol
+  [3Xk[103X. Currently only defined for reflexible maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=HemiCube(3);[127X[104X
-    [4X[28XRegular 3-polytope of type [ 4, 3 ] with 24 flags[128X[104X
-    [4X[25Xgap>[125X [27XPosetFromManiplex(p);[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation with 15 faces.[128X[104X
+    [4X[25Xgap>[125X [27XUniversalExtension(Cube(3),2);[127X[104X
+    [4X[28Xregular 4-polytope of type [ 4, 3, 2 ] with 96 flags[128X[104X
   [4X[32X[104X
   
-  [1X8.1-4 PosetFromPartialOrder[101X
+  [1X8.1-4 TrivialExtension[101X
   
-  [33X[1;0Y[29X[2XPosetFromPartialOrder[102X( [3XpartialOrder[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfIndices[110X[133X
+  [33X[1;0Y[29X[2XTrivialExtension[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YGiven a partial order on a finite set of size [23Xn[123X, this function will create a
-  partial order on [10X[1..n][110X.[133X
+  [33X[0;0YConstructs the trivial extension of [3XM[103X, also known as {[3XM[103X, 2}.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xl:=List([[1,1],[1,2],[1,3],[1,4],[2,4],[2,2],[3,3],[4,4]],x->Tuple(x));[127X[104X
-    [4X[25Xgap>[125X [27Xr:=BinaryRelationByElements(Domain([1..4]), l);[127X[104X
-    [4X[28X<general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >[128X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromPartialOrder(r);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation [128X[104X
-    [4X[25Xgap>[125X [27Xh:=HasseDiagramBinaryRelation(PartialOrder(poset));[127X[104X
-    [4X[28X<general mapping: Domain([ 1 .. 4 ]) -> Domain([ 1 .. 4 ]) >[128X[104X
-    [4X[25Xgap>[125X [27XSuccessors(h);[127X[104X
-    [4X[28X[ [ 2, 3 ], [ 4 ], [  ], [  ] ][128X[104X
+    [4X[25Xgap>[125X [27XTrivialExtension(Dodecahedron());[127X[104X
+    [4X[28Xregular 4-polytope of type [ 5, 3, 2 ] with 240 flags[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YNote  that what we've accomplished here is the poset containing the elements
-  1,  2,  3,  4  with  partial  order  determined by whether the first element
-  divides  the  second.  The  essential  information  about  the  poset can be
-  obtained from the Hasse diagram.[133X
+  [1X8.1-5 FlatExtension[101X
   
-  [1X8.1-5 PosetFromAtomicList[101X
+  [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex#!  @Description Constructs the flat extension of [3XM[103X with
+            last entry of Schlafli symbol [3Xk[103X. (As defined in [13XFlat Extensions of
+            Abstract Polytopes[113X [Cun21].)[133X
   
-  [33X[1;0Y[29X[2XPosetFromAtomicList[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfAtoms[110X[133X
-  
-  [33X[0;0YGiven  a  list  of elements, where each element is given as a list of atoms,
-  this  function  will  construct the corresponding poset. Note that this will
-  construct any implied faces as well (i.e., all possible intersections of the
-  listed faces).[133X
+  [33X[0;0YCurrently only defined for reflexible maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xlist:=[[1,2,3],[1,2,4],[1,3,4],[2,3,4]];[127X[104X
-    [4X[28X[ [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3, 4 ], [ 2, 3, 4 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromAtomicList(list);;[127X[104X
-    [4X[25Xgap>[125X [27XList(Faces(poset),AtomList);[127X[104X
-    [4X[28X[ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], [128X[104X
-    [4X[28X  [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27XFlatExtension(Simplex(3),4);[127X[104X
+    [4X[28Xreflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags[128X[104X
   [4X[32X[104X
   
-  [1X8.1-6 PosetFromElements[101X
+  [1X8.1-6 Amalgamate[101X
   
-  [33X[1;0Y[29X[2XPosetFromElements[102X( [3Xlist_of_faces[103X, [3Xfunc[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetOfElements[110X[133X
+  [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YThis  is  for gathering elements with a known ordering [3Xfunc[103X on two variables
-  into  a  poset. Also note, the expectation is that [3Xfunc[103X behaves similarly to
-  IsSubset, i.e., [3Xfunc[103X (x,y)=true means [23Xy[123X is less than [23Xx[123X in the order.[133X
+  [33X[0;0YConstructs  the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X
+  are compatible. Currently only defined for reflexible maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27X g:=SymmetricGroup(3);[127X[104X
-    [4X[28XSym( [ 1 .. 3 ] )[128X[104X
-    [4X[25Xgap>[125X [27Xasg:=AllSubgroups(g);[127X[104X
-    [4X[28X[ Group(()), Group([ (2,3) ]), Group([ (1,2) ]), Group([ (1,3) ]), Group([ (1,2,3) ]),   Group([ (1,2,3), (2,3) ]) ][128X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromElements(asg,IsSubgroup);[127X[104X
-    [4X[28XA poset on 6 elements using the IsPosetOfIndices representation.[128X[104X
-    [4X[25Xgap>[125X [27XHasseDiagramBinaryRelation(PartialOrder(poset));[127X[104X
-    [4X[28X<general mapping: Domain([ 1 .. 6 ]) -> Domain([ 1 .. 6 ]) >[128X[104X
-    [4X[25Xgap>[125X [27XSuccessors(last);[127X[104X
-    [4X[28X[ [ 2, 3, 4, 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [  ] ][128X[104X
-    [4X[25Xgap>[125X [27XList( ElementsList(poset){[2,6]}, ElementObject);[127X[104X
-    [4X[28X[ Group([ (2,3) ]), Group([ (1,2,3), (2,3) ]) ][128X[104X
+    [4X[25Xgap>[125X [27XAmalgamate(Cube(3),CrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 4-maniplex of type [ 4, 3, 4 ][128X[104X
   [4X[32X[104X
   
-  [1X8.1-7 PosetFromSuccessorList[101X
+  [1X8.1-7 Medial[101X
   
-  [33X[1;0Y[29X[2XPosetFromSuccessorList[102X( [3XsuccessorsList[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yposet[133X
+  [33X[1;0Y[29X[2XMedial[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YGiven a list of immediate successors, will construct the poset. A valid list
-  of  successors  is of the form [10X[[2,3],[3],[]][110X where the [23Xi[123X-th entry is a list
-  of elements that are greater than the [23Xi[123X-th element in the partial order that
-  determines the poset. If the given list isn't reflexive and transitive, this
-  function will induce those properties from the given list of successors.[133X
+  [33X[0;0YGiven a 3-maniplex [3XM[103X, returns its medial.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(HemiCube(3));;[127X[104X
-    [4X[25Xgap>[125X [27XPrint(p);[127X[104X
-    [4X[28XPosetFromSuccessorList([ [ 2, 3, 4, 5 ], [ 6, 7, 9 ], [ 6, 8, 11 ], [ 7, 10, 11 ], [128X[104X
-    [4X[28X[ 8, 9, 10 ], [ 1, 2, 13 ], [ 12, 14 ], [ 12, 14 ], [ 13, 14 ], [ 12, 13 ], [ 13, 14 ], [128X[104X
-    [4X[28X[ 15 ], [ 15 ], [ 15 ], [ ] ]);[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Medial(Dodecahedron()));[127X[104X
+    [4X[28X[ [ 3, 5 ], 4 ][128X[104X
   [4X[32X[104X
   
   
-  [1X8.1-8 [33X[0;0YHelper functions for special partial orders[133X[101X
+  [1X8.2 [33X[0;0YDuality[133X[101X
   
-  [33X[1;0Y[29X[2XPairCompareFlagsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XPairCompareAtomsList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
+  [1X8.2-1 Dual[101X
+  
+  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YThe maniplex that is dual to [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(CrossPolytope(3));[127X[104X
+    [4X[28XCube(3)[128X[104X
+  [4X[32X[104X
+  
+  [1X8.2-2 IsSelfDual[101X
+  
+  [33X[1;0Y[29X[2XIsSelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its dual.[133X
+  
+  [33X[0;0YAlso works for IsPoset objects.[133X
+  
+  [1X8.2-3 IsInternallySelfDual[101X
+  
+  [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X[, [3Xx[103X] ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YThe  functions  PairCompareFlagsList  and  PairCompareAtomsList  are used in
-  poset  construction.  Function  assumes  [3Xlist1[103X  and  [3Xlist2[103X  are  of the form
-  [[10XlistOfFlags[110X,[10Xi[110X]  where  [10XlistOfFlags[110X  is a list of flags in the face and [10Xi[110X is
-  the  rank  of  the face. Allows comparison of HasFlagList elements. Function
-  assumes  [3Xlist1[103X and [3Xlist2[103X are of the form [10X[listOfAtoms,int][110X where [10XlistOfAtoms[110X
-  is  a  list  of  flags  in  the face and [10Xint[110X is the rank of the face. Allows
-  comparison of HasAtomList elements.[133X
-  
-  [1X8.1-9 DualPoset[101X
-  
-  [33X[1;0Y[29X[2XDualPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ydual[133X
-  
-  [33X[0;0YGiven a [3Xposet[103X, will construct a poset isomorphic to the dual of [3Xposet[103X.[133X
+  [33X[0;0YReturns  whether  this  maniplex  is  "internally  self-dual", as defined by
+  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
+  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
+  automorphism.  If the optional group element [3Xx[103X is given, then we first check
+  whether  [3Xx[103X  is a dualizing automorphism of [3XM[103X, and if not, then we search the
+  whole automorphism group of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(3));; c:=PosetFromManiplex(CrossPolytope(3));;[127X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(DualPoset(DualPoset(p)),p);[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(4));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(DualPoset(p),c);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(DualPoset(p),p);[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
     [4X[28Xfalse[128X[104X
-  [4X[32X[104X
-  
-  [1X8.1-10 Section[101X
-  
-  [33X[1;0Y[29X[2XSection[102X( [3Xface1[103X, [3Xface2[103X, [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ysection[133X
-  
-  [33X[0;0YConstructs the section of the [3Xposet[103X [3Xface1[103X[23X/[123X[3Xface2[103X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(PyramidOver(Cube(2)));;[127X[104X
-    [4X[25Xgap>[125X [27Xfaces:=Faces(poset);;List(faces,x->RankInPoset(x,poset));[127X[104X
-    [4X[28X[ -1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3 ][128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(Section(faces[15],faces[1],poset),PosetFromManiplex(Simplex(2)));[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(Section(faces[16],faces[1],poset),PosetFromManiplex(Cube(2)));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(Section(faces[20],faces[2],poset),PosetFromManiplex(Cube(2)));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  
-  [1X8.1-11 [33X[0;0YCleaving polytopes[133X[101X
-  
-  [33X[1;0Y[29X[2XCleave[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XPartiallyCleave[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
-  
-  [33X[0;0YGiven an IsPolytope [3Xp[103X, and an IsInt [3Xk[103X, [10XCleave(polytope,k)[110X will construct the
-  [23Xk^{th}[123X-cleaved  polytope  of  [3Xp[103X. Cleaved polytopes were introduced by Daniel
-  Pellicer     [Pel18].     [10XPartiallyCleave(p,k)[110X     will     construct    the
-  [23Xk^{\textrm{th}}[123X-partially cleaved polytope of [3Xp[103X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XCleave(PosetFromManiplex(Cube(4)),3);[127X[104X
-    [4X[28XA poset on 290 elements using the IsPosetOfIndices representation.[128X[104X
-  [4X[32X[104X
-  
-  
-  [1X8.2 [33X[0;0YPoset attributes[133X[101X
-  
-  [33X[0;0YPosets  have  many  properties  we might be interested in. Here's a few. All
-  abstract  polytope  definitions  in use here are from Schulte and McMullen's
-  [13XAbstract Regular Polytopes[113X [MS02].[133X
-  
-  [1X8.2-1 MaximalChains[101X
-  
-  [33X[1;0Y[29X[2XMaximalChains[102X( [3Xposet[103X ) [32X attribute[133X
-  
-  [33X[0;0YGives  the list of maximal chains in a poset in terms of the elements of the
-  poset.  Synonyms  are  [10XFlagsList[110X  and [10XFlags[110X. Tends to work faster (sometimes
-  significantly) if the poset [10XHasPartialOrder[110X.[133X
-  
-  [33X[0;0YSynonym is [10XFlagsList[110X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(HemiCube(3));[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
-    [4X[25Xgap>[125X [27XMaximalChains(poset)[1];[127X[104X
-    [4X[28X[ An element of a poset made of flags, An element of a poset made of flags, [128X[104X
-    [4X[28X  An element of a poset made of flags, An element of a poset made of flags, [128X[104X
-    [4X[28X  An element of a poset made of flags ][128X[104X
-    [4X[25Xgap>[125X [27XList(last,x->RankInPoset(x,poset));[127X[104X
-    [4X[28X[ -1, 0, 1, 2, 3 ][128X[104X
-  [4X[32X[104X
-  
-  [1X8.2-2 RankPoset[101X
-  
-  [33X[1;0Y[29X[2XRankPoset[102X( [3Xposet[103X ) [32X attribute[133X
-  
-  [33X[0;0YIf  the poset [10XIsP1[110X, ranks are assumed to run from [23X-1[123X to [23Xn[123X, and function will
-  return  [23Xn[123X.  If  [10XIsP1(poset)=false[110X,  ranks are assumed to run from 1 to [23Xn[123X. In
-  RAMP,  at  least  currently,  we  are assuming that graded/ranked posets are
-  bounded.  Note  that  in  general  what  you  [13Xactually[113X  want  to  do is call
-  [10XRank(poset)[110X.  The  reason  is  that  [10XRank[110X will calculate the [10XRankPoset[110X if it
-  isn't set, and then set and store the value in the poset.[133X
-  
-  [1X8.2-3 ElementsList[101X
-  
-  [33X[1;0Y[29X[2XElementsList[102X( [3Xposet[103X ) [32X attribute[133X
-  
-  [33X[0;0YWill  recover  the  list of faces of the poset, format may depend on [13Xtype[113X of
-  representation of [10Xposet[110X.[133X
-  
-  [30X    [33X[0;6YWe also have [10XFacesList[110X and [10XFaces[110X as synonyms for this command.[133X
-  
-  [1X8.2-4 OrderingFunction[101X
-  
-  [33X[1;0Y[29X[2XOrderingFunction[102X( [3Xposet[103X ) [32X attribute[133X
-  
-  [33X[0;0Y[10XOrderingFunction[110X  is  an  attribute  of  a poset which stores a function for
-  ordering elements.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(2));;[127X[104X
-    [4X[25Xgap>[125X [27Xp3:=PosetFromElements(RankedFaceListOfPoset(p),PairCompareFlagsList);;[127X[104X
-    [4X[25Xgap>[125X [27Xf3:=FacesList(p3);;[127X[104X
-    [4X[25Xgap>[125X [27XOrderingFunction(p3)(ElementObject(f3[2]),ElementObject(f3[1]));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XOrderingFunction(p3)(ElementObject(f3[1]),ElementObject(f3[2]));[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Cube(3));[127X[104X
     [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron2(10,1);;[127X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(M);;[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(M, (g.1*g.3*g.2)^6);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X8.2-5 IsFlaggable[101X
+  [1X8.2-4 IsExternallySelfDual[101X
   
-  [33X[1;0Y[29X[2XIsFlaggable[102X( [3Xposet[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsExternallySelfDual[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YChecks  or  creates  the  value of the attribute [10XIsFlaggable[110X for an [10XIsPoset[110X.
-  Point  here  is  to  see  if  the  structure  of  the poset is sufficient to
-  determine  the  flag graph. For IsPosetOfFlags this is another way of saying
-  that  the  intersection  of  the  faces (thought of as collections of flags)
-  containing   a   flag  is  that  selfsame  flag.  (Might  be  equivalent  to
-  prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about
-  it  yet.)  Now  also  works  with  generic  poset  element  types  (not just
-  [10XIsPosetOfFlags[110X).[133X
-  
-  [1X8.2-6 IsAtomic[101X
-  
-  [33X[1;0Y[29X[2XIsAtomic[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YThis  checks  whether  or  not  the  faces of an IsP1 poset may be described
-  uniquely in terms of the posets atoms.[133X
-  
-  [33X[0;0YThe  terminology as used here is approximately that of Ziegler's [13XLectures on
-  Polytopes[113X where a lattice is atomic if every element is the join of atoms.[133X
+  [33X[0;0YReturns  whether  this  maniplex  is  "externally  self-dual", as defined by
+  Cunningham  and  Mixer in [tt17] ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X).
+  That  is,  if  [3XM[103X  is self-dual, and the automorphism of AutomorphismGroup(M)
+  that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  outer
+  automorphism.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xpo:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;[127X[104X
-    [4X[25Xgap>[125X [27Xpo:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(po));;[127X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromPartialOrder(po);; IsAtomic(p);[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(Simplex(4));[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27Xp2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
     [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [1X8.2-7 PartialOrder[101X
-  
-  [33X[1;0Y[29X[2XPartialOrder[102X( [3Xposet[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xpartial order[110X[133X
-  
-  [33X[0;0YHasPartialOrder  Checks  if  [3Xposet[103X  has  a  declared  partial  order (binary
-  relation).  SetPartialOrder  assigns  a  partial order to the [3Xposet[103X. In many
-  cases, PartialOrder is able to compute one from structural information.[133X
-  
-  
-  [1X8.2-8 [33X[0;0YLattices[133X[101X
-  
-  [33X[1;0Y[29X[2XIsLattice[102X( [3Xposet[103X ) [32X property[133X
-  [33X[1;0Y[29X[2XIsAllMeets[102X( [3Xarg[103X ) [32X property[133X
-  [33X[1;0Y[29X[2XIsAllJoins[102X( [3Xarg[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YIsBool[133X
-  
-  [33X[0;0YIsLattice  determines  whether  a  poset  is  a  lattice  or not. IsAllMeets
-  determines  whether  all  meets in a poset are unique. IsAllJoins determines
-  whether all joins in a poset are unique.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Cube(3));;[127X[104X
-    [4X[25Xgap>[125X [27XIsLattice(poset);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xbad:=PosetFromManiplex(HemiCube(3));;[127X[104X
-    [4X[25Xgap>[125X [27XIsLattice(bad);[127X[104X
-    [4X[28Xfail[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YHere's a simple example of when a lattice isn't atomic.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xl:=[[2,3,4],[5,7],[5,6],[6,7],[8],[8],[8,9],[10],[10],[]];;[127X[104X
-    [4X[25Xgap>[125X [27Xb:=BinaryRelationOnPoints(l);; [127X[104X
-    [4X[28Xpo:=ReflexiveClosureBinaryRelation(TransitiveClosureBinaryRelation(b));;[128X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromPartialOrder(po);;[127X[104X
-    [4X[25Xgap>[125X [27XIsLattice(poset);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsAtomic(poset);[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
     [4X[28Xfalse[128X[104X
-  [4X[32X[104X
-  
-  [1X8.2-9 ListIsP1Poset[101X
-  
-  [33X[1;0Y[29X[2XListIsP1Poset[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YGiven  [3Xlist[103X,  comprised  of  sublists  of  faces  ordered by rank, each face
-  listing  the  flags  on  the  face,  this function will tell you if the list
-  corresponds to a P1 poset or not.[133X
-  
-  [1X8.2-10 IsP1[101X
-  
-  [33X[1;0Y[29X[2XIsP1[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines  whether a poset has property P1 from ARP. Recall that a poset is
-  P1 if it has a unique least, and a unique maximal element/face.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation [128X[104X
-    [4X[25Xgap>[125X [27XIsP1(p);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp2:=PosetFromFaceListOfFlags([[[1],[2]],[[1,2]]]);[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation with 3 faces.[128X[104X
-    [4X[25Xgap>[125X [27XIsP1(p2);[127X[104X
-    [4X[28Xfalse[128X[104X
-  [4X[32X[104X
-  
-  [1X8.2-11 IsP2[101X
-  
-  [33X[1;0Y[29X[2XIsP2[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines  whether a poset has property P2 from ARP. Recall that a poset is
-  P2  if each maximal chain in the poset has the same length (for [23Xn[123X-polytopes,
-  this means each flag containes [23Xn+2[123X faces).[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(HemiCube(3)); [127X[104X
-    [4X[25Xgap>[125X [27XIsP2(poset);[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YAnother nice example[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:=AlternatingGroup(4);; a:=AllSubgroups(g);; poset:=PosetFromElements(a,IsSubgroup);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation [128X[104X
-    [4X[25Xgap>[125X [27XIsP2(poset);[127X[104X
-    [4X[28Xfalse[128X[104X
-  [4X[32X[104X
-  
-  [1X8.2-12 IsP3[101X
-  
-  [33X[1;0Y[29X[2XIsP3[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines  whether  a  poset  is strongly flag connected (property P3' from
-  ARP).  May  also  be called with command [10XIsStronglyFlagConnected[110X. If you are
-  not working with a pre-polytope, expect this to take a LONG time. This means
-  that  given  flags  [23X\Phi[123X  and  [23X\Psi[123X,  not  only is there a sequence of flags
-  [23X\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi[123X  such  that each [23X\Phi_i[123X shares all but
-  once face with [23X\Phi_{i+1}[123X, but that each [23X\Phi_i\supseteq \Phi\cap\Psi[123X.[133X
-  
-  [33X[0;0YHelper for IsP3[133X
-  
-  [1X8.2-13 IsFlagConnected[101X
-  
-  [33X[1;0Y[29X[2XIsFlagConnected[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines whether a poset is flag connected.[133X
-  
-  [1X8.2-14 IsP4[101X
-  
-  [33X[1;0Y[29X[2XIsP4[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines  whether  a  poset  satisfies  the diamond condition. May also be
-  invoked  using  [10XIsDiamondCondition[110X.  Recall  that  this  means  that  if [23XF,G[123X
-  elements  of the poset of ranks [23Xi-1[123X and [23Xi+1[123X, respectively, where [23XF[123X less than
-  [23XG[123X,  then  there are precisely two [23Xi[123X-faces [23XH[123X such that [23XF[123X is less than [23XH[123X and [23XH[123X
-  is less than [23XG[123X.[133X
-  
-  [1X8.2-15 IsPolytope[101X
-  
-  [33X[1;0Y[29X[2XIsPolytope[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines whether a poset is an abstract polytope.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Cube(3));[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation with 28 faces.[128X[104X
-    [4X[25Xgap>[125X [27XIsPolytope(poset);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(poset);[127X[104X
-    [4X[28X[ "IsP1", "IsP2", "IsP3", "IsP4", "IsPolytope" ][128X[104X
-    [4X[25Xgap>[125X [27Xposet2:=PosetFromElements(AllSubgroups(AlternatingGroup(4)),IsSubgroup);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation [128X[104X
-    [4X[25Xgap>[125X [27XIsPolytope(poset2);[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XKnownPropertiesOfObject(poset2);[127X[104X
-    [4X[28X[ "IsP1", "IsP2", "IsPolytope" ][128X[104X
-  [4X[32X[104X
-  
-  [1X8.2-16 IsPrePolytope[101X
-  
-  [33X[1;0Y[29X[2XIsPrePolytope[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YDetermines whether a poset is an abstract pre-polytope.[133X
-  
-  [1X8.2-17 IsSelfDual[101X
-  
-  [33X[1;0Y[29X[2XIsSelfDual[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YIsBool[133X
-  
-  [33X[0;0YDetermines whether a poset is self dual.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Simplex(5));;[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
-    [4X[25Xgap>[125X [27XIsSelfDual(poset);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xposet2:=PosetFromManiplex(PyramidOver(Cube(3)));;[127X[104X
-    [4X[25Xgap>[125X [27XIsSelfDual(poset2);[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(Cube(3));[127X[104X
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   
-  [1X8.3 [33X[0;0YWorking with posets[133X[101X
+  [1X8.2-5 [33X[0;0YPetrie Dual[133X[101X
   
-  [1X8.3-1 IsIsomorphicPoset[101X
+  [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YThe Petrial (Petrie dual) of [3XM[103X.[133X
   
-  [33X[1;0Y[29X[2XIsIsomorphicPoset[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [33X[0;0YNote  that  this is not necessarily a polytope, even if [3XM[103X is. When Rank(M) >
+  3, this is the "generalized Petrial" which essentially replaces [23Xr_{n-3}[123X with
+  [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
   
-  [33X[0;0YDetermines  whether  [3Xposet1[103X  and [3Xposet2[103X are isomorphic by checking to see if
-  their Hasse diagrams are isomorphic.[133X
+  [33X[0;0YSynonym for the command is [10XPetrieDual[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27X IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ),  PosetFromManiplex( PrismOver (PyramidOver( Cube(2) ) ) ) );[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27X IsIsomorphicPoset( PosetFromManiplex( PyramidOver( Cube(3) ) ), PosetFromManiplex( PyramidOver( PrismOver( Cube(2) ) ) ) );[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XPetrial(HemiCube(3));[127X[104X
+    [4X[28XReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")[128X[104X
   [4X[32X[104X
   
-  [1X8.3-2 PosetIsomorphism[101X
+  [1X8.2-6 IsSelfPetrial[101X
   
-  [33X[1;0Y[29X[2XPosetIsomorphism[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ymap on face indices[133X
-  
-  [33X[0;0YWhen [3Xposet1[103X and [3Xposet2[103X are isomorphic, will give you a map from the faces of
-  [3Xposet1[103X to the faces of [3Xposet2[103X.[133X
-  
-  [1X8.3-3 FlagsAsFlagListFaces[101X
-  
-  [33X[1;0Y[29X[2XFlagsAsFlagListFaces[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X[133X
-  
-  [33X[0;0YGiven a [3Xposet[103X, this will give you a version of the list of flags in terms of
-  the  proper  faces  described in the [3Xposet[103X; i.e., this gives a list of flags
-  where  each  face is described in terms of its (enumerated) list of incident
-  flags.  Note  that  the  flag  list does not include the minimal face or the
-  maximal face if the poset IsP2.[133X
-  
-  [1X8.3-4 RankedFaceListOfPoset[101X
-  
-  [33X[1;0Y[29X[2XRankedFaceListOfPoset[102X( [3XIsPosetOfFlags[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
-  
-  [33X[0;0YGives  a  list  of [[3Xface[103X,[3Xrank[103X] pairs for all the faces of [3Xposet[103X. Assumptions
-  here are that faces are lists of incident flags.[133X
-  
-  [1X8.3-5 AdjacentFlag[101X
-  
-  [33X[1;0Y[29X[2XAdjacentFlag[102X( [3Xposet[103X, [3Xflag[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xflag(s)[110X[133X
-  
-  [33X[0;0YGiven  a  poset,  a  flag,  and  a  rank,  this  function  will give you the
-  [3Xi[103X-adjacent  flag.  Note that adjacencies are listed from ranks 0 to one less
-  than  the  dimension. You can replace [3Xflag[103X with the integer corresponding to
-  that  flag.  Appending  [10Xtrue[110X  to the arguments will give the position of the
-  flag instead of its description from [10XFlagsAsFlagListFaces[110X.[133X
-  
-  [1X8.3-6 AdjacentFlags[101X
-  
-  [33X[1;0Y[29X[2XAdjacentFlags[102X( [3Xposet[103X, [3Xflagaslistoffaces[103X, [3Xadjacencyrank[103X ) [32X operation[133X
-  
-  [33X[0;0YIf  your  poset isn't P4, there may be multiple adjacent maximal chains at a
-  given  rank.  This  function  handles  that  case.  May substitute [10XIsInt[110X for
-  [10Xflagaslistoffaces[110X  corresponding  to  position  of  [10Xflag[110X  in list of maximal
-  chains.[133X
-  
-  [1X8.3-7 EqualChains[101X
-  
-  [33X[1;0Y[29X[2XEqualChains[102X( [3Xflag1[103X, [3Xflag2[103X ) [32X operation[133X
-  
-  [33X[0;0YDetermines whether two chains are equal.[133X
-  
-  [1X8.3-8 ConnectionGeneratorOfPoset[101X
-  
-  [33X[1;0Y[29X[2XConnectionGeneratorOfPoset[102X( [3Xposet[103X, [3Xi[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YA permutation on the flags.[133X
-  
-  [33X[0;0YGiven  a  [3Xposet[103X and an integer [23Xi[123X, this function will give you the associated
-  permutation for the rank [23Xi[123X-connection.[133X
-  
-  [1X8.3-9 ConnectionGroup[101X
-  
-  [33X[1;0Y[29X[2XConnectionGroup[102X( [3Xposet[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPermGroup[110X[133X
-  
-  [33X[0;0YGiven  a  [3Xposet[103X  that  is  [10XIsPrePolytope[110X,  this  function  will give you the
-  connection group.[133X
-  
-  [1X8.3-10 AutomorphismGroup[101X
-  
-  [33X[1;0Y[29X[2XAutomorphismGroup[102X( [3Xposet[103X ) [32X attribute[133X
-  
-  [33X[0;0YGiven a [3Xposet[103X, gives the automorphism group of the poset as an action on the
-  maximal chains.[133X
-  
-  [1X8.3-11 AutomorphismGroupOnElements[101X
-  
-  [33X[1;0Y[29X[2XAutomorphismGroupOnElements[102X( [3Xposet[103X ) [32X attribute[133X
-  
-  [33X[0;0YGiven a [3Xposet[103X, gives the automorphism group of the poset as an action on the
-  elements.[133X
-  
-  [1X8.3-12 FaceListOfPoset[101X
-  
-  [33X[1;0Y[29X[2XFaceListOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
-  
-  [33X[0;0YGives  a  list  of  faces  collected  into lists ordered by increasing rank.
-  Suitable   as   input   for   [10XPosetFromFaceListOfFlags[110X.   Argument  must  be
-  IsPosetOfFlags.[133X
-  
-  [1X8.3-13 RankPosetElements[101X
-  
-  [33X[1;0Y[29X[2XRankPosetElements[102X( [3Xposet[103X ) [32X operation[133X
-  
-  [33X[0;0YAssigns  to  each face of a poset (when possible) the rank of the element in
-  the poset.[133X
-  
-  [1X8.3-14 FacesByRankOfPoset[101X
-  
-  [33X[1;0Y[29X[2XFacesByRankOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
-  
-  [33X[0;0YGives  lists  of  faces  ordered by rank. Also sets the rank for each of the
-  faces.[133X
-  
-  [1X8.3-15 HasseDiagramOfPoset[101X
-  
-  [33X[1;0Y[29X[2XHasseDiagramOfPoset[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ydirected graph[133X
-  
-  [1X8.3-16 AsPosetOfAtoms[101X
-  
-  [33X[1;0Y[29X[2XAsPosetOfAtoms[102X( [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YposetFromAtoms[133X
-  
-  [33X[0;0YIf  [3Xposet[103X  is an IsP1 poset admits a description of its elements in terms of
-  its  atoms, this function will construct an isomorphic poset whose faces are
-  described using PosetFromAtomList.[133X
+  [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xposet:=PosetFromManiplex(Cube(2));;[127X[104X
-    [4X[25Xgap>[125X [27Xp2:=AsPosetOfAtoms(poset);[127X[104X
-    [4X[28XA poset on 10 elements using the IsPosetOfIndices representation.[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(poset,p2);[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  
-  [1X8.3-17 [33X[0;0YMax/min faces[133X[101X
-  
-  [33X[1;0Y[29X[2XMinFace[102X( [3Xposet[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XMaxFace[102X( [3Xarg[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yface[133X
-  
-  [33X[0;0YGives the minimal/maximal face of a [3Xposet[103X when it IsP1 and IsP2.[133X
-  
-  
-  [1X8.4 [33X[0;0YElement constructors[133X[101X
-  
-  [1X8.4-1 PosetElementWithOrder[101X
-  
-  [33X[1;0Y[29X[2XPosetElementWithOrder[102X( [3Xobj[103X, [3Xfunc[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
-  
-  [33X[0;0YCreates   a  [10Xface[110X  with  [3Xobj[103X  and  ordering  function  [10Xfunc[110X.  Note  that  by
-  convetiontion [10Xfunc(a,b)[110X should return true when [23Xb\le a[123X.[133X
-  
-  [1X8.4-2 PosetElementFromListOfFlags[101X
-  
-  [33X[1;0Y[29X[2XPosetElementFromListOfFlags[102X( [3Xlist[103X, [3Xposet[103X, [3Xn[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPosetElement[110X[133X
-  
-  [33X[0;0YThis is used to create a face of rank [3Xn[103X from a [3Xlist[103X of flags of [3Xposet[103X.[133X
-  
-  [1X8.4-3 PosetElementFromAtomList[101X
-  
-  [33X[1;0Y[29X[2XPosetElementFromAtomList[102X( [3Xlist[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
-  
-  [33X[0;0YCreates a [10Xface[110X with [3Xlist[103X of atoms. If you wish to assign ranks or membership
-  in a poset, you must do this separately.[133X
-  
-  [1X8.4-4 PosetElementFromIndex[101X
-  
-  [33X[1;0Y[29X[2XPosetElementFromIndex[102X( [3Xobj[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
-  
-  [33X[0;0YCreates a [10Xface[110X with index [3Xobj[103X at rank [3Xn[103X.[133X
-  
-  [1X8.4-5 PosetElementWithPartialOrder[101X
-  
-  [33X[1;0Y[29X[2XPosetElementWithPartialOrder[102X( [3Xobj[103X, [3Xorder[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsFace[110X[133X
-  
-  [33X[0;0YCreates a [10Xface[110X with index [3Xobj[103X and BinaryRelation [3Xorder[103X on [3Xobj[103X. Function does
-  not check to make sure [3Xorder[103X has [3Xobj[103X in its domain.[133X
-  
-  [1X8.4-6 RanksInPosets[101X
-  
-  [33X[1;0Y[29X[2XRanksInPosets[102X( [3Xposetelement[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Ylist[133X
-  
-  [33X[0;0YGives  the [10Xlist[110X of posets [3Xposetelement[103X is in, and the corresponding rank (if
-  available) as a list of ordered pairs of the form [10X[poset,rank][110X. #! Note that
-  this attribute is mutable, so if you modify it you may break things.[133X
-  
-  [1X8.4-7 AddRanksInPosets[101X
-  
-  [33X[1;0Y[29X[2XAddRanksInPosets[102X( [3Xposetelement[103X, [3Xposet[103X, [3Xint[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ynull[133X
-  
-  [33X[0;0YAdds an entry in the list of RanksInPosets for [3Xposetelement[103X corresponding to
-  [3Xposet[103X with assigned rank [3Xint[103X.[133X
-  
-  [1X8.4-8 FlagList[101X
-  
-  [33X[1;0Y[29X[2XFlagList[102X( [3Xposetelement[103X, [3X{face}[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
-  
-  [33X[0;0YDescription of [3Xposetelement[103X n as a list of incident flags (when present).[133X
-  
-  [1X8.4-9 AtomList[101X
-  
-  [33X[1;0Y[29X[2XAtomList[102X( [3Xposetelement[103X, [3X{face}[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
-  
-  [33X[0;0YDescription of [3Xposetelement[103X n as a list of atoms (when present).[133X
-  
-  
-  [1X8.5 [33X[0;0YElement operations[133X[101X
-  
-  [1X8.5-1 RankInPoset[101X
-  
-  [33X[1;0Y[29X[2XRankInPoset[102X( [[3Xface[103X, [3Xposet[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsInt[110X[133X
-  
-  [33X[0;0YGiven  an  element [3Xface[103X and a poset [3Xposet[103X to which it belongs, will give you
-  the rank of [3Xface[103X in [3Xposet[103X.[133X
-  
-  [1X8.5-2 IsSubface[101X
-  
-  [33X[1;0Y[29X[2XIsSubface[102X( [[3Xface1[103X, [3Xface2[103X, [3Xposet[103X] ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0Y[3Xface1[103X and [3Xface2[103X are IsFace or IsPosetElement. IsSubface will check to see if
-  [3Xface2[103X is a subface of [3Xface1[103X in [3Xposet[103X. You may drop the argument [3Xposet[103X if the
-  faces  only belong to one poset in common. Warning: if the elements are made
-  up  of atoms, then IsSubface doesn't need to know what poset you are working
-  with.[133X
-  
-  [1X8.5-3 IsEqualFaces[101X
-  
-  [33X[1;0Y[29X[2XIsEqualFaces[102X( [3Xarg1[103X, [3Xarg2[103X, [3Xarg3[103X ) [32X operation[133X
-  
-  [33X[0;0YDetermines  whether  two  faces  are  equal  in  a poset. Note that [10X\=[110X tests
-  whether they are the identical object or not.[133X
-  
-  [1X8.5-4 AreIncidentElements[101X
-  
-  [33X[1;0Y[29X[2XAreIncidentElements[102X( [3Xobject1[103X, [3Xobject2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YGiven two poset elements, will tell you if they are incident.[133X
-  
-  [30X    [33X[0;6YSynonym function: [10XAreIncidentFaces[110X.[133X
-  
-  [1X8.5-5 Meet[101X
-  
-  [33X[1;0Y[29X[2XMeet[102X( [3Xface1[103X, [3Xface2[103X, [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ymeet[133X
-  
-  [33X[0;0YFinds (when possible) the meet of two elements in a poset.[133X
-  
-  [1X8.5-6 Join[101X
-  
-  [33X[1;0Y[29X[2XJoin[102X( [3Xface1[103X, [3Xface2[103X, [3Xposet[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ymeet[133X
-  
-  [33X[0;0YFinds (when possible) the join of two elements in a poset.[133X
-  
-  [33X[0;0YThis uses the work of Gleason and Hubard.[133X
-  
-  
-  [1X8.6 [33X[0;0YProduct operations[133X[101X
-  
-  [33X[0;0YThe  products  documented in this section were defined by Gleason and Hubard
-  in [GH18] ([7Xhttps://doi.org/10.1016/j.jcta.2018.02.002[107X).[133X
-  
-  [1X8.6-1 JoinProduct[101X
-  
-  [33X[1;0Y[29X[2XJoinProduct[102X( [3Xposet1[103X, [3Xposet2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yposet[133X
-  
-  [33X[0;0YGiven  two posets, this forms the join product. If given two partial orders,
-  returns  the  join  product  of the partial orders. If given two maniplexes,
-  returns the join product of the maniplexes.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Cube(2));[127X[104X
-    [4X[28XA poset[128X[104X
-    [4X[25Xgap>[125X [27Xrel:=BinaryRelationOnPoints([[1,2],[2]]);[127X[104X
-    [4X[28XBinary Relation on 2 points[128X[104X
-    [4X[25Xgap>[125X [27Xp1:=PosetFromPartialOrder(rel);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
-    [4X[25Xgap>[125X [27Xj:=JoinProduct(p,p1);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(j,PosetFromManiplex(PyramidOver(Cube(2))));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [1X8.6-2 CartesianProduct[101X
-  
-  [33X[1;0Y[29X[2XCartesianProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ypolytope[133X
-  
-  [33X[0;0YGiven  two  polytopes,  forms the cartesian product of the polytopes. Should
-  also  work  if  you give it any two posets. If given two maniplexes, returns
-  the join product of the maniplexes.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Edge());[127X[104X
-    [4X[28XA poset[128X[104X
-    [4X[25Xgap>[125X [27Xp2:=PosetFromManiplex(Simplex(2));[127X[104X
-    [4X[28XA poset[128X[104X
-    [4X[25Xgap>[125X [27Xc:=CartesianProduct(p1,p2);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(c,PosetFromManiplex(PrismOver(Simplex(2))));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [1X8.6-3 DirectSumOfPosets[101X
-  
-  [33X[1;0Y[29X[2XDirectSumOfPosets[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ypolytope[133X
-  
-  [33X[0;0YGiven two polytopes, forms the direct sum of the polytopes.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp1:=PosetFromManiplex(Cube(2));;p2:=PosetFromManiplex(Edge());;[127X[104X
-    [4X[25Xgap>[125X [27Xds:=DirectSumOfPosets(p1,p2);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation.[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(ds,PosetFromManiplex(CrossPolytope(3)));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [1X8.6-4 TopologicalProduct[101X
-  
-  [33X[1;0Y[29X[2XTopologicalProduct[102X( [3Xpolytope1[103X, [3Xpolytope2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Ypolytope[133X
-  
-  [33X[0;0YGiven  two  polytopes,  forms  the  topological product of the polytopes. If
-  given two maniplexes, returns the join product of the maniplexes.[133X
-  
-  [33X[0;0YHere  we  demonstrate that the topological product (as expected) when taking
-  the  product  of  a  triangle with itself gives us the torus [23X\{4,4\}_{(3,0)}[123X
-  with 72 flags.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
-    [4X[25Xgap>[125X [27Xtp:=TopologicalProduct(p,p);[127X[104X
-    [4X[28XA poset using the IsPosetOfIndices representation.[128X[104X
-    [4X[25Xgap>[125X [27Xs0 := (5,6);;[127X[104X
-    [4X[25Xgap>[125X [27Xs1 := (1,2)(3,5)(4,6);;[127X[104X
-    [4X[25Xgap>[125X [27Xs2 := (2,3);;[127X[104X
+    [4X[25Xgap>[125X [27Xs0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;[127X[104X
+    [4X[25Xgap>[125X [27Xs1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;[127X[104X
+    [4X[25Xgap>[125X [27Xs2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;[127X[104X
     [4X[25Xgap>[125X [27Xpoly := Group([s0,s1,s2]);;[127X[104X
-    [4X[25Xgap>[125X [27Xtorus:=PosetFromManiplex(ReflexibleManiplex(poly));[127X[104X
-    [4X[28XA poset using the IsPosetOfFlags representation.[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(p,tp);[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(torus,tp);[127X[104X
+    [4X[25Xgap>[125X [27Xp:=ARP(poly);[127X[104X
+    [4X[28Xregular 3-polytope[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfPetrial(p);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X8.6-5 Antiprism[101X
+  [1X8.2-7 DirectDerivates[101X
   
-  [33X[1;0Y[29X[2XAntiprism[102X( [3Xpolytope[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yposet[133X
+  [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
   
-  [33X[0;0YGiven  a  [3Xpolytope[103X  (actually,  should  work for any poset), will return the
-  antiprism of the [3Xpolytope[103X (poset). If given two maniplexes, returns the join
-  product of the maniplexes.[133X
+  [33X[0;0YReturns a list of the [13Xdirect derivates[113X of [3XM[103X, which are the images of M under
+  duality  and  Petriality.  A 3-maniplex has up to 6 direct derivates, and an
+  n-maniplex with [23Xn \geq 4[123X has up to 8. If the option 'polytopal' is set, then
+  only returns those direct derivates that are polytopal.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(3));;[127X[104X
-    [4X[25Xgap>[125X [27Xa:=Antiprism(p);;[127X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(a,PosetFromManiplex(CrossPolytope(3)));[127X[104X
+    [4X[25Xgap>[125X [27XDirectDerivates(Cube(3));[127X[104X
+    [4X[28X[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.3 [33X[0;0YProducts[133X[101X
+  
+  
+  [1X8.3-1 [33X[0;0YPyramids[133X[101X
+  
+  [33X[1;0Y[29X[2XPyramid[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the pyramid over [3XM[103X. Returns the pyramid over a [3Xk[103X-gon.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Pyramid(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ], 3 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Pyramid(4));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.3-2 [33X[0;0YPrisms[133X[101X
+  
+  [33X[1;0Y[29X[2XPrism[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the prism over [3XM[103X. Returns the prism over a [3Xk[103X-gon.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCube(3)=Prism(Cube(2));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp:=PosetFromManiplex(Pgon(4));;a:=Antiprism(p);;[127X[104X
-    [4X[25Xgap>[125X [27Xd:=DualPoset(p);;ad:=Antiprism(d);;[127X[104X
-    [4X[25Xgap>[125X [27XIsIsomorphicPoset(a,ad);[127X[104X
+    [4X[25Xgap>[125X [27XPrism(4)=Cube(3);[127X[104X
     [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X8.3-3 [33X[0;0YAntiprisms[133X[101X
+  
+  [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns the antiprism over [3XM[103X. Returns the antiprism over a [3Xk[103X-gon.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Antiprism(Dodecahedron()));[127X[104X
+    [4X[28X[ [ 3, 5 ], [ 3, 5 ], 4 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Antiprism(5));[127X[104X
+    [4X[28X[ [ 3, 5 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-4 JoinProduct[101X
+  
+  [33X[1;0Y[29X[2XJoinProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven two maniplexes, this forms the join product. May give weird results if
+  the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-5 CartesianProduct[101X
+  
+  [33X[1;0Y[29X[2XCartesianProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven  two  maniplexes,  this  forms  the  cartesian product. May give weird
+  results if the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));[127X[104X
+    [4X[28X[ [ 3, 4 ], 3, 3, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-6 DirectSumOfManiplexes[101X
+  
+  [33X[1;0Y[29X[2XDirectSumOfManiplexes[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
+  the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X8.3-7 TopologicalProduct[101X
+  
+  [33X[1;0Y[29X[2XTopologicalProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YManiplex[133X
+  
+  [33X[0;0YGiven  two  maniplexes, this forms the direct sum. May give weird results if
+  the maniplexes aren't faithfully represented by their posets.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));[127X[104X
+    [4X[28X[ 4, 3, [ 3, 4 ] ][128X[104X
   [4X[32X[104X
   
