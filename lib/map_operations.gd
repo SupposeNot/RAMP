@@ -264,5 +264,15 @@ DeclareOperation("Quinto", [IsManiplex]);
 DeclareOperation("JoinLace", [IsManiplex]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(JoinLace(Cube(3)));
+#! [ [ 3, 4 ], [ 4, 6 ] ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns  lace
+#! @Description Constructs the lace of the map.
+DeclareOperation("Lace", [IsManiplex]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(Lace(Cube(3)));
 #! [ [ 3, 4 ], [ 4, 9 ] ]
 #! @EndExampleSession
+

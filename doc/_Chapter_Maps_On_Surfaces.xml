@@ -587,6 +587,22 @@ Constructs the join-lace of the map.
 
 <Example><![CDATA[
 gap> SchlafliSymbol(JoinLace(Cube(3)));
+[ [ 3, 4 ], [ 4, 6 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Lace" Label="for IsManiplex"/>
+ <Returns>lace
+</Returns>
+ <Description>
+Constructs the lace of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Lace(Cube(3)));
 [ [ 3, 4 ], [ 4, 9 ] ]
 ]]></Example>
 

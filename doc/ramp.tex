@@ -588,7 +588,7 @@ quickly. }
 \hyperdef{L}{X786B2C407A3E9EBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCConnected({\mdseries\slshape m})\index{IsCConnected@\texttt{IsCConnected}!for IsManiplex}
 \label{IsCConnected:for IsManiplex}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 IsBool 
 
@@ -7313,6 +7313,26 @@ join-lace
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@SchlafliSymbol(JoinLace(Cube(3)));|
+  [ [ 3, 4 ], [ 4, 6 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Lace (for IsManiplex)}}
+\logpage{[ 14, 6, 5 ]}\nobreak
+\hyperdef{L}{X7F3C6DB67A7B8313}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Lace({\mdseries\slshape M})\index{Lace@\texttt{Lace}!for IsManiplex}
+\label{Lace:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+lace 
+
+
+
+ Constructs the lace of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Lace(Cube(3)));|
   [ [ 3, 4 ], [ 4, 9 ] ]
 \end{Verbatim}
  }

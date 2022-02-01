@@ -341,7 +341,23 @@ InstallMethod(Quinto,
 
 InstallMethod(JoinLace,
 	[IsManiplex],
-		function(m)
+	function(m)
+	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
+	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
+	c:=ConnectionGroup(m);
+	points:=MovedPoints(c);
+	l:=Length(MovedPoints(c));
+	k:=[1..l];
+	s0:=PermList(Concatenation(k+l,k,k+3*l,k+2*l))* TranslatePerm(c.2,4*l)* TranslatePerm(c.2,5*l);
+	s1:=c.3*TranslatePerm(c.1,l)* TranslatePerm(c.2,2*l)* MappingPermListList(k+3*l,k+4*l)* TranslatePerm(c.1,5*l);
+	s2:=PermList(Concatenation(k+2*l,k+3*l,k,k+l,k+5*l,k+4*l));
+	return Maniplex(Group([s0,s1,s2]));
+	end);
+
+
+InstallMethod(Lace,
+	[IsManiplex],
+	function(m)
 	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
 	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
