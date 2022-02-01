@@ -3,10 +3,16 @@ InstallGlobalFunction(ToroidalMap44,
 	function(u, arg...)
 	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
 	if Size(arg) = 0 then
-		if u[2] = 0 then
-			v := [0, u[1]];
+		if u[1] = 0 then
+			return ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[2])));
+		elif u[2] = 0 then
+			return ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[1])));
+		elif AbsoluteValue(u[1]) = AbsoluteValue(u[2]) then
+			return ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2)^", String(2*u[1])));
 		else
-			v := [-u[2], u[1]];
+			M := RotaryManiplex([4,4], Concatenation("(s2^-1 s1)^", String(u[1]), " (s2 s1^-1)^", String(u[2])));
+			SetIsChiral(M, true);
+			return M;
 		fi;
 	else
 		v := arg[1];
