@@ -515,7 +515,7 @@ true
  <Returns>IsManiplex
 </Returns>
  <Description>
-Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,3,4,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 0 or 1.
+Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,3,4,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 1 or 2.
  </Description>
 </ManSection>
 
@@ -525,7 +525,7 @@ Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,3,4,3\}_{
  <Returns>IsManiplex
 </Returns>
  <Description>
-Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,4,3,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 0 or 1.
+Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,4,3,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 1 or 2.
  </Description>
 </ManSection>
 

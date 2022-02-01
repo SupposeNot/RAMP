@@ -17,7 +17,9 @@
   
   [33X[1;0Y[29X[2XAbstractPolytope[102X( [3Xargs[103X ) [32X function[133X
   
-  [33X[0;0YCalls [10XManiplex(args)[110X and marks the output as polytopal.[133X
+  [33X[0;0YCalls  [10XManiplex(args)[110X  and verifies whether the output is polytopal. If not,
+  this  throws  an  error. Use [10XAbstractPolytopeNC[110X to assume that the output is
+  polytopal and mark it as such.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XAbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));[127X[104X
@@ -28,8 +30,10 @@
   
   [33X[1;0Y[29X[2XAbstractRegularPolytope[102X( [3Xargs[103X ) [32X function[133X
   
-  [33X[0;0YCalls  [10XReflexibleManiplex(args)[110X  and  marks  the  output  as polytopal. Also
-  available as [10XARP(args)[110X.[133X
+  [33X[0;0YCalls [10XReflexibleManiplex(args)[110X and verifies whether the output is polytopal.
+  If  not,  this throws an error. Use [10XAbstractRegularPolytopeNC[110X to assume that
+  the output is polytopal and mark it as such. Also available as [10XARP(args)[110X and
+  [10XARPNC(args)[110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));[127X[104X
@@ -40,7 +44,9 @@
   
   [33X[1;0Y[29X[2XAbstractRotaryPolytope[102X( [3Xargs[103X ) [32X function[133X
   
-  [33X[0;0YCalls [10XRotaryManiplex(args)[110X and marks the output as polytopal.[133X
+  [33X[0;0YCalls  [10XRotaryManiplex(args)[110X and verifies whether the output is polytopal. If
+  not,  this  throws an error. Use [10XAbstractRotaryPolytopeNC[110X to assume that the
+  output is polytopal and mark it as such.[133X
   
   
   [1X15.3 [33X[0;0YPermutations[133X[101X

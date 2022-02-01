@@ -23,11 +23,34 @@ InstallGlobalFunction(AbstractPolytope,
 	function(args...)
 	local p;
 	p := CallFuncList(Maniplex, args);
+	if not(IsPolytopal(p)) then
+		Error("The given input does not define a polytope.");
+	fi;
+	return p;
+	end);
+
+InstallGlobalFunction(AbstractPolytopeNC,
+	function(args...)
+	local p;
+	p := CallFuncList(Maniplex, args);
 	SetIsPolytopal(p, true);
 	return p;
 	end);
 	
 InstallGlobalFunction(AbstractRegularPolytope,
+	function(args...)
+	local p;
+	p := CallFuncList(ReflexibleManiplex, args);
+	if not(IsPolytopal(p)) then
+		Error("The given input does not define a polytope.");
+	fi;
+	if HasString(p) then
+		p!.String := ReplacedString(String(p), "ReflexibleManiplex", "AbstractRegularPolytope");
+	fi;
+	return p;
+	end);
+
+InstallGlobalFunction(AbstractRegularPolytopeNC,
 	function(args...)
 	local p;
 	p := CallFuncList(ReflexibleManiplex, args);
@@ -39,6 +62,19 @@ InstallGlobalFunction(AbstractRegularPolytope,
 	end);
 
 InstallGlobalFunction(AbstractRotaryPolytope,
+	function(args...)
+	local p;
+	p := CallFuncList(RotaryManiplex, args);
+	if not(IsPolytopal(p)) then
+		Error("The given input does not define a polytope.");
+	fi;
+	if HasString(p) then
+		p!.String := ReplacedString(String(p), "RotaryManiplex", "AbstractRotaryPolytope");
+	fi;
+	return p;
+	end);
+
+InstallGlobalFunction(AbstractRotaryPolytopeNC,
 	function(args...)
 	local p;
 	p := CallFuncList(RotaryManiplex, args);

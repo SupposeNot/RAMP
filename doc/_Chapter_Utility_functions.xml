@@ -24,7 +24,9 @@ The InfoClass for the Ramp package.
 <ManSection>
   <Func Arg="args" Name="AbstractPolytope" />
  <Description>
-Calls <Code>Maniplex(args)</Code> and marks the output as polytopal.
+Calls <Code>Maniplex(args)</Code> and verifies whether the output is polytopal.
+ If not, this throws an error. Use <Code>AbstractPolytopeNC</Code> to assume that the output
+ is polytopal and mark it as such.
  </Description>
 </ManSection>
 
@@ -38,8 +40,10 @@ Pgon(5)
 <ManSection>
   <Func Arg="args" Name="AbstractRegularPolytope" />
  <Description>
-Calls <Code>ReflexibleManiplex(args)</Code> and marks the output as polytopal.
- Also available as <Code>ARP(args)</Code>.
+Calls <Code>ReflexibleManiplex(args)</Code> and verifies whether the output is polytopal.
+ If not, this throws an error. Use <Code>AbstractRegularPolytopeNC</Code> to assume that the output
+ is polytopal and mark it as such.
+ Also available as <Code>ARP(args)</Code> and <Code>ARPNC(args)</Code>.
  </Description>
 </ManSection>
 
@@ -53,7 +57,9 @@ true
 <ManSection>
   <Func Arg="args" Name="AbstractRotaryPolytope" />
  <Description>
-Calls <Code>RotaryManiplex(args)</Code> and marks the output as polytopal.
+Calls <Code>RotaryManiplex(args)</Code> and verifies whether the output is polytopal.
+ If not, this throws an error. Use <Code>AbstractRotaryPolytopeNC</Code> to assume that the output
+ is polytopal and mark it as such.
  </Description>
 </ManSection>
 

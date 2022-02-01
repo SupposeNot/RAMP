@@ -24,7 +24,6 @@ DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
 DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
 
-
 #! @Arguments sym[, relations]
 #! @Description The second form returns the universal reflexible maniplex
 #! with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
@@ -41,10 +40,15 @@ DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
 #! to the one given. This may not be the correct Schlafli symbol, since
 #! the relations may cause a collapse, so this should only be used if
 #! you know that the Schlafli symbol is correct.
+#! 
+#! The abbreviations `RefMan` and `RefManNC` are also available.
 DeclareOperation("ReflexibleManiplex", [IsList]);
 #! @EndGroup
 
 DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
+
+DeclareSynonym("RefMan", ReflexibleManiplex);
+DeclareSynonym("RefManNC", ReflexibleManiplexNC);
 
 
 
