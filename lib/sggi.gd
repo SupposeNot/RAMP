@@ -124,3 +124,14 @@ DeclareOperation("SggiFamily", [IsGroup, IsList]);
 # [3,3]
 # @EndExampleSession
 
+#! @Arguments m
+#! @Returns  IsBool
+#! @Description Determines whether a given maniplex is C-connected (i.e., is the connection group a string C-group).
+DeclareProperty("IsCConnected", IsManiplex);
+#! @BeginExampleSession
+#! gap> IsCConnected(ToroidalMap44([1,0]));
+#! false
+#! gap> IsCConnected(Prism(ToroidalMap44([1,0])));
+#! true
+#! @EndExampleSession
+

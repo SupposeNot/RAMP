@@ -302,8 +302,27 @@ groups. Synonym: MonodromyGroup }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{ChiralityGroup (for IsRotaryManiplex)}}
+\subsection{\textcolor{Chapter }{RotationGroupFpGroup (for IsManiplex)}}
 \logpage{[ 2, 1, 5 ]}\nobreak
+\hyperdef{L}{X831C36BB82F429C4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotationGroupFpGroup({\mdseries\slshape M})\index{RotationGroupFpGroup@\texttt{RotationGroupFpGroup}!for IsManiplex}
+\label{RotationGroupFpGroup:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns the rotation group of \mbox{\texttt{\mdseries\slshape M}}, as a finitely presented group on the standard generators. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@RotationGroupFpGroup(ToroidalMap44([1,2]));|
+  <fp group on the generators [ s1, s2 ]>
+  !gapprompt@gap>| !gapinput@RelatorsOfFpGroup(last);|
+  [ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ChiralityGroup (for IsRotaryManiplex)}}
+\logpage{[ 2, 1, 6 ]}\nobreak
 \hyperdef{L}{X7FDCA212782DC0E3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChiralityGroup({\mdseries\slshape M})\index{ChiralityGroup@\texttt{ChiralityGroup}!for IsRotaryManiplex}
 \label{ChiralityGroup:for IsRotaryManiplex}
@@ -316,7 +335,7 @@ chirality group is trivial if and only if \mbox{\texttt{\mdseries\slshape M}} is
  
 
 \subsection{\textcolor{Chapter }{ExtraRelators (for IsReflexibleManiplex)}}
-\logpage{[ 2, 1, 6 ]}\nobreak
+\logpage{[ 2, 1, 7 ]}\nobreak
 \hyperdef{L}{X7D2CE6707B452C0D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRelators({\mdseries\slshape M})\index{ExtraRelators@\texttt{ExtraRelators}!for IsReflexibleManiplex}
 \label{ExtraRelators:for IsReflexibleManiplex}
@@ -335,7 +354,7 @@ robust at the moment. }
  
 
 \subsection{\textcolor{Chapter }{ExtraRotRelators (for IsRotaryManiplex)}}
-\logpage{[ 2, 1, 7 ]}\nobreak
+\logpage{[ 2, 1, 8 ]}\nobreak
 \hyperdef{L}{X797752A88078CF22}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRotRelators({\mdseries\slshape M})\index{ExtraRotRelators@\texttt{ExtraRotRelators}!for IsRotaryManiplex}
 \label{ExtraRotRelators:for IsRotaryManiplex}
@@ -354,7 +373,7 @@ particularly robust at the moment. }
  
 
 \subsection{\textcolor{Chapter }{IsManiplexable (for IsPermGroup)}}
-\logpage{[ 2, 1, 8 ]}\nobreak
+\logpage{[ 2, 1, 9 ]}\nobreak
 \hyperdef{L}{X85C1BC3D85D78ECC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsManiplexable({\mdseries\slshape permgroup})\index{IsManiplexable@\texttt{IsManiplexable}!for IsPermGroup}
 \label{IsManiplexable:for IsPermGroup}
@@ -562,6 +581,29 @@ quotient of \mbox{\texttt{\mdseries\slshape parent}} by the relations that set t
 member of the family is a quotient of another member can be done quite
 quickly. }
 
+ 
+
+\subsection{\textcolor{Chapter }{IsCConnected (for IsManiplex)}}
+\logpage{[ 2, 2, 10 ]}\nobreak
+\hyperdef{L}{X786B2C407A3E9EBB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCConnected({\mdseries\slshape m})\index{IsCConnected@\texttt{IsCConnected}!for IsManiplex}
+\label{IsCConnected:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsBool 
+
+
+
+ Determines whether a given maniplex is C-connected (i.e., is the connection
+group a string C-group). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsCConnected(ToroidalMap44([1,0]));|
+  false
+  !gapprompt@gap>| !gapinput@IsCConnected(Prism(ToroidalMap44([1,0])));|
+  true
+\end{Verbatim}
  }
 
  }

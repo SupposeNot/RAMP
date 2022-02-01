@@ -79,7 +79,21 @@
     [4X[28XGroup([ r0*r1, r1*r2 ])[128X[104X
   [4X[32X[104X
   
-  [1X2.1-5 ChiralityGroup[101X
+  [1X2.1-5 RotationGroupFpGroup[101X
+  
+  [33X[1;0Y[29X[2XRotationGroupFpGroup[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the  rotation  group  of  [3XM[103X,  as  a finitely presented group on the
+  standard generators.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XRotationGroupFpGroup(ToroidalMap44([1,2]));[127X[104X
+    [4X[28X<fp group on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XRelatorsOfFpGroup(last);[127X[104X
+    [4X[28X[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ][128X[104X
+  [4X[32X[104X
+  
+  [1X2.1-6 ChiralityGroup[101X
   
   [33X[1;0Y[29X[2XChiralityGroup[102X( [3XM[103X ) [32X attribute[133X
   
@@ -88,7 +102,7 @@
   its  maximal  reflexible  quotient.  In  particular,  the chirality group is
   trivial if and only if [3XM[103X is reflexible.[133X
   
-  [1X2.1-6 ExtraRelators[101X
+  [1X2.1-7 ExtraRelators[101X
   
   [33X[1;0Y[29X[2XExtraRelators[102X( [3XM[103X ) [32X attribute[133X
   
@@ -101,7 +115,7 @@
     [4X[28X[ (r0*r1*r2)^3 ][128X[104X
   [4X[32X[104X
   
-  [1X2.1-7 ExtraRotRelators[101X
+  [1X2.1-8 ExtraRotRelators[101X
   
   [33X[1;0Y[29X[2XExtraRotRelators[102X( [3XM[103X ) [32X attribute[133X
   
@@ -114,7 +128,7 @@
     [4X[28X[ (F2^-1*F1^-1)^2, (F2*F1^2*F2^-1*F1^-1)^2 ][128X[104X
   [4X[32X[104X
   
-  [1X2.1-8 IsManiplexable[101X
+  [1X2.1-9 IsManiplexable[101X
   
   [33X[1;0Y[29X[2XIsManiplexable[102X( [3Xpermgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XBoolean[110X.[133X
@@ -239,4 +253,19 @@
   [33X[0;0YOne  of the advantages of building an SggiFamily is that testing whether one
   member  of  the  family  is  a  quotient of another member can be done quite
   quickly.[133X
+  
+  [1X2.2-10 IsCConnected[101X
+  
+  [33X[1;0Y[29X[2XIsCConnected[102X( [3Xm[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines  whether a given maniplex is C-connected (i.e., is the connection
+  group a string C-group).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsCConnected(ToroidalMap44([1,0]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsCConnected(Prism(ToroidalMap44([1,0])));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   

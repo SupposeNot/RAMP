@@ -164,7 +164,7 @@
   \item \texttt  {Expand}
     \subitem for IsManiplex, \hyperpage{90}
   \item \texttt  {ExtraRelators}
-    \subitem for IsReflexibleManiplex, \hyperpage{7}
+    \subitem for IsReflexibleManiplex, \hyperpage{8}
   \item \texttt  {ExtraRotRelators}
     \subitem for IsRotaryManiplex, \hyperpage{8}
 
@@ -259,6 +259,8 @@
     \subitem for IsPoset, \hyperpage{43}
   \item \texttt  {IsAtomic}
     \subitem for IsPoset, \hyperpage{42}
+  \item \texttt  {IsCConnected}
+    \subitem for IsManiplex, \hyperpage{10}
   \item \texttt  {IsChainTransitive}
     \subitem for IsManiplex, IsCollection, \hyperpage{28}
   \item \texttt  {IsChiral}
@@ -571,6 +573,8 @@
     \subitem for IsList, IsList, \hyperpage{24}
   \item \texttt  {RotationGroup}
     \subitem for IsManiplex, \hyperpage{7}
+  \item \texttt  {RotationGroupFpGroup}
+    \subitem for IsManiplex, \hyperpage{7}
 
   \indexspace
 
@@ -587,9 +591,9 @@
   \item \texttt  {SemiEdges}
     \subitem for IsEdgeLabeledGraph, \hyperpage{74}
   \item \texttt  {Sggi}
-    \subitem for IsList, IsList, \hyperpage{8}
+    \subitem for IsList, IsList, \hyperpage{9}
   \item \texttt  {SggiElement}
-    \subitem for IsGroup, IsString, \hyperpage{9}
+    \subitem for IsGroup, IsString, \hyperpage{10}
   \item \texttt  {SggiFamily}
     \subitem for IsGroup, IsList, \hyperpage{10}
   \item \texttt  {Simple}

@@ -33,10 +33,11 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7815931C7E926F4F">2.1-2 ConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7CE8CFB183A4FFEE">2.1-3 EvenConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7D194510834667C8">2.1-4 RotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7FDCA212782DC0E3">2.1-5 ChiralityGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7D2CE6707B452C0D">2.1-6 ExtraRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X797752A88078CF22">2.1-7 ExtraRotRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X85C1BC3D85D78ECC">2.1-8 IsManiplexable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X831C36BB82F429C4">2.1-5 RotationGroupFpGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7FDCA212782DC0E3">2.1-6 ChiralityGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7D2CE6707B452C0D">2.1-7 ExtraRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X797752A88078CF22">2.1-8 ExtraRotRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X85C1BC3D85D78ECC">2.1-9 IsManiplexable</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X8547ABE882A26E43">2.2 <span class="Heading">Sggis</span></a>
 </span>
@@ -51,6 +52,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X8445AFAB7CF3F319">2.2-7 IsStringCPlus</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X815ADF0A7B5A456A">2.2-8 SggiElement</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X87C1FF7481A1D9B2">2.2-9 SggiFamily</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X786B2C407A3E9EBB">2.2-10 IsCConnected</a></span>
 </div></div>
 </div>
 
@@ -134,16 +136,31 @@ Group([ (1,11,24,14)(2,9,18,20)(3,17,22,8)(4,15,12,19)(5,23,16,7)(6,21,10,13), (
 Group([ r0*r1, r1*r2 ])
 </pre></div>
 
+<p><a id="X831C36BB82F429C4" name="X831C36BB82F429C4"></a></p>
+
+<h5>2.1-5 RotationGroupFpGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotationGroupFpGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the rotation group of <var class="Arg">M</var>, as a finitely presented group on the standard generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RotationGroupFpGroup(ToroidalMap44([1,2]));</span>
+&lt;fp group on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RelatorsOfFpGroup(last);</span>
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+</pre></div>
+
 <p><a id="X7FDCA212782DC0E3" name="X7FDCA212782DC0E3"></a></p>
 
-<h5>2.1-5 ChiralityGroup</h5>
+<h5>2.1-6 ChiralityGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChiralityGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the chirality group of the rotary maniplex <var class="Arg">M</var>. This is the kernel of the group epimorphism from the rotation group of <var class="Arg">M</var> to the rotation group of its maximal reflexible quotient. In particular, the chirality group is trivial if and only if <var class="Arg">M</var> is reflexible.</p>
 
 <p><a id="X7D2CE6707B452C0D" name="X7D2CE6707B452C0D"></a></p>
 
-<h5>2.1-6 ExtraRelators</h5>
+<h5>2.1-7 ExtraRelators</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its automorphism group as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
@@ -156,7 +173,7 @@ Group([ r0*r1, r1*r2 ])
 
 <p><a id="X797752A88078CF22" name="X797752A88078CF22"></a></p>
 
-<h5>2.1-7 ExtraRotRelators</h5>
+<h5>2.1-8 ExtraRotRelators</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRotRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its rotation group as a quotient of the rotation group of a string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
@@ -169,7 +186,7 @@ Group([ r0*r1, r1*r2 ])
 
 <p><a id="X85C1BC3D85D78ECC" name="X85C1BC3D85D78ECC"></a></p>
 
-<h5>2.1-8 IsManiplexable</h5>
+<h5>2.1-9 IsManiplexable</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsManiplexable</code>( <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">Boolean</code>.</p>
@@ -299,6 +316,23 @@ true
 </pre></div>
 
 <p>One of the advantages of building an SggiFamily is that testing whether one member of the family is a quotient of another member can be done quite quickly.</p>
+
+<p><a id="X786B2C407A3E9EBB" name="X786B2C407A3E9EBB"></a></p>
+
+<h5>2.2-10 IsCConnected</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCConnected</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
+
+<p>Determines whether a given maniplex is C-connected (i.e., is the connection group a string C-group).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCConnected(ToroidalMap44([1,0]));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCConnected(Prism(ToroidalMap44([1,0])));</span>
+true
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Next Chapter]</a>&nbsp;  </div>

@@ -253,3 +253,6 @@ InstallOtherMethod(SchlafliSymbol,
 	return ans;
 	end);
 	
+InstallMethod(IsCConnected,
+	[IsManiplex],
+	m->IsStringC(ConnectionGroup(m)));
