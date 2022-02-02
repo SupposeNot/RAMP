@@ -383,12 +383,12 @@ InstallMethod(EulerCharacteristic,
 	end);
 	
 InstallMethod(Genus,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(M)
 	local char;
-	if Rank(M) <> 3 then
-		Error("Genus is only defined for maniplexes of rank 3.");
-	fi;
+# 	if Rank(M) <> 3 then
+# 		Error("Genus is only defined for maniplexes of rank 3.");
+# 	fi;
 	char := EulerCharacteristic(M);
 	if IsOrientable(M) then
 		return (2-char)/2;
