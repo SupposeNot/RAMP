@@ -178,7 +178,7 @@ gap> Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);
 <Heading>Operations on maps</Heading>
 
 <ManSection>
-  <Oper Arg="map" Name="Truncation" Label="for IsManiplex"/>
+  <Oper Arg="map" Name="Truncation" Label="for IsMapOnSurface"/>
  <Returns>trunc_map
 </Returns>
  <Description>
@@ -200,7 +200,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="Snub" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Snub" Label="for IsMapOnSurface"/>
  <Returns>snub_map
 </Returns>
  <Description>
@@ -218,11 +218,13 @@ gap> Snub(Simplex(3))=Icosahedron();
 true
 gap> Snub(CrossPolytope(3))=SnubCube();
 true
+gap> Snub(Dual(Cube(3)))=Reflection(Snub(Reflection(Cube(3))));
+true
 ]]></Example>
 
 
 <ManSection>
-  <Oper Arg="M" Name="Chamfer" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Chamfer" Label="for IsMapOnSurface"/>
  <Returns>chamfered_map
 </Returns>
  <Description>
@@ -247,7 +249,7 @@ gap> SchlafliSymbol(ch);
 
 
 <ManSection>
-  <Oper Arg="M" Name="Subdivision1" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Subdivision1" Label="for IsMapOnSurface"/>
  <Returns>Su1
 </Returns>
  <Description>
@@ -265,7 +267,7 @@ gap> SchlafliSymbol(m);
 
 
 <ManSection>
-  <Oper Arg="M" Name="Subdivision2" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Subdivision2" Label="for IsMapOnSurface"/>
  <Returns>Su2
 </Returns>
  <Description>
@@ -281,7 +283,7 @@ gap> SchlafliSymbol(Subdivision2(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="BarycentricSubdivision" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="BarycentricSubdivision" Label="for IsMapOnSurface"/>
  <Returns>barycentric_subdivision
 </Returns>
  <Description>
@@ -299,7 +301,7 @@ gap> SchlafliSymbol(m);NumberOfFacets(m);
 
 
 <ManSection>
-  <Oper Arg="M" Name="Leapfrog" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Leapfrog" Label="for IsMapOnSurface"/>
  <Returns>leapfrog
 </Returns>
  <Description>
@@ -317,7 +319,7 @@ gap> SchlafliSymbol(last);
 
 
 <ManSection>
-  <Oper Arg="M" Name="CombinatorialMap" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="CombinatorialMap" Label="for IsMapOnSurface"/>
  <Returns>combinatorial_map
 </Returns>
  <Description>
@@ -335,7 +337,7 @@ gap> NumberOfEdges(CombinatorialMap(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="Angle" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Angle" Label="for IsMapOnSurface"/>
  <Returns>angle_map
 </Returns>
  <Description>
@@ -353,7 +355,7 @@ gap> NumberOfEdges(Angle(ToroidalMap44([3,0])));
 
 
 <ManSection>
-  <Oper Arg="M" Name="Gothic" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Gothic" Label="for IsMapOnSurface"/>
  <Returns>gothic
 </Returns>
  <Description>
@@ -387,7 +389,27 @@ gap> NumberOfEdges(m); NumberOfEdges(Gothic(m));
 </List>
  Additional functions are described below.
 <ManSection>
-  <Oper Arg="M" Name="Kis" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Reflection" Label="for IsManiplex"/>
+ <Returns>reflection
+</Returns>
+ <Description>
+Reverses the orientation of a maniplex.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Gyro(Dual(m))=Reflection(Gyro(Reflection(m)));
+true
+gap> Reflection(m)=EnantiomorphicForm(m);
+true
+gap> Reflection(Truncation(m))=Truncation(EnantiomorphicForm(m));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Kis" Label="for IsMapOnSurface"/>
  <Returns>kis
 </Returns>
  <Description>
@@ -405,7 +427,7 @@ gap> SchlafliSymbol(last);
 
 
 <ManSection>
-  <Oper Arg="M" Name="Needle" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Needle" Label="for IsMapOnSurface"/>
  <Returns>needle
 </Returns>
  <Description>
@@ -421,7 +443,7 @@ gap> SchlafliSymbol(Needle(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="Zip" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Zip" Label="for IsMapOnSurface"/>
  <Returns>zip
 </Returns>
  <Description>
@@ -437,7 +459,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="Ortho" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Ortho" Label="for IsMapOnSurface"/>
  <Returns>ortho
 </Returns>
  <Description>
@@ -453,7 +475,7 @@ gap> SchlafliSymbol(Ortho(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="Expand" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Expand" Label="for IsMapOnSurface"/>
  <Returns>expand
 </Returns>
  <Description>
@@ -469,7 +491,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="Gyro" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Gyro" Label="for IsMapOnSurface"/>
  <Returns>gyro
 </Returns>
  <Description>
@@ -485,7 +507,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="Meta" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Meta" Label="for IsMapOnSurface"/>
  <Returns>meta
 </Returns>
  <Description>
@@ -501,7 +523,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="Bevel" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Bevel" Label="for IsMapOnSurface"/>
  <Returns>bevel
 </Returns>
  <Description>
@@ -524,7 +546,25 @@ true
 
  A number of these were introduced by George Hart.
 <ManSection>
-  <Oper Arg="M" Name="Propeller" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Subdivide" Label="for IsMapOnSurface"/>
+ <Returns>u
+</Returns>
+ <Description>
+Returns the subdivide (u) of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Chamfer(Dual(Cube(3)))=Dual(Subdivide(Cube(3)));
+true
+gap> SchlafliSymbol(Subdivide(Cube(3)));
+[ [ 3, 4 ], [ 3, 6 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Propeller" Label="for IsMapOnSurface"/>
  <Returns>propeller
 </Returns>
  <Description>
@@ -542,7 +582,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="Loft" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Loft" Label="for IsMapOnSurface"/>
  <Returns>loft
 </Returns>
  <Description>
@@ -560,7 +600,7 @@ gap> SchlafliSymbol(Loft(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="Quinto" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Quinto" Label="for IsMapOnSurface"/>
  <Returns>quinto
 </Returns>
  <Description>
@@ -576,7 +616,7 @@ gap> SchlafliSymbol(Quinto(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="JoinLace" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="JoinLace" Label="for IsMapOnSurface"/>
  <Returns>join-lace
 </Returns>
  <Description>
@@ -592,7 +632,7 @@ gap> SchlafliSymbol(JoinLace(Cube(3)));
 
 
 <ManSection>
-  <Oper Arg="M" Name="Lace" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="Lace" Label="for IsMapOnSurface"/>
  <Returns>lace
 </Returns>
  <Description>
@@ -604,6 +644,22 @@ Constructs the lace of the map.
 <Example><![CDATA[
 gap> SchlafliSymbol(Lace(Cube(3)));
 [ [ 3, 4 ], [ 4, 9 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Stake" Label="for IsMapOnSurface"/>
+ <Returns>stake
+</Returns>
+ <Description>
+Constructs the stake of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Stake(Cube(3)));
+[ [ 3, 4 ], [ 3, 4, 9 ] ]
 ]]></Example>
 
 

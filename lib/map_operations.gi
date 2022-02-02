@@ -8,8 +8,7 @@ InstallImmediateMethod(IsMapOnSurface, IsManiplex and Tester(RankManiplex),
 # 	[IsManiplex],
 # 	function(m)
 # 	local c, g, r0, r1, r2, s0, s1, s2;
-# 	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
-# 	c:=ConnectionGroup(m);
+# # 	c:=ConnectionGroup(m);
 # 	r0:=c.1; r1:=c.2; r2:=c.3;
 # 	s0:=[(),[r1,r1,r0]];
 # 	s1:=[(2,3),[r2,(),()]];
@@ -21,8 +20,7 @@ InstallImmediateMethod(IsMapOnSurface, IsManiplex and Tester(RankManiplex),
 # 	[IsManiplex],
 # 	function(m)
 # 	local c, len, r0, r1, r2, s0, s1, s2, s0List, s1List, s2List, points, newpoints;
-# 	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
-# 	c:=ConnectionGroup(m);
+# # 	c:=ConnectionGroup(m);
 # 	points:=MovedPoints(c);
 # 	len:=Length(points);
 # 	# Possible issues if it turns out that moved points might not be [1..n]
@@ -40,15 +38,14 @@ InstallImmediateMethod(IsMapOnSurface, IsManiplex and Tester(RankManiplex),
 # 	end);
 
 InstallMethod(Snub,
-	[IsManiplex],
+	[IsMapOnSurface],
 	m->Dual(Gyro(m)));
 		
 # InstallMethod(Snub,
 # 	[IsManiplex],
 # 	function(m)
 # 	local c, len, r01, r12, r01i, r12i, s0, s1, s2, s0List, s1List, s2List, points, k;
-# 	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
-# 	if IsOrientable(m)<>true then Error("Not an orientable map."); fi;
+# # 	if IsOrientable(m)<>true then Error("Not an orientable map."); fi;
 #     c:=ConnectionGroup(m);
 #     if Order(c.2*c.3)<>3 then Error("Not defined for maps with vertex degree>3."); fi;
 # 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
@@ -95,10 +92,9 @@ InstallMethod(Snub,
 # 	end);
 
 InstallMethod(Chamfer,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -118,10 +114,9 @@ InstallMethod(Chamfer,
 	end);
 
 InstallMethod(Subdivision1,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -134,46 +129,53 @@ InstallMethod(Subdivision1,
 	
 
 InstallMethod(Subdivision2,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	return Dual(Truncation(Dual(m)));
 	end);
 
 InstallMethod(BarycentricSubdivision,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	return Subdivision2(Subdivision1(m));
 	end);
 	
 InstallMethod(Leapfrog,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	return Truncation(Dual(m));
 	end);	
 
 InstallMethod(CombinatorialMap,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	return Dual(BarycentricSubdivision(m));
 	end);	
+
+InstallMethod(Reflection,
+	[IsManiplex],
+	function(m) local c, nc;
+	c:=ConnectionGroup(m);
+	nc:=ConjugateGroup(c,c.1);
+	return Maniplex(nc);
+	end);
 	
 InstallMethod(Angle,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	return Dual(Medial(m));
 	end);		
 	
 InstallMethod(Gothic,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	return Dual(Medial(Truncation(m)));
 	end);		
 
 InstallMethod(Kis,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -184,10 +186,9 @@ InstallMethod(Kis,
 	end);
 
 InstallMethod(Needle,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -198,10 +199,9 @@ InstallMethod(Needle,
 	end);
 	
 InstallMethod(Zip,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -212,10 +212,9 @@ InstallMethod(Zip,
 	end);
 	
 InstallMethod(Truncation,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -227,20 +226,19 @@ InstallMethod(Truncation,
 
 
 InstallMethod(Ortho,
-	[IsManiplex],
+	[IsMapOnSurface],
 	m->MapJoin(MapJoin(m))
 	);
 
 InstallMethod(Expand,
-	[IsManiplex],
+	[IsMapOnSurface],
 	m->Ambo(Ambo(m))
 	);
 
 InstallMethod(Gyro,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	if IsOrientable(m)<>true then Error("Not an orientable map."); fi;
     c:=ConnectionGroup(m);
 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
@@ -270,18 +268,31 @@ InstallMethod(Gyro,
 	#Should be the case that gyro(dual(m))=EnantiomorphicForm(gyro(enantioMorphicform(m))). Is it?
 
 InstallMethod(Meta,
-	[IsManiplex],
+	[IsMapOnSurface],
 	m->Kis(MapJoin(m)));
 
 InstallMethod(Bevel,
-	[IsManiplex],
+	[IsMapOnSurface],
 	m->Truncation(Ambo(m)));
 
+InstallMethod(Subdivide,
+	[IsMapOnSurface],
+	function(m)
+	local c, l, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
+	c:=ConnectionGroup(m);
+	points:=MovedPoints(c);
+	l:=Length(points);
+	k:=[1..l];
+	s0:=PermList(Concatenation(k+l,k))*TranslatePerm(c.2,2*l)*TranslatePerm(c.2,3*l);
+	s1:=c.2*MappingPermListList(k+2*l,k+l)*TranslatePerm(c.1,3*l);
+	s2:=c.3*TranslatePerm(c.3,l)*MappingPermListList(k+3*l,k+2*l);
+	return Maniplex(Group([s0,s1,s2]));
+	end);
+
 InstallMethod(Propeller,
-	[IsManiplex],
-		function(m)
+	[IsMapOnSurface],
+	function(m)
 	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
 	len:=Length(points);
@@ -310,10 +321,9 @@ InstallMethod(Propeller,
 	end);
 	
 InstallMethod(Loft,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -325,10 +335,9 @@ InstallMethod(Loft,
 	end);
 
 InstallMethod(Quinto,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -340,10 +349,9 @@ InstallMethod(Quinto,
 	end);
 
 InstallMethod(JoinLace,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(MovedPoints(c));
@@ -356,10 +364,9 @@ InstallMethod(JoinLace,
 
 
 InstallMethod(Lace,
-	[IsManiplex],
+	[IsMapOnSurface],
 	function(m)
 	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
-	if IsMapOnSurface(m)<>true then Error("Not a map on a surface."); fi;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(MovedPoints(c));
@@ -367,5 +374,19 @@ InstallMethod(Lace,
 	s0:=c.1*PermList(Concatenation( k, k+2*l, k+l, k+4*l, k+3*l))* TranslatePerm(c.2,5*l)* TranslatePerm(c.2,6*l);
 	s1:=PermList(Concatenation(k+l, k, [2*l+1..4*l], k+5*l, k+4*l))* TranslatePerm(c.2,3*l)* TranslatePerm(c.1,6*l);
 	s2:=c.3*PermList(Concatenation(k, k+3*l, k+4*l, k+l, k+2*l, k+6*l, k+5*l));
+	return Maniplex(Group([s0,s1,s2]));
+	end);
+
+InstallMethod(Stake,
+	[IsMapOnSurface],
+	function(m)
+	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
+	c:=ConnectionGroup(m);
+	points:=MovedPoints(c);
+	l:=Length(MovedPoints(c));
+	k:=[1..l];
+	s0:=c.1*MappingPermListList(k+2*l,k+l)* MappingPermListList(k+4*l,k+3*l)* MappingPermListList(k+6*l,k+5*l);
+	s1:=PermList(Concatenation(k+l,k))* TranslatePerm(c.1,2*l)* TranslatePerm(c.2, 3*l)* MappingPermListList(k+5*l,k+4*l)* TranslatePerm(c.2,6*l);
+	s2:=c.3*MappingPermListList(k+l,k+3*l)* MappingPermListList(k+4*l,k+2*l)* TranslatePerm(c.1,5*l)* TranslatePerm(c.1, 6*l);
 	return Maniplex(Group([s0,s1,s2]));
 	end);

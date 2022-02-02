@@ -6810,11 +6810,11 @@ IsBool
 {
   
 
-\subsection{\textcolor{Chapter }{Truncation (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Truncation (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 1 ]}\nobreak
-\hyperdef{L}{X873B88EA78B9FBEF}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Truncation({\mdseries\slshape map})\index{Truncation@\texttt{Truncation}!for IsManiplex}
-\label{Truncation:for IsManiplex}
+\hyperdef{L}{X836355A984E78063}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Truncation({\mdseries\slshape map})\index{Truncation@\texttt{Truncation}!for IsMapOnSurface}
+\label{Truncation:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 trunc{\textunderscore}map 
@@ -6836,11 +6836,11 @@ trunc{\textunderscore}map
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Snub (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Snub (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 2 ]}\nobreak
-\hyperdef{L}{X818F804C82854C77}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Snub({\mdseries\slshape M})\index{Snub@\texttt{Snub}!for IsManiplex}
-\label{Snub:for IsManiplex}
+\hyperdef{L}{X87314A378600B2D5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Snub({\mdseries\slshape M})\index{Snub@\texttt{Snub}!for IsMapOnSurface}
+\label{Snub:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 snub{\textunderscore}map 
@@ -6860,14 +6860,16 @@ vertex figures. }
   true
   !gapprompt@gap>| !gapinput@Snub(CrossPolytope(3))=SnubCube();|
   true
+  !gapprompt@gap>| !gapinput@Snub(Dual(Cube(3)))=Reflection(Snub(Reflection(Cube(3))));|
+  true
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Chamfer (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Chamfer (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 3 ]}\nobreak
-\hyperdef{L}{X806CD87186F7191A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Chamfer({\mdseries\slshape M})\index{Chamfer@\texttt{Chamfer}!for IsManiplex}
-\label{Chamfer:for IsManiplex}
+\hyperdef{L}{X781B0A0880BFD546}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Chamfer({\mdseries\slshape M})\index{Chamfer@\texttt{Chamfer}!for IsMapOnSurface}
+\label{Chamfer:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 chamfered{\textunderscore}map 
@@ -6892,11 +6894,11 @@ chamfered{\textunderscore}map
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Subdivision1 (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Subdivision1 (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 4 ]}\nobreak
-\hyperdef{L}{X835866E6846EBCE6}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision1({\mdseries\slshape M})\index{Subdivision1@\texttt{Subdivision1}!for IsManiplex}
-\label{Subdivision1:for IsManiplex}
+\hyperdef{L}{X7E0E11CE7CF33FBB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision1({\mdseries\slshape M})\index{Subdivision1@\texttt{Subdivision1}!for IsMapOnSurface}
+\label{Subdivision1:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 Su1 
@@ -6915,11 +6917,11 @@ with two edges. For more information on the oriented version of this, see \cite{
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Subdivision2 (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Subdivision2 (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 5 ]}\nobreak
-\hyperdef{L}{X81C4EDA9831751C9}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision2({\mdseries\slshape M})\index{Subdivision2@\texttt{Subdivision2}!for IsManiplex}
-\label{Subdivision2:for IsManiplex}
+\hyperdef{L}{X84F485127B8AD294}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision2({\mdseries\slshape M})\index{Subdivision2@\texttt{Subdivision2}!for IsMapOnSurface}
+\label{Subdivision2:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 Su2 
@@ -6935,11 +6937,11 @@ Su2
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{BarycentricSubdivision (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 6 ]}\nobreak
-\hyperdef{L}{X7F7E0435868F5355}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BarycentricSubdivision({\mdseries\slshape M})\index{BarycentricSubdivision@\texttt{BarycentricSubdivision}!for IsManiplex}
-\label{BarycentricSubdivision:for IsManiplex}
+\hyperdef{L}{X81B9A11C788E3BDF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BarycentricSubdivision({\mdseries\slshape M})\index{BarycentricSubdivision@\texttt{BarycentricSubdivision}!for IsMapOnSurface}
+\label{BarycentricSubdivision:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 barycentric{\textunderscore}subdivision 
@@ -6957,11 +6959,11 @@ barycentric{\textunderscore}subdivision
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Leapfrog (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Leapfrog (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 7 ]}\nobreak
-\hyperdef{L}{X856DCBB17B221234}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Leapfrog({\mdseries\slshape M})\index{Leapfrog@\texttt{Leapfrog}!for IsManiplex}
-\label{Leapfrog:for IsManiplex}
+\hyperdef{L}{X7A3AD3EA8594B99B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Leapfrog({\mdseries\slshape M})\index{Leapfrog@\texttt{Leapfrog}!for IsMapOnSurface}
+\label{Leapfrog:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 leapfrog 
@@ -6979,11 +6981,11 @@ leapfrog
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{CombinatorialMap (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{CombinatorialMap (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 8 ]}\nobreak
-\hyperdef{L}{X7D123D947CB76224}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CombinatorialMap({\mdseries\slshape M})\index{CombinatorialMap@\texttt{CombinatorialMap}!for IsManiplex}
-\label{CombinatorialMap:for IsManiplex}
+\hyperdef{L}{X79B68D5E7D7B3E0D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CombinatorialMap({\mdseries\slshape M})\index{CombinatorialMap@\texttt{CombinatorialMap}!for IsMapOnSurface}
+\label{CombinatorialMap:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 combinatorial{\textunderscore}map 
@@ -7002,11 +7004,11 @@ taking the dual of the barycentric subdivision. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Angle (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Angle (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 9 ]}\nobreak
-\hyperdef{L}{X7EF004948027923B}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Angle({\mdseries\slshape M})\index{Angle@\texttt{Angle}!for IsManiplex}
-\label{Angle:for IsManiplex}
+\hyperdef{L}{X7B3BACF57D7513DB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Angle({\mdseries\slshape M})\index{Angle@\texttt{Angle}!for IsMapOnSurface}
+\label{Angle:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 angle{\textunderscore}map 
@@ -7025,11 +7027,11 @@ medial. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Gothic (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Gothic (for IsMapOnSurface)}}
 \logpage{[ 14, 4, 10 ]}\nobreak
-\hyperdef{L}{X8427514383188A05}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gothic({\mdseries\slshape M})\index{Gothic@\texttt{Gothic}!for IsManiplex}
-\label{Gothic:for IsManiplex}
+\hyperdef{L}{X8711070F7D6E5A54}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gothic({\mdseries\slshape M})\index{Gothic@\texttt{Gothic}!for IsMapOnSurface}
+\label{Gothic:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 gothic 
@@ -7062,11 +7064,35 @@ This is another name for \texttt{Angle}.
 \end{itemize}
  Additional functions are described below. 
 
-\subsection{\textcolor{Chapter }{Kis (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Reflection (for IsManiplex)}}
 \logpage{[ 14, 5, 1 ]}\nobreak
-\hyperdef{L}{X7D70BF117DD868AD}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Kis({\mdseries\slshape M})\index{Kis@\texttt{Kis}!for IsManiplex}
-\label{Kis:for IsManiplex}
+\hyperdef{L}{X83324AFF8119E1E5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Reflection({\mdseries\slshape M})\index{Reflection@\texttt{Reflection}!for IsManiplex}
+\label{Reflection:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+reflection 
+
+
+
+ Reverses the orientation of a maniplex. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Gyro(Dual(m))=Reflection(Gyro(Reflection(m)));|
+  true
+  !gapprompt@gap>| !gapinput@Reflection(m)=EnantiomorphicForm(m);|
+  true
+  !gapprompt@gap>| !gapinput@Reflection(Truncation(m))=Truncation(EnantiomorphicForm(m));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Kis (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 2 ]}\nobreak
+\hyperdef{L}{X78A66D6D8305AE37}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Kis({\mdseries\slshape M})\index{Kis@\texttt{Kis}!for IsMapOnSurface}
+\label{Kis:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 kis 
@@ -7084,11 +7110,11 @@ kis
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Needle (for IsManiplex)}}
-\logpage{[ 14, 5, 2 ]}\nobreak
-\hyperdef{L}{X7D02E79D7FB30EAE}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Needle({\mdseries\slshape M})\index{Needle@\texttt{Needle}!for IsManiplex}
-\label{Needle:for IsManiplex}
+\subsection{\textcolor{Chapter }{Needle (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 3 ]}\nobreak
+\hyperdef{L}{X7854540981C5DEFF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Needle({\mdseries\slshape M})\index{Needle@\texttt{Needle}!for IsMapOnSurface}
+\label{Needle:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 needle 
@@ -7105,11 +7131,11 @@ and face centers to incident vertices. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Zip (for IsManiplex)}}
-\logpage{[ 14, 5, 3 ]}\nobreak
-\hyperdef{L}{X83F32AF17B570147}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Zip({\mdseries\slshape M})\index{Zip@\texttt{Zip}!for IsManiplex}
-\label{Zip:for IsManiplex}
+\subsection{\textcolor{Chapter }{Zip (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 4 ]}\nobreak
+\hyperdef{L}{X79B10B59858AC7DD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Zip({\mdseries\slshape M})\index{Zip@\texttt{Zip}!for IsMapOnSurface}
+\label{Zip:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 zip 
@@ -7125,11 +7151,11 @@ zip
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Ortho (for IsManiplex)}}
-\logpage{[ 14, 5, 4 ]}\nobreak
-\hyperdef{L}{X846ED35D7D804C13}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Ortho({\mdseries\slshape M})\index{Ortho@\texttt{Ortho}!for IsManiplex}
-\label{Ortho:for IsManiplex}
+\subsection{\textcolor{Chapter }{Ortho (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 5 ]}\nobreak
+\hyperdef{L}{X8057E86C80D2CDF3}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Ortho({\mdseries\slshape M})\index{Ortho@\texttt{Ortho}!for IsMapOnSurface}
+\label{Ortho:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 ortho 
@@ -7145,11 +7171,11 @@ ortho
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Expand (for IsManiplex)}}
-\logpage{[ 14, 5, 5 ]}\nobreak
-\hyperdef{L}{X86B3389C80F214E1}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Expand({\mdseries\slshape M})\index{Expand@\texttt{Expand}!for IsManiplex}
-\label{Expand:for IsManiplex}
+\subsection{\textcolor{Chapter }{Expand (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 6 ]}\nobreak
+\hyperdef{L}{X78991DD77E84C4B0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Expand({\mdseries\slshape M})\index{Expand@\texttt{Expand}!for IsMapOnSurface}
+\label{Expand:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 expand 
@@ -7166,11 +7192,11 @@ twice.). }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Gyro (for IsManiplex)}}
-\logpage{[ 14, 5, 6 ]}\nobreak
-\hyperdef{L}{X804875A47C02859C}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gyro({\mdseries\slshape M})\index{Gyro@\texttt{Gyro}!for IsManiplex}
-\label{Gyro:for IsManiplex}
+\subsection{\textcolor{Chapter }{Gyro (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 7 ]}\nobreak
+\hyperdef{L}{X861A270578877B3E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gyro({\mdseries\slshape M})\index{Gyro@\texttt{Gyro}!for IsMapOnSurface}
+\label{Gyro:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 gyro 
@@ -7186,11 +7212,11 @@ gyro
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Meta (for IsManiplex)}}
-\logpage{[ 14, 5, 7 ]}\nobreak
-\hyperdef{L}{X7CC7E258822D8E60}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Meta({\mdseries\slshape M})\index{Meta@\texttt{Meta}!for IsManiplex}
-\label{Meta:for IsManiplex}
+\subsection{\textcolor{Chapter }{Meta (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 8 ]}\nobreak
+\hyperdef{L}{X82F5D51786A870C2}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Meta({\mdseries\slshape M})\index{Meta@\texttt{Meta}!for IsMapOnSurface}
+\label{Meta:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 meta 
@@ -7207,11 +7233,11 @@ join, and then the kis operation to the map). }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Bevel (for IsManiplex)}}
-\logpage{[ 14, 5, 8 ]}\nobreak
-\hyperdef{L}{X79762FF5815784F7}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bevel({\mdseries\slshape M})\index{Bevel@\texttt{Bevel}!for IsManiplex}
-\label{Bevel:for IsManiplex}
+\subsection{\textcolor{Chapter }{Bevel (for IsMapOnSurface)}}
+\logpage{[ 14, 5, 9 ]}\nobreak
+\hyperdef{L}{X861B355F7C050517}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bevel({\mdseries\slshape M})\index{Bevel@\texttt{Bevel}!for IsMapOnSurface}
+\label{Bevel:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 bevel 
@@ -7235,11 +7261,33 @@ of a map.) }
 {
   A number of these were introduced by George Hart. 
 
-\subsection{\textcolor{Chapter }{Propeller (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Subdivide (for IsMapOnSurface)}}
 \logpage{[ 14, 6, 1 ]}\nobreak
-\hyperdef{L}{X7CC92E4B8502ED4B}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Propeller({\mdseries\slshape M})\index{Propeller@\texttt{Propeller}!for IsManiplex}
-\label{Propeller:for IsManiplex}
+\hyperdef{L}{X7A95E5A883DC8FD9}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivide({\mdseries\slshape M})\index{Subdivide@\texttt{Subdivide}!for IsMapOnSurface}
+\label{Subdivide:for IsMapOnSurface}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+u 
+
+
+
+ Returns the subdivide (u) of \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Chamfer(Dual(Cube(3)))=Dual(Subdivide(Cube(3)));|
+  true
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Subdivide(Cube(3)));|
+  [ [ 3, 4 ], [ 3, 6 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Propeller (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 2 ]}\nobreak
+\hyperdef{L}{X7C0D8A6C80DADA50}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Propeller({\mdseries\slshape M})\index{Propeller@\texttt{Propeller}!for IsMapOnSurface}
+\label{Propeller:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 propeller 
@@ -7257,11 +7305,11 @@ propeller
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Loft (for IsManiplex)}}
-\logpage{[ 14, 6, 2 ]}\nobreak
-\hyperdef{L}{X8560A8A67D755EEA}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Loft({\mdseries\slshape M})\index{Loft@\texttt{Loft}!for IsManiplex}
-\label{Loft:for IsManiplex}
+\subsection{\textcolor{Chapter }{Loft (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 3 ]}\nobreak
+\hyperdef{L}{X847513C879F0A048}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Loft({\mdseries\slshape M})\index{Loft@\texttt{Loft}!for IsMapOnSurface}
+\label{Loft:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 loft 
@@ -7279,11 +7327,11 @@ loft
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Quinto (for IsManiplex)}}
-\logpage{[ 14, 6, 3 ]}\nobreak
-\hyperdef{L}{X7C0A7F617AB56136}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Quinto({\mdseries\slshape M})\index{Quinto@\texttt{Quinto}!for IsManiplex}
-\label{Quinto:for IsManiplex}
+\subsection{\textcolor{Chapter }{Quinto (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 4 ]}\nobreak
+\hyperdef{L}{X7EE97C1484C3B167}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Quinto({\mdseries\slshape M})\index{Quinto@\texttt{Quinto}!for IsMapOnSurface}
+\label{Quinto:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 quinto 
@@ -7299,11 +7347,11 @@ quinto
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{JoinLace (for IsManiplex)}}
-\logpage{[ 14, 6, 4 ]}\nobreak
-\hyperdef{L}{X85B4118E8550F1A7}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinLace({\mdseries\slshape M})\index{JoinLace@\texttt{JoinLace}!for IsManiplex}
-\label{JoinLace:for IsManiplex}
+\subsection{\textcolor{Chapter }{JoinLace (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 5 ]}\nobreak
+\hyperdef{L}{X7EEA28B57BE65A08}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinLace({\mdseries\slshape M})\index{JoinLace@\texttt{JoinLace}!for IsMapOnSurface}
+\label{JoinLace:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 join-lace 
@@ -7319,11 +7367,11 @@ join-lace
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Lace (for IsManiplex)}}
-\logpage{[ 14, 6, 5 ]}\nobreak
-\hyperdef{L}{X7F3C6DB67A7B8313}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Lace({\mdseries\slshape M})\index{Lace@\texttt{Lace}!for IsManiplex}
-\label{Lace:for IsManiplex}
+\subsection{\textcolor{Chapter }{Lace (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 6 ]}\nobreak
+\hyperdef{L}{X784615747EFE7DB1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Lace({\mdseries\slshape M})\index{Lace@\texttt{Lace}!for IsMapOnSurface}
+\label{Lace:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 lace 
@@ -7336,6 +7384,26 @@ lace
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@SchlafliSymbol(Lace(Cube(3)));|
   [ [ 3, 4 ], [ 4, 9 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Stake (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 7 ]}\nobreak
+\hyperdef{L}{X7E2A1B6380D9FF22}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Stake({\mdseries\slshape M})\index{Stake@\texttt{Stake}!for IsMapOnSurface}
+\label{Stake:for IsMapOnSurface}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+stake 
+
+
+
+ Constructs the stake of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Stake(Cube(3)));|
+  [ [ 3, 4 ], [ 3, 4, 9 ] ]
 \end{Verbatim}
  }
 
@@ -7598,6 +7666,7 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

@@ -170,6 +170,8 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XSnub(CrossPolytope(3))=SnubCube();[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSnub(Dual(Cube(3)))=Reflection(Snub(Reflection(Cube(3))));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X14.4-3 Chamfer[101X
@@ -307,7 +309,23 @@
   
   [33X[0;0YAdditional functions are described below.[133X
   
-  [1X14.5-1 Kis[101X
+  [1X14.5-1 Reflection[101X
+  
+  [33X[1;0Y[29X[2XReflection[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yreflection[133X
+  
+  [33X[0;0YReverses the orientation of a maniplex.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGyro(Dual(m))=Reflection(Gyro(Reflection(m)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReflection(m)=EnantiomorphicForm(m);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReflection(Truncation(m))=Truncation(EnantiomorphicForm(m));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-2 Kis[101X
   
   [33X[1;0Y[29X[2XKis[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ykis[133X
@@ -321,7 +339,7 @@
     [4X[28X[ 3, [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.5-2 Needle[101X
+  [1X14.5-3 Needle[101X
   
   [33X[1;0Y[29X[2XNeedle[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yneedle[133X
@@ -334,7 +352,7 @@
     [4X[28X[ 3, [ 3, 8 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.5-3 Zip[101X
+  [1X14.5-4 Zip[101X
   
   [33X[1;0Y[29X[2XZip[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yzip[133X
@@ -346,7 +364,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X14.5-4 Ortho[101X
+  [1X14.5-5 Ortho[101X
   
   [33X[1;0Y[29X[2XOrtho[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yortho[133X
@@ -358,7 +376,7 @@
     [4X[28X[ 4, [ 3, 4 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.5-5 Expand[101X
+  [1X14.5-6 Expand[101X
   
   [33X[1;0Y[29X[2XExpand[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yexpand[133X
@@ -371,7 +389,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X14.5-6 Gyro[101X
+  [1X14.5-7 Gyro[101X
   
   [33X[1;0Y[29X[2XGyro[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ygyro[133X
@@ -383,7 +401,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X14.5-7 Meta[101X
+  [1X14.5-8 Meta[101X
   
   [33X[1;0Y[29X[2XMeta[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymeta[133X
@@ -396,7 +414,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X14.5-8 Bevel[101X
+  [1X14.5-9 Bevel[101X
   
   [33X[1;0Y[29X[2XBevel[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ybevel[133X
@@ -414,7 +432,21 @@
   
   [33X[0;0YA number of these were introduced by George Hart.[133X
   
-  [1X14.6-1 Propeller[101X
+  [1X14.6-1 Subdivide[101X
+  
+  [33X[1;0Y[29X[2XSubdivide[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yu[133X
+  
+  [33X[0;0YReturns the subdivide (u) of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XChamfer(Dual(Cube(3)))=Dual(Subdivide(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Subdivide(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-2 Propeller[101X
   
   [33X[1;0Y[29X[2XPropeller[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ypropeller[133X
@@ -428,7 +460,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X14.6-2 Loft[101X
+  [1X14.6-3 Loft[101X
   
   [33X[1;0Y[29X[2XLoft[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yloft[133X
@@ -442,7 +474,7 @@
     [4X[28X[ 4, [ 3, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.6-3 Quinto[101X
+  [1X14.6-4 Quinto[101X
   
   [33X[1;0Y[29X[2XQuinto[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yquinto[133X
@@ -454,7 +486,7 @@
     [4X[28X[ [ 4, 5 ], [ 3, 4 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.6-4 JoinLace[101X
+  [1X14.6-5 JoinLace[101X
   
   [33X[1;0Y[29X[2XJoinLace[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yjoin-lace[133X
@@ -466,7 +498,7 @@
     [4X[28X[ [ 3, 4 ], [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.6-5 Lace[101X
+  [1X14.6-6 Lace[101X
   
   [33X[1;0Y[29X[2XLace[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ylace[133X
@@ -476,5 +508,17 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Lace(Cube(3)));[127X[104X
     [4X[28X[ [ 3, 4 ], [ 4, 9 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-7 Stake[101X
+  
+  [33X[1;0Y[29X[2XStake[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ystake[133X
+  
+  [33X[0;0YConstructs the stake of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Stake(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4, 9 ] ][128X[104X
   [4X[32X[104X
   
