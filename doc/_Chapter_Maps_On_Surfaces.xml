@@ -387,7 +387,7 @@ gap> NumberOfEdges(m); NumberOfEdges(Gothic(m));
 <Code>Ambo</Code>: This is another name for <Code>Medial</Code>.
 </Item>
 </List>
- Additional functions are described below.
+ Another excellent source for information on these types of operations is <Code>https://antitile.readthedocs.io/en/latest/conway.html</Code>. Additional functions are described below.
 <ManSection>
   <Oper Arg="M" Name="Reflection" Label="for IsManiplex"/>
  <Returns>reflection
@@ -660,6 +660,74 @@ Constructs the stake of the map.
 <Example><![CDATA[
 gap> SchlafliSymbol(Stake(Cube(3)));
 [ [ 3, 4 ], [ 3, 4, 9 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Whirl" Label="for IsMapOnSurface"/>
+ <Returns>whirl
+</Returns>
+ <Description>
+Constructs the whirl of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Whirl(Cube(3)));
+[ [ 4, 6 ], 3 ]              ^
+gap> SchlafliSymbol(Whirl(Icosahedron()));
+[ [ 3, 6 ], [ 3, 5 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Volute" Label="for IsMapOnSurface"/>
+ <Returns>volute
+</Returns>
+ <Description>
+Constructs the volute of the map. This is equivalent to <Code>Dual(Whirl(Dual(M)))</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Volute(Cube(3)));
+[ [ 3, 4 ], [ 3, 6 ] ]
+gap> SchlafliSymbol(Volute(Dual(Cube(3))));
+[ 3, [ 4, 6 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="JoinKisKis" Label="for IsMapOnSurface"/>
+ <Returns>joinkiskis
+</Returns>
+ <Description>
+Constructs the join-kis-kis of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(JoinKisKis(Cube(3)));
+[ [ 3, 4 ], [ 3, 8, 9 ] ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="Cross" Label="for IsMapOnSurface"/>
+ <Returns>cross
+</Returns>
+ <Description>
+Constructs the cross of the map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(Cross(Cube(3)));
+[ [ 3, 4 ], [ 4, 6 ] ]
 ]]></Example>
 
 

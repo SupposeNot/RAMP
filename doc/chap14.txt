@@ -307,7 +307,9 @@
   
   [30X    [33X[0;6Y[10XAmbo[110X: This is another name for [10XMedial[110X.[133X
   
-  [33X[0;0YAdditional functions are described below.[133X
+  [33X[0;0YAnother  excellent  source  for  information on these types of operations is
+  [10Xhttps://antitile.readthedocs.io/en/latest/conway.html[110X.  Additional functions
+  are described below.[133X
   
   [1X14.5-1 Reflection[101X
   
@@ -520,5 +522,58 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Stake(Cube(3)));[127X[104X
     [4X[28X[ [ 3, 4 ], [ 3, 4, 9 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-8 Whirl[101X
+  
+  [33X[1;0Y[29X[2XWhirl[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ywhirl[133X
+  
+  [33X[0;0YConstructs the whirl of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Whirl(Cube(3)));[127X[104X
+    [4X[28X[ [ 4, 6 ], 3 ]              ^[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Whirl(Icosahedron()));[127X[104X
+    [4X[28X[ [ 3, 6 ], [ 3, 5 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-9 Volute[101X
+  
+  [33X[1;0Y[29X[2XVolute[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yvolute[133X
+  
+  [33X[0;0YConstructs    the    volute    of   the   map.   This   is   equivalent   to
+  [10XDual(Whirl(Dual(M)))[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Volute(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 6 ] ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Volute(Dual(Cube(3))));[127X[104X
+    [4X[28X[ 3, [ 4, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-10 JoinKisKis[101X
+  
+  [33X[1;0Y[29X[2XJoinKisKis[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yjoinkiskis[133X
+  
+  [33X[0;0YConstructs the join-kis-kis of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(JoinKisKis(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 8, 9 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-11 Cross[101X
+  
+  [33X[1;0Y[29X[2XCross[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ycross[133X
+  
+  [33X[0;0YConstructs the cross of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Cross(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   

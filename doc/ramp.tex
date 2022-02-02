@@ -7062,7 +7062,7 @@ of edges are formed by the nodes corresponding to incident vertex-face pairs.
 This is another name for \texttt{Angle}. 
 \item  \texttt{Ambo}: This is another name for \texttt{Medial}. 
 \end{itemize}
- Additional functions are described below. 
+ Another excellent source for information on these types of operations is \texttt{https://antitile.readthedocs.io/en/latest/conway.html}. Additional functions are described below. 
 
 \subsection{\textcolor{Chapter }{Reflection (for IsManiplex)}}
 \logpage{[ 14, 5, 1 ]}\nobreak
@@ -7404,6 +7404,90 @@ stake
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@SchlafliSymbol(Stake(Cube(3)));|
   [ [ 3, 4 ], [ 3, 4, 9 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Whirl (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 8 ]}\nobreak
+\hyperdef{L}{X83A031F67C29740B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Whirl({\mdseries\slshape M})\index{Whirl@\texttt{Whirl}!for IsMapOnSurface}
+\label{Whirl:for IsMapOnSurface}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+whirl 
+
+
+
+ Constructs the whirl of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Whirl(Cube(3)));|
+  [ [ 4, 6 ], 3 ]              ^
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Whirl(Icosahedron()));|
+  [ [ 3, 6 ], [ 3, 5 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Volute (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 9 ]}\nobreak
+\hyperdef{L}{X7B16C9818423A481}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Volute({\mdseries\slshape M})\index{Volute@\texttt{Volute}!for IsMapOnSurface}
+\label{Volute:for IsMapOnSurface}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+volute 
+
+
+
+ Constructs the volute of the map. This is equivalent to \texttt{Dual(Whirl(Dual(M)))}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Volute(Cube(3)));|
+  [ [ 3, 4 ], [ 3, 6 ] ]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Volute(Dual(Cube(3))));|
+  [ 3, [ 4, 6 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{JoinKisKis (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 10 ]}\nobreak
+\hyperdef{L}{X86520B207A4CC8ED}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinKisKis({\mdseries\slshape M})\index{JoinKisKis@\texttt{JoinKisKis}!for IsMapOnSurface}
+\label{JoinKisKis:for IsMapOnSurface}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+joinkiskis 
+
+
+
+ Constructs the join-kis-kis of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(JoinKisKis(Cube(3)));|
+  [ [ 3, 4 ], [ 3, 8, 9 ] ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Cross (for IsMapOnSurface)}}
+\logpage{[ 14, 6, 11 ]}\nobreak
+\hyperdef{L}{X7B141EA9836E1759}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cross({\mdseries\slshape M})\index{Cross@\texttt{Cross}!for IsMapOnSurface}
+\label{Cross:for IsMapOnSurface}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+cross 
+
+
+
+ Constructs the cross of the map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(Cross(Cube(3)));|
+  [ [ 3, 4 ], [ 4, 6 ] ]
 \end{Verbatim}
  }
 

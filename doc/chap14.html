@@ -80,6 +80,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7EEA28B57BE65A08">14.6-5 JoinLace</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X784615747EFE7DB1">14.6-6 Lace</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7E2A1B6380D9FF22">14.6-7 Stake</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X83A031F67C29740B">14.6-8 Whirl</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7B16C9818423A481">14.6-9 Volute</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X86520B207A4CC8ED">14.6-10 JoinKisKis</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7B141EA9836E1759">14.6-11 Cross</a></span>
 </div></div>
 </div>
 
@@ -444,7 +448,7 @@ true
 
 </li>
 </ul>
-<p>Additional functions are described below.</p>
+<p>Another excellent source for information on these types of operations is <code class="code">https://antitile.readthedocs.io/en/latest/conway.html</code>. Additional functions are described below.</p>
 
 <p><a id="X83324AFF8119E1E5" name="X83324AFF8119E1E5"></a></p>
 
@@ -702,6 +706,70 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Stake(Cube(3)));</span>
 [ [ 3, 4 ], [ 3, 4, 9 ] ]
+</pre></div>
+
+<p><a id="X83A031F67C29740B" name="X83A031F67C29740B"></a></p>
+
+<h5>14.6-8 Whirl</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Whirl</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: whirl</p>
+
+<p>Constructs the whirl of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Whirl(Cube(3)));</span>
+[ [ 4, 6 ], 3 ]              ^
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Whirl(Icosahedron()));</span>
+[ [ 3, 6 ], [ 3, 5 ] ]
+</pre></div>
+
+<p><a id="X7B16C9818423A481" name="X7B16C9818423A481"></a></p>
+
+<h5>14.6-9 Volute</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Volute</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: volute</p>
+
+<p>Constructs the volute of the map. This is equivalent to <code class="code">Dual(Whirl(Dual(M)))</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Volute(Cube(3)));</span>
+[ [ 3, 4 ], [ 3, 6 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Volute(Dual(Cube(3))));</span>
+[ 3, [ 4, 6 ] ]
+</pre></div>
+
+<p><a id="X86520B207A4CC8ED" name="X86520B207A4CC8ED"></a></p>
+
+<h5>14.6-10 JoinKisKis</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinKisKis</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: joinkiskis</p>
+
+<p>Constructs the join-kis-kis of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(JoinKisKis(Cube(3)));</span>
+[ [ 3, 4 ], [ 3, 8, 9 ] ]
+</pre></div>
+
+<p><a id="X7B141EA9836E1759" name="X7B141EA9836E1759"></a></p>
+
+<h5>14.6-11 Cross</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cross</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: cross</p>
+
+<p>Constructs the cross of the map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Cross(Cube(3)));</span>
+[ [ 3, 4 ], [ 4, 6 ] ]
 </pre></div>
 
 

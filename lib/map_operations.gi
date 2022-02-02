@@ -390,3 +390,80 @@ InstallMethod(Stake,
 	s2:=c.3*MappingPermListList(k+l,k+3*l)* MappingPermListList(k+4*l,k+2*l)* TranslatePerm(c.1,5*l)* TranslatePerm(c.1, 6*l);
 	return Maniplex(Group([s0,s1,s2]));
 	end);
+
+InstallMethod(Whirl,
+	[IsMapOnSurface],
+	function(m)
+	local c, l, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
+	c:=ConnectionGroup(m);
+	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
+	l:=Length(points);
+	r01:=c.1*c.2;
+	r12:=c.2*c.3;
+	r10:=Inverse(r01);
+	r21:=Inverse(r12);
+	k:=[1..l];
+	s0:=PermList(Concatenation(k+l,k,k+3*l, k+2*l, k+5*l, k+4*l, k+7*l, k+6*l,k+9*l, k+8*l, k+11*l, k+10*l, k+13*l, k+12*l));
+	s1:=PermList(Concatenation(
+	k+11*l, 
+	k+2*l, k+l, 
+	k+4*l, k+3*l, 
+	k+6*l, k+5*l, 
+	k+8*l, k+7*l, 
+	k+10*l, k+9*l, 
+	k, 
+	List(k,x->Position(points,points[x]^r01))+13*l, 
+	List(k,x->Position(points,points[x]^r10))+12*l));
+	s2:=PermList(Concatenation(
+	List(k,x->Position(points,points[x]^r21))+11*l, #0
+	List(k,x->Position(points,points[x]^r21))+10*l, #1
+	List(k,x->Position(points,points[x]^r01))+7*l, #2
+	List(k,x->Position(points,points[x]^r01))+6*l, #3
+	k+12*l, #4
+	k+13*l, #5
+	List(k,x->Position(points,points[x]^r10))+3*l, #6
+	List(k,x->Position(points,points[x]^r10))+2*l, #7
+	List(k,x->Position(points,points[x]^(r12*r01)))+9*l, #8
+	List(k,x->Position(points,points[x]^(r12*r01)))+8*l, #9
+	List(k,x->Position(points,points[x]^r12))+1*l, #10
+	List(k,x->Position(points,points[x]^r12))+0*l, #11
+	k+4*l, #12
+	k+5*l #13
+	));
+	return Maniplex(Group([s0,s1,s2]));
+	end);
+
+InstallMethod(Volute,
+	[IsMapOnSurface],
+	m->Dual(Whirl(Dual(m))));
+
+InstallMethod(JoinKisKis,
+	[IsMapOnSurface],
+	function(m)
+	local c, l, r01, r12, r10, r21, s0, s1, s2, points, k,x;
+	c:=ConnectionGroup(m);
+	points:=MovedPoints(c);
+	l:=Length(points);
+	k:=[1..l];
+	s0:=PermList(Concatenation(k+l,k, k+3*l,k+2*l, k+5*l,k+4*l, k+7*l,k+6*l));
+	s1:=c.3*TranslatePerm(c.1,l)*MappingPermListList([2*l+1..8*l],Concatenation(
+	[k+7*l, k+4*l, k+3*l, k+6*l, k+5*l, k+2*l]));
+	s2:=PermList(Concatenation(k+2*l,k+3*l, k,k+l))* TranslatePerm(c.1,4*l)* TranslatePerm(c.1,5*l)* TranslatePerm(c.2,6*l)* TranslatePerm(c.2,7*l);
+	return Maniplex(Group([s0,s1,s2]));
+	end);
+
+InstallMethod(Cross,
+	[IsMapOnSurface],
+		function(m)
+	local c, l, r01, r12, r10, r21, s0, s1, s2, points, k,x;
+	c:=ConnectionGroup(m);
+	points:=MovedPoints(c);
+	l:=Length(points);
+	k:=[1..l];
+	s0:=PermList(Concatenation(
+	k+l,k, k+3*l,k+2*l, k+5*l,k+4*l, k+7*l,k+6*l, k+9*l,k+8*l ));
+	s1:=PermList(Concatenation(
+	k+5*l, k+2*l,k+1*l, k+4*l,k+3*l, k))* TranslatePerm(c.1, 6*l)* MappingPermListList(k+7*l,k+8*l)* TranslatePerm(c.1, 9*l);
+	s2:=c.3* TranslatePerm(c.3,l)* MappingPermListList(k+2*l, k+6*l)* MappingPermListList(k+3*l, k+7*l)* TranslatePerm(c.2,4*l)* TranslatePerm(c.2, 5*l)* TranslatePerm(c.2,8*l)* TranslatePerm(c.2, 9*l);
+	return Maniplex(Group([s0,s1,s2]));
+	end);

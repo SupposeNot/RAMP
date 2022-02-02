@@ -146,8 +146,7 @@ DeclareOperation("Gothic", [IsMapOnSurface]);
 #! We include here operators from Wikipedia that are not included above.
 #! * `MapJoin`: Creates quadrilateral faces by placing a node in each face, and then the set of edges are formed by the nodes corresponding to incident vertex-face pairs. This is another name for `Angle`.
 #! * `Ambo`: This is another name for `Medial`.
-#! Additional functions are described below.
-
+#! Another excellent source for information on these types of operations is `https://antitile.readthedocs.io/en/latest/conway.html`. Additional functions are described below.
 
 DeclareSynonym("Ambo", Medial);
 DeclareSynonym("MapJoin", Angle);
@@ -315,3 +314,42 @@ DeclareOperation("Stake", [IsMapOnSurface]);
 #! [ [ 3, 4 ], [ 3, 4, 9 ] ]
 #! @EndExampleSession
 
+#! @Arguments M
+#! @Returns  whirl
+#! @Description Constructs the whirl of the map.
+DeclareOperation("Whirl", [IsMapOnSurface]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(Whirl(Cube(3)));
+#! [ [ 4, 6 ], 3 ]              ^
+#! gap> SchlafliSymbol(Whirl(Icosahedron()));
+#! [ [ 3, 6 ], [ 3, 5 ] ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns  volute
+#! @Description Constructs the volute of the map. This is equivalent to `Dual(Whirl(Dual(M)))`.
+DeclareOperation("Volute", [IsMapOnSurface]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(Volute(Cube(3)));
+#! [ [ 3, 4 ], [ 3, 6 ] ]
+#! gap> SchlafliSymbol(Volute(Dual(Cube(3))));
+#! [ 3, [ 4, 6 ] ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns  joinkiskis
+#! @Description Constructs the join-kis-kis of the map.
+DeclareOperation("JoinKisKis", [IsMapOnSurface]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(JoinKisKis(Cube(3)));
+#! [ [ 3, 4 ], [ 3, 8, 9 ] ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns  cross
+#! @Description Constructs the cross of the map.
+DeclareOperation("Cross", [IsMapOnSurface]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(Cross(Cube(3)));
+#! [ [ 3, 4 ], [ 4, 6 ] ]
+#! @EndExampleSession
