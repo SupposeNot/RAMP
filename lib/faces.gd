@@ -238,7 +238,7 @@ DeclareAttribute("EulerCharacteristic", IsManiplex);
 
 #! @Arguments M
 #! @Returns The genus of the given 3-maniplex.
-DeclareAttribute("Genus", IsMapOnSurface);
+DeclareAttribute("Genus", IsManiplex);
 #! @BeginExampleSession
 #! gap> Genus(Bk2lStar(3,5));
 #! 6
