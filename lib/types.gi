@@ -26,6 +26,12 @@ InstallTrueMethod(IsP1 and IsAllMeets and IsAllJoins, IsLattice);
 InstallTrueMethod(IsP1, IsAllMeets and IsAllJoins);
 InstallTrueMethod(IsAllMeets, IsP1 and IsAllJoins);
 InstallTrueMethod(IsAllJoins, IsP1 and IsAllMeets);
+
+InstallImmediateMethod(IsMapOnSurface, IsManiplex and Tester(RankManiplex),	
+	function(m)
+	return Rank(m)=3;
+	end);
+
 # When we add an attribute computer, we can optionally pass in a list of
 # "prerequisite attributes" of the base. Then, if the base already has
 # values for those attributes, we just run the attribute computer right away.

@@ -6843,22 +6843,7 @@ of those orbits. }
 \logpage{[ 13, 3, 0 ]}
 \hyperdef{L}{X7BF319E97DEC64D2}{}
 {
-  
-
-\subsection{\textcolor{Chapter }{IsMapOnSurface (for IsManiplex)}}
-\logpage{[ 13, 3, 1 ]}\nobreak
-\hyperdef{L}{X829B976779067F1F}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsMapOnSurface({\mdseries\slshape M})\index{IsMapOnSurface@\texttt{IsMapOnSurface}!for IsManiplex}
-\label{IsMapOnSurface:for IsManiplex}
-}\hfill{\scriptsize (attribute)}}\\
-\textbf{\indent Returns:\ }
-IsBool 
-
-
-
- Determines whether a given maniplex is a map on a surface }
-
- 
+  \texttt{IsMapOnSurface} will test to see if you have rank 3 maniplex. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);|
   [ HemiCube(3), Icosahedron() ]
@@ -7837,6 +7822,7 @@ maniplexes the way one expects. }
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage

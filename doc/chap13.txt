@@ -120,12 +120,7 @@
   
   [1X13.3 [33X[0;0YMap properties[133X[101X
   
-  [1X13.3-1 IsMapOnSurface[101X
-  
-  [33X[1;0Y[29X[2XIsMapOnSurface[102X( [3XM[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YIsBool[133X
-  
-  [33X[0;0YDetermines whether a given maniplex is a map on a surface[133X
+  [33X[0;0Y[10XIsMapOnSurface[110X will test to see if you have rank 3 maniplex.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XFiltered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);[127X[104X

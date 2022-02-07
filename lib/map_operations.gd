@@ -2,10 +2,8 @@
 #! @Chapter Maps On Surfaces
 #! @Section Map properties
 
-#! @Arguments M
-#! @Returns  IsBool
-#! @Description Determines whether a given maniplex is a map on a surface
-DeclareAttribute("IsMapOnSurface", IsManiplex);
+
+#! `IsMapOnSurface` will test to see if you have rank 3 maniplex.
 #! @BeginExampleSession
 #! gap> Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);
 #! [ HemiCube(3), Icosahedron() ]
