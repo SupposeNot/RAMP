@@ -66,7 +66,33 @@ DeclareAttribute("AutomorphismGroup", IsPoset);
 #! @Description Given a <A>poset</A>, gives the automorphism group of the poset as an action on the elements.
 DeclareAttribute("AutomorphismGroupOnElements", IsPoset);
 
+#! @Arguments poset, I
+#! @Returns  group
+#! @Description Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the chains of <A>poset</A> of type <A>I</A>.
+DeclareOperation("AutomorphismGroupOnChains", [IsPoset, IsCollection]);
+#! @BeginExampleSession
+#! gap>
+#! @EndExampleSession
 
+#! @Arguments poset, i
+#! @Returns  group
+#! @Description Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank <A>I</A>.
+DeclareOperation("AutomorphismGroupOnIFaces", [IsPoset, IsInt]);
+
+#! @Arguments poset
+#! @Returns  group
+#! @Description Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank $d-1$.
+DeclareAttribute("AutomorphismGroupOnFacets", IsPoset);
+
+#! @Arguments poset
+#! @Returns  group
+#! @Description Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank 1.
+DeclareAttribute("AutomorphismGroupOnEdges", IsPoset);
+
+#! @Arguments poset
+#! @Returns  group
+#! @Description Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank 0.
+DeclareAttribute("AutomorphismGroupOnVertices", IsPoset);
 
 ##! @Arguments poset
 ##! @Returns `list`

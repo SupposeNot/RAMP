@@ -663,6 +663,61 @@ Given a <A>poset</A>, gives the automorphism group of the poset as an action on 
 
 
 <ManSection>
+  <Oper Arg="poset, I" Name="AutomorphismGroupOnChains" Label="for IsPoset, IsCollection"/>
+ <Returns>group
+</Returns>
+ <Description>
+Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the chains of <A>poset</A> of type <A>I</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap>
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="poset, i" Name="AutomorphismGroupOnIFaces" Label="for IsPoset, IsInt"/>
+ <Returns>group
+</Returns>
+ <Description>
+Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank <A>I</A>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="AutomorphismGroupOnFacets" Label="for IsPoset"/>
+ <Returns>group
+</Returns>
+ <Description>
+Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank <Math>d-1</Math>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="AutomorphismGroupOnEdges" Label="for IsPoset"/>
+ <Returns>group
+</Returns>
+ <Description>
+Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank 1.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="poset" Name="AutomorphismGroupOnVertices" Label="for IsPoset"/>
+ <Returns>group
+</Returns>
+ <Description>
+Returns the permutation group, representing the action of the automorphism group of <A>poset</A> on the faces of <A>poset</A> of rank 0.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Oper Arg="poset" Name="FaceListOfPoset" Label="for IsPoset"/>
  <Returns><Code>list</Code>
 </Returns>
@@ -837,7 +892,7 @@ Description of <A>posetelement</A> n as a list of atoms (when present).
 <Heading>Element operations</Heading>
 
 <ManSection>
-  <Oper Arg="[face,poset]" Name="RankInPoset" Label="for IsPosetElement,IsPoset"/>
+  <Oper Arg="face,poset" Name="RankInPoset" Label="for IsPosetElement,IsPoset"/>
  <Returns><Code>IsInt</Code>
 </Returns>
  <Description>
@@ -847,7 +902,7 @@ Given an element <A>face</A> and a poset <A>poset</A> to which it belongs, will 
 
 
 <ManSection>
-  <Oper Arg="[face1,face2,poset]" Name="IsSubface" Label="for IsFace,IsFace,IsPoset"/>
+  <Oper Arg="face1,face2,poset" Name="IsSubface" Label="for IsFace,IsFace,IsPoset"/>
  <Returns><Code>true</Code> or <Code>false</Code>
 </Returns>
  <Description>

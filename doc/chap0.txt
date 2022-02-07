@@ -255,12 +255,17 @@
       7.3-9 ConnectionGroup
       7.3-10 AutomorphismGroup
       7.3-11 AutomorphismGroupOnElements
-      7.3-12 FaceListOfPoset
-      7.3-13 RankPosetElements
-      7.3-14 FacesByRankOfPoset
-      7.3-15 HasseDiagramOfPoset
-      7.3-16 AsPosetOfAtoms
-      7.3-17 [33X[0;0YMax/min faces[133X
+      7.3-12 AutomorphismGroupOnChains
+      7.3-13 AutomorphismGroupOnIFaces
+      7.3-14 AutomorphismGroupOnFacets
+      7.3-15 AutomorphismGroupOnEdges
+      7.3-16 AutomorphismGroupOnVertices
+      7.3-17 FaceListOfPoset
+      7.3-18 RankPosetElements
+      7.3-19 FacesByRankOfPoset
+      7.3-20 HasseDiagramOfPoset
+      7.3-21 AsPosetOfAtoms
+      7.3-22 [33X[0;0YMax/min faces[133X
     7.4 [33X[0;0YElement constructors[133X
       7.4-1 PosetElementWithOrder
       7.4-2 PosetElementFromListOfFlags
@@ -395,69 +400,69 @@
       12.1-3 ChunkGeneratedGroupElements
       12.1-4 ChunkGeneratedGroup
       12.1-5 FullyStratifiedGroup
-  13 [33X[0;0YSynonyms for Commands[133X
-  14 [33X[0;0YMaps On Surfaces[133X
-    14.1 [33X[0;0YBicontactual regular maps[133X
-      14.1-1 Epsilonk
-      14.1-2 Deltak
-      14.1-3 Mk
-      14.1-4 MkPrime
-      14.1-5 Bk2l
-      14.1-6 Bk2lStar
-    14.2 [33X[0;0YOperations on reflexible maps[133X
-      14.2-1 Opp
-      14.2-2 Hole
-    14.3 [33X[0;0YMap properties[133X
-      14.3-1 IsMapOnSurface
-    14.4 [33X[0;0YOperations on maps[133X
-      14.4-1 Truncation
-      14.4-2 Snub
-      14.4-3 Chamfer
-      14.4-4 Subdivision1
-      14.4-5 Subdivision2
-      14.4-6 BarycentricSubdivision
-      14.4-7 Leapfrog
-      14.4-8 CombinatorialMap
-      14.4-9 Angle
-      14.4-10 Gothic
-    14.5 [33X[0;0YConway polyhedron operator notation[133X
-      14.5-1 Reflection
-      14.5-2 Kis
-      14.5-3 Needle
-      14.5-4 Zip
-      14.5-5 Ortho
-      14.5-6 Expand
-      14.5-7 Gyro
-      14.5-8 Meta
-      14.5-9 Bevel
-    14.6 [33X[0;0YExtended operations[133X
-      14.6-1 Subdivide
-      14.6-2 Propeller
-      14.6-3 Loft
-      14.6-4 Quinto
-      14.6-5 JoinLace
-      14.6-6 Lace
-      14.6-7 Stake
-      14.6-8 Whirl
-      14.6-9 Volute
-      14.6-10 JoinKisKis
-      14.6-11 Cross
-  15 [33X[0;0YUtility functions[133X
-    15.1 [33X[0;0YSystem[133X
-      15.1-1 InfoRamp
-    15.2 [33X[0;0YPolytopes[133X
-      15.2-1 AbstractPolytope
-      15.2-2 AbstractRegularPolytope
-      15.2-3 AbstractRotaryPolytope
-    15.3 [33X[0;0YPermutations[133X
-      15.3-1 TranslatePerm
-      15.3-2 MultPerm
-      15.3-3 PermFromRange
-    15.4 [33X[0;0YWords on relations[133X
-      15.4-1 ParseStringCRels
-      15.4-2 ParseRotGpRels
-      15.4-3 AddOrAppend
-      15.4-4 WrappedPosetOperation
+  13 [33X[0;0YMaps On Surfaces[133X
+    13.1 [33X[0;0YBicontactual regular maps[133X
+      13.1-1 Epsilonk
+      13.1-2 Deltak
+      13.1-3 Mk
+      13.1-4 MkPrime
+      13.1-5 Bk2l
+      13.1-6 Bk2lStar
+    13.2 [33X[0;0YOperations on reflexible maps[133X
+      13.2-1 Opp
+      13.2-2 Hole
+    13.3 [33X[0;0YMap properties[133X
+      13.3-1 IsMapOnSurface
+    13.4 [33X[0;0YOperations on maps[133X
+      13.4-1 Truncation
+      13.4-2 Snub
+      13.4-3 Chamfer
+      13.4-4 Subdivision1
+      13.4-5 Subdivision2
+      13.4-6 BarycentricSubdivision
+      13.4-7 Leapfrog
+      13.4-8 CombinatorialMap
+      13.4-9 Angle
+      13.4-10 Gothic
+    13.5 [33X[0;0YConway polyhedron operator notation[133X
+      13.5-1 Reflection
+      13.5-2 Kis
+      13.5-3 Needle
+      13.5-4 Zip
+      13.5-5 Ortho
+      13.5-6 Expand
+      13.5-7 Gyro
+      13.5-8 Meta
+      13.5-9 Bevel
+    13.6 [33X[0;0YExtended operations[133X
+      13.6-1 Subdivide
+      13.6-2 Propeller
+      13.6-3 Loft
+      13.6-4 Quinto
+      13.6-5 JoinLace
+      13.6-6 Lace
+      13.6-7 Stake
+      13.6-8 Whirl
+      13.6-9 Volute
+      13.6-10 JoinKisKis
+      13.6-11 Cross
+  14 [33X[0;0YUtility Functions[133X
+    14.1 [33X[0;0YSystem[133X
+      14.1-1 InfoRamp
+    14.2 [33X[0;0YPolytopes[133X
+      14.2-1 AbstractPolytope
+      14.2-2 AbstractRegularPolytope
+      14.2-3 AbstractRotaryPolytope
+    14.3 [33X[0;0YPermutations[133X
+      14.3-1 TranslatePerm
+      14.3-2 MultPerm
+      14.3-3 PermFromRange
+    14.4 [33X[0;0YWords on relations[133X
+      14.4-1 ParseStringCRels
+      14.4-2 ParseRotGpRels
+      14.4-3 AddOrAppend
+      14.4-4 WrappedPosetOperation
+  15 [33X[0;0YSynonyms for Commands[133X
   
   
   [32X
