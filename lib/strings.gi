@@ -51,7 +51,7 @@ InstallGlobalFunction(MANIPLEX_STRING,
 	function(p)
 	local str;
 	str := "";
-	if IsReflexibleManiplex(p) then
+	if HasIsReflexibleManiplex(p) and IsReflexibleManiplex(p) then
 		if HasIsPolytopal(p) and IsPolytopal(p) then
 			Append(str, "regular ");
 		else

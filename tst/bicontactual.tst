@@ -16,8 +16,7 @@ gap> Bk2l(4,5);
 3-maniplex with 80 flags
 gap> Bk2lStar(5,7);
 3-maniplex with 140 flags
-gap> Opp(Bk2lStar(5,7));
-ReflexibleManiplex([ 14, 10 ], "(r1*(r0 r2))^5*r2*r1*(r0 r2)*r2*r1*(r0 r2),((r\
-0 r2)*(r2*r1)^2)^2,z1^35")
+gap> Opp(Bk2lStar(5,7)) = Petrial(Dual(Petrial(Bk2lStar(5,7))));
+true
 gap> Hole(Bk2lStar(5,7),2);
 3-maniplex with 140 flags

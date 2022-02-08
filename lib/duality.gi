@@ -113,7 +113,7 @@ InstallMethod(Petrial,
 	function(M)
 	local g, sym, rels, pet, Mp;
 
-	if IsReflexibleManiplex(M) and Rank(M) = 3 then
+	if IsReflexible(M) and Rank(M) = 3 then
 		g := AutomorphismGroupFpGroup(M);
 		sym := ShallowCopy(SchlafliSymbol(M));
 		rels := List(ExtraRelators(M), String);

@@ -13,10 +13,8 @@ DeclareGlobalFunction("ComputeAttr", [IsManiplex and IsManiplexInstructionsRep, 
 
 # These are defined for convenience. They don't define new categories; they just combine information
 # from multiple filters.
-DeclareFilter("IsReflexibleManiplex");
-DeclareFilter("IsRotaryManiplex");
-DeclareFilter("IsRegularPolytope");
-# DeclareFilter("IsPolytope");
+DeclareProperty("IsReflexibleManiplex", IsManiplex);
+DeclareProperty("IsRotaryManiplex", IsManiplex);
 
 
 

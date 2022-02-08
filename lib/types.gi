@@ -6,14 +6,22 @@ BindGlobal("EdgeLabeledGraphFamily", NewFamily("EdgeLabeledGraphs", IsEdgeLabele
 
 InstallTrueMethod(IsReflexibleManiplex, IsManiplex and IsReflexible);
 InstallTrueMethod(IsManiplex and IsReflexible, IsReflexibleManiplex);
+
+InstallMethod(IsReflexibleManiplex, [IsManiplex],
+	function(M)
+	return IsReflexible(M);
+	end);
+
 InstallTrueMethod(IsRotaryManiplex, IsManiplex and IsRotary);
 InstallTrueMethod(IsManiplex and IsRotary, IsRotaryManiplex);
+
+InstallMethod(IsRotaryManiplex, [IsManiplex],
+	function(M)
+	return IsRotary(M);
+	end);
+
 InstallTrueMethod(IsRotary, IsReflexible);
 InstallTrueMethod(IsRotary, IsChiral);
-# InstallTrueMethod(IsPolytope, IsManiplex and IsPolytopal);
-# InstallTrueMethod(IsManiplex and IsPolytopal, IsPolytope);
-# InstallTrueMethod(IsRegularPolytope, IsPolytope and IsReflexible);
-# InstallTrueMethod(IsPolytope and IsReflexible, IsRegularPolytope);
 
 #For posets
 InstallTrueMethod(IsPolytope, IsPoset and IsP1 and IsP2 and IsP3 and IsP4);

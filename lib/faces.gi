@@ -140,7 +140,7 @@ InstallMethod(Section,
 		return UniversalPolytope(1);
 	fi;
 
-	if IsReflexibleManiplex(M) then
+	if IsReflexible(M) then
 		sym := SchlafliSymbol(M){[i+2..j-1]};
 		
 		# Universal polytopes have universal sections
@@ -272,7 +272,7 @@ InstallMethod(IsFlat,
 	end);
 
 InstallMethod(IsFlat,
-	[IsManiplex and IsReflexibleManiplexAutGpRep],
+	[IsManiplex and IsReflexible],
 	function(M)
 	return NumberOfVertices(M) = NumberOfVertices(Facet(M));
 	end);
