@@ -41,3 +41,4 @@
 #! * `NumberOfFlags` for <Ref Func='Size' BookName='ramp'/>
 #! * `PetrieDual` for <Ref Func='Petrial' BookName='ramp'/>
 #! * `RankPosetFaces` for <Ref Func='RankPosetElements' BookName='ramp'/>
+#! * `RefMan` for <Ref Func='ReflexibleManiplex' BookName='ramp'/>
