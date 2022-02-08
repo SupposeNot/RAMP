@@ -71,13 +71,13 @@ DeclareAttribute("ElementObject", IsPosetElement);
 
 #! @Section Element operations
 
-#! @Arguments [face,poset]
+#! @Arguments face,poset
 #! @Returns `IsInt`
 #! @Description Given an element <A>face</A> and a poset <A>poset</A> to which it belongs, will give you the rank of <A>face</A> in <A>poset</A>.
 DeclareOperation("RankInPoset",[IsPosetElement,IsPoset]);
 
 
-#! @Arguments [face1,face2,poset]
+#! @Arguments face1,face2,poset
 #! @Returns `true` or `false`
 #! @Description <A>face1</A> and <A>face2</A> are IsFace or IsPosetElement. IsSubface will check to see if  <A>face2</A> is a subface of <A>face1</A> in <A>poset</A>. You may drop the argument <A>poset</A> if the faces only belong to one poset in common.
 #! Warning: if the elements are made up of atoms, then IsSubface doesn't need to know what poset you are working with.

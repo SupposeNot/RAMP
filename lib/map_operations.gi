@@ -1,8 +1,5 @@
 
-InstallImmediateMethod(IsMapOnSurface, IsManiplex and Tester(RankManiplex),	
-	function(m)
-	return Rank(m)=3;
-	end);
+
 
 # InstallMethod(Truncation,
 # 	[IsManiplex],

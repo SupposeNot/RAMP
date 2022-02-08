@@ -75,12 +75,17 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X859C651184ED9424">7.3-9 ConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7C6813D27F0BD0F8">7.3-10 AutomorphismGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X80C2783D7FD60E56">7.3-11 AutomorphismGroupOnElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X79F1837C835A5EFF">7.3-12 FaceListOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7980D74F7D8C1B95">7.3-13 RankPosetElements</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X82CBC68480F222C7">7.3-14 FacesByRankOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7AE5050E7F6182C8">7.3-15 HasseDiagramOfPoset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83ACE1CB7DE65C44">7.3-16 AsPosetOfAtoms</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X838947F98660C2C4">7.3-17 <span class="Heading">Max/min faces</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8359754487DF73D9">7.3-12 AutomorphismGroupOnChains</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X80355CD07D65A962">7.3-13 AutomorphismGroupOnIFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7E0F912A7D9C4743">7.3-14 AutomorphismGroupOnFacets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X86EA69DA7E2B35B9">7.3-15 AutomorphismGroupOnEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X784F0CFE7DAC8C49">7.3-16 AutomorphismGroupOnVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X79F1837C835A5EFF">7.3-17 FaceListOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7980D74F7D8C1B95">7.3-18 RankPosetElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X82CBC68480F222C7">7.3-19 FacesByRankOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7AE5050E7F6182C8">7.3-20 HasseDiagramOfPoset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83ACE1CB7DE65C44">7.3-21 AsPosetOfAtoms</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X838947F98660C2C4">7.3-22 <span class="Heading">Max/min faces</span></a>
 </span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X85445BE07F161F88">7.4 <span class="Heading">Element constructors</span></a>
@@ -730,9 +735,59 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnElements</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Given a <var class="Arg">poset</var>, gives the automorphism group of the poset as an action on the elements.</p>
 
+<p><a id="X8359754487DF73D9" name="X8359754487DF73D9"></a></p>
+
+<h5>7.3-12 AutomorphismGroupOnChains</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnChains</code>( <var class="Arg">poset</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: group</p>
+
+<p>Returns the permutation group, representing the action of the automorphism group of <var class="Arg">poset</var> on the chains of <var class="Arg">poset</var> of type <var class="Arg">I</var>.</p>
+
+
+<div class="example"><pre>
+gap&gt;
+</pre></div>
+
+<p><a id="X80355CD07D65A962" name="X80355CD07D65A962"></a></p>
+
+<h5>7.3-13 AutomorphismGroupOnIFaces</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnIFaces</code>( <var class="Arg">poset</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: group</p>
+
+<p>Returns the permutation group, representing the action of the automorphism group of <var class="Arg">poset</var> on the faces of <var class="Arg">poset</var> of rank <var class="Arg">I</var>.</p>
+
+<p><a id="X7E0F912A7D9C4743" name="X7E0F912A7D9C4743"></a></p>
+
+<h5>7.3-14 AutomorphismGroupOnFacets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnFacets</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: group</p>
+
+<p>Returns the permutation group, representing the action of the automorphism group of <var class="Arg">poset</var> on the faces of <var class="Arg">poset</var> of rank <span class="Math">d-1</span>.</p>
+
+<p><a id="X86EA69DA7E2B35B9" name="X86EA69DA7E2B35B9"></a></p>
+
+<h5>7.3-15 AutomorphismGroupOnEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnEdges</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: group</p>
+
+<p>Returns the permutation group, representing the action of the automorphism group of <var class="Arg">poset</var> on the faces of <var class="Arg">poset</var> of rank 1.</p>
+
+<p><a id="X784F0CFE7DAC8C49" name="X784F0CFE7DAC8C49"></a></p>
+
+<h5>7.3-16 AutomorphismGroupOnVertices</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnVertices</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: group</p>
+
+<p>Returns the permutation group, representing the action of the automorphism group of <var class="Arg">poset</var> on the faces of <var class="Arg">poset</var> of rank 0.</p>
+
 <p><a id="X79F1837C835A5EFF" name="X79F1837C835A5EFF"></a></p>
 
-<h5>7.3-12 FaceListOfPoset</h5>
+<h5>7.3-17 FaceListOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceListOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
@@ -741,14 +796,14 @@ true
 
 <p><a id="X7980D74F7D8C1B95" name="X7980D74F7D8C1B95"></a></p>
 
-<h5>7.3-13 RankPosetElements</h5>
+<h5>7.3-18 RankPosetElements</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankPosetElements</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Assigns to each face of a poset (when possible) the rank of the element in the poset.</p>
 
 <p><a id="X82CBC68480F222C7" name="X82CBC68480F222C7"></a></p>
 
-<h5>7.3-14 FacesByRankOfPoset</h5>
+<h5>7.3-19 FacesByRankOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacesByRankOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
@@ -757,14 +812,14 @@ true
 
 <p><a id="X7AE5050E7F6182C8" name="X7AE5050E7F6182C8"></a></p>
 
-<h5>7.3-15 HasseDiagramOfPoset</h5>
+<h5>7.3-20 HasseDiagramOfPoset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HasseDiagramOfPoset</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: directed graph</p>
 
 <p><a id="X83ACE1CB7DE65C44" name="X83ACE1CB7DE65C44"></a></p>
 
-<h5>7.3-16 AsPosetOfAtoms</h5>
+<h5>7.3-21 AsPosetOfAtoms</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsPosetOfAtoms</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: posetFromAtoms</p>
@@ -782,7 +837,7 @@ true
 
 <p><a id="X838947F98660C2C4" name="X838947F98660C2C4"></a></p>
 
-<h5>7.3-17 <span class="Heading">Max/min faces</span></h5>
+<h5>7.3-22 <span class="Heading">Max/min faces</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinFace</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxFace</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -883,7 +938,7 @@ true
 
 <h5>7.5-1 RankInPoset</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankInPoset</code>( [<var class="Arg">face</var>, <var class="Arg">poset</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankInPoset</code>( <var class="Arg">face</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsInt</code></p>
 
 <p>Given an element <var class="Arg">face</var> and a poset <var class="Arg">poset</var> to which it belongs, will give you the rank of <var class="Arg">face</var> in <var class="Arg">poset</var>.</p>
@@ -892,7 +947,7 @@ true
 
 <h5>7.5-2 IsSubface</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubface</code>( [<var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubface</code>( <var class="Arg">face1</var>, <var class="Arg">face2</var>, <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p><var class="Arg">face1</var> and <var class="Arg">face2</var> are IsFace or IsPosetElement. IsSubface will check to see if <var class="Arg">face2</var> is a subface of <var class="Arg">face1</var> in <var class="Arg">poset</var>. You may drop the argument <var class="Arg">poset</var> if the faces only belong to one poset in common. Warning: if the elements are made up of atoms, then IsSubface doesn't need to know what poset you are working with.</p>

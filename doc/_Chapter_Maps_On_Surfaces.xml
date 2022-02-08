@@ -155,16 +155,7 @@ gap> Hole(Bk2lStar(5,7),2);
 <Section Label="Chapter_Maps_On_Surfaces_Section_Map_properties">
 <Heading>Map properties</Heading>
 
-<ManSection>
-  <Attr Arg="M" Name="IsMapOnSurface" Label="for IsManiplex"/>
- <Returns>IsBool
-</Returns>
- <Description>
-Determines whether a given maniplex is a map on a surface
- </Description>
-</ManSection>
-
-
+ <Code>IsMapOnSurface</Code> will test to see if you have rank 3 maniplex.
 <Example><![CDATA[
 gap> Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);
 [ HemiCube(3), Icosahedron() ]

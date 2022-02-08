@@ -277,9 +277,46 @@ InstallMethod(AutomorphismGroup,
 
 
 InstallMethod(AutomorphismGroupOnElements,
-	[IsPoset and HasPartialOrder],
+	[IsPoset],
 	poset -> AutGroupGraph(HasseDiagramOfPoset(poset)));
 
+InstallMethod(AutomorphismGroupOnChains,
+	[IsPoset, IsCollection],
+	function(poset,I)
+	local els, chains, age;
+	if List(I,IsInt)<>List([1..Length(I)],x->true) then Error("Second entry should be a list of ranks"); fi;
+	els:=ElementsList(poset);
+	chains:=List(Flags(poset),x->x{I+2});
+	chains:=List(chains,x->AsSet(List(x,y->Position(els,y))));
+	age:=AutomorphismGroupOnElements(poset);
+	return Action(age,AsSet(chains),OnSets);
+	end);
+
+InstallMethod(AutomorphismGroupOnIFaces,
+	[IsPoset,IsInt],
+	function(p,i)
+	return AutomorphismGroupOnChains(p,[i]);
+	end);
+	
+InstallMethod(AutomorphismGroupOnFacets,
+	[IsPoset],
+	function(p)
+	local i;
+	i:=Rank(p)-1;
+	return AutomorphismGroupOnChains(p,[i]);
+	end);
+
+InstallMethod(AutomorphismGroupOnEdges,
+	[IsPoset],
+	function(p)
+	return AutomorphismGroupOnChains(p,[1]);
+	end);	
+
+InstallMethod(AutomorphismGroupOnVertices,
+	[IsPoset],
+	function(p)
+	return AutomorphismGroupOnChains(p,[0]);
+	end);
 
 InstallMethod(FaceListOfPoset,
 	[IsPoset and IsPosetOfFlags],

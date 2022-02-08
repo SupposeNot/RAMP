@@ -1,7 +1,7 @@
 
 
 
-#! @Chapter Utility functions
+#! @Chapter Utility Functions
 #! @Section System
 
 
