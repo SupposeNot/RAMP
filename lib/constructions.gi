@@ -28,9 +28,12 @@ InstallMethod( UniversalPolytope,
 	end);
 	
 InstallMethod(UniversalExtension,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(p)
 	local g, n, rels, f2, g2, p2, sym;
+	if not(IsReflexible(p)) then
+		Error("UniversalExtension is only defined for reflexible maniplexes.\n");
+	fi;
 	g := AutomorphismGroupFpGroup(p);
 	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
@@ -52,9 +55,12 @@ InstallMethod(UniversalExtension,
 	end);
 
 InstallMethod(UniversalExtension,
-	[IsManiplex and IsReflexibleManiplexAutGpRep, IsInt],
+	[IsManiplex and IsManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
+	if not(IsReflexible(p)) then
+		Error("UniversalExtension is only defined for reflexible maniplexes.\n");
+	fi;
 	g := AutomorphismGroupFpGroup(p);
 	n := Rank(p);
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
@@ -85,15 +91,13 @@ InstallMethod(UniversalExtension,
 	end);
 	
 InstallMethod(TrivialExtension,
-	[IsManiplex and IsReflexibleManiplexAutGpRep],
-	function(p)
-	return UniversalExtension(p,2);
-	end);
-	
-InstallMethod(TrivialExtension,
 	[IsManiplex],
 	function(M)
 	local ext;
+	
+	if HasIsReflexible(M) and IsReflexible(M) then
+		return UniversalExtension(M,2);
+	fi;
 	
 	ext := Maniplex(TrivialExtension, [M]);
 	ext!.base := M;
@@ -125,9 +129,14 @@ InstallMethod(TrivialExtension,
 # TODO: Enforce that last entry of SchlafliSymbol(p) is even.
 # Actually, I need an even stronger restriction...
 InstallMethod(FlatExtension,
-	[IsReflexibleManiplex, IsInt],
+	[IsManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
+	
+	if not(IsReflexible(p)) then
+		Error("FlatExtension is currently only defined for reflexible maniplexes.\n");
+	fi;
+	
 	g := AutomorphismGroup(p);
 	n := Rank(p);
 	p2 := ReflexibleQuotientManiplex(UniversalExtension(p, k), [[n-1, n, n+1, n, n+1, n-1, n+1, n, n+1, n]]);
@@ -147,9 +156,14 @@ InstallMethod(FlatExtension,
 # Results not guaranteed to be correct for incompatible polytopes
 InstallMethod(Amalgamate, 
 	ReturnTrue,
-	[IsReflexibleManiplex, IsReflexibleManiplex],
+	[IsManiplex, IsManiplex],
 	function(p,q)
 	local a, g, h, n, rels, q_rels, f2, g2, sym;
+	
+	if not(IsReflexible(p)) or not(IsReflexible(q)) then
+		Error("Amalgamate is not currently defined for non-reflexible maniplexes.\n");
+	fi;
+	
 	g := AutomorphismGroup(p);
 	n := Rank(p);
 	if Rank(q) <> n then

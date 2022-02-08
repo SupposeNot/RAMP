@@ -29,7 +29,7 @@ DeclareProperty("IsSelfDual", IsManiplex);
 #! the isomorphism between <A>M</A> and its dual is an inner automorphism.
 #! If the optional group element <A>x</A> is given, then we first check whether <A>x</A> is a dualizing
 #! automorphism of <A>M</A>, and if not, then we search the whole automorphism group of <A>M</A>.
-DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
+DeclareProperty("IsInternallySelfDual", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsInternallySelfDual(Simplex(4));
 #! true
@@ -51,7 +51,7 @@ DeclareProperty("IsInternallySelfDual", IsReflexibleManiplex);
 #! <Cite Key="CunMix17"/> (<URL> https://doi.org/10.11575/cdm.v12i2.62785</URL>). 
 #! That is, if <A>M</A> is self-dual, and the automorphism of AutomorphismGroup(M) that induces
 #! the isomorphism between <A>M</A> and its dual is an outer automorphism.
-DeclareProperty("IsExternallySelfDual", IsReflexibleManiplex);
+DeclareProperty("IsExternallySelfDual", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsExternallySelfDual(Simplex(4));
 #! false

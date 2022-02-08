@@ -77,19 +77,29 @@ InstallMethod(AutomorphismGroup,
 InstallMethod(AutomorphismGroupFpGroup, 
 	[IsManiplex],
 	function(M)
-	local g, fp, w, rels;
+	local g, fp, w, rels, w_rels;
 	g := AutomorphismGroup(M);
 	if IsFpGroup(g) then
 		return g;
 	else
 		fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "Q"));
 		
-		# Retranslate everything in terms of r0, r1, etc.
-		w := UniversalSggi(Rank(M));
-		rels := RelatorsOfFpGroup(fp);
-		rels := List(rels, r -> TietzeWordAbstractWord(r));
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
-		fp := FactorGroupFpGroupByRels(w, rels);
+		# If M is reflexible, retranslate everything in terms of r0, r1, etc.
+		if IsReflexible(M) then
+			w := UniversalSggi(Rank(M));
+			rels := RelatorsOfFpGroup(fp);
+			rels := List(rels, r -> TietzeWordAbstractWord(r));
+
+			# Avoid double-counting relations
+			w_rels := RelatorsOfFpGroup(w);
+			w_rels := List(w_rels, r -> TietzeWordAbstractWord(r));
+			rels := Difference(rels, w_rels);
+
+			rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+			
+			fp := FactorGroupFpGroupByRels(w, rels);
+		fi;
+		
 		return fp;
 	fi;
 	end);

@@ -6,17 +6,17 @@
 #! @GroupTitle Automorphism Groups
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A>.
-#! This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions.
+#! This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions, or AutomorphismGroupFpGroup.
 DeclareAttribute("AutomorphismGroup", IsManiplex);
 
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A> as a
-#! finitely presented group.
+#! finitely presented group. If <A>M</A> is reflexible, then this is guaranteed to be the standard presentation.
 DeclareAttribute("AutomorphismGroupFpGroup", IsManiplex);
 
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A> as a
-#! permutation group.
+#! permutation group. This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions.
 DeclareAttribute("AutomorphismGroupPermGroup", IsManiplex);
 
 #! @Arguments M

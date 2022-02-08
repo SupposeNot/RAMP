@@ -6,7 +6,7 @@ InstallMethod(Dual,
 
 	# polytopal := (ValueOption("polytopal") = true);
 	
-	if IsReflexibleManiplexAutGpRep(M) then
+	if IsReflexible(M) then
 		rels := ExtraRelators(M);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
 		
@@ -56,9 +56,14 @@ InstallMethod(IsSelfDual,
 	end);
 
 InstallMethod(IsInternallySelfDual,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(M)
 	local g, n, x, gens;
+	
+	if not(IsReflexible(M)) then
+		Error("IsInternallySelfDual is only defined for reflexible maniplexes.\n");
+	fi;
+
 	g := AutomorphismGroup(M);
 	n := Rank(M);
 	gens := GeneratorsOfGroup(g);
@@ -72,9 +77,14 @@ InstallMethod(IsInternallySelfDual,
 	end);
 
 InstallOtherMethod(IsInternallySelfDual,
-	[IsReflexibleManiplex, IsObject],
+	[IsManiplex, IsObject],
 	function(M, x)
 	local g, n, gens;
+	
+	if not(IsReflexible(M)) then
+		Error("IsInternallySelfDual is only defined for reflexible maniplexes.\n");
+	fi;	
+	
 	g := AutomorphismGroup(M);
 	n := Rank(M);
 	gens := GeneratorsOfGroup(g);
@@ -88,8 +98,13 @@ InstallOtherMethod(IsInternallySelfDual,
 
 	
 InstallMethod(IsExternallySelfDual,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(M)
+	
+	if not(IsReflexible(M)) then
+		Error("IsExternallySelfDual is only defined for reflexible maniplexes.\n");
+	fi;
+	
 	return IsSelfDual(M) and not(IsInternallySelfDual(M));
 	end);
 
@@ -98,8 +113,8 @@ InstallMethod(Petrial,
 	function(M)
 	local g, sym, rels, pet, Mp;
 
-	if IsReflexibleManiplexAutGpRep(M) and Rank(M) = 3 then
-		g := AutomorphismGroup(M);
+	if IsReflexibleManiplex(M) and Rank(M) = 3 then
+		g := AutomorphismGroupFpGroup(M);
 		sym := ShallowCopy(SchlafliSymbol(M));
 		rels := List(ExtraRelators(M), String);
 		
