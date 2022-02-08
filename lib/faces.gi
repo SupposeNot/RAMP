@@ -300,7 +300,7 @@ InstallMethod(SchlafliSymbol,
 	
 	schlafliSymbol := ComputeAttr(M, SchlafliSymbol);
 	if schlafliSymbol = fail then 
-		if IsReflexibleManiplexAutGpRep(M) then
+		if IsReflexible(M) then
 			gens := GeneratorsOfGroup(AutomorphismGroup(M));
 			schlafliSymbol := List([1..Rank(M)-1], i -> Order(gens[i]*gens[i+1]));
 		elif IsRotaryManiplexRotGpRep(M) then
@@ -352,11 +352,9 @@ InstallTrueMethod(IsEquivelar, IsRotary);
 
 
 InstallMethod(IsDegenerate,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(M)
-	local val;
-	val := (2 in SchlafliSymbol(M));
-	return val;
+	return (2 in Flat(SchlafliSymbol(M)));
 	end);
 
 InstallMethod(IsTight,

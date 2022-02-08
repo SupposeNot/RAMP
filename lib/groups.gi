@@ -138,7 +138,7 @@ InstallMethod(AutomorphismGroupOnFlags,
 		orb := Difference(orb, Orbit(Group(auts), 1));
 	od;
 	agf := Group(auts);
-	if IsReflexibleManiplexAutGpRep(M) then
+	if IsReflexible(M) then
 		cggens := GeneratorsOfGroup(ConnectionGroup(M));
 		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, 1, 1^cggens[i]));
 		agf := Group(gens);

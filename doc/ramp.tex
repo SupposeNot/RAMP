@@ -222,7 +222,11 @@ you can delete the \texttt{.zip} file.
 
  Returns the automorphism group of \mbox{\texttt{\mdseries\slshape M}}. This group is not guaranteed to be in any particular form. For particular
 permutation representations you should consider the various
-AutomorphismGroupOn... functions. Returns the automorphism group of \mbox{\texttt{\mdseries\slshape M}} as a finitely presented group. Returns the automorphism group of \mbox{\texttt{\mdseries\slshape M}} as a permutation group. Returns the automorphism group of \mbox{\texttt{\mdseries\slshape M}} as a permutation group action on the flags of \mbox{\texttt{\mdseries\slshape M}}. }
+AutomorphismGroupOn... functions, or AutomorphismGroupFpGroup. Returns the
+automorphism group of \mbox{\texttt{\mdseries\slshape M}} as a finitely presented group. If \mbox{\texttt{\mdseries\slshape M}} is reflexible, then this is guaranteed to be the standard presentation.
+Returns the automorphism group of \mbox{\texttt{\mdseries\slshape M}} as a permutation group. This group is not guaranteed to be in any particular
+form. For particular permutation representations you should consider the
+various AutomorphismGroupOn... functions. Returns the automorphism group of \mbox{\texttt{\mdseries\slshape M}} as a permutation group action on the flags of \mbox{\texttt{\mdseries\slshape M}}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -1599,9 +1603,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. The second form returns the universal reflexible
@@ -1609,10 +1613,10 @@ maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the opti
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
 \end{Verbatim}
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
@@ -1636,12 +1640,12 @@ that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -1663,15 +1667,15 @@ that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -2572,11 +2576,11 @@ is equivalent to being I-orientable for I =
 {
   
 
-\subsection{\textcolor{Chapter }{IsVertexFaithful (for IsReflexibleManiplex)}}
+\subsection{\textcolor{Chapter }{IsVertexFaithful (for IsManiplex)}}
 \logpage{[ 5, 5, 1 ]}\nobreak
-\hyperdef{L}{X785DE0A9842AAEA1}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexFaithful({\mdseries\slshape M})\index{IsVertexFaithful@\texttt{IsVertexFaithful}!for IsReflexibleManiplex}
-\label{IsVertexFaithful:for IsReflexibleManiplex}
+\hyperdef{L}{X7FFD0ADD7A2F6044}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexFaithful({\mdseries\slshape M})\index{IsVertexFaithful@\texttt{IsVertexFaithful}!for IsManiplex}
+\label{IsVertexFaithful:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 \texttt{true} or \texttt{false} 
@@ -2588,16 +2592,16 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsFacetFaithful (for IsReflexibleManiplex)}}
+\subsection{\textcolor{Chapter }{IsFacetFaithful (for IsManiplex)}}
 \logpage{[ 5, 5, 2 ]}\nobreak
-\hyperdef{L}{X78CDF48E7CDED1AB}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetFaithful({\mdseries\slshape M})\index{IsFacetFaithful@\texttt{IsFacetFaithful}!for IsReflexibleManiplex}
-\label{IsFacetFaithful:for IsReflexibleManiplex}
+\hyperdef{L}{X7BB02182844EA5EB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetFaithful({\mdseries\slshape M})\index{IsFacetFaithful@\texttt{IsFacetFaithful}!for IsManiplex}
+\label{IsFacetFaithful:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 \texttt{true} or \texttt{false} 
@@ -2609,18 +2613,18 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{MaxVertexFaithfulQuotient (for IsReflexibleManiplex)}}
+\subsection{\textcolor{Chapter }{MaxVertexFaithfulQuotient (for IsManiplex)}}
 \logpage{[ 5, 5, 3 ]}\nobreak
-\hyperdef{L}{X856543F87E52DDC6}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxVertexFaithfulQuotient({\mdseries\slshape M})\index{MaxVertexFaithfulQuotient@\texttt{MaxVertexFaithfulQuotient}!for IsReflexibleManiplex}
-\label{MaxVertexFaithfulQuotient:for IsReflexibleManiplex}
+\hyperdef{L}{X7F2F8EEE8663AB89}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxVertexFaithfulQuotient({\mdseries\slshape M})\index{MaxVertexFaithfulQuotient@\texttt{MaxVertexFaithfulQuotient}!for IsManiplex}
+\label{MaxVertexFaithfulQuotient:for IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 Q 
@@ -2631,9 +2635,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -4539,11 +4543,11 @@ Whether this maniplex is isomorphic to its dual.
 
  
 
-\subsection{\textcolor{Chapter }{IsInternallySelfDual (for IsReflexibleManiplex)}}
+\subsection{\textcolor{Chapter }{IsInternallySelfDual (for IsManiplex)}}
 \logpage{[ 8, 2, 3 ]}\nobreak
-\hyperdef{L}{X79132A9583296ED0}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsInternallySelfDual({\mdseries\slshape M[, x]})\index{IsInternallySelfDual@\texttt{IsInternallySelfDual}!for IsReflexibleManiplex}
-\label{IsInternallySelfDual:for IsReflexibleManiplex}
+\hyperdef{L}{X79287DCF7835E0F4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsInternallySelfDual({\mdseries\slshape M[, x]})\index{IsInternallySelfDual@\texttt{IsInternallySelfDual}!for IsManiplex}
+\label{IsInternallySelfDual:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 \texttt{true} or \texttt{false} 
@@ -4571,11 +4575,11 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsExternallySelfDual (for IsReflexibleManiplex)}}
+\subsection{\textcolor{Chapter }{IsExternallySelfDual (for IsManiplex)}}
 \logpage{[ 8, 2, 4 ]}\nobreak
-\hyperdef{L}{X86041B6684EFE1C2}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsExternallySelfDual({\mdseries\slshape M})\index{IsExternallySelfDual@\texttt{IsExternallySelfDual}!for IsReflexibleManiplex}
-\label{IsExternallySelfDual:for IsReflexibleManiplex}
+\hyperdef{L}{X871BE6737FF36FE6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsExternallySelfDual({\mdseries\slshape M})\index{IsExternallySelfDual@\texttt{IsExternallySelfDual}!for IsManiplex}
+\label{IsExternallySelfDual:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 \texttt{true} or \texttt{false} 
@@ -7822,8 +7826,6 @@ maniplexes the way one expects. }
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

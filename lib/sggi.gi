@@ -100,8 +100,13 @@ InstallMethod(SggiElement,
 	end);
 	
 InstallOtherMethod(SggiElement,
-	[IsManiplex and IsReflexibleManiplexAutGpRep, IsString],
+	[IsManiplex, IsString],
 	function(M, str)
+	
+	if not(IsReflexible(M)) then
+		Error("SggiElement is only defined for reflexible maniplexes.\n");
+	fi;
+	
 	return SggiElement(AutomorphismGroup(M), str);
 	end);
 	

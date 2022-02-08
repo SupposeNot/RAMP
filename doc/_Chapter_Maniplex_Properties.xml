@@ -532,7 +532,7 @@ Returns the minimal <Emph>I-orientable cover</Emph> of the maniplex <A>M</A>.
 <Heading>Faithfulness</Heading>
 
 <ManSection>
-  <Prop Arg="M" Name="IsVertexFaithful" Label="for IsReflexibleManiplex"/>
+  <Prop Arg="M" Name="IsVertexFaithful" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
@@ -550,7 +550,7 @@ true
 
 
 <ManSection>
-  <Prop Arg="M" Name="IsFacetFaithful" Label="for IsReflexibleManiplex"/>
+  <Prop Arg="M" Name="IsFacetFaithful" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
@@ -570,7 +570,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsReflexibleManiplex"/>
+  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsManiplex"/>
  <Returns>Q
 </Returns>
  <Description>

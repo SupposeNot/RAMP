@@ -160,7 +160,7 @@ Also works for IsPoset objects.
 
 
 <ManSection>
-  <Prop Arg="M[, x]" Name="IsInternallySelfDual" Label="for IsReflexibleManiplex"/>
+  <Prop Arg="M[, x]" Name="IsInternallySelfDual" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
@@ -191,7 +191,7 @@ true
 
 
 <ManSection>
-  <Prop Arg="M" Name="IsExternallySelfDual" Label="for IsReflexibleManiplex"/>
+  <Prop Arg="M" Name="IsExternallySelfDual" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>

@@ -14,10 +14,14 @@
   
   [33X[0;0YReturns  the  automorphism group of [3XM[103X. This group is not guaranteed to be in
   any  particular  form. For particular permutation representations you should
-  consider   the   various   AutomorphismGroupOn...   functions.  Returns  the
-  automorphism  group  of  [3XM[103X  as  a  finitely  presented  group.  Returns  the
-  automorphism  group  of  [3XM[103X  as a permutation group. Returns the automorphism
-  group of [3XM[103X as a permutation group action on the flags of [3XM[103X.[133X
+  consider     the     various     AutomorphismGroupOn...     functions,    or
+  AutomorphismGroupFpGroup.  Returns the automorphism group of [3XM[103X as a finitely
+  presented  group.  If  [3XM[103X  is  reflexible,  then this is guaranteed to be the
+  standard  presentation. Returns the automorphism group of [3XM[103X as a permutation
+  group.  This  group  is  not  guaranteed  to  be in any particular form. For
+  particular  permutation  representations  you  should  consider  the various
+  AutomorphismGroupOn...  functions.  Returns the automorphism group of [3XM[103X as a
+  permutation group action on the flags of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xs0 := (3,7)(4,8)(5,6);;[127X[104X

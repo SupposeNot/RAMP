@@ -15,11 +15,11 @@
   <Attr Arg="M" Name="AutomorphismGroupOnFlags" Label="for IsManiplex"/>
  <Description>
  Returns the automorphism group of <A>M</A>.
- This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions.
+ This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions, or AutomorphismGroupFpGroup.
  Returns the automorphism group of <A>M</A> as a
- finitely presented group.
+ finitely presented group. If <A>M</A> is reflexible, then this is guaranteed to be the standard presentation.
  Returns the automorphism group of <A>M</A> as a
- permutation group.
+ permutation group. This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions.
  Returns the automorphism group of <A>M</A> as a
  permutation group action on the flags of <A>M</A>.
  </Description>

@@ -206,12 +206,15 @@ InstallMethod(RankManiplex,
 
 InstallMethod(Rank, [IsManiplex], RankManiplex);
 	
-# A regular polytope is vertex-faithful if the action
-# of the automorphism group on the vertices is faithful.
 InstallMethod(IsVertexFaithful,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(p)
 	local g, h, c, n, gens;
+	
+	if not(IsReflexible(p)) then
+		Error("IsVertexFaithful is only defined for reflexible maniplexes");
+	fi;
+	
 	g := AutomorphismGroup(p);
 	n := Rank(p);
 	gens := GeneratorsOfGroup(g){[2..n]};
@@ -221,9 +224,14 @@ InstallMethod(IsVertexFaithful,
 	end);
 	
 InstallMethod(MaxVertexFaithfulQuotient,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(p)
 	local g, h, c, n, gens;
+
+	if not(IsReflexible(p)) then
+		Error("MaxVertexFaithfulQuotient is only defined for reflexible maniplexes");
+	fi;
+	
 	g := AutomorphismGroup(p);
 	n := Rank(p);
 	gens := GeneratorsOfGroup(g){[2..n]};
@@ -233,9 +241,14 @@ InstallMethod(MaxVertexFaithfulQuotient,
 	end);
 	
 InstallMethod(IsFacetFaithful,
-	[IsReflexibleManiplex],
+	[IsManiplex],
 	function(p)
 	local g, h, c, n, gens;
+
+	if not(IsReflexible(p)) then
+		Error("IsFacetFaithful is only defined for reflexible maniplexes");
+	fi;	
+
 	g := AutomorphismGroup(p);
 	n := Rank(p);
 	gens := GeneratorsOfGroup(g){[1..n-1]};

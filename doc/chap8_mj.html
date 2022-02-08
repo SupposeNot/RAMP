@@ -41,8 +41,8 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7D62BD3E7F941F5B">8.2-1 Dual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X7FF8B96C83DA60CB">8.2-2 IsSelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X79132A9583296ED0">8.2-3 IsInternallySelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X86041B6684EFE1C2">8.2-4 IsExternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X79287DCF7835E0F4">8.2-3 IsInternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X871BE6737FF36FE6">8.2-4 IsExternallySelfDual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X86E347E67EE31555">8.2-5 <span class="Heading">Petrie Dual</span></a>
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap8_mj.html#X78FDB0047E3388A5">8.2-6 IsSelfPetrial</a></span>
@@ -203,14 +203,14 @@ Cube(3)
 
 <p>Also works for IsPoset objects.</p>
 
-<p><a id="X79132A9583296ED0" name="X79132A9583296ED0"></a></p>
+<p><a id="X79287DCF7835E0F4" name="X79287DCF7835E0F4"></a></p>
 
 <h5>8.2-3 IsInternallySelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[tt17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>.</p>
+<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[{{17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
@@ -228,14 +228,14 @@ false
 true
 </pre></div>
 
-<p><a id="X86041B6684EFE1C2" name="X86041B6684EFE1C2"></a></p>
+<p><a id="X871BE6737FF36FE6" name="X871BE6737FF36FE6"></a></p>
 
 <h5>8.2-4 IsExternallySelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[tt17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
+<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[{{17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
 
 
 <div class="example"><pre>

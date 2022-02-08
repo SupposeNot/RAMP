@@ -137,7 +137,7 @@ DeclareAttribute("RankManiplex", IsManiplex);
 #! @Description Returns whether the reflexible maniplex <A>M</A> is
 #! vertex-faithful; i.e., whether the action of the automorphism
 #! group on the vertices is faithful.
-DeclareProperty("IsVertexFaithful", IsReflexibleManiplex);
+DeclareProperty("IsVertexFaithful", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsVertexFaithful(HemiCube(3));
 #! true
@@ -147,7 +147,7 @@ DeclareProperty("IsVertexFaithful", IsReflexibleManiplex);
 #! @Description Returns whether the reflexible maniplex <A>M</A> is
 #! facet-faithful; i.e., whether the action of the automorphism
 #! group on the facets is faithful.
-DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);
+DeclareProperty("IsFacetFaithful", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsFacetFaithful(HemiCube(3));
 #! false
@@ -158,7 +158,7 @@ DeclareProperty("IsFacetFaithful", IsReflexibleManiplex);
 #! @Arguments M
 #! @Returns Q
 #! @Description Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
-DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
+DeclareOperation("MaxVertexFaithfulQuotient", [IsManiplex]);
 #! @BeginExampleSession
 #! gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
 #! reflexible 3-maniplex
