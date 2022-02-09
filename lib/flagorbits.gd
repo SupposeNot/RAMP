@@ -3,6 +3,32 @@
 #! @Section Flag orbits
 
 #! @Arguments M
+#! @Returns IsList
+#! @Description The list of flags of the maniplex <A>M</A>.
+DeclareAttribute("Flags", IsManiplex);
+#! @BeginExampleSession
+#! gap> Flags(Pgon(5));
+#! [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+#! gap> M := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;
+#! gap> Flags(M);
+#! [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns IsObject
+#! @Description The base flag of the maniplex <A>M</A>. By default, when the set of flags is a set of positive integers,
+#! the base flag is the minimum of the set of flags.
+DeclareAttribute("BaseFlag", IsManiplex);
+#! @BeginExampleSession
+#! gap> BaseFlag(Cube(3));
+#! 1
+#! gap> M := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;
+#! gap> BaseFlag(M);
+#! 3
+#! @EndExampleSession
+
+
+#! @Arguments M
 #! Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
 #! a permutation group on Rank(<A>M</A>) generators.
 DeclareAttribute("SymmetryTypeGraph", IsManiplex);

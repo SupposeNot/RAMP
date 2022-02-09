@@ -1,4 +1,16 @@
 
+InstallMethod(Flags,
+	[IsManiplex],
+	function(M)
+	return MovedPoints(ConnectionGroup(M));
+	end);
+
+InstallMethod(BaseFlag,
+	[IsManiplex],
+	function(M)
+	return SmallestMovedPoint(ConnectionGroup(M));
+	end);
+	
 InstallMethod(SymmetryTypeGraph,
 	[IsManiplex],
 	function(m)
@@ -116,7 +128,7 @@ InstallMethod(FlagOrbitRepresentatives,
 	else
 		c := ConnectionGroup(M);
 		reps := [];
-		flags := [1..Size(M)];
+		flags := MovedPoints(c);
 		while not(IsEmpty(flags)) do
 			i := First(flags);
 			Add(reps, i);
