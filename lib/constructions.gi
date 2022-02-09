@@ -116,7 +116,7 @@ InstallMethod(TrivialExtension,
 		local c, cgens, N, r, newgens;
 		c := ConnectionGroup(M!.base);
 		cgens := GeneratorsOfGroup(c);
-		N := LargestMovedPoint(c);
+		N := NrMovedPoints(c);
 		r := MultPerm((1,N+1), N, 1);
 		newgens := List(cgens, x -> MultPerm(x, 2, N));
 		Add(newgens, r);

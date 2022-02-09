@@ -16,7 +16,7 @@ InstallMethod(SymmetryTypeGraph,
 	function(m)
 	local r, gens, c, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
 	c:=ConnectionGroup(m);
-	stab := Stabilizer(c, 1);
+	stab := Stabilizer(c, BaseFlag(m));
 	norm := Normalizer(c, stab);
 	stg := Image(FactorCosetAction(c,norm));
 		if Size(stg) = 1 then

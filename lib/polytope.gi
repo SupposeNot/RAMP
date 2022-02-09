@@ -130,7 +130,7 @@ InstallMethod(Maniplex,
 		return UniversalPolytope(0);
 	elif n = 1 then
 		return UniversalPolytope(1);
-	elif n = 2 and NrMovedPoints(g.1) = NrMovedPoints(g) and NrMovedPoints(g) >= 4 then
+	elif n = 2 and NrMovedPoints(g.1) = NrMovedPoints(g) and NrMovedPoints(g) >= 4 and ValueOption("no_reindexing") <> true then
 		return Pgon(NrMovedPoints(g) / 2);
 	fi;
 	
@@ -188,7 +188,7 @@ InstallMethod(Size,
 	elif IsManiplexQuotientRep(M) then
 		return Index(AutomorphismGroup(M!.parent), M!.subgroup);
 	else
-		return LargestMovedPoint(ConnectionGroup(M));
+		return NrMovedPoints(ConnectionGroup(M));
 	fi;
 	end);
 	

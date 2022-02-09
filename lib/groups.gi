@@ -4,7 +4,7 @@ InstallMethod(AutomorphismGroup,
 	function(M)
 	local c, stab, norm;
 	c := ConnectionGroup(M);
-	stab := Stabilizer(c,1);
+	stab := Stabilizer(c,BaseFlag(M));
 	norm := Normalizer(c, stab);
 	return norm/stab;
 	end);
@@ -119,52 +119,34 @@ InstallMethod(AutomorphismGroupPermGroup,
 InstallMethod(AutomorphismGroupOnFlags, 
 	[IsManiplex],
 	function(M)
-	local N, c, stab, norm, orb, auts, i, w, aut, notMoved, j, x, plist, agf, cggens, gens;
+	local N, c, base, stab, norm, orb, auts, i, w, aut, notMoved, j, x, plist, agf, cggens, gens, flags;
 	N := Size(M);
+	base := BaseFlag(M);
 	c := ConnectionGroup(M);
-	stab := Stabilizer(c, 1);
+	stab := Stabilizer(c, base);
 	norm := Normalizer(c, stab);
-	orb := Difference(Orbit(norm, 1), [1]);
+	orb := Difference(Orbit(norm, base), [base]);
 	auts := [];
 	
 	while not(IsEmpty(orb)) do
-		i := First(orb);
+		i := Minimum(orb);
 		plist := [i];
-		for j in [2..N] do
-			x := RepresentativeAction(c, 1, j);
-			plist[j] := i^x;
+		flags := Difference(Flags(M), [base]);
+		for j in [1..N-1] do
+			x := RepresentativeAction(c, base, flags[j]);
+			Add(plist, i^x);
 		od;
-		Add(auts, PermList(plist));
-		orb := Difference(orb, Orbit(Group(auts), 1));
+		Add(auts, MappingPermListList(Flags(M), plist));
+		orb := Difference(orb, Orbit(Group(auts), base));
 	od;
 	agf := Group(auts);
 	if IsReflexible(M) then
 		cggens := GeneratorsOfGroup(ConnectionGroup(M));
-		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, 1, 1^cggens[i]));
+		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, base, base^cggens[i]));
 		agf := Group(gens);
 	fi;
 	return agf;
 	end);
-	
-AgOnFlags := function(M)
-	local N, c, stab, norm, orb, auts, i, w, aut, notMoved, j, x, plist;
-	N := Size(M);
-	c := ConnectionGroup(M);
-	stab := Stabilizer(c, 1);
-	norm := Normalizer(c, stab);
-	orb := Difference(Orbit(norm, 1), [1]);
-	auts := [];
-	
-	for i in orb do
-		plist := [i];
-		for j in [2..N] do
-			x := RepresentativeAction(c, 1, j);
-			plist[j] := i^x;
-		od;
-		Add(auts, PermList(plist));
-	od;
-	return Group(auts);
-	end;
 	
 InstallMethod(RotationGroup,
 	[IsManiplex and IsRotaryManiplexRotGpRep],

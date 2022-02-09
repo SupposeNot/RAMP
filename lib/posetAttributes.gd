@@ -14,7 +14,7 @@ DeclareAttribute("MaximalChains", IsPoset);
 
 
 DeclareSynonymAttr("FlagsList", MaximalChains);
-DeclareSynonymAttr("Flags", MaximalChains);
+DeclareAttribute("Flags", IsPoset);
 #! @BeginExampleSession
 #! gap> poset:=PosetFromManiplex(HemiCube(3));
 #! A poset using the IsPosetOfFlags representation.

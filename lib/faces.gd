@@ -80,6 +80,7 @@ DeclareOperation("Sections", [IsManiplex, IsInt, IsInt]);
 #! @EndExampleSession
 #! @EndGroup
 
+DeclareOperation("SectionList", [IsManiplex, IsInt, IsInt]);
 
 #! @BeginGroup Facet
 #! @GroupTitle Facet(s)

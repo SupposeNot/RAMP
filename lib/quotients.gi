@@ -52,9 +52,9 @@ InstallMethod(IsQuotient,
 	else
 		# Now we look for flags of p and q such that the stabilizer of the flag of
 		# q is contained in the stabilizer of the flag of p.
-		# WLOG we can use flag 1 in q.
+		# WLOG we can use the base flag of q.
 		flags := FlagOrbitRepresentatives(p);
-		s1 := Stabilizer(g1, 1);
+		s1 := Stabilizer(g1, BaseFlag(q));
 		for phi in flags do
 			if IsSubset(PreImage(hom, Stabilizer(g2, phi)), s1) then
 				return true;

@@ -60,6 +60,11 @@ InstallOtherMethod(MaximalChains,
 	return flags;
 	end);
 
+InstallMethod(Flags,
+	[IsPoset],
+	function(poset)
+	return MaximalChains(poset);
+	end);
 
 InstallOtherMethod(Rank,
 	[IsPoset and HasRankPoset],

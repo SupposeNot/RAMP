@@ -140,7 +140,7 @@ InstallMethod(Section,
 		return UniversalPolytope(1);
 	fi;
 
-	if IsReflexible(M) then
+	if IsReflexible(M) and ValueOption("no_reindexing") <> true then
 		sym := SchlafliSymbol(M){[i+2..j-1]};
 		
 		# Universal polytopes have universal sections
@@ -172,14 +172,17 @@ InstallMethod(Section,
 		# Then restrict the permutations to only act on that orbit...
 		
 		# Polytopes have polygonal rank 2 sections
-		if HasIsPolytopal(M) and IsPolytopal(M) and j-i = 3 then
+		if HasIsPolytopal(M) and IsPolytopal(M) and j-i = 3 and ValueOption("no_reindexing") <> true then
 			return Pgon(Size(o)/2);
 		fi;
 
 		newgens := List(GeneratorsOfGroup(h), x -> RestrictedPerm(x, o));
 		newconn := Group(newgens);
-		# Retranslate the flags to be 1..N
-		newconn := Action(newconn, MovedPoints(newconn));		
+		
+		if ValueOption("no_reindexing") <> true then
+			# Retranslate the flags to be 1..N
+			newconn := Action(newconn, MovedPoints(newconn));		
+		fi;
 		q := Maniplex(newconn);
 		return q;
 	fi;
@@ -196,6 +199,15 @@ InstallMethod(Sections,
 	function(M, j, i)
 	return Unique(List(FlagOrbitRepresentatives(M), k -> Section(M,j,i,k)));
 	end);
+
+#InstallMethod(SectionList,
+#	[IsManiplex, IsInt, IsInt],
+#	function(M, j, i)
+#	local g, h;
+#	g := ConnectionGroup(M);
+#	h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+#	return Orbits...
+#	end);
 
 
 	
