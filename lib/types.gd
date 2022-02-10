@@ -43,4 +43,4 @@ DeclareRepresentation("IsEdgeLabeledGraphListRep", IsComponentObjectRep and IsAt
 
 
 #Maps on surfaces stuff
-DeclareAttribute("IsMapOnSurface", IsManiplex);
+DeclareProperty("IsMapOnSurface", IsManiplex);

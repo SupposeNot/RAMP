@@ -198,11 +198,11 @@ InstallMethod(Bk2lStar,
 #Operations
 	
 InstallMethod(Opp,
-	[IsManiplex],
+	[IsMapOnSurface],
 	map->Petrial(Dual(Petrial(map))));
 	
 InstallMethod(Hole,
-	[IsManiplex,IsInt],
+	[IsMapOnSurface,IsInt],
 	function(m,j)
 	local g, hole, hgp, orbs, act;
 	if Rank(m)<>3 then Error("Not a map.");fi;

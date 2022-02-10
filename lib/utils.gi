@@ -262,3 +262,8 @@ InstallGlobalFunction(WrappedPosetOperation,
 		end;
 	return f;
 	end);
+
+InstallGlobalFunction(InvolutionListList,
+	function(list1, list2)
+	return MappingPermListList(Concatenation(list1,list2),Concatenation(list2,list1));
+	end);

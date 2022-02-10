@@ -56,9 +56,19 @@ DeclareGlobalFunction("TranslatePerm");
 
 
 #! @Arguments perm, multiplier, offset
-#! Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), 
+#! @Description Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), 
 #! ..., with <A>multiplier</A> terms, and returns the result.
 DeclareGlobalFunction("MultPerm");
+
+#! @Arguments list1, list2
+#! @Returns  involution
+#! @Description Construction the involution (when possible) with entries `(list1[i],list2[i])`.
+DeclareGlobalFunction("InvolutionListList", [IsList, IsList]);
+#! @BeginExampleSession
+#! <##>
+#! @EndExampleSession
+
+
 
 #! @Arguments perm1, perm2
 #! @Returns Permutation
