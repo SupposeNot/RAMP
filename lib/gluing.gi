@@ -18,3 +18,5 @@ GlueFacet:=function(c,i1,i2)
 	if AsSet(orbcheck)<>AsSet(orb2) then Error("Facets don't appear to be a matching pair."); fi;
 	return InvolutionListList(orb1,orb2);
 	end;
+
+# Will probably want a function that can take a list of polytopes, and a list of ordered quadruples, and produce a glued polytope. Idea being [i,j,k,l] tells you facet i is glued to facet j by glueing flag k of i to flag l of j.

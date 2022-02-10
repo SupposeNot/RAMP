@@ -53,19 +53,30 @@ DeclareGlobalFunction("AbstractRotaryPolytopeNC");
 #! Returns a new permutation obtained from <A>perm</A> by adding k
 #! to each moved point.
 DeclareGlobalFunction("TranslatePerm");
-
+#! @BeginExampleSession
+#! gap> TranslatePerm((1,2,3,4),5);
+#! (6,7,8,9)
+#! @EndExampleSession
 
 #! @Arguments perm, multiplier, offset
 #! @Description Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), 
 #! ..., with <A>multiplier</A> terms, and returns the result.
 DeclareGlobalFunction("MultPerm");
+#! @BeginExampleSession
+#! gap> MultPerm((1,2,3)(4,5,6),3,7);
+#! (1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)
+#! gap> MultPerm((1,2,3,4),2,4);
+#! (1,2,3,4)(5,6,7,8)
+#! @EndExampleSession
+
 
 #! @Arguments list1, list2
 #! @Returns  involution
 #! @Description Construction the involution (when possible) with entries `(list1[i],list2[i])`.
 DeclareGlobalFunction("InvolutionListList", [IsList, IsList]);
 #! @BeginExampleSession
-#! <##>
+#! gap> InvolutionListList([3,4,5],[6,7,8]);
+#! (3,6)(4,7)(5,8)
 #! @EndExampleSession
 
 
