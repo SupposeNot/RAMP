@@ -54,14 +54,14 @@ InstallGlobalFunction(DegeneratePolyhedra,
 
 	polys := [];
 	if minsize <= 8 and maxsize >= 8 then
-		Add(polys, AbstractRegularPolytope([2,2]));
+		Add(polys, AbstractRegularPolytopeNC([2,2]));
 	fi;
 
 	k := 3;
 	while 4*k <= maxsize do
 		if 4*k >= minsize then
-			Add(polys, AbstractRegularPolytope([2,k]));
-			Add(polys, AbstractRegularPolytope([k,2]));
+			Add(polys, AbstractRegularPolytopeNC([2,k]));
+			Add(polys, AbstractRegularPolytopeNC([k,2]));
 		fi;
 		k := k + 1;
 	od;
@@ -135,7 +135,7 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 		local w, relstr, poly;
 		w := UniversalSggi(3);
 		relstr := Concatenation("r2 r1 r0 r1 = (r0 r1)^", String(i), " r1 (r1 r2)^", String(j), ", r2 r1 r2 r1 r0 r1 = (r0 r1)^", String(a), " (r1 r2)^", String(b));
-		poly := AbstractRegularPolytope([p,q], relstr);
+		poly := AbstractRegularPolytopeNC([p,q], relstr);
 		SetSize(poly, 2*p*q);
 		SetSize(AutomorphismGroup(poly), 2*p*q);
 		SetSchlafliSymbol(poly, [p,q]);
@@ -277,7 +277,7 @@ InstallGlobalFunction(SmallRegularPolyhedraFromFile,
 		if flagnum > maxsize then
 			toobig := true;
 		elif flagnum >= minsize then
-			p := AbstractRegularPolytope(sym, rels);
+			p := AbstractRegularPolytopeNC(sym, rels);
 			SetSize(p, flagnum);
 			SetSize(AutomorphismGroup(p), flagnum);
 			SetPetrieLength(p, petrie);
@@ -480,7 +480,7 @@ Read4Polys := function(filename)
 	rels := ReadLine(databaseFile);
 	ReadLine(databaseFile);
 	repeat
-		maniplex := AbstractRegularPolytope(sym, rels : set_schlafli);
+		maniplex := AbstractRegularPolytopeNC(sym, rels : set_schlafli);
 		SetSize(maniplex, size);
 		Add(maniplexes, maniplex);
 

@@ -12,7 +12,7 @@ InstallMethod(FlatOrientablyRegularPolyhedron,
 
 	# We only need one of these two relations, but having both may make some computations faster.
 	relstr := Concatenation("r2 r1 r0 r1 (r2 r1)^", String(j), " (r1 r0)^", String(i), ", r1 r2 r1 r0 (r1 r2)^", String(j), " (r0 r1)^", String(i));
-	poly := AbstractRegularPolytope([p,q], relstr);
+	poly := AbstractRegularPolytopeNC([p,q], relstr);
 	
 	if ValueOption("checkSize") <> false and Size(AutomorphismGroup(poly)) <> 2*p*q then
 		Info(InfoRamp, 1, "The given values of p, q, i, and j do not define a flat orientably regular polyhedron.");
