@@ -17,8 +17,8 @@
 SetPackageInfo( rec(
 	PackageName := "RAMP",
 	Subtitle := "The Research Assistant for Maniplexes and Polytopes",
-	Version := "0.5",
-	Date := "21/07/2021",
+	Version := "0.63",
+	Date := "15/03/2021",
 
 ## Optional: license of the package, as an SPDX short-form identifiers;
 ## see <https://spdx.org/ids> for an explanation what an SPDX ID is, and
@@ -27,8 +27,7 @@ SetPackageInfo( rec(
 ## see <https://spdx.org/ids-how>, and more.
 License := "GPL-2.0-or-later",
 
-PackageWWWHome :=
-  Concatenation( "https://gap-packages.github.io/", LowercaseString( ~.PackageName ) ),
+PackageWWWHome := "https://github.com/SupposeNot/RAMP",
 
 ##  Optional:
 ##    - Type and the URL of the source code repository
@@ -49,7 +48,7 @@ PackageWWWHome :=
 
 SourceRepository := rec(
     Type := "git",
-    URL := Concatenation( "https://github.com/gap-packages/", LowercaseString( ~.PackageName ) ),
+    URL := "https://github.com/SupposeNot/RAMP",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 SupportEmail := "gabriel.cunningham@umb.edu",
@@ -63,7 +62,7 @@ SupportEmail := "gabriel.cunningham@umb.edu",
 ##  example/init.g, ...    or example-3.3/init.g, ...  )
 # 
 ArchiveURL := Concatenation( ~.SourceRepository.URL,
-                                 "/releases/download/v", ~.Version,
+                                "/releases/download/v", ~.Version,
                                  "/", ~.PackageName, "-", ~.Version ),
 
 ##  All provided formats as list of file extensions, separated by white
