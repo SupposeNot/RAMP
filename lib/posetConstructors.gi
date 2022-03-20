@@ -50,11 +50,11 @@ InstallMethod(PosetFromAtomicList,
 	[IsList],
 	function(list)
 	local els, newList, tempList, intersections, poset;
-	newList:=list;
+	newList:=List(list,Set);
 	tempList:=[];
 	while Length(newList)<>Length(tempList) do
 		tempList:=newList;
-		intersections:=List(Cartesian(newList,newList),x->Intersection(x[1],x[2]));
+		intersections:=List(Cartesian(newList,newList),x->Set(Intersection(x[1],x[2])));
 		newList:=Union(newList,intersections);
 		od;
 	Add(newList,Union(newList));
