@@ -50,7 +50,7 @@ InstallMethod(PosetFromAtomicList,
 	[IsList],
 	function(list)
 	local els, newList, tempList, intersections, poset;
-	newList:=List(list,Set);
+	newList:=Set(list,Set);
 	tempList:=[];
 	while Length(newList)<>Length(tempList) do
 		tempList:=newList;
