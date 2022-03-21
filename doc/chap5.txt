@@ -225,7 +225,38 @@
   
   [1X5.3 [33X[0;0YFlag orbits[133X[101X
   
-  [1X5.3-1 SymmetryTypeGraph[101X
+  [1X5.3-1 Flags[101X
+  
+  [33X[1;0Y[29X[2XFlags[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YThe list of flags of the maniplex [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlags(Pgon(5));[127X[104X
+    [4X[28X[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ][128X[104X
+    [4X[25Xgap>[125X [27XM := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;[127X[104X
+    [4X[25Xgap>[125X [27XFlags(M);[127X[104X
+    [4X[28X[ 3, 4, 5, 6, 7, 8, 9, 10 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-2 BaseFlag[101X
+  
+  [33X[1;0Y[29X[2XBaseFlag[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsObject[133X
+  
+  [33X[0;0YThe  base flag of the maniplex [3XM[103X. By default, when the set of flags is a set
+  of positive integers, the base flag is the minimum of the set of flags.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XBaseFlag(Cube(3));[127X[104X
+    [4X[28X1[128X[104X
+    [4X[25Xgap>[125X [27XM := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;[127X[104X
+    [4X[25Xgap>[125X [27XBaseFlag(M);[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-3 SymmetryTypeGraph[101X
   
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
   
@@ -237,7 +268,7 @@
     [4X[28XEdge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X5.3-2 NumberOfFlagOrbits[101X
+  [1X5.3-4 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -248,7 +279,7 @@
     [4X[28X4[128X[104X
   [4X[32X[104X
   
-  [1X5.3-3 FlagOrbitRepresentatives[101X
+  [1X5.3-5 FlagOrbitRepresentatives[101X
   
   [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
   
@@ -259,7 +290,7 @@
     [4X[28X[ 1, 49, 97, 145 ][128X[104X
   [4X[32X[104X
   
-  [1X5.3-4 FlagOrbitsStabilizer[101X
+  [1X5.3-6 FlagOrbitsStabilizer[101X
   
   [33X[1;0Y[29X[2XFlagOrbitsStabilizer[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Yg[133X
@@ -278,7 +309,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-5 IsReflexible[101X
+  [1X5.3-7 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
@@ -288,7 +319,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-6 IsChiral[101X
+  [1X5.3-8 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chrial.[133X
@@ -298,7 +329,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-7 IsRotary[101X
+  [1X5.3-9 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
@@ -309,7 +340,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-8 FlagOrbits[101X
+  [1X5.3-10 FlagOrbits[101X
   
   [33X[1;0Y[29X[2XFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -406,8 +437,8 @@
   the action of the automorphism group on the vertices is faithful.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.5-2 IsFacetFaithful[101X
@@ -419,10 +450,10 @@
   the action of the automorphism group on the facets is faithful.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.5-3 MaxVertexFaithfulQuotient[101X
@@ -433,10 +464,10 @@
   [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
-    [4X[28Xreflexible 3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
-    [4X[28X[ 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ 3, 2 ][128X[104X
   [4X[32X[104X
   
   [1X5.5-4 SatisfiesWeakPathIntersectionProperty[101X

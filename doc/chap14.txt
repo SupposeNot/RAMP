@@ -58,6 +58,11 @@
   [33X[0;0YReturns  a  new  permutation  obtained  from  [3Xperm[103X by adding k to each moved
   point.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTranslatePerm((1,2,3,4),5);[127X[104X
+    [4X[28X(6,7,8,9)[128X[104X
+  [4X[32X[104X
+  
   [1X14.3-2 MultPerm[101X
   
   [33X[1;0Y[29X[2XMultPerm[102X( [3Xperm[103X, [3Xmultiplier[103X, [3Xoffset[103X ) [32X function[133X
@@ -65,7 +70,27 @@
   [33X[0;0YMultiplies  together  perm, TranslatePerm(perm, offset), TranslatePerm(perm,
   offset*2), ..., with [3Xmultiplier[103X terms, and returns the result.[133X
   
-  [1X14.3-3 PermFromRange[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMultPerm((1,2,3)(4,5,6),3,7);[127X[104X
+    [4X[28X(1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)[128X[104X
+    [4X[25Xgap>[125X [27XMultPerm((1,2,3,4),2,4);[127X[104X
+    [4X[28X(1,2,3,4)(5,6,7,8)[128X[104X
+  [4X[32X[104X
+  
+  [1X14.3-3 InvolutionListList[101X
+  
+  [33X[1;0Y[29X[2XInvolutionListList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Yinvolution[133X
+  
+  [33X[0;0YConstruction     the     involution    (when    possible)    with    entries
+  [10X(list1[i],list2[i])[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XInvolutionListList([3,4,5],[6,7,8]);[127X[104X
+    [4X[28X(3,6)(4,7)(5,8)[128X[104X
+  [4X[32X[104X
+  
+  [1X14.3-4 PermFromRange[101X
   
   [33X[1;0Y[29X[2XPermFromRange[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YPermutation[133X

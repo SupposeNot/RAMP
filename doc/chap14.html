@@ -39,7 +39,8 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7CDF25897D4DBE57">14.3-1 TranslatePerm</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X83788BBF7EF52486">14.3-2 MultPerm</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X85D36D93795A336D">14.3-3 PermFromRange</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X789F611179773CEA">14.3-3 InvolutionListList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X85D36D93795A336D">14.3-4 PermFromRange</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14.html#X8375E2157FA5BA5B">14.4 <span class="Heading">Words on relations</span></a>
 </span>
@@ -112,6 +113,12 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TranslatePerm</code>( <var class="Arg">perm</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns a new permutation obtained from <var class="Arg">perm</var> by adding k to each moved point.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TranslatePerm((1,2,3,4),5);</span>
+(6,7,8,9)
+</pre></div>
+
 <p><a id="X83788BBF7EF52486" name="X83788BBF7EF52486"></a></p>
 
 <h5>14.3-2 MultPerm</h5>
@@ -119,9 +126,32 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MultPerm</code>( <var class="Arg">perm</var>, <var class="Arg">multiplier</var>, <var class="Arg">offset</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MultPerm((1,2,3)(4,5,6),3,7);</span>
+(1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MultPerm((1,2,3,4),2,4);</span>
+(1,2,3,4)(5,6,7,8)
+</pre></div>
+
+<p><a id="X789F611179773CEA" name="X789F611179773CEA"></a></p>
+
+<h5>14.3-3 InvolutionListList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolutionListList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: involution</p>
+
+<p>Construction the involution (when possible) with entries <code class="code">(list1[i],list2[i])</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutionListList([3,4,5],[6,7,8]);</span>
+(3,6)(4,7)(5,8)
+</pre></div>
+
 <p><a id="X85D36D93795A336D" name="X85D36D93795A336D"></a></p>
 
-<h5>14.3-3 PermFromRange</h5>
+<h5>14.3-4 PermFromRange</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermFromRange</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: Permutation</p>

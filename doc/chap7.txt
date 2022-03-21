@@ -128,6 +128,21 @@
     [4X[25Xgap>[125X [27XList(Faces(poset),AtomList);[127X[104X
     [4X[28X[ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], [128X[104X
     [4X[28X  [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ][128X[104X
+    [4X[25Xgap>[125X [27Xml:=["abc","abd","acd","bcd"];;[127X[104X
+    [4X[25Xgap>[125X [27Xp:=PosetFromAtomicList(ml);;[127X[104X
+    [4X[25Xgap>[125X [27XList(Flags(p),x->List(x,AtomList));[127X[104X
+    [4X[28X[ [ [  ], "a", "ab", "abc", "abcd" ], [ [  ], "a", "ab", "abd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "a", "ac", "abc", "abcd" ], [ [  ], "a", "ac", "acd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "a", "ad", "abd", "abcd" ], [ [  ], "a", "ad", "acd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "b", "ab", "abc", "abcd" ], [ [  ], "b", "ab", "abd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "b", "bc", "abc", "abcd" ], [ [  ], "b", "bc", "bcd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "b", "bd", "abd", "abcd" ], [ [  ], "b", "bd", "bcd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "c", "ac", "abc", "abcd" ], [ [  ], "c", "ac", "acd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "c", "bc", "abc", "abcd" ], [ [  ], "c", "bc", "bcd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "c", "cd", "acd", "abcd" ], [ [  ], "c", "cd", "bcd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "d", "ad", "abd", "abcd" ], [ [  ], "d", "ad", "acd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "d", "bd", "abd", "abcd" ], [ [  ], "d", "bd", "bcd", "abcd" ], [128X[104X
+    [4X[28X  [ [  ], "d", "cd", "acd", "abcd" ], [ [  ], "d", "cd", "bcd", "abcd" ] ][128X[104X
   [4X[32X[104X
   
   [1X7.1-6 PosetFromElements[101X

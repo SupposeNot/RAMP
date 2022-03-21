@@ -120,6 +120,21 @@ gap> poset:=PosetFromAtomicList(list);;
 gap> List(Faces(poset),AtomList);
 [ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
   [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
+gap> ml:=["abc","abd","acd","bcd"];;
+gap> p:=PosetFromAtomicList(ml);;
+gap> List(Flags(p),x->List(x,AtomList));
+[ [ [  ], "a", "ab", "abc", "abcd" ], [ [  ], "a", "ab", "abd", "abcd" ], 
+  [ [  ], "a", "ac", "abc", "abcd" ], [ [  ], "a", "ac", "acd", "abcd" ], 
+  [ [  ], "a", "ad", "abd", "abcd" ], [ [  ], "a", "ad", "acd", "abcd" ], 
+  [ [  ], "b", "ab", "abc", "abcd" ], [ [  ], "b", "ab", "abd", "abcd" ], 
+  [ [  ], "b", "bc", "abc", "abcd" ], [ [  ], "b", "bc", "bcd", "abcd" ], 
+  [ [  ], "b", "bd", "abd", "abcd" ], [ [  ], "b", "bd", "bcd", "abcd" ], 
+  [ [  ], "c", "ac", "abc", "abcd" ], [ [  ], "c", "ac", "acd", "abcd" ], 
+  [ [  ], "c", "bc", "abc", "abcd" ], [ [  ], "c", "bc", "bcd", "abcd" ], 
+  [ [  ], "c", "cd", "acd", "abcd" ], [ [  ], "c", "cd", "bcd", "abcd" ], 
+  [ [  ], "d", "ad", "abd", "abcd" ], [ [  ], "d", "ad", "acd", "abcd" ], 
+  [ [  ], "d", "bd", "abd", "abcd" ], [ [  ], "d", "bd", "bcd", "abcd" ], 
+  [ [  ], "d", "cd", "acd", "abcd" ], [ [  ], "d", "cd", "bcd", "abcd" ] ]
 ]]></Example>
 
 

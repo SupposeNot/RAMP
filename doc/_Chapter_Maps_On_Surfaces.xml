@@ -118,7 +118,7 @@ gap> Bk2lStar(5,7);
 <Heading>Operations on reflexible maps</Heading>
 
 <ManSection>
-  <Oper Arg="map" Name="Opp" Label="for IsManiplex"/>
+  <Oper Arg="map" Name="Opp" Label="for IsMapOnSurface"/>
  <Returns>IsManiplex
 </Returns>
  <Description>
@@ -134,7 +134,7 @@ Petrial(Dual(Petrial(3-maniplex with 140 flags)))
 
 
 <ManSection>
-  <Oper Arg="map, j" Name="Hole" Label="for IsManiplex,IsInt"/>
+  <Oper Arg="map, j" Name="Hole" Label="for IsMapOnSurface,IsInt"/>
  <Returns>IsManiplex
 </Returns>
  <Description>

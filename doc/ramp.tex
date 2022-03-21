@@ -1603,9 +1603,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. The second form returns the universal reflexible
@@ -1613,10 +1613,10 @@ maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the opti
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
 \end{Verbatim}
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
@@ -1640,12 +1640,12 @@ that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -1667,15 +1667,15 @@ that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -2285,8 +2285,55 @@ IsBool
 {
   
 
-\subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Flags (for IsManiplex)}}
 \logpage{[ 5, 3, 1 ]}\nobreak
+\hyperdef{L}{X874B016C792074D0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Flags({\mdseries\slshape M})\index{Flags@\texttt{Flags}!for IsManiplex}
+\label{Flags:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+IsList 
+
+
+
+ The list of flags of the maniplex \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Flags(Pgon(5));|
+  [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+  !gapprompt@gap>| !gapinput@M := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;|
+  !gapprompt@gap>| !gapinput@Flags(M);|
+  [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{BaseFlag (for IsManiplex)}}
+\logpage{[ 5, 3, 2 ]}\nobreak
+\hyperdef{L}{X7F5C8C7E82073034}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BaseFlag({\mdseries\slshape M})\index{BaseFlag@\texttt{BaseFlag}!for IsManiplex}
+\label{BaseFlag:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+IsObject 
+
+
+
+ The base flag of the maniplex \mbox{\texttt{\mdseries\slshape M}}. By default, when the set of flags is a set of positive integers, the base
+flag is the minimum of the set of flags. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@BaseFlag(Cube(3));|
+  1
+  !gapprompt@gap>| !gapinput@M := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;|
+  !gapprompt@gap>| !gapinput@BaseFlag(M);|
+  3
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsManiplex)}}
+\logpage{[ 5, 3, 3 ]}\nobreak
 \hyperdef{L}{X856ED1E7866152A0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SymmetryTypeGraph({\mdseries\slshape M})\index{SymmetryTypeGraph@\texttt{SymmetryTypeGraph}!for IsManiplex}
 \label{SymmetryTypeGraph:for IsManiplex}
@@ -2303,7 +2350,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsManiplex)}}
-\logpage{[ 5, 3, 2 ]}\nobreak
+\logpage{[ 5, 3, 4 ]}\nobreak
 \hyperdef{L}{X78060E3A788D2D3C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFlagOrbits({\mdseries\slshape M})\index{NumberOfFlagOrbits@\texttt{NumberOfFlagOrbits}!for IsManiplex}
 \label{NumberOfFlagOrbits:for IsManiplex}
@@ -2320,7 +2367,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitRepresentatives (for IsManiplex)}}
-\logpage{[ 5, 3, 3 ]}\nobreak
+\logpage{[ 5, 3, 5 ]}\nobreak
 \hyperdef{L}{X852C679D8338AB53}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitRepresentatives({\mdseries\slshape M})\index{FlagOrbitRepresentatives@\texttt{FlagOrbitRepresentatives}!for IsManiplex}
 \label{FlagOrbitRepresentatives:for IsManiplex}
@@ -2337,7 +2384,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitsStabilizer (for IsManiplex)}}
-\logpage{[ 5, 3, 4 ]}\nobreak
+\logpage{[ 5, 3, 6 ]}\nobreak
 \hyperdef{L}{X81C0D5667D83EB88}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitsStabilizer({\mdseries\slshape M})\index{FlagOrbitsStabilizer@\texttt{FlagOrbitsStabilizer}!for IsManiplex}
 \label{FlagOrbitsStabilizer:for IsManiplex}
@@ -2364,7 +2411,7 @@ under the action of the automorphism group. }
  
 
 \subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
-\logpage{[ 5, 3, 5 ]}\nobreak
+\logpage{[ 5, 3, 7 ]}\nobreak
 \hyperdef{L}{X7E4E689F86171C78}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsManiplex}
 \label{IsReflexible:for IsManiplex}
@@ -2386,7 +2433,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
  
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsManiplex)}}
-\logpage{[ 5, 3, 6 ]}\nobreak
+\logpage{[ 5, 3, 8 ]}\nobreak
 \hyperdef{L}{X7D74CD997C7FF39D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChiral({\mdseries\slshape M})\index{IsChiral@\texttt{IsChiral}!for IsManiplex}
 \label{IsChiral:for IsManiplex}
@@ -2408,7 +2455,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is chrial.
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
-\logpage{[ 5, 3, 7 ]}\nobreak
+\logpage{[ 5, 3, 9 ]}\nobreak
 \hyperdef{L}{X7DACFE5483893523}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsManiplex}
 \label{IsRotary:for IsManiplex}
@@ -2430,7 +2477,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
 \subsection{\textcolor{Chapter }{FlagOrbits (for IsManiplex)}}
-\logpage{[ 5, 3, 8 ]}\nobreak
+\logpage{[ 5, 3, 10 ]}\nobreak
 \hyperdef{L}{X7B29BD1C87239567}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbits({\mdseries\slshape M})\index{FlagOrbits@\texttt{FlagOrbits}!for IsManiplex}
 \label{FlagOrbits:for IsManiplex}
@@ -2592,7 +2639,7 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
@@ -2613,9 +2660,9 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
@@ -2635,9 +2682,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -3049,6 +3096,21 @@ faces). }
   !gapprompt@gap>| !gapinput@List(Faces(poset),AtomList);|
   [ [  ], [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 4 ], [ 1, 3 ], [ 1, 3, 4 ], [ 1, 4 ], [ 2 ], [ 2, 3 ], 
     [ 2, 3, 4 ], [ 2, 4 ], [ 3 ], [ 3, 4 ], [ 4 ], [ 1 .. 4 ] ]
+  !gapprompt@gap>| !gapinput@ml:=["abc","abd","acd","bcd"];;|
+  !gapprompt@gap>| !gapinput@p:=PosetFromAtomicList(ml);;|
+  !gapprompt@gap>| !gapinput@List(Flags(p),x->List(x,AtomList));|
+  [ [ [  ], "a", "ab", "abc", "abcd" ], [ [  ], "a", "ab", "abd", "abcd" ], 
+    [ [  ], "a", "ac", "abc", "abcd" ], [ [  ], "a", "ac", "acd", "abcd" ], 
+    [ [  ], "a", "ad", "abd", "abcd" ], [ [  ], "a", "ad", "acd", "abcd" ], 
+    [ [  ], "b", "ab", "abc", "abcd" ], [ [  ], "b", "ab", "abd", "abcd" ], 
+    [ [  ], "b", "bc", "abc", "abcd" ], [ [  ], "b", "bc", "bcd", "abcd" ], 
+    [ [  ], "b", "bd", "abd", "abcd" ], [ [  ], "b", "bd", "bcd", "abcd" ], 
+    [ [  ], "c", "ac", "abc", "abcd" ], [ [  ], "c", "ac", "acd", "abcd" ], 
+    [ [  ], "c", "bc", "abc", "abcd" ], [ [  ], "c", "bc", "bcd", "abcd" ], 
+    [ [  ], "c", "cd", "acd", "abcd" ], [ [  ], "c", "cd", "bcd", "abcd" ], 
+    [ [  ], "d", "ad", "abd", "abcd" ], [ [  ], "d", "ad", "acd", "abcd" ], 
+    [ [  ], "d", "bd", "abd", "abcd" ], [ [  ], "d", "bd", "bcd", "abcd" ], 
+    [ [  ], "d", "cd", "acd", "abcd" ], [ [  ], "d", "cd", "bcd", "abcd" ] ]
 \end{Verbatim}
  
 
@@ -6801,11 +6863,11 @@ IsManiplex
 {
   
 
-\subsection{\textcolor{Chapter }{Opp (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Opp (for IsMapOnSurface)}}
 \logpage{[ 13, 2, 1 ]}\nobreak
-\hyperdef{L}{X7838C8F4843AD598}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Opp({\mdseries\slshape map})\index{Opp@\texttt{Opp}!for IsManiplex}
-\label{Opp:for IsManiplex}
+\hyperdef{L}{X788A29017AE71302}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Opp({\mdseries\slshape map})\index{Opp@\texttt{Opp}!for IsMapOnSurface}
+\label{Opp:for IsMapOnSurface}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsManiplex 
@@ -6821,11 +6883,11 @@ IsManiplex
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Hole (for IsManiplex,IsInt)}}
+\subsection{\textcolor{Chapter }{Hole (for IsMapOnSurface,IsInt)}}
 \logpage{[ 13, 2, 2 ]}\nobreak
-\hyperdef{L}{X80DBA6CD87866B0C}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hole({\mdseries\slshape map, j})\index{Hole@\texttt{Hole}!for IsManiplex,IsInt}
-\label{Hole:for IsManiplex,IsInt}
+\hyperdef{L}{X835627037B606BA9}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hole({\mdseries\slshape map, j})\index{Hole@\texttt{Hole}!for IsMapOnSurface,IsInt}
+\label{Hole:for IsMapOnSurface,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsManiplex 
@@ -7642,6 +7704,11 @@ Use \texttt{AbstractRotaryPolytopeNC} to assume that the output is polytopal and
  Returns a new permutation obtained from \mbox{\texttt{\mdseries\slshape perm}} by adding k to each moved point. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@TranslatePerm((1,2,3,4),5);|
+  (6,7,8,9)
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{MultPerm}}
 \logpage{[ 14, 3, 2 ]}\nobreak
@@ -7655,9 +7722,36 @@ Use \texttt{AbstractRotaryPolytopeNC} to assume that the output is polytopal and
 offset*2), ..., with \mbox{\texttt{\mdseries\slshape multiplier}} terms, and returns the result. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@MultPerm((1,2,3)(4,5,6),3,7);|
+  (1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)
+  !gapprompt@gap>| !gapinput@MultPerm((1,2,3,4),2,4);|
+  (1,2,3,4)(5,6,7,8)
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{InvolutionListList}}
+\logpage{[ 14, 3, 3 ]}\nobreak
+\hyperdef{L}{X789F611179773CEA}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InvolutionListList({\mdseries\slshape list1, list2})\index{InvolutionListList@\texttt{InvolutionListList}}
+\label{InvolutionListList}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+involution 
+
+
+
+ Construction the involution (when possible) with entries \texttt{(list1[i],list2[i])}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@InvolutionListList([3,4,5],[6,7,8]);|
+  (3,6)(4,7)(5,8)
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{PermFromRange}}
-\logpage{[ 14, 3, 3 ]}\nobreak
+\logpage{[ 14, 3, 4 ]}\nobreak
 \hyperdef{L}{X85D36D93795A336D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PermFromRange({\mdseries\slshape perm1, perm2})\index{PermFromRange@\texttt{PermFromRange}}
 \label{PermFromRange}
