@@ -590,3 +590,43 @@ InstallGlobalFunction(SRP,
 	od;
 	return L;
 	end);
+
+#! @Arguments I, sizerange
+#! @Returns IsList
+#! @Description Gives all two-orbit 3-maniplexes in class $2_I$ with sizes in <A>sizerange</A> flags.
+#! Currently supports a `maxsize` of 1000 or less.
+InstallGlobalFunction(SmallTwoOrbit3Maniplexes,
+	function(class, sizerange)
+	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex, filename, attributeNames, attributes;
+
+	if class = [0] then
+		filename := "Rank3AG_2_0.txt";
+	else
+		Error("No data available for that class");
+	fi;
+
+	databaseFile := InputTextFile(Filename(RampPath, filename));
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	maniplexes := [];
+	
+	attributeNames := SplitString(ReadLine(databaseFile), ",");
+	attributes := List(attributeNames, EvalString);
+	maniplexString := ReadLine(databaseFile);
+	repeat
+		maniplex := ManiplexFromDatabaseString(maniplexString, attributes);
+		SetSchlafliSymbol(maniplex, PseudoSchlafliSymbol(maniplex));
+		if Size(maniplex) > maxsize then
+			break;
+		elif Size(maniplex) >= minsize then
+			Add(maniplexes, maniplex);
+		fi;
+		maniplexString := ReadLine(databaseFile);
+	until IsEndOfStream(databaseFile);
+
+	CloseStream(databaseFile);
+	
+	return maniplexes;
+	end);
