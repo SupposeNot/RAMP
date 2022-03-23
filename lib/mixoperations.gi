@@ -48,11 +48,7 @@ InstallMethod(Mix,
 	return Group(gensnew);
 	end);
 
-InstallMethod(Mix,
-	[IsManiplex, IsManiplex],
-	function(p,q)
-	return ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
-	end);
+
 
 InstallMethod(Comix,
 	[IsFpGroup, IsFpGroup],
@@ -123,3 +119,12 @@ InstallMethod(FlagMix,
 	end);
 
 
+
+InstallMethod(Mix,
+	[IsManiplex, IsManiplex],
+	function(p,q)
+	if IsReflexible(p) and IsReflexible(q) then
+	return ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
+	else return FlagMix(p,q);
+	fi;
+	end);
