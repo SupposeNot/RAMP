@@ -21,14 +21,22 @@ DeclareOperation("Mix", [IsPermGroup, IsPermGroup]);
 #! @EndExampleSession
 
 #! @Arguments fpgroup, fpgroup
-#! Returns the Mix of two Finitely Presented groups gp and gq.
+#! @Returns the Mix of two Finitely Presented groups gp and gq.
 DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 
 
 #! @Arguments maniplex, maniplex
+#! @Returns `IsManiplex `. 
+#! @Description Given two maniplexes p, q this returns the maniplex of their  
+#! "flag" mix 
+DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
+
+
+
+
+#! @Arguments maniplex,  maniplex
 #! @Returns `IsReflexibleManiplex `. 
-#! @Description Given maniplexes returns the IsReflexibleManiplex from the mix of their connection groups
-# DeclareOperation("Mix", [IsReflexibleManiplex, IsReflexibleManiplex]);
+#! @Description Given two manpilexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups.  In general, it returns the flag mix.
 
 DeclareOperation("Mix", [IsManiplex, IsManiplex]);
 
@@ -72,11 +80,6 @@ DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
 #! @EndExampleSession
 #! @EndGroup
 
-#! @Arguments permgroup, permgroup
-#! @Returns `IsManiplex `. 
-#! @Description Given two (permutation) groups gp, gq this returns the maniplex of the 
-#! "flag" mix of two maniplexes with connection groups gp and gq.
-DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
 
 
 
