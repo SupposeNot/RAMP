@@ -735,7 +735,9 @@ if s = "Sage" or s = "sage" or s = "SAGE" then
  ans:=Concatenation(ans,String(A[j]));
  ans:=Concatenation(ans,",");
  od;
+ if Size(A) > 0 then
  ans:=Concatenation(ans,String(A[Size(A)]));
+ fi;
  ans:=Concatenation(ans,"],");
  od;
  ans:=Concatenation(ans,String(verts[Size(verts)]));
@@ -745,7 +747,9 @@ if s = "Sage" or s = "sage" or s = "SAGE" then
  ans:=Concatenation(ans,String(A[j]));
  ans:=Concatenation(ans,",");
  od;
+ if Size(A) > 0 then
  ans:=Concatenation(ans,String(A[Size(A)]));
+ fi;
  ans:=Concatenation(ans,"]})");
  Print( "Sage Code:  Follow by P= G.plot();  P.show() \n" );
  Print(ans);
@@ -760,7 +764,7 @@ return;
 elif s = "Mathematica" or s = "mathematica" or s = "MATHEMATICA" then
 ans:= "GraphPlot3D[{";
 verts:=Vertices(g);
-eds:=UndirectedEdges(g);
+eds:=UndirectedEdges(UnderlyingGraph(g));
 for i in [1..Size(eds)-1] do
 if Size(eds[i]) =2 then
 ans:=Concatenation(ans, String( eds[i][1]), " ->",  String(eds[i][2]),   " ,");
