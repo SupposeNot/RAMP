@@ -213,6 +213,25 @@ InstallMethod(EdgeLabeledGraphFromEdges,
 	end);
 
 
+
+
+
+
+
+
+InstallMethod(EdgeLabeledGraphFromLabeledEdges,
+[IsList],
+function(L)
+local vert, ed, lab;
+ed:=ShallowCopy(L);
+lab:=ShallowCopy(L);
+Apply(ed, i -> i[1]);
+Apply(lab, i -> i[2]);
+vert:=Set(Flat(ed));
+return EdgeLabeledGraphFromEdges(vert,ed,lab);
+end); 
+
+
 InstallMethod( ViewObj,
 	[IsEdgeLabeledGraph],
 	function(p)
@@ -798,7 +817,6 @@ return ViewGraph(g,"Mathematica");
 end);
 
 
-
 InstallMethod(ConnectionGroup,
 	[IsEdgeLabeledGraph],
 	function(F)
@@ -816,4 +834,8 @@ InstallMethod(ConnectionGroup,
 	od;
 	return Group(gens);
 	end);
+
+
+
+
 
