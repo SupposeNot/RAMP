@@ -271,6 +271,20 @@ DeclareOperation("EdgeLabeledGraphFromEdges",[IsList, IsList,IsList]);
 #! @EndExampleSession
 
 
+
+
+
+#! @Arguments list
+#! @Returns `IsEdgeLabeledGraph`. 
+#! @Description Given a list of labeled edges this represents the edge labeled (multi)-graph with those parameters.   Semi-edges are represented by a singleton in the edge list.  
+DeclareOperation("EdgeLabeledGraphFromLabeledEdges",[IsList]);
+#! @BeginExampleSession
+#! L:=[[[1],0],[[2],0],  [ [1,2],1]];;
+#! X2:=EdgeLabeledGraphFromLabeledEdges(L);
+#! @EndExampleSession
+
+
+
 #! @Arguments group
 #! @Returns `IsEdgeLabeledGraph`. 
 #! @Description Given group, assumed to be a connection group, output the labeled flag graph.  The input could also be a maniplex, then the connection group is calculated.
@@ -417,12 +431,10 @@ DeclareOperation("ViewGraph",[IsEdgeLabeledGraph, IsString]);
 DeclareOperation("ViewGraph",[IsObject, IsString]);
 
 
+
 #! @Arguments F
 #! @Returns `IsPermGroup`
 #! @Description Constructs the connection group from an edge labeled graph.
 #! Loops, semi-edges, and non-edges give fixed points.
 #! Graph is assumed to be coming from a maniplex.  Some weird things could happen if it is not
 DeclareAttribute("ConnectionGroup", IsEdgeLabeledGraph);
-
-
-
