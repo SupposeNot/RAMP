@@ -98,8 +98,8 @@
 {\Huge \textbf{ The Research Assistant for Maniplexes and Polytopes \mbox{}}}\\
 \vfill
 
-{\Huge  0.5 \mbox{}}\\[1cm]
-{ 21 July 2021 \mbox{}}\\[1cm]
+{\Huge  0.63 \mbox{}}\\[1cm]
+{ 15 March 2021 \mbox{}}\\[1cm]
 \mbox{}\\[2cm]
 {\Large \textbf{ Gabe Cunningham\\
     \mbox{}}}\\
@@ -1737,9 +1737,9 @@ base. See AddAttrComputer for more information. }
 \hyperdef{L}{X7EE6BE9E7BB852DC}{}
 {
   
-\subsection{\textcolor{Chapter }{Mix of maniplexes}}\label{Mix}
+\subsection{\textcolor{Chapter }{Comix}}\label{Mix}
 \logpage{[ 4, 2, 1 ]}
-\hyperdef{L}{X855F9FB584E2A1E2}{}
+\hyperdef{L}{X86B6B5DB7850FCA9}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape permgroup, permgroup})\index{Mix@\texttt{Mix}!for IsPermGroup, IsPermGroup}
 \label{Mix:for IsPermGroup, IsPermGroup}
@@ -1747,8 +1747,11 @@ base. See AddAttrComputer for more information. }
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape fpgroup, fpgroup})\index{Mix@\texttt{Mix}!for IsFpGroup, IsFpGroup}
 \label{Mix:for IsFpGroup, IsFpGroup}
 }\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape maniplex, maniplex})\index{Mix@\texttt{Mix}!for IsReflexibleManiplex, IsReflexibleManiplex}
-\label{Mix:for IsReflexibleManiplex, IsReflexibleManiplex}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagMix({\mdseries\slshape maniplex, maniplex})\index{FlagMix@\texttt{FlagMix}!for IsManiplex, IsManiplex}
+\label{FlagMix:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape fpgroup, fpgroup})\index{Comix@\texttt{Comix}!for IsFpGroup, IsFpGroup}
+\label{Comix:for IsFpGroup, IsFpGroup}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsGroup }. 
@@ -1756,9 +1759,13 @@ base. See AddAttrComputer for more information. }
 
 
  Given two (permutation) groups returns the mix of those groups. Note, also
-works with FPgroups. Returns the Mix of two Finitely Presented groups gp and
-gq. Given maniplexes returns the IsReflexibleManiplex from the mix of their
-connection groups }
+works with FPgroups. 
+
+ Given two maniplexes p, q this returns the maniplex of their "flag" mix Given
+two manpilexes, returns their mix. For two reflexible maniplexes returns the
+IsReflexibleManiplex from the mix of their connection groups. In general, it
+returns the flag mix. Returns the comix of two Finitely Presented groups gp
+and gq. }
 
  Here we build the mix of the connection groups of a 3-cube and an edge. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -1770,14 +1777,12 @@ connection groups }
   <permutation group with 3 generators>
 \end{Verbatim}
  
-\subsection{\textcolor{Chapter }{Comix}}\label{AutoDoc_generated_group2}
-\logpage{[ 4, 2, 2 ]}
-\hyperdef{L}{X86B6B5DB7850FCA9}{}
-{
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape fpgroup, fpgroup})\index{Comix@\texttt{Comix}!for IsFpGroup, IsFpGroup}
-\label{Comix:for IsFpGroup, IsFpGroup}
-}\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape maniplex, maniplex})\index{Comix@\texttt{Comix}!for IsReflexibleManiplex, IsReflexibleManiplex}
+
+\subsection{\textcolor{Chapter }{Comix (for IsReflexibleManiplex, IsReflexibleManiplex)}}
+\logpage{[ 4, 2, 2 ]}\nobreak
+\label{AutoDoc_generated_group2}
+\hyperdef{L}{X8287C9F684CA66F5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape maniplex, maniplex})\index{Comix@\texttt{Comix}!for IsReflexibleManiplex, IsReflexibleManiplex}
 \label{Comix:for IsReflexibleManiplex, IsReflexibleManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -1785,8 +1790,8 @@ connection groups }
 
 
 
- Returns the comix of two Finitely Presented groups gp and gq. Given maniplexes
-returns the IsReflexibleManiplex from the comix of their connection groups }
+ Given maniplexes returns the IsReflexibleManiplex from the comix of their
+connection groups }
 
  
 \subsection{\textcolor{Chapter }{Indexed array tools}}\label{AutoDoc_generated_group3}
@@ -1816,22 +1821,6 @@ Functions are inverses. }
   !gapprompt@gap>| !gapinput@LtoC(8,5,4);|
   [ 3, 2 ]
 \end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{FlagMix (for IsManiplex, IsManiplex)}}
-\logpage{[ 4, 2, 4 ]}\nobreak
-\hyperdef{L}{X853A36497F3AF41E}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagMix({\mdseries\slshape permgroup, permgroup})\index{FlagMix@\texttt{FlagMix}!for IsManiplex, IsManiplex}
-\label{FlagMix:for IsManiplex, IsManiplex}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-\texttt{IsManiplex }. 
-
-
-
- Given two (permutation) groups gp, gq this returns the maniplex of the "flag"
-mix of two maniplexes with connection groups gp and gq. }
-
  }
 
  
@@ -6503,6 +6492,27 @@ this function is here as a proof-of-concept. }
   [ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
   !gapprompt@gap>| !gapinput@SRP(1,32,p->SchlafliSymbol(p)[1], 4);|
   [ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{SmallTwoOrbit3Maniplexes}}
+\logpage{[ 11, 1, 13 ]}\nobreak
+\hyperdef{L}{X7D30D2C37BD1B341}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallTwoOrbit3Maniplexes({\mdseries\slshape I, sizerange})\index{SmallTwoOrbit3Maniplexes@\texttt{SmallTwoOrbit3Maniplexes}}
+\label{SmallTwoOrbit3Maniplexes}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+IsList 
+
+
+
+ Gives all two-orbit 3-maniplexes in class $2_I$ with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a \texttt{maxsize} of 1000 or less. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@L := SmallTwoOrbit3Maniplexes([0], 100);|
+  [ TwoOrbit3ManiplexClass2_0([ 10, 4 ], "  r0*a21*a101*a21^-1, r0*a21^-1*a101*r0*a101*a21 "),
+   TwoOrbit3ManiplexClass2_0([ 14, 3 ], "  r0*a21*a101*a21^-1, r0*a101*a21*(a101*r0)^2*a21^-1 ") ]
 \end{Verbatim}
  }
 
