@@ -797,3 +797,23 @@ function(g)
 return ViewGraph(g,"Mathematica");
 end);
 
+
+
+InstallMethod(ConnectionGroup,
+	[IsEdgeLabeledGraph],
+	function(F)
+	local rank, gens, i, labed, ed;
+	rank:=Size(Set(Labels(F)));
+	gens:=[];
+	for i in [1..rank] do
+	gens[i]:=();
+	od;
+	labed:=LabeledEdges(F);
+	for ed in labed do
+	if Size(ed[1]) = 2 and (ed[1][1] < ed[1][2]) then
+		gens[ed[2]+1]:=gens[ed[2]+1]*( ed[1][1] , ed[1][2]);
+	fi;
+	od;
+	return Group(gens);
+	end);
+
