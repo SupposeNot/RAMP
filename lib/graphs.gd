@@ -417,3 +417,12 @@ DeclareOperation("ViewGraph",[IsEdgeLabeledGraph, IsString]);
 DeclareOperation("ViewGraph",[IsObject, IsString]);
 
 
+#! @Arguments F
+#! @Returns `IsPermGroup`
+#! @Description Constructs the connection group from an edge labeled graph.
+#! Loops, semi-edges, and non-edges give fixed points.
+#! Graph is assumed to be coming from a maniplex.  Some weird things could happen if it is not
+DeclareAttribute("ConnectionGroup", IsEdgeLabeledGraph);
+
+
+
