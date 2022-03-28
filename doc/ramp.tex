@@ -558,8 +558,31 @@ which case \texttt{AutomorphismGroup(M)} is used for g. }
 
  
 
-\subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
+\subsection{\textcolor{Chapter }{IsRelationOfReflexibleManiplex (for IsManiplex, IsString)}}
 \logpage{[ 2, 2, 9 ]}\nobreak
+\hyperdef{L}{X8390184C789CC336}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRelationOfReflexibleManiplex({\mdseries\slshape M, rel})\index{IsRelationOfReflexibleManiplex@\texttt{IsRelationOfReflexibleManiplex}!for IsManiplex, IsString}
+\label{IsRelationOfReflexibleManiplex:for IsManiplex, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsBool 
+
+
+
+ Determines whether the relation given by the string \mbox{\texttt{\mdseries\slshape rel}} holds in \texttt{AutomorphismGroup(M)}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;|
+  !gapprompt@gap>| !gapinput@IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^3");|
+  false
+  !gapprompt@gap>| !gapinput@IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^12");|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
+\logpage{[ 2, 2, 10 ]}\nobreak
 \hyperdef{L}{X87C1FF7481A1D9B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SggiFamily({\mdseries\slshape parent, words})\index{SggiFamily@\texttt{SggiFamily}!for IsGroup, IsList}
 \label{SggiFamily:for IsGroup, IsList}
@@ -588,7 +611,7 @@ quickly. }
  
 
 \subsection{\textcolor{Chapter }{IsCConnected (for IsManiplex)}}
-\logpage{[ 2, 2, 10 ]}\nobreak
+\logpage{[ 2, 2, 11 ]}\nobreak
 \hyperdef{L}{X786B2C407A3E9EBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCConnected({\mdseries\slshape m})\index{IsCConnected@\texttt{IsCConnected}!for IsManiplex}
 \label{IsCConnected:for IsManiplex}
@@ -1603,9 +1626,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. The second form returns the universal reflexible
@@ -1613,10 +1636,10 @@ maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the opti
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
 \end{Verbatim}
  If the option set{\textunderscore}schlafli is set, then we set the Schlafli
 symbol to the one given. This may not be the correct Schlafli symbol, since
@@ -1640,12 +1663,12 @@ that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -1667,15 +1690,15 @@ that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -1716,8 +1739,23 @@ base. See AddAttrComputer for more information. }
 
  
 
-\subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{Maniplex (for IsEdgeLabeledGraph)}}
 \logpage{[ 4, 1, 6 ]}\nobreak
+\hyperdef{L}{X866AC7457DA8E2AC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsEdgeLabeledGraph}
+\label{Maniplex:for IsEdgeLabeledGraph}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsManiplex} 
+
+
+
+ Constructs the maniplex from its flag graph \mbox{\texttt{\mdseries\slshape F}}. This assumes that F actually defines a maniplex. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
+\logpage{[ 4, 1, 7 ]}\nobreak
 \hyperdef{L}{X79DD94037E0FACD4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
 \label{IsPolytopal:for IsManiplex}
@@ -2628,7 +2666,7 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
@@ -2649,9 +2687,9 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
@@ -2671,9 +2709,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -5922,8 +5960,30 @@ in labels 0,1.
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{FlagGraph (for IsGroup)}}
+\subsection{\textcolor{Chapter }{EdgeLabeledGraphFromLabeledEdges (for IsList)}}
 \logpage{[ 10, 1, 11 ]}\nobreak
+\hyperdef{L}{X83DD0B547D5DDE35}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EdgeLabeledGraphFromLabeledEdges({\mdseries\slshape list})\index{EdgeLabeledGraphFromLabeledEdges@\texttt{EdgeLabeledGraphFromLabeledEdges}!for IsList}
+\label{EdgeLabeledGraphFromLabeledEdges:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsEdgeLabeledGraph}. 
+
+
+
+ Given a list of labeled edges this represents the edge labeled (multi)-graph
+with those parameters. Semi-edges are represented by a singleton in the edge
+list. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  L:=[[[1],0],[[2],0],  [ [1,2],1]];;
+  X2:=EdgeLabeledGraphFromLabeledEdges(L);
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{FlagGraph (for IsGroup)}}
+\logpage{[ 10, 1, 12 ]}\nobreak
 \hyperdef{L}{X7A958E7C821DD8F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagGraph({\mdseries\slshape group})\index{FlagGraph@\texttt{FlagGraph}!for IsGroup}
 \label{FlagGraph:for IsGroup}
@@ -5944,7 +6004,7 @@ The input could also be a maniplex, then the connection group is calculated. }
  
 
 \subsection{\textcolor{Chapter }{UnlabeledSimpleGraph (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 1, 12 ]}\nobreak
+\logpage{[ 10, 1, 13 ]}\nobreak
 \hyperdef{L}{X82A8C3AD871EC6D7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UnlabeledSimpleGraph({\mdseries\slshape edge-labeled-graph})\index{UnlabeledSimpleGraph@\texttt{UnlabeledSimpleGraph}!for IsEdgeLabeledGraph}
 \label{UnlabeledSimpleGraph:for IsEdgeLabeledGraph}
@@ -5964,7 +6024,7 @@ with semi-edges, loops, and muliple-edges removed. }
  
 
 \subsection{\textcolor{Chapter }{EdgeLabelPreservingAutomorphismGroup (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 1, 13 ]}\nobreak
+\logpage{[ 10, 1, 14 ]}\nobreak
 \hyperdef{L}{X84263C6C81AB458C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EdgeLabelPreservingAutomorphismGroup({\mdseries\slshape edge-labeled-graph})\index{EdgeLabelPreservingAutomorphismGroup@\texttt{Edge}\-\texttt{Label}\-\texttt{Preserving}\-\texttt{Automorphism}\-\texttt{Group}!for IsEdgeLabeledGraph}
 \label{EdgeLabelPreservingAutomorphismGroup:for IsEdgeLabeledGraph}
@@ -5988,7 +6048,7 @@ faster to compute. }
  
 
 \subsection{\textcolor{Chapter }{Simple (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 1, 14 ]}\nobreak
+\logpage{[ 10, 1, 15 ]}\nobreak
 \hyperdef{L}{X7D7BF5608431FED8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Simple({\mdseries\slshape edge-labeled-graph})\index{Simple@\texttt{Simple}!for IsEdgeLabeledGraph}
 \label{Simple:for IsEdgeLabeledGraph}
@@ -6005,7 +6065,7 @@ edge label is retained if there are multiple edges. }
  
 
 \subsection{\textcolor{Chapter }{ConnectedComponents (for IsEdgeLabeledGraph, IsList)}}
-\logpage{[ 10, 1, 15 ]}\nobreak
+\logpage{[ 10, 1, 16 ]}\nobreak
 \hyperdef{L}{X8159C96B8757873F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectedComponents({\mdseries\slshape edge-labeled-graph})\index{ConnectedComponents@\texttt{ConnectedComponents}!for IsEdgeLabeledGraph, IsList}
 \label{ConnectedComponents:for IsEdgeLabeledGraph, IsList}
@@ -6028,7 +6088,7 @@ has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.
  
 
 \subsection{\textcolor{Chapter }{PRGraph (for IsGroup)}}
-\logpage{[ 10, 1, 16 ]}\nobreak
+\logpage{[ 10, 1, 17 ]}\nobreak
 \hyperdef{L}{X7A53CE8B820FD6A1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PRGraph({\mdseries\slshape group})\index{PRGraph@\texttt{PRGraph}!for IsGroup}
 \label{PRGraph:for IsGroup}
@@ -6054,7 +6114,7 @@ vertices).
  
 
 \subsection{\textcolor{Chapter }{CPRGraphFromGroups (for IsGroup,IsGroup)}}
-\logpage{[ 10, 1, 17 ]}\nobreak
+\logpage{[ 10, 1, 18 ]}\nobreak
 \hyperdef{L}{X85BBB22F8196DC0B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CPRGraphFromGroups({\mdseries\slshape group, subgroup})\index{CPRGraphFromGroups@\texttt{CPRGraphFromGroups}!for IsGroup,IsGroup}
 \label{CPRGraphFromGroups:for IsGroup,IsGroup}
@@ -6070,7 +6130,7 @@ group on cosets of the subgroup. }
  
 
 \subsection{\textcolor{Chapter }{AdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}
-\logpage{[ 10, 1, 18 ]}\nobreak
+\logpage{[ 10, 1, 19 ]}\nobreak
 \hyperdef{L}{X7E52D3CB7A84139A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentVertices({\mdseries\slshape EdgeLabeledGraph, vertex})\index{AdjacentVertices@\texttt{AdjacentVertices}!for IsEdgeLabeledGraph, IsObject}
 \label{AdjacentVertices:for IsEdgeLabeledGraph, IsObject}
@@ -6086,7 +6146,7 @@ adjacent vertices. }
  
 
 \subsection{\textcolor{Chapter }{LabeledAdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}
-\logpage{[ 10, 1, 19 ]}\nobreak
+\logpage{[ 10, 1, 20 ]}\nobreak
 \hyperdef{L}{X78BAE96984A79ACD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledAdjacentVertices({\mdseries\slshape EdgeLabeledGraph, vertex})\index{LabeledAdjacentVertices@\texttt{LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject}
 \label{LabeledAdjacentVertices:for IsEdgeLabeledGraph, IsObject}
@@ -6102,7 +6162,7 @@ of adjacent vertices, and the labels of the corresponding edges. }
  
 
 \subsection{\textcolor{Chapter }{SemiEdges (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 1, 20 ]}\nobreak
+\logpage{[ 10, 1, 21 ]}\nobreak
 \hyperdef{L}{X791A59B97A44470F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{SemiEdges@\texttt{SemiEdges}!for IsEdgeLabeledGraph}
 \label{SemiEdges:for IsEdgeLabeledGraph}
@@ -6117,7 +6177,7 @@ of adjacent vertices, and the labels of the corresponding edges. }
  
 
 \subsection{\textcolor{Chapter }{LabeledSemiEdges (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 1, 21 ]}\nobreak
+\logpage{[ 10, 1, 22 ]}\nobreak
 \hyperdef{L}{X82490C307F022606}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledSemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{LabeledSemiEdges@\texttt{LabeledSemiEdges}!for IsEdgeLabeledGraph}
 \label{LabeledSemiEdges:for IsEdgeLabeledGraph}
@@ -6133,7 +6193,7 @@ and their labels }
  
 
 \subsection{\textcolor{Chapter }{LabeledDarts (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 1, 22 ]}\nobreak
+\logpage{[ 10, 1, 23 ]}\nobreak
 \hyperdef{L}{X811C8FB3842D6D2E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape EdgeLabeledGraph})\index{LabeledDarts@\texttt{LabeledDarts}!for IsEdgeLabeledGraph}
 \label{LabeledDarts:for IsEdgeLabeledGraph}
@@ -6148,7 +6208,7 @@ and their labels }
  
 
 \subsection{\textcolor{Chapter }{DerivedGraph (for IsList,IsList,IsList)}}
-\logpage{[ 10, 1, 23 ]}\nobreak
+\logpage{[ 10, 1, 24 ]}\nobreak
 \hyperdef{L}{X8529379678912775}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DerivedGraph({\mdseries\slshape list, list, list})\index{DerivedGraph@\texttt{DerivedGraph}!for IsList,IsList,IsList}
 \label{DerivedGraph:for IsList,IsList,IsList}
@@ -6178,7 +6238,7 @@ an input }
  
 
 \subsection{\textcolor{Chapter }{ViewGraph (for IsEdgeLabeledGraph, IsString)}}
-\logpage{[ 10, 1, 24 ]}\nobreak
+\logpage{[ 10, 1, 25 ]}\nobreak
 \hyperdef{L}{X7FF9E3FC7DD66BA4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape EdgeLabeledGraph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsEdgeLabeledGraph, IsString}
 \label{ViewGraph:for IsEdgeLabeledGraph, IsString}
@@ -6194,7 +6254,7 @@ software. Currently mathematica and sage are supported. }
  
 
 \subsection{\textcolor{Chapter }{ViewGraph (for IsObject, IsString)}}
-\logpage{[ 10, 1, 25 ]}\nobreak
+\logpage{[ 10, 1, 26 ]}\nobreak
 \hyperdef{L}{X83990BFD7D887A02}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape Graph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsObject, IsString}
 \label{ViewGraph:for IsObject, IsString}
@@ -6206,6 +6266,23 @@ software. Currently mathematica and sage are supported. }
 
  This takes a graph and outputs code to view the graph in other software.
 Currently mathematica and sage are supported. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ConnectionGroup (for IsEdgeLabeledGraph)}}
+\logpage{[ 10, 1, 27 ]}\nobreak
+\hyperdef{L}{X8147A743805AD49D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroup({\mdseries\slshape F})\index{ConnectionGroup@\texttt{ConnectionGroup}!for IsEdgeLabeledGraph}
+\label{ConnectionGroup:for IsEdgeLabeledGraph}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsPermGroup} 
+
+
+
+ Constructs the connection group from an edge labeled graph. Loops, semi-edges,
+and non-edges give fixed points. Graph is assumed to be coming from a
+maniplex. Some weird things could happen if it is not }
 
  }
 

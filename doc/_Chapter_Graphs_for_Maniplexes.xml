@@ -307,6 +307,22 @@ gamma:=EdgeLabeledGraphFromEdges(V,Edges,L);
 
 
 <ManSection>
+  <Oper Arg="list" Name="EdgeLabeledGraphFromLabeledEdges" Label="for IsList"/>
+ <Returns><Code>IsEdgeLabeledGraph</Code>.
+</Returns>
+ <Description>
+Given a list of labeled edges this represents the edge labeled (multi)-graph with those parameters. Semi-edges are represented by a singleton in the edge list.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+L:=[[[1],0],[[2],0],  [ [1,2],1]];;
+X2:=EdgeLabeledGraphFromLabeledEdges(L);
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="group" Name="FlagGraph" Label="for IsGroup"/>
  <Returns><Code>IsEdgeLabeledGraph</Code>.
 </Returns>
@@ -508,6 +524,18 @@ This takes an edge labeled graph and outputs code to view the graph in other sof
  <Description>
 This takes a graph and outputs code to view the graph in other software.
  Currently mathematica and sage are supported.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="F" Name="ConnectionGroup" Label="for IsEdgeLabeledGraph"/>
+ <Returns><Code>IsPermGroup</Code>
+</Returns>
+ <Description>
+Constructs the connection group from an edge labeled graph.
+ Loops, semi-edges, and non-edges give fixed points.
+ Graph is assumed to be coming from a maniplex.  Some weird things could happen if it is not
  </Description>
 </ManSection>
 

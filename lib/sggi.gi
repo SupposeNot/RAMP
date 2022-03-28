@@ -93,6 +93,10 @@ InstallMethod(SggiElement,
 		Error("SggiElement is only defined when g IsSggi.");
 	fi;
 	
+	if str = "" then
+		return Identity(g);
+	fi;
+	
 	w := UniversalSggi(Size(GeneratorsOfGroup(g)));
 	x := ParseStringCRels(str, w)[1];
 	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
@@ -109,6 +113,19 @@ InstallOtherMethod(SggiElement,
 	
 	return SggiElement(AutomorphismGroup(M), str);
 	end);
+
+InstallMethod(IsRelationOfReflexibleManiplex,
+	[IsManiplex, IsString],
+	function(M, rel)
+	local w, x, hom;
+	
+	if not(IsReflexible(M)) then
+		Error("IsRelationOfReflexibleManiplex is only defined for reflexible maniplexes.");
+	fi;
+	
+	return SggiElement(M, rel) = SggiElement(M, "");
+	end);
+	
 	
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
 # free group. So the first time we create one in a given rank, we save it and use it again later.

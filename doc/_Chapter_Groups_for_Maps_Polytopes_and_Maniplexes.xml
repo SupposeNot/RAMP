@@ -301,6 +301,26 @@ gap> SggiElement(g, "r0 r1");
 
 
 <ManSection>
+  <Oper Arg="M, rel" Name="IsRelationOfReflexibleManiplex" Label="for IsManiplex, IsString"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Determines whether the relation given by the string <A>rel</A> holds
+ in <Code>AutomorphismGroup(M)</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> M := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;
+gap> IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^3");
+false
+gap> IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^12");
+true
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="parent, words" Name="SggiFamily" Label="for IsGroup, IsList"/>
  <Description>
 Given a <A>parent</A> group and a list of strings that

@@ -90,6 +90,19 @@ DeclareOperation("IsStringCPlus", [IsGroup]);
 #! of g, in which case `AutomorphismGroup(M)` is used for g.
 DeclareOperation("SggiElement", [IsGroup, IsString]);
 
+#! @Arguments M, rel
+#! @Returns IsBool
+#! @Description Determines whether the relation given by the string <A>rel</A> holds
+#! in `AutomorphismGroup(M)`.
+DeclareOperation("IsRelationOfReflexibleManiplex", [IsManiplex, IsString]);
+#! @BeginExampleSession
+#! gap> M := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;
+#! gap> IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^3");
+#! false
+#! gap> IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^12");
+#! true
+#! @EndExampleSession
+
 #! @Arguments parent, words
 #! @Description Given a <A>parent</A> group and a list of strings that
 #! represent words in r0, r1, etc, returns a function. That function

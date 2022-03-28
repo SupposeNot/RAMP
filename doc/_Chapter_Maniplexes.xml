@@ -130,6 +130,17 @@ Constructs the maniplex from the given poset <A>P</A>.
 
 
 <ManSection>
+  <Oper Arg="P" Name="Maniplex" Label="for IsEdgeLabeledGraph"/>
+ <Returns><Code>IsManiplex</Code>
+</Returns>
+ <Description>
+Constructs the maniplex from its flag graph <A>F</A>.
+ This assumes that F actually defines a maniplex.
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
  <Returns><C>true</C> or <C>false</C>
 </Returns>
