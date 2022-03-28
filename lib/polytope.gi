@@ -174,6 +174,19 @@ InstallMethod(Maniplex,
 	return M;
 	end);
 	
+InstallMethod(Maniplex,
+	[IsEdgeLabeledGraph],
+	function(x)
+	local M,n;
+	n:=Size(Set(Labels(x)));
+	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexFlagGraphRep), rec(fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
+	SetRankManiplex(M, Size(Set(Labels(x))));
+	SetConnectionGroup(M, ConnectionGroup(x));
+	SetSize(M, Size(Vertices(x)));
+	return M;
+	end);
+	
+	
 InstallMethod(Size,
 	[IsManiplex],
 	function(M)
