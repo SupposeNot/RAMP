@@ -108,6 +108,13 @@ DeclareOperation("Maniplex", [IsFunction, IsList]);
 #! This assumes that P actually defines a maniplex.
 DeclareOperation("Maniplex", [IsPoset]);
 
+#! @Arguments P
+#! @Returns `IsManiplex`
+#! @Description Constructs the maniplex from its flag graph <A>F</A>.
+#! This assumes that F actually defines a maniplex.
+DeclareOperation("Maniplex", [IsEdgeLabeledGraph]);
+
+
 #! @Arguments M
 #! @Description Returns whether the maniplex <A>M</A> is polytopal;
 #! i.e., the flag graph of a polytope.
