@@ -341,7 +341,7 @@ AutoDoc := rec(
   TitlePage := rec(
     Copyright := """
       <Index>License</Index>
-      &copyright; 1997-2021 by Gabe Cunningham, Mark Mixer, and Gordon Williams<P/>
+      &copyright; 1997-2022 by Gabe Cunningham, Mark Mixer, and Gordon Williams<P/>
       &RAMP; package is free software;
       you can redistribute it and/or modify it under the terms of the
       <URL Text="GNU General Public License">http://www.fsf.org/licenses/gpl.html</URL>

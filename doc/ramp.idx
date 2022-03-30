@@ -20,8 +20,9 @@
 \indexentry{IsStringC@\texttt  {IsStringC}!for IsGroup|hyperpage}{9}
 \indexentry{IsStringCPlus@\texttt  {IsStringCPlus}!for IsGroup|hyperpage}{10}
 \indexentry{SggiElement@\texttt  {SggiElement}!for IsGroup, IsString|hyperpage}{10}
+\indexentry{IsRelationOfReflexibleManiplex@\texttt  {IsRelationOfReflexibleManiplex}!for IsManiplex, IsString|hyperpage}{10}
 \indexentry{SggiFamily@\texttt  {SggiFamily}!for IsGroup, IsList|hyperpage}{10}
-\indexentry{IsCConnected@\texttt  {IsCConnected}!for IsManiplex|hyperpage}{10}
+\indexentry{IsCConnected@\texttt  {IsCConnected}!for IsManiplex|hyperpage}{11}
 \indexentry{Vertex@\texttt  {Vertex}|hyperpage}{12}
 \indexentry{Edge@\texttt  {Edge}|hyperpage}{12}
 \indexentry{Pgon@\texttt  {Pgon}!for IsInt|hyperpage}{12}
@@ -73,6 +74,7 @@
 \indexentry{Maniplex@\texttt  {Maniplex}!for IsReflexibleManiplex, IsGroup|hyperpage}{23}
 \indexentry{Maniplex@\texttt  {Maniplex}!for IsFunction, IsList|hyperpage}{23}
 \indexentry{Maniplex@\texttt  {Maniplex}!for IsPoset|hyperpage}{23}
+\indexentry{Maniplex@\texttt  {Maniplex}!for IsEdgeLabeledGraph|hyperpage}{24}
 \indexentry{IsPolytopal@\texttt  {IsPolytopal}!for IsManiplex|hyperpage}{24}
 \indexentry{Mix@\texttt  {Mix}!for IsPermGroup, IsPermGroup|hyperpage}{24}
 \indexentry{Mix@\texttt  {Mix}!for IsFpGroup, IsFpGroup|hyperpage}{24}
@@ -277,88 +279,90 @@
 \indexentry{Hasse@\texttt  {Hasse}!for IsManiplex|hyperpage}{73}
 \indexentry{QuotientByLabel@\texttt  {QuotientByLabel}!for IsObject,IsList, IsList, IsList|hyperpage}{74}
 \indexentry{EdgeLabeledGraphFromEdges@\texttt  {EdgeLabeledGraphFromEdges}!for IsList, IsList,IsList|hyperpage}{74}
+\indexentry{EdgeLabeledGraphFromLabeledEdges@\texttt  {EdgeLabeledGraphFromLabeledEdges}!for IsList|hyperpage}{75}
 \indexentry{FlagGraph@\texttt  {FlagGraph}!for IsGroup|hyperpage}{75}
 \indexentry{UnlabeledSimpleGraph@\texttt  {UnlabeledSimpleGraph}!for IsEdgeLabeledGraph|hyperpage}{75}
 \indexentry{EdgeLabelPreservingAutomorphismGroup@\texttt  {Edge}\-\texttt  {Label}\-\texttt  {Preserving}\-\texttt  {Automorphism}\-\texttt  {Group}!for IsEdgeLabeledGraph|hyperpage}{75}
-\indexentry{Simple@\texttt  {Simple}!for IsEdgeLabeledGraph|hyperpage}{75}
-\indexentry{ConnectedComponents@\texttt  {ConnectedComponents}!for IsEdgeLabeledGraph, IsList|hyperpage}{75}
+\indexentry{Simple@\texttt  {Simple}!for IsEdgeLabeledGraph|hyperpage}{76}
+\indexentry{ConnectedComponents@\texttt  {ConnectedComponents}!for IsEdgeLabeledGraph, IsList|hyperpage}{76}
 \indexentry{PRGraph@\texttt  {PRGraph}!for IsGroup|hyperpage}{76}
 \indexentry{CPRGraphFromGroups@\texttt  {CPRGraphFromGroups}!for IsGroup,IsGroup|hyperpage}{76}
 \indexentry{AdjacentVertices@\texttt  {AdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{76}
-\indexentry{LabeledAdjacentVertices@\texttt  {LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{76}
-\indexentry{SemiEdges@\texttt  {SemiEdges}!for IsEdgeLabeledGraph|hyperpage}{76}
+\indexentry{LabeledAdjacentVertices@\texttt  {LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{77}
+\indexentry{SemiEdges@\texttt  {SemiEdges}!for IsEdgeLabeledGraph|hyperpage}{77}
 \indexentry{LabeledSemiEdges@\texttt  {LabeledSemiEdges}!for IsEdgeLabeledGraph|hyperpage}{77}
 \indexentry{LabeledDarts@\texttt  {LabeledDarts}!for IsEdgeLabeledGraph|hyperpage}{77}
 \indexentry{DerivedGraph@\texttt  {DerivedGraph}!for IsList,IsList,IsList|hyperpage}{77}
 \indexentry{ViewGraph@\texttt  {ViewGraph}!for IsEdgeLabeledGraph, IsString|hyperpage}{77}
-\indexentry{ViewGraph@\texttt  {ViewGraph}!for IsObject, IsString|hyperpage}{77}
-\indexentry{DegeneratePolyhedra@\texttt  {DegeneratePolyhedra}|hyperpage}{78}
-\indexentry{FlatRegularPolyhedra@\texttt  {FlatRegularPolyhedra}|hyperpage}{78}
-\indexentry{RegularToroidalPolyhedra44@\texttt  {RegularToroidalPolyhedra44}|hyperpage}{79}
-\indexentry{RegularToroidalPolyhedra36@\texttt  {RegularToroidalPolyhedra36}|hyperpage}{79}
-\indexentry{SmallRegularPolyhedraFromFile@\texttt  {SmallRegularPolyhedraFromFile}|hyperpage}{79}
-\indexentry{SmallRegularPolyhedra@\texttt  {SmallRegularPolyhedra}|hyperpage}{79}
-\indexentry{SmallDegenerateRegular4Polytopes@\texttt  {SmallDegenerateRegular4Polytopes}|hyperpage}{80}
-\indexentry{SmallRegular4Polytopes@\texttt  {SmallRegular4Polytopes}|hyperpage}{80}
-\indexentry{SmallChiralPolyhedra@\texttt  {SmallChiralPolyhedra}|hyperpage}{80}
-\indexentry{SmallChiral4Polytopes@\texttt  {SmallChiral4Polytopes}|hyperpage}{80}
-\indexentry{SmallReflexible3Maniplexes@\texttt  {SmallReflexible3Maniplexes}|hyperpage}{81}
-\indexentry{SRP@\texttt  {SRP}|hyperpage}{81}
-\indexentry{SmallTwoOrbit3Maniplexes@\texttt  {SmallTwoOrbit3Maniplexes}|hyperpage}{81}
-\indexentry{DatabaseString@\texttt  {DatabaseString}!for IsManiplex|hyperpage}{81}
-\indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{81}
-\indexentry{ChunkMultiply@\texttt  {ChunkMultiply}!for IsList,IsList|hyperpage}{82}
-\indexentry{ChunkPower@\texttt  {ChunkPower}!for IsList,IsInt|hyperpage}{82}
-\indexentry{ChunkGeneratedGroupElements@\texttt  {ChunkGeneratedGroupElements}!for IsList, IsGroup|hyperpage}{82}
-\indexentry{ChunkGeneratedGroup@\texttt  {ChunkGeneratedGroup}!for IsList, IsPermGroup|hyperpage}{83}
-\indexentry{FullyStratifiedGroup@\texttt  {FullyStratifiedGroup}!for IsList, IsGroup|hyperpage}{83}
-\indexentry{Epsilonk@\texttt  {Epsilonk}!for IsInt|hyperpage}{85}
-\indexentry{Deltak@\texttt  {Deltak}!for IsInt|hyperpage}{85}
-\indexentry{Mk@\texttt  {Mk}!for IsInt|hyperpage}{85}
-\indexentry{MkPrime@\texttt  {MkPrime}!for IsInt|hyperpage}{86}
-\indexentry{Bk2l@\texttt  {Bk2l}!for IsInt,IsInt|hyperpage}{86}
-\indexentry{Bk2lStar@\texttt  {Bk2lStar}!for IsInt,IsInt|hyperpage}{86}
-\indexentry{Opp@\texttt  {Opp}!for IsMapOnSurface|hyperpage}{86}
-\indexentry{Hole@\texttt  {Hole}!for IsMapOnSurface,IsInt|hyperpage}{87}
-\indexentry{Truncation@\texttt  {Truncation}!for IsMapOnSurface|hyperpage}{87}
-\indexentry{Snub@\texttt  {Snub}!for IsMapOnSurface|hyperpage}{87}
-\indexentry{Chamfer@\texttt  {Chamfer}!for IsMapOnSurface|hyperpage}{88}
-\indexentry{Subdivision1@\texttt  {Subdivision1}!for IsMapOnSurface|hyperpage}{88}
-\indexentry{Subdivision2@\texttt  {Subdivision2}!for IsMapOnSurface|hyperpage}{88}
-\indexentry{BarycentricSubdivision@\texttt  {BarycentricSubdivision}!for IsMapOnSurface|hyperpage}{88}
-\indexentry{Leapfrog@\texttt  {Leapfrog}!for IsMapOnSurface|hyperpage}{89}
-\indexentry{CombinatorialMap@\texttt  {CombinatorialMap}!for IsMapOnSurface|hyperpage}{89}
-\indexentry{Angle@\texttt  {Angle}!for IsMapOnSurface|hyperpage}{89}
-\indexentry{Gothic@\texttt  {Gothic}!for IsMapOnSurface|hyperpage}{89}
-\indexentry{Reflection@\texttt  {Reflection}!for IsManiplex|hyperpage}{90}
-\indexentry{Kis@\texttt  {Kis}!for IsMapOnSurface|hyperpage}{90}
-\indexentry{Needle@\texttt  {Needle}!for IsMapOnSurface|hyperpage}{91}
-\indexentry{Zip@\texttt  {Zip}!for IsMapOnSurface|hyperpage}{91}
-\indexentry{Ortho@\texttt  {Ortho}!for IsMapOnSurface|hyperpage}{91}
-\indexentry{Expand@\texttt  {Expand}!for IsMapOnSurface|hyperpage}{91}
-\indexentry{Gyro@\texttt  {Gyro}!for IsMapOnSurface|hyperpage}{91}
-\indexentry{Meta@\texttt  {Meta}!for IsMapOnSurface|hyperpage}{92}
-\indexentry{Bevel@\texttt  {Bevel}!for IsMapOnSurface|hyperpage}{92}
-\indexentry{Subdivide@\texttt  {Subdivide}!for IsMapOnSurface|hyperpage}{92}
-\indexentry{Propeller@\texttt  {Propeller}!for IsMapOnSurface|hyperpage}{92}
-\indexentry{Loft@\texttt  {Loft}!for IsMapOnSurface|hyperpage}{93}
-\indexentry{Quinto@\texttt  {Quinto}!for IsMapOnSurface|hyperpage}{93}
-\indexentry{JoinLace@\texttt  {JoinLace}!for IsMapOnSurface|hyperpage}{93}
-\indexentry{Lace@\texttt  {Lace}!for IsMapOnSurface|hyperpage}{93}
-\indexentry{Stake@\texttt  {Stake}!for IsMapOnSurface|hyperpage}{93}
-\indexentry{Whirl@\texttt  {Whirl}!for IsMapOnSurface|hyperpage}{94}
-\indexentry{Volute@\texttt  {Volute}!for IsMapOnSurface|hyperpage}{94}
-\indexentry{JoinKisKis@\texttt  {JoinKisKis}!for IsMapOnSurface|hyperpage}{94}
-\indexentry{Cross@\texttt  {Cross}!for IsMapOnSurface|hyperpage}{94}
-\indexentry{InfoRamp@\texttt  {InfoRamp}|hyperpage}{95}
-\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{95}
-\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{95}
-\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{96}
-\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{96}
-\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{96}
-\indexentry{InvolutionListList@\texttt  {InvolutionListList}|hyperpage}{96}
-\indexentry{PermFromRange@\texttt  {PermFromRange}|hyperpage}{96}
-\indexentry{ParseStringCRels@\texttt  {ParseStringCRels}|hyperpage}{97}
-\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{97}
-\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{97}
-\indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{98}
+\indexentry{ViewGraph@\texttt  {ViewGraph}!for IsObject, IsString|hyperpage}{78}
+\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsEdgeLabeledGraph|hyperpage}{78}
+\indexentry{DegeneratePolyhedra@\texttt  {DegeneratePolyhedra}|hyperpage}{79}
+\indexentry{FlatRegularPolyhedra@\texttt  {FlatRegularPolyhedra}|hyperpage}{79}
+\indexentry{RegularToroidalPolyhedra44@\texttt  {RegularToroidalPolyhedra44}|hyperpage}{80}
+\indexentry{RegularToroidalPolyhedra36@\texttt  {RegularToroidalPolyhedra36}|hyperpage}{80}
+\indexentry{SmallRegularPolyhedraFromFile@\texttt  {SmallRegularPolyhedraFromFile}|hyperpage}{80}
+\indexentry{SmallRegularPolyhedra@\texttt  {SmallRegularPolyhedra}|hyperpage}{80}
+\indexentry{SmallDegenerateRegular4Polytopes@\texttt  {SmallDegenerateRegular4Polytopes}|hyperpage}{81}
+\indexentry{SmallRegular4Polytopes@\texttt  {SmallRegular4Polytopes}|hyperpage}{81}
+\indexentry{SmallChiralPolyhedra@\texttt  {SmallChiralPolyhedra}|hyperpage}{81}
+\indexentry{SmallChiral4Polytopes@\texttt  {SmallChiral4Polytopes}|hyperpage}{81}
+\indexentry{SmallReflexible3Maniplexes@\texttt  {SmallReflexible3Maniplexes}|hyperpage}{82}
+\indexentry{SRP@\texttt  {SRP}|hyperpage}{82}
+\indexentry{SmallTwoOrbit3Maniplexes@\texttt  {SmallTwoOrbit3Maniplexes}|hyperpage}{82}
+\indexentry{DatabaseString@\texttt  {DatabaseString}!for IsManiplex|hyperpage}{82}
+\indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{82}
+\indexentry{ChunkMultiply@\texttt  {ChunkMultiply}!for IsList,IsList|hyperpage}{83}
+\indexentry{ChunkPower@\texttt  {ChunkPower}!for IsList,IsInt|hyperpage}{83}
+\indexentry{ChunkGeneratedGroupElements@\texttt  {ChunkGeneratedGroupElements}!for IsList, IsGroup|hyperpage}{83}
+\indexentry{ChunkGeneratedGroup@\texttt  {ChunkGeneratedGroup}!for IsList, IsPermGroup|hyperpage}{84}
+\indexentry{FullyStratifiedGroup@\texttt  {FullyStratifiedGroup}!for IsList, IsGroup|hyperpage}{84}
+\indexentry{Epsilonk@\texttt  {Epsilonk}!for IsInt|hyperpage}{86}
+\indexentry{Deltak@\texttt  {Deltak}!for IsInt|hyperpage}{86}
+\indexentry{Mk@\texttt  {Mk}!for IsInt|hyperpage}{86}
+\indexentry{MkPrime@\texttt  {MkPrime}!for IsInt|hyperpage}{87}
+\indexentry{Bk2l@\texttt  {Bk2l}!for IsInt,IsInt|hyperpage}{87}
+\indexentry{Bk2lStar@\texttt  {Bk2lStar}!for IsInt,IsInt|hyperpage}{87}
+\indexentry{Opp@\texttt  {Opp}!for IsMapOnSurface|hyperpage}{87}
+\indexentry{Hole@\texttt  {Hole}!for IsMapOnSurface,IsInt|hyperpage}{88}
+\indexentry{Truncation@\texttt  {Truncation}!for IsMapOnSurface|hyperpage}{88}
+\indexentry{Snub@\texttt  {Snub}!for IsMapOnSurface|hyperpage}{88}
+\indexentry{Chamfer@\texttt  {Chamfer}!for IsMapOnSurface|hyperpage}{89}
+\indexentry{Subdivision1@\texttt  {Subdivision1}!for IsMapOnSurface|hyperpage}{89}
+\indexentry{Subdivision2@\texttt  {Subdivision2}!for IsMapOnSurface|hyperpage}{89}
+\indexentry{BarycentricSubdivision@\texttt  {BarycentricSubdivision}!for IsMapOnSurface|hyperpage}{89}
+\indexentry{Leapfrog@\texttt  {Leapfrog}!for IsMapOnSurface|hyperpage}{90}
+\indexentry{CombinatorialMap@\texttt  {CombinatorialMap}!for IsMapOnSurface|hyperpage}{90}
+\indexentry{Angle@\texttt  {Angle}!for IsMapOnSurface|hyperpage}{90}
+\indexentry{Gothic@\texttt  {Gothic}!for IsMapOnSurface|hyperpage}{90}
+\indexentry{Reflection@\texttt  {Reflection}!for IsManiplex|hyperpage}{91}
+\indexentry{Kis@\texttt  {Kis}!for IsMapOnSurface|hyperpage}{91}
+\indexentry{Needle@\texttt  {Needle}!for IsMapOnSurface|hyperpage}{92}
+\indexentry{Zip@\texttt  {Zip}!for IsMapOnSurface|hyperpage}{92}
+\indexentry{Ortho@\texttt  {Ortho}!for IsMapOnSurface|hyperpage}{92}
+\indexentry{Expand@\texttt  {Expand}!for IsMapOnSurface|hyperpage}{92}
+\indexentry{Gyro@\texttt  {Gyro}!for IsMapOnSurface|hyperpage}{92}
+\indexentry{Meta@\texttt  {Meta}!for IsMapOnSurface|hyperpage}{93}
+\indexentry{Bevel@\texttt  {Bevel}!for IsMapOnSurface|hyperpage}{93}
+\indexentry{Subdivide@\texttt  {Subdivide}!for IsMapOnSurface|hyperpage}{93}
+\indexentry{Propeller@\texttt  {Propeller}!for IsMapOnSurface|hyperpage}{93}
+\indexentry{Loft@\texttt  {Loft}!for IsMapOnSurface|hyperpage}{94}
+\indexentry{Quinto@\texttt  {Quinto}!for IsMapOnSurface|hyperpage}{94}
+\indexentry{JoinLace@\texttt  {JoinLace}!for IsMapOnSurface|hyperpage}{94}
+\indexentry{Lace@\texttt  {Lace}!for IsMapOnSurface|hyperpage}{94}
+\indexentry{Stake@\texttt  {Stake}!for IsMapOnSurface|hyperpage}{94}
+\indexentry{Whirl@\texttt  {Whirl}!for IsMapOnSurface|hyperpage}{95}
+\indexentry{Volute@\texttt  {Volute}!for IsMapOnSurface|hyperpage}{95}
+\indexentry{JoinKisKis@\texttt  {JoinKisKis}!for IsMapOnSurface|hyperpage}{95}
+\indexentry{Cross@\texttt  {Cross}!for IsMapOnSurface|hyperpage}{95}
+\indexentry{InfoRamp@\texttt  {InfoRamp}|hyperpage}{96}
+\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{96}
+\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{96}
+\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{97}
+\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{97}
+\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{97}
+\indexentry{InvolutionListList@\texttt  {InvolutionListList}|hyperpage}{97}
+\indexentry{PermFromRange@\texttt  {PermFromRange}|hyperpage}{97}
+\indexentry{ParseStringCRels@\texttt  {ParseStringCRels}|hyperpage}{98}
+\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{98}
+\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{98}
+\indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{99}

@@ -80,7 +80,7 @@ DeclareProperty("IsReflexible", IsManiplex);
 #! @EndExampleSession
 
 #! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is chrial.
+#! @Returns Whether the maniplex <A>M</A> is chiral.
 DeclareProperty("IsChiral", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsChiral(ToroidalMap44([2,3]));
