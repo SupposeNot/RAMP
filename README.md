@@ -6,4 +6,4 @@ You will need to install the RAMP folder in your GAP package directory to use th
 features is available through the GAP help system after you have run `LoadPackage("ramp");`.
 We recommend adding this command to the end of your `gaprc` file.
 
-The easiest way to access the full documentation once you have loaded RAMP is to type `?ramp:copyright` into GAP.
+The easiest way to access the full documentation once you have loaded RAMP is to type `?ramp:title` into GAP.
