@@ -232,7 +232,24 @@
   [33X[0;0YFor  convenience, you can also use a reflexible maniplex M in place of g, in
   which case [10XAutomorphismGroup(M)[110X is used for g.[133X
   
-  [1X2.2-9 IsRelationOfReflexibleManiplex[101X
+  [1X2.2-9 SimplifiedSggiElement[101X
+  
+  [33X[1;0Y[29X[2XSimplifiedSggiElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ythe element of [3Xg[103X with underlying word [3Xstr[103X, in a reduced form.[133X
+  
+  [33X[0;0YThis  acts  like  SggiElement, except that the word is in reduced form. Note
+  that  this  is  accomplished  by calling SetReducedMultiplication on g. As a
+  result,  further  computations  with  g  may  be  substantially  slower. For
+  convenience,  you  can  also  use  a reflexible maniplex M in place of g, in
+  which case [10XAutomorphismGroup(M)[110X is used for g.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(Cube(3));;[127X[104X
+    [4X[25Xgap>[125X [27XSimiplifiedSggiElement(g, "(r0 r1)^5");[127X[104X
+    [4X[28Xr0*r1[128X[104X
+  [4X[32X[104X
+  
+  [1X2.2-10 IsRelationOfReflexibleManiplex[101X
   
   [33X[1;0Y[29X[2XIsRelationOfReflexibleManiplex[102X( [3XM[103X, [3Xrel[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsBool[133X
@@ -248,7 +265,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X2.2-10 SggiFamily[101X
+  [1X2.2-11 SggiFamily[101X
   
   [33X[1;0Y[29X[2XSggiFamily[102X( [3Xparent[103X, [3Xwords[103X ) [32X operation[133X
   
@@ -274,7 +291,7 @@
   member  of  the  family  is  a  quotient of another member can be done quite
   quickly.[133X
   
-  [1X2.2-11 IsCConnected[101X
+  [1X2.2-12 IsCConnected[101X
   
   [33X[1;0Y[29X[2XIsCConnected[102X( [3Xm[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YIsBool[133X

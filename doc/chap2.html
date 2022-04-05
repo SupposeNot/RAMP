@@ -48,9 +48,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X835FA8527E2442F4">2.2-6 IsStringC</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8445AFAB7CF3F319">2.2-7 IsStringCPlus</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X815ADF0A7B5A456A">2.2-8 SggiElement</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8390184C789CC336">2.2-9 IsRelationOfReflexibleManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X87C1FF7481A1D9B2">2.2-10 SggiFamily</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X786B2C407A3E9EBB">2.2-11 IsCConnected</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X78DC846B7C44FFE6">2.2-9 SimplifiedSggiElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8390184C789CC336">2.2-10 IsRelationOfReflexibleManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X87C1FF7481A1D9B2">2.2-11 SggiFamily</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X786B2C407A3E9EBB">2.2-12 IsCConnected</a></span>
 </div></div>
 </div>
 
@@ -292,9 +293,25 @@ true
 
 <p>For convenience, you can also use a reflexible maniplex M in place of g, in which case <code class="code">AutomorphismGroup(M)</code> is used for g.</p>
 
+<p><a id="X78DC846B7C44FFE6" name="X78DC846B7C44FFE6"></a></p>
+
+<h5>2.2-9 SimplifiedSggiElement</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SimplifiedSggiElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: the element of <var class="Arg">g</var> with underlying word <var class="Arg">str</var>, in a reduced form.</p>
+
+<p>This acts like SggiElement, except that the word is in reduced form. Note that this is accomplished by calling SetReducedMultiplication on g. As a result, further computations with g may be substantially slower. For convenience, you can also use a reflexible maniplex M in place of g, in which case <code class="code">AutomorphismGroup(M)</code> is used for g.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(Cube(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SimiplifiedSggiElement(g, "(r0 r1)^5");</span>
+r0*r1
+</pre></div>
+
 <p><a id="X8390184C789CC336" name="X8390184C789CC336"></a></p>
 
-<h5>2.2-9 IsRelationOfReflexibleManiplex</h5>
+<h5>2.2-10 IsRelationOfReflexibleManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRelationOfReflexibleManiplex</code>( <var class="Arg">M</var>, <var class="Arg">rel</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>
@@ -312,7 +329,7 @@ true
 
 <p><a id="X87C1FF7481A1D9B2" name="X87C1FF7481A1D9B2"></a></p>
 
-<h5>2.2-10 SggiFamily</h5>
+<h5>2.2-11 SggiFamily</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SggiFamily</code>( <var class="Arg">parent</var>, <var class="Arg">words</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a <var class="Arg">parent</var> group and a list of strings that represent words in r0, r1, etc, returns a function. That function accepts a list of positive integers L, and returns the quotient of <var class="Arg">parent</var> by the relations that set the order of each <var class="Arg">words[i]</var> to L[i].</p>
@@ -335,7 +352,7 @@ true
 
 <p><a id="X786B2C407A3E9EBB" name="X786B2C407A3E9EBB"></a></p>
 
-<h5>2.2-11 IsCConnected</h5>
+<h5>2.2-12 IsCConnected</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCConnected</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>

@@ -301,6 +301,27 @@ gap> SggiElement(g, "r0 r1");
 
 
 <ManSection>
+  <Oper Arg="g, str" Name="SimplifiedSggiElement" Label="for IsGroup, IsString"/>
+ <Returns>the element of <A>g</A> with underlying word <A>str</A>, in a reduced form.
+</Returns>
+ <Description>
+This acts like SggiElement, except that the word is in reduced form.
+ Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
+ further computations with g may be substantially slower.
+ For convenience, you can also use a reflexible maniplex M in place
+ of g, in which case <Code>AutomorphismGroup(M)</Code> is used for g.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> g := AutomorphismGroup(Cube(3));;
+gap> SimiplifiedSggiElement(g, "(r0 r1)^5");
+r0*r1
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="M, rel" Name="IsRelationOfReflexibleManiplex" Label="for IsManiplex, IsString"/>
  <Returns>IsBool
 </Returns>

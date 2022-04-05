@@ -114,6 +114,24 @@ InstallOtherMethod(SggiElement,
 	return SggiElement(AutomorphismGroup(M), str);
 	end);
 
+InstallMethod(SimplifiedSggiElement,
+	[IsGroup, IsString],
+	function(g, str)
+	if IsFpGroup(g) then SetReducedMultiplication(g); fi;
+	return SggiElement(g, str);
+	end);
+	
+InstallOtherMethod(SimplifiedSggiElement,
+	[IsManiplex, IsString],
+	function(M, str)
+	
+	if not(IsReflexible(M)) then
+		Error("SimplifiedSggiElement is only defined for reflexible maniplexes.\n");
+	fi;
+	
+	return SimplifiedSggiElement(AutomorphismGroup(M), str);
+	end);
+
 InstallMethod(IsRelationOfReflexibleManiplex,
 	[IsManiplex, IsString],
 	function(M, rel)

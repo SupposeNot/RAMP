@@ -90,6 +90,21 @@ DeclareOperation("IsStringCPlus", [IsGroup]);
 #! of g, in which case `AutomorphismGroup(M)` is used for g.
 DeclareOperation("SggiElement", [IsGroup, IsString]);
 
+#! @Arguments g, str
+#! @Returns the element of <A>g</A> with underlying word <A>str</A>, in a reduced form.
+#! @Description This acts like SggiElement, except that the word is in reduced form.
+#! Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
+#! further computations with g may be substantially slower.
+#! For convenience, you can also use a reflexible maniplex M in place
+#! of g, in which case `AutomorphismGroup(M)` is used for g.
+DeclareOperation("SimplifiedSggiElement", [IsGroup, IsString]);
+#! @BeginExampleSession
+#! gap> g := AutomorphismGroup(Cube(3));;
+#! gap> SimiplifiedSggiElement(g, "(r0 r1)^5");
+#! r0*r1
+#! @EndExampleSession
+
+
 #! @Arguments M, rel
 #! @Returns IsBool
 #! @Description Determines whether the relation given by the string <A>rel</A> holds
