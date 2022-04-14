@@ -30,11 +30,17 @@ DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
 #! then we return the reflexible maniplex with the given defining relations.
 #! The relations can be given by a list of Tietze words or as a string of relators 
 #! or relations that involve r0 etc.
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable`.
 #! @BeginExampleSession
 #! gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
 #! gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
 #! true
 #! gap> p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;
+#! gap> n := 3;;
+#! gap> Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));
+#! 72
 #! @EndExampleSession
 #! If the option set_schlafli is set, then we set the Schlafli symbol
 #! to the one given. This may not be the correct Schlafli symbol, since

@@ -97,6 +97,7 @@ InstallMethod(ReflexibleManiplex,
 	fi;
 
 	if IsString(rels) then
+		rels := InterpolatedString(rels);
 		newrels := ParseStringCRels(rels, w);
 		desc := Concatenation(desc, String(sym), ", \"", String(rels), "\")");
 	else

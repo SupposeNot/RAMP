@@ -47,6 +47,7 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X7B89A32E7D94769F">11.2-1 DatabaseString</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X84FC221B80847F84">11.2-2 ManiplexFromDatabaseString</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X7D879C01845D4BE9">11.2-3 InterpolatedString</a></span>
 </div></div>
 </div>
 
@@ -297,6 +298,27 @@
 <p>Returns: IsManiplex</p>
 
 <p>Given a string <var class="Arg">maniplexString</var>, representing a maniplex stored in a database, returns the maniplex that is represented.</p>
+
+<p><a id="X7D879C01845D4BE9" name="X7D879C01845D4BE9"></a></p>
+
+<h5>11.2-3 InterpolatedString</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InterpolatedString</code>( <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsString</p>
+
+<p>Given a string, replaces each instance of "$variable" with String(EvalString(variable)). Any character which cannot be used in a variable name (such as spaces, commas, etc.) marks the end of the variable name.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 5;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InterpolatedString("2 + 3 = $n");</span>
+"2 + 3 = 5"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InterpolatedString("2 + 3 = $n, right?");</span>
+"2 + 3 = 5, right?"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">nn := 17;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InterpolatedString("$n and $nn are different");</span>
+"5 and 17 are different"
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap10_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap12_mj.html">[Next Chapter]</a>&nbsp;  </div>

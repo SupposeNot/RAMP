@@ -211,12 +211,18 @@ Returns the sggi defined by the given Schlafli
  by a list of Tietze words or as a string of relators or relations
  that involve r0 etc. If no relations are given, then returns
  the universal sggi with the given Schlafli symbol.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code>.
 <Example><![CDATA[
 gap> g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
 gap> h := Sggi([4,4], "r0 = r2");;
 gap> k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;
 gap> k = Sggi([3,3]);
 true
+gap> n := 3;;
+gap> Size(Sggi([4,4], "(r0 r1 r2 r1)^$n"));
+72
 ]]></Example>
 
 
@@ -287,10 +293,16 @@ true
  <Returns>the element of <A>g</A> with underlying word <A>str</A>.
 </Returns>
  <Description>
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code>.
 <Example><![CDATA[
 gap> g := Group((1,2),(2,3),(3,4));;
 gap> SggiElement(g, "r0 r1");
 (1,3,2)
+gap> n := 2;;
+gap> SggiElement(g, "(r0 r1)^$n");
+(1,2,3)
 ]]></Example>
 
 
@@ -308,6 +320,9 @@ gap> SggiElement(g, "r0 r1");
 This acts like SggiElement, except that the word is in reduced form.
  Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
  further computations with g may be substantially slower.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code>.
  For convenience, you can also use a reflexible maniplex M in place
  of g, in which case <Code>AutomorphismGroup(M)</Code> is used for g.
  </Description>
@@ -328,6 +343,9 @@ r0*r1
  <Description>
 Determines whether the relation given by the string <A>rel</A> holds
  in <Code>AutomorphismGroup(M)</Code>.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code>.
  </Description>
 </ManSection>
 

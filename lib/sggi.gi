@@ -96,6 +96,8 @@ InstallMethod(SggiElement,
 	if str = "" then
 		return Identity(g);
 	fi;
+
+	str := InterpolatedString(str);
 	
 	w := UniversalSggi(Size(GeneratorsOfGroup(g)));
 	x := ParseStringCRels(str, w)[1];
@@ -244,6 +246,7 @@ InstallMethod(Sggi,
 	local w, newrels, g;
 	w := UniversalSggi(sym);
 	if IsString(rels) then
+		rels := InterpolatedString(rels);
 		newrels := ParseStringCRels(rels, w);
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));

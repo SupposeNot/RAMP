@@ -35,12 +35,18 @@ DeclareOperation("UniversalSggi", [IsList]);
 #! by a list of Tietze words or as a string of relators or relations
 #! that involve r0 etc. If no relations are given, then returns
 #! the universal sggi with the given Schlafli symbol.
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable`.
 #! @BeginExampleSession
 #! gap> g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
 #! gap> h := Sggi([4,4], "r0 = r2");;
 #! gap> k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;
 #! gap> k = Sggi([3,3]);
 #! true
+#! gap> n := 3;;
+#! gap> Size(Sggi([4,4], "(r0 r1 r2 r1)^$n"));
+#! 72
 #! @EndExampleSession
 DeclareOperation("Sggi", [IsList, IsList]);
 
@@ -81,10 +87,16 @@ DeclareOperation("IsStringCPlus", [IsGroup]);
 #! @Arguments g, str
 #! @Returns the element of <A>g</A> with underlying word <A>str</A>.
 #! @Description
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable`.
 #! @BeginExampleSession
 #! gap> g := Group((1,2),(2,3),(3,4));;
 #! gap> SggiElement(g, "r0 r1");
 #! (1,3,2)
+#! gap> n := 2;;
+#! gap> SggiElement(g, "(r0 r1)^$n");
+#! (1,2,3)
 #! @EndExampleSession
 #! For convenience, you can also use a reflexible maniplex M in place
 #! of g, in which case `AutomorphismGroup(M)` is used for g.
@@ -95,6 +107,9 @@ DeclareOperation("SggiElement", [IsGroup, IsString]);
 #! @Description This acts like SggiElement, except that the word is in reduced form.
 #! Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
 #! further computations with g may be substantially slower.
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable`.
 #! For convenience, you can also use a reflexible maniplex M in place
 #! of g, in which case `AutomorphismGroup(M)` is used for g.
 DeclareOperation("SimplifiedSggiElement", [IsGroup, IsString]);
@@ -109,6 +124,9 @@ DeclareOperation("SimplifiedSggiElement", [IsGroup, IsString]);
 #! @Returns IsBool
 #! @Description Determines whether the relation given by the string <A>rel</A> holds
 #! in `AutomorphismGroup(M)`.
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable`.
 DeclareOperation("IsRelationOfReflexibleManiplex", [IsManiplex, IsString]);
 #! @BeginExampleSession
 #! gap> M := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;

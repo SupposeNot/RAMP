@@ -223,7 +223,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sggi</code>( <var class="Arg">symbol</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFpGroup</code></p>
 
-<p>Returns the sggi defined by the given Schlafli symbol and with the given relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. If no relations are given, then returns the universal sggi with the given Schlafli symbol.</p>
+<p>Returns the sggi defined by the given Schlafli symbol and with the given relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. If no relations are given, then returns the universal sggi with the given Schlafli symbol. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>.</p>
 
 
 <div class="example"><pre>
@@ -232,6 +232,9 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">k = Sggi([3,3]);</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Sggi([4,4], "(r0 r1 r2 r1)^$n"));</span>
+72
 </pre></div>
 
 <p><a id="X81A3AE37837A4B8D" name="X81A3AE37837A4B8D"></a></p>
@@ -284,11 +287,16 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SggiElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: the element of <var class="Arg">g</var> with underlying word <var class="Arg">str</var>.</p>
 
+<p>This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>.</p>
+
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group((1,2),(2,3),(3,4));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SggiElement(g, "r0 r1");</span>
 (1,3,2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 2;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SggiElement(g, "(r0 r1)^$n");</span>
+(1,2,3)
 </pre></div>
 
 <p>For convenience, you can also use a reflexible maniplex M in place of g, in which case <code class="code">AutomorphismGroup(M)</code> is used for g.</p>
@@ -300,7 +308,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SimplifiedSggiElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: the element of <var class="Arg">g</var> with underlying word <var class="Arg">str</var>, in a reduced form.</p>
 
-<p>This acts like SggiElement, except that the word is in reduced form. Note that this is accomplished by calling SetReducedMultiplication on g. As a result, further computations with g may be substantially slower. For convenience, you can also use a reflexible maniplex M in place of g, in which case <code class="code">AutomorphismGroup(M)</code> is used for g.</p>
+<p>This acts like SggiElement, except that the word is in reduced form. Note that this is accomplished by calling SetReducedMultiplication on g. As a result, further computations with g may be substantially slower. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>. For convenience, you can also use a reflexible maniplex M in place of g, in which case <code class="code">AutomorphismGroup(M)</code> is used for g.</p>
 
 
 <div class="example"><pre>
@@ -316,7 +324,7 @@ r0*r1
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRelationOfReflexibleManiplex</code>( <var class="Arg">M</var>, <var class="Arg">rel</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>
 
-<p>Determines whether the relation given by the string <var class="Arg">rel</var> holds in <code class="code">AutomorphismGroup(M)</code>.</p>
+<p>Determines whether the relation given by the string <var class="Arg">rel</var> holds in <code class="code">AutomorphismGroup(M)</code>. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>.</p>
 
 
 <div class="example"><pre>

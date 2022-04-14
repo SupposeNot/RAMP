@@ -230,3 +230,24 @@
   [33X[0;0YGiven a string [3XmaniplexString[103X, representing a maniplex stored in a database,
   returns the maniplex that is represented.[133X
   
+  [1X11.2-3 InterpolatedString[101X
+  
+  [33X[1;0Y[29X[2XInterpolatedString[102X( [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsString[133X
+  
+  [33X[0;0YGiven    a    string,   replaces   each   instance   of   "$variable"   with
+  String(EvalString(variable)).  Any  character  which  cannot  be  used  in a
+  variable  name  (such as spaces, commas, etc.) marks the end of the variable
+  name.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xn := 5;;[127X[104X
+    [4X[25Xgap>[125X [27XInterpolatedString("2 + 3 = $n");[127X[104X
+    [4X[28X"2 + 3 = 5"[128X[104X
+    [4X[25Xgap>[125X [27XInterpolatedString("2 + 3 = $n, right?");[127X[104X
+    [4X[28X"2 + 3 = 5, right?"[128X[104X
+    [4X[25Xgap>[125X [27Xnn := 17;;[127X[104X
+    [4X[25Xgap>[125X [27XInterpolatedString("$n and $nn are different");[127X[104X
+    [4X[28X"5 and 17 are different"[128X[104X
+  [4X[32X[104X
+  

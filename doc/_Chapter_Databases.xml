@@ -296,6 +296,30 @@ Given a string <A>maniplexString</A>, representing a maniplex stored
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="str" Name="InterpolatedString" Label="for IsString"/>
+ <Returns>IsString
+</Returns>
+ <Description>
+Given a string, replaces each instance of "&#36;variable" with
+ String(EvalString(variable)). Any character which cannot be used in a
+ variable name (such as spaces, commas, etc.) marks the end of the variable name.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> n := 5;;
+gap> InterpolatedString("2 + 3 = $n");
+"2 + 3 = 5"
+gap> InterpolatedString("2 + 3 = $n, right?");
+"2 + 3 = 5, right?"
+gap> nn := 17;;
+gap> InterpolatedString("$n and $nn are different");
+"5 and 17 are different"
+]]></Example>
+
+
 </Section>
 
 

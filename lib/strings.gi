@@ -109,4 +109,32 @@ InstallMethod(String,
 	end);
 	
 
+InstallMethod(InterpolatedString,
+	[IsString],
+	function(str)
+	local L, L2, i, j, id, newid;
 	
+	L := SplitString(str, '$');
+	for i in [2..Size(L)] do
+		id := [L[i][1]];
+		j := 2;
+		for j in [2..Size(L[i])] do
+			newid := Concatenation(id, [L[i][j]]);
+			if not(IsValidIdentifier(newid)) then
+				break;
+			else
+				id := newid;
+				j := j + 1;
+			fi;		
+		od;
+		
+		L[i] := Concatenation(String(EvalString(id)), L[i]{[j..Size(L[i])]});
+		
+	#	L2 := SplitString(L[i], ' ');
+	#	L2[1] := String(EvalString(L2[1]));
+	#	L[i] := JoinStringsWithSeparator(L2, " ");
+	od;
+	
+	return JoinStringsWithSeparator(L, "");
+	
+	end);
