@@ -469,32 +469,6 @@ InstallGlobalFunction(SmallChiral4Polytopes,
 	return ReadChiralPolytopesFromFile(sizerange, "Chiral4PolytopesUpTo4000.txt");
 	end);
 
-Read4Polys := function(filename)
-	local databaseFile, maniplexes, maniplexString, size, sym, rels, maniplex;
-	databaseFile := InputTextFile(Filename(RampDataPath, "Regular4Polytopes.txt"));
-	maniplexes := [];
-
-	
-	size := EvalString(ReadLine(databaseFile));
-	sym := EvalString(ReadLine(databaseFile));
-	rels := ReadLine(databaseFile);
-	ReadLine(databaseFile);
-	repeat
-		maniplex := AbstractRegularPolytopeNC(sym, rels : set_schlafli);
-		SetSize(maniplex, size);
-		Add(maniplexes, maniplex);
-
-		size := EvalString(ReadLine(databaseFile));
-		sym := EvalString(ReadLine(databaseFile));
-		rels := ReadLine(databaseFile);
-		ReadLine(databaseFile);
-		
-	until IsEndOfStream(databaseFile) or size = fail;
-
-	CloseStream(databaseFile);
-	return maniplexes;
-	end;
-
 InstallGlobalFunction(SmallReflexible3Maniplexes,
 	function(sizerange)
 	local manis, minsize, maxsize, L, wilsons, k, l, M, BMaps;

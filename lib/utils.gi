@@ -11,7 +11,7 @@ TEST_RAMP := function()
 	end;
 
 BindGlobal("RampPath", DirectoriesLibrary("pkg/ramp/lib")[1]);
-BindGlobal("RampDataPath", DirectoriesLibrary("pkg/ramp/lib")[1]);
+BindGlobal("RampDataPath", DirectoriesLibrary("pkg/ramp/data")[1]);
 
 BindGlobal("TestRamp", 
 	function(filename)
