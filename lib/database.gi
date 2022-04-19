@@ -1,7 +1,7 @@
 
 WriteManiplexesToFile := function(maniplexes, filename, attributeNames)
 	local databaseFile, M, attributes;
-	databaseFile := OutputTextFile(Filename(RampPath, filename), false);
+	databaseFile := OutputTextFile(Filename(RampDataPath, filename), false);
 
 	WriteLine(databaseFile, JoinStringsWithSeparator(attributeNames));
 	attributes := List(attributeNames, EvalString);
@@ -14,7 +14,7 @@ WriteManiplexesToFile := function(maniplexes, filename, attributeNames)
 
 ManiplexesFromFile := function(filename)
 	local databaseFile, maniplexes, maniplexString, attributeNames, attributes;
-	databaseFile := InputTextFile(Filename(RampPath, filename));
+	databaseFile := InputTextFile(Filename(RampDataPath, filename));
 	maniplexes := [];
 
 	attributeNames := SplitString(ReadLine(databaseFile), ",");
@@ -177,8 +177,8 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	# Grab the rest from a file.
 	# In principle, we know all of the flat regular polyhedra of a given type from theory.
 	# But I'm too lazy to code it right now, so we read from a file.
-	rampPath := DirectoriesLibrary("pkg/ramp/lib");
-	filename := Filename(rampPath, "flatRegularPolyhedra.txt");
+	# rampPath := DirectoriesLibrary("pkg/ramp/lib");
+	filename := Filename(RampDataPath, "flatRegularPolyhedra.txt");
 	stream := InputTextFile(filename);
 	
 	params := ReadLine(stream);
@@ -258,7 +258,7 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 InstallGlobalFunction(SmallRegularPolyhedraFromFile,
 	function(sizerange)
 	local polys, stream, desc, params, paramlist, sym, petrie, flagnum, rels, p, paramstr, toobig, minsize, maxsize, toruspolys;
-	stream := InputTextFile(Filename(RampPath, "regularPolyhedra.txt"));
+	stream := InputTextFile(Filename(RampDataPath, "regularPolyhedra.txt"));
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
@@ -295,7 +295,7 @@ InstallGlobalFunction(SmallRegularPolyhedraFromFile,
 InstallGlobalFunction(SmallRegularPolyhedra,
 	function(sizerange)
 	local polys, stream, desc, params, paramlist, sym, petrie, flagnum, rels, p, paramstr, toobig, minsize, maxsize, toruspolys;
-	stream := InputTextFile(Filename(RampPath, "regularPolyhedra.txt"));
+	stream := InputTextFile(Filename(RampDataPath, "regularPolyhedra.txt"));
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
@@ -389,7 +389,7 @@ InstallGlobalFunction(SmallRegular4Polytopes,
 	function(sizerange)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex, attributeNames, attributes;
 
-	databaseFile := InputTextFile(Filename(RampPath, "Regular4PolytopesUpTo4000.txt"));
+	databaseFile := InputTextFile(Filename(RampDataPath, "Regular4PolytopesUpTo4000.txt"));
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
@@ -429,7 +429,7 @@ InstallGlobalFunction(ReadChiralPolytopesFromFile,
 	function(sizerange, filename)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex;
 
-	databaseFile := InputTextFile(Filename(RampPath, filename));
+	databaseFile := InputTextFile(Filename(RampDataPath, filename));
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
@@ -471,7 +471,7 @@ InstallGlobalFunction(SmallChiral4Polytopes,
 
 Read4Polys := function(filename)
 	local databaseFile, maniplexes, maniplexString, size, sym, rels, maniplex;
-	databaseFile := InputTextFile(Filename(RampPath, "Regular4Polytopes.txt"));
+	databaseFile := InputTextFile(Filename(RampDataPath, "Regular4Polytopes.txt"));
 	maniplexes := [];
 
 	
@@ -605,7 +605,7 @@ InstallGlobalFunction(SmallTwoOrbit3Maniplexes,
 		Error("No data available for that class");
 	fi;
 
-	databaseFile := InputTextFile(Filename(RampPath, filename));
+	databaseFile := InputTextFile(Filename(RampDataPath, filename));
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
