@@ -11,6 +11,7 @@ TEST_RAMP := function()
 	end;
 
 BindGlobal("RampPath", DirectoriesLibrary("pkg/ramp/lib")[1]);
+BindGlobal("RampDataPath", DirectoriesLibrary("pkg/ramp/lib")[1]);
 
 BindGlobal("TestRamp", 
 	function(filename)
@@ -41,8 +42,12 @@ InstallGlobalFunction(AbstractRegularPolytope,
 	function(args...)
 	local p;
 	p := CallFuncList(ReflexibleManiplex, args);
-	if not(IsPolytopal(p)) then
-		Error("The given input does not define a polytope.");
+	if ValueOption("no_check") <> true then
+		if not(IsPolytopal(p)) then
+			Error("The given input does not define a polytope.");
+		fi;
+	else
+		SetIsPolytopal(p, true);
 	fi;
 	if HasString(p) then
 		p!.String := ReplacedString(String(p), "ReflexibleManiplex", "AbstractRegularPolytope");

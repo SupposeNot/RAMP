@@ -27,10 +27,19 @@ InstallMethod(ManiplexFromDatabaseString,
 	function(maniplexString)
 	local parameters, maniplex;
 	parameters := SplitString(maniplexString, ManiplexDatabaseStringSeparator);
+	
+	# The next line tells later constructors not to bother checking whether the output is well-defined.
+	# e.g. a call to AbstractRegularPolytope(stuff) acts like AbstractRegularPolytopeNC(stuff)
+	PushOptions(rec(no_check := true));
+	
 	maniplex := EvalString(parameters[1]);
 	SetPetrieLength(maniplex, EvalString(parameters[2]));
 	SetSize(maniplex, EvalString(parameters[3]));
+
+	PopOptions();
+
 	return maniplex;
+	
 	end);
 	
 InstallOtherMethod(ManiplexFromDatabaseString,
@@ -38,12 +47,20 @@ InstallOtherMethod(ManiplexFromDatabaseString,
 	function(maniplexString, attrList)
 	local parameters, maniplex, attr, i;
 	parameters := SplitString(maniplexString, ManiplexDatabaseStringSeparator);
+
+	# The next line tells later constructors not to bother checking whether the output is well-defined.
+	# e.g. a call to AbstractRegularPolytope(stuff) acts like AbstractRegularPolytopeNC(stuff)
+	PushOptions(rec(no_check := true));
+
 	maniplex := EvalString(parameters[1]);
 	i := 2;
 	for attr in attrList do
 		Setter(attr)(maniplex, EvalString(parameters[i]));
 		i := i + 1;
 	od;
+
+	PopOptions();
+
 	return maniplex;
 	end);
 	

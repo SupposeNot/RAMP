@@ -29,7 +29,7 @@ InstallMethod(ReflexibleManiplexNC,
 InstallMethod(ReflexibleManiplex,
 	[IsGroup],
 	function(autgp)
-	if IsSggi(autgp) then
+	if ValueOption("no_check") = true or IsSggi(autgp) then
 		return ReflexibleManiplexNC(autgp);
 	else
 		Error("The given group is not an Sggi.");
