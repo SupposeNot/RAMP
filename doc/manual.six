@@ -150,9 +150,13 @@ entries :=
       100, "words on relations", "X8375E2157FA5BA5B" ], 
   [ "\033[1X\033[33X\033[0;-2YSynonyms for Commands\033[133X\033[101X", "15", [ 15, 0, 0 ], 1, 102, 
       "synonyms for commands", "X8019D74C7EBB499C" ], 
-  [ "Bibliography", "bib", [ "Bib", 0, 0 ], 1, 103, "bibliography", "X7A6F98FD85F02BFE" ], 
-  [ "References", "bib", [ "Bib", 0, 0 ], 1, 103, "references", "X7A6F98FD85F02BFE" ], 
-  [ "Index", "ind", [ "Ind", 0, 0 ], 1, 104, "index", "X83A0356F839C696F" ], 
+  [ "\033[1X\033[33X\033[0;-2YVoltage Graphs and Operations\033[133X\033[101X", "16", [ 16, 0, 0 ], 
+      1, 103, "voltage graphs and operations", "X8150D23C7BD686A4" ], 
+  [ "\033[1X\033[33X\033[0;-2YVoltage Operator\033[133X\033[101X", "16.1", [ 16, 1, 0 ], 4, 103, 
+      "voltage operator", "X7EDB00697FB48C33" ], 
+  [ "Bibliography", "bib", [ "Bib", 0, 0 ], 1, 105, "bibliography", "X7A6F98FD85F02BFE" ], 
+  [ "References", "bib", [ "Bib", 0, 0 ], 1, 105, "references", "X7A6F98FD85F02BFE" ], 
+  [ "Index", "ind", [ "Ind", 0, 0 ], 1, 106, "index", "X83A0356F839C696F" ], 
   [ "License", ".-1", [ 0, 0, 1 ], 47, 2, "license", "X81488B807F2A1CF1" ], 
   [ "\033[2XAutomorphismGroup\033[102X for ismaniplex", "2.1-1", [ 2, 1, 1 ], 7, 6, 
       "automorphismgroup for ismaniplex", "X7A007A0C80D26351" ], 
@@ -847,5 +851,10 @@ entries :=
       "parserotgprels", "X79C6D76380B9F364" ], 
   [ "\033[2XAddOrAppend\033[102X", "14.4-3", [ 14, 4, 3 ], 145, 100, "addorappend", 
       "X829B5DA779342A28" ], [ "\033[2XWrappedPosetOperation\033[102X", "14.4-4", [ 14, 4, 4 ], 
-      164, 101, "wrappedposetoperation", "X7C4A431283A32F67" ] ]
+      164, 101, "wrappedposetoperation", "X7C4A431283A32F67" ], 
+  [ "\033[2XVoltageOperator\033[102X for islist, isstring,isedgelabeledgraph", "16.1-1", 
+      [ 16, 1, 1 ], 7, 103, "voltageoperator for islist isstring isedgelabeledgraph", 
+      "X8440AE1A7A45E3AD" ], [ "\033[2XVoltageOperator\033[102X for islist, isstring,ismaniplex", 
+      "16.1-2", [ 16, 1, 2 ], 18, 103, "voltageoperator for islist isstring ismaniplex", 
+      "X7817A3787920523B" ] ]
 );

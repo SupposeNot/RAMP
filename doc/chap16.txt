@@ -1,0 +1,45 @@
+  
+  [1X16 [33X[0;0YVoltage Graphs and Operations[133X[101X
+  
+  
+  [1X16.1 [33X[0;0YVoltage Operator[133X[101X
+  
+  [1X16.1-1 VoltageOperator[101X
+  
+  [33X[1;0Y[29X[2XVoltageOperator[102X( [3XY[103X, [3Xetain[103X, [3Xetaout[103X, [3XXa[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YReturns  the  output  of  the  voltage  operator  acting  on  Xa.  Xa  is  a
+  n-premaniplex  as  an  edge  labeled  graph,  Y is a m-premaniplex. eta is a
+  voltage  assignment  on  the  darts of Y. etain is a list of all darts of Y.
+  etaout  is  a  string giving words in the universal sggi of rank n. If Xa is
+  given as a maniplex, the operation is done to its flag graph.[133X
+  
+  [1X16.1-2 VoltageOperator[101X
+  
+  [33X[1;0Y[29X[2XVoltageOperator[102X( [3Xarg1[103X, [3Xarg2[103X, [3Xarg3[103X ) [32X operation[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28XThe Petrial and the dual can be built using voltage operations[128X[104X
+    [4X[28XSimilarly for rank 3 other operations can be built this way.[128X[104X
+    [4X[28XSee VOLTAGE OPERATIONS ON MANIPLEXES by HUBARD, MOCHÁN, MONTERO[128X[104X
+    [4X[25Xgap>[125X [27Xetain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;[127X[104X
+    [4X[25Xgap>[125X [27Xetain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;[127X[104X
+    [4X[25Xgap>[125X [27Xetain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutPetrial:="[r0, r1 r3, r2, r3]";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutDual:="[r3, r2, r1, r0]";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutMedial:="[r1, r1, r0, r2, Id]";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutLeapfrog:="[r1,r1,r2,r0,r0, , ]";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutTruncation:="[r1, r1, r0, r2, r2,Id, Id]";;[127X[104X
+    [4X[25Xgap>[125X [27XPetrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XMedial(Dodecahedron()) = VoltageOperator(etain2, etaoutMedial, Dodecahedron());[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XLeapfrog(Simplex(3)) =  VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XTruncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  

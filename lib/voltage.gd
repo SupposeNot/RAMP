@@ -1,3 +1,5 @@
+
+
 #! @Chapter Voltage Graphs and Operations
 #! @Section Voltage Operator
 
@@ -8,10 +10,8 @@
 #! Xa is a n-premaniplex as an edge labeled graph, Y is a m-premaniplex.  eta is a voltage assignment on the darts of Y.
 #! etain is a list of all darts of Y.  etaout is a string giving words in the universal sggi of rank n.
 #! If Xa is given as a maniplex, the operation is done to its flag graph.
-
 DeclareOperation("VoltageOperator", [IsList, IsString,IsEdgeLabeledGraph]);
 DeclareOperation("VoltageOperator", [IsList, IsString,IsManiplex]);
-
 #! @BeginExampleSession
 #! The Petrial and the dual can be built using voltage operations
 #! Similarly for rank 3 other operations can be built this way.
@@ -35,7 +35,6 @@ DeclareOperation("VoltageOperator", [IsList, IsString,IsManiplex]);
 #! gap> Truncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));
 #! true
 #! @EndExampleSession
-
 
 
 
