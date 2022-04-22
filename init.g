@@ -40,4 +40,5 @@ ReadPackage( "ramp", "lib/tomotope.gd" );
 ReadPackage( "ramp", "lib/toroids.gd" );
 ReadPackage( "ramp", "lib/uniform_polyhedra.gd" );
 ReadPackage( "ramp", "lib/utils.gd" );
+ReadPackage( "ramp", "lib/voltage.gd" );
 ReadPackage( "ramp", "lib/zigzag.gd" );
