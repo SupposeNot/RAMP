@@ -216,6 +216,24 @@ gap> Fvector(HemiIcosahedron());
 
 
 <ManSection>
+  <Oper Arg="" Name="SmallStellatedDodecahedron" />
+ <Returns>IsPolytope
+</Returns>
+ <Description>
+Constructs the small stellated dodecahedron combinatorially. This is the same combinatorial object as the great dodecahedron. You may also use the command <Code>GreatDodecahedron();</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SmallStellatedDodecahedron()=GreatDodecahedron();
+true
+gap> Size(GreatDodecahedron());
+120
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="" Name="24Cell" />
  <Returns>IsPolytope
 </Returns>

@@ -160,7 +160,23 @@
     [4X[28X[ 6, 15, 10 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-14 24Cell[101X
+  [1X3.1-14 SmallStellatedDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XSmallStellatedDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YConstructs  the  small  stellated  dodecahedron combinatorially. This is the
+  same  combinatorial  object  as the great dodecahedron. You may also use the
+  command [10XGreatDodecahedron();[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallStellatedDodecahedron()=GreatDodecahedron();[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSize(GreatDodecahedron());[127X[104X
+    [4X[28X120[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-15 24Cell[101X
   
   [33X[1;0Y[29X[2X24Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -172,7 +188,7 @@
     [4X[28X[ 3, 4, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-15 Hemi24Cell[101X
+  [1X3.1-16 Hemi24Cell[101X
   
   [33X[1;0Y[29X[2XHemi24Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -184,7 +200,7 @@
     [4X[28X[ 3, 4, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-16 120Cell[101X
+  [1X3.1-17 120Cell[101X
   
   [33X[1;0Y[29X[2X120Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -196,7 +212,7 @@
     [4X[28X120[128X[104X
   [4X[32X[104X
   
-  [1X3.1-17 Hemi120Cell[101X
+  [1X3.1-18 Hemi120Cell[101X
   
   [33X[1;0Y[29X[2XHemi120Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -208,7 +224,7 @@
     [4X[28X60[128X[104X
   [4X[32X[104X
   
-  [1X3.1-18 600Cell[101X
+  [1X3.1-19 600Cell[101X
   
   [33X[1;0Y[29X[2X600Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -220,7 +236,7 @@
     [4X[28X120Cell()[128X[104X
   [4X[32X[104X
   
-  [1X3.1-19 Hemi600Cell[101X
+  [1X3.1-20 Hemi600Cell[101X
   
   [33X[1;0Y[29X[2XHemi600Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -232,7 +248,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.1-20 BrucknerSphere[101X
+  [1X3.1-21 BrucknerSphere[101X
   
   [33X[1;0Y[29X[2XBrucknerSphere[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPoset[133X
@@ -244,7 +260,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.1-21 InternallySelfDualPolyhedron1[101X
+  [1X3.1-22 InternallySelfDualPolyhedron1[101X
   
   [33X[1;0Y[29X[2XInternallySelfDualPolyhedron1[102X( [3Xp[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -258,7 +274,7 @@
     [4X[28X[ 40, 40 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-22 InternallySelfDualPolyhedron2[101X
+  [1X3.1-23 InternallySelfDualPolyhedron2[101X
   
   [33X[1;0Y[29X[2XInternallySelfDualPolyhedron2[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X

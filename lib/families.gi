@@ -201,6 +201,13 @@ InstallMethod(HemiIcosahedron,
 	function()
 	return AbstractRegularPolytopeNC([3,5], "z1^5" : set_schlafli);
 	end);
+	
+InstallMethod(SmallStellatedDodecahedron,
+	[],
+	function()
+	return AbstractRegularPolytope([5,5],"(r0 r1 r2 r1)^3");
+	end);
+
 InstallMethod(24Cell,
 	[],
 	function()

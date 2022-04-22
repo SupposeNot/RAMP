@@ -114,6 +114,18 @@ DeclareOperation("HemiIcosahedron", []);
 #! @EndExampleSession
 
 #! @Returns IsPolytope
+#! @Description Constructs the small stellated dodecahedron combinatorially. This is the same combinatorial object as the great dodecahedron. You may also use the command `GreatDodecahedron();`.
+DeclareOperation("SmallStellatedDodecahedron",[]);
+#! @BeginExampleSession
+#! gap> SmallStellatedDodecahedron()=GreatDodecahedron();
+#! true
+#! gap> Size(GreatDodecahedron());
+#! 120
+#! @EndExampleSession
+
+DeclareSynonym("GreatDodecahedron",SmallStellatedDodecahedron);
+
+#! @Returns IsPolytope
 #! @Description Returns the 24-cell, `{3, 4, 3}`.
 DeclareOperation("24Cell", []);
 #! @BeginExampleSession
