@@ -4,7 +4,7 @@
 #! @Section Voltage Operator
 
 
-#! @Arguments Y, etain, etaout, Xa
+#! @Arguments etain, etaout, Xa
 #! @Returns IsManiplex
 #! @Description Returns the output of the voltage operator acting on Xa.
 #! Xa is a n-premaniplex as an edge labeled graph, Y is a m-premaniplex.  eta is a voltage assignment on the darts of Y.
