@@ -205,6 +205,11 @@ InstallGlobalFunction(COXETER_GROUP_SIZES,
 		return 2^n * Factorial(n);
 	elif sym[n-1] = 4 and ForAll(sym{[1..n-2]}, i -> i = 3) then
 		return 2^n * Factorial(n);
+	elif 1 in sym then
+		k := Position(sym, 1);
+		if k > 1 then sym[k-1] := Gcd(sym[k-1], 2); fi;
+		if k < n-1 then sym[k+1] := Gcd(sym[k+1], 2); fi;
+		return COXETER_GROUP_SIZES(sym{[1..k-1]}) * COXETER_GROUP_SIZES(sym{[k+1..n-1]}) / 2;
 	elif 2 in sym then
 		k := Position(sym, 2);
 		return COXETER_GROUP_SIZES(sym{[1..k-1]}) * COXETER_GROUP_SIZES(sym{[k+1..n-1]});

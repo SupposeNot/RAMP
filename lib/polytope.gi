@@ -76,8 +76,13 @@ InstallMethod(ReflexibleManiplex,
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
-	SetIsPolytopal(p, true);
-	SetString(p, Concatenation("AbstractRegularPolytope(", String(sym), ")"));
+	if not(1 in sym) then
+		SetIsPolytopal(p, true);
+		SetString(p, Concatenation("AbstractRegularPolytope(", String(sym), ")"));
+	else
+		SetIsPolytopal(p, false);
+		SetString(p, Concatenation("ReflexibleManiplex(", String(sym), ")"));
+	fi;
 	return p;
 	end);
 
