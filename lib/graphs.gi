@@ -222,12 +222,21 @@ InstallMethod(EdgeLabeledGraphFromEdges,
 InstallMethod(EdgeLabeledGraphFromLabeledEdges,
 [IsList],
 function(L)
-local vert, ed, lab;
+local vert, ed, lab, i;
 ed:=ShallowCopy(L);
 lab:=ShallowCopy(L);
 Apply(ed, i -> i[1]);
 Apply(lab, i -> i[2]);
-vert:=Set(Flat(ed));
+vert:=[];
+for i in ed do
+if Size(i) = 1 then
+Add(vert,i[1]);
+elif Size(i) = 2 then
+Add(vert,i[1]);
+Add(vert,i[2]);
+fi;
+od;
+vert:=Set(vert);
 return EdgeLabeledGraphFromEdges(vert,ed,lab);
 end); 
 
