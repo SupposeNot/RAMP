@@ -1,6 +1,26 @@
 
 #! @Chapter Databases
 #! @Section Regular polyhedra
+#! Eventually we should put information here about where the data comes from.
+
+#! @Arguments maniplexes, filename, attributeNames
+#! @Description Writes the data in <A>maniplexes</A> to the designated file,
+#! including the defining information and the values of the attributes in
+#! <A>attributeNames</A>. 
+#! This calls `DatabaseString` on each maniplex in <A>maniplexes</A> to get
+#! the file representation.
+DeclareGlobalFunction("WriteManiplexesToFile");
+
+#! @Arguments filename
+#! @Returns IsList
+#! @Description Reads the maniplexes from <A>filename</A> in the data directory
+#! of RAMP and returns them as a list.
+#! Note that for performance reasons, some safety checks are disabled for data
+#! read from a file. For example, `AbstractRegularPolytope` usually checks its
+#! input to make sure that it defines a polytope, but `ManiplexesFromFile`
+#! just assumes that any maniplex defined using `AbstractRegularPolytope` really
+#! is a polytope.
+DeclareGlobalFunction("ManiplexesFromFile");
 
 #! @Arguments sizerange
 #! @Returns IsList

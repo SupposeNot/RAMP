@@ -8,7 +8,7 @@
 <Heading>Voltage Operator</Heading>
 
 <ManSection>
-  <Oper Arg="Y, etain, etaout, Xa" Name="VoltageOperator" Label="for IsList, IsString,IsEdgeLabeledGraph"/>
+  <Oper Arg="etain, etaout, Xa" Name="VoltageOperator" Label="for IsList, IsString,IsEdgeLabeledGraph"/>
  <Returns>IsManiplex
 </Returns>
  <Description>

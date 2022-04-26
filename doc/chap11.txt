@@ -4,7 +4,30 @@
   
   [1X11.1 [33X[0;0YRegular polyhedra[133X[101X
   
-  [1X11.1-1 DegeneratePolyhedra[101X
+  [33X[0;0YEventually we should put information here about where the data comes from.[133X
+  
+  [1X11.1-1 WriteManiplexesToFile[101X
+  
+  [33X[1;0Y[29X[2XWriteManiplexesToFile[102X( [3Xmaniplexes[103X, [3Xfilename[103X, [3XattributeNames[103X ) [32X function[133X
+  
+  [33X[0;0YWrites the data in [3Xmaniplexes[103X to the designated file, including the defining
+  information  and  the values of the attributes in [3XattributeNames[103X. This calls
+  [10XDatabaseString[110X   on   each   maniplex   in   [3Xmaniplexes[103X   to  get  the  file
+  representation.[133X
+  
+  [1X11.1-2 ManiplexesFromFile[101X
+  
+  [33X[1;0Y[29X[2XManiplexesFromFile[102X( [3Xfilename[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YReads the maniplexes from [3Xfilename[103X in the data directory of RAMP and returns
+  them  as  a  list. Note that for performance reasons, some safety checks are
+  disabled  for  data  read  from a file. For example, [10XAbstractRegularPolytope[110X
+  usually  checks  its  input  to  make  sure  that it defines a polytope, but
+  [10XManiplexesFromFile[110X   just   assumes   that   any   maniplex   defined  using
+  [10XAbstractRegularPolytope[110X really is a polytope.[133X
+  
+  [1X11.1-3 DegeneratePolyhedra[101X
   
   [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -22,7 +45,7 @@
     [4X[28X  AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-2 FlatRegularPolyhedra[101X
+  [1X11.1-4 FlatRegularPolyhedra[101X
   
   [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -42,7 +65,7 @@
     [4X[28X), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-3 RegularToroidalPolyhedra44[101X
+  [1X11.1-5 RegularToroidalPolyhedra44[101X
   
   [33X[1;0Y[29X[2XRegularToroidalPolyhedra44[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -57,7 +80,7 @@
     [4X[28X  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-4 RegularToroidalPolyhedra36[101X
+  [1X11.1-6 RegularToroidalPolyhedra36[101X
   
   [33X[1;0Y[29X[2XRegularToroidalPolyhedra36[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -72,7 +95,7 @@
     [4X[28X  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-5 SmallRegularPolyhedraFromFile[101X
+  [1X11.1-7 SmallRegularPolyhedraFromFile[101X
   
   [33X[1;0Y[29X[2XSmallRegularPolyhedraFromFile[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -92,7 +115,7 @@
     [4X[28X  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-6 SmallRegularPolyhedra[101X
+  [1X11.1-8 SmallRegularPolyhedra[101X
   
   [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -109,7 +132,7 @@
     [4X[28X53[128X[104X
   [4X[32X[104X
   
-  [1X11.1-7 SmallDegenerateRegular4Polytopes[101X
+  [1X11.1-9 SmallDegenerateRegular4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallDegenerateRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -124,7 +147,7 @@
     [4X[28X  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-8 SmallRegular4Polytopes[101X
+  [1X11.1-10 SmallRegular4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -137,7 +160,7 @@
     [4X[28X[ AbstractRegularPolytope([ 5, 2, 5 ]) ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-9 SmallChiralPolyhedra[101X
+  [1X11.1-11 SmallChiralPolyhedra[101X
   
   [33X[1;0Y[29X[2XSmallChiralPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -153,7 +176,7 @@
     [4X[28X  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-10 SmallChiral4Polytopes[101X
+  [1X11.1-12 SmallChiral4Polytopes[101X
   
   [33X[1;0Y[29X[2XSmallChiral4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -168,7 +191,7 @@
     [4X[28X  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-11 SmallReflexible3Maniplexes[101X
+  [1X11.1-13 SmallReflexible3Maniplexes[101X
   
   [33X[1;0Y[29X[2XSmallReflexible3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -177,7 +200,7 @@
   supports  a [10Xmaxsize[110X of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
   returns maniplexes that are not polyhedra.[133X
   
-  [1X11.1-12 SRP[101X
+  [1X11.1-14 SRP[101X
   
   [33X[1;0Y[29X[2XSRP[102X( [3Xminsize[103X, [3Xmaxsize[103X[, [3Xfunc1[103X, [3Xval1[103X, [3Xfunc2[103X, [3Xval2[103X, [3X...[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -197,7 +220,7 @@
     [4X[28X[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ][128X[104X
   [4X[32X[104X
   
-  [1X11.1-13 SmallTwoOrbit3Maniplexes[101X
+  [1X11.1-15 SmallTwoOrbit3Maniplexes[101X
   
   [33X[1;0Y[29X[2XSmallTwoOrbit3Maniplexes[102X( [3XI[103X, [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X

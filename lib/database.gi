@@ -1,5 +1,6 @@
 
-WriteManiplexesToFile := function(maniplexes, filename, attributeNames)
+InstallGlobalFunction(WriteManiplexesToFile,
+	function(maniplexes, filename, attributeNames)
 	local databaseFile, M, attributes;
 	databaseFile := OutputTextFile(Filename(RampDataPath, filename), false);
 
@@ -10,9 +11,10 @@ WriteManiplexesToFile := function(maniplexes, filename, attributeNames)
 	od;
 
 	CloseStream(databaseFile);
-	end;
+	end);
 
-ManiplexesFromFile := function(filename)
+InstallGlobalFunction(ManiplexesFromFile,
+	function(filename)
 	local databaseFile, maniplexes, maniplexString, attributeNames, attributes;
 	databaseFile := InputTextFile(Filename(RampDataPath, filename));
 	maniplexes := [];
@@ -27,7 +29,7 @@ ManiplexesFromFile := function(filename)
 
 	CloseStream(databaseFile);
 	return maniplexes;
-	end;
+	end);
 
 BindGlobal("MINSIZE_FROM_SIZERANGE",
 	function(sizerange)

@@ -7,6 +7,35 @@
 <Section Label="Chapter_Databases_Section_Regular_polyhedra">
 <Heading>Regular polyhedra</Heading>
 
+ Eventually we should put information here about where the data comes from.
+<ManSection>
+  <Func Arg="maniplexes, filename, attributeNames" Name="WriteManiplexesToFile" />
+ <Description>
+Writes the data in <A>maniplexes</A> to the designated file,
+ including the defining information and the values of the attributes in
+ <A>attributeNames</A>. 
+ This calls <Code>DatabaseString</Code> on each maniplex in <A>maniplexes</A> to get
+ the file representation.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="filename" Name="ManiplexesFromFile" />
+ <Returns>IsList
+</Returns>
+ <Description>
+Reads the maniplexes from <A>filename</A> in the data directory
+ of RAMP and returns them as a list.
+ Note that for performance reasons, some safety checks are disabled for data
+ read from a file. For example, <Code>AbstractRegularPolytope</Code> usually checks its
+ input to make sure that it defines a polytope, but <Code>ManiplexesFromFile</Code>
+ just assumes that any maniplex defined using <Code>AbstractRegularPolytope</Code> really
+ is a polytope.
+ </Description>
+</ManSection>
+
+
 <ManSection>
   <Func Arg="sizerange" Name="DegeneratePolyhedra" />
  <Returns>IsList
