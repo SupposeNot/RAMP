@@ -120,7 +120,7 @@ InstallMethod(Petrial,
 		
 		pet := Order(g.1*g.2*g.3);
 		rels := List(rels, r -> ReplacedString(r, "r0", "(r0 r2)"));
-		Add(rels, Concatenation("z1^", String(sym[1])));
+		Add(rels, Concatenation("(r0 r1 r2)^", String(sym[1])));
 		
 		sym[1] := pet;
 		Mp := ReflexibleManiplex(sym, JoinStringsWithSeparator(rels));

@@ -286,7 +286,12 @@ InstallMethod(IsFlat,
 InstallMethod(IsFlat,
 	[IsManiplex and IsReflexible],
 	function(M)
-	return NumberOfVertices(M) = NumberOfVertices(Facet(M));
+	# Optimization from theory
+	if Rank(M) = 3 and IsEquivelar(M) and HasIsPolytopal(M) and IsPolytopal(M) then
+		return IsTight(M);
+	else
+		return NumberOfVertices(M) = NumberOfVertices(Facet(M));
+	fi;
 	end);
 
 InstallMethod(IsFlat,
