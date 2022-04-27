@@ -40,4 +40,68 @@ DeclareOperation("VoltageOperator", [IsList, IsString,IsManiplex]);
 
 
 
+#! @Arguments n, I
+#! @Returns IsList
+#! @Description Returns a list of the admissible sequences that correspond to the flag orbits for a Wythoffian of a rank n maniplex.
+#! The vertex in the fundamental region is moved by ri for i in I.
+
+DeclareOperation("AdmissiblePerms", [IsInt, IsList]);
+
+#! @BeginExampleSession
+#! There will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1]
+#! gap> AdmissiblePerms(3,[0,1]);
+#!  [ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ]
+#! @EndExampleSession
+
+
+
+#! @Arguments n, I
+#! @Returns IsList
+#! @Description Returns the symmetry type graph for a Wythoffian of rank n defined by a list of indices.
+#! See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.
+
+DeclareOperation("WythoffSTG", [IsInt, IsList]);
+
+#! @BeginExampleSession
+#! Symmetry type graph of a medial operation
+#! gap> W:=WythoffSTG(3,[1]);
+#! Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
+#! gap> LabeledEdges(W);
+#! [ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
+#! @EndExampleSession
+
+
+
+#! @Arguments n, I
+#! @Returns IsList
+#! @Description Returns the labeled edges of a possible symmetry type graph for a Wythoffian of rank n defined by a list of indices.
+#! The actual graph is not returned, as we require egdge labeled graphs to have integer vertices in order to calculate their connection groups.
+
+DeclareOperation("WythoffLabeledEdges", [IsInt, IsList]);
+
+#! @BeginExampleSession
+#! Labeled Edges of the Symmetry type graph of a medial operation
+#! gap> WythoffLabeledEdges(3,[1]);
+#! [ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ]
+#! @EndExampleSession
+
+
+#! @Arguments n, I
+#! @Returns IsList
+#! @Description Returns the maniplex built from a voltage operation given a Wythoffian
+
+DeclareOperation("WythoffVoltageOperator", [IsInt, IsList, IsManiplex]);
+
+#! @BeginExampleSession
+#! Truncation built using voltages 
+#! gap> W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());
+#! 3-maniplex with 360 flags
+#! gap> W=Truncation(Dodecahedron());
+#! true
+#! @EndExampleSession
+
+
+
+
+
 
