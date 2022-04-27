@@ -21,3 +21,35 @@ true
 gap> M := CubicToroid(4, [[1,0,1,0],[1,0,-1,0],[0,1,0,1],[0,1,0,-1]]);;
 gap> NumberOfFlagOrbits(M);
 3
+gap> Size(ToroidalMap36([3,0])) = 108;
+true
+gap> IsReflexible(ToroidalMap36([2,3]));
+false
+gap> SmallestReflexibleCover(ToroidalMap36([2,3])) = ToroidalMap36([19,0]);
+true
+gap> ToroidalMap36([3,0]) = ToroidalMap36([3,0],[0,3]);
+true
+gap> ToroidalMap36([2,2]) = ToroidalMap36([2,2],[4,-2]);
+true
+gap> ToroidalMap36([2,3]) = ToroidalMap36([2,3],[-3,5]);
+true
+gap> NumberOfFlagOrbits(ToroidalMap36([3,0],[-2,4]));
+3
+gap> NumberOfFlagOrbits(ToroidalMap36([4,3],[5,0]));
+6
+gap> Size(ToroidalMap63([3,0])) = 108;
+true
+gap> IsReflexible(ToroidalMap63([2,3]));
+false
+gap> SmallestReflexibleCover(ToroidalMap63([2,3])) = ToroidalMap63([19,0]);
+true
+gap> ToroidalMap63([3,0]) = ToroidalMap63([3,0],[0,3]);
+true
+gap> ToroidalMap63([2,2]) = ToroidalMap63([2,2],[4,-2]);
+true
+gap> ToroidalMap63([2,3]) = ToroidalMap63([2,3],[-3,5]);
+true
+gap> NumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));
+3
+gap> NumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));
+6

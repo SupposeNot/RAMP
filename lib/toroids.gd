@@ -26,6 +26,49 @@ DeclareGlobalFunction("ToroidalMap44");
 #! true
 #! @EndExampleSession
 
+#! @Arguments u [, v]
+#! @Returns IsManiplex
+#! @Description Returns the toroidal map $\{3,6\}_{\vec u, \vec v}$.
+#! If only <A>u</A> is given, then we return the corresponding reflexible map 
+#! (if <A>u</A> is [a, 0] or [a, a]) or chiral map.
+DeclareGlobalFunction("ToroidalMap36");
+#! @BeginExampleSession
+#! gap> Size(ToroidalMap36([3,0])) = 108;
+#! true
+#! gap> SmallestReflexibleCover(ToroidalMap36([2,3])) = ToroidalMap36([19,0]);
+#! true
+#! gap> ToroidalMap36([3,0]) = ToroidalMap36([3,0],[0,3]);
+#! true
+#! gap> ToroidalMap36([2,3]) = ToroidalMap36([2,3],[-3,5]);
+#! true
+#! gap> NumberOfFlagOrbits(ToroidalMap36([3,0],[-2,4]));
+#! 3
+#! gap> NumberOfFlagOrbits(ToroidalMap36([4,3],[5,0]));
+#! 6
+#! @EndExampleSession
+
+#! @Arguments u [, v]
+#! @Returns IsManiplex
+#! @Description Returns the toroidal map $\{6,3\}_{\vec u, \vec v}$.
+#! If only <A>u</A> is given, then we return the corresponding reflexible map 
+#! (if <A>u</A> is [a, 0] or [a, a]) or chiral map.
+DeclareGlobalFunction("ToroidalMap63");
+#! @BeginExampleSession
+#! gap> Size(ToroidalMap63([3,0])) = 108;
+#! true
+#! gap> SmallestReflexibleCover(ToroidalMap63([2,3])) = ToroidalMap63([19,0]);
+#! true
+#! gap> ToroidalMap63([3,0]) = ToroidalMap63([3,0],[0,3]);
+#! true
+#! gap> ToroidalMap63([2,3]) = ToroidalMap63([2,3],[-3,5]);
+#! true
+#! gap> NumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));
+#! 3
+#! gap> NumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));
+#! 6
+#! @EndExampleSession
+
+
 #! @Arguments s, k, n
 #! @Returns IsManiplex
 #! @Description Given IsInt triple <A>s, k, n</A>, will return the regular toroid $\{4, 3^{n-2},4\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$.

@@ -165,6 +165,46 @@ InstallGlobalFunction(ToroidalMap44,
 	return M;
 	end);
 
+InstallGlobalFunction(ToroidalMap36,
+	function(u, arg...)
+	local relstr, v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
+
+	# Recall that h3 denotes the element r0 r1 r2 r1 r2 r1, corresponding to the 3-holes
+
+	if Size(arg) = 0 then
+		if u[1] = 0 then
+			relstr := Concatenation("h3^", String(u[2]));
+			return ReflexibleManiplex([3,6], relstr);
+		elif u[2] = 0 then
+			relstr := Concatenation("h3^", String(u[1]));
+			return ReflexibleManiplex([3,6], relstr);
+		elif u[1] > 0 and u[1] = u[2] then
+			relstr := Concatenation("h3^", String(u[1]), " r1 h3^", String(u[2]), " r1");
+			return ReflexibleManiplex([3,6], relstr);
+		else
+			# h3 = s1 s2^-2
+			# r1 h3 r1 = r1 r0 r1 r2 r1 r2 = s1^-1 s2^2
+			relstr := Concatenation("(s1 s2^-2)^", String(u[1]), " (s1^-1 s2^2)^", String(u[2]));
+			M := RotaryManiplex([3,6], relstr);
+			SetIsChiral(M, true);
+			return M;
+		fi;
+	else
+		v := arg[1];
+		relstr := Concatenation("h3^", String(u[1]), " r1 h3^", String(u[2]), " r1, h3^", String(v[1]), " r1 h3^", String(v[2]), " r1"  );
+		M := AbstractRegularPolytope([3,6]) / relstr;
+		return M;
+	fi;
+
+	end);
+
+InstallGlobalFunction(ToroidalMap63,
+	function(u, arg...)
+	local M;
+	M := CallFuncList(ToroidalMap36, Concatenation([u], arg));
+	return Dual(M);
+	end);
+
 InstallMethod(CubicToroid,
 	[IsInt,IsInt,IsInt],
 	function(s,k,n)
