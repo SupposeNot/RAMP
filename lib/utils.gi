@@ -113,14 +113,24 @@ InstallGlobalFunction(MultPerm,
 
 	end);
 	
-InstallGlobalFunction(PermFromRange,
+InstallMethod(PermFromRange,
+	[IsPerm, IsPerm, IsPerm],
+	function(perm1, perm2, perm3)
+	local multiplier, offset;
+	offset := SmallestMovedPoint(perm2) - SmallestMovedPoint(perm1);
+	multiplier := 1 + (SmallestMovedPoint(perm3) - SmallestMovedPoint(perm1)) / offset;
+	return MultPerm(perm1, multiplier, offset);
+	end);
+	
+InstallOtherMethod(PermFromRange,
+	[IsPerm, IsPerm],
 	function(perm1, perm2)
 	local multiplier, offset;
 	offset := 1 + LargestMovedPoint(perm1) - SmallestMovedPoint(perm1);
 	multiplier := 1 + (SmallestMovedPoint(perm2) - SmallestMovedPoint(perm1)) / offset;
 	return MultPerm(perm1, multiplier, offset);
 	end);
-	
+
 # Takes an abstract word in the generators of some free group and returns the corresponding
 # abstract word in the generators of f.
 InstallGlobalFunction(TranslateWord,

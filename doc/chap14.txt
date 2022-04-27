@@ -92,11 +92,17 @@
   
   [1X14.3-4 PermFromRange[101X
   
-  [33X[1;0Y[29X[2XPermFromRange[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XPermFromRange[102X( [3Xperm1[103X[, [3Xperm2[103X], [3Xperm3[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YPermutation[133X
   
-  [33X[0;0YThis  attempts  to  construct a permutation that we would write as perm1 ...
-  perm2. Probably it is clearest to look at some examples:[133X
+  [33X[0;0YGiven  three  permutations, where [3Xperm2[103X and [3Xperm3[103X are translations of [3Xperm1[103X,
+  forms  the  permutation  that we would most likely denote by perm1 * perm2 *
+  ...  *  perm3.  Namely,  if  [3Xperm2[103X  is  a translation of [3Xperm1[103X by k, then we
+  successively  translate  by k until we get [3Xperm3[103X, and then we multiply those
+  permutations together.[133X
+  
+  [33X[0;0YWhen only two permutations are given, then [3Xperm2[103X is the smallest translation
+  of perm1 such that [10XSmallestMovedPoint(perm2) > LargestMovedPoint(perm1)[110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPermFromRange((1,2), (9,10));[127X[104X
@@ -105,6 +111,8 @@
     [4X[28X(1,3)(4,6)(7,9)(10,12)(13,15)[128X[104X
     [4X[25Xgap>[125X [27XPermFromRange((2,3,4), (8,9,10));[127X[104X
     [4X[28X(2,3,4)(5,6,7)(8,9,10)[128X[104X
+    [4X[25Xgap>[125X [27XPermFromRange((1,2), (101,102), (601,602));[127X[104X
+    [4X[28X(1,2)(101,102)(201,202)(301,302)(401,402)(501,502)(601,602)[128X[104X
   [4X[32X[104X
   
   

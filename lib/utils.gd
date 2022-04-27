@@ -81,10 +81,17 @@ DeclareGlobalFunction("InvolutionListList", [IsList, IsList]);
 
 
 
-#! @Arguments perm1, perm2
+#! @Arguments perm1[, perm2], perm3
 #! @Returns Permutation
-#! @Description This attempts to construct a permutation that we would
-#! write as perm1 ... perm2. Probably it is clearest to look at some examples:
+#! @Description Given three permutations, where <A>perm2</A> and <A>perm3</A> are
+#! translations of <A>perm1</A>, forms the permutation that we would most likely denote
+#! by perm1 * perm2 * ... * perm3. Namely, if <A>perm2</A> is a translation of <A>perm1</A>
+#! by k, then we successively translate by k until we get <A>perm3</A>, and then we
+#! multiply those permutations together.
+#!
+#! When only two permutations are given, then <A>perm2</A> is the smallest translation
+#! of perm1 such that `SmallestMovedPoint(perm2) > LargestMovedPoint(perm1)`.
+DeclareOperation("PermFromRange", [IsPerm, IsPerm, IsPerm]);
 #! @BeginExampleSession
 #! gap> PermFromRange((1,2), (9,10));
 #! (1,2)(3,4)(5,6)(7,8)(9,10)
@@ -92,8 +99,9 @@ DeclareGlobalFunction("InvolutionListList", [IsList, IsList]);
 #! (1,3)(4,6)(7,9)(10,12)(13,15)
 #! gap> PermFromRange((2,3,4), (8,9,10));
 #! (2,3,4)(5,6,7)(8,9,10)
+#! gap> PermFromRange((1,2), (101,102), (601,602));
+#! (1,2)(101,102)(201,202)(301,302)(401,402)(501,502)(601,602)
 #! @EndExampleSession
-DeclareGlobalFunction("PermFromRange");
 
 #! @Section Words on relations
 
