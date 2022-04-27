@@ -30,6 +30,10 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X8440AE1A7A45E3AD">16.1-1 VoltageOperator</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7817A3787920523B">16.1-2 VoltageOperator</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X87B717357AD16360">16.1-3 AdmissiblePerms</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7B45168A7EB410C2">16.1-4 WythoffSTG</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X838E62987EA8CE63">16.1-5 WythoffLabeledEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X79B4314B7EAE8598">16.1-6 WythoffVoltageOperator</a></span>
 </div></div>
 </div>
 
@@ -75,6 +79,74 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Leapfrog(Simplex(3)) =  VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));</span>
+true
+</pre></div>
+
+<p><a id="X87B717357AD16360" name="X87B717357AD16360"></a></p>
+
+<h5>16.1-3 AdmissiblePerms</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdmissiblePerms</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list of the admissible sequences that correspond to the flag orbits for a Wythoffian of a rank n maniplex. The vertex in the fundamental region is moved by ri for i in I.</p>
+
+
+<div class="example"><pre>
+There will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AdmissiblePerms(3,[0,1]);</span>
+ [ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ]
+</pre></div>
+
+<p><a id="X7B45168A7EB410C2" name="X7B45168A7EB410C2"></a></p>
+
+<h5>16.1-4 WythoffSTG</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WythoffSTG</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns the symmetry type graph for a Wythoffian of rank n defined by a list of indices. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.</p>
+
+
+<div class="example"><pre>
+Symmetry type graph of a medial operation
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W:=WythoffSTG(3,[1]);</span>
+Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LabeledEdges(W);</span>
+[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
+</pre></div>
+
+<p><a id="X838E62987EA8CE63" name="X838E62987EA8CE63"></a></p>
+
+<h5>16.1-5 WythoffLabeledEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WythoffLabeledEdges</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns the labeled edges of a possible symmetry type graph for a Wythoffian of rank n defined by a list of indices. The actual graph is not returned, as we require edge labeled graphs to have integer vertices in order to calculate their connection groups.</p>
+
+
+<div class="example"><pre>
+Labeled Edges of the Symmetry type graph of a medial operation
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WythoffLabeledEdges(3,[1]);</span>
+[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ]
+</pre></div>
+
+<p><a id="X79B4314B7EAE8598" name="X79B4314B7EAE8598"></a></p>
+
+<h5>16.1-6 WythoffVoltageOperator</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WythoffVoltageOperator</code>( <var class="Arg">n</var>, <var class="Arg">I</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns the maniplex built from a voltage operation given a Wythoffian</p>
+
+
+<div class="example"><pre>
+Truncation built using voltages 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());</span>
+3-maniplex with 360 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W=Truncation(Dodecahedron());</span>
 true
 </pre></div>
 
