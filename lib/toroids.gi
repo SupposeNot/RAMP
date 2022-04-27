@@ -4,13 +4,31 @@ InstallGlobalFunction(ToroidalMap44,
 	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
 	if Size(arg) = 0 then
 		if u[1] = 0 then
-			return ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[2])));
+			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[2])));
+			if AbsoluteValue(u[2]) > 1 then
+				SetIsPolytopal(M, true);
+			else
+				SetIsPolytopal(M, false);
+			fi;
+			return M;
 		elif u[2] = 0 then
-			return ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[1])));
+			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[1])));
+			if AbsoluteValue(u[1]) > 1 then
+				SetIsPolytopal(M, true);
+			else
+				SetIsPolytopal(M, false);
+			fi;
+			return M;
 		elif AbsoluteValue(u[1]) = AbsoluteValue(u[2]) then
-			return ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2)^", String(2*u[1])));
+			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2)^", String(2*u[1])));
+			if AbsoluteValue(u[1]) > 1 then
+				SetIsPolytopal(M, true);
+			else
+				SetIsPolytopal(M, false);
+			fi;
+			return M;
 		else
-			M := RotaryManiplex([4,4], Concatenation("(s2^-1 s1)^", String(u[1]), " (s2 s1^-1)^", String(u[2])));
+			M := AbstractRotaryPolytope([4,4], Concatenation("(s2^-1 s1)^", String(u[1]), " (s2 s1^-1)^", String(u[2])));
 			SetIsChiral(M, true);
 			return M;
 		fi;
@@ -115,6 +133,8 @@ InstallGlobalFunction(ToroidalMap44,
 				x := x-a; y := y-b;
 			elif InRegion(x+c, y+d) then
 				x := x+c; y := y+d;
+			elif InRegion(x-a+c, y-b+d) then
+				x := x-a+c; y := y-b+d;
 			else
 				Error("Couldn't get a point in the fundamental region!");
 			fi;
