@@ -1280,8 +1280,68 @@ chiral. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{CubicToroid (for IsInt,IsInt,IsInt)}}
+\subsection{\textcolor{Chapter }{ToroidalMap36}}
 \logpage{[ 3, 4, 2 ]}\nobreak
+\hyperdef{L}{X855FEC2480DA687F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ToroidalMap36({\mdseries\slshape u[, v]})\index{ToroidalMap36@\texttt{ToroidalMap36}}
+\label{ToroidalMap36}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+IsManiplex 
+
+
+
+ Returns the toroidal map $\{3,6\}_{\vec u, \vec v}$. If only \mbox{\texttt{\mdseries\slshape u}} is given, then we return the corresponding reflexible map (if \mbox{\texttt{\mdseries\slshape u}} is [a, 0] or [a, a]) or chiral map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Size(ToroidalMap36([3,0])) = 108;|
+  true
+  !gapprompt@gap>| !gapinput@SmallestReflexibleCover(ToroidalMap36([2,3])) = ToroidalMap36([19,0]);|
+  true
+  !gapprompt@gap>| !gapinput@ToroidalMap36([3,0]) = ToroidalMap36([3,0],[0,3]);|
+  true
+  !gapprompt@gap>| !gapinput@ToroidalMap36([2,3]) = ToroidalMap36([2,3],[-3,5]);|
+  true
+  !gapprompt@gap>| !gapinput@NumberOfFlagOrbits(ToroidalMap36([3,0],[-2,4]));|
+  3
+  !gapprompt@gap>| !gapinput@NumberOfFlagOrbits(ToroidalMap36([4,3],[5,0]));|
+  6
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ToroidalMap63}}
+\logpage{[ 3, 4, 3 ]}\nobreak
+\hyperdef{L}{X858E3C287882A43F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ToroidalMap63({\mdseries\slshape u[, v]})\index{ToroidalMap63@\texttt{ToroidalMap63}}
+\label{ToroidalMap63}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+IsManiplex 
+
+
+
+ Returns the toroidal map $\{6,3\}_{\vec u, \vec v}$. If only \mbox{\texttt{\mdseries\slshape u}} is given, then we return the corresponding reflexible map (if \mbox{\texttt{\mdseries\slshape u}} is [a, 0] or [a, a]) or chiral map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Size(ToroidalMap63([3,0])) = 108;|
+  true
+  !gapprompt@gap>| !gapinput@SmallestReflexibleCover(ToroidalMap63([2,3])) = ToroidalMap63([19,0]);|
+  true
+  !gapprompt@gap>| !gapinput@ToroidalMap63([3,0]) = ToroidalMap63([3,0],[0,3]);|
+  true
+  !gapprompt@gap>| !gapinput@ToroidalMap63([2,3]) = ToroidalMap63([2,3],[-3,5]);|
+  true
+  !gapprompt@gap>| !gapinput@NumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));|
+  3
+  !gapprompt@gap>| !gapinput@NumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));|
+  6
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{CubicToroid (for IsInt,IsInt,IsInt)}}
+\logpage{[ 3, 4, 4 ]}\nobreak
 \hyperdef{L}{X80340D308628CE61}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicToroid({\mdseries\slshape s, k, n})\index{CubicToroid@\texttt{CubicToroid}!for IsInt,IsInt,IsInt}
 \label{CubicToroid:for IsInt,IsInt,IsInt}
@@ -1302,7 +1362,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{CubicToroid (for IsInt,IsList)}}
-\logpage{[ 3, 4, 3 ]}\nobreak
+\logpage{[ 3, 4, 5 ]}\nobreak
 \hyperdef{L}{X84CE798B7F485313}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicToroid({\mdseries\slshape n, vecs})\index{CubicToroid@\texttt{CubicToroid}!for IsInt,IsList}
 \label{CubicToroid:for IsInt,IsList}
@@ -1326,7 +1386,7 @@ nonsensical if \mbox{\texttt{\mdseries\slshape vecs}} does not generate an n-dim
  
 
 \subsection{\textcolor{Chapter }{3343Toroid (for IsInt,IsInt)}}
-\logpage{[ 3, 4, 4 ]}\nobreak
+\logpage{[ 3, 4, 6 ]}\nobreak
 \hyperdef{L}{X870D878B843C9D5F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{3343Toroid({\mdseries\slshape s, k})\index{3343Toroid@\texttt{3343Toroid}!for IsInt,IsInt}
 \label{3343Toroid:for IsInt,IsInt}
@@ -1341,7 +1401,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{24CellToroid (for IsInt,IsInt)}}
-\logpage{[ 3, 4, 5 ]}\nobreak
+\logpage{[ 3, 4, 7 ]}\nobreak
 \hyperdef{L}{X830F2B047B0C3C13}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{24CellToroid({\mdseries\slshape s, k})\index{24CellToroid@\texttt{24CellToroid}!for IsInt,IsInt}
 \label{24CellToroid:for IsInt,IsInt}

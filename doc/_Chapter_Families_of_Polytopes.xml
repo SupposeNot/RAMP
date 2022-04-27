@@ -492,6 +492,62 @@ true
 
 
 <ManSection>
+  <Func Arg="u [, v]" Name="ToroidalMap36" />
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Returns the toroidal map <Math>\{3,6\}_{\vec u, \vec v}</Math>.
+ If only <A>u</A> is given, then we return the corresponding reflexible map 
+ (if <A>u</A> is [a, 0] or [a, a]) or chiral map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Size(ToroidalMap36([3,0])) = 108;
+true
+gap> SmallestReflexibleCover(ToroidalMap36([2,3])) = ToroidalMap36([19,0]);
+true
+gap> ToroidalMap36([3,0]) = ToroidalMap36([3,0],[0,3]);
+true
+gap> ToroidalMap36([2,3]) = ToroidalMap36([2,3],[-3,5]);
+true
+gap> NumberOfFlagOrbits(ToroidalMap36([3,0],[-2,4]));
+3
+gap> NumberOfFlagOrbits(ToroidalMap36([4,3],[5,0]));
+6
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="u [, v]" Name="ToroidalMap63" />
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Returns the toroidal map <Math>\{6,3\}_{\vec u, \vec v}</Math>.
+ If only <A>u</A> is given, then we return the corresponding reflexible map 
+ (if <A>u</A> is [a, 0] or [a, a]) or chiral map.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Size(ToroidalMap63([3,0])) = 108;
+true
+gap> SmallestReflexibleCover(ToroidalMap63([2,3])) = ToroidalMap63([19,0]);
+true
+gap> ToroidalMap63([3,0]) = ToroidalMap63([3,0],[0,3]);
+true
+gap> ToroidalMap63([2,3]) = ToroidalMap63([2,3],[-3,5]);
+true
+gap> NumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));
+3
+gap> NumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));
+6
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="s, k, n" Name="CubicToroid" Label="for IsInt,IsInt,IsInt"/>
  <Returns>IsManiplex
 </Returns>

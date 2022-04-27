@@ -68,10 +68,12 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7F4B135A81962DB3">3.4-1 ToroidalMap44</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X80340D308628CE61">3.4-2 CubicToroid</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84CE798B7F485313">3.4-3 CubicToroid</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X870D878B843C9D5F">3.4-4 3343Toroid</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X830F2B047B0C3C13">3.4-5 24CellToroid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X855FEC2480DA687F">3.4-2 ToroidalMap36</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X858E3C287882A43F">3.4-3 ToroidalMap63</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X80340D308628CE61">3.4-4 CubicToroid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X84CE798B7F485313">3.4-5 CubicToroid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X870D878B843C9D5F">3.4-6 3343Toroid</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X830F2B047B0C3C13">3.4-7 24CellToroid</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X8708502981F8565A">3.5 <span class="Heading">Uniform polyhedra</span></a>
 </span>
@@ -543,9 +545,59 @@ true
 true
 </pre></div>
 
+<p><a id="X855FEC2480DA687F" name="X855FEC2480DA687F"></a></p>
+
+<h5>3.4-2 ToroidalMap36</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToroidalMap36</code>( <var class="Arg">u</var>[, <var class="Arg">v</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Returns the toroidal map <span class="SimpleMath">\(\{3,6\}_{\vec u, \vec v}\)</span>. If only <var class="Arg">u</var> is given, then we return the corresponding reflexible map (if <var class="Arg">u</var> is [a, 0] or [a, a]) or chiral map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ToroidalMap36([3,0])) = 108;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallestReflexibleCover(ToroidalMap36([2,3])) = ToroidalMap36([19,0]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ToroidalMap36([3,0]) = ToroidalMap36([3,0],[0,3]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ToroidalMap36([2,3]) = ToroidalMap36([2,3],[-3,5]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(ToroidalMap36([3,0],[-2,4]));</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(ToroidalMap36([4,3],[5,0]));</span>
+6
+</pre></div>
+
+<p><a id="X858E3C287882A43F" name="X858E3C287882A43F"></a></p>
+
+<h5>3.4-3 ToroidalMap63</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToroidalMap63</code>( <var class="Arg">u</var>[, <var class="Arg">v</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Returns the toroidal map <span class="SimpleMath">\(\{6,3\}_{\vec u, \vec v}\)</span>. If only <var class="Arg">u</var> is given, then we return the corresponding reflexible map (if <var class="Arg">u</var> is [a, 0] or [a, a]) or chiral map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ToroidalMap63([3,0])) = 108;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallestReflexibleCover(ToroidalMap63([2,3])) = ToroidalMap63([19,0]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ToroidalMap63([3,0]) = ToroidalMap63([3,0],[0,3]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ToroidalMap63([2,3]) = ToroidalMap63([2,3],[-3,5]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));</span>
+6
+</pre></div>
+
 <p><a id="X80340D308628CE61" name="X80340D308628CE61"></a></p>
 
-<h5>3.4-2 CubicToroid</h5>
+<h5>3.4-4 CubicToroid</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CubicToroid</code>( <var class="Arg">s</var>, <var class="Arg">k</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
@@ -561,7 +613,7 @@ true
 
 <p><a id="X84CE798B7F485313" name="X84CE798B7F485313"></a></p>
 
-<h5>3.4-3 CubicToroid</h5>
+<h5>3.4-5 CubicToroid</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CubicToroid</code>( <var class="Arg">n</var>, <var class="Arg">vecs</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
@@ -578,7 +630,7 @@ true
 
 <p><a id="X870D878B843C9D5F" name="X870D878B843C9D5F"></a></p>
 
-<h5>3.4-4 3343Toroid</h5>
+<h5>3.4-6 3343Toroid</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; 3343Toroid</code>( <var class="Arg">s</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
@@ -587,7 +639,7 @@ true
 
 <p><a id="X830F2B047B0C3C13" name="X830F2B047B0C3C13"></a></p>
 
-<h5>3.4-5 24CellToroid</h5>
+<h5>3.4-7 24CellToroid</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; 24CellToroid</code>( <var class="Arg">s</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
