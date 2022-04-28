@@ -20,6 +20,7 @@ ReadPackage( "ramp", "lib/faces.gd" );
 ReadPackage( "ramp", "lib/families.gd" );
 ReadPackage( "ramp", "lib/flagorbits.gd" );
 ReadPackage( "ramp", "lib/flat.gd" );
+ReadPackage( "ramp", "lib/graphfamilies.gd" );
 ReadPackage( "ramp", "lib/graphs.gd" );
 ReadPackage( "ramp", "lib/groups.gd" );
 ReadPackage( "ramp", "lib/map_operations.gd" );
