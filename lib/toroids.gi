@@ -1,7 +1,7 @@
 
 InstallGlobalFunction(ToroidalMap44,
 	function(u, arg...)
-	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
+	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, FundRegionRepresentative, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
 	if Size(arg) = 0 then
 		if u[1] = 0 then
 			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[2])));
@@ -74,22 +74,22 @@ InstallGlobalFunction(ToroidalMap44,
 	
 	# To improve readability, we now define u = [a, b] and v = [c, d]
 	a := u[1]; b := u[2]; c := v[1]; d := v[2];
-	
+
+	# Translates the point (x,y) to a point inside the fundamental region
+	FundRegionRepresentative := function(x,y)
+		local A, p, b1, b2;
+		A := [[a, c], [b, d]];
+		p := A^-1 * [[x],[y]];
+		b1 := FractionModOne(p[1][1]);
+		b2 := FractionModOne(p[2][1]);
+		return b1*u + b2*v;
+		end;
+		
 	# Tests whether the point (x,y) lies in the region.
 	# The lower two boundaries are included in the region, and the upper two excluded.
 	# The corners on the upper boundaries are excluded.
 	InRegion := function(x,y)
-		if a*y < b*x then
-			return false;
-		elif a*y >= b*x + a*d - b*c then
-			return false;
-		elif d*x < c*y then
-			return false;
-		elif d*x >= c*y + a*d - b*c then
-			return false;
-		else
-			return true;
-		fi;
+		return ([x,y] = FundRegionRepresentative(x,y));
 		end;
 
 	# We want to enumerate the squares in the fundamental region of the translation subgroup.
@@ -121,54 +121,22 @@ InstallGlobalFunction(ToroidalMap44,
 	
 	# Given a square number n, returns the number of the square that is directly to the right.
 	TranslateRight := function(n)
-		local co, x, y;
+		local co, x, y, new_point;
 		co := coords[n];
 		x := co[1]; y := co[2];
 		
-		# Now add one to x and see if we land outside the region.
-		x := x + 1;
-		if not(InRegion(x,y)) then
-			# One of the following must give us a point in the region
-			if InRegion(x-a, y-b) then
-				x := x-a; y := y-b;
-			elif InRegion(x+c, y+d) then
-				x := x+c; y := y+d;
-			elif InRegion(x-a+c, y-b+d) then
-				x := x-a+c; y := y-b+d;
-			else
-				Error("Couldn't get a point in the fundamental region!");
-			fi;
-		fi;
-		
-		return LookupDictionary(squares, [x, y]);
+		new_point := FundRegionRepresentative(x+1, y);
+		return LookupDictionary(squares, new_point);
 		end;
 	
 	# Given a square number n, returns the number of the square that is directly above.
 	TranslateUp := function(n)
-		local co, x, y;
+		local co, x, y, new_point;
 		co := coords[n];
 		x := co[1]; y := co[2];
 		
-		# Now add one to y and see if we land outside the region.
-		y := y + 1;
-		if not(InRegion(x,y)) then
-			# One of the following must give us a point in the region
-			if InRegion(x+a, y+b) then
-				x := x+a; y := y+b;
-			elif InRegion(x-a, y-b) then
-				x := x-a; y := y-b;
-			elif InRegion(x-c, y-d) then
-				x := x-c; y := y-d;
-			elif InRegion(x-a-c, y-b-d) then
-				x := x-a-c; y := y-b-d;
-			elif InRegion(x+a-c, y+b-d) then
-				x := x+a-c; y := y+b-d;
-			else
-				Error("Couldn't get a point in the fundamental region!");
-			fi;
-		fi;
-		
-		return LookupDictionary(squares, [x, y]);
+		new_point := FundRegionRepresentative(x,y+1);
+		return LookupDictionary(squares, new_point);
 		end;
 		
 	r2 := ();
@@ -181,6 +149,12 @@ InstallGlobalFunction(ToroidalMap44,
 	
 	g := Group([r0,r1,r2]);
 	M := Maniplex(g);
+	
+	if Size(Intersection([u,v], [[0,1],[1,0],[1,1]])) > 0 then
+		SetIsPolytopal(M, false);
+	else
+		SetIsPolytopal(M, true);
+	fi;
 	
 	return M;
 	end);

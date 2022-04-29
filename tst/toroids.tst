@@ -20,6 +20,11 @@ gap> ToroidalMap44([2,3],[4,1]) = ToroidalMap44([-3,2],[-1,4]);
 true
 gap> Size(ToroidalMap44([1,1],[0,4]));
 32
+gap> M := ToroidalMap44([0,1],[2,3]);;
+gap> IsPolytopal(M);
+false
+gap> M = CubicTiling(2) / "r1 h2 r1, h2^2 r1 h2^3 r1";
+true
 gap> M := CubicToroid(4, [[1,0,1,0],[1,0,-1,0],[0,1,0,1],[0,1,0,-1]]);;
 gap> NumberOfFlagOrbits(M);
 3
