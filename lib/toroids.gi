@@ -1,40 +1,29 @@
 
 InstallGlobalFunction(ToroidalMap44,
 	function(u, arg...)
-	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, FundRegionRepresentative, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
+	local v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, FundRegionRepresentative, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g, IsInIntegerSpan;
 	if Size(arg) = 0 then
 		if u[1] = 0 then
-			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[2])));
-			if AbsoluteValue(u[2]) > 1 then
-				SetIsPolytopal(M, true);
-			else
-				SetIsPolytopal(M, false);
-			fi;
-			return M;
-		elif u[2] = 0 then
+			u := [u[2], 0];
+		fi;
+	
+		if u[2] = 0 then
 			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2 r1)^", String(u[1])));
-			if AbsoluteValue(u[1]) > 1 then
-				SetIsPolytopal(M, true);
-			else
-				SetIsPolytopal(M, false);
-			fi;
-			return M;
+			SetIsPolytopal(M, AbsoluteValue(u[1]) > 1);
 		elif AbsoluteValue(u[1]) = AbsoluteValue(u[2]) then
 			M := ReflexibleManiplex([4,4], Concatenation("(r0 r1 r2)^", String(2*u[1])));
-			if AbsoluteValue(u[1]) > 1 then
-				SetIsPolytopal(M, true);
-			else
-				SetIsPolytopal(M, false);
-			fi;
-			return M;
+			SetIsPolytopal(M, AbsoluteValue(u[1]) >  1);
 		else
 			M := AbstractRotaryPolytope([4,4], Concatenation("(s2^-1 s1)^", String(u[1]), " (s2 s1^-1)^", String(u[2])));
 			SetIsChiral(M, true);
-			return M;
 		fi;
+		
+		return M;
 	else
 		v := arg[1];
 	fi;
+	
+	# First we do a normalization of the vectors so that at least one of them is in the first quadrant
 	
 	# Make both vectors have a non-negative y-coordinate
 	if u[2] < 0 then u := -u; fi;
@@ -83,6 +72,14 @@ InstallGlobalFunction(ToroidalMap44,
 		b1 := FractionModOne(p[1][1]);
 		b2 := FractionModOne(p[2][1]);
 		return b1*u + b2*v;
+		end;
+		
+	# Is the vector [x,y] an integer combination of u and v?
+	IsInIntegerSpan := function(x,y)
+		local A, p;
+		A := [[a, c], [b, d]];
+		p := A^-1 * [[x],[y]];
+		return IsInt(p[1][1]) and IsInt(p[2][1]);
 		end;
 		
 	# Tests whether the point (x,y) lies in the region.
@@ -150,7 +147,7 @@ InstallGlobalFunction(ToroidalMap44,
 	g := Group([r0,r1,r2]);
 	M := Maniplex(g);
 	
-	if Size(Intersection([u,v], [[0,1],[1,0],[1,1]])) > 0 then
+	if IsInIntegerSpan(1,0) or IsInIntegerSpan(0,1) or IsInIntegerSpan(1,1) or IsInIntegerSpan(-1,1) then
 		SetIsPolytopal(M, false);
 	else
 		SetIsPolytopal(M, true);
@@ -161,32 +158,46 @@ InstallGlobalFunction(ToroidalMap44,
 
 InstallGlobalFunction(ToroidalMap36,
 	function(u, arg...)
-	local relstr, v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g;
+	local relstr, v, x,y, min_x, max_x, num_sq, r0, r1, r2, a, b, c, d, InRegion, TranslateUp, TranslateRight, squares, coords, i, n, n_h, n_v, swap, w, M, g, IsInIntegerSpan;
 
+	IsInIntegerSpan := function(x,y)
+		local A, p;
+		A := [[u[1], v[1]], [u[2], v[2]]];
+		p := A^-1 * [[x],[y]];
+		return IsInt(p[1][1]) and IsInt(p[2][1]);
+		end;
+		
 	# Recall that h3 denotes the element r0 r1 r2 r1 r2 r1, corresponding to the 3-holes
 
 	if Size(arg) = 0 then
 		if u[1] = 0 then
-			relstr := Concatenation("h3^", String(u[2]));
-			return ReflexibleManiplex([3,6], relstr);
-		elif u[2] = 0 then
+			u := [u[2], 0];
+		fi;
+	
+		if u[2] = 0 then
 			relstr := Concatenation("h3^", String(u[1]));
-			return ReflexibleManiplex([3,6], relstr);
+			M :=  ReflexibleManiplex([3,6], relstr);
+			SetIsPolytopal(M, AbsoluteValue(u[1]) > 1);
 		elif u[1] > 0 and u[1] = u[2] then
 			relstr := Concatenation("h3^", String(u[1]), " r1 h3^", String(u[2]), " r1");
-			return ReflexibleManiplex([3,6], relstr);
+			M := AbstractRegularPolytopeNC([3,6], relstr);
 		else
 			# h3 = s1 s2^-2
 			# r1 h3 r1 = r1 r0 r1 r2 r1 r2 = s1^-1 s2^2
 			relstr := Concatenation("(s1 s2^-2)^", String(u[1]), " (s1^-1 s2^2)^", String(u[2]));
-			M := RotaryManiplex([3,6], relstr);
+			M := AbstractRotaryPolytopeNC([3,6], relstr);
 			SetIsChiral(M, true);
-			return M;
 		fi;
+		return M;
 	else
 		v := arg[1];
 		relstr := Concatenation("h3^", String(u[1]), " r1 h3^", String(u[2]), " r1, h3^", String(v[1]), " r1 h3^", String(v[2]), " r1"  );
 		M := AbstractRegularPolytope([3,6]) / relstr;
+		if IsInIntegerSpan(0,1) or IsInIntegerSpan(1,0) or IsInIntegerSpan(-1,1) then
+			SetIsPolytopal(M, false);
+		else
+			SetIsPolytopal(M, true);
+		fi;
 		return M;
 	fi;
 
