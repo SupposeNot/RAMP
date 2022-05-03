@@ -148,22 +148,14 @@
   [1X4.2 [33X[0;0YMixing of Maniplexes functions[133X[101X
   
   
-  [1X4.2-1 [33X[0;0YComix[133X[101X
+  [1X4.2-1 [33X[0;0YMix of groups[133X[101X
   
   [33X[1;0Y[29X[2XMix[102X( [3Xpermgroup[103X, [3Xpermgroup[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XMix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XFlagMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XComix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGroup [110X.[133X
   
-  [33X[0;0YGiven  two  (permutation) groups returns the mix of those groups. Note, also
-  works with FPgroups.[133X
-  
-  [33X[0;0YGiven  two  maniplexes  p,  q  this returns the maniplex of their "flag" mix
-  Given  two  manpilexes,  returns  their  mix.  For two reflexible maniplexes
-  returns the IsReflexibleManiplex from the mix of their connection groups. In
-  general,  it  returns  the  flag  mix.  Returns  the  comix  of two Finitely
-  Presented groups gp and gq.[133X
+  [33X[0;0YGiven  two groups (either both permutation groups or both FpGroups), returns
+  the mix of those groups.[133X
   
   [33X[0;0YHere we build the mix of the connection groups of a 3-cube and an edge.[133X
   
@@ -176,16 +168,38 @@
     [4X[28X<permutation group with 3 generators>[128X[104X
   [4X[32X[104X
   
-  [1X4.2-2 Comix[101X
+  [1X4.2-2 Mix[101X
   
+  [33X[1;0Y[29X[2XMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
+  
+  [33X[0;0YGiven  two  maniplexes,  returns  their  mix.  For two reflexible maniplexes
+  returns the IsReflexibleManiplex from the mix of their connection groups. In
+  general, it returns the "flag mix" of the two maniplexes (see [10XFlagMix[110X).[133X
+  
+  [1X4.2-3 FlagMix[101X
+  
+  [33X[1;0Y[29X[2XFlagMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex [110X.[133X
+  
+  [33X[0;0YGiven  two  maniplexes  p,  q this returns the maniplex of their "flag" mix.
+  That  is,  it  constructs  the  mix  of  their  connection groups, keeps the
+  connected  component  with  the  base  flags  of  p and q, and then builds a
+  maniplex from this.[133X
+  
+  
+  [1X4.2-4 [33X[0;0YComix[133X[101X
+  
+  [33X[1;0Y[29X[2XComix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XComix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
   
-  [33X[0;0YGiven  maniplexes  returns  the IsReflexibleManiplex from the comix of their
+  [33X[0;0YReturns  the  comix  of  two  Finitely  Presented  groups  gp  and gq. Given
+  maniplexes   returns  the  IsReflexibleManiplex  from  the  comix  of  their
   connection groups[133X
   
   
-  [1X4.2-3 [33X[0;0YIndexed array tools[133X[101X
+  [1X4.2-5 [33X[0;0YIndexed array tools[133X[101X
   
   [33X[1;0Y[29X[2XCtoL[102X( [3Xint[103X, [3Xint[103X, [3Xint[103X, [3Xint[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsInteger [110X.[133X
