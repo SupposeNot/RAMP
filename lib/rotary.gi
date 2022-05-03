@@ -91,6 +91,7 @@ InstallMethod(RotaryManiplex,
 	fi;
 	
 	if IsString(rels) then
+		rels := InterpolatedString(rels);
 		desc := Concatenation(desc, String(sym), ", \"", String(rels), "\")");
 		rels := ParseRotGpRels(rels, w);
 	else # it's a "Tietze word" like [1, 2, -1, 2, 2]

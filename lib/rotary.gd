@@ -34,7 +34,9 @@ DeclareOperation("RotaryManiplex", [IsList]);
 #! @Description The third form returns the rotary maniplex with the given Schlafli
 #! symbol and with the given relations.
 #! The relations are given by a string that refers to the generators
-#! s1, s2, etc. For example:
+#! s1, s2, etc. This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable` (but for global variables only).
 #! @BeginExampleSession
 #! gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
 #! @EndExampleSession
@@ -43,7 +45,7 @@ DeclareOperation("RotaryManiplex", [IsList, IsList]);
 
 
 #! @Arguments sym, words, orders
-#! @Description The third form takes the Schlafli Symbol <A>sym</A>, a list
+#! @Description The fourth form takes the Schlafli Symbol <A>sym</A>, a list
 #! of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
 #! It returns the rotary maniplex that is the quotient of the universal
 #! maniplex with that Schlalfi Symbol by the relations obtained by setting each

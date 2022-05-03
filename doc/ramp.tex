@@ -2092,13 +2092,14 @@ polytope) with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}.
 
  The third form returns the rotary maniplex with the given Schlafli symbol and
 with the given relations. The relations are given by a string that refers to
-the generators s1, s2, etc. For example: 
+the generators s1, s2, etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
+replaced with the value of \texttt{variable} (but for global variables only). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;|
 \end{Verbatim}
  
 
- The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the rotary maniplex that is the quotient of the universal
+ The fourth form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the rotary maniplex that is the quotient of the universal
 maniplex with that Schlalfi Symbol by the relations obtained by setting each \mbox{\texttt{\mdseries\slshape word[i]}} to have order \mbox{\texttt{\mdseries\slshape order[i]}}. This is primarily useful for quickly constructing a family of related
 maniplexes. }
 

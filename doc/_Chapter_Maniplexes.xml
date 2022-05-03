@@ -303,14 +303,16 @@ In the first form, given a group g (which should be a string rotation group),
 The third form returns the rotary maniplex with the given Schlafli
  symbol and with the given relations.
  The relations are given by a string that refers to the generators
- s1, s2, etc. For example:
+ s1, s2, etc. This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
 <Example><![CDATA[
 gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
 ]]></Example>
 
 
 <P/>
-The third form takes the Schlafli Symbol <A>sym</A>, a list
+The fourth form takes the Schlafli Symbol <A>sym</A>, a list
  of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
  It returns the rotary maniplex that is the quotient of the universal
  maniplex with that Schlalfi Symbol by the relations obtained by setting each
