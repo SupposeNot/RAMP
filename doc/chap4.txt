@@ -9,6 +9,7 @@
   
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
   
   [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
@@ -23,13 +24,15 @@
   [4X[32X[104X
   
   [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
-  bypass that check. The second form returns the universal reflexible maniplex
-  with  Schlafli symbol [3Xsym[103X. If the optional argument [3Xrelations[103X is given, then
-  we  return  the  reflexible  maniplex with the given defining relations. The
-  relations  can be given by a list of Tietze words or as a string of relators
-  or   relations   that  involve  r0  etc.  This  method  automatically  calls
-  [10XInterpolatedString[110X  on  the  relations,  so  you  may  use  $variable in the
-  relations, and it will be replaced with the value of [10Xvariable[110X.[133X
+  bypass that check.[133X
+  
+  [33X[0;0YThe  second  form  returns  the  universal reflexible maniplex with Schlafli
+  symbol  [3Xsym[103X. If the optional argument [3Xrelations[103X is given, then we return the
+  reflexible  maniplex with the given defining relations. The relations can be
+  given by a list of Tietze words or as a string of relators or relations that
+  involve  r0  etc.  This method automatically calls [10XInterpolatedString[110X on the
+  relations,  so  you  may  use  $variable  in  the  relations, and it will be
+  replaced with the value of [10Xvariable[110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
@@ -41,12 +44,25 @@
     [4X[28X72[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
-  one  given. This may not be the correct Schlafli symbol, since the relations
-  may  cause  a  collapse,  so  this  should only be used if you know that the
-  Schlafli symbol is correct.[133X
+  [33X[0;0YThe  third  form  takes  the  Schlafli  Symbol  [3Xsym[103X,  a list of [3Xwords[103X in the
+  generators  r0 etc, and a list of [3Xorders[103X. It returns the reflexible maniplex
+  that  is the quotient of the universal maniplex with that Schlalfi Symbol by
+  the  relations obtained by setting each [3Xword[i][103X to have order [3Xorder[i][103X. This
+  is primarily useful for quickly constructing a family of related maniplexes.[133X
   
-  [33X[0;0YThe abbreviations [10XRefMan[110X and [10XRefManNC[110X are also available.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;[127X[104X
+    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
+    [4X[28X[ false, true, true, true, true ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  the  second  and third forms, if the option set_schlafli is set, then we
+  set  the  Schlafli  symbol  to  the  one  given. This may not be the correct
+  Schlafli  symbol,  since  the relations may cause a collapse, so this should
+  only be used if you know that the Schlafli symbol is correct.[133X
+  
+  [33X[0;0YThe  abbreviations  [10XRefMan[110X  and [10XRefManNC[110X are also available for all of these
+  usages.[133X
   
   [1X4.1-2 Maniplex[101X
   

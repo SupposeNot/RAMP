@@ -20,6 +20,7 @@
 #! @EndExampleSession
 #! This function first checks whether g is an Sggi. Use `ReflexibleManiplexNC` to
 #! bypass that check.
+#!
 DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
 DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
@@ -42,16 +43,32 @@ DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
 #! gap> Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));
 #! 72
 #! @EndExampleSession
-#! If the option set_schlafli is set, then we set the Schlafli symbol
+DeclareOperation("ReflexibleManiplex", [IsList]);
+
+DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
+
+#! @Arguments sym, words, orders
+#! @Description The third form takes the Schlafli Symbol <A>sym</A>, a list
+#! of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+#! It returns the reflexible maniplex that is the quotient of the universal
+#! maniplex with that Schlalfi Symbol by the relations obtained by setting each
+#! <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+#! quickly constructing a family of related maniplexes.
+DeclareOperation("ReflexibleManiplex", [IsList, IsList, IsList]);
+#! @BeginExampleSession
+#! gap> L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;
+#! gap> List(L, IsPolytopal);
+#! [ false, true, true, true, true ]
+#! @EndExampleSession
+#! 
+#! In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol
 #! to the one given. This may not be the correct Schlafli symbol, since
 #! the relations may cause a collapse, so this should only be used if
 #! you know that the Schlafli symbol is correct.
 #! 
-#! The abbreviations `RefMan` and `RefManNC` are also available.
-DeclareOperation("ReflexibleManiplex", [IsList]);
+#! The abbreviations `RefMan` and `RefManNC` are also available for all of these usages.
 #! @EndGroup
 
-DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 
 DeclareSynonym("RefMan", ReflexibleManiplex);
 DeclareSynonym("RefManNC", ReflexibleManiplexNC);

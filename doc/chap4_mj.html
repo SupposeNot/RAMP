@@ -70,6 +70,7 @@
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsReflexibleManiplex</code></p>
 
 <p>In the first form, we are given an Sggi <var class="Arg">g</var> and we return the reflexible maniplex with that automorphism group, where the privileged generators are those returned by GeneratorsOfGroup(g).</p>
@@ -82,7 +83,9 @@
 true
 </pre></div>
 
-<p>This function first checks whether g is an Sggi. Use <code class="code">ReflexibleManiplexNC</code> to bypass that check. The second form returns the universal reflexible maniplex with Schlafli symbol <var class="Arg">sym</var>. If the optional argument <var class="Arg">relations</var> is given, then we return the reflexible maniplex with the given defining relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>.</p>
+<p>This function first checks whether g is an Sggi. Use <code class="code">ReflexibleManiplexNC</code> to bypass that check.</p>
+
+<p>The second form returns the universal reflexible maniplex with Schlafli symbol <var class="Arg">sym</var>. If the optional argument <var class="Arg">relations</var> is given, then we return the reflexible maniplex with the given defining relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>.</p>
 
 
 <div class="example"><pre>
@@ -95,9 +98,18 @@ true
 72
 </pre></div>
 
-<p>If the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
+<p>The third form takes the Schlafli Symbol <var class="Arg">sym</var>, a list of <var class="Arg">words</var> in the generators r0 etc, and a list of <var class="Arg">orders</var>. It returns the reflexible maniplex that is the quotient of the universal maniplex with that Schlalfi Symbol by the relations obtained by setting each <var class="Arg">word[i]</var> to have order <var class="Arg">order[i]</var>. This is primarily useful for quickly constructing a family of related maniplexes.</p>
 
-<p>The abbreviations <code class="code">RefMan</code> and <code class="code">RefManNC</code> are also available.</p>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
+[ false, true, true, true, true ]
+</pre></div>
+
+<p>In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
+
+<p>The abbreviations <code class="code">RefMan</code> and <code class="code">RefManNC</code> are also available for all of these usages.</p>
 
 <p><a id="X7F0E44EA7980CF74" name="X7F0E44EA7980CF74"></a></p>
 

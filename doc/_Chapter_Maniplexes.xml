@@ -11,6 +11,7 @@
 <Heading>ReflexibleManiplex</Heading>
   <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
   <Oper Arg="sym[, relations]" Name="ReflexibleManiplex" Label="for IsList"/>
+  <Oper Arg="sym, words, orders" Name="ReflexibleManiplex" Label="for IsList, IsList, IsList"/>
  <Returns><Code>IsReflexibleManiplex</Code>
 </Returns>
  <Description>
@@ -27,6 +28,7 @@ true
 
  This function first checks whether g is an Sggi. Use <Code>ReflexibleManiplexNC</Code> to
  bypass that check.
+<P/>
 The second form returns the universal reflexible maniplex
  with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
  then we return the reflexible maniplex with the given defining relations.
@@ -46,16 +48,30 @@ gap> Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));
 ]]></Example>
 
 
- If the option set_schlafli is set, then we set the Schlafli symbol
- to the one given. This may not be the correct Schlafli symbol, since
- the relations may cause a collapse, so this should only be used if
- you know that the Schlafli symbol is correct.
-<P/>
- The abbreviations <Code>RefMan</Code> and <Code>RefManNC</Code> are also available.
+The third form takes the Schlafli Symbol <A>sym</A>, a list
+ of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+ It returns the reflexible maniplex that is the quotient of the universal
+ maniplex with that Schlalfi Symbol by the relations obtained by setting each
+ <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+ quickly constructing a family of related maniplexes.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;
+gap> List(L, IsPolytopal);
+[ false, true, true, true, true ]
+]]></Example>
+
+
+<P/>
+ In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
+<P/>
+ The abbreviations <Code>RefMan</Code> and <Code>RefManNC</Code> are also available for all of these usages.
 <ManSection>
   <Oper Arg="G" Name="Maniplex" Label="for IsPermGroup"/>
  <Returns><Code>IsManiplex</Code>

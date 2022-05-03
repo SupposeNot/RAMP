@@ -4,6 +4,53 @@
 <Chapter Label="Chapter_Graphs_for_Maniplexes">
 <Heading>Graphs for Maniplexes</Heading>
 
+<Section Label="Chapter_Graphs_for_Maniplexes_Section_Graph_families">
+<Heading>Graph families</Heading>
+
+<ManSection>
+  <Oper Arg="" Name="HeawoodGraph" />
+ <Returns><Code>IsGraph</Code>
+</Returns>
+ <Description>
+Heawood Graph as described at https://www.distanceregular.org/graphs/heawood.html
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="" Name="PetersenGraph" />
+ <Returns><Code>IsGraph</Code>
+</Returns>
+ <Description>
+Petersen Graph as described at https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="int, list" Name="CirculantGraph" Label="for IsInt,IsList"/>
+ <Returns><Code>IsGraph</Code>
+</Returns>
+ <Description>
+Given an integer n and a list L, this returns the Circulant Graph with n vertices
+ For each i in the list L and each vertex v, there is an edge from v to v+i and v-i (mod n)
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="int, list" Name="CompleteBipartiteGraph" Label="for IsInt,IsInt"/>
+ <Returns><Code>IsGraph</Code>
+</Returns>
+ <Description>
+Given two integers n, m, this returns the Complete Bipartite Graph K_{n,m}
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
 <Section Label="Chapter_Graphs_for_Maniplexes_Section_Graph_constructors_for_maniplexes">
 <Heading>Graph constructors for maniplexes</Heading>
 

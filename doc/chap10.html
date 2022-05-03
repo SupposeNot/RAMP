@@ -22,48 +22,96 @@
 <p id="mathjaxlink" class="pcenter"><a href="chap10_mj.html">[MathJax on]</a></p>
 <p><a id="X84DE212D847339C0" name="X84DE212D847339C0"></a></p>
 <div class="ChapSects"><a href="chap10.html#X84DE212D847339C0">10 <span class="Heading">Graphs for Maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X8142EE7180458E04">10.1 <span class="Heading">Graph constructors for maniplexes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X8533D8D97CDE9DF1">10.1 <span class="Heading">Graph families</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FB3733D81739F2C">10.1-1 DirectedGraphFromListOfEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82810A0A7CF30BB4">10.1-2 GraphFromListOfEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X86BE61C88420C6F6">10.1-3 UnlabeledFlagGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X791AEF1C7AA7138C">10.1-4 FlagGraphWithLabels</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X809815D08250B57F">10.1-5 LayerGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7BB443CD832DAC12">10.1-6 Skeleton</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85F3D43E7D1BA8E5">10.1-7 CoSkeleton</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A0FB13C7EF68CBB">10.1-8 Hasse</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X860AACCF860A3F66">10.1-9 QuotientByLabel</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84FE2C317CFA6AFD">10.1-10 EdgeLabeledGraphFromEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83DD0B547D5DDE35">10.1-11 EdgeLabeledGraphFromLabeledEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A958E7C821DD8F8">10.1-12 FlagGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82A8C3AD871EC6D7">10.1-13 UnlabeledSimpleGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84263C6C81AB458C">10.1-14 EdgeLabelPreservingAutomorphismGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7D7BF5608431FED8">10.1-15 Simple</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8159C96B8757873F">10.1-16 ConnectedComponents</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A53CE8B820FD6A1">10.1-17 PRGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85BBB22F8196DC0B">10.1-18 CPRGraphFromGroups</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E52D3CB7A84139A">10.1-19 AdjacentVertices</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X78BAE96984A79ACD">10.1-20 LabeledAdjacentVertices</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X791A59B97A44470F">10.1-21 SemiEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82490C307F022606">10.1-22 LabeledSemiEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X811C8FB3842D6D2E">10.1-23 LabeledDarts</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8529379678912775">10.1-24 DerivedGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FF9E3FC7DD66BA4">10.1-25 ViewGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83990BFD7D887A02">10.1-26 ViewGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8147A743805AD49D">10.1-27 ConnectionGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7DC6E7897C266B73">10.1-1 HeawoodGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X823F43217A6C375D">10.1-2 PetersenGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E247B6783FBF9F9">10.1-3 CirculantGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7D9F8CF285289177">10.1-4 CompleteBipartiteGraph</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X8142EE7180458E04">10.2 <span class="Heading">Graph constructors for maniplexes</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FB3733D81739F2C">10.2-1 DirectedGraphFromListOfEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82810A0A7CF30BB4">10.2-2 GraphFromListOfEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X86BE61C88420C6F6">10.2-3 UnlabeledFlagGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X791AEF1C7AA7138C">10.2-4 FlagGraphWithLabels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X809815D08250B57F">10.2-5 LayerGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7BB443CD832DAC12">10.2-6 Skeleton</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85F3D43E7D1BA8E5">10.2-7 CoSkeleton</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A0FB13C7EF68CBB">10.2-8 Hasse</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X860AACCF860A3F66">10.2-9 QuotientByLabel</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84FE2C317CFA6AFD">10.2-10 EdgeLabeledGraphFromEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83DD0B547D5DDE35">10.2-11 EdgeLabeledGraphFromLabeledEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A958E7C821DD8F8">10.2-12 FlagGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82A8C3AD871EC6D7">10.2-13 UnlabeledSimpleGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84263C6C81AB458C">10.2-14 EdgeLabelPreservingAutomorphismGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7D7BF5608431FED8">10.2-15 Simple</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8159C96B8757873F">10.2-16 ConnectedComponents</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A53CE8B820FD6A1">10.2-17 PRGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85BBB22F8196DC0B">10.2-18 CPRGraphFromGroups</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E52D3CB7A84139A">10.2-19 AdjacentVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X78BAE96984A79ACD">10.2-20 LabeledAdjacentVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X791A59B97A44470F">10.2-21 SemiEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X82490C307F022606">10.2-22 LabeledSemiEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X811C8FB3842D6D2E">10.2-23 LabeledDarts</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8529379678912775">10.2-24 DerivedGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FF9E3FC7DD66BA4">10.2-25 ViewGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X83990BFD7D887A02">10.2-26 ViewGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8147A743805AD49D">10.2-27 ConnectionGroup</a></span>
 </div></div>
 </div>
 
 <h3>10 <span class="Heading">Graphs for Maniplexes</span></h3>
 
+<p><a id="X8533D8D97CDE9DF1" name="X8533D8D97CDE9DF1"></a></p>
+
+<h4>10.1 <span class="Heading">Graph families</span></h4>
+
+<p><a id="X7DC6E7897C266B73" name="X7DC6E7897C266B73"></a></p>
+
+<h5>10.1-1 HeawoodGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HeawoodGraph</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code></p>
+
+<p>Heawood Graph as described at https://www.distanceregular.org/graphs/heawood.html</p>
+
+<p><a id="X823F43217A6C375D" name="X823F43217A6C375D"></a></p>
+
+<h5>10.1-2 PetersenGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetersenGraph</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code></p>
+
+<p>Petersen Graph as described at https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm</p>
+
+<p><a id="X7E247B6783FBF9F9" name="X7E247B6783FBF9F9"></a></p>
+
+<h5>10.1-3 CirculantGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CirculantGraph</code>( <var class="Arg">int</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code></p>
+
+<p>Given an integer n and a list L, this returns the Circulant Graph with n vertices For each i in the list L and each vertex v, there is an edge from v to v+i and v-i (mod n)</p>
+
+<p><a id="X7D9F8CF285289177" name="X7D9F8CF285289177"></a></p>
+
+<h5>10.1-4 CompleteBipartiteGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CompleteBipartiteGraph</code>( <var class="Arg">int</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGraph</code></p>
+
+<p>Given two integers n, m, this returns the Complete Bipartite Graph K_{n,m}</p>
+
 <p><a id="X8142EE7180458E04" name="X8142EE7180458E04"></a></p>
 
-<h4>10.1 <span class="Heading">Graph constructors for maniplexes</span></h4>
+<h4>10.2 <span class="Heading">Graph constructors for maniplexes</span></h4>
 
 <p><a id="X7FB3733D81739F2C" name="X7FB3733D81739F2C"></a></p>
 
-<h5>10.1-1 DirectedGraphFromListOfEdges</h5>
+<h5>10.2-1 DirectedGraphFromListOfEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectedGraphFromListOfEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns a directed graph.</p>
@@ -82,7 +130,7 @@ rec( adjacencies := [ [ 2 ], [ 3 ], [ 1 ] ], group := Group(()),
 
 <p><a id="X82810A0A7CF30BB4" name="X82810A0A7CF30BB4"></a></p>
 
-<h5>10.1-2 GraphFromListOfEdges</h5>
+<h5>10.2-2 GraphFromListOfEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GraphFromListOfEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -103,7 +151,7 @@ rec(
 
 <p><a id="X86BE61C88420C6F6" name="X86BE61C88420C6F6"></a></p>
 
-<h5>10.1-3 UnlabeledFlagGraph</h5>
+<h5>10.2-3 UnlabeledFlagGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnlabeledFlagGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -149,7 +197,7 @@ rec(
 
 <p><a id="X791AEF1C7AA7138C" name="X791AEF1C7AA7138C"></a></p>
 
-<h5>10.1-4 FlagGraphWithLabels</h5>
+<h5>10.2-4 FlagGraphWithLabels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraphWithLabels</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: a triple [<code class="code">IsGraph</code>, <code class="code">IsList</code>, <code class="code">IsList</code>].</p>
@@ -216,7 +264,7 @@ rec(
 
 <p><a id="X809815D08250B57F" name="X809815D08250B57F"></a></p>
 
-<h5>10.1-5 LayerGraph</h5>
+<h5>10.2-5 LayerGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LayerGraph</code>( [<var class="Arg">group</var>, <var class="Arg">int</var>, <var class="Arg">int</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -250,7 +298,7 @@ rec(
 
 <p><a id="X7BB443CD832DAC12" name="X7BB443CD832DAC12"></a></p>
 
-<h5>10.1-6 Skeleton</h5>
+<h5>10.2-6 Skeleton</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Skeleton</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -266,7 +314,7 @@ rec(
 
 <p><a id="X85F3D43E7D1BA8E5" name="X85F3D43E7D1BA8E5"></a></p>
 
-<h5>10.1-7 CoSkeleton</h5>
+<h5>10.2-7 CoSkeleton</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CoSkeleton</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -285,7 +333,7 @@ true
 
 <p><a id="X7A0FB13C7EF68CBB" name="X7A0FB13C7EF68CBB"></a></p>
 
-<h5>10.1-8 Hasse</h5>
+<h5>10.2-8 Hasse</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hasse</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns a directed graph.</p>
@@ -311,7 +359,7 @@ rec(
 
 <p><a id="X860AACCF860A3F66" name="X860AACCF860A3F66"></a></p>
 
-<h5>10.1-9 QuotientByLabel</h5>
+<h5>10.2-9 QuotientByLabel</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientByLabel</code>( <var class="Arg">object</var>, <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>. Note this returns an undirected graph.</p>
@@ -338,7 +386,7 @@ true
 
 <p><a id="X84FE2C317CFA6AFD" name="X84FE2C317CFA6AFD"></a></p>
 
-<h5>10.1-10 EdgeLabeledGraphFromEdges</h5>
+<h5>10.2-10 EdgeLabeledGraphFromEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabeledGraphFromEdges</code>( <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -357,7 +405,7 @@ gamma:=EdgeLabeledGraphFromEdges(V,Edges,L);
 
 <p><a id="X83DD0B547D5DDE35" name="X83DD0B547D5DDE35"></a></p>
 
-<h5>10.1-11 EdgeLabeledGraphFromLabeledEdges</h5>
+<h5>10.2-11 EdgeLabeledGraphFromLabeledEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabeledGraphFromLabeledEdges</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -372,7 +420,7 @@ X2:=EdgeLabeledGraphFromLabeledEdges(L);
 
 <p><a id="X7A958E7C821DD8F8" name="X7A958E7C821DD8F8"></a></p>
 
-<h5>10.1-12 FlagGraph</h5>
+<h5>10.2-12 FlagGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -389,7 +437,7 @@ gamma:=FlagGraph(C);
 
 <p><a id="X82A8C3AD871EC6D7" name="X82A8C3AD871EC6D7"></a></p>
 
-<h5>10.1-13 UnlabeledSimpleGraph</h5>
+<h5>10.2-13 UnlabeledSimpleGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnlabeledSimpleGraph</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>.</p>
@@ -405,7 +453,7 @@ gamma:=UnlabeledSimpleGraph(FlagGraph(Cube(3)));
 
 <p><a id="X84263C6C81AB458C" name="X84263C6C81AB458C"></a></p>
 
-<h5>10.1-14 EdgeLabelPreservingAutomorphismGroup</h5>
+<h5>10.2-14 EdgeLabelPreservingAutomorphismGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeLabelPreservingAutomorphismGroup</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGroup</code>.</p>
@@ -422,7 +470,7 @@ Size(g);
 
 <p><a id="X7D7BF5608431FED8" name="X7D7BF5608431FED8"></a></p>
 
-<h5>10.1-15 Simple</h5>
+<h5>10.2-15 Simple</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Simple</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph </code>.</p>
@@ -431,7 +479,7 @@ Size(g);
 
 <p><a id="X8159C96B8757873F" name="X8159C96B8757873F"></a></p>
 
-<h5>10.1-16 ConnectedComponents</h5>
+<h5>10.2-16 ConnectedComponents</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectedComponents</code>( <var class="Arg">edge-labeled-graph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGraph</code>.</p>
@@ -447,7 +495,7 @@ gamma:=ConnectedComponents(FlagGraph(Cube(3)),[2]);
 
 <p><a id="X7A53CE8B820FD6A1" name="X7A53CE8B820FD6A1"></a></p>
 
-<h5>10.1-17 PRGraph</h5>
+<h5>10.2-17 PRGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PRGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph </code>.</p>
@@ -467,7 +515,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X85BBB22F8196DC0B" name="X85BBB22F8196DC0B"></a></p>
 
-<h5>10.1-18 CPRGraphFromGroups</h5>
+<h5>10.2-18 CPRGraphFromGroups</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CPRGraphFromGroups</code>( <var class="Arg">group</var>, <var class="Arg">subgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -476,7 +524,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X7E52D3CB7A84139A" name="X7E52D3CB7A84139A"></a></p>
 
-<h5>10.1-19 AdjacentVertices</h5>
+<h5>10.2-19 AdjacentVertices</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdjacentVertices</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">vertex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsList</code>.</p>
@@ -485,7 +533,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X78BAE96984A79ACD" name="X78BAE96984A79ACD"></a></p>
 
-<h5>10.1-20 LabeledAdjacentVertices</h5>
+<h5>10.2-20 LabeledAdjacentVertices</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledAdjacentVertices</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">vertex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsList, IsList</code>.</p>
@@ -494,7 +542,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X791A59B97A44470F" name="X791A59B97A44470F"></a></p>
 
-<h5>10.1-21 SemiEdges</h5>
+<h5>10.2-21 SemiEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SemiEdges</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsList</code>.</p>
@@ -503,7 +551,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X82490C307F022606" name="X82490C307F022606"></a></p>
 
-<h5>10.1-22 LabeledSemiEdges</h5>
+<h5>10.2-22 LabeledSemiEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledSemiEdges</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsList, IsList</code>.</p>
@@ -512,7 +560,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X811C8FB3842D6D2E" name="X811C8FB3842D6D2E"></a></p>
 
-<h5>10.1-23 LabeledDarts</h5>
+<h5>10.2-23 LabeledDarts</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledDarts</code>( <var class="Arg">EdgeLabeledGraph</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsList</code>.</p>
@@ -521,7 +569,7 @@ gamma:=PRGraph(G2);
 
 <p><a id="X8529379678912775" name="X8529379678912775"></a></p>
 
-<h5>10.1-24 DerivedGraph</h5>
+<h5>10.2-24 DerivedGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DerivedGraph</code>( <var class="Arg">list</var>, <var class="Arg">list</var>, <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
@@ -544,7 +592,7 @@ Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
 
 <p><a id="X7FF9E3FC7DD66BA4" name="X7FF9E3FC7DD66BA4"></a></p>
 
-<h5>10.1-25 ViewGraph</h5>
+<h5>10.2-25 ViewGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ViewGraph</code>( <var class="Arg">EdgeLabeledGraph</var>, <var class="Arg">String</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsString</code>.</p>
@@ -553,7 +601,7 @@ Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
 
 <p><a id="X83990BFD7D887A02" name="X83990BFD7D887A02"></a></p>
 
-<h5>10.1-26 ViewGraph</h5>
+<h5>10.2-26 ViewGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ViewGraph</code>( <var class="Arg">Graph</var>, <var class="Arg">String</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsString</code>.</p>
@@ -562,7 +610,7 @@ Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
 
 <p><a id="X8147A743805AD49D" name="X8147A743805AD49D"></a></p>
 
-<h5>10.1-27 ConnectionGroup</h5>
+<h5>10.2-27 ConnectionGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConnectionGroup</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsPermGroup</code></p>

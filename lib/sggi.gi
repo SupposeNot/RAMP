@@ -260,6 +260,15 @@ InstallMethod(Sggi,
 	SetIsSggi(g, true);
 	return g;
 	end);
+
+InstallMethod(Sggi,
+	[IsList, IsList, IsList],
+	function(sym, words, orders)
+	local new_words, relstr;
+	new_words := List([1..Size(words)], i -> Concatenation("(", words[i], ")^", String(orders[i])));
+	relstr := JoinStringsWithSeparator(new_words, ",");
+	return Sggi(sym, relstr);
+	end);
 	
 
 InstallMethod(SggiFamily,

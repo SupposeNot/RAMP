@@ -41,7 +41,8 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7AE843CE7878951F">2.2-1 <span class="Heading">UniversalSggi</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X841E3F0F84465DCA">2.2-2 Sggi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A4E9AE88662FE00">2.2-2 <span class="Heading">Sggi</span></a>
+</span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X81A3AE37837A4B8D">2.2-3 IsGgi</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7BBA245D7DBAAE7A">2.2-4 IsStringy</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X802333F880B11196">2.2-5 IsSggi</a></span>
@@ -216,11 +217,12 @@ Group([ r0*r1, r1*r2 ])
 true
 </pre></div>
 
-<p><a id="X841E3F0F84465DCA" name="X841E3F0F84465DCA"></a></p>
+<p><a id="X7A4E9AE88662FE00" name="X7A4E9AE88662FE00"></a></p>
 
-<h5>2.2-2 Sggi</h5>
+<h5>2.2-2 <span class="Heading">Sggi</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sggi</code>( <var class="Arg">symbol</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sggi</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsFpGroup</code></p>
 
 <p>Returns the sggi defined by the given Schlafli symbol and with the given relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. If no relations are given, then returns the universal sggi with the given Schlafli symbol. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code>.</p>
@@ -235,6 +237,15 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Sggi([4,4], "(r0 r1 r2 r1)^$n"));</span>
 72
+</pre></div>
+
+<p>The second form takes the Schlafli Symbol <var class="Arg">sym</var>, a list of <var class="Arg">words</var> in the generators r0 etc, and a list of <var class="Arg">orders</var>. It returns the reflexible maniplex that is the quotient of the universal maniplex with that Schlalfi Symbol by the relations obtained by setting each <var class="Arg">word[i]</var> to have order <var class="Arg">order[i]</var>. This is primarily useful for quickly constructing a family of related Sggis.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; Sggi([4,4], ["r0 r1 r2"], [2*k]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, Size);</span>
+[ 16, 64, 144, 256, 400 ]
 </pre></div>
 
 <p><a id="X81A3AE37837A4B8D" name="X81A3AE37837A4B8D"></a></p>

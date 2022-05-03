@@ -81,7 +81,7 @@
       2.1-9 IsManiplexable
     2.2 [33X[0;0YSggis[133X
       2.2-1 [33X[0;0YUniversalSggi[133X
-      2.2-2 Sggi
+      2.2-2 [33X[0;0YSggi[133X
       2.2-3 IsGgi
       2.2-4 IsStringy
       2.2-5 IsSggi
@@ -357,34 +357,39 @@
       9.5-5 HoleLength
       9.5-6 HoleVector
   10 [33X[0;0YGraphs for Maniplexes[133X
-    10.1 [33X[0;0YGraph constructors for maniplexes[133X
-      10.1-1 DirectedGraphFromListOfEdges
-      10.1-2 GraphFromListOfEdges
-      10.1-3 UnlabeledFlagGraph
-      10.1-4 FlagGraphWithLabels
-      10.1-5 LayerGraph
-      10.1-6 Skeleton
-      10.1-7 CoSkeleton
-      10.1-8 Hasse
-      10.1-9 QuotientByLabel
-      10.1-10 EdgeLabeledGraphFromEdges
-      10.1-11 EdgeLabeledGraphFromLabeledEdges
-      10.1-12 FlagGraph
-      10.1-13 UnlabeledSimpleGraph
-      10.1-14 EdgeLabelPreservingAutomorphismGroup
-      10.1-15 Simple
-      10.1-16 ConnectedComponents
-      10.1-17 PRGraph
-      10.1-18 CPRGraphFromGroups
-      10.1-19 AdjacentVertices
-      10.1-20 LabeledAdjacentVertices
-      10.1-21 SemiEdges
-      10.1-22 LabeledSemiEdges
-      10.1-23 LabeledDarts
-      10.1-24 DerivedGraph
-      10.1-25 ViewGraph
-      10.1-26 ViewGraph
-      10.1-27 ConnectionGroup
+    10.1 [33X[0;0YGraph families[133X
+      10.1-1 HeawoodGraph
+      10.1-2 PetersenGraph
+      10.1-3 CirculantGraph
+      10.1-4 CompleteBipartiteGraph
+    10.2 [33X[0;0YGraph constructors for maniplexes[133X
+      10.2-1 DirectedGraphFromListOfEdges
+      10.2-2 GraphFromListOfEdges
+      10.2-3 UnlabeledFlagGraph
+      10.2-4 FlagGraphWithLabels
+      10.2-5 LayerGraph
+      10.2-6 Skeleton
+      10.2-7 CoSkeleton
+      10.2-8 Hasse
+      10.2-9 QuotientByLabel
+      10.2-10 EdgeLabeledGraphFromEdges
+      10.2-11 EdgeLabeledGraphFromLabeledEdges
+      10.2-12 FlagGraph
+      10.2-13 UnlabeledSimpleGraph
+      10.2-14 EdgeLabelPreservingAutomorphismGroup
+      10.2-15 Simple
+      10.2-16 ConnectedComponents
+      10.2-17 PRGraph
+      10.2-18 CPRGraphFromGroups
+      10.2-19 AdjacentVertices
+      10.2-20 LabeledAdjacentVertices
+      10.2-21 SemiEdges
+      10.2-22 LabeledSemiEdges
+      10.2-23 LabeledDarts
+      10.2-24 DerivedGraph
+      10.2-25 ViewGraph
+      10.2-26 ViewGraph
+      10.2-27 ConnectionGroup
   11 [33X[0;0YDatabases[133X
     11.1 [33X[0;0YRegular polyhedra[133X
       11.1-1 WriteManiplexesToFile

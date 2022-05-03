@@ -201,8 +201,10 @@ true
 ]]></Example>
 
 
-<ManSection>
+<ManSection Label="Sggi">
+<Heading>Sggi</Heading>
   <Oper Arg="symbol[, relations]" Name="Sggi" Label="for IsList, IsList"/>
+  <Oper Arg="sym, words, orders" Name="Sggi" Label="for IsList, IsList, IsList"/>
  <Returns><Code>IsFpGroup</Code>
 </Returns>
  <Description>
@@ -226,8 +228,21 @@ gap> Size(Sggi([4,4], "(r0 r1 r2 r1)^$n"));
 ]]></Example>
 
 
+The second form takes the Schlafli Symbol <A>sym</A>, a list
+ of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+ It returns the reflexible maniplex that is the quotient of the universal
+ maniplex with that Schlalfi Symbol by the relations obtained by setting each
+ <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+ quickly constructing a family of related Sggis.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> L := List([1..5], k -> Sggi([4,4], ["r0 r1 r2"], [2*k]));;
+gap> List(L, Size);
+[ 16, 64, 144, 256, 400 ]
+]]></Example>
 
 
 <ManSection>
