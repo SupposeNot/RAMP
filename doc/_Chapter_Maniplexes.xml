@@ -266,29 +266,21 @@ gap> LtoC(8,5,4);
 </ManSection>
 
 
-<ManSection>
+<ManSection Label="RotaryManiplex">
+<Heading>RotaryManiplex</Heading>
   <Oper Arg="g" Name="RotaryManiplex" Label="for IsGroup"/>
+  <Oper Arg="sym" Name="RotaryManiplex" Label="for IsList"/>
+  <Oper Arg="sym, relations" Name="RotaryManiplex" Label="for IsList, IsList"/>
+  <Oper Arg="sym, words, orders" Name="RotaryManiplex" Label="for IsList, IsList, IsList"/>
  <Description>
-Given a group g (which should be a string rotation group),
+In the first form, given a group g (which should be a string rotation group),
  returns the rotary maniplex with that rotation group,
  where the privileged generators are those returned by GeneratorsOfGroup(g).
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="sym" Name="RotaryManiplex" Label="for IsList"/>
- <Description>
- Returns the universal rotary maniplex (in fact, regular polytope)
+<P/>
+ The second form returns the universal rotary maniplex (in fact, regular polytope)
  with Schlafli symbol <A>sym</A>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="symbol, relations" Name="RotaryManiplex" Label="for IsList, IsList"/>
- <Description>
-Returns the rotary maniplex with the given Schlafli
+<P/>
+The third form returns the rotary maniplex with the given Schlafli
  symbol and with the given relations.
  The relations are given by a string that refers to the generators
  s1, s2, etc. For example:
@@ -297,14 +289,29 @@ gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
 ]]></Example>
 
 
- If the option set_schlafli is set, then we set the Schlafli symbol
- to the one given. This may not be the correct Schlafli symbol, since
- the relations may cause a collapse, so this should only be used if
- you know that the Schlafli symbol is correct.
+<P/>
+The third form takes the Schlafli Symbol <A>sym</A>, a list
+ of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+ It returns the rotary maniplex that is the quotient of the universal
+ maniplex with that Schlalfi Symbol by the relations obtained by setting each
+ <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+ quickly constructing a family of related maniplexes.
  </Description>
 </ManSection>
 
 
+<Example><![CDATA[
+gap> L := List([1..5], k -> RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;
+gap> List(L, IsPolytopal);
+[ false, true, true, true, true ]
+]]></Example>
+
+
+<P/>
+ In the last two forms, if the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
 <ManSection>
   <Oper Arg="M" Name="EnantiomorphicForm" Label="for IsRotaryManiplex"/>
  <Description>

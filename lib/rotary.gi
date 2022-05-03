@@ -112,6 +112,16 @@ InstallMethod(RotaryManiplex,
 	return p;
 	end);
 
+InstallMethod(RotaryManiplex,
+	[IsList, IsList, IsList],
+	function(sym, words, orders)
+	local new_words, relstr;
+	new_words := List([1..Size(words)], i -> Concatenation("(", words[i], ")^", String(orders[i])));
+	relstr := JoinStringsWithSeparator(new_words, ",");
+	return RotaryManiplex(sym, relstr);
+	end);
+
+
 InstallMethod(EnantiomorphicForm,
 	[IsRotaryManiplex],
 	function(M)

@@ -220,39 +220,47 @@
   
   [33X[0;0YReturns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.[133X
   
-  [1X4.3-3 RotaryManiplex[101X
+  
+  [1X4.3-3 [33X[0;0YRotaryManiplex[133X[101X
   
   [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xg[103X ) [32X operation[133X
-  
-  [33X[0;0YGiven  a  group  g  (which  should  be a string rotation group), returns the
-  rotary  maniplex  with  that rotation group, where the privileged generators
-  are those returned by GeneratorsOfGroup(g).[133X
-  
-  [1X4.3-4 RotaryManiplex[101X
-  
   [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X, [3Xrelations[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
   
-  [33X[0;0YReturns  the  universal  rotary  maniplex  (in  fact, regular polytope) with
-  Schlafli symbol [3Xsym[103X.[133X
+  [33X[0;0YIn  the  first  form,  given  a  group  g (which should be a string rotation
+  group),  returns  the  rotary  maniplex  with that rotation group, where the
+  privileged generators are those returned by GeneratorsOfGroup(g).[133X
   
-  [1X4.3-5 RotaryManiplex[101X
+  [33X[0;0YThe  second  form  returns  the  universal rotary maniplex (in fact, regular
+  polytope) with Schlafli symbol [3Xsym[103X.[133X
   
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsymbol[103X, [3Xrelations[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  the  rotary  maniplex  with  the given Schlafli symbol and with the
-  given  relations.  The  relations  are  given by a string that refers to the
-  generators s1, s2, etc. For example:[133X
+  [33X[0;0YThe  third  form  returns the rotary maniplex with the given Schlafli symbol
+  and  with  the  given  relations.  The  relations are given by a string that
+  refers to the generators s1, s2, etc. For example:[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := RotaryManiplex([4,4], "(s2^-1 s1)^6");;[127X[104X
   [4X[32X[104X
   
-  [33X[0;0YIf  the  option  set_schlafli is set, then we set the Schlafli symbol to the
-  one  given. This may not be the correct Schlafli symbol, since the relations
-  may  cause  a  collapse,  so  this  should only be used if you know that the
-  Schlafli symbol is correct.[133X
+  [33X[0;0YThe  third  form  takes  the  Schlafli  Symbol  [3Xsym[103X,  a list of [3Xwords[103X in the
+  generators r0 etc, and a list of [3Xorders[103X. It returns the rotary maniplex that
+  is  the  quotient of the universal maniplex with that Schlalfi Symbol by the
+  relations  obtained  by setting each [3Xword[i][103X to have order [3Xorder[i][103X. This is
+  primarily useful for quickly constructing a family of related maniplexes.[133X
   
-  [1X4.3-6 EnantiomorphicForm[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := List([1..5], k -> RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;[127X[104X
+    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
+    [4X[28X[ false, true, true, true, true ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  the  last  two forms, if the option set_schlafli is set, then we set the
+  Schlafli  symbol  to  the  one  given.  This may not be the correct Schlafli
+  symbol,  since  the  relations  may cause a collapse, so this should only be
+  used if you know that the Schlafli symbol is correct.[133X
+  
+  [1X4.3-4 EnantiomorphicForm[101X
   
   [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
   

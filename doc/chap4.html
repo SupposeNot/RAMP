@@ -48,10 +48,9 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8056E3557E06EFF6">4.3-1 UniversalRotationGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7D6042317A76FDC3">4.3-2 UniversalRotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X84662FEC86F981A0">4.3-3 RotaryManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X85D4214883208895">4.3-4 RotaryManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7C4F288287BD75D6">4.3-5 RotaryManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E64776382984E5A">4.3-6 EnantiomorphicForm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X80791E367E43CA25">4.3-3 <span class="Heading">RotaryManiplex</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E64776382984E5A">4.3-4 EnantiomorphicForm</a></span>
 </div></div>
 </div>
 
@@ -263,37 +262,39 @@ Group([ (1,2) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.</p>
 
-<p><a id="X84662FEC86F981A0" name="X84662FEC86F981A0"></a></p>
+<p><a id="X80791E367E43CA25" name="X80791E367E43CA25"></a></p>
 
-<h5>4.3-3 RotaryManiplex</h5>
+<h5>4.3-3 <span class="Heading">RotaryManiplex</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given a group g (which should be a string rotation group), returns the rotary maniplex with that rotation group, where the privileged generators are those returned by GeneratorsOfGroup(g).</p>
-
-<p><a id="X85D4214883208895" name="X85D4214883208895"></a></p>
-
-<h5>4.3-4 RotaryManiplex</h5>
-
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the universal rotary maniplex (in fact, regular polytope) with Schlafli symbol <var class="Arg">sym</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">relations</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>In the first form, given a group g (which should be a string rotation group), returns the rotary maniplex with that rotation group, where the privileged generators are those returned by GeneratorsOfGroup(g).</p>
 
-<p><a id="X7C4F288287BD75D6" name="X7C4F288287BD75D6"></a></p>
+<p>The second form returns the universal rotary maniplex (in fact, regular polytope) with Schlafli symbol <var class="Arg">sym</var>.</p>
 
-<h5>4.3-5 RotaryManiplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">symbol</var>, <var class="Arg">relations</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the rotary maniplex with the given Schlafli symbol and with the given relations. The relations are given by a string that refers to the generators s1, s2, etc. For example:</p>
+<p>The third form returns the rotary maniplex with the given Schlafli symbol and with the given relations. The relations are given by a string that refers to the generators s1, s2, etc. For example:</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;</span>
 </pre></div>
 
-<p>If the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
+<p>The third form takes the Schlafli Symbol <var class="Arg">sym</var>, a list of <var class="Arg">words</var> in the generators r0 etc, and a list of <var class="Arg">orders</var>. It returns the rotary maniplex that is the quotient of the universal maniplex with that Schlalfi Symbol by the relations obtained by setting each <var class="Arg">word[i]</var> to have order <var class="Arg">order[i]</var>. This is primarily useful for quickly constructing a family of related maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
+[ false, true, true, true, true ]
+</pre></div>
+
+<p>In the last two forms, if the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
 
 <p><a id="X7E64776382984E5A" name="X7E64776382984E5A"></a></p>
 
-<h5>4.3-6 EnantiomorphicForm</h5>
+<h5>4.3-4 EnantiomorphicForm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnantiomorphicForm</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>The <em>enantiomorphic form</em> of a rotary maniplex is the same maniplex, but where we choose the new base flag to be one of the flags that is adjacent to the original base flag. If M is reflexible, then this choice has no effect. Otherwise, if M is chiral, then the enantiomorphic form gives us a different presentation for the rotation group.</p>

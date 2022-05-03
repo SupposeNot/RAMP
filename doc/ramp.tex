@@ -2038,57 +2038,58 @@ Functions are inverses. }
  Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym. }
 
  
-
-\subsection{\textcolor{Chapter }{RotaryManiplex (for IsGroup)}}
-\logpage{[ 4, 3, 3 ]}\nobreak
-\hyperdef{L}{X84662FEC86F981A0}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape g})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsGroup}
+\subsection{\textcolor{Chapter }{RotaryManiplex}}\label{RotaryManiplex}
+\logpage{[ 4, 3, 3 ]}
+\hyperdef{L}{X80791E367E43CA25}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape g})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsGroup}
 \label{RotaryManiplex:for IsGroup}
 }\hfill{\scriptsize (operation)}}\\
-
-
- Given a group g (which should be a string rotation group), returns the rotary
-maniplex with that rotation group, where the privileged generators are those
-returned by GeneratorsOfGroup(g). }
-
- 
-
-\subsection{\textcolor{Chapter }{RotaryManiplex (for IsList)}}
-\logpage{[ 4, 3, 4 ]}\nobreak
-\hyperdef{L}{X85D4214883208895}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape sym})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape sym})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList}
 \label{RotaryManiplex:for IsList}
 }\hfill{\scriptsize (operation)}}\\
-
-
- Returns the universal rotary maniplex (in fact, regular polytope) with
-Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. }
-
- 
-
-\subsection{\textcolor{Chapter }{RotaryManiplex (for IsList, IsList)}}
-\logpage{[ 4, 3, 5 ]}\nobreak
-\hyperdef{L}{X7C4F288287BD75D6}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape symbol, relations})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList, IsList}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape sym, relations})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList, IsList}
 \label{RotaryManiplex:for IsList, IsList}
+}\hfill{\scriptsize (operation)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape sym, words, orders})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsList, IsList, IsList}
+\label{RotaryManiplex:for IsList, IsList, IsList}
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns the rotary maniplex with the given Schlafli symbol and with the given
-relations. The relations are given by a string that refers to the generators
-s1, s2, etc. For example: 
+ In the first form, given a group g (which should be a string rotation group),
+returns the rotary maniplex with that rotation group, where the privileged
+generators are those returned by GeneratorsOfGroup(g). 
+
+ The second form returns the universal rotary maniplex (in fact, regular
+polytope) with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. 
+
+ The third form returns the rotary maniplex with the given Schlafli symbol and
+with the given relations. The relations are given by a string that refers to
+the generators s1, s2, etc. For example: 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;|
 \end{Verbatim}
- If the option set{\textunderscore}schlafli is set, then we set the Schlafli
-symbol to the one given. This may not be the correct Schlafli symbol, since
-the relations may cause a collapse, so this should only be used if you know
-that the Schlafli symbol is correct. }
-
  
 
+ The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the rotary maniplex that is the quotient of the universal
+maniplex with that Schlalfi Symbol by the relations obtained by setting each \mbox{\texttt{\mdseries\slshape word[i]}} to have order \mbox{\texttt{\mdseries\slshape order[i]}}. This is primarily useful for quickly constructing a family of related
+maniplexes. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@L := List([1..5], k -> RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;|
+  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
+  [ false, true, true, true, true ]
+\end{Verbatim}
+ 
+
+ In the last two forms, if the option set{\textunderscore}schlafli is set, then
+we set the Schlafli symbol to the one given. This may not be the correct
+Schlafli symbol, since the relations may cause a collapse, so this should only
+be used if you know that the Schlafli symbol is correct. 
+
 \subsection{\textcolor{Chapter }{EnantiomorphicForm (for IsRotaryManiplex)}}
-\logpage{[ 4, 3, 6 ]}\nobreak
+\logpage{[ 4, 3, 4 ]}\nobreak
 \hyperdef{L}{X7E64776382984E5A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EnantiomorphicForm({\mdseries\slshape M})\index{EnantiomorphicForm@\texttt{EnantiomorphicForm}!for IsRotaryManiplex}
 \label{EnantiomorphicForm:for IsRotaryManiplex}
@@ -8456,7 +8457,6 @@ IsList
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
