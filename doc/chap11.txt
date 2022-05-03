@@ -263,6 +263,9 @@
   variable  name  (such as spaces, commas, etc.) marks the end of the variable
   name.[133X
   
+  [33X[0;0YNote  that, due to limitations with EvalString, only global variables can be
+  interpolated this way.[133X
+  
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xn := 5;;[127X[104X
     [4X[25Xgap>[125X [27XInterpolatedString("2 + 3 = $n");[127X[104X

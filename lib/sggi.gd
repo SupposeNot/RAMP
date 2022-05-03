@@ -41,7 +41,7 @@ DeclareOperation("UniversalSggi", [IsList]);
 #! the universal sggi with the given Schlafli symbol.
 #! This method automatically calls `InterpolatedString` on the relations, so
 #! you may use \$variable in the relations, and it will be replaced with
-#! the value of `variable`.
+#! the value of `variable` (but for global variables only).
 #! @BeginExampleSession
 #! gap> g := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
 #! gap> h := Sggi([4,4], "r0 = r2");;
@@ -108,7 +108,7 @@ DeclareOperation("IsStringCPlus", [IsGroup]);
 #! @Description
 #! This method automatically calls `InterpolatedString` on the relations, so
 #! you may use \$variable in the relations, and it will be replaced with
-#! the value of `variable`.
+#! the value of `variable` (but for global variables only).
 #! @BeginExampleSession
 #! gap> g := Group((1,2),(2,3),(3,4));;
 #! gap> SggiElement(g, "r0 r1");
@@ -128,7 +128,7 @@ DeclareOperation("SggiElement", [IsGroup, IsString]);
 #! further computations with g may be substantially slower.
 #! This method automatically calls `InterpolatedString` on the relations, so
 #! you may use \$variable in the relations, and it will be replaced with
-#! the value of `variable`.
+#! the value of `variable` (but for global variables only).
 #! For convenience, you can also use a reflexible maniplex M in place
 #! of g, in which case `AutomorphismGroup(M)` is used for g.
 DeclareOperation("SimplifiedSggiElement", [IsGroup, IsString]);
@@ -145,7 +145,7 @@ DeclareOperation("SimplifiedSggiElement", [IsGroup, IsString]);
 #! in `AutomorphismGroup(M)`.
 #! This method automatically calls `InterpolatedString` on the relations, so
 #! you may use \$variable in the relations, and it will be replaced with
-#! the value of `variable`.
+#! the value of `variable` (but for global variables only).
 DeclareOperation("IsRelationOfReflexibleManiplex", [IsManiplex, IsString]);
 #! @BeginExampleSession
 #! gap> M := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;

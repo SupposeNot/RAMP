@@ -176,7 +176,7 @@
   given,  then returns the universal sggi with the given Schlafli symbol. This
   method  automatically  calls [10XInterpolatedString[110X on the relations, so you may
   use  $variable  in  the relations, and it will be replaced with the value of
-  [10Xvariable[110X.[133X
+  [10Xvariable[110X (but for global variables only).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
@@ -245,7 +245,7 @@
   
   [33X[0;0YThis  method automatically calls [10XInterpolatedString[110X on the relations, so you
   may  use  $variable in the relations, and it will be replaced with the value
-  of [10Xvariable[110X.[133X
+  of [10Xvariable[110X (but for global variables only).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg := Group((1,2),(2,3),(3,4));;[127X[104X
@@ -269,8 +269,9 @@
   result, further computations with g may be substantially slower. This method
   automatically  calls  [10XInterpolatedString[110X  on  the  relations, so you may use
   $variable  in  the  relations,  and  it  will  be replaced with the value of
-  [10Xvariable[110X. For convenience, you can also use a reflexible maniplex M in place
-  of g, in which case [10XAutomorphismGroup(M)[110X is used for g.[133X
+  [10Xvariable[110X  (but for global variables only). For convenience, you can also use
+  a reflexible maniplex M in place of g, in which case [10XAutomorphismGroup(M)[110X is
+  used for g.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg := AutomorphismGroup(Cube(3));;[127X[104X
@@ -286,7 +287,7 @@
   [33X[0;0YDetermines   whether   the  relation  given  by  the  string  [3Xrel[103X  holds  in
   [10XAutomorphismGroup(M)[110X.  This method automatically calls [10XInterpolatedString[110X on
   the  relations,  so  you  may use $variable in the relations, and it will be
-  replaced with the value of [10Xvariable[110X.[133X
+  replaced with the value of [10Xvariable[110X (but for global variables only).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;[127X[104X

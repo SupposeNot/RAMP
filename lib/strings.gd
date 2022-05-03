@@ -18,6 +18,9 @@ DeclareOperation("ManiplexFromDatabaseString", [IsString]);
 #! @Description Given a string, replaces each instance of "\$variable" with
 #! String(EvalString(variable)). Any character which cannot be used in a
 #! variable name (such as spaces, commas, etc.) marks the end of the variable name.
+#!
+#! Note that, due to limitations with EvalString, only global variables can be
+#! interpolated this way.
 DeclareOperation("InterpolatedString", [IsString]);
 #! @BeginExampleSession
 #! gap> n := 5;;

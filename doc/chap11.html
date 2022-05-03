@@ -325,6 +325,8 @@
 
 <p>Given a string, replaces each instance of "$variable" with String(EvalString(variable)). Any character which cannot be used in a variable name (such as spaces, commas, etc.) marks the end of the variable name.</p>
 
+<p>Note that, due to limitations with EvalString, only global variables can be interpolated this way.</p>
+
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 5;;</span>

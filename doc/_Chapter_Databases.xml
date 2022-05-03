@@ -333,6 +333,9 @@ Given a string <A>maniplexString</A>, representing a maniplex stored
 Given a string, replaces each instance of "&#36;variable" with
  String(EvalString(variable)). Any character which cannot be used in a
  variable name (such as spaces, commas, etc.) marks the end of the variable name.
+<P/>
+ Note that, due to limitations with EvalString, only global variables can be
+ interpolated this way.
  </Description>
 </ManSection>
 

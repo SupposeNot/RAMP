@@ -33,7 +33,7 @@ DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
 #! or relations that involve r0 etc.
 #! This method automatically calls `InterpolatedString` on the relations, so
 #! you may use \$variable in the relations, and it will be replaced with
-#! the value of `variable`.
+#! the value of `variable` (but for global variables only).
 #! @BeginExampleSession
 #! gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
 #! gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
