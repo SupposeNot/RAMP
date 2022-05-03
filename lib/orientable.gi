@@ -5,7 +5,7 @@ InstallMethod(IsOrientable,
 	local isOrientable;
 	isOrientable := ComputeAttr(M, IsOrientable);
 	if isOrientable = fail then
-		if IsReflexibleManiplexAutGpRep(M) then
+		if HasIsReflexible(M) and IsReflexible(M) then
 			isOrientable := ForAll(RelatorsOfFpGroup(AutomorphismGroupFpGroup(M)), r -> IsEvenInt(Length(r)));
 		else
 			isOrientable := IsBipartite(UnlabeledFlagGraph(M));

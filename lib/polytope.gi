@@ -200,7 +200,7 @@ InstallMethod(Size,
 	size := ComputeAttr(M, Size);
 	if size <> fail then return size; fi;
 
-	if IsReflexibleManiplexAutGpRep(M) then
+	if HasIsReflexible(M) and IsReflexible(M) then
 		return Size(AutomorphismGroup(M));
 	elif IsRotaryManiplexRotGpRep(M) then
 		return 2*Size(RotationGroup(M));
@@ -285,7 +285,7 @@ InstallMethod(IsPolytopal,
 	if isPolytopal = fail then
 		if HasIsEquivelar(M) and IsEquivelar(M) and Size(M) < 2*Product(SchlafliSymbol(M)) then
 			isPolytopal := false;
-		elif IsReflexibleManiplexAutGpRep(M) then
+		elif HasIsReflexible(M) and IsReflexible(M) then
 			isPolytopal := IsStringC(AutomorphismGroup(M));
 			if isPolytopal and IsBound(M!.String) then M!.String := ReplacedString(M!.String, "ReflexibleManiplex", "AbstractRegularPolytope"); fi;
 		elif IsRotaryManiplexRotGpRep(M) then

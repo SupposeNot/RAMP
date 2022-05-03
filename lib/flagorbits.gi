@@ -8,7 +8,11 @@ InstallMethod(Flags,
 InstallMethod(BaseFlag,
 	[IsManiplex],
 	function(M)
-	return SmallestMovedPoint(ConnectionGroup(M));
+	if HasConnectionGroup(M) then
+		return SmallestMovedPoint(ConnectionGroup(M));
+	else
+		return 1;
+	fi;
 	end);
 	
 InstallMethod(SymmetryTypeGraph,
@@ -102,7 +106,7 @@ InstallMethod(NumberOfFlagOrbits,
 	
 	numberOfFlagOrbits := ComputeAttr(M, NumberOfFlagOrbits);
 	if numberOfFlagOrbits = fail then
-		if IsReflexibleManiplexAutGpRep(M) then 
+		if HasIsReflexible(M) and IsReflexible(M) then 
 			numberOfFlagOrbits := 1; 
 		elif IsManiplexQuotientRep(M) then
 			g := AutomorphismGroup(M!.parent);
@@ -123,8 +127,8 @@ InstallMethod(FlagOrbitRepresentatives,
 	[IsManiplex],
 	function(M)
 	local c, reps, norm, stab, flags, i;
-	if IsReflexibleManiplexAutGpRep(M) then
-		return [1];
+	if HasIsReflexible(M) and IsReflexible(M) then
+		return [BaseFlag(M)];
 	else
 		c := ConnectionGroup(M);
 		reps := [];
