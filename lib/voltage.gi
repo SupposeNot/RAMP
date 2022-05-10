@@ -156,6 +156,9 @@ InstallMethod(WythoffVoltageOperator,
 	[IsInt, IsList, IsManiplex],
 	function(n,I,M)
 	local V1, V2 , LabEd1, LabEd2, k, v, i, p, W, etain1, etain2, etaout,s, ed,lab, moved;
+	if I = [] then
+	return M;
+	fi;	
 	V1:=AdmissiblePerms(n,I);
 	V2:=[1..Size(V1)];
 	LabEd1:=[];
