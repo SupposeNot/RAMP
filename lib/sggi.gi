@@ -181,8 +181,11 @@ InstallMethod(UniversalSggi,
 	end);
 
 InstallGlobalFunction(COXETER_GROUP_SIZES,
-	function(sym)
-	local dict, n, k;
+	function(symbol)
+	local dict, n, k, sym;
+	
+	# This is so that we can modify sym later if necessary
+	sym := ShallowCopy(symbol);
 	
 	dict := NewDictionary([], true);
 	AddDictionary(dict, [3,5], 120);
