@@ -1,18 +1,7 @@
 Below are several things we'd like to eventually add. If you are going to work on one of these and you expect it to take more than a few hours, then write down below what you are working on and/or broadcast in Discord:
 
 Gabe: Documentation and file organization
-Mark: DualPolytope for non-regulars
 
-
-* Polytopes to add:
-	* Torus maps (including non-regular!) of type {3,6} to conn.gi. (I have the torus maps of type {4,4} there.)
-	* Other maps of type {4, 4}. (e.g. on a Klein bottle, on a cylinder, ...)
-	* Cubic toroids
-	
-* Constructions to add:
-	* Truncation of polyhedra
-	* Eventually a generic Wythoff operation
-	
 * Comb / Alg info to add:
 	* "Multi-schlafli symbol"? For polyhedra, something like [ [p1, p2, ..., pm], [q1, q2, ..., qk] ] to show all the face-types and vertex-types.
 	* "Pseudo-schlafli symbol"? Sometimes we construct something where we know the Schlafli symbol is [p, q] or a proper quotient - it might be useful to store that information somehow, in case computing the SS is hard.
@@ -30,8 +19,3 @@ Mark: DualPolytope for non-regulars
 * Properties to check for:
 	* IsInternallySelfDual
 	
-* Graphs
-	* Skeletons
-	* Hasse Diagram
-	* Flag graph
-	* Layer graphs
