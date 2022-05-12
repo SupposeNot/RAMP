@@ -23,9 +23,11 @@
 <Heading>IsQuotient</Heading>
   <Oper Arg="M1, M2" Name="IsQuotient" Label="for IsManiplex, IsManiplex"/>
   <Oper Arg="g, h" Name="IsQuotient" Label="for IsSggi, IsSggi"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
  <Description>
- Returns whether <A>M2</A> is a quotient of <A>M1</A>.
- Returns whether <A>h</A> is a quotient of <A>g</A>.
+Returns whether <A>M2</A> is a quotient of <A>M1</A>.
+Returns whether <A>h</A> is a quotient of <A>g</A>.
  That is, whether there is a homomorphism sending each generator of g
  to the corresponding generator of h.
  </Description>
@@ -41,9 +43,30 @@ true
 
 
 <ManSection>
-  <Oper Arg="M1, M2" Name="IsCover" Label="for IsManiplex, IsManiplex"/>
+  <Oper Arg="M1, M2" Name="IsRootedQuotient" Label="for IsManiplex, IsManiplex"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
  <Description>
- Returns whether <A>M2</A> is a cover of <A>M1</A>.
+Returns whether there is a maniplex homomorphism from <A>M1</A> to <A>M2</A>
+ that sends <Code>BaseFlag(M1)</Code> to <Code>BaseFlag(M2)</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsRootedQuotient(ToroidalMap44([4,4]), ToroidalMap44([4,0]));
+true
+gap> IsRootedQuotient(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+false
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="IsCover" Label="for IsManiplex, IsManiplex"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether <A>M2</A> is a cover of <A>M1</A>.
  </Description>
 </ManSection>
 
@@ -55,15 +78,57 @@ true
 
 
 <ManSection>
-  <Oper Arg="M1, M2" Name="IsIsomorphicManiplex" Label="for IsManiplex, IsManiplex"/>
+  <Oper Arg="M1, M2" Name="IsRootedCover" Label="for IsManiplex, IsManiplex"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
  <Description>
- Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
+Returns whether there is a maniplex homomorphism from <A>M2</A> to <A>M1</A>
+ that sends <Code>BaseFlag(M2)</Code> to <Code>BaseFlag(M1)</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsRootedCover(ToroidalMap44([4,0]), ToroidalMap44([4,4]));
+true
+gap> IsRootedCover(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+false
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="IsIsomorphicManiplex" Label="for IsManiplex, IsManiplex"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
 gap> IsIsomorphicManiplex(HemiCube(3),Petrial(Simplex(3)));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M1, M2" Name="IsIsomorphicRootedManiplex" Label="for IsManiplex, IsManiplex"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether there is an isomorphism from <A>M1</A> to <A>M2</A>
+ that sends <Code>BaseFlag(M2)</Code> to <Code>BaseFlag(M1)</Code>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+true
+gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+false
+gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), EnantiomorphicForm(ToroidalMap44([2,1])));
 true
 ]]></Example>
 

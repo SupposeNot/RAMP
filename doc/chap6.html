@@ -27,14 +27,17 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X87EB22A184A49FB8">6.1-1 <span class="Heading">IsQuotient</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X845044F47ACF897C">6.1-2 IsCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7B1006697C002741">6.1-3 IsIsomorphicManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8017B6F880D162E7">6.1-4 SmallestReflexibleCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X85BE14877927DB85">6.1-5 QuotientManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X87DCBB9E78E383BB">6.1-6 ReflexibleQuotientManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X83D969847E68299D">6.1-7 QuotientSggi</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X819D85E57B505196">6.1-8 QuotientSggiByNormalSubgroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X86725DD8781BF181">6.1-9 QuotientManiplexByAutomorphismSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7F097A917AE87005">6.1-2 IsRootedQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X845044F47ACF897C">6.1-3 IsCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7923C770859A958F">6.1-4 IsRootedCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7B1006697C002741">6.1-5 IsIsomorphicManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X85A79420835EAF2A">6.1-6 IsIsomorphicRootedManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8017B6F880D162E7">6.1-7 SmallestReflexibleCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X85BE14877927DB85">6.1-8 QuotientManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X87DCBB9E78E383BB">6.1-9 ReflexibleQuotientManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X83D969847E68299D">6.1-10 QuotientSggi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X819D85E57B505196">6.1-11 QuotientSggiByNormalSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X86725DD8781BF181">6.1-12 QuotientManiplexByAutomorphismSubgroup</a></span>
 </div></div>
 </div>
 
@@ -52,6 +55,8 @@
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsQuotient</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsQuotient</code>( <var class="Arg">g</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
 <p>Returns whether <var class="Arg">M2</var> is a quotient of <var class="Arg">M1</var>. Returns whether <var class="Arg">h</var> is a quotient of <var class="Arg">g</var>. That is, whether there is a homomorphism sending each generator of g to the corresponding generator of h.</p>
 
 
@@ -62,11 +67,30 @@ true
 true
 </pre></div>
 
+<p><a id="X7F097A917AE87005" name="X7F097A917AE87005"></a></p>
+
+<h5>6.1-2 IsRootedQuotient</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedQuotient</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
+<p>Returns whether there is a maniplex homomorphism from <var class="Arg">M1</var> to <var class="Arg">M2</var> that sends <code class="code">BaseFlag(M1)</code> to <code class="code">BaseFlag(M2)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedQuotient(ToroidalMap44([4,4]), ToroidalMap44([4,0]));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedQuotient(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
+false
+</pre></div>
+
 <p><a id="X845044F47ACF897C" name="X845044F47ACF897C"></a></p>
 
-<h5>6.1-2 IsCover</h5>
+<h5>6.1-3 IsCover</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
 <p>Returns whether <var class="Arg">M2</var> is a cover of <var class="Arg">M1</var>.</p>
 
 
@@ -75,11 +99,30 @@ true
 true
 </pre></div>
 
+<p><a id="X7923C770859A958F" name="X7923C770859A958F"></a></p>
+
+<h5>6.1-4 IsRootedCover</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
+<p>Returns whether there is a maniplex homomorphism from <var class="Arg">M2</var> to <var class="Arg">M1</var> that sends <code class="code">BaseFlag(M2)</code> to <code class="code">BaseFlag(M1)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedCover(ToroidalMap44([4,0]), ToroidalMap44([4,4]));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedCover(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
+false
+</pre></div>
+
 <p><a id="X7B1006697C002741" name="X7B1006697C002741"></a></p>
 
-<h5>6.1-3 IsIsomorphicManiplex</h5>
+<h5>6.1-5 IsIsomorphicManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
 <p>Returns whether <var class="Arg">M1</var> is isomorphic to <var class="Arg">M2</var>.</p>
 
 
@@ -88,9 +131,28 @@ true
 true
 </pre></div>
 
+<p><a id="X85A79420835EAF2A" name="X85A79420835EAF2A"></a></p>
+
+<h5>6.1-6 IsIsomorphicRootedManiplex</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicRootedManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
+<p>Returns whether there is an isomorphism from <var class="Arg">M1</var> to <var class="Arg">M2</var> that sends <code class="code">BaseFlag(M2)</code> to <code class="code">BaseFlag(M1)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), EnantiomorphicForm(ToroidalMap44([2,1])));</span>
+true
+</pre></div>
+
 <p><a id="X8017B6F880D162E7" name="X8017B6F880D162E7"></a></p>
 
-<h5>6.1-4 SmallestReflexibleCover</h5>
+<h5>6.1-7 SmallestReflexibleCover</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallestReflexibleCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the smallest regular cover of <var class="Arg">M</var>, which is the maniplex whose automorphism group is isomorphic to the connection group of <var class="Arg">M</var>.</p>
@@ -105,7 +167,7 @@ true
 
 <p><a id="X85BE14877927DB85" name="X85BE14877927DB85"></a></p>
 
-<h5>6.1-5 QuotientManiplex</h5>
+<h5>6.1-8 QuotientManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientManiplex</code>( <var class="Arg">M</var>, <var class="Arg">relStr</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a reflexible maniplex <var class="Arg">M</var>, generates the subgroup S of AutomorphismGroup(<var class="Arg">M</var>) given by relStr, and returns the quotient maniplex M / S. For example, QuotientManiplex(CubicTiling(2), "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2") returns the toroidal map {4,4}_{(5,0),(0,2)}. You can also input this as CubicTiling(2) / "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2".</p>
@@ -120,7 +182,7 @@ true
 
 <p><a id="X87DCBB9E78E383BB" name="X87DCBB9E78E383BB"></a></p>
 
-<h5>6.1-6 ReflexibleQuotientManiplex</h5>
+<h5>6.1-9 ReflexibleQuotientManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleQuotientManiplex</code>( <var class="Arg">M</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a reflexible maniplex <var class="Arg">M</var>, generates the normal closure N of the subgroup S of AutomorphismGroup(<var class="Arg">M</var>) given by relStr, and returns the quotient maniplex M / N, which will be reflexible. For example, QuotientManiplex(CubicTiling(2), "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2") returns the toroidal map {4,4}_{(1,0)}, because the normal closure of the group generated by (r0 r1 r2 r1)^5 and (r1 r0 r1 r2)^2 is the group generated by r0 r1 r2 r1 and r1 r0 r1 r2.</p>
@@ -135,7 +197,7 @@ true
 
 <p><a id="X83D969847E68299D" name="X83D969847E68299D"></a></p>
 
-<h5>6.1-7 QuotientSggi</h5>
+<h5>6.1-10 QuotientSggi</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggi</code>( <var class="Arg">g</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: the quotient of <var class="Arg">g</var> by <var class="Arg">rels</var>, which is either a list of Tietze words or a string of relations that is parsed by ParseStringCRels.</p>
@@ -152,7 +214,7 @@ true
 
 <p><a id="X819D85E57B505196" name="X819D85E57B505196"></a></p>
 
-<h5>6.1-8 QuotientSggiByNormalSubgroup</h5>
+<h5>6.1-11 QuotientSggiByNormalSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggiByNormalSubgroup</code>( <var class="Arg">g</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: g/n</p>
@@ -171,7 +233,7 @@ true
 
 <p><a id="X86725DD8781BF181" name="X86725DD8781BF181"></a></p>
 
-<h5>6.1-9 QuotientManiplexByAutomorphismSubgroup</h5>
+<h5>6.1-12 QuotientManiplexByAutomorphismSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientManiplexByAutomorphismSubgroup</code>( <var class="Arg">m</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: m/h</p>

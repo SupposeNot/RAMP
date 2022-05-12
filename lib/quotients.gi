@@ -155,12 +155,37 @@ InstallMethod(IsQuotient,
 		return (hom1 <> fail or hom2 <> fail);
 	fi;
 	end);
+
+InstallMethod(IsRootedQuotient,
+	ReturnTrue,
+	[IsManiplex, IsManiplex],
+	function(q,p)
+	local g1, g2, hom, s1, s2, i, flags, phi;
+	if not(CouldBeQuotient(q,p)) then return false; fi;
+	g1 := ConnectionGroup(q);
+	g2 := ConnectionGroup(p);
+	if g1 = fail or g2 = fail then return fail; fi;
+	hom := GroupHomomorphismByImages(g1, g2);
+	if hom = fail then
+		return false;
+	else
+		return IsSubset(PreImage(hom, Stabilizer(g2, BaseFlag(p))), Stabilizer(g1, BaseFlag(q)));
+	fi;
+	end);
+
 	
 InstallMethod(IsCover,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsQuotient(q,p);
+	end);
+
+InstallMethod(IsRootedCover,
+	ReturnTrue,
+	[IsManiplex, IsManiplex],
+	function(p,q)
+	return IsRootedQuotient(q,p);
 	end);
 
 InstallMethod(IsIsomorphicManiplex,
@@ -178,6 +203,47 @@ InstallMethod(IsIsomorphicManiplex,
 		val := IsQuotient(p,q);
 	else
 		val := (IsQuotient(p,q) and IsCover(p,q));
+	fi;
+	
+	if val then
+		# p and q might have different knowledge about their properties --
+		# sync them up!
+		for prop in KnownPropertiesOfObject(p) do
+			prop := EvalString(prop);
+			Setter(prop)(q, prop(p));
+		od;
+		for prop in KnownPropertiesOfObject(q) do
+			prop := EvalString(prop);
+			Setter(prop)(p, prop(q));
+		od;
+		for att in KnownAttributesOfObject(p) do
+			att := EvalString(att);
+			Setter(att)(q, att(p));
+		od;
+		for att in KnownAttributesOfObject(q) do
+			att := EvalString(att);
+			Setter(att)(p, att(q));
+		od;
+	fi;
+	
+	return val;
+	end);
+	
+InstallMethod(IsIsomorphicRootedManiplex,
+	ReturnTrue,
+	[IsManiplex, IsManiplex],
+	function(p,q)
+	local atts, att, val, prop;
+	atts := [Size, SchlafliSymbol, Fvector];
+	for att in atts do
+		if Tester(att)(p) and Tester(att)(q) and att(p) <> att(q) then return false; fi;
+	od;
+	
+	if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
+		# At this point, we know that p and q are the same size and finite.
+		val := IsRootedQuotient(p,q);
+	else
+		val := (IsRootedQuotient(p,q) and IsRootedCover(p,q));
 	fi;
 	
 	if val then

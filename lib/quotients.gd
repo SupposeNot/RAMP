@@ -20,11 +20,13 @@ DeclareGlobalFunction("CouldBeQuotient");
 #! @BeginGroup
 #! @GroupTitle IsQuotient
 #! @Arguments M1, M2
-#! Returns whether <A>M2</A> is a quotient of <A>M1</A>.
+#! @Returns `IsBool`
+#! @Description Returns whether <A>M2</A> is a quotient of <A>M1</A>.
 DeclareOperation("IsQuotient", [IsManiplex, IsManiplex]);
 
 #! @Arguments g, h
-#! Returns whether <A>h</A> is a quotient of <A>g</A>.
+#! @Returns `IsBool`
+#! @Description Returns whether <A>h</A> is a quotient of <A>g</A>.
 #! That is, whether there is a homomorphism sending each generator of g
 #! to the corresponding generator of h.
 DeclareOperation("IsQuotient", [IsSggi, IsSggi]);
@@ -38,7 +40,20 @@ DeclareOperation("IsQuotient", [IsSggi, IsSggi]);
 #! @EndGroup
 
 #! @Arguments M1, M2
-#! Returns whether <A>M2</A> is a cover of <A>M1</A>.
+#! @Returns `IsBool`
+#! @Description Returns whether there is a maniplex homomorphism from <A>M1</A> to <A>M2</A>
+#! that sends `BaseFlag(M1)` to `BaseFlag(M2)`.
+DeclareOperation("IsRootedQuotient", [IsManiplex, IsManiplex]);
+#! @BeginExampleSession
+#! gap> IsRootedQuotient(ToroidalMap44([4,4]), ToroidalMap44([4,0]));
+#! true
+#! gap> IsRootedQuotient(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+#! false
+#! @EndExampleSession
+
+#! @Arguments M1, M2
+#! @Returns `IsBool`
+#! @Description Returns whether <A>M2</A> is a cover of <A>M1</A>.
 DeclareOperation("IsCover", [IsManiplex, IsManiplex]);
 #! @BeginExampleSession
 #! gap> IsCover(HemiDodecahedron(),Dodecahedron());
@@ -46,10 +61,38 @@ DeclareOperation("IsCover", [IsManiplex, IsManiplex]);
 #! @EndExampleSession
 
 #! @Arguments M1, M2
-#! Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
+#! @Returns `IsBool`
+#! @Description Returns whether there is a maniplex homomorphism from <A>M2</A> to <A>M1</A>
+#! that sends `BaseFlag(M2)` to `BaseFlag(M1)`.
+DeclareOperation("IsRootedCover", [IsManiplex, IsManiplex]);
+#! @BeginExampleSession
+#! gap> IsRootedCover(ToroidalMap44([4,0]), ToroidalMap44([4,4]));
+#! true
+#! gap> IsRootedCover(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+#! false
+#! @EndExampleSession
+
+
+#! @Arguments M1, M2
+#! @Returns `IsBool`
+#! @Description Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
 DeclareOperation("IsIsomorphicManiplex", [IsManiplex, IsManiplex]);
 #! @BeginExampleSession
 #! gap> IsIsomorphicManiplex(HemiCube(3),Petrial(Simplex(3)));
+#! true
+#! @EndExampleSession
+
+#! @Arguments M1, M2
+#! @Returns `IsBool`
+#! @Description Returns whether there is an isomorphism from <A>M1</A> to <A>M2</A>
+#! that sends `BaseFlag(M2)` to `BaseFlag(M1)`.
+DeclareOperation("IsIsomorphicRootedManiplex", [IsManiplex, IsManiplex]);
+#! @BeginExampleSession
+#! gap> IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+#! true
+#! gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+#! false
+#! gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), EnantiomorphicForm(ToroidalMap44([2,1])));
 #! true
 #! @EndExampleSession
 
