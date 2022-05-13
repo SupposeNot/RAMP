@@ -183,3 +183,9 @@ DeclareOperation("QuotientManiplexByAutomorphismSubgroup",[IsManiplex,IsPermGrou
 #! gap> last=HemiCube(3);
 #! true
 #! @EndExampleSession
+
+# This function is used internally by the isomorphism-testing code,
+# and is not intended to be used by end-users.
+# When two maniplexes are found to be isomorphic, they sync the values
+# of some certain attributes / properties.
+DeclareGlobalFunction("SyncManiplexAttributes");

@@ -193,6 +193,21 @@ InstallMethod(IsRootedCover,
 	return IsRootedQuotient(q,p);
 	end);
 
+InstallGlobalFunction(SyncManiplexAttributes,
+	function(M1, M2)
+	local prop;
+	
+	for prop in [Size, NumberOfFlagOrbits, IsPolytopal, IsOrientable, IsReflexible, SchlafliSymbol] do
+		if Tester(prop)(M1) then
+			Setter(prop)(M2, prop(M1));
+		fi;
+		
+		if Tester(prop)(M2) then
+			Setter(prop)(M1, prop(M2));
+		fi;
+	od;
+	end);
+
 InstallMethod(IsIsomorphicManiplex,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
@@ -213,15 +228,7 @@ InstallMethod(IsIsomorphicManiplex,
 	# If the maniplexes are isomorphic, then we sync up some properties that could otherwise
 	# be expensive to compute.
 	if val then
-		for prop in [Size, NumberOfFlagOrbits, IsPolytopal, IsOrientable] do
-			if Tester(prop)(p) then
-				Setter(prop)(q, prop(p));
-			fi;
-			
-			if Tester(prop)(q) then
-				Setter(prop)(p, prop(q));
-			fi;
-		od;
+		SyncManiplexAttributes(p,q);
 	fi;
 	
 	return val;
@@ -247,15 +254,7 @@ InstallMethod(IsIsomorphicRootedManiplex,
 	# If the maniplexes are isomorphic, then we sync up some properties that could otherwise
 	# be expensive to compute.
 	if val then
-		for prop in [Size, NumberOfFlagOrbits, IsPolytopal, IsOrientable] do
-			if Tester(prop)(p) then
-				Setter(prop)(q, prop(p));
-			fi;
-			
-			if Tester(prop)(q) then
-				Setter(prop)(p, prop(q));
-			fi;
-		od;
+		SyncManiplexAttributes(p,q);
 	fi;
 
 	return val;
