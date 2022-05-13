@@ -38,3 +38,13 @@ gap> h:=Group((a.3*a.1*a.2)^3);;
 gap> q:=QuotientManiplexByAutomorphismSubgroup(m,h);;
 gap> last=HemiCube(3);
 true
+gap> IsQuotient(ARP([8,8]), ARP([4,4]));
+true
+gap> IsQuotient(ARP([8,8]), ARP([2,2]));
+true
+gap> IsQuotient(ARP([4,4]), ARP([8,8]));
+false
+gap> IsRootedQuotient(ARP([8,8]), ARP([4,4]));
+true
+gap> IsRootedQuotient(ARP([8,8]), ARP([2,2]));
+true

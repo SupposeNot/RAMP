@@ -8,7 +8,7 @@ InstallGlobalFunction(CouldBeQuotient,
 	if HasSize(p) and HasSize(q) then
 		if not(IsFinite(p)) and IsFinite(q) then
 			return false;
-		elif IsFinite(p) and not(IsInt(Size(q) / Size(p))) then
+		elif IsFinite(p) and IsFinite(q) and not(IsInt(Size(q) / Size(p))) then
 			return false;
 		fi;
 	fi;
@@ -162,6 +162,11 @@ InstallMethod(IsRootedQuotient,
 	function(q,p)
 	local g1, g2, hom, s1, s2, i, flags, phi;
 	if not(CouldBeQuotient(q,p)) then return false; fi;
+	
+	if (HasIsReflexible(p) and IsReflexible(p)) or (HasIsReflexible(q) and IsReflexible(q)) then
+		return IsQuotient(q,p);
+	fi;
+	
 	g1 := ConnectionGroup(q);
 	g2 := ConnectionGroup(p);
 	if g1 = fail or g2 = fail then return fail; fi;
