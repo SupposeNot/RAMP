@@ -104,7 +104,7 @@ InstallMethod(DisplayString,
 	for prop in KnownPropertiesOfObject(p) do
 		Append(str, prop);
 		Append(str, ": ");
-		Append(str, String(Tester(EvalString(prop))(p)));
+		Append(str, String(EvalString(prop)(p)));
 		Append(str, "\n");
 	od;
 	
