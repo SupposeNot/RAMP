@@ -205,26 +205,28 @@ InstallMethod(IsIsomorphicManiplex,
 		val := (IsQuotient(p,q) and IsCover(p,q));
 	fi;
 	
-	if val then
-		# p and q might have different knowledge about their properties --
-		# sync them up!
-		for prop in KnownPropertiesOfObject(p) do
-			prop := EvalString(prop);
-			Setter(prop)(q, prop(p));
-		od;
-		for prop in KnownPropertiesOfObject(q) do
-			prop := EvalString(prop);
-			Setter(prop)(p, prop(q));
-		od;
-		for att in KnownAttributesOfObject(p) do
-			att := EvalString(att);
-			Setter(att)(q, att(p));
-		od;
-		for att in KnownAttributesOfObject(q) do
-			att := EvalString(att);
-			Setter(att)(p, att(q));
-		od;
-	fi;
+	# This is causing problems with e.g. FlagOrbitRepresentatives.
+	# Be more selective about what to sync!
+#	if val then
+#		# p and q might have different knowledge about their properties --
+#		# sync them up!
+#		for prop in KnownPropertiesOfObject(p) do
+#			prop := EvalString(prop);
+#			Setter(prop)(q, prop(p));
+#		od;
+#		for prop in KnownPropertiesOfObject(q) do
+#			prop := EvalString(prop);
+#			Setter(prop)(p, prop(q));
+#		od;
+#		for att in KnownAttributesOfObject(p) do
+#			att := EvalString(att);
+#			Setter(att)(q, att(p));
+#		od;
+#		for att in KnownAttributesOfObject(q) do
+#			att := EvalString(att);
+#			Setter(att)(p, att(q));
+#		od;
+#	fi;
 	
 	return val;
 	end);
@@ -246,26 +248,28 @@ InstallMethod(IsIsomorphicRootedManiplex,
 		val := (IsRootedQuotient(p,q) and IsRootedCover(p,q));
 	fi;
 	
-	if val then
-		# p and q might have different knowledge about their properties --
-		# sync them up!
-		for prop in KnownPropertiesOfObject(p) do
-			prop := EvalString(prop);
-			Setter(prop)(q, prop(p));
-		od;
-		for prop in KnownPropertiesOfObject(q) do
-			prop := EvalString(prop);
-			Setter(prop)(p, prop(q));
-		od;
-		for att in KnownAttributesOfObject(p) do
-			att := EvalString(att);
-			Setter(att)(q, att(p));
-		od;
-		for att in KnownAttributesOfObject(q) do
-			att := EvalString(att);
-			Setter(att)(p, att(q));
-		od;
-	fi;
+	# This is causing problems with e.g. FlagOrbitRepresentatives.
+	# Be more selective about what to sync!
+#	if val then
+#		# p and q might have different knowledge about their properties --
+#		# sync them up!
+#		for prop in KnownPropertiesOfObject(p) do
+#			prop := EvalString(prop);
+#			Setter(prop)(q, prop(p));
+#		od;
+#		for prop in KnownPropertiesOfObject(q) do
+#			prop := EvalString(prop);
+#			Setter(prop)(p, prop(q));
+#		od;
+#		for att in KnownAttributesOfObject(p) do
+#			att := EvalString(att);
+#			Setter(att)(q, att(p));
+#		od;
+#		for att in KnownAttributesOfObject(q) do
+#			att := EvalString(att);
+#			Setter(att)(p, att(q));
+#		od;
+#	fi;
 	
 	return val;
 	end);
