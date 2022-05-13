@@ -118,12 +118,21 @@ InstallMethod(DisplayString,
 	return str;
 	end);
 	
-	
-InstallMethod(String,
+InstallMethod(ViewObj,
 	[IsManiplex],
 	function(M)
-	return MANIPLEX_STRING(M);
+	if HasString(M) then
+		Print(String(M));
+	else
+		Print(MANIPLEX_STRING(M));
+	fi;
 	end);
+	
+#InstallMethod(String,
+#	[IsManiplex],
+#	function(M)
+#	return MANIPLEX_STRING(M);
+#	end);
 	
 
 InstallMethod(InterpolatedString,
