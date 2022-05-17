@@ -29,12 +29,22 @@ DeclareAttribute("BaseFlag", IsManiplex);
 
 
 #! @Arguments M
-#! Returns the Symmetry Type Graph of the maniplex <A>M</A>, encoded as
-#! a permutation group on Rank(<A>M</A>) generators.
+#! Returns the Symmetry Type Graph of the maniplex <A>M</A>.
 DeclareAttribute("SymmetryTypeGraph", IsManiplex);
 #! @BeginExampleSession
 #! gap> SymmetryTypeGraph(Prism(Simplex(3)));
 #! Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
+#! @EndExampleSession
+
+#! @Arguments M, A
+#! Returns the Symmetry Type Graph of the maniplex <A>M</A> built from any subgroup <A>A</A> of the automorphism group acting on flags.  The the quotient of the flag graph of <A>M</A> by <A>A</A> is returned. 
+DeclareAttribute("SymmetryTypeGraph", IsManiplex);
+#! @BeginExampleSession
+#! gap> M:=Cube(3);;
+#! gap> A:=AutomorphismGroupOnFlags(M);;
+#! gap> B:=Group(A.1,A.2*A.3);;
+#! gap> SymmetryTypeGraph(M,B);
+#! Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 #! @EndExampleSession
 
 #! @Arguments M
