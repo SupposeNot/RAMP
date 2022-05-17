@@ -2543,7 +2543,7 @@ flag is the minimum of the set of flags. }
 }\hfill{\scriptsize (attribute)}}\\
 
 
- Returns the Symmetry Type Graph of the maniplex \mbox{\texttt{\mdseries\slshape M}}, encoded as a permutation group on Rank(\mbox{\texttt{\mdseries\slshape M}}) generators. }
+ Returns the Symmetry Type Graph of the maniplex \mbox{\texttt{\mdseries\slshape M}}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -2552,8 +2552,29 @@ flag is the minimum of the set of flags. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsManiplex)}}
 \logpage{[ 5, 3, 4 ]}\nobreak
+\hyperdef{L}{X856ED1E7866152A0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SymmetryTypeGraph({\mdseries\slshape M, A})\index{SymmetryTypeGraph@\texttt{SymmetryTypeGraph}!for IsManiplex}
+\label{SymmetryTypeGraph:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns the Symmetry Type Graph of the maniplex \mbox{\texttt{\mdseries\slshape M}} built from any subgroup \mbox{\texttt{\mdseries\slshape A}} of the automorphism group acting on flags. The the quotient of the flag graph
+of \mbox{\texttt{\mdseries\slshape M}} by \mbox{\texttt{\mdseries\slshape A}} is returned. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M:=Cube(3);;|
+  !gapprompt@gap>| !gapinput@A:=AutomorphismGroupOnFlags(M);;|
+  !gapprompt@gap>| !gapinput@B:=Group(A.1,A.2*A.3);;|
+  !gapprompt@gap>| !gapinput@SymmetryTypeGraph(M,B);|
+  Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsManiplex)}}
+\logpage{[ 5, 3, 5 ]}\nobreak
 \hyperdef{L}{X78060E3A788D2D3C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFlagOrbits({\mdseries\slshape M})\index{NumberOfFlagOrbits@\texttt{NumberOfFlagOrbits}!for IsManiplex}
 \label{NumberOfFlagOrbits:for IsManiplex}
@@ -2570,7 +2591,7 @@ flag is the minimum of the set of flags. }
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitRepresentatives (for IsManiplex)}}
-\logpage{[ 5, 3, 5 ]}\nobreak
+\logpage{[ 5, 3, 6 ]}\nobreak
 \hyperdef{L}{X852C679D8338AB53}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitRepresentatives({\mdseries\slshape M})\index{FlagOrbitRepresentatives@\texttt{FlagOrbitRepresentatives}!for IsManiplex}
 \label{FlagOrbitRepresentatives:for IsManiplex}
@@ -2587,7 +2608,7 @@ flag is the minimum of the set of flags. }
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitsStabilizer (for IsManiplex)}}
-\logpage{[ 5, 3, 6 ]}\nobreak
+\logpage{[ 5, 3, 7 ]}\nobreak
 \hyperdef{L}{X81C0D5667D83EB88}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitsStabilizer({\mdseries\slshape M})\index{FlagOrbitsStabilizer@\texttt{FlagOrbitsStabilizer}!for IsManiplex}
 \label{FlagOrbitsStabilizer:for IsManiplex}
@@ -2614,7 +2635,7 @@ under the action of the automorphism group. }
  
 
 \subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
-\logpage{[ 5, 3, 7 ]}\nobreak
+\logpage{[ 5, 3, 8 ]}\nobreak
 \hyperdef{L}{X7E4E689F86171C78}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsManiplex}
 \label{IsReflexible:for IsManiplex}
@@ -2636,7 +2657,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
  
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsManiplex)}}
-\logpage{[ 5, 3, 8 ]}\nobreak
+\logpage{[ 5, 3, 9 ]}\nobreak
 \hyperdef{L}{X7D74CD997C7FF39D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChiral({\mdseries\slshape M})\index{IsChiral@\texttt{IsChiral}!for IsManiplex}
 \label{IsChiral:for IsManiplex}
@@ -2658,7 +2679,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is chiral.
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
-\logpage{[ 5, 3, 9 ]}\nobreak
+\logpage{[ 5, 3, 10 ]}\nobreak
 \hyperdef{L}{X7DACFE5483893523}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsManiplex}
 \label{IsRotary:for IsManiplex}
@@ -2680,7 +2701,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
 \subsection{\textcolor{Chapter }{FlagOrbits (for IsManiplex)}}
-\logpage{[ 5, 3, 10 ]}\nobreak
+\logpage{[ 5, 3, 11 ]}\nobreak
 \hyperdef{L}{X7B29BD1C87239567}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbits({\mdseries\slshape M})\index{FlagOrbits@\texttt{FlagOrbits}!for IsManiplex}
 \label{FlagOrbits:for IsManiplex}

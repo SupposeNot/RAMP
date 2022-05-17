@@ -260,15 +260,30 @@
   
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X, encoded as a permutation
-  group on Rank([3XM[103X) generators.[133X
+  [33X[0;0YReturns the Symmetry Type Graph of the maniplex [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSymmetryTypeGraph(Prism(Simplex(3)));[127X[104X
     [4X[28XEdge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X5.3-4 NumberOfFlagOrbits[101X
+  [1X5.3-4 SymmetryTypeGraph[101X
+  
+  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X, [3XA[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X built from any subgroup [3XA[103X
+  of  the  automorphism  group  acting  on flags. The the quotient of the flag
+  graph of [3XM[103X by [3XA[103X is returned.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM:=Cube(3);;[127X[104X
+    [4X[25Xgap>[125X [27XA:=AutomorphismGroupOnFlags(M);;[127X[104X
+    [4X[25Xgap>[125X [27XB:=Group(A.1,A.2*A.3);;[127X[104X
+    [4X[25Xgap>[125X [27XSymmetryTypeGraph(M,B);[127X[104X
+    [4X[28XEdge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.3-5 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -279,7 +294,7 @@
     [4X[28X4[128X[104X
   [4X[32X[104X
   
-  [1X5.3-5 FlagOrbitRepresentatives[101X
+  [1X5.3-6 FlagOrbitRepresentatives[101X
   
   [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
   
@@ -290,7 +305,7 @@
     [4X[28X[ 1, 49, 97, 145 ][128X[104X
   [4X[32X[104X
   
-  [1X5.3-6 FlagOrbitsStabilizer[101X
+  [1X5.3-7 FlagOrbitsStabilizer[101X
   
   [33X[1;0Y[29X[2XFlagOrbitsStabilizer[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Yg[133X
@@ -309,7 +324,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-7 IsReflexible[101X
+  [1X5.3-8 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
@@ -319,7 +334,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-8 IsChiral[101X
+  [1X5.3-9 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chiral.[133X
@@ -329,7 +344,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-9 IsRotary[101X
+  [1X5.3-10 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
@@ -340,7 +355,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.3-10 FlagOrbits[101X
+  [1X5.3-11 FlagOrbits[101X
   
   [33X[1;0Y[29X[2XFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
