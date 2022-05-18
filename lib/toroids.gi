@@ -153,6 +153,8 @@ InstallGlobalFunction(ToroidalMap44,
 		SetIsPolytopal(M, true);
 	fi;
 	
+	SetString(M, Concatenation("ToroidalMap44(", String(u), ", ", String(v), ")"));
+	
 	return M;
 	end);
 
@@ -206,6 +208,7 @@ InstallGlobalFunction(ToroidalMap36,
 		fi;
 		
 		SetSize(M, 12*num_vert);
+		SetString(M, Concatenation("ToroidalMap36(", String(u), ", ", String(v), ")"));
 		
 		return M;
 	fi;
@@ -214,9 +217,13 @@ InstallGlobalFunction(ToroidalMap36,
 
 InstallGlobalFunction(ToroidalMap63,
 	function(u, arg...)
-	local M;
+	local M, M2;
 	M := CallFuncList(ToroidalMap36, Concatenation([u], arg));
-	return Dual(M);
+	M2 := Dual(M);
+	if HasString(M2) and IsSubset(String(M2), "ToroidalMap36") then
+		M2!.String := ReplacedString(String(M), "Map36", "Map63");
+	fi;
+	return M2;
 	end);
 
 InstallMethod(CubicToroid,
