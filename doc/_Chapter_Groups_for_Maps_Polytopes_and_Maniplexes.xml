@@ -285,6 +285,16 @@ true
 
 
 <ManSection>
+  <Prop Arg="g" Name="IsStringRotationGroup" Label="for IsGroup"/>
+ <Returns>Whether <A>g</A> is a string rotation group, i.e. the even word subgroup  of an Sggi.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
   <Oper Arg="G" Name="IsStringC" Label="for IsGroup"/>
  <Description>
  For an sggi <A>G</A>, returns whether the group is

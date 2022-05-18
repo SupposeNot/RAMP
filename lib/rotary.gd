@@ -21,10 +21,14 @@ DeclareOperation("UniversalRotationGroup", [IsList]);
 #! @Description In the first form, given a group g (which should be a string rotation group),
 #! returns the rotary maniplex with that rotation group,
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
-#!
+#! This function first checks whether g is a StringRotationGroup. Use `RotaryManiplexNC` to
+#! bypass that check.
 DeclareOperation("RotaryManiplex", [IsGroup]);
 
+DeclareOperation("RotaryManiplexNC", [IsGroup]);
+
 #! @Arguments sym
+#! 
 #! The second form returns the universal rotary maniplex (in fact, regular polytope)
 #! with Schlafli symbol <A>sym</A>.
 #!

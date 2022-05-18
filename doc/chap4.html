@@ -288,7 +288,7 @@ Group([ (1,2) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">relations</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>In the first form, given a group g (which should be a string rotation group), returns the rotary maniplex with that rotation group, where the privileged generators are those returned by GeneratorsOfGroup(g).</p>
+<p>In the first form, given a group g (which should be a string rotation group), returns the rotary maniplex with that rotation group, where the privileged generators are those returned by GeneratorsOfGroup(g). This function first checks whether g is a StringRotationGroup. Use <code class="code">RotaryManiplexNC</code> to bypass that check.</p>
 
 <p>The second form returns the universal rotary maniplex (in fact, regular polytope) with Schlafli symbol <var class="Arg">sym</var>.</p>
 

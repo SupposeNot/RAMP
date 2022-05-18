@@ -91,6 +91,11 @@ DeclareProperty("IsStringy", IsGroup);
 #! Equivalent to `IsGgi(g) and IsStringy(g)`.
 DeclareProperty("IsSggi", IsGroup);
 
+#! @Arguments g
+#! @Returns Whether <A>g</A> is a string rotation group, i.e. the even word subgroup
+#! of an Sggi.
+DeclareProperty("IsStringRotationGroup", IsGroup);
+
 #! @Arguments G
 #! For an sggi <A>G</A>, returns whether the group is
 #! a string C group. 

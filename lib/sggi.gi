@@ -25,6 +25,28 @@ InstallMethod(IsSggi,
 	return IsGgi(g) and IsStringy(g);
 	end);
 	
+InstallMethod(IsStringRotationGroup,
+	[IsGroup],
+	function(g)
+	local gens, n, tau, i, j;
+	gens := GeneratorsOfGroup(g);
+	n := Size(gens);
+	
+	tau := function(i,j)
+		return Product(List([i..j], k -> gens[k]));
+		end;
+		
+	for i in [1..n-1] do
+		for j in [i+1..n] do
+			if tau(i,j)^2 <> Identity(g) then
+				return false;
+			fi;
+		od;
+	od;
+	
+	return true;
+	end);
+	
 # TODO: Currently will fail for infinite groups.
 # I started coding something for this, but Intersection(g,h) where g is infinite
 # doesn't appear to work. Requires more thought...

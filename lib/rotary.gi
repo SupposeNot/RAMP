@@ -52,7 +52,7 @@ InstallOtherMethod(UniversalRotationGroup,
 
 # Given an abstract rotation group, builds the rotary (regular or chiral)
 # polytope with that group as its rotation group.
-InstallMethod(RotaryManiplex,
+InstallMethod(RotaryManiplexNC,
 	[IsGroup],
 	function(rotgp)
 	local n, p;
@@ -68,6 +68,17 @@ InstallMethod(RotaryManiplex,
 
 	return p;
 	end);
+
+InstallMethod(RotaryManiplex,
+	[IsGroup],
+	function(rotgp)
+	if ValueOption("no_check") = true or IsStringRotationGroup(rotgp) then
+		return RotaryManiplexNC(rotgp);
+	else
+		Error("The given group is not a String Rotation Group.");
+	fi;
+	end);
+	
 
 # A rotary maniplex defined by a Schlafli Symbol is in fact reflexible.
 InstallMethod(RotaryManiplex,
@@ -99,7 +110,7 @@ InstallMethod(RotaryManiplex,
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
 	rotgp := FactorGroupFpGroupByRels(w, rels);
-	p := RotaryManiplex(rotgp);
+	p := RotaryManiplexNC(rotgp);
 	if ValueOption("set_schlafli") = true then
 		SetSchlafliSymbol(p, sym);
 	else
