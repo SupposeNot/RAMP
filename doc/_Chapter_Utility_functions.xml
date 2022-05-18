@@ -235,6 +235,15 @@ true
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="M" Name="MarkAsPolytopal" Label="for IsManiplex"/>
+ <Description>
+Sets <Code>IsPolytopal(M)</Code> as true, and if necessary, changes
+ <Code>String(M)</Code> to reflect this.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

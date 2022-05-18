@@ -156,34 +156,79 @@ InstallMethod(RotationGroup,
 	[IsManiplex],
 	function(M)
 	local gens, n, i, new_gens;
-	gens := GeneratorsOfGroup(AutomorphismGroup(M));
-	n := Rank(M);
-	new_gens := [];
-	for i in [1..n-1] do
-		Add(new_gens, gens[i]*gens[i+1]);
-	od;
-	return Group(new_gens);
+	if IsChiral(M) then
+		return AutomorphismGroup(M);
+	elif IsReflexible(M) then
+		gens := GeneratorsOfGroup(AutomorphismGroup(M));
+		n := Rank(M);
+		new_gens := [];
+		for i in [1..n-1] do
+			Add(new_gens, gens[i]*gens[i+1]);
+		od;
+		return Group(new_gens);
+	else
+		Error("RotationGroup is currently only defined for rotary maniplexes.");
+	fi;
 	end);
-
+	
 InstallMethod(RotationGroupFpGroup,
 	[IsManiplex],
 	function(M)
-	local g, fp, w, rels;
-	g := RotationGroup(M);
-	if IsFpGroup(g) then
-		return g;
-	else
-		fp := Image(IsomorphismFpGroupByGenerators(g, GeneratorsOfGroup(g)));
-		
-		# Retranslate everything in terms of s1, s2, etc.
-		w := UniversalRotationGroup(Rank(M));
-		rels := RelatorsOfFpGroup(fp);
-		rels := List(rels, r -> TietzeWordAbstractWord(r));
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
-		fp := FactorGroupFpGroupByRels(w, rels);
-		return fp;
+	local n, w, phi, g, gens, cgens, i, psi, x, fp;
+
+	if not(IsRotary(M)) then
+		Error("RotationGroupFpGroup is only defined for rotary maniplexes.");
 	fi;
+
+	n := Rank(M);
+	w := UniversalRotationGroup(n);
+
+	phi := BaseFlag(M);
+	g := AutomorphismGroupOnFlags(M);
+	gens := [];
+	cgens := GeneratorsOfGroup(ConnectionGroup(M));
+	for i in [1..n-1] do
+		psi := (phi^cgens[i+1])^cgens[i];
+		x := RepresentativeAction(g, phi, psi);
+		Add(gens, x);
+	od;
+
+	# hom := GroupHomomorphismByImagesNC(w, Group(gens));
+	fp := Image(IsomorphismFpGroupByGeneratorsNC(Group(gens), gens, "s"));
+
+# Maybe add this back later if necessary
+	# Retranslate everything in terms of s1, s2, etc.
+#	rels := RelatorsOfFpGroup(fp);
+#	rels := List(rels, r -> TietzeWordAbstractWord(r));
+#	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+#	fp := FactorGroupFpGroupByRels(w, rels);
+	return fp;
 	end);
+
+#InstallMethod(RotationGroupFpGroup,
+#	[IsManiplex],
+#	function(M)
+#	local g, fp, w, rels;
+#
+#	if not(IsRotary(M)) then
+#		Error("RotationGroupFpGroup is currently only defined for rotary maniplexes.");
+#	else		
+#		g := RotationGroup(M);
+#		if IsFpGroup(g) then
+#			return g;
+#		else
+#			fp := Image(IsomorphismFpGroupByGenerators(g, GeneratorsOfGroup(g)));
+#			
+#			# Retranslate everything in terms of s1, s2, etc.
+#			w := UniversalRotationGroup(Rank(M));
+#			rels := RelatorsOfFpGroup(fp);
+#			rels := List(rels, r -> TietzeWordAbstractWord(r));
+#			rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+#			fp := FactorGroupFpGroupByRels(w, rels);
+#			return fp;
+#		fi;
+#	fi;
+#	end);
 
 InstallMethod(ConnectionGroup,
 	[IsManiplex],

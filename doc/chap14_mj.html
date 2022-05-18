@@ -52,6 +52,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X79C6D76380B9F364">14.4-2 ParseRotGpRels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X829B5DA779342A28">14.4-3 AddOrAppend</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7C4A431283A32F67">14.4-4 WrappedPosetOperation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X86B884FA7C22BC92">14.4-5 MarkAsPolytopal</a></span>
 </div></div>
 </div>
 
@@ -245,6 +246,13 @@ true
 </pre></div>
 
 <p>Usually, you will want to eventually create a fuller-featured wrapper of the poset operation -- one that can infer more information from its arguments. But this method is a good way to quickly test whether a poset operation works on maniplexes the way one expects.</p>
+
+<p><a id="X86B884FA7C22BC92" name="X86B884FA7C22BC92"></a></p>
+
+<h5>14.4-5 MarkAsPolytopal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MarkAsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Sets <code class="code">IsPolytopal(M)</code> as true, and if necessary, changes <code class="code">String(M)</code> to reflect this.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap13_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap15_mj.html">[Next Chapter]</a>&nbsp;  </div>

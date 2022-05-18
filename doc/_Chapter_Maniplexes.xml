@@ -337,7 +337,7 @@ gap> List(L, IsPolytopal);
  the relations may cause a collapse, so this should only be used if
  you know that the Schlafli symbol is correct.
 <ManSection>
-  <Oper Arg="M" Name="EnantiomorphicForm" Label="for IsRotaryManiplex"/>
+  <Oper Arg="M" Name="EnantiomorphicForm" Label="for IsManiplex"/>
  <Description>
 The <Emph>enantiomorphic form</Emph> of a rotary maniplex is
  the same maniplex, but where we choose the new base flag to be

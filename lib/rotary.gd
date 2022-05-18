@@ -75,4 +75,4 @@ DeclareOperation("RotaryManiplex", [IsList, IsList, IsList]);
 #! If M is reflexible, then this choice has no effect.
 #! Otherwise, if M is chiral, then the enantiomorphic form
 #! gives us a different presentation for the rotation group.
-DeclareOperation("EnantiomorphicForm", [IsRotaryManiplex]);
+DeclareOperation("EnantiomorphicForm", [IsManiplex]);
