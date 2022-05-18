@@ -31,3 +31,9 @@ gap> IsEdgeTransitive(M);
 true
 gap> IsChainTransitive(M, [0,1]);
 true
+gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,2]);
+false
+gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,1]);
+false
+gap> IsChainTransitive(Cuboctahedron(),[0,1]);
+true

@@ -8,7 +8,7 @@ InstallMethod( UniversalPolytope,
 	function(n)
 	local g, fam, p;
 	g := UniversalSggi(n);
-	p := AbstractRegularPolytope(g);
+	p := AbstractRegularPolytopeNC(g);
 	
 	if n = 0 then
 		SetSize(p, 1);
@@ -39,7 +39,7 @@ InstallMethod(UniversalExtension,
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
 	f2 := UniversalSggi(n+1);
 	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
-	p2 := ReflexibleManiplex(g2);
+	p2 := ReflexibleManiplexNC(g2);
 	
 	SetSize(p2, infinity);
 	sym := ShallowCopy(SchlafliSymbol(p));
@@ -67,7 +67,7 @@ InstallMethod(UniversalExtension,
 	Add(rels, List([0..2*k-1], i -> n+(i mod 2)));
 	f2 := UniversalSggi(n+1);
 	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
-	p2 := ReflexibleManiplex(g2);
+	p2 := ReflexibleManiplexNC(g2);
 
 	# TODO: Handle other exceptional cases
 	if k = infinity then

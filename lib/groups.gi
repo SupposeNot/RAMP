@@ -311,7 +311,9 @@ InstallMethod(ExtraRelators,
 	type_rels := RelatorsOfFpGroup(UniversalSggi(SchlafliSymbol(M)));
 	type_rels := List(type_rels, r -> TietzeWordAbstractWord(r));
 	for i in [1..Size(sym)] do
-		Add(type_rels, Flat(ListWithIdenticalEntries(sym[i], [i+1, i])));
+		if sym[i] <> infinity then
+			Add(type_rels, Flat(ListWithIdenticalEntries(sym[i], [i+1, i])));
+		fi;
 	od;
 	rels := Difference(rels, type_rels);
 	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
