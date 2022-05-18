@@ -79,10 +79,11 @@ InstallMethod(AutomorphismGroupFpGroup,
 	function(M)
 	local g, fp, w, rels, w_rels;
 	g := AutomorphismGroup(M);
-	if IsFpGroup(g) then
-		return g;
+	
+	if IsChiral(M) then
+		return RotationGroupFpGroup(M);
 	else
-		fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "Q"));
+		fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "f"));
 		
 		# If M is reflexible, retranslate everything in terms of r0, r1, etc.
 		if IsReflexible(M) then
