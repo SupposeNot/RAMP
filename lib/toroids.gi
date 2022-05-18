@@ -17,6 +17,9 @@ InstallGlobalFunction(ToroidalMap44,
 			M := AbstractRotaryPolytope([4,4], Concatenation("(s2^-1 s1)^", String(u[1]), " (s2 s1^-1)^", String(u[2])));
 			SetIsChiral(M, true);
 		fi;
+
+		M!.String := Concatenation("ToroidalMap44(", String(u), ")");
+		SetSize(M, 8*(u[1]^2 + u[2]^2));
 		
 		return M;
 	else
@@ -194,6 +197,7 @@ InstallGlobalFunction(ToroidalMap36,
 			SetSize(M, 12*(u[1]^2 + u[1]*u[2] + u[2]^2));
 		fi;
 		
+		M!.String := Concatenation("ToroidalMap36(", String(u), ")");
 		return M;
 	else
 		v := arg[1];
@@ -216,13 +220,12 @@ InstallGlobalFunction(ToroidalMap36,
 	end);
 
 InstallGlobalFunction(ToroidalMap63,
-	function(u, arg...)
-	local M, M2;
-	M := CallFuncList(ToroidalMap36, Concatenation([u], arg));
+	function(arg...)
+	local M, M2, arg_string;
+	M := CallFuncList(ToroidalMap36, arg);
 	M2 := Dual(M);
-	if HasString(M2) and IsSubset(String(M2), "ToroidalMap36") then
-		M2!.String := ReplacedString(String(M), "Map36", "Map63");
-	fi;
+	arg_string := JoinStringsWithSeparator(List(arg, String), ",");
+	M2!.String := Concatenation("ToroidalMap63(", arg_string, ")");
 	return M2;
 	end);
 
