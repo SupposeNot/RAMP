@@ -167,3 +167,8 @@ DeclareGlobalFunction("AddOrAppend");
 #! arguments. But this method is a good way to quickly test whether a poset
 #! operation works on maniplexes the way one expects.
 DeclareGlobalFunction("WrappedPosetOperation");
+
+#! @Arguments M
+#! @Description Sets `IsPolytopal(M)` as true, and if necessary, changes
+#! `String(M)` to reflect this.
+DeclareOperation("MarkAsPolytopal", [IsManiplex]);

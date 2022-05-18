@@ -282,3 +282,23 @@ InstallGlobalFunction(InvolutionListList,
 	function(list1, list2)
 	return MappingPermListList(Concatenation(list1,list2),Concatenation(list2,list1));
 	end);
+
+InstallMethod(MarkAsPolytopal,
+	[IsManiplex],
+	function(M)
+	SetIsPolytopal(M, true);
+	
+	# If M was not previously set as non-polytopal, then we now
+	# change the string description as necessary
+	if IsPolytopal(M) and HasString(M) then
+		if StartsWith(String(M), "ReflexibleManiplex") then
+			M!.String := ReplacedString(String(M), "ReflexibleManiplex", "AbstractRegularPolytope");
+		elif StartsWith(String(M), "RotaryManiplex") then
+			M!.String := ReplacedString(String(M), "RotaryManiplex", "AbstractRotaryPolytope");
+		fi;
+	fi;
+	
+	return;
+	
+	end);
+	
