@@ -120,6 +120,8 @@ InstallMethod(RotaryManiplex,
 	if ValueOption("polytopal") = true then
 		SetIsPolytopal(p, true);
 	fi;
+
+	SetRotationGroupFpGroup(p, rotgp);
 	
 	return p;
 	end);
