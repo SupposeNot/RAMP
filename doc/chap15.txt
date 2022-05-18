@@ -1,38 +1,199 @@
   
-  [1X15 [33X[0;0YSynonyms for Commands[133X[101X
+  [1X15 [33X[0;0YUtility Functions[133X[101X
   
-  [33X[0;0YHere we list, in alphabetical order, synonyms for common commands.[133X
   
-  [30X    [33X[0;6Y[10XAmbo[110X for [2XMedial[102X ([14XRAMP: Medial for ismaniplex[114X)[133X
+  [1X15.1 [33X[0;0YSystem[133X[101X
   
-  [30X    [33X[0;6Y[10XAreIncidentFaces[110X  for  [2XAreIncidentElements[102X  ([14XRAMP: AreIncidentElements
-        for isobject,isobject[114X)[133X
+  [1X15.1-1 InfoRamp[101X
   
-  [30X    [33X[0;6Y[10XARP[110X for [2XAbstractRegularPolytope[102X ([14XRAMP: AbstractRegularPolytope[114X)[133X
+  [33X[1;0Y[29X[2XInfoRamp[102X[32X info class[133X
   
-  [30X    [33X[0;6Y[10XFaces[110X for [2XElementsList[102X ([14XRAMP: ElementsList for isposet[114X)[133X
+  [33X[0;0YThe InfoClass for the Ramp package.[133X
   
-  [30X    [33X[0;6Y[10XFacesList[110X for [2XElementsList[102X ([14XRAMP: ElementsList for isposet[114X)[133X
   
-  [30X    [33X[0;6Y[10XFlags[110X for [2XMaximalChains[102X ([14XRAMP: MaximalChains for isposet[114X)[133X
+  [1X15.2 [33X[0;0YPolytopes[133X[101X
   
-  [30X    [33X[0;6Y[10XFlagsList[110X for [2XMaximalChains[102X ([14XRAMP: MaximalChains for isposet[114X)[133X
+  [1X15.2-1 AbstractPolytope[101X
   
-  [30X    [33X[0;6Y[10XIsDiamondCondition[110X for [2XIsP4[102X ([14XRAMP: IsP4 for isposet[114X)[133X
+  [33X[1;0Y[29X[2XAbstractPolytope[102X( [3Xargs[103X ) [32X function[133X
   
-  [30X    [33X[0;6Y[10XIsStronglyFlagConnected[110X for [2XIsP3[102X ([14XRAMP: IsP3 for isposet[114X)[133X
+  [33X[0;0YCalls  [10XManiplex(args)[110X  and verifies whether the output is polytopal. If not,
+  this  throws  an  error. Use [10XAbstractPolytopeNC[110X to assume that the output is
+  polytopal and mark it as such.[133X
   
-  [30X    [33X[0;6Y[10XMapJoin[110X for [2XAngle[102X ([14XRAMP: Angle for ismaponsurface[114X)[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XAbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));[127X[104X
+    [4X[28XPgon(5)[128X[104X
+  [4X[32X[104X
   
-  [30X    [33X[0;6Y[10XMonodromyGroup[110X   for   [2XConnectionGroup[102X   ([14XRAMP:   ConnectionGroup  for
-        ismaniplex[114X)[133X
+  [1X15.2-2 AbstractRegularPolytope[101X
   
-  [30X    [33X[0;6Y[10XNumberOfFlags[110X for [2XSize[102X ([14XRAMP: Size for ismaniplex[114X)[133X
+  [33X[1;0Y[29X[2XAbstractRegularPolytope[102X( [3Xargs[103X ) [32X function[133X
   
-  [30X    [33X[0;6Y[10XPetrieDual[110X for [2XPetrial[102X ([14XRAMP: Petrial for ismaniplex[114X)[133X
+  [33X[0;0YCalls [10XReflexibleManiplex(args)[110X and verifies whether the output is polytopal.
+  If  not,  this throws an error. Use [10XAbstractRegularPolytopeNC[110X to assume that
+  the output is polytopal and mark it as such. Also available as [10XARP(args)[110X and
+  [10XARPNC(args)[110X.[133X
   
-  [30X    [33X[0;6Y[10XRankPosetFaces[110X  for  [2XRankPosetElements[102X  ([14XRAMP:  RankPosetElements  for
-        isposet[114X)[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
-  [30X    [33X[0;6Y[10XRefMan[110X for [2XReflexibleManiplex[102X ([14XRAMP: ReflexibleManiplex[114X)[133X
+  [1X15.2-3 AbstractRotaryPolytope[101X
+  
+  [33X[1;0Y[29X[2XAbstractRotaryPolytope[102X( [3Xargs[103X ) [32X function[133X
+  
+  [33X[0;0YCalls  [10XRotaryManiplex(args)[110X and verifies whether the output is polytopal. If
+  not,  this  throws an error. Use [10XAbstractRotaryPolytopeNC[110X to assume that the
+  output is polytopal and mark it as such.[133X
+  
+  
+  [1X15.3 [33X[0;0YPermutations[133X[101X
+  
+  [1X15.3-1 TranslatePerm[101X
+  
+  [33X[1;0Y[29X[2XTranslatePerm[102X( [3Xperm[103X, [3Xk[103X ) [32X function[133X
+  
+  [33X[0;0YReturns  a  new  permutation  obtained  from  [3Xperm[103X by adding k to each moved
+  point.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTranslatePerm((1,2,3,4),5);[127X[104X
+    [4X[28X(6,7,8,9)[128X[104X
+  [4X[32X[104X
+  
+  [1X15.3-2 MultPerm[101X
+  
+  [33X[1;0Y[29X[2XMultPerm[102X( [3Xperm[103X, [3Xmultiplier[103X, [3Xoffset[103X ) [32X function[133X
+  
+  [33X[0;0YMultiplies  together  perm, TranslatePerm(perm, offset), TranslatePerm(perm,
+  offset*2), ..., with [3Xmultiplier[103X terms, and returns the result.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMultPerm((1,2,3)(4,5,6),3,7);[127X[104X
+    [4X[28X(1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)[128X[104X
+    [4X[25Xgap>[125X [27XMultPerm((1,2,3,4),2,4);[127X[104X
+    [4X[28X(1,2,3,4)(5,6,7,8)[128X[104X
+  [4X[32X[104X
+  
+  [1X15.3-3 InvolutionListList[101X
+  
+  [33X[1;0Y[29X[2XInvolutionListList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Yinvolution[133X
+  
+  [33X[0;0YConstruction     the     involution    (when    possible)    with    entries
+  [10X(list1[i],list2[i])[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XInvolutionListList([3,4,5],[6,7,8]);[127X[104X
+    [4X[28X(3,6)(4,7)(5,8)[128X[104X
+  [4X[32X[104X
+  
+  [1X15.3-4 PermFromRange[101X
+  
+  [33X[1;0Y[29X[2XPermFromRange[102X( [3Xperm1[103X[, [3Xperm2[103X], [3Xperm3[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YPermutation[133X
+  
+  [33X[0;0YGiven  three  permutations, where [3Xperm2[103X and [3Xperm3[103X are translations of [3Xperm1[103X,
+  forms  the  permutation  that we would most likely denote by perm1 * perm2 *
+  ...  *  perm3.  Namely,  if  [3Xperm2[103X  is  a translation of [3Xperm1[103X by k, then we
+  successively  translate  by k until we get [3Xperm3[103X, and then we multiply those
+  permutations together.[133X
+  
+  [33X[0;0YWhen only two permutations are given, then [3Xperm2[103X is the smallest translation
+  of perm1 such that [10XSmallestMovedPoint(perm2) > LargestMovedPoint(perm1)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPermFromRange((1,2), (9,10));[127X[104X
+    [4X[28X(1,2)(3,4)(5,6)(7,8)(9,10)[128X[104X
+    [4X[25Xgap>[125X [27XPermFromRange((1,3), (13,15));[127X[104X
+    [4X[28X(1,3)(4,6)(7,9)(10,12)(13,15)[128X[104X
+    [4X[25Xgap>[125X [27XPermFromRange((2,3,4), (8,9,10));[127X[104X
+    [4X[28X(2,3,4)(5,6,7)(8,9,10)[128X[104X
+    [4X[25Xgap>[125X [27XPermFromRange((1,2), (101,102), (601,602));[127X[104X
+    [4X[28X(1,2)(101,102)(201,202)(301,302)(401,402)(501,502)(601,602)[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X15.4 [33X[0;0YWords on relations[133X[101X
+  
+  [1X15.4-1 ParseStringCRels[101X
+  
+  [33X[1;0Y[29X[2XParseStringCRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya list of relators[133X
+  
+  [33X[0;0YThis  helper  function  is  used  in  several maniplex constructors. Given a
+  string  [3Xrels[103X  that represents relations in an sggi, and an sggi g, returns a
+  list  of elements in the free group of g represented by [3Xrels[103X. These can then
+  be used to form a quotient of g.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(CubicTiling(2));;[127X[104X
+    [4X[25Xgap>[125X [27Xrels := "(r0 r1 r2 r1)^6";;[127X[104X
+    [4X[25Xgap>[125X [27Xnewrels := ParseStringCRels(rels, g);[127X[104X
+    [4X[28X[ (r0*r1*r2*r1)^6 ][128X[104X
+    [4X[25Xgap>[125X [27Xnewrels[1] in FreeGroupOfFpGroup(g);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xg2 := FactorGroupFpGroupByRels(g, newrels);[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YFor convenience, you may use z1, z2, etc and h1, h2, etc in relations, where
+  zj  means  r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1
+  (the "j-hole" word).[133X
+  
+  [1X15.4-2 ParseRotGpRels[101X
+  
+  [33X[1;0Y[29X[2XParseRotGpRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
+  
+  [33X[0;0YThis  helper  function  is  used  in  several  maniplex  constructors. It is
+  analogous to ParseStringCRels, but for rotation groups instead.[133X
+  
+  [1X15.4-3 AddOrAppend[101X
+  
+  [33X[1;0Y[29X[2XAddOrAppend[102X( [3XL[103X, [3Xx[103X ) [32X function[133X
+  
+  [33X[0;0YGiven  a  list  [3XL[103X  and  an object [3Xx[103X, this calls Append(L, x) if x is a list;
+  otherwise  it  calls  Add(L,  x).  Note  that  since  strings are internally
+  represented  as lists, AddOrAppend(L, "foo") will append the characters 'f',
+  'o', 'o'.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := [1, 2, 3];;[127X[104X
+    [4X[25Xgap>[125X [27XAddOrAppend(L, 4);[127X[104X
+    [4X[25Xgap>[125X [27XL;[127X[104X
+    [4X[28X[1, 2, 3, 4][128X[104X
+    [4X[25Xgap>[125X [27XAddOrAppend(L, [5, 6]);[127X[104X
+    [4X[25Xgap>[125X [27XL;[127X[104X
+    [4X[28X[1, 2, 3, 4, 5, 6];[128X[104X
+  [4X[32X[104X
+  
+  [1X15.4-4 WrappedPosetOperation[101X
+  
+  [33X[1;0Y[29X[2XWrappedPosetOperation[102X( [3XposetOp[103X ) [32X function[133X
+  
+  [33X[0;0YGiven  a  poset  operation,  creates  a  bare-bones  maniplex operation that
+  delegates to the poset operation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xmyjoin := WrappedPosetOperation(JoinProduct);[127X[104X
+    [4X[28Xfunction( arg... ) ... end[128X[104X
+    [4X[25Xgap>[125X [27XM := myjoin(Pgon(4), Vertex());[127X[104X
+    [4X[28X3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XM = Pyramid(4);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YUsually, you will want to eventually create a fuller-featured wrapper of the
+  poset  operation  -- one that can infer more information from its arguments.
+  But  this  method  is  a  good way to quickly test whether a poset operation
+  works on maniplexes the way one expects.[133X
+  
+  [1X15.4-5 MarkAsPolytopal[101X
+  
+  [33X[1;0Y[29X[2XMarkAsPolytopal[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YSets  [10XIsPolytopal(M)[110X as true, and if necessary, changes [10XString(M)[110X to reflect
+  this.[133X
   

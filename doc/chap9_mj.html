@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 9: Combinatorics and Structure</title>
+<title>GAP (RAMP) - Chapter 9: Polytope Constructions and Operations</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -18,531 +18,405 @@
 <body class="chap9"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chap17_mj.html">17</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap10_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap9.html">[MathJax off]</a></p>
-<p><a id="X8153E7658330D710" name="X8153E7658330D710"></a></p>
-<div class="ChapSects"><a href="chap9_mj.html#X8153E7658330D710">9 <span class="Heading">Combinatorics and Structure</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X872AD1E785C7EB03">9.1 <span class="Heading">Faces</span></a>
+<p><a id="X823655C77BD84AB5" name="X823655C77BD84AB5"></a></p>
+<div class="ChapSects"><a href="chap9_mj.html#X823655C77BD84AB5">9 <span class="Heading">Polytope Constructions and Operations</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X871C2D73829F1FC1">9.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86085A967E396035">9.1-1 NumberOfIFaces</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C126944873D2461">9.1-2 NumberOfVertices</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86CDC9B38792B038">9.1-3 NumberOfEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7DE9F1057B309554">9.1-4 NumberOfFacets</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C5446247FD63F28">9.1-5 NumberOfRidges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X816A47B879737629">9.1-6 Fvector</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8586EE158331B46C">9.1-7 <span class="Heading">Section(s)</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85D359FD7E3C191B">9.1-8 <span class="Heading">Facet(s)</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X859E4169801C72D9">9.1-9 <span class="Heading">Vertex Figure(s)</span></a>
-</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X808AEA5281D52911">9.1-1 UniversalPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8582D0CF7EA1CB34">9.1-2 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78B4610E7DE67E32">9.1-3 UniversalExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X84BB6B21853173FD">9.1-4 TrivialExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7A5853E278A83D74">9.1-5 FlatExtension</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X790F22D47CD222EB">9.1-6 Amalgamate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X840BC19484E0E9CC">9.1-7 Medial</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X877E841E7FBCEAAE">9.2 <span class="Heading">Flatness</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X87FD993F7F6F2FAB">9.2 <span class="Heading">Duality</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X877E841E7FBCEAAE">9.2-1 <span class="Heading">Flatness</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7D62BD3E7F941F5B">9.2-1 Dual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7FF8B96C83DA60CB">9.2-2 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79287DCF7835E0F4">9.2-3 IsInternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X871BE6737FF36FE6">9.2-4 IsExternallySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86E347E67EE31555">9.2-5 <span class="Heading">Petrie Dual</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-6 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-7 DirectDerivates</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X8052D0A68676A82C">9.3 <span class="Heading">Schlafli symbol</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X86CE352C7851221F">9.3 <span class="Heading">Products</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7FA0B161838A442A">9.3-1 SchlafliSymbol</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78447BE8877668EA">9.3-2 PseudoSchlafliSymbol</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E9CCE9D794DC285">9.3-3 IsEquivelar</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8483BE798579B521">9.3-4 IsDegenerate</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8088FFB2851334AB">9.3-5 IsTight</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7CEC34DF795B8DDF">9.3-6 EulerCharacteristic</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7FA861D87C58E1EF">9.3-7 Genus</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X84F212F485BA012F">9.3-8 IsSpherical</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X85B48E0678A65F40">9.3-9 IsLocallySpherical</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7886C68887E4DD20">9.3-10 IsToroidal</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E0FF0C982FC49D2">9.3-11 IsLocallyToroidal</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X868F7BAB7AC2EEBC">9.4 <span class="Heading">Basics</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7CBB470F7D3135BC">9.3-1 <span class="Heading">Pyramids</span></a>
 </span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C2ADC507F19E2E3">9.4-1 Size</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79C21A557E80B021">9.4-2 RankManiplex</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X780FC00678185849">9.5 <span class="Heading">Zigzags and holes</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7B13F48A7AF5DF42">9.3-2 <span class="Heading">Prisms</span></a>
 </span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7D0AAD597CDE5697">9.5-1 ZigzagLength</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7FC09F34870E6CDE">9.5-2 ZigzagVector</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C4A38D780F6AECD">9.5-3 PetrieLength</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C93C4708678EB87">9.5-4 PetrieRelation</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X80FF41567B259CC1">9.5-5 HoleLength</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7EE84DCF7EFC02C6">9.5-6 HoleVector</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X808566B57F296C93">9.3-3 <span class="Heading">Antiprisms</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7FA28B5C7AC1C32E">9.3-4 JoinProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7C116F2C83963ADC">9.3-5 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X8022B9AC85D38D7D">9.3-6 DirectSumOfManiplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X833534418543FB94">9.3-7 TopologicalProduct</a></span>
 </div></div>
 </div>
 
-<h3>9 <span class="Heading">Combinatorics and Structure</span></h3>
+<h3>9 <span class="Heading">Polytope Constructions and Operations</span></h3>
 
-<p><a id="X872AD1E785C7EB03" name="X872AD1E785C7EB03"></a></p>
+<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
 
-<h4>9.1 <span class="Heading">Faces</span></h4>
+<h4>9.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
 
-<p><a id="X86085A967E396035" name="X86085A967E396035"></a></p>
+<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
 
-<h5>9.1-1 NumberOfIFaces</h5>
+<h5>9.1-1 UniversalPolytope</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfIFaces</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns The number of <var class="Arg">i</var>-faces of <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(Dodecahedron(),1);</span>
-30
-</pre></div>
-
-<p><a id="X7C126944873D2461" name="X7C126944873D2461"></a></p>
-
-<h5>9.1-2 NumberOfVertices</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfVertices</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of vertices of <var class="Arg">M</var>.</p>
+<p>Constructs the universal polytope of rank <var class="Arg">n</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfVertices(HemiDodecahedron());</span>
-10
-</pre></div>
-
-<p><a id="X86CDC9B38792B038" name="X86CDC9B38792B038"></a></p>
-
-<h5>9.1-3 NumberOfEdges</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfEdges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of edges of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(HemiIcosahedron());</span>
-15
-</pre></div>
-
-<p><a id="X7DE9F1057B309554" name="X7DE9F1057B309554"></a></p>
-
-<h5>9.1-4 NumberOfFacets</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFacets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of facets of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFacets(Bk2l(4,6));</span>
-4
-</pre></div>
-
-<p><a id="X7C5446247FD63F28" name="X7C5446247FD63F28"></a></p>
-
-<h5>9.1-5 NumberOfRidges</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfRidges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the number of ridges ((n-2)-faces) of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfRidges(CrossPolytope(5));</span>
-80
-</pre></div>
-
-<p><a id="X816A47B879737629" name="X816A47B879737629"></a></p>
-
-<h5>9.1-6 Fvector</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Fvector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the f-vector of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(HemiIcosahedron());</span>
-[ 6, 15, 10 ]
-</pre></div>
-
-<p><a id="X8586EE158331B46C" name="X8586EE158331B46C"></a></p>
-
-<h5>9.1-7 <span class="Heading">Section(s)</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sections</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p><code class="code">Section(M,j,i)</code> returns the section <code class="code">F_j / F_i</code>, where <code class="code">F_j</code> is the <span class="SimpleMath">\(j\)</span>-face of the base flag of <var class="Arg">M</var> and <code class="code">F_i</code> is the <span class="SimpleMath">\(i\)</span>-face of the base flag. <code class="code">Section(M,j,i,k)</code> returns the section <code class="code">F_j / F_i</code>, where <code class="code">F_j</code> is the <span class="SimpleMath">\(j\)</span>-face of flag number <var class="Arg">k</var> of <var class="Arg">M</var> and <code class="code">F_i</code> is the <span class="SimpleMath">\(i\)</span>-face of the same flag. <code class="code">Sections(M,j,i)</code> returns all sections of type <code class="code">F_j / F_i</code>, where <code class="code">F_j</code> is a <span class="SimpleMath">\(j\)</span>-face and <code class="code">F_i</code> is an incident <span class="SimpleMath">\(i\)</span>-face.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Section(ToroidalMap44([2,2]),3,0);</span>
-Pgon(4)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Section(Cuboctahedron(),2,-1,1);</span>
-Pgon(4)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Section(Cuboctahedron(),2,-1,4);</span>
-Pgon(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Sections(Cuboctahedron(),2,-1);</span>
-[ Pgon(4), Pgon(3) ]
-</pre></div>
-
-<p><a id="X85D359FD7E3C191B" name="X85D359FD7E3C191B"></a></p>
-
-<h5>9.1-8 <span class="Heading">Facet(s)</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the facet-types of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the facets). Returns the facet of <var class="Arg">M</var> that contains the flag number <var class="Arg">k</var> (that is, the maniplex corresponding to the facet). Returns the facet of <var class="Arg">M</var> that contains flag number 1 (that is, the maniplex corresponding to the facet).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(Cuboctahedron());</span>
-[ Pgon(4), Pgon(3) ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facet(Cuboctahedron(),4);</span>
-Pgon(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facet(Cuboctahedron());</span>
-Pgon(4)
-</pre></div>
-
-<p><a id="X859E4169801C72D9" name="X859E4169801C72D9"></a></p>
-
-<h5>9.1-9 <span class="Heading">Vertex Figure(s)</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigures</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the types of vertex-figures of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the vertex-figures). Returns the vertex-figure of <var class="Arg">M</var> that contains flag number <var class="Arg">k</var>. Returns the vertex-figure of <var class="Arg">M</var> that contains the base flag.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Dual(SmallRhombicosidodecahedron());</span>
-Dual(3-maniplex)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigures(p);</span>
-[ Pgon(5), Pgon(4), Pgon(3) ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(p,4);</span>
-Pgon(4)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(p);</span>
-Pgon(5)
-</pre></div>
-
-<p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
-
-<h4>9.2 <span class="Heading">Flatness</span></h4>
-
-<p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
-
-<h5>9.2-1 <span class="Heading">Flatness</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>In the first form, returns true if every vertex of the maniplex <var class="Arg">M</var> is incident to every facet. In the second form, returns true if every i-face of the maniplex <var class="Arg">M</var> is incident to every j-face.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFlat(HemiCube(3));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFlat(Simplex(3),0,2);</span>
-false
-</pre></div>
-
-<p><a id="X8052D0A68676A82C" name="X8052D0A68676A82C"></a></p>
-
-<h4>9.3 <span class="Heading">Schlafli symbol</span></h4>
-
-<p><a id="X7FA0B161838A442A" name="X7FA0B161838A442A"></a></p>
-
-<h5>9.3-1 SchlafliSymbol</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the Schlafli symbol of the maniplex <var class="Arg">M</var>. Each entry is either an integer or a set of integers, where entry number i shows the polygons that we obtain as sections of (i+1)-faces over (i-2)-faces.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(SmallRhombicosidodecahedron());</span>
-[ [ 3, 4, 5 ], 4 ]
-</pre></div>
-
-<p><a id="X78447BE8877668EA" name="X78447BE8877668EA"></a></p>
-
-<h5>9.3-2 PseudoSchlafliSymbol</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PseudoSchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Sometimes when we make a maniplex, we know that the Schlafli symbol must be a quotient of some symbol. This most frequently happens because we start with a maniplex with a given Schlafli symbol and then take a quotient of it. In this case, we store the given Schlafli symbol and call it a <em>pseudo-Schlafli symbol</em> of <var class="Arg">M</var>. Note that whenever we compute the actual Schlafli symbol of <var class="Arg">M</var>, we update the pseudo-Schlafli symbol to match.</p>
-
-<p><a id="X7E9CCE9D794DC285" name="X7E9CCE9D794DC285"></a></p>
-
-<h5>9.3-3 IsEquivelar</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivelar</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: the the maniplex <var class="Arg">M</var> is equivelar; i.e., whether its Schlafli Symbol consists of integers at each position (no lists).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivelar(Bk2l(6,18));</span>
-true
-</pre></div>
-
-<p><a id="X8483BE798579B521" name="X8483BE798579B521"></a></p>
-
-<h5>9.3-4 IsDegenerate</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := FreeGroup("s0","s1","s2","s3");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := F.1;;  s1 := F.2;;  s2 := F.3;;  s3 := F.4;;  </span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := [ s0*s0, s1*s1, s2*s2, s3*s3, s0*s2*s0*s2, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">s1*s2*s1*s2, s0*s3*s0*s3, s1*s3*s1*s3, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">s2*s3*s2*s3*s2*s3*s2*s3, s0*s1*s0*s1*s0*s1*s0*s1*s0*s1 ];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := F / rels;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDegenerate(ARP(poly));</span>
-true
-</pre></div>
-
-<p><a id="X8088FFB2851334AB" name="X8088FFB2851334AB"></a></p>
-
-<h5>9.3-5 IsTight</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTight(ToroidalMap44([2,0]));</span>
-true
-</pre></div>
-
-<p><a id="X7CEC34DF795B8DDF" name="X7CEC34DF795B8DDF"></a></p>
-
-<h5>9.3-6 EulerCharacteristic</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EulerCharacteristic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The Euler characteristic of the maniplex, given by <span class="SimpleMath">\(f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}\)</span>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EulerCharacteristic(Bk2lStar(3,5));</span>
--10
-</pre></div>
-
-<p><a id="X7FA861D87C58E1EF" name="X7FA861D87C58E1EF"></a></p>
-
-<h5>9.3-7 Genus</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Genus</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The genus of the given 3-maniplex.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Genus(Bk2lStar(3,5));</span>
-6
-</pre></div>
-
-<p><a id="X84F212F485BA012F" name="X84F212F485BA012F"></a></p>
-
-<h5>9.3-8 IsSpherical</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSpherical</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the 3-maniplex <var class="Arg">M</var> is spherical, which is to say, whether the Euler characteristic is equal to 2.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(Simplex(3));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(AbstractRegularPolytope([4,4],"h2^3"));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(Pyramid(5));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(CubicTiling(2));</span>
-false
-</pre></div>
-
-<p><a id="X85B48E0678A65F40" name="X85B48E0678A65F40"></a></p>
-
-<h5>9.3-9 IsLocallySpherical</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocallySpherical</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the 4-maniplex <var class="Arg">M</var> is locally spherical, which is to say, whether its facets and vertex-figures are both spherical.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(Simplex(4));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(AbstractRegularPolytope([4,4,4]));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(CubicTiling(3));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(Pyramid(Cube(3)));</span>
-true
-</pre></div>
-
-<p><a id="X7886C68887E4DD20" name="X7886C68887E4DD20"></a></p>
-
-<h5>9.3-10 IsToroidal</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsToroidal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the 3-maniplex <var class="Arg">M</var> is toroidal, which is to say, whether the Euler characteristic is equal to 0.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(Simplex(3));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(AbstractRegularPolytope([4,4],"h2^3"));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(Pyramid(5));</span>
-false
-</pre></div>
-
-<p><a id="X7E0FF0C982FC49D2" name="X7E0FF0C982FC49D2"></a></p>
-
-<h5>9.3-11 IsLocallyToroidal</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocallyToroidal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether the 4-maniplex <var class="Arg">M</var> is locally toroidal, which is to say, whether it has at least one toroidal facet or vertex-figure, and all of its facets and vertex-figures are either spherical or toroidal.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(Simplex(4));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));</span>
-true
-</pre></div>
-
-<p><a id="X868F7BAB7AC2EEBC" name="X868F7BAB7AC2EEBC"></a></p>
-
-<h4>9.4 <span class="Heading">Basics</span></h4>
-
-<p><a id="X7C2ADC507F19E2E3" name="X7C2ADC507F19E2E3"></a></p>
-
-<h5>9.4-1 Size</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The number of flags of the maniplex <var class="Arg">M</var>.</p>
-
-<p>Synonym: <code class="code">NumberOfFlags</code>.</p>
-
-<p><a id="X79C21A557E80B021" name="X79C21A557E80B021"></a></p>
-
-<h5>9.4-2 RankManiplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankManiplex</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The rank of the maniplex <var class="Arg">M</var>.</p>
-
-<p><a id="X780FC00678185849" name="X780FC00678185849"></a></p>
-
-<h4>9.5 <span class="Heading">Zigzags and holes</span></h4>
-
-<p><a id="X7D0AAD597CDE5697" name="X7D0AAD597CDE5697"></a></p>
-
-<h5>9.5-1 ZigzagLength</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of <var class="Arg">j</var>-zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
-
-<p>This corresponds to the lengths of orbits under r0 (r1 r2)^j.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),1);</span>
-6
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),2);</span>
-6
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),3);</span>
-2
-</pre></div>
-
-<p><a id="X7FC09F34870E6CDE" name="X7FC09F34870E6CDE"></a></p>
-
-<h5>9.5-2 ZigzagVector</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
-
-<p>A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagVector(Pseudorhombicuboctahedron());</span>
-[ [ 40, 56 ], [ 8, 32 ] ]
-</pre></div>
-
-<p><a id="X7C4A38D780F6AECD" name="X7C4A38D780F6AECD"></a></p>
-
-<h5>9.5-3 PetrieLength</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The length of the petrie polygons of the maniplex <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PetrieLength(Cube(3));</span>
-6
-</pre></div>
-
-<p><a id="X7C93C4708678EB87" name="X7C93C4708678EB87"></a></p>
-
-<h5>9.5-4 PetrieRelation</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieRelation</code>( <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: relation</p>
-
-<p>Returns the Petrie relation for a rank <var class="Arg">i</var> maniplex of length <var class="Arg">j</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PetrieRelation(3,3);</span>
-"(r0r1r2)^3"
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=Cube(3)/p;</span>
-3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(q);</span>
-24
-</pre></div>
-
-<p><a id="X80FF41567B259CC1" name="X80FF41567B259CC1"></a></p>
-
-<h5>9.5-5 HoleLength</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of <var class="Arg">j</var>-holes of the 3-maniplex <var class="Arg">M</var>.</p>
-
-<p>This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(ToroidalMap44([3,0]),2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalPolytope(3);</span>
+UniversalPolytope(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(last);</span>
 3
 </pre></div>
 
-<p><a id="X7EE84DCF7EFC02C6" name="X7EE84DCF7EFC02C6"></a></p>
+<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
 
-<h5>9.5-6 HoleVector</h5>
+<h5>9.1-2 UniversalExtension</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
 
-<p>A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+<p>Constructs the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleVector(ToroidalMap44([3,0],[0,5]));</span>
-[ [ 3, 5 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3));</span>
+regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
+</pre></div>
+
+<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
+
+<h5>9.1-3 UniversalExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3),2);</span>
+regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
+</pre></div>
+
+<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
+
+<h5>9.1-4 TrivialExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M</var>, 2}.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TrivialExtension(Dodecahedron());</span>
+regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
+</pre></div>
+
+<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
+
+<h5>9.1-5 FlatExtension</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex#! @Description Constructs the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in <em>Flat Extensions of Abstract Polytopes</em> <a href="chapBib_mj.html#biBCun21">[Cun21]</a>.)</p>
+
+<p>Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatExtension(Simplex(3),4);</span>
+reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
+</pre></div>
+
+<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
+
+<h5>9.1-6 Amalgamate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3),CrossPolytope(3));</span>
+reflexible 4-maniplex of type [ 4, 3, 4 ]
+</pre></div>
+
+<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
+
+<h5>9.1-7 Medial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Medial(Dodecahedron()));</span>
+[ [ 3, 5 ], 4 ]
+</pre></div>
+
+<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
+
+<h4>9.2 <span class="Heading">Duality</span></h4>
+
+<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
+
+<h5>9.2-1 Dual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(CrossPolytope(3));</span>
+Cube(3)
+</pre></div>
+
+<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
+
+<h5>9.2-2 IsSelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its dual.</p>
+
+<p>Also works for IsPoset objects.</p>
+
+<p><a id="X79287DCF7835E0F4" name="X79287DCF7835E0F4"></a></p>
+
+<h5>9.2-3 IsInternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(4));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^6"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^5"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Cube(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron2(10,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(M, (g.1*g.3*g.2)^6);</span>
+true
+</pre></div>
+
+<p><a id="X871BE6737FF36FE6" name="X871BE6737FF36FE6"></a></p>
+
+<h5>9.2-4 IsExternallySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^6"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^5"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Cube(3));</span>
+false
+</pre></div>
+
+<p><a id="X86E347E67EE31555" name="X86E347E67EE31555"></a></p>
+
+<h5>9.2-5 <span class="Heading">Petrie Dual</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>.</p>
+
+<p>Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="SimpleMath">\(r_{n-3}\)</span> with <span class="SimpleMath">\(r_{n-3} r_{n-1}\)</span> in the set of generators.</p>
+
+<p>Synonym for the command is <code class="code">PetrieDual</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(HemiCube(3));</span>
+ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
+</pre></div>
+
+<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
+
+<h5>9.2-6 IsSelfPetrial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);</span>
+regular 3-polytope
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfPetrial(p);</span>
+true
+</pre></div>
+
+<p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
+
+<h5>9.2-7 DirectDerivates</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectDerivates(Cube(3));</span>
+[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
+  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
+  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+</pre></div>
+
+<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
+
+<h4>9.3 <span class="Heading">Products</span></h4>
+
+<p><a id="X7CBB470F7D3135BC" name="X7CBB470F7D3135BC"></a></p>
+
+<h5>9.3-1 <span class="Heading">Pyramids</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the pyramid over <var class="Arg">M</var>. Returns the pyramid over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(Cube(3)));</span>
+[ [ 3, 4 ], [ 3, 4 ], 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(4));</span>
+[ [ 3, 4 ], [ 3, 4 ] ]
+</pre></div>
+
+<p><a id="X7B13F48A7AF5DF42" name="X7B13F48A7AF5DF42"></a></p>
+
+<h5>9.3-2 <span class="Heading">Prisms</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the prism over <var class="Arg">M</var>. Returns the prism over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cube(3)=Prism(Cube(2));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Prism(4)=Cube(3);</span>
+true
+</pre></div>
+
+<p><a id="X808566B57F296C93" name="X808566B57F296C93"></a></p>
+
+<h5>9.3-3 <span class="Heading">Antiprisms</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the antiprism over <var class="Arg">M</var>. Returns the antiprism over a <var class="Arg">k</var>-gon.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(Dodecahedron()));</span>
+[ [ 3, 5 ], [ 3, 5 ], 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(5));</span>
+[ [ 3, 5 ], 4 ]
+</pre></div>
+
+<p><a id="X7FA28B5C7AC1C32E" name="X7FA28B5C7AC1C32E"></a></p>
+
+<h5>9.3-4 JoinProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the join product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
+</pre></div>
+
+<p><a id="X7C116F2C83963ADC" name="X7C116F2C83963ADC"></a></p>
+
+<h5>9.3-5 CartesianProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the cartesian product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));</span>
+[ [ 3, 4 ], 3, 3, 3 ]
+</pre></div>
+
+<p><a id="X8022B9AC85D38D7D" name="X8022B9AC85D38D7D"></a></p>
+
+<h5>9.3-6 DirectSumOfManiplexes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfManiplexes</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));</span>
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
+</pre></div>
+
+<p><a id="X833534418543FB94" name="X833534418543FB94"></a></p>
+
+<h5>9.3-7 TopologicalProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Maniplex</p>
+
+<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));</span>
+[ 4, 3, [ 3, 4 ] ]
 </pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap8_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap10_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chap17_mj.html">17</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

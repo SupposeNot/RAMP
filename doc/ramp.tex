@@ -192,18 +192,113 @@ you can delete the \texttt{.zip} file.
  }
 
    
-\chapter{\textcolor{Chapter }{Groups for Maps, Polytopes, and Maniplexes}}\label{Chapter_Groups_for_Maps_Polytopes_and_Maniplexes}
+\chapter{\textcolor{Chapter }{Using RAMP}}\label{Chapter_Using_RAMP}
 \logpage{[ 2, 0, 0 ]}
+\hyperdef{L}{X80436AD27BDFFDEC}{}
+{
+  
+\section{\textcolor{Chapter }{Assumptions}}\label{Chapter_Using_RAMP_Section_Assumptions}
+\logpage{[ 2, 1, 0 ]}
+\hyperdef{L}{X7C6D4C1681F6EA0B}{}
+{
+  There are a few assumptions that many methods make. 
+
+ 1. The connection group of a maniplex with N flags is often assumed to act on
+[1..N]. This is gradually being rewritten to allow any set of integers as
+flags, but use caution when working with such connection groups. 
+
+ 2. When working with a connection group $\langle r_0, \ldots, r_{n-1} \rangle$, some methods may have strange behavior if any $r_i$ or $r_i r_j$ has any fixed points. Indeed, Sggis of that type define pre-maniplexes rather
+than maniplexes. Eventually, the methods that build maniplexes will verify
+that no $r_i$ or $r_i r_j$ has fixed points. 
+
+ }
+
+ 
+\section{\textcolor{Chapter }{Extending RAMP}}\label{Chapter_Using_RAMP_Section_Extending_RAMP}
+\logpage{[ 2, 2, 0 ]}
+\hyperdef{L}{X879632E87BBAC866}{}
+{
+  Suppose you want to add a new operation on maniplexes to RAMP. We will see how
+to accomplish that with a hypothetical example. Let's pretend that there's a
+mathematical operation on maniplexes called "Stretch". 
+
+ Our first step will be to create two new files in the lib/ directory:
+stretch.gd and stretch.gi. The first file is for the declaration of the new
+operation, and the second is for the implementation. 
+
+ In stretch.gd, we want to add a line that declares the new operation,
+something like this: 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  DeclareOperation("Stretch", IsManiplex);
+\end{Verbatim}
+ Now we will write the implementation in stretch.gi: 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  InstallMethod(Stretch, 
+  		[IsManiplex],
+  		function(M)
+  		...actual code goes here...
+  		end);
+\end{Verbatim}
+ Finally, we need to make sure that these new files are read when RAMP is
+loaded up. Open up init.g (in the root RAMP directory) and add the line 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  ReadPackage( "ramp", "lib/stretch.gd" ); 
+\end{Verbatim}
+ (We recommend that you put that line in alphabetical order with the rest.)
+Similarly, open up read.g and add the line 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  ReadPackage( "ramp", "lib/stretch.gi" ); 
+\end{Verbatim}
+ Now your code is available in your copy of RAMP! 
+
+ Here are two more things you should do. First, test your code. Create a new
+file called stretch.tst in the tst directory of RAMP. The format of the tests
+is that you first write a line that starts with "gap{\textgreater} " and
+continues with some input, as if you actually typed it in to the GAP prompt.
+Then, on the following line, put the expected output. 
+
+ To run your tests, run the following command in RAMP: 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@TestRamp("stretch.tst");|
+\end{Verbatim}
+ If any tests fail (that is, if the output from GAP does not match the expected
+output from your test file), then GAP will alert you to the discrepancies.
+Otherwise, when the tests are complete, there will be no output and you will
+just see the gap{\textgreater} prompt again. 
+
+ You can also call TEST{\textunderscore}RAMP() to run all of the tests in the
+/tst directory. 
+
+ Finally, you should document your operation! Take a look at one of the .gd
+files included with RAMP to see what you should include. To actually build the
+documentation, you will need the package AutoDoc. For example, the following
+will rebuild the documentation: 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@LoadPackage("AutoDoc");|
+  !gapprompt@gap>| !gapinput@AutoDoc("ramp", rec( scaffold := true, autodoc := true));|
+\end{Verbatim}
+ To see your updated documentation, you can either navigate to the html file in
+the doc/ directory, or you can quit GAP and restart it, and then your
+documentation will be available in the inline help. If you have LaTeX set up
+properly, then it will also build a pdf manual. 
+
+ }
+
+ }
+
+   
+\chapter{\textcolor{Chapter }{Groups for Maps, Polytopes, and Maniplexes}}\label{Chapter_Groups_for_Maps_Polytopes_and_Maniplexes}
+\logpage{[ 3, 0, 0 ]}
 \hyperdef{L}{X84EB3BF4805FF034}{}
 {
   
 \section{\textcolor{Chapter }{Groups of Maps, Polytopes, and Maniplexes}}\label{Chapter_Groups_for_Maps_Polytopes_and_Maniplexes_Section_Groups_of_Maps_Polytopes_and_Maniplexes}
-\logpage{[ 2, 1, 0 ]}
+\logpage{[ 3, 1, 0 ]}
 \hyperdef{L}{X7F53D040850C7587}{}
 {
   
 \subsection{\textcolor{Chapter }{Automorphism Groups}}\label{Automorphism_Group}
-\logpage{[ 2, 1, 1 ]}
+\logpage{[ 3, 1, 1 ]}
 \hyperdef{L}{X7A007A0C80D26351}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroup({\mdseries\slshape M})\index{AutomorphismGroup@\texttt{AutomorphismGroup}!for IsManiplex}
@@ -252,7 +347,7 @@ various AutomorphismGroupOn... functions. Returns the automorphism group of \mbo
  
 
 \subsection{\textcolor{Chapter }{ConnectionGroup (for IsManiplex)}}
-\logpage{[ 2, 1, 2 ]}\nobreak
+\logpage{[ 3, 1, 2 ]}\nobreak
 \hyperdef{L}{X7815931C7E926F4F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroup({\mdseries\slshape M})\index{ConnectionGroup@\texttt{ConnectionGroup}!for IsManiplex}
 \label{ConnectionGroup:for IsManiplex}
@@ -272,7 +367,7 @@ groups. Synonym: MonodromyGroup }
  
 
 \subsection{\textcolor{Chapter }{EvenConnectionGroup (for IsManiplex)}}
-\logpage{[ 2, 1, 3 ]}\nobreak
+\logpage{[ 3, 1, 3 ]}\nobreak
 \hyperdef{L}{X7CE8CFB183A4FFEE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EvenConnectionGroup({\mdseries\slshape M})\index{EvenConnectionGroup@\texttt{EvenConnectionGroup}!for IsManiplex}
 \label{EvenConnectionGroup:for IsManiplex}
@@ -290,7 +385,7 @@ groups. Synonym: MonodromyGroup }
  
 
 \subsection{\textcolor{Chapter }{RotationGroup (for IsManiplex)}}
-\logpage{[ 2, 1, 4 ]}\nobreak
+\logpage{[ 3, 1, 4 ]}\nobreak
 \hyperdef{L}{X7D194510834667C8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotationGroup({\mdseries\slshape M})\index{RotationGroup@\texttt{RotationGroup}!for IsManiplex}
 \label{RotationGroup:for IsManiplex}
@@ -307,7 +402,7 @@ groups. Synonym: MonodromyGroup }
  
 
 \subsection{\textcolor{Chapter }{RotationGroupFpGroup (for IsManiplex)}}
-\logpage{[ 2, 1, 5 ]}\nobreak
+\logpage{[ 3, 1, 5 ]}\nobreak
 \hyperdef{L}{X831C36BB82F429C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotationGroupFpGroup({\mdseries\slshape M})\index{RotationGroupFpGroup@\texttt{RotationGroupFpGroup}!for IsManiplex}
 \label{RotationGroupFpGroup:for IsManiplex}
@@ -326,7 +421,7 @@ groups. Synonym: MonodromyGroup }
  
 
 \subsection{\textcolor{Chapter }{ChiralityGroup (for IsRotaryManiplex)}}
-\logpage{[ 2, 1, 6 ]}\nobreak
+\logpage{[ 3, 1, 6 ]}\nobreak
 \hyperdef{L}{X7FDCA212782DC0E3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChiralityGroup({\mdseries\slshape M})\index{ChiralityGroup@\texttt{ChiralityGroup}!for IsRotaryManiplex}
 \label{ChiralityGroup:for IsRotaryManiplex}
@@ -339,7 +434,7 @@ chirality group is trivial if and only if \mbox{\texttt{\mdseries\slshape M}} is
  
 
 \subsection{\textcolor{Chapter }{ExtraRelators (for IsReflexibleManiplex)}}
-\logpage{[ 2, 1, 7 ]}\nobreak
+\logpage{[ 3, 1, 7 ]}\nobreak
 \hyperdef{L}{X7D2CE6707B452C0D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRelators({\mdseries\slshape M})\index{ExtraRelators@\texttt{ExtraRelators}!for IsReflexibleManiplex}
 \label{ExtraRelators:for IsReflexibleManiplex}
@@ -358,7 +453,7 @@ robust at the moment. }
  
 
 \subsection{\textcolor{Chapter }{ExtraRotRelators (for IsRotaryManiplex)}}
-\logpage{[ 2, 1, 8 ]}\nobreak
+\logpage{[ 3, 1, 8 ]}\nobreak
 \hyperdef{L}{X797752A88078CF22}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRotRelators({\mdseries\slshape M})\index{ExtraRotRelators@\texttt{ExtraRotRelators}!for IsRotaryManiplex}
 \label{ExtraRotRelators:for IsRotaryManiplex}
@@ -377,7 +472,7 @@ particularly robust at the moment. }
  
 
 \subsection{\textcolor{Chapter }{IsManiplexable (for IsPermGroup)}}
-\logpage{[ 2, 1, 9 ]}\nobreak
+\logpage{[ 3, 1, 9 ]}\nobreak
 \hyperdef{L}{X85C1BC3D85D78ECC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsManiplexable({\mdseries\slshape permgroup})\index{IsManiplexable@\texttt{IsManiplexable}!for IsPermGroup}
 \label{IsManiplexable:for IsPermGroup}
@@ -395,12 +490,12 @@ products fixed point free. }
 
  
 \section{\textcolor{Chapter }{Sggis}}\label{Chapter_Groups_for_Maps_Polytopes_and_Maniplexes_Section_Sggis}
-\logpage{[ 2, 2, 0 ]}
+\logpage{[ 3, 2, 0 ]}
 \hyperdef{L}{X8547ABE882A26E43}{}
 {
   
 \subsection{\textcolor{Chapter }{UniversalSggi}}\label{UniversalSggi}
-\logpage{[ 2, 2, 1 ]}
+\logpage{[ 3, 2, 1 ]}
 \hyperdef{L}{X7AE843CE7878951F}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalSggi({\mdseries\slshape n})\index{UniversalSggi@\texttt{UniversalSggi}!for IsInt}
@@ -428,7 +523,7 @@ second form, returns the Coxeter Group with Schlafli symbol sym. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Sggi}}\label{Sggi}
-\logpage{[ 2, 2, 2 ]}
+\logpage{[ 3, 2, 2 ]}
 \hyperdef{L}{X7A4E9AE88662FE00}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Sggi({\mdseries\slshape symbol[, relations]})\index{Sggi@\texttt{Sggi}!for IsList, IsList}
@@ -470,7 +565,7 @@ maniplex with that Schlalfi Symbol by the relations obtained by setting each \mb
  
 
 \subsection{\textcolor{Chapter }{IsGgi (for IsGroup)}}
-\logpage{[ 2, 2, 3 ]}\nobreak
+\logpage{[ 3, 2, 3 ]}\nobreak
 \hyperdef{L}{X81A3AE37837A4B8D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsGgi({\mdseries\slshape g})\index{IsGgi@\texttt{IsGgi}!for IsGroup}
 \label{IsGgi:for IsGroup}
@@ -494,7 +589,7 @@ whether \mbox{\texttt{\mdseries\slshape g}} is generated by involutions. Or more
  
 
 \subsection{\textcolor{Chapter }{IsStringy (for IsGroup)}}
-\logpage{[ 2, 2, 4 ]}\nobreak
+\logpage{[ 3, 2, 4 ]}\nobreak
 \hyperdef{L}{X7BBA245D7DBAAE7A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringy({\mdseries\slshape g})\index{IsStringy@\texttt{IsStringy}!for IsGroup}
 \label{IsStringy:for IsGroup}
@@ -511,7 +606,7 @@ whether every pair of non-adjacent generators of \mbox{\texttt{\mdseries\slshape
  
 
 \subsection{\textcolor{Chapter }{IsSggi (for IsGroup)}}
-\logpage{[ 2, 2, 5 ]}\nobreak
+\logpage{[ 3, 2, 5 ]}\nobreak
 \hyperdef{L}{X802333F880B11196}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSggi({\mdseries\slshape g})\index{IsSggi@\texttt{IsSggi}!for IsGroup}
 \label{IsSggi:for IsGroup}
@@ -528,7 +623,7 @@ whether \mbox{\texttt{\mdseries\slshape g}} is a string group generated by invol
  
 
 \subsection{\textcolor{Chapter }{IsStringRotationGroup (for IsGroup)}}
-\logpage{[ 2, 2, 6 ]}\nobreak
+\logpage{[ 3, 2, 6 ]}\nobreak
 \hyperdef{L}{X7800886185453C10}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringRotationGroup({\mdseries\slshape g})\index{IsStringRotationGroup@\texttt{IsStringRotationGroup}!for IsGroup}
 \label{IsStringRotationGroup:for IsGroup}
@@ -545,7 +640,7 @@ Whether \mbox{\texttt{\mdseries\slshape g}} is a string rotation group, i.e. the
  
 
 \subsection{\textcolor{Chapter }{IsStringC (for IsGroup)}}
-\logpage{[ 2, 2, 7 ]}\nobreak
+\logpage{[ 3, 2, 7 ]}\nobreak
 \hyperdef{L}{X835FA8527E2442F4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringC({\mdseries\slshape G})\index{IsStringC@\texttt{IsStringC}!for IsGroup}
 \label{IsStringC:for IsGroup}
@@ -557,7 +652,7 @@ Whether \mbox{\texttt{\mdseries\slshape g}} is a string rotation group, i.e. the
  
 
 \subsection{\textcolor{Chapter }{IsStringCPlus (for IsGroup)}}
-\logpage{[ 2, 2, 8 ]}\nobreak
+\logpage{[ 3, 2, 8 ]}\nobreak
 \hyperdef{L}{X8445AFAB7CF3F319}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringCPlus({\mdseries\slshape G})\index{IsStringCPlus@\texttt{IsStringCPlus}!for IsGroup}
 \label{IsStringCPlus:for IsGroup}
@@ -569,7 +664,7 @@ Whether \mbox{\texttt{\mdseries\slshape g}} is a string rotation group, i.e. the
  
 
 \subsection{\textcolor{Chapter }{SggiElement (for IsGroup, IsString)}}
-\logpage{[ 2, 2, 9 ]}\nobreak
+\logpage{[ 3, 2, 9 ]}\nobreak
 \hyperdef{L}{X815ADF0A7B5A456A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SggiElement({\mdseries\slshape g, str})\index{SggiElement@\texttt{SggiElement}!for IsGroup, IsString}
 \label{SggiElement:for IsGroup, IsString}
@@ -595,7 +690,7 @@ which case \texttt{AutomorphismGroup(M)} is used for g. }
  
 
 \subsection{\textcolor{Chapter }{SimplifiedSggiElement (for IsGroup, IsString)}}
-\logpage{[ 2, 2, 10 ]}\nobreak
+\logpage{[ 3, 2, 10 ]}\nobreak
 \hyperdef{L}{X78DC846B7C44FFE6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SimplifiedSggiElement({\mdseries\slshape g, str})\index{SimplifiedSggiElement@\texttt{SimplifiedSggiElement}!for IsGroup, IsString}
 \label{SimplifiedSggiElement:for IsGroup, IsString}
@@ -621,7 +716,7 @@ reflexible maniplex M in place of g, in which case \texttt{AutomorphismGroup(M)}
  
 
 \subsection{\textcolor{Chapter }{IsRelationOfReflexibleManiplex (for IsManiplex, IsString)}}
-\logpage{[ 2, 2, 11 ]}\nobreak
+\logpage{[ 3, 2, 11 ]}\nobreak
 \hyperdef{L}{X8390184C789CC336}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRelationOfReflexibleManiplex({\mdseries\slshape M, rel})\index{IsRelationOfReflexibleManiplex@\texttt{IsRelationOfReflexibleManiplex}!for IsManiplex, IsString}
 \label{IsRelationOfReflexibleManiplex:for IsManiplex, IsString}
@@ -645,7 +740,7 @@ replaced with the value of \texttt{variable} (but for global variables only). }
  
 
 \subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
-\logpage{[ 2, 2, 12 ]}\nobreak
+\logpage{[ 3, 2, 12 ]}\nobreak
 \hyperdef{L}{X87C1FF7481A1D9B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SggiFamily({\mdseries\slshape parent, words})\index{SggiFamily@\texttt{SggiFamily}!for IsGroup, IsList}
 \label{SggiFamily:for IsGroup, IsList}
@@ -674,7 +769,7 @@ quickly. }
  
 
 \subsection{\textcolor{Chapter }{IsCConnected (for IsManiplex)}}
-\logpage{[ 2, 2, 13 ]}\nobreak
+\logpage{[ 3, 2, 13 ]}\nobreak
 \hyperdef{L}{X786B2C407A3E9EBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCConnected({\mdseries\slshape m})\index{IsCConnected@\texttt{IsCConnected}!for IsManiplex}
 \label{IsCConnected:for IsManiplex}
@@ -700,18 +795,18 @@ group a string C-group). }
 
    
 \chapter{\textcolor{Chapter }{Families of Polytopes}}\label{Chapter_Families_of_Polytopes}
-\logpage{[ 3, 0, 0 ]}
+\logpage{[ 4, 0, 0 ]}
 \hyperdef{L}{X7BF24A5D7B3386D7}{}
 {
   
 \section{\textcolor{Chapter }{Classical polytopes}}\label{Chapter_Families_of_Polytopes_Section_Classical_polytopes}
-\logpage{[ 3, 1, 0 ]}
+\logpage{[ 4, 1, 0 ]}
 \hyperdef{L}{X7A281A1C7DCB2D96}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Vertex}}
-\logpage{[ 3, 1, 1 ]}\nobreak
+\logpage{[ 4, 1, 1 ]}\nobreak
 \hyperdef{L}{X868FA75B794AE1AA}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Vertex({\mdseries\slshape })\index{Vertex@\texttt{Vertex}}
 \label{Vertex}
@@ -731,7 +826,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Edge}}
-\logpage{[ 3, 1, 2 ]}\nobreak
+\logpage{[ 4, 1, 2 ]}\nobreak
 \hyperdef{L}{X7DA6B54B7F300B92}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Edge({\mdseries\slshape })\index{Edge@\texttt{Edge}}
 \label{Edge}
@@ -751,7 +846,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Pgon (for IsInt)}}
-\logpage{[ 3, 1, 3 ]}\nobreak
+\logpage{[ 4, 1, 3 ]}\nobreak
 \hyperdef{L}{X8436B8097852EF9B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pgon({\mdseries\slshape p})\index{Pgon@\texttt{Pgon}!for IsInt}
 \label{Pgon:for IsInt}
@@ -771,7 +866,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Cube (for IsInt)}}
-\logpage{[ 3, 1, 4 ]}\nobreak
+\logpage{[ 4, 1, 4 ]}\nobreak
 \hyperdef{L}{X8306D0C17A6BDDCE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cube({\mdseries\slshape n})\index{Cube@\texttt{Cube}!for IsInt}
 \label{Cube:for IsInt}
@@ -791,7 +886,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{HemiCube (for IsInt)}}
-\logpage{[ 3, 1, 5 ]}\nobreak
+\logpage{[ 4, 1, 5 ]}\nobreak
 \hyperdef{L}{X828C02F4861F0CD3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiCube({\mdseries\slshape n})\index{HemiCube@\texttt{HemiCube}!for IsInt}
 \label{HemiCube:for IsInt}
@@ -811,7 +906,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{CrossPolytope (for IsInt)}}
-\logpage{[ 3, 1, 6 ]}\nobreak
+\logpage{[ 4, 1, 6 ]}\nobreak
 \hyperdef{L}{X78DC5BA486C3288C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CrossPolytope({\mdseries\slshape n})\index{CrossPolytope@\texttt{CrossPolytope}!for IsInt}
 \label{CrossPolytope:for IsInt}
@@ -831,7 +926,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Octahedron}}
-\logpage{[ 3, 1, 7 ]}\nobreak
+\logpage{[ 4, 1, 7 ]}\nobreak
 \hyperdef{L}{X84BE285087AAC1F7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Octahedron({\mdseries\slshape })\index{Octahedron@\texttt{Octahedron}}
 \label{Octahedron}
@@ -851,7 +946,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{HemiCrossPolytope (for IsInt)}}
-\logpage{[ 3, 1, 8 ]}\nobreak
+\logpage{[ 4, 1, 8 ]}\nobreak
 \hyperdef{L}{X7B0D84B87F00A73F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiCrossPolytope({\mdseries\slshape n})\index{HemiCrossPolytope@\texttt{HemiCrossPolytope}!for IsInt}
 \label{HemiCrossPolytope:for IsInt}
@@ -871,7 +966,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Simplex (for IsInt)}}
-\logpage{[ 3, 1, 9 ]}\nobreak
+\logpage{[ 4, 1, 9 ]}\nobreak
 \hyperdef{L}{X82C75D12838D3FD0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Simplex({\mdseries\slshape n})\index{Simplex@\texttt{Simplex}!for IsInt}
 \label{Simplex:for IsInt}
@@ -891,7 +986,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Tetrahedron}}
-\logpage{[ 3, 1, 10 ]}\nobreak
+\logpage{[ 4, 1, 10 ]}\nobreak
 \hyperdef{L}{X7B44DDD485145773}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Tetrahedron({\mdseries\slshape })\index{Tetrahedron@\texttt{Tetrahedron}}
 \label{Tetrahedron}
@@ -911,7 +1006,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{CubicTiling (for IsInt)}}
-\logpage{[ 3, 1, 11 ]}\nobreak
+\logpage{[ 4, 1, 11 ]}\nobreak
 \hyperdef{L}{X7CCDE7817EC0E5B5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicTiling({\mdseries\slshape n})\index{CubicTiling@\texttt{CubicTiling}!for IsInt}
 \label{CubicTiling:for IsInt}
@@ -931,7 +1026,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Dodecahedron}}
-\logpage{[ 3, 1, 12 ]}\nobreak
+\logpage{[ 4, 1, 12 ]}\nobreak
 \hyperdef{L}{X81A6D8FE876EB3BE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Dodecahedron({\mdseries\slshape })\index{Dodecahedron@\texttt{Dodecahedron}}
 \label{Dodecahedron}
@@ -951,7 +1046,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{HemiDodecahedron}}
-\logpage{[ 3, 1, 13 ]}\nobreak
+\logpage{[ 4, 1, 13 ]}\nobreak
 \hyperdef{L}{X7A49325F782047CC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiDodecahedron({\mdseries\slshape })\index{HemiDodecahedron@\texttt{HemiDodecahedron}}
 \label{HemiDodecahedron}
@@ -971,7 +1066,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Icosahedron}}
-\logpage{[ 3, 1, 14 ]}\nobreak
+\logpage{[ 4, 1, 14 ]}\nobreak
 \hyperdef{L}{X83E0EF8F7CCD6979}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Icosahedron({\mdseries\slshape })\index{Icosahedron@\texttt{Icosahedron}}
 \label{Icosahedron}
@@ -991,7 +1086,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{HemiIcosahedron}}
-\logpage{[ 3, 1, 15 ]}\nobreak
+\logpage{[ 4, 1, 15 ]}\nobreak
 \hyperdef{L}{X7CBB4FC88050D25F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HemiIcosahedron({\mdseries\slshape })\index{HemiIcosahedron@\texttt{HemiIcosahedron}}
 \label{HemiIcosahedron}
@@ -1011,7 +1106,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{SmallStellatedDodecahedron}}
-\logpage{[ 3, 1, 16 ]}\nobreak
+\logpage{[ 4, 1, 16 ]}\nobreak
 \hyperdef{L}{X7A72E50F8099929E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallStellatedDodecahedron({\mdseries\slshape })\index{SmallStellatedDodecahedron@\texttt{SmallStellatedDodecahedron}}
 \label{SmallStellatedDodecahedron}
@@ -1034,7 +1129,7 @@ combinatorial object as the great dodecahedron. You may also use the command \te
  
 
 \subsection{\textcolor{Chapter }{24Cell}}
-\logpage{[ 3, 1, 17 ]}\nobreak
+\logpage{[ 4, 1, 17 ]}\nobreak
 \hyperdef{L}{X7C7194D3826A9287}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{24Cell({\mdseries\slshape })\index{24Cell@\texttt{24Cell}}
 \label{24Cell}
@@ -1054,7 +1149,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Hemi24Cell}}
-\logpage{[ 3, 1, 18 ]}\nobreak
+\logpage{[ 4, 1, 18 ]}\nobreak
 \hyperdef{L}{X863C4F1D85F017B3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hemi24Cell({\mdseries\slshape })\index{Hemi24Cell@\texttt{Hemi24Cell}}
 \label{Hemi24Cell}
@@ -1074,7 +1169,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{120Cell}}
-\logpage{[ 3, 1, 19 ]}\nobreak
+\logpage{[ 4, 1, 19 ]}\nobreak
 \hyperdef{L}{X7A7A51CC878450C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{120Cell({\mdseries\slshape })\index{120Cell@\texttt{120Cell}}
 \label{120Cell}
@@ -1094,7 +1189,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Hemi120Cell}}
-\logpage{[ 3, 1, 20 ]}\nobreak
+\logpage{[ 4, 1, 20 ]}\nobreak
 \hyperdef{L}{X80EBD6F28447F653}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hemi120Cell({\mdseries\slshape })\index{Hemi120Cell@\texttt{Hemi120Cell}}
 \label{Hemi120Cell}
@@ -1114,7 +1209,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{600Cell}}
-\logpage{[ 3, 1, 21 ]}\nobreak
+\logpage{[ 4, 1, 21 ]}\nobreak
 \hyperdef{L}{X82FCA8347D417FB6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{600Cell({\mdseries\slshape })\index{600Cell@\texttt{600Cell}}
 \label{600Cell}
@@ -1134,7 +1229,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{Hemi600Cell}}
-\logpage{[ 3, 1, 22 ]}\nobreak
+\logpage{[ 4, 1, 22 ]}\nobreak
 \hyperdef{L}{X786D2F0A7BB97182}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hemi600Cell({\mdseries\slshape })\index{Hemi600Cell@\texttt{Hemi600Cell}}
 \label{Hemi600Cell}
@@ -1154,7 +1249,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{BrucknerSphere}}
-\logpage{[ 3, 1, 23 ]}\nobreak
+\logpage{[ 4, 1, 23 ]}\nobreak
 \hyperdef{L}{X7E949BC7808403F4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BrucknerSphere({\mdseries\slshape })\index{BrucknerSphere@\texttt{BrucknerSphere}}
 \label{BrucknerSphere}
@@ -1174,7 +1269,7 @@ IsPoset
  
 
 \subsection{\textcolor{Chapter }{InternallySelfDualPolyhedron1 (for IsInt)}}
-\logpage{[ 3, 1, 24 ]}\nobreak
+\logpage{[ 4, 1, 24 ]}\nobreak
 \hyperdef{L}{X84DFF70F81CD6FF8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InternallySelfDualPolyhedron1({\mdseries\slshape p})\index{InternallySelfDualPolyhedron1@\texttt{InternallySelfDualPolyhedron1}!for IsInt}
 \label{InternallySelfDualPolyhedron1:for IsInt}
@@ -1194,7 +1289,7 @@ IsPolytope
  
 
 \subsection{\textcolor{Chapter }{InternallySelfDualPolyhedron2 (for IsInt, IsInt)}}
-\logpage{[ 3, 1, 25 ]}\nobreak
+\logpage{[ 4, 1, 25 ]}\nobreak
 \hyperdef{L}{X8724E56280B600E1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InternallySelfDualPolyhedron2({\mdseries\slshape p, k})\index{InternallySelfDualPolyhedron2@\texttt{InternallySelfDualPolyhedron2}!for IsInt, IsInt}
 \label{InternallySelfDualPolyhedron2:for IsInt, IsInt}
@@ -1215,13 +1310,13 @@ IsPolytope
 
  
 \section{\textcolor{Chapter }{Flat and tight polytopes}}\label{Chapter_Families_of_Polytopes_Section_Flat_and_tight_polytopes}
-\logpage{[ 3, 2, 0 ]}
+\logpage{[ 4, 2, 0 ]}
 \hyperdef{L}{X7808135A8376515A}{}
 {
   
 
 \subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedron (for IsInt, IsInt, IsInt, IsInt)}}
-\logpage{[ 3, 2, 1 ]}\nobreak
+\logpage{[ 4, 2, 1 ]}\nobreak
 \hyperdef{L}{X843987937D815A4D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedron({\mdseries\slshape p, q, i, j})\index{FlatOrientablyRegularPolyhedron@\texttt{FlatOrientablyRegularPolyhedron}!for IsInt, IsInt, IsInt, IsInt}
 \label{FlatOrientablyRegularPolyhedron:for IsInt, IsInt, IsInt, IsInt}
@@ -1245,7 +1340,7 @@ validation. }
  
 
 \subsection{\textcolor{Chapter }{FlatOrientablyRegularPolyhedraOfType (for IsList)}}
-\logpage{[ 3, 2, 2 ]}\nobreak
+\logpage{[ 4, 2, 2 ]}\nobreak
 \hyperdef{L}{X84B0BB9A83E67A3A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatOrientablyRegularPolyhedraOfType({\mdseries\slshape sym})\index{FlatOrientablyRegularPolyhedraOfType@\texttt{Flat}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polyhedra}\-\texttt{Of}\-\texttt{Type}!for IsList}
 \label{FlatOrientablyRegularPolyhedraOfType:for IsList}
@@ -1263,7 +1358,7 @@ validation. }
  
 
 \subsection{\textcolor{Chapter }{TightOrientablyRegularPolytopesOfType (for IsList)}}
-\logpage{[ 3, 2, 3 ]}\nobreak
+\logpage{[ 4, 2, 3 ]}\nobreak
 \hyperdef{L}{X83F74BA1814E8DF4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TightOrientablyRegularPolytopesOfType({\mdseries\slshape sym})\index{TightOrientablyRegularPolytopesOfType@\texttt{Tight}\-\texttt{Orientably}\-\texttt{Regular}\-\texttt{Polytopes}\-\texttt{Of}\-\texttt{Type}!for IsList}
 \label{TightOrientablyRegularPolytopesOfType:for IsList}
@@ -1282,13 +1377,13 @@ validation. }
 
  
 \section{\textcolor{Chapter }{The Tomotope}}\label{Chapter_Families_of_Polytopes_Section_The_Tomotope}
-\logpage{[ 3, 3, 0 ]}
+\logpage{[ 4, 3, 0 ]}
 \hyperdef{L}{X866DA2037902BBAD}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Tomotope}}
-\logpage{[ 3, 3, 1 ]}\nobreak
+\logpage{[ 4, 3, 1 ]}\nobreak
 \hyperdef{L}{X7F5A6DF77ADAF2FE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Tomotope({\mdseries\slshape })\index{Tomotope@\texttt{Tomotope}}
 \label{Tomotope}
@@ -1309,13 +1404,13 @@ maniplex
 
  
 \section{\textcolor{Chapter }{Toroids}}\label{Chapter_Families_of_Polytopes_Section_Toroids}
-\logpage{[ 3, 4, 0 ]}
+\logpage{[ 4, 4, 0 ]}
 \hyperdef{L}{X825A89737F01BFF1}{}
 {
   
 
 \subsection{\textcolor{Chapter }{ToroidalMap44}}
-\logpage{[ 3, 4, 1 ]}\nobreak
+\logpage{[ 4, 4, 1 ]}\nobreak
 \hyperdef{L}{X7F4B135A81962DB3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ToroidalMap44({\mdseries\slshape u[, v]})\index{ToroidalMap44@\texttt{ToroidalMap44}}
 \label{ToroidalMap44}
@@ -1348,7 +1443,7 @@ chiral. }
  
 
 \subsection{\textcolor{Chapter }{ToroidalMap36}}
-\logpage{[ 3, 4, 2 ]}\nobreak
+\logpage{[ 4, 4, 2 ]}\nobreak
 \hyperdef{L}{X855FEC2480DA687F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ToroidalMap36({\mdseries\slshape u[, v]})\index{ToroidalMap36@\texttt{ToroidalMap36}}
 \label{ToroidalMap36}
@@ -1378,7 +1473,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{ToroidalMap63}}
-\logpage{[ 3, 4, 3 ]}\nobreak
+\logpage{[ 4, 4, 3 ]}\nobreak
 \hyperdef{L}{X858E3C287882A43F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ToroidalMap63({\mdseries\slshape u[, v]})\index{ToroidalMap63@\texttt{ToroidalMap63}}
 \label{ToroidalMap63}
@@ -1408,7 +1503,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{CubicToroid (for IsInt,IsInt,IsInt)}}
-\logpage{[ 3, 4, 4 ]}\nobreak
+\logpage{[ 4, 4, 4 ]}\nobreak
 \hyperdef{L}{X80340D308628CE61}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicToroid({\mdseries\slshape s, k, n})\index{CubicToroid@\texttt{CubicToroid}!for IsInt,IsInt,IsInt}
 \label{CubicToroid:for IsInt,IsInt,IsInt}
@@ -1429,7 +1524,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{CubicToroid (for IsInt,IsList)}}
-\logpage{[ 3, 4, 5 ]}\nobreak
+\logpage{[ 4, 4, 5 ]}\nobreak
 \hyperdef{L}{X84CE798B7F485313}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CubicToroid({\mdseries\slshape n, vecs})\index{CubicToroid@\texttt{CubicToroid}!for IsInt,IsList}
 \label{CubicToroid:for IsInt,IsList}
@@ -1453,7 +1548,7 @@ nonsensical if \mbox{\texttt{\mdseries\slshape vecs}} does not generate an n-dim
  
 
 \subsection{\textcolor{Chapter }{3343Toroid (for IsInt,IsInt)}}
-\logpage{[ 3, 4, 6 ]}\nobreak
+\logpage{[ 4, 4, 6 ]}\nobreak
 \hyperdef{L}{X870D878B843C9D5F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{3343Toroid({\mdseries\slshape s, k})\index{3343Toroid@\texttt{3343Toroid}!for IsInt,IsInt}
 \label{3343Toroid:for IsInt,IsInt}
@@ -1468,7 +1563,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{24CellToroid (for IsInt,IsInt)}}
-\logpage{[ 3, 4, 7 ]}\nobreak
+\logpage{[ 4, 4, 7 ]}\nobreak
 \hyperdef{L}{X830F2B047B0C3C13}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{24CellToroid({\mdseries\slshape s, k})\index{24CellToroid@\texttt{24CellToroid}!for IsInt,IsInt}
 \label{24CellToroid:for IsInt,IsInt}
@@ -1484,13 +1579,13 @@ IsManiplex
 
  
 \section{\textcolor{Chapter }{Uniform polyhedra}}\label{Chapter_Families_of_Polytopes_Section_Uniform_polyhedra}
-\logpage{[ 3, 5, 0 ]}
+\logpage{[ 4, 5, 0 ]}
 \hyperdef{L}{X8708502981F8565A}{}
 {
   Representations of the uniform polyhedra here are from \cite{HarWil10}. 
 
 \subsection{\textcolor{Chapter }{Cuboctahedron}}
-\logpage{[ 3, 5, 1 ]}\nobreak
+\logpage{[ 4, 5, 1 ]}\nobreak
 \hyperdef{L}{X7D1C3FE3780376C5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cuboctahedron({\mdseries\slshape })\index{Cuboctahedron@\texttt{Cuboctahedron}}
 \label{Cuboctahedron}
@@ -1510,7 +1605,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedTetrahedron}}
-\logpage{[ 3, 5, 2 ]}\nobreak
+\logpage{[ 4, 5, 2 ]}\nobreak
 \hyperdef{L}{X7914BBCD85B92572}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedTetrahedron({\mdseries\slshape })\index{TruncatedTetrahedron@\texttt{TruncatedTetrahedron}}
 \label{TruncatedTetrahedron}
@@ -1530,7 +1625,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedOctahedron}}
-\logpage{[ 3, 5, 3 ]}\nobreak
+\logpage{[ 4, 5, 3 ]}\nobreak
 \hyperdef{L}{X82251B0B7FF0867C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedOctahedron({\mdseries\slshape })\index{TruncatedOctahedron@\texttt{TruncatedOctahedron}}
 \label{TruncatedOctahedron}
@@ -1550,7 +1645,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedCube}}
-\logpage{[ 3, 5, 4 ]}\nobreak
+\logpage{[ 4, 5, 4 ]}\nobreak
 \hyperdef{L}{X83E8732F7B5723CA}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedCube({\mdseries\slshape })\index{TruncatedCube@\texttt{TruncatedCube}}
 \label{TruncatedCube}
@@ -1572,7 +1667,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{Icosadodecahedron}}
-\logpage{[ 3, 5, 5 ]}\nobreak
+\logpage{[ 4, 5, 5 ]}\nobreak
 \hyperdef{L}{X7C262C2B7B88190E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Icosadodecahedron({\mdseries\slshape })\index{Icosadodecahedron@\texttt{Icosadodecahedron}}
 \label{Icosadodecahedron}
@@ -1594,7 +1689,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedIcosahedron}}
-\logpage{[ 3, 5, 6 ]}\nobreak
+\logpage{[ 4, 5, 6 ]}\nobreak
 \hyperdef{L}{X81B089967C16B074}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedIcosahedron({\mdseries\slshape })\index{TruncatedIcosahedron@\texttt{TruncatedIcosahedron}}
 \label{TruncatedIcosahedron}
@@ -1614,7 +1709,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicuboctahedron}}
-\logpage{[ 3, 5, 7 ]}\nobreak
+\logpage{[ 4, 5, 7 ]}\nobreak
 \hyperdef{L}{X838FD696802FEFD8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRhombicuboctahedron({\mdseries\slshape })\index{SmallRhombicuboctahedron@\texttt{SmallRhombicuboctahedron}}
 \label{SmallRhombicuboctahedron}
@@ -1634,7 +1729,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{Pseudorhombicuboctahedron}}
-\logpage{[ 3, 5, 8 ]}\nobreak
+\logpage{[ 4, 5, 8 ]}\nobreak
 \hyperdef{L}{X84853A907A3EF1C5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pseudorhombicuboctahedron({\mdseries\slshape })\index{Pseudorhombicuboctahedron@\texttt{Pseudorhombicuboctahedron}}
 \label{Pseudorhombicuboctahedron}
@@ -1654,7 +1749,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SnubCube}}
-\logpage{[ 3, 5, 9 ]}\nobreak
+\logpage{[ 4, 5, 9 ]}\nobreak
 \hyperdef{L}{X7EA8AA0C84A43469}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SnubCube({\mdseries\slshape })\index{SnubCube@\texttt{SnubCube}}
 \label{SnubCube}
@@ -1680,7 +1775,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SmallRhombicosidodecahedron}}
-\logpage{[ 3, 5, 10 ]}\nobreak
+\logpage{[ 4, 5, 10 ]}\nobreak
 \hyperdef{L}{X7A2FC231845204F5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRhombicosidodecahedron({\mdseries\slshape })\index{SmallRhombicosidodecahedron@\texttt{SmallRhombicosidodecahedron}}
 \label{SmallRhombicosidodecahedron}
@@ -1700,7 +1795,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicosidodecahedron}}
-\logpage{[ 3, 5, 11 ]}\nobreak
+\logpage{[ 4, 5, 11 ]}\nobreak
 \hyperdef{L}{X87A29A6B8375339F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GreatRhombicosidodecahedron({\mdseries\slshape })\index{GreatRhombicosidodecahedron@\texttt{GreatRhombicosidodecahedron}}
 \label{GreatRhombicosidodecahedron}
@@ -1720,7 +1815,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{SnubDodecahedron}}
-\logpage{[ 3, 5, 12 ]}\nobreak
+\logpage{[ 4, 5, 12 ]}\nobreak
 \hyperdef{L}{X874B90BD82EA1192}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SnubDodecahedron({\mdseries\slshape })\index{SnubDodecahedron@\texttt{SnubDodecahedron}}
 \label{SnubDodecahedron}
@@ -1742,7 +1837,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{TruncatedDodecahedron}}
-\logpage{[ 3, 5, 13 ]}\nobreak
+\logpage{[ 4, 5, 13 ]}\nobreak
 \hyperdef{L}{X79A2DEE48126C748}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TruncatedDodecahedron({\mdseries\slshape })\index{TruncatedDodecahedron@\texttt{TruncatedDodecahedron}}
 \label{TruncatedDodecahedron}
@@ -1762,7 +1857,7 @@ maniplex
  
 
 \subsection{\textcolor{Chapter }{GreatRhombicuboctahedron}}
-\logpage{[ 3, 5, 14 ]}\nobreak
+\logpage{[ 4, 5, 14 ]}\nobreak
 \hyperdef{L}{X7D08FB508708D8B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GreatRhombicuboctahedron({\mdseries\slshape })\index{GreatRhombicuboctahedron@\texttt{GreatRhombicuboctahedron}}
 \label{GreatRhombicuboctahedron}
@@ -1785,17 +1880,17 @@ maniplex
 
    
 \chapter{\textcolor{Chapter }{Maniplexes}}\label{Chapter_Maniplexes}
-\logpage{[ 4, 0, 0 ]}
+\logpage{[ 5, 0, 0 ]}
 \hyperdef{L}{X871229A5875C708A}{}
 {
   
 \section{\textcolor{Chapter }{Constructors}}\label{Chapter_Maniplexes_Section_Constructors}
-\logpage{[ 4, 1, 0 ]}
+\logpage{[ 5, 1, 0 ]}
 \hyperdef{L}{X86EC0F0A78ECBC10}{}
 {
   
 \subsection{\textcolor{Chapter }{ReflexibleManiplex}}\label{ReflexibleManiplex}
-\logpage{[ 4, 1, 1 ]}
+\logpage{[ 5, 1, 1 ]}
 \hyperdef{L}{X7F88B7097E9421AB}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape g})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsGroup}
@@ -1855,7 +1950,7 @@ should only be used if you know that the Schlafli symbol is correct.
  The abbreviations \texttt{RefMan} and \texttt{RefManNC} are also available for all of these usages. 
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsPermGroup)}}
-\logpage{[ 4, 1, 2 ]}\nobreak
+\logpage{[ 5, 1, 2 ]}\nobreak
 \hyperdef{L}{X7F0E44EA7980CF74}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape G})\index{Maniplex@\texttt{Maniplex}!for IsPermGroup}
 \label{Maniplex:for IsPermGroup}
@@ -1880,7 +1975,7 @@ should only be used if you know that the Schlafli symbol is correct.
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsReflexibleManiplex, IsGroup)}}
-\logpage{[ 4, 1, 3 ]}\nobreak
+\logpage{[ 5, 1, 3 ]}\nobreak
 \hyperdef{L}{X80B9127679FEBEAE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape M, H})\index{Maniplex@\texttt{Maniplex}!for IsReflexibleManiplex, IsGroup}
 \label{Maniplex:for IsReflexibleManiplex, IsGroup}
@@ -1910,7 +2005,7 @@ below builds the map $\{4, 4\}_{(1,0), (0,2)}$.
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsFunction, IsList)}}
-\logpage{[ 4, 1, 4 ]}\nobreak
+\logpage{[ 5, 1, 4 ]}\nobreak
 \hyperdef{L}{X81DA2F5185E38D67}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape F, inputs})\index{Maniplex@\texttt{Maniplex}!for IsFunction, IsList}
 \label{Maniplex:for IsFunction, IsList}
@@ -1929,7 +2024,7 @@ base. See AddAttrComputer for more information. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsPoset)}}
-\logpage{[ 4, 1, 5 ]}\nobreak
+\logpage{[ 5, 1, 5 ]}\nobreak
 \hyperdef{L}{X864C043380FB58D4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsPoset}
 \label{Maniplex:for IsPoset}
@@ -1944,7 +2039,7 @@ base. See AddAttrComputer for more information. }
  
 
 \subsection{\textcolor{Chapter }{Maniplex (for IsEdgeLabeledGraph)}}
-\logpage{[ 4, 1, 6 ]}\nobreak
+\logpage{[ 5, 1, 6 ]}\nobreak
 \hyperdef{L}{X866AC7457DA8E2AC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Maniplex({\mdseries\slshape P})\index{Maniplex@\texttt{Maniplex}!for IsEdgeLabeledGraph}
 \label{Maniplex:for IsEdgeLabeledGraph}
@@ -1959,7 +2054,7 @@ base. See AddAttrComputer for more information. }
  
 
 \subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
-\logpage{[ 4, 1, 7 ]}\nobreak
+\logpage{[ 5, 1, 7 ]}\nobreak
 \hyperdef{L}{X79DD94037E0FACD4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
 \label{IsPolytopal:for IsManiplex}
@@ -1975,12 +2070,12 @@ base. See AddAttrComputer for more information. }
 
  
 \section{\textcolor{Chapter }{Mixing of Maniplexes functions}}\label{Chapter_Maniplexes_Section_Mixing_of_Maniplexes_functions}
-\logpage{[ 4, 2, 0 ]}
+\logpage{[ 5, 2, 0 ]}
 \hyperdef{L}{X7EE6BE9E7BB852DC}{}
 {
   
 \subsection{\textcolor{Chapter }{Mix of groups}}\label{Mix}
-\logpage{[ 4, 2, 1 ]}
+\logpage{[ 5, 2, 1 ]}
 \hyperdef{L}{X8648D2398775125D}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape permgroup, permgroup})\index{Mix@\texttt{Mix}!for IsPermGroup, IsPermGroup}
@@ -2011,7 +2106,7 @@ the mix of those groups.
  
 
 \subsection{\textcolor{Chapter }{Mix (for IsManiplex, IsManiplex)}}
-\logpage{[ 4, 2, 2 ]}\nobreak
+\logpage{[ 5, 2, 2 ]}\nobreak
 \hyperdef{L}{X7FB8D59C83B5819C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape maniplex, maniplex})\index{Mix@\texttt{Mix}!for IsManiplex, IsManiplex}
 \label{Mix:for IsManiplex, IsManiplex}
@@ -2028,7 +2123,7 @@ it returns the "flag mix" of the two maniplexes (see \texttt{FlagMix}). }
  
 
 \subsection{\textcolor{Chapter }{FlagMix (for IsManiplex, IsManiplex)}}
-\logpage{[ 4, 2, 3 ]}\nobreak
+\logpage{[ 5, 2, 3 ]}\nobreak
 \hyperdef{L}{X853A36497F3AF41E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagMix({\mdseries\slshape maniplex, maniplex})\index{FlagMix@\texttt{FlagMix}!for IsManiplex, IsManiplex}
 \label{FlagMix:for IsManiplex, IsManiplex}
@@ -2045,7 +2140,7 @@ this. }
 
  
 \subsection{\textcolor{Chapter }{Comix}}\label{Comix}
-\logpage{[ 4, 2, 4 ]}
+\logpage{[ 5, 2, 4 ]}
 \hyperdef{L}{X86B6B5DB7850FCA9}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Comix({\mdseries\slshape fpgroup, fpgroup})\index{Comix@\texttt{Comix}!for IsFpGroup, IsFpGroup}
@@ -2064,7 +2159,7 @@ returns the IsReflexibleManiplex from the comix of their connection groups }
 
  
 \subsection{\textcolor{Chapter }{Indexed array tools}}\label{Tools}
-\logpage{[ 4, 2, 5 ]}
+\logpage{[ 5, 2, 5 ]}
 \hyperdef{L}{X82C3A3447A93CDD6}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CtoL({\mdseries\slshape int, int, int, int})\index{CtoL@\texttt{CtoL}!for IsInt,IsInt,IsInt,IsInt}
@@ -2094,13 +2189,13 @@ Functions are inverses. }
 
  
 \section{\textcolor{Chapter }{Rotary maniplexes and rotation groups}}\label{Chapter_Maniplexes_Section_Rotary_maniplexes_and_rotation_groups}
-\logpage{[ 4, 3, 0 ]}
+\logpage{[ 5, 3, 0 ]}
 \hyperdef{L}{X8064E656804172CF}{}
 {
   
 
 \subsection{\textcolor{Chapter }{UniversalRotationGroup (for IsInt)}}
-\logpage{[ 4, 3, 1 ]}\nobreak
+\logpage{[ 5, 3, 1 ]}\nobreak
 \hyperdef{L}{X8056E3557E06EFF6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalRotationGroup({\mdseries\slshape n})\index{UniversalRotationGroup@\texttt{UniversalRotationGroup}!for IsInt}
 \label{UniversalRotationGroup:for IsInt}
@@ -2112,7 +2207,7 @@ Functions are inverses. }
  
 
 \subsection{\textcolor{Chapter }{UniversalRotationGroup (for IsList)}}
-\logpage{[ 4, 3, 2 ]}\nobreak
+\logpage{[ 5, 3, 2 ]}\nobreak
 \hyperdef{L}{X7D6042317A76FDC3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalRotationGroup({\mdseries\slshape sym})\index{UniversalRotationGroup@\texttt{UniversalRotationGroup}!for IsList}
 \label{UniversalRotationGroup:for IsList}
@@ -2123,7 +2218,7 @@ Functions are inverses. }
 
  
 \subsection{\textcolor{Chapter }{RotaryManiplex}}\label{RotaryManiplex}
-\logpage{[ 4, 3, 3 ]}
+\logpage{[ 5, 3, 3 ]}
 \hyperdef{L}{X80791E367E43CA25}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape g})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsGroup}
@@ -2175,7 +2270,7 @@ Schlafli symbol, since the relations may cause a collapse, so this should only
 be used if you know that the Schlafli symbol is correct. 
 
 \subsection{\textcolor{Chapter }{EnantiomorphicForm (for IsManiplex)}}
-\logpage{[ 4, 3, 4 ]}\nobreak
+\logpage{[ 5, 3, 4 ]}\nobreak
 \hyperdef{L}{X8745361B80626A39}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EnantiomorphicForm({\mdseries\slshape M})\index{EnantiomorphicForm@\texttt{EnantiomorphicForm}!for IsManiplex}
 \label{EnantiomorphicForm:for IsManiplex}
@@ -2194,18 +2289,18 @@ group. }
 
    
 \chapter{\textcolor{Chapter }{Maniplex Properties}}\label{Chapter_Maniplex_Properties}
-\logpage{[ 5, 0, 0 ]}
+\logpage{[ 6, 0, 0 ]}
 \hyperdef{L}{X831BE6F07FED02F3}{}
 {
   
 \section{\textcolor{Chapter }{Automorphism group acting on faces and chains}}\label{Chapter_Maniplex_Properties_Section_Automorphism_group_acting_on_faces_and_chains}
-\logpage{[ 5, 1, 0 ]}
+\logpage{[ 6, 1, 0 ]}
 \hyperdef{L}{X84F0885E8664F785}{}
 {
   
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnChains (for IsManiplex, IsCollection)}}
-\logpage{[ 5, 1, 1 ]}\nobreak
+\logpage{[ 6, 1, 1 ]}\nobreak
 \hyperdef{L}{X84B5DAED82D403DE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnChains({\mdseries\slshape M, I})\index{AutomorphismGroupOnChains@\texttt{AutomorphismGroupOnChains}!for IsManiplex, IsCollection}
 \label{AutomorphismGroupOnChains:for IsManiplex, IsCollection}
@@ -2226,7 +2321,7 @@ IsPermGroup
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnIFaces (for IsManiplex, IsInt)}}
-\logpage{[ 5, 1, 2 ]}\nobreak
+\logpage{[ 6, 1, 2 ]}\nobreak
 \hyperdef{L}{X8549DB2585A989E4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnIFaces({\mdseries\slshape M, i})\index{AutomorphismGroupOnIFaces@\texttt{AutomorphismGroupOnIFaces}!for IsManiplex, IsInt}
 \label{AutomorphismGroupOnIFaces:for IsManiplex, IsInt}
@@ -2246,7 +2341,7 @@ IsPermGroup
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnVertices (for IsManiplex)}}
-\logpage{[ 5, 1, 3 ]}\nobreak
+\logpage{[ 6, 1, 3 ]}\nobreak
 \hyperdef{L}{X81972F5187B9C2AF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnVertices({\mdseries\slshape M})\index{AutomorphismGroupOnVertices@\texttt{AutomorphismGroupOnVertices}!for IsManiplex}
 \label{AutomorphismGroupOnVertices:for IsManiplex}
@@ -2266,7 +2361,7 @@ IsPermGroup
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnEdges (for IsManiplex)}}
-\logpage{[ 5, 1, 4 ]}\nobreak
+\logpage{[ 6, 1, 4 ]}\nobreak
 \hyperdef{L}{X86CBC88A8718D7E4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnEdges({\mdseries\slshape M})\index{AutomorphismGroupOnEdges@\texttt{AutomorphismGroupOnEdges}!for IsManiplex}
 \label{AutomorphismGroupOnEdges:for IsManiplex}
@@ -2286,7 +2381,7 @@ IsPermGroup
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}
-\logpage{[ 5, 1, 5 ]}\nobreak
+\logpage{[ 6, 1, 5 ]}\nobreak
 \hyperdef{L}{X82726AF27C1E00D6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnFacets({\mdseries\slshape M})\index{AutomorphismGroupOnFacets@\texttt{AutomorphismGroupOnFacets}!for IsManiplex}
 \label{AutomorphismGroupOnFacets:for IsManiplex}
@@ -2307,13 +2402,13 @@ IsPermGroup
 
  
 \section{\textcolor{Chapter }{Number of orbits and transitivity}}\label{Chapter_Maniplex_Properties_Section_Number_of_orbits_and_transitivity}
-\logpage{[ 5, 2, 0 ]}
+\logpage{[ 6, 2, 0 ]}
 \hyperdef{L}{X7A07E55F7D617911}{}
 {
   
 
 \subsection{\textcolor{Chapter }{NumberOfChainOrbits (for IsManiplex, IsCollection)}}
-\logpage{[ 5, 2, 1 ]}\nobreak
+\logpage{[ 6, 2, 1 ]}\nobreak
 \hyperdef{L}{X8423C2647CFF8C2E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfChainOrbits({\mdseries\slshape M, I})\index{NumberOfChainOrbits@\texttt{NumberOfChainOrbits}!for IsManiplex, IsCollection}
 \label{NumberOfChainOrbits:for IsManiplex, IsCollection}
@@ -2333,7 +2428,7 @@ IsInt
  
 
 \subsection{\textcolor{Chapter }{NumberOfIFaceOrbits (for IsManiplex, IsInt)}}
-\logpage{[ 5, 2, 2 ]}\nobreak
+\logpage{[ 6, 2, 2 ]}\nobreak
 \hyperdef{L}{X82D959517BC24461}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfIFaceOrbits({\mdseries\slshape M, i})\index{NumberOfIFaceOrbits@\texttt{NumberOfIFaceOrbits}!for IsManiplex, IsInt}
 \label{NumberOfIFaceOrbits:for IsManiplex, IsInt}
@@ -2353,7 +2448,7 @@ IsInt
  
 
 \subsection{\textcolor{Chapter }{NumberOfVertexOrbits (for IsManiplex)}}
-\logpage{[ 5, 2, 3 ]}\nobreak
+\logpage{[ 6, 2, 3 ]}\nobreak
 \hyperdef{L}{X86A6A073804A5780}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfVertexOrbits({\mdseries\slshape M})\index{NumberOfVertexOrbits@\texttt{NumberOfVertexOrbits}!for IsManiplex}
 \label{NumberOfVertexOrbits:for IsManiplex}
@@ -2374,7 +2469,7 @@ AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
  
 
 \subsection{\textcolor{Chapter }{NumberOfEdgeOrbits (for IsManiplex)}}
-\logpage{[ 5, 2, 4 ]}\nobreak
+\logpage{[ 6, 2, 4 ]}\nobreak
 \hyperdef{L}{X7A41AD2B7A606FB2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfEdgeOrbits({\mdseries\slshape M})\index{NumberOfEdgeOrbits@\texttt{NumberOfEdgeOrbits}!for IsManiplex}
 \label{NumberOfEdgeOrbits:for IsManiplex}
@@ -2394,7 +2489,7 @@ IsInt
  
 
 \subsection{\textcolor{Chapter }{NumberOfFacetOrbits (for IsManiplex)}}
-\logpage{[ 5, 2, 5 ]}\nobreak
+\logpage{[ 6, 2, 5 ]}\nobreak
 \hyperdef{L}{X81C6FD5078C637E6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFacetOrbits({\mdseries\slshape M})\index{NumberOfFacetOrbits@\texttt{NumberOfFacetOrbits}!for IsManiplex}
 \label{NumberOfFacetOrbits:for IsManiplex}
@@ -2414,7 +2509,7 @@ IsInt
  
 
 \subsection{\textcolor{Chapter }{IsChainTransitive (for IsManiplex, IsCollection)}}
-\logpage{[ 5, 2, 6 ]}\nobreak
+\logpage{[ 6, 2, 6 ]}\nobreak
 \hyperdef{L}{X7A2326997FB2CAA8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChainTransitive({\mdseries\slshape M, I})\index{IsChainTransitive@\texttt{IsChainTransitive}!for IsManiplex, IsCollection}
 \label{IsChainTransitive:for IsManiplex, IsCollection}
@@ -2438,7 +2533,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{IsIFaceTransitive (for IsManiplex, IsInt)}}
-\logpage{[ 5, 2, 7 ]}\nobreak
+\logpage{[ 6, 2, 7 ]}\nobreak
 \hyperdef{L}{X80F9303F7A272F20}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIFaceTransitive({\mdseries\slshape M, i})\index{IsIFaceTransitive@\texttt{IsIFaceTransitive}!for IsManiplex, IsInt}
 \label{IsIFaceTransitive:for IsManiplex, IsInt}
@@ -2458,7 +2553,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{IsVertexTransitive (for IsManiplex)}}
-\logpage{[ 5, 2, 8 ]}\nobreak
+\logpage{[ 6, 2, 8 ]}\nobreak
 \hyperdef{L}{X7E29A16E7B724836}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexTransitive({\mdseries\slshape M})\index{IsVertexTransitive@\texttt{IsVertexTransitive}!for IsManiplex}
 \label{IsVertexTransitive:for IsManiplex}
@@ -2478,7 +2573,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{IsEdgeTransitive (for IsManiplex)}}
-\logpage{[ 5, 2, 9 ]}\nobreak
+\logpage{[ 6, 2, 9 ]}\nobreak
 \hyperdef{L}{X7CA8A3A17CB62B51}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsEdgeTransitive({\mdseries\slshape M})\index{IsEdgeTransitive@\texttt{IsEdgeTransitive}!for IsManiplex}
 \label{IsEdgeTransitive:for IsManiplex}
@@ -2498,7 +2593,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{IsFacetTransitive (for IsManiplex)}}
-\logpage{[ 5, 2, 10 ]}\nobreak
+\logpage{[ 6, 2, 10 ]}\nobreak
 \hyperdef{L}{X85436C5C84C4031E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetTransitive({\mdseries\slshape M})\index{IsFacetTransitive@\texttt{IsFacetTransitive}!for IsManiplex}
 \label{IsFacetTransitive:for IsManiplex}
@@ -2518,7 +2613,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{IsFullyTransitive (for IsManiplex)}}
-\logpage{[ 5, 2, 11 ]}\nobreak
+\logpage{[ 6, 2, 11 ]}\nobreak
 \hyperdef{L}{X7B898E19857B356F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFullyTransitive({\mdseries\slshape M})\index{IsFullyTransitive@\texttt{IsFullyTransitive}!for IsManiplex}
 \label{IsFullyTransitive:for IsManiplex}
@@ -2541,13 +2636,13 @@ IsBool
 
  
 \section{\textcolor{Chapter }{Flag orbits}}\label{Chapter_Maniplex_Properties_Section_Flag_orbits}
-\logpage{[ 5, 3, 0 ]}
+\logpage{[ 6, 3, 0 ]}
 \hyperdef{L}{X7BE5F0217862DBEF}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Flags (for IsManiplex)}}
-\logpage{[ 5, 3, 1 ]}\nobreak
+\logpage{[ 6, 3, 1 ]}\nobreak
 \hyperdef{L}{X874B016C792074D0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Flags({\mdseries\slshape M})\index{Flags@\texttt{Flags}!for IsManiplex}
 \label{Flags:for IsManiplex}
@@ -2570,7 +2665,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{BaseFlag (for IsManiplex)}}
-\logpage{[ 5, 3, 2 ]}\nobreak
+\logpage{[ 6, 3, 2 ]}\nobreak
 \hyperdef{L}{X7F5C8C7E82073034}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BaseFlag({\mdseries\slshape M})\index{BaseFlag@\texttt{BaseFlag}!for IsManiplex}
 \label{BaseFlag:for IsManiplex}
@@ -2594,7 +2689,7 @@ flag is the minimum of the set of flags. }
  
 
 \subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsManiplex)}}
-\logpage{[ 5, 3, 3 ]}\nobreak
+\logpage{[ 6, 3, 3 ]}\nobreak
 \hyperdef{L}{X856ED1E7866152A0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SymmetryTypeGraph({\mdseries\slshape M})\index{SymmetryTypeGraph@\texttt{SymmetryTypeGraph}!for IsManiplex}
 \label{SymmetryTypeGraph:for IsManiplex}
@@ -2611,7 +2706,7 @@ flag is the minimum of the set of flags. }
  
 
 \subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsManiplex)}}
-\logpage{[ 5, 3, 4 ]}\nobreak
+\logpage{[ 6, 3, 4 ]}\nobreak
 \hyperdef{L}{X856ED1E7866152A0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SymmetryTypeGraph({\mdseries\slshape M, A})\index{SymmetryTypeGraph@\texttt{SymmetryTypeGraph}!for IsManiplex}
 \label{SymmetryTypeGraph:for IsManiplex}
@@ -2632,7 +2727,7 @@ of \mbox{\texttt{\mdseries\slshape M}} by \mbox{\texttt{\mdseries\slshape A}} is
  
 
 \subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsManiplex)}}
-\logpage{[ 5, 3, 5 ]}\nobreak
+\logpage{[ 6, 3, 5 ]}\nobreak
 \hyperdef{L}{X78060E3A788D2D3C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFlagOrbits({\mdseries\slshape M})\index{NumberOfFlagOrbits@\texttt{NumberOfFlagOrbits}!for IsManiplex}
 \label{NumberOfFlagOrbits:for IsManiplex}
@@ -2649,7 +2744,7 @@ of \mbox{\texttt{\mdseries\slshape M}} by \mbox{\texttt{\mdseries\slshape A}} is
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitRepresentatives (for IsManiplex)}}
-\logpage{[ 5, 3, 6 ]}\nobreak
+\logpage{[ 6, 3, 6 ]}\nobreak
 \hyperdef{L}{X852C679D8338AB53}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitRepresentatives({\mdseries\slshape M})\index{FlagOrbitRepresentatives@\texttt{FlagOrbitRepresentatives}!for IsManiplex}
 \label{FlagOrbitRepresentatives:for IsManiplex}
@@ -2666,7 +2761,7 @@ of \mbox{\texttt{\mdseries\slshape M}} by \mbox{\texttt{\mdseries\slshape A}} is
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitsStabilizer (for IsManiplex)}}
-\logpage{[ 5, 3, 7 ]}\nobreak
+\logpage{[ 6, 3, 7 ]}\nobreak
 \hyperdef{L}{X81C0D5667D83EB88}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitsStabilizer({\mdseries\slshape M})\index{FlagOrbitsStabilizer@\texttt{FlagOrbitsStabilizer}!for IsManiplex}
 \label{FlagOrbitsStabilizer:for IsManiplex}
@@ -2693,7 +2788,7 @@ under the action of the automorphism group. }
  
 
 \subsection{\textcolor{Chapter }{IsReflexible (for IsManiplex)}}
-\logpage{[ 5, 3, 8 ]}\nobreak
+\logpage{[ 6, 3, 8 ]}\nobreak
 \hyperdef{L}{X7E4E689F86171C78}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsManiplex}
 \label{IsReflexible:for IsManiplex}
@@ -2715,7 +2810,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has one 
  
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsManiplex)}}
-\logpage{[ 5, 3, 9 ]}\nobreak
+\logpage{[ 6, 3, 9 ]}\nobreak
 \hyperdef{L}{X7D74CD997C7FF39D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChiral({\mdseries\slshape M})\index{IsChiral@\texttt{IsChiral}!for IsManiplex}
 \label{IsChiral:for IsManiplex}
@@ -2737,7 +2832,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is chiral.
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsManiplex)}}
-\logpage{[ 5, 3, 10 ]}\nobreak
+\logpage{[ 6, 3, 10 ]}\nobreak
 \hyperdef{L}{X7DACFE5483893523}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsManiplex}
 \label{IsRotary:for IsManiplex}
@@ -2759,7 +2854,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
 \subsection{\textcolor{Chapter }{FlagOrbits (for IsManiplex)}}
-\logpage{[ 5, 3, 11 ]}\nobreak
+\logpage{[ 6, 3, 11 ]}\nobreak
 \hyperdef{L}{X7B29BD1C87239567}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbits({\mdseries\slshape M})\index{FlagOrbits@\texttt{FlagOrbits}!for IsManiplex}
 \label{FlagOrbits:for IsManiplex}
@@ -2779,13 +2874,13 @@ action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
  
 \section{\textcolor{Chapter }{Orientability}}\label{Chapter_Maniplex_Properties_Section_Orientability}
-\logpage{[ 5, 4, 0 ]}
+\logpage{[ 6, 4, 0 ]}
 \hyperdef{L}{X861E4BAD800B2785}{}
 {
   
 
 \subsection{\textcolor{Chapter }{IsOrientable (for IsManiplex)}}
-\logpage{[ 5, 4, 1 ]}\nobreak
+\logpage{[ 6, 4, 1 ]}\nobreak
 \hyperdef{L}{X7DCAF9D27F36EBD3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsOrientable({\mdseries\slshape M})\index{IsOrientable@\texttt{IsOrientable}!for IsManiplex}
 \label{IsOrientable:for IsManiplex}
@@ -2807,7 +2902,7 @@ action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
  
 
 \subsection{\textcolor{Chapter }{IsIOrientable (for IsManiplex, IsList)}}
-\logpage{[ 5, 4, 2 ]}\nobreak
+\logpage{[ 6, 4, 2 ]}\nobreak
 \hyperdef{L}{X79F849DD7F778616}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIOrientable({\mdseries\slshape M, I})\index{IsIOrientable@\texttt{IsIOrientable}!for IsManiplex, IsList}
 \label{IsIOrientable:for IsManiplex, IsList}
@@ -2826,7 +2921,7 @@ even number of edges with colors in I. }
  
 
 \subsection{\textcolor{Chapter }{IsVertexBipartite (for IsManiplex)}}
-\logpage{[ 5, 4, 3 ]}\nobreak
+\logpage{[ 6, 4, 3 ]}\nobreak
 \hyperdef{L}{X877609AB7ABD24AC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexBipartite({\mdseries\slshape M})\index{IsVertexBipartite@\texttt{IsVertexBipartite}!for IsManiplex}
 \label{IsVertexBipartite:for IsManiplex}
@@ -2848,7 +2943,7 @@ equivalent to being I-orientable for I =
  
 
 \subsection{\textcolor{Chapter }{IsFacetBipartite (for IsManiplex)}}
-\logpage{[ 5, 4, 4 ]}\nobreak
+\logpage{[ 6, 4, 4 ]}\nobreak
 \hyperdef{L}{X7BD9E8A87D6E8FAB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetBipartite({\mdseries\slshape M})\index{IsFacetBipartite@\texttt{IsFacetBipartite}!for IsManiplex}
 \label{IsFacetBipartite:for IsManiplex}
@@ -2870,7 +2965,7 @@ is equivalent to being I-orientable for I =
  
 
 \subsection{\textcolor{Chapter }{OrientableCover (for IsManiplex)}}
-\logpage{[ 5, 4, 5 ]}\nobreak
+\logpage{[ 6, 4, 5 ]}\nobreak
 \hyperdef{L}{X7BAA22327D298902}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{OrientableCover({\mdseries\slshape M})\index{OrientableCover@\texttt{OrientableCover}!for IsManiplex}
 \label{OrientableCover:for IsManiplex}
@@ -2887,7 +2982,7 @@ is equivalent to being I-orientable for I =
  
 
 \subsection{\textcolor{Chapter }{IOrientableCover (for IsManiplex, IsList)}}
-\logpage{[ 5, 4, 6 ]}\nobreak
+\logpage{[ 6, 4, 6 ]}\nobreak
 \hyperdef{L}{X81EF6062840E85AF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IOrientableCover({\mdseries\slshape M})\index{IOrientableCover@\texttt{IOrientableCover}!for IsManiplex, IsList}
 \label{IOrientableCover:for IsManiplex, IsList}
@@ -2900,13 +2995,13 @@ is equivalent to being I-orientable for I =
 
  
 \section{\textcolor{Chapter }{Faithfulness}}\label{Chapter_Maniplex_Properties_Section_Faithfulness}
-\logpage{[ 5, 5, 0 ]}
+\logpage{[ 6, 5, 0 ]}
 \hyperdef{L}{X83355D207F38F997}{}
 {
   
 
 \subsection{\textcolor{Chapter }{IsVertexFaithful (for IsManiplex)}}
-\logpage{[ 5, 5, 1 ]}\nobreak
+\logpage{[ 6, 5, 1 ]}\nobreak
 \hyperdef{L}{X7FFD0ADD7A2F6044}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexFaithful({\mdseries\slshape M})\index{IsVertexFaithful@\texttt{IsVertexFaithful}!for IsManiplex}
 \label{IsVertexFaithful:for IsManiplex}
@@ -2927,7 +3022,7 @@ vertices is faithful. }
  
 
 \subsection{\textcolor{Chapter }{IsFacetFaithful (for IsManiplex)}}
-\logpage{[ 5, 5, 2 ]}\nobreak
+\logpage{[ 6, 5, 2 ]}\nobreak
 \hyperdef{L}{X7BB02182844EA5EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetFaithful({\mdseries\slshape M})\index{IsFacetFaithful@\texttt{IsFacetFaithful}!for IsManiplex}
 \label{IsFacetFaithful:for IsManiplex}
@@ -2950,7 +3045,7 @@ facets is faithful. }
  
 
 \subsection{\textcolor{Chapter }{MaxVertexFaithfulQuotient (for IsManiplex)}}
-\logpage{[ 5, 5, 3 ]}\nobreak
+\logpage{[ 6, 5, 3 ]}\nobreak
 \hyperdef{L}{X7F2F8EEE8663AB89}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxVertexFaithfulQuotient({\mdseries\slshape M})\index{MaxVertexFaithfulQuotient@\texttt{MaxVertexFaithfulQuotient}!for IsManiplex}
 \label{MaxVertexFaithfulQuotient:for IsManiplex}
@@ -2972,7 +3067,7 @@ Q
  
 
 \subsection{\textcolor{Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}
-\logpage{[ 5, 5, 4 ]}\nobreak
+\logpage{[ 6, 5, 4 ]}\nobreak
 \hyperdef{L}{X7F788D2E7F41CD69}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesWeakPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesWeakPathIntersectionProperty@\texttt{Satisfies}\-\texttt{Weak}\-\texttt{Path}\-\texttt{Intersection}\-\texttt{Property}!for IsManiplex}
 \label{SatisfiesWeakPathIntersectionProperty:for IsManiplex}
@@ -2991,12 +3086,12 @@ description available in \cite{GleHub18}. }
 
    
 \chapter{\textcolor{Chapter }{Comparing maniplexes}}\label{Chapter_Comparing_maniplexes}
-\logpage{[ 6, 0, 0 ]}
+\logpage{[ 7, 0, 0 ]}
 \hyperdef{L}{X7A3CC7F9873E02BF}{}
 {
   
 \section{\textcolor{Chapter }{Quotients and covers}}\label{Chapter_Comparing_maniplexes_Section_Quotients_and_covers}
-\logpage{[ 6, 1, 0 ]}
+\logpage{[ 7, 1, 0 ]}
 \hyperdef{L}{X7CD5138B85A97590}{}
 {
   Many of the quotient operations let you describe some relations in terms of a
@@ -3012,7 +3107,7 @@ is expanded to r0 (r1 r2)\texttt{\symbol{94}}(j-1) r1 (the "i-hole" word). We
 note that these strings are all restricted to have $i \leq 9$, \emph{including ri}. This restriction might be changed eventually, but it will require a rewrite
 of the method ParseStringCRels that underlies many quotient operations. 
 \subsection{\textcolor{Chapter }{IsQuotient}}\label{AutoDoc_generated_group2}
-\logpage{[ 6, 1, 1 ]}
+\logpage{[ 7, 1, 1 ]}
 \hyperdef{L}{X87EB22A184A49FB8}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsQuotient({\mdseries\slshape M1, M2})\index{IsQuotient@\texttt{IsQuotient}!for IsManiplex, IsManiplex}
@@ -3039,7 +3134,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsRootedQuotient (for IsManiplex, IsManiplex)}}
-\logpage{[ 6, 1, 2 ]}\nobreak
+\logpage{[ 7, 1, 2 ]}\nobreak
 \hyperdef{L}{X7F097A917AE87005}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRootedQuotient({\mdseries\slshape M1, M2})\index{IsRootedQuotient@\texttt{IsRootedQuotient}!for IsManiplex, IsManiplex}
 \label{IsRootedQuotient:for IsManiplex, IsManiplex}
@@ -3061,7 +3156,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsCover (for IsManiplex, IsManiplex)}}
-\logpage{[ 6, 1, 3 ]}\nobreak
+\logpage{[ 7, 1, 3 ]}\nobreak
 \hyperdef{L}{X845044F47ACF897C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCover({\mdseries\slshape M1, M2})\index{IsCover@\texttt{IsCover}!for IsManiplex, IsManiplex}
 \label{IsCover:for IsManiplex, IsManiplex}
@@ -3081,7 +3176,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsRootedCover (for IsManiplex, IsManiplex)}}
-\logpage{[ 6, 1, 4 ]}\nobreak
+\logpage{[ 7, 1, 4 ]}\nobreak
 \hyperdef{L}{X7923C770859A958F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRootedCover({\mdseries\slshape M1, M2})\index{IsRootedCover@\texttt{IsRootedCover}!for IsManiplex, IsManiplex}
 \label{IsRootedCover:for IsManiplex, IsManiplex}
@@ -3103,7 +3198,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsIsomorphicManiplex (for IsManiplex, IsManiplex)}}
-\logpage{[ 6, 1, 5 ]}\nobreak
+\logpage{[ 7, 1, 5 ]}\nobreak
 \hyperdef{L}{X7B1006697C002741}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIsomorphicManiplex({\mdseries\slshape M1, M2})\index{IsIsomorphicManiplex@\texttt{IsIsomorphicManiplex}!for IsManiplex, IsManiplex}
 \label{IsIsomorphicManiplex:for IsManiplex, IsManiplex}
@@ -3123,7 +3218,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex)}}
-\logpage{[ 6, 1, 6 ]}\nobreak
+\logpage{[ 7, 1, 6 ]}\nobreak
 \hyperdef{L}{X85A79420835EAF2A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIsomorphicRootedManiplex({\mdseries\slshape M1, M2})\index{IsIsomorphicRootedManiplex@\texttt{IsIsomorphicRootedManiplex}!for IsManiplex, IsManiplex}
 \label{IsIsomorphicRootedManiplex:for IsManiplex, IsManiplex}
@@ -3147,7 +3242,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{SmallestReflexibleCover (for IsManiplex)}}
-\logpage{[ 6, 1, 7 ]}\nobreak
+\logpage{[ 7, 1, 7 ]}\nobreak
 \hyperdef{L}{X8017B6F880D162E7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallestReflexibleCover({\mdseries\slshape M})\index{SmallestReflexibleCover@\texttt{SmallestReflexibleCover}!for IsManiplex}
 \label{SmallestReflexibleCover:for IsManiplex}
@@ -3167,7 +3262,7 @@ connection group of \mbox{\texttt{\mdseries\slshape M}}. }
  
 
 \subsection{\textcolor{Chapter }{QuotientManiplex (for IsReflexibleManiplex, IsString)}}
-\logpage{[ 6, 1, 8 ]}\nobreak
+\logpage{[ 7, 1, 8 ]}\nobreak
 \hyperdef{L}{X85BE14877927DB85}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientManiplex({\mdseries\slshape M, relStr})\index{QuotientManiplex@\texttt{QuotientManiplex}!for IsReflexibleManiplex, IsString}
 \label{QuotientManiplex:for IsReflexibleManiplex, IsString}
@@ -3191,7 +3286,7 @@ r1)\texttt{\symbol{94}}5, (r1 r0 r1 r2)\texttt{\symbol{94}}2". }
  
 
 \subsection{\textcolor{Chapter }{ReflexibleQuotientManiplex (for IsManiplex, IsList)}}
-\logpage{[ 6, 1, 9 ]}\nobreak
+\logpage{[ 7, 1, 9 ]}\nobreak
 \hyperdef{L}{X87DCBB9E78E383BB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleQuotientManiplex({\mdseries\slshape M, rels})\index{ReflexibleQuotientManiplex@\texttt{ReflexibleQuotientManiplex}!for IsManiplex, IsList}
 \label{ReflexibleQuotientManiplex:for IsManiplex, IsList}
@@ -3217,7 +3312,7 @@ generated by r0 r1 r2 r1 and r1 r0 r1 r2. }
  
 
 \subsection{\textcolor{Chapter }{QuotientSggi (for IsGroup, IsList)}}
-\logpage{[ 6, 1, 10 ]}\nobreak
+\logpage{[ 7, 1, 10 ]}\nobreak
 \hyperdef{L}{X83D969847E68299D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientSggi({\mdseries\slshape g, rels})\index{QuotientSggi@\texttt{QuotientSggi}!for IsGroup, IsList}
 \label{QuotientSggi:for IsGroup, IsList}
@@ -3242,7 +3337,7 @@ parsed by ParseStringCRels.
  
 
 \subsection{\textcolor{Chapter }{QuotientSggiByNormalSubgroup (for IsGroup,IsGroup)}}
-\logpage{[ 6, 1, 11 ]}\nobreak
+\logpage{[ 7, 1, 11 ]}\nobreak
 \hyperdef{L}{X819D85E57B505196}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientSggiByNormalSubgroup({\mdseries\slshape g, n})\index{QuotientSggiByNormalSubgroup@\texttt{QuotientSggiByNormalSubgroup}!for IsGroup,IsGroup}
 \label{QuotientSggiByNormalSubgroup:for IsGroup,IsGroup}
@@ -3268,7 +3363,7 @@ generators of the original group). }
  
 
 \subsection{\textcolor{Chapter }{QuotientManiplexByAutomorphismSubgroup (for IsManiplex,IsPermGroup)}}
-\logpage{[ 6, 1, 12 ]}\nobreak
+\logpage{[ 7, 1, 12 ]}\nobreak
 \hyperdef{L}{X86725DD8781BF181}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientManiplexByAutomorphismSubgroup({\mdseries\slshape m, h})\index{QuotientManiplexByAutomorphismSubgroup@\texttt{Quotient}\-\texttt{Maniplex}\-\texttt{By}\-\texttt{Automorphism}\-\texttt{Subgroup}!for IsManiplex,IsPermGroup}
 \label{QuotientManiplexByAutomorphismSubgroup:for IsManiplex,IsPermGroup}
@@ -3301,12 +3396,12 @@ break easily when \texttt{m/h} {\textunderscore}isn't{\textunderscore} a maniple
 
    
 \chapter{\textcolor{Chapter }{Posets}}\label{Chapter_Posets}
-\logpage{[ 7, 0, 0 ]}
+\logpage{[ 8, 0, 0 ]}
 \hyperdef{L}{X79540DAB85902432}{}
 {
   
 \section{\textcolor{Chapter }{Poset constructors}}\label{Chapter_Posets_Section_Poset_constructors}
-\logpage{[ 7, 1, 0 ]}
+\logpage{[ 8, 1, 0 ]}
 \hyperdef{L}{X87ED175B85A4C5B7}{}
 {
   I'm in the process of reconciling all of this, but there are going to be a
@@ -3327,7 +3422,7 @@ More information on the poset attributes that are important in the study of
 abstract polytopes and maniplexes is available in \cite{McMSch02}, \cite{MonPelWil14}, and \cite{Wil12}. 
 
 \subsection{\textcolor{Chapter }{PosetFromFaceListOfFlags (for IsList)}}
-\logpage{[ 7, 1, 1 ]}\nobreak
+\logpage{[ 8, 1, 1 ]}\nobreak
 \hyperdef{L}{X7D495B407CDFAEA2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromFaceListOfFlags({\mdseries\slshape list})\index{PosetFromFaceListOfFlags@\texttt{PosetFromFaceListOfFlags}!for IsList}
 \label{PosetFromFaceListOfFlags:for IsList}
@@ -3351,7 +3446,7 @@ this way are assumed to be IsP1 and IsP2. }
  
 
 \subsection{\textcolor{Chapter }{PosetFromConnectionGroup (for IsPermGroup)}}
-\logpage{[ 7, 1, 2 ]}\nobreak
+\logpage{[ 8, 1, 2 ]}\nobreak
 \hyperdef{L}{X8720C4757EE12082}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromConnectionGroup({\mdseries\slshape g})\index{PosetFromConnectionGroup@\texttt{PosetFromConnectionGroup}!for IsPermGroup}
 \label{PosetFromConnectionGroup:for IsPermGroup}
@@ -3376,7 +3471,7 @@ maximal face of the maniplex. Note that the $i$-faces correspond to the $i+1$ it
  
 
 \subsection{\textcolor{Chapter }{PosetFromManiplex (for IsManiplex)}}
-\logpage{[ 7, 1, 3 ]}\nobreak
+\logpage{[ 8, 1, 3 ]}\nobreak
 \hyperdef{L}{X7C4F3D307C5A7E7A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromManiplex({\mdseries\slshape mani})\index{PosetFromManiplex@\texttt{PosetFromManiplex}!for IsManiplex}
 \label{PosetFromManiplex:for IsManiplex}
@@ -3402,7 +3497,7 @@ that the $i$-faces correspond to the $i+1$ item in the list because of how GAP i
  
 
 \subsection{\textcolor{Chapter }{PosetFromPartialOrder (for IsBinaryRelation)}}
-\logpage{[ 7, 1, 4 ]}\nobreak
+\logpage{[ 8, 1, 4 ]}\nobreak
 \hyperdef{L}{X7ECC2FBC7AF3A960}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromPartialOrder({\mdseries\slshape partialOrder})\index{PosetFromPartialOrder@\texttt{PosetFromPartialOrder}!for IsBinaryRelation}
 \label{PosetFromPartialOrder:for IsBinaryRelation}
@@ -3432,7 +3527,7 @@ second. The essential information about the poset can be obtained from the
 Hasse diagram. 
 
 \subsection{\textcolor{Chapter }{PosetFromAtomicList (for IsList)}}
-\logpage{[ 7, 1, 5 ]}\nobreak
+\logpage{[ 8, 1, 5 ]}\nobreak
 \hyperdef{L}{X80052F8E835F45A4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromAtomicList({\mdseries\slshape list})\index{PosetFromAtomicList@\texttt{PosetFromAtomicList}!for IsList}
 \label{PosetFromAtomicList:for IsList}
@@ -3474,7 +3569,7 @@ faces). }
  
 
 \subsection{\textcolor{Chapter }{PosetFromElements (for IsList,IsFunction)}}
-\logpage{[ 7, 1, 6 ]}\nobreak
+\logpage{[ 8, 1, 6 ]}\nobreak
 \hyperdef{L}{X79AEF6FF8699020E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromElements({\mdseries\slshape list{\textunderscore}of{\textunderscore}faces, func})\index{PosetFromElements@\texttt{PosetFromElements}!for IsList,IsFunction}
 \label{PosetFromElements:for IsList,IsFunction}
@@ -3504,7 +3599,7 @@ faces). }
  
 
 \subsection{\textcolor{Chapter }{PosetFromSuccessorList (for IsList)}}
-\logpage{[ 7, 1, 7 ]}\nobreak
+\logpage{[ 8, 1, 7 ]}\nobreak
 \hyperdef{L}{X856446F583AAF703}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetFromSuccessorList({\mdseries\slshape successorsList})\index{PosetFromSuccessorList@\texttt{PosetFromSuccessorList}!for IsList}
 \label{PosetFromSuccessorList:for IsList}
@@ -3529,7 +3624,7 @@ from the given list of successors. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Helper functions for special partial orders}}\label{Helper_functions}
-\logpage{[ 7, 1, 8 ]}
+\logpage{[ 8, 1, 8 ]}
 \hyperdef{L}{X82DB1F987C68B392}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PairCompareFlagsList({\mdseries\slshape list1, list2})\index{PairCompareFlagsList@\texttt{PairCompareFlagsList}!for IsList,IsList}
@@ -3550,7 +3645,7 @@ assumes \mbox{\texttt{\mdseries\slshape list1}} and \mbox{\texttt{\mdseries\slsh
  
 
 \subsection{\textcolor{Chapter }{DualPoset (for IsPoset)}}
-\logpage{[ 7, 1, 9 ]}\nobreak
+\logpage{[ 8, 1, 9 ]}\nobreak
 \hyperdef{L}{X878F761878BCB6B9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DualPoset({\mdseries\slshape poset})\index{DualPoset@\texttt{DualPoset}!for IsPoset}
 \label{DualPoset:for IsPoset}
@@ -3575,7 +3670,7 @@ dual
  
 
 \subsection{\textcolor{Chapter }{Section (for IsFace, IsFace, IsPoset)}}
-\logpage{[ 7, 1, 10 ]}\nobreak
+\logpage{[ 8, 1, 10 ]}\nobreak
 \hyperdef{L}{X7923E0E47CAFBD9D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Section({\mdseries\slshape face1, face2, poset})\index{Section@\texttt{Section}!for IsFace, IsFace, IsPoset}
 \label{Section:for IsFace, IsFace, IsPoset}
@@ -3601,7 +3696,7 @@ section
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Cleaving polytopes}}\label{Cleaving}
-\logpage{[ 7, 1, 11 ]}
+\logpage{[ 8, 1, 11 ]}
 \hyperdef{L}{X7B693D8884B77C7C}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cleave({\mdseries\slshape p, k})\index{Cleave@\texttt{Cleave}!for IsPoset,IsInt}
@@ -3626,14 +3721,14 @@ IsPolytope
 
  
 \section{\textcolor{Chapter }{Poset attributes}}\label{Chapter_Posets_Section_Poset_attributes}
-\logpage{[ 7, 2, 0 ]}
+\logpage{[ 8, 2, 0 ]}
 \hyperdef{L}{X859F4CD47E3311AD}{}
 {
   Posets have many properties we might be interested in. Here's a few. All
 abstract polytope definitions in use here are from Schulte and McMullen's \emph{Abstract Regular Polytopes} \cite{McMSch02}. 
 
 \subsection{\textcolor{Chapter }{MaximalChains (for IsPoset)}}
-\logpage{[ 7, 2, 1 ]}\nobreak
+\logpage{[ 8, 2, 1 ]}\nobreak
 \hyperdef{L}{X81E0832F7B92DB7A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaximalChains({\mdseries\slshape poset})\index{MaximalChains@\texttt{MaximalChains}!for IsPoset}
 \label{MaximalChains:for IsPoset}
@@ -3657,7 +3752,7 @@ poset. Synonyms are \texttt{FlagsList} and \texttt{Flags}. Tends to work faster 
  
 
 \subsection{\textcolor{Chapter }{RankPoset (for IsPoset)}}
-\logpage{[ 7, 2, 2 ]}\nobreak
+\logpage{[ 8, 2, 2 ]}\nobreak
 \hyperdef{L}{X7C9B4AA77C73A761}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPoset({\mdseries\slshape poset})\index{RankPoset@\texttt{RankPoset}!for IsPoset}
 \label{RankPoset:for IsPoset}
@@ -3670,7 +3765,7 @@ bounded. Note that in general what you \emph{actually} want to do is call \textt
  
 
 \subsection{\textcolor{Chapter }{ElementsList (for IsPoset)}}
-\logpage{[ 7, 2, 3 ]}\nobreak
+\logpage{[ 8, 2, 3 ]}\nobreak
 \label{elements}
 \hyperdef{L}{X8448C7067B0EF49D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ElementsList({\mdseries\slshape poset})\index{ElementsList@\texttt{ElementsList}!for IsPoset}
@@ -3687,7 +3782,7 @@ bounded. Note that in general what you \emph{actually} want to do is call \textt
  
 
 \subsection{\textcolor{Chapter }{OrderingFunction (for IsPoset)}}
-\logpage{[ 7, 2, 4 ]}\nobreak
+\logpage{[ 8, 2, 4 ]}\nobreak
 \hyperdef{L}{X7C5580EC83A4955B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{OrderingFunction({\mdseries\slshape poset})\index{OrderingFunction@\texttt{OrderingFunction}!for IsPoset}
 \label{OrderingFunction:for IsPoset}
@@ -3709,7 +3804,7 @@ bounded. Note that in general what you \emph{actually} want to do is call \textt
  
 
 \subsection{\textcolor{Chapter }{IsFlaggable (for IsPoset)}}
-\logpage{[ 7, 2, 5 ]}\nobreak
+\logpage{[ 8, 2, 5 ]}\nobreak
 \hyperdef{L}{X842B0F7E81670077}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlaggable({\mdseries\slshape poset})\index{IsFlaggable@\texttt{IsFlaggable}!for IsPoset}
 \label{IsFlaggable:for IsPoset}
@@ -3729,7 +3824,7 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
  
 
 \subsection{\textcolor{Chapter }{IsAtomic (for IsPoset)}}
-\logpage{[ 7, 2, 6 ]}\nobreak
+\logpage{[ 8, 2, 6 ]}\nobreak
 \hyperdef{L}{X816460188169E650}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAtomic({\mdseries\slshape poset})\index{IsAtomic@\texttt{IsAtomic}!for IsPoset}
 \label{IsAtomic:for IsPoset}
@@ -3756,7 +3851,7 @@ uniquely in terms of the posets atoms.
  
 
 \subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
-\logpage{[ 7, 2, 7 ]}\nobreak
+\logpage{[ 8, 2, 7 ]}\nobreak
 \hyperdef{L}{X85A9CAA682FE56EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartialOrder({\mdseries\slshape poset})\index{PartialOrder@\texttt{PartialOrder}!for IsPoset}
 \label{PartialOrder:for IsPoset}
@@ -3772,7 +3867,7 @@ information. }
 
  
 \subsection{\textcolor{Chapter }{Lattices}}\label{Lattices}
-\logpage{[ 7, 2, 8 ]}
+\logpage{[ 8, 2, 8 ]}
 \hyperdef{L}{X851265E17D42FCAD}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLattice({\mdseries\slshape poset})\index{IsLattice@\texttt{IsLattice}!for IsPoset}
@@ -3816,7 +3911,7 @@ whether all joins in a poset are unique. }
  
 
 \subsection{\textcolor{Chapter }{ListIsP1Poset (for IsList)}}
-\logpage{[ 7, 2, 9 ]}\nobreak
+\logpage{[ 8, 2, 9 ]}\nobreak
 \hyperdef{L}{X8455987F7E9A88FF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsP1Poset({\mdseries\slshape list})\index{ListIsP1Poset@\texttt{ListIsP1Poset}!for IsList}
 \label{ListIsP1Poset:for IsList}
@@ -3833,7 +3928,7 @@ or not. }
  
 
 \subsection{\textcolor{Chapter }{IsP1 (for IsPoset)}}
-\logpage{[ 7, 2, 10 ]}\nobreak
+\logpage{[ 8, 2, 10 ]}\nobreak
 \hyperdef{L}{X81269ACB7EF202C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP1({\mdseries\slshape poset})\index{IsP1@\texttt{IsP1}!for IsPoset}
 \label{IsP1:for IsPoset}
@@ -3860,7 +3955,7 @@ if it has a unique least, and a unique maximal element/face. }
  
 
 \subsection{\textcolor{Chapter }{IsP2 (for IsPoset)}}
-\logpage{[ 7, 2, 11 ]}\nobreak
+\logpage{[ 8, 2, 11 ]}\nobreak
 \hyperdef{L}{X7AFA3C077FD9583A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP2({\mdseries\slshape poset})\index{IsP2@\texttt{IsP2}!for IsPoset}
 \label{IsP2:for IsPoset}
@@ -3889,7 +3984,7 @@ if each maximal chain in the poset has the same length (for $n$-polytopes, this 
  
 
 \subsection{\textcolor{Chapter }{IsP3 (for IsPoset)}}
-\logpage{[ 7, 2, 12 ]}\nobreak
+\logpage{[ 8, 2, 12 ]}\nobreak
 \hyperdef{L}{X8723519F84529E4C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP3({\mdseries\slshape poset})\index{IsP3@\texttt{IsP3}!for IsPoset}
 \label{IsP3:for IsPoset}
@@ -3906,7 +4001,7 @@ This means that given flags $\Phi$ and $\Psi$, not only is there a sequence of f
  Helper for IsP3 
 
 \subsection{\textcolor{Chapter }{IsFlagConnected (for IsPoset)}}
-\logpage{[ 7, 2, 13 ]}\nobreak
+\logpage{[ 8, 2, 13 ]}\nobreak
 \hyperdef{L}{X85F554347C5AEF30}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlagConnected({\mdseries\slshape poset})\index{IsFlagConnected@\texttt{IsFlagConnected}!for IsPoset}
 \label{IsFlagConnected:for IsPoset}
@@ -3921,7 +4016,7 @@ This means that given flags $\Phi$ and $\Psi$, not only is there a sequence of f
  
 
 \subsection{\textcolor{Chapter }{IsP4 (for IsPoset)}}
-\logpage{[ 7, 2, 14 ]}\nobreak
+\logpage{[ 8, 2, 14 ]}\nobreak
 \hyperdef{L}{X80F461FA7D8FEDC7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP4({\mdseries\slshape poset})\index{IsP4@\texttt{IsP4}!for IsPoset}
 \label{IsP4:for IsPoset}
@@ -3937,7 +4032,7 @@ invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ 
  
 
 \subsection{\textcolor{Chapter }{IsPolytope (for IsPoset)}}
-\logpage{[ 7, 2, 15 ]}\nobreak
+\logpage{[ 8, 2, 15 ]}\nobreak
 \hyperdef{L}{X83D63725789E745D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytope({\mdseries\slshape poset})\index{IsPolytope@\texttt{IsPolytope}!for IsPoset}
 \label{IsPolytope:for IsPoset}
@@ -3967,7 +4062,7 @@ invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ 
  
 
 \subsection{\textcolor{Chapter }{IsPrePolytope (for IsPoset)}}
-\logpage{[ 7, 2, 16 ]}\nobreak
+\logpage{[ 8, 2, 16 ]}\nobreak
 \hyperdef{L}{X8085287683CCF81B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPrePolytope({\mdseries\slshape poset})\index{IsPrePolytope@\texttt{IsPrePolytope}!for IsPoset}
 \label{IsPrePolytope:for IsPoset}
@@ -3982,7 +4077,7 @@ invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ 
  
 
 \subsection{\textcolor{Chapter }{IsSelfDual (for IsPoset)}}
-\logpage{[ 7, 2, 17 ]}\nobreak
+\logpage{[ 8, 2, 17 ]}\nobreak
 \hyperdef{L}{X7876E8577DB97677}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfDual({\mdseries\slshape poset})\index{IsSelfDual@\texttt{IsSelfDual}!for IsPoset}
 \label{IsSelfDual:for IsPoset}
@@ -4008,13 +4103,13 @@ IsBool
 
  
 \section{\textcolor{Chapter }{Working with posets}}\label{Chapter_Posets_Section_Working_with_posets}
-\logpage{[ 7, 3, 0 ]}
+\logpage{[ 8, 3, 0 ]}
 \hyperdef{L}{X8163385F7B822934}{}
 {
   
 
 \subsection{\textcolor{Chapter }{IsIsomorphicPoset (for IsPoset,IsPoset)}}
-\logpage{[ 7, 3, 1 ]}\nobreak
+\logpage{[ 8, 3, 1 ]}\nobreak
 \hyperdef{L}{X80A2785B7D079FD1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIsomorphicPoset({\mdseries\slshape poset1, poset2})\index{IsIsomorphicPoset@\texttt{IsIsomorphicPoset}!for IsPoset,IsPoset}
 \label{IsIsomorphicPoset:for IsPoset,IsPoset}
@@ -4036,7 +4131,7 @@ IsBool
  
 
 \subsection{\textcolor{Chapter }{PosetIsomorphism (for IsPoset,IsPoset)}}
-\logpage{[ 7, 3, 2 ]}\nobreak
+\logpage{[ 8, 3, 2 ]}\nobreak
 \hyperdef{L}{X8340F2597BD837A5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetIsomorphism({\mdseries\slshape poset1, poset2})\index{PosetIsomorphism@\texttt{PosetIsomorphism}!for IsPoset,IsPoset}
 \label{PosetIsomorphism:for IsPoset,IsPoset}
@@ -4051,7 +4146,7 @@ map on face indices
  
 
 \subsection{\textcolor{Chapter }{FlagsAsFlagListFaces (for IsPoset)}}
-\logpage{[ 7, 3, 3 ]}\nobreak
+\logpage{[ 8, 3, 3 ]}\nobreak
 \hyperdef{L}{X828C2C297FAAB627}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagsAsFlagListFaces({\mdseries\slshape poset})\index{FlagsAsFlagListFaces@\texttt{FlagsAsFlagListFaces}!for IsPoset}
 \label{FlagsAsFlagListFaces:for IsPoset}
@@ -4069,7 +4164,7 @@ include the minimal face or the maximal face if the poset IsP2. }
  
 
 \subsection{\textcolor{Chapter }{RankedFaceListOfPoset (for IsPoset)}}
-\logpage{[ 7, 3, 4 ]}\nobreak
+\logpage{[ 8, 3, 4 ]}\nobreak
 \hyperdef{L}{X7A80223E83EF52E8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankedFaceListOfPoset({\mdseries\slshape IsPosetOfFlags})\index{RankedFaceListOfPoset@\texttt{RankedFaceListOfPoset}!for IsPoset}
 \label{RankedFaceListOfPoset:for IsPoset}
@@ -4084,7 +4179,7 @@ include the minimal face or the maximal face if the poset IsP2. }
  
 
 \subsection{\textcolor{Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}
-\logpage{[ 7, 3, 5 ]}\nobreak
+\logpage{[ 8, 3, 5 ]}\nobreak
 \hyperdef{L}{X7ACE88EC803EDE07}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlag({\mdseries\slshape poset, flag, i})\index{AdjacentFlag@\texttt{AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt}
 \label{AdjacentFlag:for IsPosetOfFlags,IsList,IsInt}
@@ -4101,7 +4196,7 @@ from \texttt{FlagsAsFlagListFaces}. }
  
 
 \subsection{\textcolor{Chapter }{AdjacentFlags (for IsPoset,IsList,IsInt)}}
-\logpage{[ 7, 3, 6 ]}\nobreak
+\logpage{[ 8, 3, 6 ]}\nobreak
 \hyperdef{L}{X7C94E895794BA41F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentFlags({\mdseries\slshape poset, flagaslistoffaces, adjacencyrank})\index{AdjacentFlags@\texttt{AdjacentFlags}!for IsPoset,IsList,IsInt}
 \label{AdjacentFlags:for IsPoset,IsList,IsInt}
@@ -4114,7 +4209,7 @@ given rank. This function handles that case. May substitute \texttt{IsInt} for \
  
 
 \subsection{\textcolor{Chapter }{EqualChains (for IsList,IsList)}}
-\logpage{[ 7, 3, 7 ]}\nobreak
+\logpage{[ 8, 3, 7 ]}\nobreak
 \hyperdef{L}{X7E1C59DF835343FE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EqualChains({\mdseries\slshape flag1, flag2})\index{EqualChains@\texttt{EqualChains}!for IsList,IsList}
 \label{EqualChains:for IsList,IsList}
@@ -4126,7 +4221,7 @@ given rank. This function handles that case. May substitute \texttt{IsInt} for \
  
 
 \subsection{\textcolor{Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}
-\logpage{[ 7, 3, 8 ]}\nobreak
+\logpage{[ 8, 3, 8 ]}\nobreak
 \hyperdef{L}{X84E3B63C8639771B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGeneratorOfPoset({\mdseries\slshape poset, i})\index{ConnectionGeneratorOfPoset@\texttt{ConnectionGeneratorOfPoset}!for IsPoset,IsInt}
 \label{ConnectionGeneratorOfPoset:for IsPoset,IsInt}
@@ -4141,7 +4236,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{ConnectionGroup (for IsPoset)}}
-\logpage{[ 7, 3, 9 ]}\nobreak
+\logpage{[ 8, 3, 9 ]}\nobreak
 \hyperdef{L}{X859C651184ED9424}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroup({\mdseries\slshape poset})\index{ConnectionGroup@\texttt{ConnectionGroup}!for IsPoset}
 \label{ConnectionGroup:for IsPoset}
@@ -4156,7 +4251,7 @@ A permutation on the flags.
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroup (for IsPoset)}}
-\logpage{[ 7, 3, 10 ]}\nobreak
+\logpage{[ 8, 3, 10 ]}\nobreak
 \hyperdef{L}{X7C6813D27F0BD0F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroup({\mdseries\slshape poset})\index{AutomorphismGroup@\texttt{AutomorphismGroup}!for IsPoset}
 \label{AutomorphismGroup:for IsPoset}
@@ -4169,7 +4264,7 @@ chains. }
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnElements (for IsPoset)}}
-\logpage{[ 7, 3, 11 ]}\nobreak
+\logpage{[ 8, 3, 11 ]}\nobreak
 \hyperdef{L}{X80C2783D7FD60E56}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnElements({\mdseries\slshape poset})\index{AutomorphismGroupOnElements@\texttt{AutomorphismGroupOnElements}!for IsPoset}
 \label{AutomorphismGroupOnElements:for IsPoset}
@@ -4181,7 +4276,7 @@ chains. }
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnChains (for IsPoset, IsCollection)}}
-\logpage{[ 7, 3, 12 ]}\nobreak
+\logpage{[ 8, 3, 12 ]}\nobreak
 \hyperdef{L}{X8359754487DF73D9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnChains({\mdseries\slshape poset, I})\index{AutomorphismGroupOnChains@\texttt{AutomorphismGroupOnChains}!for IsPoset, IsCollection}
 \label{AutomorphismGroupOnChains:for IsPoset, IsCollection}
@@ -4201,7 +4296,7 @@ group of \mbox{\texttt{\mdseries\slshape poset}} on the chains of \mbox{\texttt{
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnIFaces (for IsPoset, IsInt)}}
-\logpage{[ 7, 3, 13 ]}\nobreak
+\logpage{[ 8, 3, 13 ]}\nobreak
 \hyperdef{L}{X80355CD07D65A962}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnIFaces({\mdseries\slshape poset, i})\index{AutomorphismGroupOnIFaces@\texttt{AutomorphismGroupOnIFaces}!for IsPoset, IsInt}
 \label{AutomorphismGroupOnIFaces:for IsPoset, IsInt}
@@ -4217,7 +4312,7 @@ group of \mbox{\texttt{\mdseries\slshape poset}} on the faces of \mbox{\texttt{\
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnFacets (for IsPoset)}}
-\logpage{[ 7, 3, 14 ]}\nobreak
+\logpage{[ 8, 3, 14 ]}\nobreak
 \hyperdef{L}{X7E0F912A7D9C4743}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnFacets({\mdseries\slshape poset})\index{AutomorphismGroupOnFacets@\texttt{AutomorphismGroupOnFacets}!for IsPoset}
 \label{AutomorphismGroupOnFacets:for IsPoset}
@@ -4233,7 +4328,7 @@ group of \mbox{\texttt{\mdseries\slshape poset}} on the faces of \mbox{\texttt{\
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnEdges (for IsPoset)}}
-\logpage{[ 7, 3, 15 ]}\nobreak
+\logpage{[ 8, 3, 15 ]}\nobreak
 \hyperdef{L}{X86EA69DA7E2B35B9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnEdges({\mdseries\slshape poset})\index{AutomorphismGroupOnEdges@\texttt{AutomorphismGroupOnEdges}!for IsPoset}
 \label{AutomorphismGroupOnEdges:for IsPoset}
@@ -4249,7 +4344,7 @@ group of \mbox{\texttt{\mdseries\slshape poset}} on the faces of \mbox{\texttt{\
  
 
 \subsection{\textcolor{Chapter }{AutomorphismGroupOnVertices (for IsPoset)}}
-\logpage{[ 7, 3, 16 ]}\nobreak
+\logpage{[ 8, 3, 16 ]}\nobreak
 \hyperdef{L}{X784F0CFE7DAC8C49}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupOnVertices({\mdseries\slshape poset})\index{AutomorphismGroupOnVertices@\texttt{AutomorphismGroupOnVertices}!for IsPoset}
 \label{AutomorphismGroupOnVertices:for IsPoset}
@@ -4265,7 +4360,7 @@ group of \mbox{\texttt{\mdseries\slshape poset}} on the faces of \mbox{\texttt{\
  
 
 \subsection{\textcolor{Chapter }{FaceListOfPoset (for IsPoset)}}
-\logpage{[ 7, 3, 17 ]}\nobreak
+\logpage{[ 8, 3, 17 ]}\nobreak
 \hyperdef{L}{X79F1837C835A5EFF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FaceListOfPoset({\mdseries\slshape poset})\index{FaceListOfPoset@\texttt{FaceListOfPoset}!for IsPoset}
 \label{FaceListOfPoset:for IsPoset}
@@ -4281,7 +4376,7 @@ Suitable as input for \texttt{PosetFromFaceListOfFlags}. Argument must be IsPose
  
 
 \subsection{\textcolor{Chapter }{RankPosetElements (for IsPoset)}}
-\logpage{[ 7, 3, 18 ]}\nobreak
+\logpage{[ 8, 3, 18 ]}\nobreak
 \hyperdef{L}{X7980D74F7D8C1B95}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankPosetElements({\mdseries\slshape poset})\index{RankPosetElements@\texttt{RankPosetElements}!for IsPoset}
 \label{RankPosetElements:for IsPoset}
@@ -4294,7 +4389,7 @@ poset. }
  
 
 \subsection{\textcolor{Chapter }{FacesByRankOfPoset (for IsPoset)}}
-\logpage{[ 7, 3, 19 ]}\nobreak
+\logpage{[ 8, 3, 19 ]}\nobreak
 \hyperdef{L}{X82CBC68480F222C7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacesByRankOfPoset({\mdseries\slshape poset})\index{FacesByRankOfPoset@\texttt{FacesByRankOfPoset}!for IsPoset}
 \label{FacesByRankOfPoset:for IsPoset}
@@ -4310,7 +4405,7 @@ faces. }
  
 
 \subsection{\textcolor{Chapter }{HasseDiagramOfPoset (for IsPoset)}}
-\logpage{[ 7, 3, 20 ]}\nobreak
+\logpage{[ 8, 3, 20 ]}\nobreak
 \hyperdef{L}{X7AE5050E7F6182C8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HasseDiagramOfPoset({\mdseries\slshape poset})\index{HasseDiagramOfPoset@\texttt{HasseDiagramOfPoset}!for IsPoset}
 \label{HasseDiagramOfPoset:for IsPoset}
@@ -4327,7 +4422,7 @@ directed graph
  
 
 \subsection{\textcolor{Chapter }{AsPosetOfAtoms (for IsPoset)}}
-\logpage{[ 7, 3, 21 ]}\nobreak
+\logpage{[ 8, 3, 21 ]}\nobreak
 \hyperdef{L}{X83ACE1CB7DE65C44}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AsPosetOfAtoms({\mdseries\slshape poset})\index{AsPosetOfAtoms@\texttt{AsPosetOfAtoms}!for IsPoset}
 \label{AsPosetOfAtoms:for IsPoset}
@@ -4351,7 +4446,7 @@ using PosetFromAtomList. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Max/min faces}}\label{Special_Faces}
-\logpage{[ 7, 3, 22 ]}
+\logpage{[ 8, 3, 22 ]}
 \hyperdef{L}{X838947F98660C2C4}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MinFace({\mdseries\slshape poset})\index{MinFace@\texttt{MinFace}!for IsPoset}
@@ -4373,13 +4468,13 @@ face
 
  
 \section{\textcolor{Chapter }{Element constructors}}\label{Chapter_Posets_Section_Element_constructors}
-\logpage{[ 7, 4, 0 ]}
+\logpage{[ 8, 4, 0 ]}
 \hyperdef{L}{X85445BE07F161F88}{}
 {
   
 
 \subsection{\textcolor{Chapter }{PosetElementWithOrder (for IsObject,IsFunction)}}
-\logpage{[ 7, 4, 1 ]}\nobreak
+\logpage{[ 8, 4, 1 ]}\nobreak
 \hyperdef{L}{X81CE0D9C872BE42B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementWithOrder({\mdseries\slshape obj, func})\index{PosetElementWithOrder@\texttt{PosetElementWithOrder}!for IsObject,IsFunction}
 \label{PosetElementWithOrder:for IsObject,IsFunction}
@@ -4394,7 +4489,7 @@ face
  
 
 \subsection{\textcolor{Chapter }{PosetElementFromListOfFlags (for IsList,IsPoset,IsInt)}}
-\logpage{[ 7, 4, 2 ]}\nobreak
+\logpage{[ 8, 4, 2 ]}\nobreak
 \hyperdef{L}{X79608DCB8749DEDC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromListOfFlags({\mdseries\slshape list, poset, n})\index{PosetElementFromListOfFlags@\texttt{PosetElementFromListOfFlags}!for IsList,IsPoset,IsInt}
 \label{PosetElementFromListOfFlags:for IsList,IsPoset,IsInt}
@@ -4409,7 +4504,7 @@ face
  
 
 \subsection{\textcolor{Chapter }{PosetElementFromAtomList (for IsList)}}
-\logpage{[ 7, 4, 3 ]}\nobreak
+\logpage{[ 8, 4, 3 ]}\nobreak
 \hyperdef{L}{X794F736784C735B0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromAtomList({\mdseries\slshape list})\index{PosetElementFromAtomList@\texttt{PosetElementFromAtomList}!for IsList}
 \label{PosetElementFromAtomList:for IsList}
@@ -4425,7 +4520,7 @@ this separately. }
  
 
 \subsection{\textcolor{Chapter }{PosetElementFromIndex (for IsObject)}}
-\logpage{[ 7, 4, 4 ]}\nobreak
+\logpage{[ 8, 4, 4 ]}\nobreak
 \hyperdef{L}{X7D7FDF76792A6C04}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementFromIndex({\mdseries\slshape obj})\index{PosetElementFromIndex@\texttt{PosetElementFromIndex}!for IsObject}
 \label{PosetElementFromIndex:for IsObject}
@@ -4440,7 +4535,7 @@ this separately. }
  
 
 \subsection{\textcolor{Chapter }{PosetElementWithPartialOrder (for IsObject, IsBinaryRelation)}}
-\logpage{[ 7, 4, 5 ]}\nobreak
+\logpage{[ 8, 4, 5 ]}\nobreak
 \hyperdef{L}{X8141EB127AA1FFE1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PosetElementWithPartialOrder({\mdseries\slshape obj, order})\index{PosetElementWithPartialOrder@\texttt{PosetElementWithPartialOrder}!for IsObject, IsBinaryRelation}
 \label{PosetElementWithPartialOrder:for IsObject, IsBinaryRelation}
@@ -4455,7 +4550,7 @@ this separately. }
  
 
 \subsection{\textcolor{Chapter }{RanksInPosets (for IsPosetElement)}}
-\logpage{[ 7, 4, 6 ]}\nobreak
+\logpage{[ 8, 4, 6 ]}\nobreak
 \hyperdef{L}{X7D43D66E82CC96DF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RanksInPosets({\mdseries\slshape posetelement})\index{RanksInPosets@\texttt{RanksInPosets}!for IsPosetElement}
 \label{RanksInPosets:for IsPosetElement}
@@ -4472,7 +4567,7 @@ things. }
  
 
 \subsection{\textcolor{Chapter }{AddRanksInPosets (for IsPosetElement,IsPoset,IsInt)}}
-\logpage{[ 7, 4, 7 ]}\nobreak
+\logpage{[ 8, 4, 7 ]}\nobreak
 \hyperdef{L}{X8399E8CD8022DF5F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AddRanksInPosets({\mdseries\slshape posetelement, poset, int})\index{AddRanksInPosets@\texttt{AddRanksInPosets}!for IsPosetElement,IsPoset,IsInt}
 \label{AddRanksInPosets:for IsPosetElement,IsPoset,IsInt}
@@ -4487,7 +4582,7 @@ null
  
 
 \subsection{\textcolor{Chapter }{FlagList (for IsPosetElement)}}
-\logpage{[ 7, 4, 8 ]}\nobreak
+\logpage{[ 8, 4, 8 ]}\nobreak
 \hyperdef{L}{X819B1AEF84E08B4D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagList({\mdseries\slshape posetelement, \texttt{\symbol{123}}face\texttt{\symbol{125}}})\index{FlagList@\texttt{FlagList}!for IsPosetElement}
 \label{FlagList:for IsPosetElement}
@@ -4502,7 +4597,7 @@ null
  
 
 \subsection{\textcolor{Chapter }{AtomList (for IsPosetElement)}}
-\logpage{[ 7, 4, 9 ]}\nobreak
+\logpage{[ 8, 4, 9 ]}\nobreak
 \hyperdef{L}{X878F991183754744}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AtomList({\mdseries\slshape posetelement, \texttt{\symbol{123}}face\texttt{\symbol{125}}})\index{AtomList@\texttt{AtomList}!for IsPosetElement}
 \label{AtomList:for IsPosetElement}
@@ -4518,13 +4613,13 @@ null
 
  
 \section{\textcolor{Chapter }{Element operations}}\label{Chapter_Posets_Section_Element_operations}
-\logpage{[ 7, 5, 0 ]}
+\logpage{[ 8, 5, 0 ]}
 \hyperdef{L}{X874169E2825654E9}{}
 {
   
 
 \subsection{\textcolor{Chapter }{RankInPoset (for IsPosetElement,IsPoset)}}
-\logpage{[ 7, 5, 1 ]}\nobreak
+\logpage{[ 8, 5, 1 ]}\nobreak
 \hyperdef{L}{X78A47D5C8513F4E2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankInPoset({\mdseries\slshape face, poset})\index{RankInPoset@\texttt{RankInPoset}!for IsPosetElement,IsPoset}
 \label{RankInPoset:for IsPosetElement,IsPoset}
@@ -4539,7 +4634,7 @@ null
  
 
 \subsection{\textcolor{Chapter }{IsSubface (for IsFace,IsFace,IsPoset)}}
-\logpage{[ 7, 5, 2 ]}\nobreak
+\logpage{[ 8, 5, 2 ]}\nobreak
 \hyperdef{L}{X798D28CC83E97F05}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSubface({\mdseries\slshape face1, face2, poset})\index{IsSubface@\texttt{IsSubface}!for IsFace,IsFace,IsPoset}
 \label{IsSubface:for IsFace,IsFace,IsPoset}
@@ -4556,7 +4651,7 @@ working with. }
  
 
 \subsection{\textcolor{Chapter }{IsEqualFaces (for IsFace, IsFace, IsPoset)}}
-\logpage{[ 7, 5, 3 ]}\nobreak
+\logpage{[ 8, 5, 3 ]}\nobreak
 \hyperdef{L}{X855B0DBE82C67770}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsEqualFaces({\mdseries\slshape arg1, arg2, arg3})\index{IsEqualFaces@\texttt{IsEqualFaces}!for IsFace, IsFace, IsPoset}
 \label{IsEqualFaces:for IsFace, IsFace, IsPoset}
@@ -4568,7 +4663,7 @@ working with. }
  
 
 \subsection{\textcolor{Chapter }{AreIncidentElements (for IsObject,IsObject)}}
-\logpage{[ 7, 5, 4 ]}\nobreak
+\logpage{[ 8, 5, 4 ]}\nobreak
 \hyperdef{L}{X84B2B67A805CD31D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AreIncidentElements({\mdseries\slshape object1, object2})\index{AreIncidentElements@\texttt{AreIncidentElements}!for IsObject,IsObject}
 \label{AreIncidentElements:for IsObject,IsObject}
@@ -4587,7 +4682,7 @@ working with. }
  
 
 \subsection{\textcolor{Chapter }{Meet (for IsFace, IsFace, IsPoset)}}
-\logpage{[ 7, 5, 5 ]}\nobreak
+\logpage{[ 8, 5, 5 ]}\nobreak
 \hyperdef{L}{X83066BBD80D8C755}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Meet({\mdseries\slshape face1, face2, poset})\index{Meet@\texttt{Meet}!for IsFace, IsFace, IsPoset}
 \label{Meet:for IsFace, IsFace, IsPoset}
@@ -4602,7 +4697,7 @@ meet
  
 
 \subsection{\textcolor{Chapter }{Join (for IsFace, IsFace, IsPoset)}}
-\logpage{[ 7, 5, 6 ]}\nobreak
+\logpage{[ 8, 5, 6 ]}\nobreak
 \hyperdef{L}{X7A70132C85FB946E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Join({\mdseries\slshape face1, face2, poset})\index{Join@\texttt{Join}!for IsFace, IsFace, IsPoset}
 \label{Join:for IsFace, IsFace, IsPoset}
@@ -4618,13 +4713,13 @@ meet
 
  This uses the work of Gleason and Hubard. 
 \section{\textcolor{Chapter }{Product operations}}\label{Chapter_Posets_Section_Product_operations}
-\logpage{[ 7, 6, 0 ]}
+\logpage{[ 8, 6, 0 ]}
 \hyperdef{L}{X84B6533683018DBA}{}
 {
   The products documented in this section were defined by Gleason and Hubard in \cite{GleHub18} (\href{https://doi.org/10.1016/j.jcta.2018.02.002} {\texttt{https://doi.org/10.1016/j.jcta.2018.02.002}}). 
 
 \subsection{\textcolor{Chapter }{JoinProduct (for IsPoset,IsPoset)}}
-\logpage{[ 7, 6, 1 ]}\nobreak
+\logpage{[ 8, 6, 1 ]}\nobreak
 \hyperdef{L}{X87B984FB860BDF3F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinProduct({\mdseries\slshape poset1, poset2})\index{JoinProduct@\texttt{JoinProduct}!for IsPoset,IsPoset}
 \label{JoinProduct:for IsPoset,IsPoset}
@@ -4654,7 +4749,7 @@ returns the join product of the maniplexes. }
  
 
 \subsection{\textcolor{Chapter }{CartesianProduct (for IsPoset,IsPoset)}}
-\logpage{[ 7, 6, 2 ]}\nobreak
+\logpage{[ 8, 6, 2 ]}\nobreak
 \hyperdef{L}{X80F7AC5385F572D2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CartesianProduct({\mdseries\slshape polytope1, polytope2})\index{CartesianProduct@\texttt{CartesianProduct}!for IsPoset,IsPoset}
 \label{CartesianProduct:for IsPoset,IsPoset}
@@ -4682,7 +4777,7 @@ product of the maniplexes. }
  
 
 \subsection{\textcolor{Chapter }{DirectSumOfPosets (for IsPoset,IsPoset)}}
-\logpage{[ 7, 6, 3 ]}\nobreak
+\logpage{[ 8, 6, 3 ]}\nobreak
 \hyperdef{L}{X8124A8217B62E4D9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectSumOfPosets({\mdseries\slshape polytope1, polytope2})\index{DirectSumOfPosets@\texttt{DirectSumOfPosets}!for IsPoset,IsPoset}
 \label{DirectSumOfPosets:for IsPoset,IsPoset}
@@ -4705,7 +4800,7 @@ polytope
  
 
 \subsection{\textcolor{Chapter }{TopologicalProduct (for IsPoset,IsPoset)}}
-\logpage{[ 7, 6, 4 ]}\nobreak
+\logpage{[ 8, 6, 4 ]}\nobreak
 \hyperdef{L}{X7D5144DE79A8E5BF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TopologicalProduct({\mdseries\slshape polytope1, polytope2})\index{TopologicalProduct@\texttt{TopologicalProduct}!for IsPoset,IsPoset}
 \label{TopologicalProduct:for IsPoset,IsPoset}
@@ -4739,7 +4834,7 @@ product of a triangle with itself gives us the torus $\{4,4\}_{(3,0)}$ with 72 f
  
 
 \subsection{\textcolor{Chapter }{Antiprism (for IsPoset)}}
-\logpage{[ 7, 6, 5 ]}\nobreak
+\logpage{[ 8, 6, 5 ]}\nobreak
 \hyperdef{L}{X78FB044D7B9F5DB6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape polytope})\index{Antiprism@\texttt{Antiprism}!for IsPoset}
 \label{Antiprism:for IsPoset}
@@ -4768,18 +4863,18 @@ poset
 
    
 \chapter{\textcolor{Chapter }{Polytope Constructions and Operations}}\label{Chapter_Polytope_Constructions_and_Operations}
-\logpage{[ 8, 0, 0 ]}
+\logpage{[ 9, 0, 0 ]}
 \hyperdef{L}{X823655C77BD84AB5}{}
 {
   
 \section{\textcolor{Chapter }{Extensions, amalgamations, and quotients}}\label{Chapter_Polytope_Constructions_and_Operations_Section_Extensions_amalgamations_and_quotients}
-\logpage{[ 8, 1, 0 ]}
+\logpage{[ 9, 1, 0 ]}
 \hyperdef{L}{X871C2D73829F1FC1}{}
 {
   
 
 \subsection{\textcolor{Chapter }{UniversalPolytope (for IsInt)}}
-\logpage{[ 8, 1, 1 ]}\nobreak
+\logpage{[ 9, 1, 1 ]}\nobreak
 \hyperdef{L}{X808AEA5281D52911}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalPolytope({\mdseries\slshape n})\index{UniversalPolytope@\texttt{UniversalPolytope}!for IsInt}
 \label{UniversalPolytope:for IsInt}
@@ -4801,7 +4896,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{UniversalExtension (for IsManiplex)}}
-\logpage{[ 8, 1, 2 ]}\nobreak
+\logpage{[ 9, 1, 2 ]}\nobreak
 \hyperdef{L}{X8582D0CF7EA1CB34}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalExtension({\mdseries\slshape M})\index{UniversalExtension@\texttt{UniversalExtension}!for IsManiplex}
 \label{UniversalExtension:for IsManiplex}
@@ -4821,7 +4916,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{UniversalExtension (for IsManiplex, IsInt)}}
-\logpage{[ 8, 1, 3 ]}\nobreak
+\logpage{[ 9, 1, 3 ]}\nobreak
 \hyperdef{L}{X78B4610E7DE67E32}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalExtension({\mdseries\slshape M, k})\index{UniversalExtension@\texttt{UniversalExtension}!for IsManiplex, IsInt}
 \label{UniversalExtension:for IsManiplex, IsInt}
@@ -4841,7 +4936,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{TrivialExtension (for IsManiplex)}}
-\logpage{[ 8, 1, 4 ]}\nobreak
+\logpage{[ 9, 1, 4 ]}\nobreak
 \hyperdef{L}{X84BB6B21853173FD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TrivialExtension({\mdseries\slshape M})\index{TrivialExtension@\texttt{TrivialExtension}!for IsManiplex}
 \label{TrivialExtension:for IsManiplex}
@@ -4861,7 +4956,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{FlatExtension (for IsManiplex, IsInt)}}
-\logpage{[ 8, 1, 5 ]}\nobreak
+\logpage{[ 9, 1, 5 ]}\nobreak
 \hyperdef{L}{X7A5853E278A83D74}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatExtension({\mdseries\slshape M, k})\index{FlatExtension@\texttt{FlatExtension}!for IsManiplex, IsInt}
 \label{FlatExtension:for IsManiplex, IsInt}
@@ -4881,7 +4976,7 @@ IsManiplex\#! @Description Constructs the flat extension of \mbox{\texttt{\mdser
  
 
 \subsection{\textcolor{Chapter }{Amalgamate (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 1, 6 ]}\nobreak
+\logpage{[ 9, 1, 6 ]}\nobreak
 \hyperdef{L}{X790F22D47CD222EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Amalgamate({\mdseries\slshape M1, M2})\index{Amalgamate@\texttt{Amalgamate}!for IsManiplex, IsManiplex}
 \label{Amalgamate:for IsManiplex, IsManiplex}
@@ -4901,7 +4996,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{Medial (for IsManiplex)}}
-\logpage{[ 8, 1, 7 ]}\nobreak
+\logpage{[ 9, 1, 7 ]}\nobreak
 \hyperdef{L}{X840BC19484E0E9CC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Medial({\mdseries\slshape M})\index{Medial@\texttt{Medial}!for IsManiplex}
 \label{Medial:for IsManiplex}
@@ -4922,13 +5017,13 @@ IsManiplex
 
  
 \section{\textcolor{Chapter }{Duality}}\label{Chapter_Polytope_Constructions_and_Operations_Section_Duality}
-\logpage{[ 8, 2, 0 ]}
+\logpage{[ 9, 2, 0 ]}
 \hyperdef{L}{X87FD993F7F6F2FAB}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Dual (for IsManiplex)}}
-\logpage{[ 8, 2, 1 ]}\nobreak
+\logpage{[ 9, 2, 1 ]}\nobreak
 \hyperdef{L}{X7D62BD3E7F941F5B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Dual({\mdseries\slshape M})\index{Dual@\texttt{Dual}!for IsManiplex}
 \label{Dual:for IsManiplex}
@@ -4950,7 +5045,7 @@ The maniplex that is dual to \mbox{\texttt{\mdseries\slshape M}}.
  
 
 \subsection{\textcolor{Chapter }{IsSelfDual (for IsManiplex)}}
-\logpage{[ 8, 2, 2 ]}\nobreak
+\logpage{[ 9, 2, 2 ]}\nobreak
 \hyperdef{L}{X7FF8B96C83DA60CB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfDual({\mdseries\slshape M})\index{IsSelfDual@\texttt{IsSelfDual}!for IsManiplex}
 \label{IsSelfDual:for IsManiplex}
@@ -4965,7 +5060,7 @@ Whether this maniplex is isomorphic to its dual.
  
 
 \subsection{\textcolor{Chapter }{IsInternallySelfDual (for IsManiplex)}}
-\logpage{[ 8, 2, 3 ]}\nobreak
+\logpage{[ 9, 2, 3 ]}\nobreak
 \hyperdef{L}{X79287DCF7835E0F4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsInternallySelfDual({\mdseries\slshape M[, x]})\index{IsInternallySelfDual@\texttt{IsInternallySelfDual}!for IsManiplex}
 \label{IsInternallySelfDual:for IsManiplex}
@@ -4997,7 +5092,7 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner
  
 
 \subsection{\textcolor{Chapter }{IsExternallySelfDual (for IsManiplex)}}
-\logpage{[ 8, 2, 4 ]}\nobreak
+\logpage{[ 9, 2, 4 ]}\nobreak
 \hyperdef{L}{X871BE6737FF36FE6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsExternallySelfDual({\mdseries\slshape M})\index{IsExternallySelfDual@\texttt{IsExternallySelfDual}!for IsManiplex}
 \label{IsExternallySelfDual:for IsManiplex}
@@ -5024,7 +5119,7 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an outer
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Petrie Dual}}\label{AutoDoc_generated_group1}
-\logpage{[ 8, 2, 5 ]}
+\logpage{[ 9, 2, 5 ]}
 \hyperdef{L}{X86E347E67EE31555}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Petrial({\mdseries\slshape M})\index{Petrial@\texttt{Petrial}!for IsManiplex}
@@ -5048,7 +5143,7 @@ essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
  
 
 \subsection{\textcolor{Chapter }{IsSelfPetrial (for IsManiplex)}}
-\logpage{[ 8, 2, 6 ]}\nobreak
+\logpage{[ 9, 2, 6 ]}\nobreak
 \hyperdef{L}{X78FDB0047E3388A5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfPetrial({\mdseries\slshape M})\index{IsSelfPetrial@\texttt{IsSelfPetrial}!for IsManiplex}
 \label{IsSelfPetrial:for IsManiplex}
@@ -5076,7 +5171,7 @@ Whether this maniplex is isomorphic to its Petrial.
  
 
 \subsection{\textcolor{Chapter }{DirectDerivates (for IsManiplex)}}
-\logpage{[ 8, 2, 7 ]}\nobreak
+\logpage{[ 9, 2, 7 ]}\nobreak
 \hyperdef{L}{X7F8BED777CD6B80F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectDerivates({\mdseries\slshape M})\index{DirectDerivates@\texttt{DirectDerivates}!for IsManiplex}
 \label{DirectDerivates:for IsManiplex}
@@ -5098,12 +5193,12 @@ derivates that are polytopal. }
 
  
 \section{\textcolor{Chapter }{Products}}\label{Chapter_Polytope_Constructions_and_Operations_Section_Products}
-\logpage{[ 8, 3, 0 ]}
+\logpage{[ 9, 3, 0 ]}
 \hyperdef{L}{X86CE352C7851221F}{}
 {
   
 \subsection{\textcolor{Chapter }{Pyramids}}\label{Pyramid}
-\logpage{[ 8, 3, 1 ]}
+\logpage{[ 9, 3, 1 ]}
 \hyperdef{L}{X7CBB470F7D3135BC}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape M})\index{Pyramid@\texttt{Pyramid}!for IsManiplex}
@@ -5125,7 +5220,7 @@ derivates that are polytopal. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Prisms}}\label{Prisms}
-\logpage{[ 8, 3, 2 ]}
+\logpage{[ 9, 3, 2 ]}
 \hyperdef{L}{X7B13F48A7AF5DF42}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape M})\index{Prism@\texttt{Prism}!for IsManiplex}
@@ -5147,7 +5242,7 @@ derivates that are polytopal. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Antiprisms}}\label{Antiprisms}
-\logpage{[ 8, 3, 3 ]}
+\logpage{[ 9, 3, 3 ]}
 \hyperdef{L}{X808566B57F296C93}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape M})\index{Antiprism@\texttt{Antiprism}!for IsManiplex}
@@ -5170,7 +5265,7 @@ derivates that are polytopal. }
  
 
 \subsection{\textcolor{Chapter }{JoinProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 4 ]}\nobreak
+\logpage{[ 9, 3, 4 ]}\nobreak
 \hyperdef{L}{X7FA28B5C7AC1C32E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinProduct({\mdseries\slshape M1, M2})\index{JoinProduct@\texttt{JoinProduct}!for IsManiplex, IsManiplex}
 \label{JoinProduct:for IsManiplex, IsManiplex}
@@ -5191,7 +5286,7 @@ the maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{CartesianProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 5 ]}\nobreak
+\logpage{[ 9, 3, 5 ]}\nobreak
 \hyperdef{L}{X7C116F2C83963ADC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CartesianProduct({\mdseries\slshape M1, M2})\index{CartesianProduct@\texttt{CartesianProduct}!for IsManiplex, IsManiplex}
 \label{CartesianProduct:for IsManiplex, IsManiplex}
@@ -5212,7 +5307,7 @@ if the maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{DirectSumOfManiplexes (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 6 ]}\nobreak
+\logpage{[ 9, 3, 6 ]}\nobreak
 \hyperdef{L}{X8022B9AC85D38D7D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectSumOfManiplexes({\mdseries\slshape M1, M2})\index{DirectSumOfManiplexes@\texttt{DirectSumOfManiplexes}!for IsManiplex, IsManiplex}
 \label{DirectSumOfManiplexes:for IsManiplex, IsManiplex}
@@ -5233,7 +5328,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{TopologicalProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 8, 3, 7 ]}\nobreak
+\logpage{[ 9, 3, 7 ]}\nobreak
 \hyperdef{L}{X833534418543FB94}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TopologicalProduct({\mdseries\slshape M1, M2})\index{TopologicalProduct@\texttt{TopologicalProduct}!for IsManiplex, IsManiplex}
 \label{TopologicalProduct:for IsManiplex, IsManiplex}
@@ -5257,18 +5352,18 @@ maniplexes aren't faithfully represented by their posets. }
 
    
 \chapter{\textcolor{Chapter }{Combinatorics and Structure}}\label{Chapter_Combinatorics_and_Structure}
-\logpage{[ 9, 0, 0 ]}
+\logpage{[ 10, 0, 0 ]}
 \hyperdef{L}{X8153E7658330D710}{}
 {
   
 \section{\textcolor{Chapter }{Faces}}\label{Chapter_Combinatorics_and_Structure_Section_Faces}
-\logpage{[ 9, 1, 0 ]}
+\logpage{[ 10, 1, 0 ]}
 \hyperdef{L}{X872AD1E785C7EB03}{}
 {
   
 
 \subsection{\textcolor{Chapter }{NumberOfIFaces (for IsManiplex, IsInt)}}
-\logpage{[ 9, 1, 1 ]}\nobreak
+\logpage{[ 10, 1, 1 ]}\nobreak
 \hyperdef{L}{X86085A967E396035}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfIFaces({\mdseries\slshape M, i})\index{NumberOfIFaces@\texttt{NumberOfIFaces}!for IsManiplex, IsInt}
 \label{NumberOfIFaces:for IsManiplex, IsInt}
@@ -5285,7 +5380,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{NumberOfVertices (for IsManiplex)}}
-\logpage{[ 9, 1, 2 ]}\nobreak
+\logpage{[ 10, 1, 2 ]}\nobreak
 \hyperdef{L}{X7C126944873D2461}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfVertices({\mdseries\slshape M})\index{NumberOfVertices@\texttt{NumberOfVertices}!for IsManiplex}
 \label{NumberOfVertices:for IsManiplex}
@@ -5302,7 +5397,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{NumberOfEdges (for IsManiplex)}}
-\logpage{[ 9, 1, 3 ]}\nobreak
+\logpage{[ 10, 1, 3 ]}\nobreak
 \hyperdef{L}{X86CDC9B38792B038}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfEdges({\mdseries\slshape M})\index{NumberOfEdges@\texttt{NumberOfEdges}!for IsManiplex}
 \label{NumberOfEdges:for IsManiplex}
@@ -5319,7 +5414,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{NumberOfFacets (for IsManiplex)}}
-\logpage{[ 9, 1, 4 ]}\nobreak
+\logpage{[ 10, 1, 4 ]}\nobreak
 \hyperdef{L}{X7DE9F1057B309554}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFacets({\mdseries\slshape M})\index{NumberOfFacets@\texttt{NumberOfFacets}!for IsManiplex}
 \label{NumberOfFacets:for IsManiplex}
@@ -5336,7 +5431,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{NumberOfRidges (for IsManiplex)}}
-\logpage{[ 9, 1, 5 ]}\nobreak
+\logpage{[ 10, 1, 5 ]}\nobreak
 \hyperdef{L}{X7C5446247FD63F28}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfRidges({\mdseries\slshape M})\index{NumberOfRidges@\texttt{NumberOfRidges}!for IsManiplex}
 \label{NumberOfRidges:for IsManiplex}
@@ -5353,7 +5448,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{Fvector (for IsManiplex)}}
-\logpage{[ 9, 1, 6 ]}\nobreak
+\logpage{[ 10, 1, 6 ]}\nobreak
 \hyperdef{L}{X816A47B879737629}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Fvector({\mdseries\slshape M})\index{Fvector@\texttt{Fvector}!for IsManiplex}
 \label{Fvector:for IsManiplex}
@@ -5369,7 +5464,7 @@ maniplexes aren't faithfully represented by their posets. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Section(s)}}\label{Sections}
-\logpage{[ 9, 1, 7 ]}
+\logpage{[ 10, 1, 7 ]}
 \hyperdef{L}{X8586EE158331B46C}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Section({\mdseries\slshape M, j, i})\index{Section@\texttt{Section}!for IsManiplex, IsInt, IsInt}
@@ -5398,7 +5493,7 @@ maniplexes aren't faithfully represented by their posets. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Facet(s)}}\label{Facet}
-\logpage{[ 9, 1, 8 ]}
+\logpage{[ 10, 1, 8 ]}
 \hyperdef{L}{X85D359FD7E3C191B}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Facets({\mdseries\slshape M})\index{Facets@\texttt{Facets}!for IsManiplex}
@@ -5426,7 +5521,7 @@ facet). }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Vertex Figure(s)}}\label{VertexFigure}
-\logpage{[ 9, 1, 9 ]}
+\logpage{[ 10, 1, 9 ]}
 \hyperdef{L}{X859E4169801C72D9}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigures({\mdseries\slshape M})\index{VertexFigures@\texttt{VertexFigures}!for IsManiplex}
@@ -5458,12 +5553,12 @@ vertex-figure of \mbox{\texttt{\mdseries\slshape M}} that contains flag number \
 
  
 \section{\textcolor{Chapter }{Flatness}}\label{Chapter_Combinatorics_and_Structure_Section_Flatness}
-\logpage{[ 9, 2, 0 ]}
+\logpage{[ 10, 2, 0 ]}
 \hyperdef{L}{X877E841E7FBCEAAE}{}
 {
   
 \subsection{\textcolor{Chapter }{Flatness}}\label{IsFlat}
-\logpage{[ 9, 2, 1 ]}
+\logpage{[ 10, 2, 1 ]}
 \hyperdef{L}{X877E841E7FBCEAAE}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlat({\mdseries\slshape M})\index{IsFlat@\texttt{IsFlat}!for IsManiplex}
@@ -5491,13 +5586,13 @@ of the maniplex \mbox{\texttt{\mdseries\slshape M}} is incident to every j-face.
 
  
 \section{\textcolor{Chapter }{Schlafli symbol}}\label{Chapter_Combinatorics_and_Structure_Section_Schlafli_symbol}
-\logpage{[ 9, 3, 0 ]}
+\logpage{[ 10, 3, 0 ]}
 \hyperdef{L}{X8052D0A68676A82C}{}
 {
   
 
 \subsection{\textcolor{Chapter }{SchlafliSymbol (for IsManiplex)}}
-\logpage{[ 9, 3, 1 ]}\nobreak
+\logpage{[ 10, 3, 1 ]}\nobreak
 \hyperdef{L}{X7FA0B161838A442A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SchlafliSymbol({\mdseries\slshape M})\index{SchlafliSymbol@\texttt{SchlafliSymbol}!for IsManiplex}
 \label{SchlafliSymbol:for IsManiplex}
@@ -5515,7 +5610,7 @@ shows the polygons that we obtain as sections of (i+1)-faces over (i-2)-faces. }
  
 
 \subsection{\textcolor{Chapter }{PseudoSchlafliSymbol (for IsManiplex)}}
-\logpage{[ 9, 3, 2 ]}\nobreak
+\logpage{[ 10, 3, 2 ]}\nobreak
 \hyperdef{L}{X78447BE8877668EA}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PseudoSchlafliSymbol({\mdseries\slshape M})\index{PseudoSchlafliSymbol@\texttt{PseudoSchlafliSymbol}!for IsManiplex}
 \label{PseudoSchlafliSymbol:for IsManiplex}
@@ -5530,7 +5625,7 @@ case, we store the given Schlafli symbol and call it a \emph{pseudo-Schlafli sym
  
 
 \subsection{\textcolor{Chapter }{IsEquivelar (for IsManiplex)}}
-\logpage{[ 9, 3, 3 ]}\nobreak
+\logpage{[ 10, 3, 3 ]}\nobreak
 \hyperdef{L}{X7E9CCE9D794DC285}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsEquivelar({\mdseries\slshape M})\index{IsEquivelar@\texttt{IsEquivelar}!for IsManiplex}
 \label{IsEquivelar:for IsManiplex}
@@ -5553,7 +5648,7 @@ position (no lists).
  
 
 \subsection{\textcolor{Chapter }{IsDegenerate (for IsManiplex)}}
-\logpage{[ 9, 3, 4 ]}\nobreak
+\logpage{[ 10, 3, 4 ]}\nobreak
 \hyperdef{L}{X8483BE798579B521}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsDegenerate({\mdseries\slshape M})\index{IsDegenerate@\texttt{IsDegenerate}!for IsManiplex}
 \label{IsDegenerate:for IsManiplex}
@@ -5580,7 +5675,7 @@ with even smaller sections. }
  
 
 \subsection{\textcolor{Chapter }{IsTight (for IsManiplex)}}
-\logpage{[ 9, 3, 5 ]}\nobreak
+\logpage{[ 10, 3, 5 ]}\nobreak
 \hyperdef{L}{X8088FFB2851334AB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsTight({\mdseries\slshape P})\index{IsTight@\texttt{IsTight}!for IsManiplex}
 \label{IsTight:for IsManiplex}
@@ -5606,7 +5701,7 @@ non-polytopal maniplexes, which aren't constrained by this lower bound. }
  
 
 \subsection{\textcolor{Chapter }{EulerCharacteristic (for IsManiplex)}}
-\logpage{[ 9, 3, 6 ]}\nobreak
+\logpage{[ 10, 3, 6 ]}\nobreak
 \hyperdef{L}{X7CEC34DF795B8DDF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EulerCharacteristic({\mdseries\slshape M})\index{EulerCharacteristic@\texttt{EulerCharacteristic}!for IsManiplex}
 \label{EulerCharacteristic:for IsManiplex}
@@ -5628,7 +5723,7 @@ The Euler characteristic of the maniplex, given by $f_0 - f_1 + f_2 - \cdots + (
  
 
 \subsection{\textcolor{Chapter }{Genus (for IsManiplex)}}
-\logpage{[ 9, 3, 7 ]}\nobreak
+\logpage{[ 10, 3, 7 ]}\nobreak
 \hyperdef{L}{X7FA861D87C58E1EF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Genus({\mdseries\slshape M})\index{Genus@\texttt{Genus}!for IsManiplex}
 \label{Genus:for IsManiplex}
@@ -5650,7 +5745,7 @@ The genus of the given 3-maniplex.
  
 
 \subsection{\textcolor{Chapter }{IsSpherical (for IsManiplex)}}
-\logpage{[ 9, 3, 8 ]}\nobreak
+\logpage{[ 10, 3, 8 ]}\nobreak
 \hyperdef{L}{X84F212F485BA012F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSpherical({\mdseries\slshape M})\index{IsSpherical@\texttt{IsSpherical}!for IsManiplex}
 \label{IsSpherical:for IsManiplex}
@@ -5676,7 +5771,7 @@ Whether the 3-maniplex \mbox{\texttt{\mdseries\slshape M}} is spherical, which i
  
 
 \subsection{\textcolor{Chapter }{IsLocallySpherical (for IsManiplex)}}
-\logpage{[ 9, 3, 9 ]}\nobreak
+\logpage{[ 10, 3, 9 ]}\nobreak
 \hyperdef{L}{X85B48E0678A65F40}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLocallySpherical({\mdseries\slshape M})\index{IsLocallySpherical@\texttt{IsLocallySpherical}!for IsManiplex}
 \label{IsLocallySpherical:for IsManiplex}
@@ -5703,7 +5798,7 @@ are both spherical.
  
 
 \subsection{\textcolor{Chapter }{IsToroidal (for IsManiplex)}}
-\logpage{[ 9, 3, 10 ]}\nobreak
+\logpage{[ 10, 3, 10 ]}\nobreak
 \hyperdef{L}{X7886C68887E4DD20}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsToroidal({\mdseries\slshape M})\index{IsToroidal@\texttt{IsToroidal}!for IsManiplex}
 \label{IsToroidal:for IsManiplex}
@@ -5727,7 +5822,7 @@ Whether the 3-maniplex \mbox{\texttt{\mdseries\slshape M}} is toroidal, which is
  
 
 \subsection{\textcolor{Chapter }{IsLocallyToroidal (for IsManiplex)}}
-\logpage{[ 9, 3, 11 ]}\nobreak
+\logpage{[ 10, 3, 11 ]}\nobreak
 \hyperdef{L}{X7E0FF0C982FC49D2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLocallyToroidal({\mdseries\slshape M})\index{IsLocallyToroidal@\texttt{IsLocallyToroidal}!for IsManiplex}
 \label{IsLocallyToroidal:for IsManiplex}
@@ -5754,13 +5849,13 @@ spherical or toroidal.
 
  
 \section{\textcolor{Chapter }{Basics}}\label{Chapter_Combinatorics_and_Structure_Section_Basics}
-\logpage{[ 9, 4, 0 ]}
+\logpage{[ 10, 4, 0 ]}
 \hyperdef{L}{X868F7BAB7AC2EEBC}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Size (for IsManiplex)}}
-\logpage{[ 9, 4, 1 ]}\nobreak
+\logpage{[ 10, 4, 1 ]}\nobreak
 \hyperdef{L}{X7C2ADC507F19E2E3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Size({\mdseries\slshape M})\index{Size@\texttt{Size}!for IsManiplex}
 \label{Size:for IsManiplex}
@@ -5775,7 +5870,7 @@ The number of flags of the maniplex \mbox{\texttt{\mdseries\slshape M}}.
  
 
 \subsection{\textcolor{Chapter }{RankManiplex (for IsManiplex)}}
-\logpage{[ 9, 4, 2 ]}\nobreak
+\logpage{[ 10, 4, 2 ]}\nobreak
 \hyperdef{L}{X79C21A557E80B021}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RankManiplex({\mdseries\slshape M})\index{RankManiplex@\texttt{RankManiplex}!for IsManiplex}
 \label{RankManiplex:for IsManiplex}
@@ -5793,13 +5888,13 @@ The rank of the maniplex \mbox{\texttt{\mdseries\slshape M}}.
 
  
 \section{\textcolor{Chapter }{Zigzags and holes}}\label{Chapter_Combinatorics_and_Structure_Section_Zigzags_and_holes}
-\logpage{[ 9, 5, 0 ]}
+\logpage{[ 10, 5, 0 ]}
 \hyperdef{L}{X780FC00678185849}{}
 {
   
 
 \subsection{\textcolor{Chapter }{ZigzagLength (for IsManiplex, IsInt)}}
-\logpage{[ 9, 5, 1 ]}\nobreak
+\logpage{[ 10, 5, 1 ]}\nobreak
 \hyperdef{L}{X7D0AAD597CDE5697}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ZigzagLength({\mdseries\slshape M, j})\index{ZigzagLength@\texttt{ZigzagLength}!for IsManiplex, IsInt}
 \label{ZigzagLength:for IsManiplex, IsInt}
@@ -5824,7 +5919,7 @@ r2)\texttt{\symbol{94}}j. }
  
 
 \subsection{\textcolor{Chapter }{ZigzagVector (for IsManiplex)}}
-\logpage{[ 9, 5, 2 ]}\nobreak
+\logpage{[ 10, 5, 2 ]}\nobreak
 \hyperdef{L}{X7FC09F34870E6CDE}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ZigzagVector({\mdseries\slshape M})\index{ZigzagVector@\texttt{ZigzagVector}!for IsManiplex}
 \label{ZigzagVector:for IsManiplex}
@@ -5846,7 +5941,7 @@ Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the
  
 
 \subsection{\textcolor{Chapter }{PetrieLength (for IsManiplex)}}
-\logpage{[ 9, 5, 3 ]}\nobreak
+\logpage{[ 10, 5, 3 ]}\nobreak
 \hyperdef{L}{X7C4A38D780F6AECD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PetrieLength({\mdseries\slshape M})\index{PetrieLength@\texttt{PetrieLength}!for IsManiplex}
 \label{PetrieLength:for IsManiplex}
@@ -5868,7 +5963,7 @@ The length of the petrie polygons of the maniplex \mbox{\texttt{\mdseries\slshap
  
 
 \subsection{\textcolor{Chapter }{PetrieRelation (for IsInt, IsInt)}}
-\logpage{[ 9, 5, 4 ]}\nobreak
+\logpage{[ 10, 5, 4 ]}\nobreak
 \hyperdef{L}{X7C93C4708678EB87}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PetrieRelation({\mdseries\slshape i, j})\index{PetrieRelation@\texttt{PetrieRelation}!for IsInt, IsInt}
 \label{PetrieRelation:for IsInt, IsInt}
@@ -5892,7 +5987,7 @@ relation
  
 
 \subsection{\textcolor{Chapter }{HoleLength (for IsManiplex, IsInt)}}
-\logpage{[ 9, 5, 5 ]}\nobreak
+\logpage{[ 10, 5, 5 ]}\nobreak
 \hyperdef{L}{X80FF41567B259CC1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleLength({\mdseries\slshape M, j})\index{HoleLength@\texttt{HoleLength}!for IsManiplex, IsInt}
 \label{HoleLength:for IsManiplex, IsInt}
@@ -5913,7 +6008,7 @@ r2)\texttt{\symbol{94}}(j-1) r2. }
  
 
 \subsection{\textcolor{Chapter }{HoleVector (for IsManiplex)}}
-\logpage{[ 9, 5, 6 ]}\nobreak
+\logpage{[ 10, 5, 6 ]}\nobreak
 \hyperdef{L}{X7EE84DCF7EFC02C6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HoleVector({\mdseries\slshape M})\index{HoleVector@\texttt{HoleVector}!for IsManiplex}
 \label{HoleVector:for IsManiplex}
@@ -5938,18 +6033,18 @@ Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the
 
    
 \chapter{\textcolor{Chapter }{Graphs for Maniplexes}}\label{Chapter_Graphs_for_Maniplexes}
-\logpage{[ 10, 0, 0 ]}
+\logpage{[ 11, 0, 0 ]}
 \hyperdef{L}{X84DE212D847339C0}{}
 {
   
 \section{\textcolor{Chapter }{Graph families}}\label{Chapter_Graphs_for_Maniplexes_Section_Graph_families}
-\logpage{[ 10, 1, 0 ]}
+\logpage{[ 11, 1, 0 ]}
 \hyperdef{L}{X8533D8D97CDE9DF1}{}
 {
   
 
 \subsection{\textcolor{Chapter }{HeawoodGraph}}
-\logpage{[ 10, 1, 1 ]}\nobreak
+\logpage{[ 11, 1, 1 ]}\nobreak
 \hyperdef{L}{X7DC6E7897C266B73}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{HeawoodGraph({\mdseries\slshape })\index{HeawoodGraph@\texttt{HeawoodGraph}}
 \label{HeawoodGraph}
@@ -5965,7 +6060,7 @@ https://www.distanceregular.org/graphs/heawood.html }
  
 
 \subsection{\textcolor{Chapter }{PetersenGraph}}
-\logpage{[ 10, 1, 2 ]}\nobreak
+\logpage{[ 11, 1, 2 ]}\nobreak
 \hyperdef{L}{X823F43217A6C375D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PetersenGraph({\mdseries\slshape })\index{PetersenGraph@\texttt{PetersenGraph}}
 \label{PetersenGraph}
@@ -5981,7 +6076,7 @@ https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm }
  
 
 \subsection{\textcolor{Chapter }{CirculantGraph (for IsInt,IsList)}}
-\logpage{[ 10, 1, 3 ]}\nobreak
+\logpage{[ 11, 1, 3 ]}\nobreak
 \hyperdef{L}{X7E247B6783FBF9F9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CirculantGraph({\mdseries\slshape int, list})\index{CirculantGraph@\texttt{CirculantGraph}!for IsInt,IsList}
 \label{CirculantGraph:for IsInt,IsList}
@@ -5998,7 +6093,7 @@ to v+i and v-i (mod n) }
  
 
 \subsection{\textcolor{Chapter }{CompleteBipartiteGraph (for IsInt,IsInt)}}
-\logpage{[ 10, 1, 4 ]}\nobreak
+\logpage{[ 11, 1, 4 ]}\nobreak
 \hyperdef{L}{X7D9F8CF285289177}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompleteBipartiteGraph({\mdseries\slshape int, list})\index{CompleteBipartiteGraph@\texttt{CompleteBipartiteGraph}!for IsInt,IsInt}
 \label{CompleteBipartiteGraph:for IsInt,IsInt}
@@ -6015,13 +6110,13 @@ K{\textunderscore}\texttt{\symbol{123}}n,m\texttt{\symbol{125}} }
 
  
 \section{\textcolor{Chapter }{Graph constructors for maniplexes}}\label{Chapter_Graphs_for_Maniplexes_Section_Graph_constructors_for_maniplexes}
-\logpage{[ 10, 2, 0 ]}
+\logpage{[ 11, 2, 0 ]}
 \hyperdef{L}{X8142EE7180458E04}{}
 {
   
 
 \subsection{\textcolor{Chapter }{DirectedGraphFromListOfEdges (for IsList,IsList)}}
-\logpage{[ 10, 2, 1 ]}\nobreak
+\logpage{[ 11, 2, 1 ]}\nobreak
 \hyperdef{L}{X7FB3733D81739F2C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectedGraphFromListOfEdges({\mdseries\slshape list, list})\index{DirectedGraphFromListOfEdges@\texttt{DirectedGraphFromListOfEdges}!for IsList,IsList}
 \label{DirectedGraphFromListOfEdges:for IsList,IsList}
@@ -6045,7 +6140,7 @@ directed-edge set. }
  
 
 \subsection{\textcolor{Chapter }{GraphFromListOfEdges (for IsList,IsList)}}
-\logpage{[ 10, 2, 2 ]}\nobreak
+\logpage{[ 11, 2, 2 ]}\nobreak
 \hyperdef{L}{X82810A0A7CF30BB4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GraphFromListOfEdges({\mdseries\slshape list, list})\index{GraphFromListOfEdges@\texttt{GraphFromListOfEdges}!for IsList,IsList}
 \label{GraphFromListOfEdges:for IsList,IsList}
@@ -6071,7 +6166,7 @@ vertex and directed-edge set. }
  
 
 \subsection{\textcolor{Chapter }{UnlabeledFlagGraph (for IsGroup)}}
-\logpage{[ 10, 2, 3 ]}\nobreak
+\logpage{[ 11, 2, 3 ]}\nobreak
 \hyperdef{L}{X86BE61C88420C6F6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UnlabeledFlagGraph({\mdseries\slshape group})\index{UnlabeledFlagGraph@\texttt{UnlabeledFlagGraph}!for IsGroup}
 \label{UnlabeledFlagGraph:for IsGroup}
@@ -6119,7 +6214,7 @@ cube.
  
 
 \subsection{\textcolor{Chapter }{FlagGraphWithLabels (for IsGroup)}}
-\logpage{[ 10, 2, 4 ]}\nobreak
+\logpage{[ 11, 2, 4 ]}\nobreak
 \hyperdef{L}{X791AEF1C7AA7138C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagGraphWithLabels({\mdseries\slshape group})\index{FlagGraphWithLabels@\texttt{FlagGraphWithLabels}!for IsGroup}
 \label{FlagGraphWithLabels:for IsGroup}
@@ -6191,7 +6286,7 @@ cube.
  
 
 \subsection{\textcolor{Chapter }{LayerGraph (for IsGroup, IsInt, IsInt)}}
-\logpage{[ 10, 2, 5 ]}\nobreak
+\logpage{[ 11, 2, 5 ]}\nobreak
 \hyperdef{L}{X809815D08250B57F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LayerGraph({\mdseries\slshape [group, int, int]})\index{LayerGraph@\texttt{LayerGraph}!for IsGroup, IsInt, IsInt}
 \label{LayerGraph:for IsGroup, IsInt, IsInt}
@@ -6230,7 +6325,7 @@ faces and 12 edges of a cube.
  
 
 \subsection{\textcolor{Chapter }{Skeleton (for IsManiplex)}}
-\logpage{[ 10, 2, 6 ]}\nobreak
+\logpage{[ 11, 2, 6 ]}\nobreak
 \hyperdef{L}{X7BB443CD832DAC12}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Skeleton({\mdseries\slshape maniplex})\index{Skeleton@\texttt{Skeleton}!for IsManiplex}
 \label{Skeleton:for IsManiplex}
@@ -6250,7 +6345,7 @@ and the edges are the 1-faces. }
  
 
 \subsection{\textcolor{Chapter }{CoSkeleton (for IsManiplex)}}
-\logpage{[ 10, 2, 7 ]}\nobreak
+\logpage{[ 11, 2, 7 ]}\nobreak
 \hyperdef{L}{X85F3D43E7D1BA8E5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CoSkeleton({\mdseries\slshape maniplex})\index{CoSkeleton@\texttt{CoSkeleton}!for IsManiplex}
 \label{CoSkeleton:for IsManiplex}
@@ -6273,7 +6368,7 @@ skeleton of the icosahedron.
  
 
 \subsection{\textcolor{Chapter }{Hasse (for IsManiplex)}}
-\logpage{[ 10, 2, 8 ]}\nobreak
+\logpage{[ 11, 2, 8 ]}\nobreak
 \hyperdef{L}{X7A0FB13C7EF68CBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hasse({\mdseries\slshape group})\index{Hasse@\texttt{Hasse}!for IsManiplex}
 \label{Hasse:for IsManiplex}
@@ -6305,7 +6400,7 @@ maniplex.
  
 
 \subsection{\textcolor{Chapter }{QuotientByLabel (for IsObject,IsList, IsList, IsList)}}
-\logpage{[ 10, 2, 9 ]}\nobreak
+\logpage{[ 11, 2, 9 ]}\nobreak
 \hyperdef{L}{X860AACCF860A3F66}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientByLabel({\mdseries\slshape object, list, list, list})\index{QuotientByLabel@\texttt{QuotientByLabel}!for IsObject,IsList, IsList, IsList}
 \label{QuotientByLabel:for IsObject,IsList, IsList, IsList}
@@ -6339,7 +6434,7 @@ check that this new graph is bipartite.
  
 
 \subsection{\textcolor{Chapter }{EdgeLabeledGraphFromEdges (for IsList, IsList,IsList)}}
-\logpage{[ 10, 2, 10 ]}\nobreak
+\logpage{[ 11, 2, 10 ]}\nobreak
 \hyperdef{L}{X84FE2C317CFA6AFD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EdgeLabeledGraphFromEdges({\mdseries\slshape list, list, list})\index{EdgeLabeledGraphFromEdges@\texttt{EdgeLabeledGraphFromEdges}!for IsList, IsList,IsList}
 \label{EdgeLabeledGraphFromEdges:for IsList, IsList,IsList}
@@ -6365,7 +6460,7 @@ in labels 0,1.
  
 
 \subsection{\textcolor{Chapter }{EdgeLabeledGraphFromLabeledEdges (for IsList)}}
-\logpage{[ 10, 2, 11 ]}\nobreak
+\logpage{[ 11, 2, 11 ]}\nobreak
 \hyperdef{L}{X83DD0B547D5DDE35}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EdgeLabeledGraphFromLabeledEdges({\mdseries\slshape list})\index{EdgeLabeledGraphFromLabeledEdges@\texttt{EdgeLabeledGraphFromLabeledEdges}!for IsList}
 \label{EdgeLabeledGraphFromLabeledEdges:for IsList}
@@ -6387,7 +6482,7 @@ list. }
  
 
 \subsection{\textcolor{Chapter }{FlagGraph (for IsGroup)}}
-\logpage{[ 10, 2, 12 ]}\nobreak
+\logpage{[ 11, 2, 12 ]}\nobreak
 \hyperdef{L}{X7A958E7C821DD8F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagGraph({\mdseries\slshape group})\index{FlagGraph@\texttt{FlagGraph}!for IsGroup}
 \label{FlagGraph:for IsGroup}
@@ -6408,7 +6503,7 @@ The input could also be a maniplex, then the connection group is calculated. }
  
 
 \subsection{\textcolor{Chapter }{UnlabeledSimpleGraph (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 13 ]}\nobreak
+\logpage{[ 11, 2, 13 ]}\nobreak
 \hyperdef{L}{X82A8C3AD871EC6D7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UnlabeledSimpleGraph({\mdseries\slshape edge-labeled-graph})\index{UnlabeledSimpleGraph@\texttt{UnlabeledSimpleGraph}!for IsEdgeLabeledGraph}
 \label{UnlabeledSimpleGraph:for IsEdgeLabeledGraph}
@@ -6428,7 +6523,7 @@ with semi-edges, loops, and muliple-edges removed. }
  
 
 \subsection{\textcolor{Chapter }{EdgeLabelPreservingAutomorphismGroup (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 14 ]}\nobreak
+\logpage{[ 11, 2, 14 ]}\nobreak
 \hyperdef{L}{X84263C6C81AB458C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EdgeLabelPreservingAutomorphismGroup({\mdseries\slshape edge-labeled-graph})\index{EdgeLabelPreservingAutomorphismGroup@\texttt{Edge}\-\texttt{Label}\-\texttt{Preserving}\-\texttt{Automorphism}\-\texttt{Group}!for IsEdgeLabeledGraph}
 \label{EdgeLabelPreservingAutomorphismGroup:for IsEdgeLabeledGraph}
@@ -6452,7 +6547,7 @@ faster to compute. }
  
 
 \subsection{\textcolor{Chapter }{Simple (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 15 ]}\nobreak
+\logpage{[ 11, 2, 15 ]}\nobreak
 \hyperdef{L}{X7D7BF5608431FED8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Simple({\mdseries\slshape edge-labeled-graph})\index{Simple@\texttt{Simple}!for IsEdgeLabeledGraph}
 \label{Simple:for IsEdgeLabeledGraph}
@@ -6469,7 +6564,7 @@ edge label is retained if there are multiple edges. }
  
 
 \subsection{\textcolor{Chapter }{ConnectedComponents (for IsEdgeLabeledGraph, IsList)}}
-\logpage{[ 10, 2, 16 ]}\nobreak
+\logpage{[ 11, 2, 16 ]}\nobreak
 \hyperdef{L}{X8159C96B8757873F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectedComponents({\mdseries\slshape edge-labeled-graph})\index{ConnectedComponents@\texttt{ConnectedComponents}!for IsEdgeLabeledGraph, IsList}
 \label{ConnectedComponents:for IsEdgeLabeledGraph, IsList}
@@ -6492,7 +6587,7 @@ has labels 1,2,3) where edges of label 2 are removed, is a 4 cycle.
  
 
 \subsection{\textcolor{Chapter }{PRGraph (for IsGroup)}}
-\logpage{[ 10, 2, 17 ]}\nobreak
+\logpage{[ 11, 2, 17 ]}\nobreak
 \hyperdef{L}{X7A53CE8B820FD6A1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PRGraph({\mdseries\slshape group})\index{PRGraph@\texttt{PRGraph}!for IsGroup}
 \label{PRGraph:for IsGroup}
@@ -6518,7 +6613,7 @@ vertices).
  
 
 \subsection{\textcolor{Chapter }{CPRGraphFromGroups (for IsGroup,IsGroup)}}
-\logpage{[ 10, 2, 18 ]}\nobreak
+\logpage{[ 11, 2, 18 ]}\nobreak
 \hyperdef{L}{X85BBB22F8196DC0B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CPRGraphFromGroups({\mdseries\slshape group, subgroup})\index{CPRGraphFromGroups@\texttt{CPRGraphFromGroups}!for IsGroup,IsGroup}
 \label{CPRGraphFromGroups:for IsGroup,IsGroup}
@@ -6534,7 +6629,7 @@ group on cosets of the subgroup. }
  
 
 \subsection{\textcolor{Chapter }{AdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}
-\logpage{[ 10, 2, 19 ]}\nobreak
+\logpage{[ 11, 2, 19 ]}\nobreak
 \hyperdef{L}{X7E52D3CB7A84139A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdjacentVertices({\mdseries\slshape EdgeLabeledGraph, vertex})\index{AdjacentVertices@\texttt{AdjacentVertices}!for IsEdgeLabeledGraph, IsObject}
 \label{AdjacentVertices:for IsEdgeLabeledGraph, IsObject}
@@ -6550,7 +6645,7 @@ adjacent vertices. }
  
 
 \subsection{\textcolor{Chapter }{LabeledAdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}
-\logpage{[ 10, 2, 20 ]}\nobreak
+\logpage{[ 11, 2, 20 ]}\nobreak
 \hyperdef{L}{X78BAE96984A79ACD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledAdjacentVertices({\mdseries\slshape EdgeLabeledGraph, vertex})\index{LabeledAdjacentVertices@\texttt{LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject}
 \label{LabeledAdjacentVertices:for IsEdgeLabeledGraph, IsObject}
@@ -6566,7 +6661,7 @@ of adjacent vertices, and the labels of the corresponding edges. }
  
 
 \subsection{\textcolor{Chapter }{SemiEdges (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 21 ]}\nobreak
+\logpage{[ 11, 2, 21 ]}\nobreak
 \hyperdef{L}{X791A59B97A44470F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{SemiEdges@\texttt{SemiEdges}!for IsEdgeLabeledGraph}
 \label{SemiEdges:for IsEdgeLabeledGraph}
@@ -6581,7 +6676,7 @@ of adjacent vertices, and the labels of the corresponding edges. }
  
 
 \subsection{\textcolor{Chapter }{LabeledSemiEdges (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 22 ]}\nobreak
+\logpage{[ 11, 2, 22 ]}\nobreak
 \hyperdef{L}{X82490C307F022606}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledSemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{LabeledSemiEdges@\texttt{LabeledSemiEdges}!for IsEdgeLabeledGraph}
 \label{LabeledSemiEdges:for IsEdgeLabeledGraph}
@@ -6597,7 +6692,7 @@ and their labels }
  
 
 \subsection{\textcolor{Chapter }{LabeledDarts (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 23 ]}\nobreak
+\logpage{[ 11, 2, 23 ]}\nobreak
 \hyperdef{L}{X811C8FB3842D6D2E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape EdgeLabeledGraph})\index{LabeledDarts@\texttt{LabeledDarts}!for IsEdgeLabeledGraph}
 \label{LabeledDarts:for IsEdgeLabeledGraph}
@@ -6612,7 +6707,7 @@ and their labels }
  
 
 \subsection{\textcolor{Chapter }{DerivedGraph (for IsList,IsList,IsList)}}
-\logpage{[ 10, 2, 24 ]}\nobreak
+\logpage{[ 11, 2, 24 ]}\nobreak
 \hyperdef{L}{X8529379678912775}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DerivedGraph({\mdseries\slshape list, list, list})\index{DerivedGraph@\texttt{DerivedGraph}!for IsList,IsList,IsList}
 \label{DerivedGraph:for IsList,IsList,IsList}
@@ -6642,7 +6737,7 @@ an input }
  
 
 \subsection{\textcolor{Chapter }{ViewGraph (for IsEdgeLabeledGraph, IsString)}}
-\logpage{[ 10, 2, 25 ]}\nobreak
+\logpage{[ 11, 2, 25 ]}\nobreak
 \hyperdef{L}{X7FF9E3FC7DD66BA4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape EdgeLabeledGraph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsEdgeLabeledGraph, IsString}
 \label{ViewGraph:for IsEdgeLabeledGraph, IsString}
@@ -6658,7 +6753,7 @@ software. Currently mathematica and sage are supported. }
  
 
 \subsection{\textcolor{Chapter }{ViewGraph (for IsObject, IsString)}}
-\logpage{[ 10, 2, 26 ]}\nobreak
+\logpage{[ 11, 2, 26 ]}\nobreak
 \hyperdef{L}{X83990BFD7D887A02}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ViewGraph({\mdseries\slshape Graph, String})\index{ViewGraph@\texttt{ViewGraph}!for IsObject, IsString}
 \label{ViewGraph:for IsObject, IsString}
@@ -6674,7 +6769,7 @@ Currently mathematica and sage are supported. }
  
 
 \subsection{\textcolor{Chapter }{ConnectionGroup (for IsEdgeLabeledGraph)}}
-\logpage{[ 10, 2, 27 ]}\nobreak
+\logpage{[ 11, 2, 27 ]}\nobreak
 \hyperdef{L}{X8147A743805AD49D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroup({\mdseries\slshape F})\index{ConnectionGroup@\texttt{ConnectionGroup}!for IsEdgeLabeledGraph}
 \label{ConnectionGroup:for IsEdgeLabeledGraph}
@@ -6694,18 +6789,18 @@ maniplex. Some weird things could happen if it is not }
 
    
 \chapter{\textcolor{Chapter }{Databases}}\label{Chapter_Databases}
-\logpage{[ 11, 0, 0 ]}
+\logpage{[ 12, 0, 0 ]}
 \hyperdef{L}{X7EB183C3780A475B}{}
 {
   
 \section{\textcolor{Chapter }{Regular polyhedra}}\label{Chapter_Databases_Section_Regular_polyhedra}
-\logpage{[ 11, 1, 0 ]}
+\logpage{[ 12, 1, 0 ]}
 \hyperdef{L}{X8062E376879531A7}{}
 {
   Eventually we should put information here about where the data comes from. 
 
 \subsection{\textcolor{Chapter }{WriteManiplexesToFile}}
-\logpage{[ 11, 1, 1 ]}\nobreak
+\logpage{[ 12, 1, 1 ]}\nobreak
 \hyperdef{L}{X87BC7EE2835BE22A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WriteManiplexesToFile({\mdseries\slshape maniplexes, filename, attributeNames})\index{WriteManiplexesToFile@\texttt{WriteManiplexesToFile}}
 \label{WriteManiplexesToFile}
@@ -6718,7 +6813,7 @@ the attributes in \mbox{\texttt{\mdseries\slshape attributeNames}}. This calls \
  
 
 \subsection{\textcolor{Chapter }{ManiplexesFromFile}}
-\logpage{[ 11, 1, 2 ]}\nobreak
+\logpage{[ 12, 1, 2 ]}\nobreak
 \hyperdef{L}{X81B0523079986448}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ManiplexesFromFile({\mdseries\slshape filename})\index{ManiplexesFromFile@\texttt{ManiplexesFromFile}}
 \label{ManiplexesFromFile}
@@ -6735,7 +6830,7 @@ file. For example, \texttt{AbstractRegularPolytope} usually checks its input to 
  
 
 \subsection{\textcolor{Chapter }{DegeneratePolyhedra}}
-\logpage{[ 11, 1, 3 ]}\nobreak
+\logpage{[ 12, 1, 3 ]}\nobreak
 \hyperdef{L}{X7B2285CD79A7DF27}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DegeneratePolyhedra({\mdseries\slshape sizerange})\index{DegeneratePolyhedra@\texttt{DegeneratePolyhedra}}
 \label{DegeneratePolyhedra}
@@ -6759,7 +6854,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{FlatRegularPolyhedra}}
-\logpage{[ 11, 1, 4 ]}\nobreak
+\logpage{[ 12, 1, 4 ]}\nobreak
 \hyperdef{L}{X86869B8A80564ACF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlatRegularPolyhedra({\mdseries\slshape sizerange})\index{FlatRegularPolyhedra@\texttt{FlatRegularPolyhedra}}
 \label{FlatRegularPolyhedra}
@@ -6785,7 +6880,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{RegularToroidalPolyhedra44}}
-\logpage{[ 11, 1, 5 ]}\nobreak
+\logpage{[ 12, 1, 5 ]}\nobreak
 \hyperdef{L}{X8229CA838473FF2B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RegularToroidalPolyhedra44({\mdseries\slshape sizerange})\index{RegularToroidalPolyhedra44@\texttt{RegularToroidalPolyhedra44}}
 \label{RegularToroidalPolyhedra44}
@@ -6806,7 +6901,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{RegularToroidalPolyhedra36}}
-\logpage{[ 11, 1, 6 ]}\nobreak
+\logpage{[ 12, 1, 6 ]}\nobreak
 \hyperdef{L}{X783D35FD79C25457}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RegularToroidalPolyhedra36({\mdseries\slshape sizerange})\index{RegularToroidalPolyhedra36@\texttt{RegularToroidalPolyhedra36}}
 \label{RegularToroidalPolyhedra36}
@@ -6827,7 +6922,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SmallRegularPolyhedraFromFile}}
-\logpage{[ 11, 1, 7 ]}\nobreak
+\logpage{[ 12, 1, 7 ]}\nobreak
 \hyperdef{L}{X814F1BC07C480F5D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRegularPolyhedraFromFile({\mdseries\slshape sizerange})\index{SmallRegularPolyhedraFromFile@\texttt{SmallRegularPolyhedraFromFile}}
 \label{SmallRegularPolyhedraFromFile}
@@ -6855,7 +6950,7 @@ generators. }
  
 
 \subsection{\textcolor{Chapter }{SmallRegularPolyhedra}}
-\logpage{[ 11, 1, 8 ]}\nobreak
+\logpage{[ 12, 1, 8 ]}\nobreak
 \hyperdef{L}{X7BD5DABD833B9700}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRegularPolyhedra({\mdseries\slshape sizerange})\index{SmallRegularPolyhedra@\texttt{SmallRegularPolyhedra}}
 \label{SmallRegularPolyhedra}
@@ -6878,7 +6973,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SmallDegenerateRegular4Polytopes}}
-\logpage{[ 11, 1, 9 ]}\nobreak
+\logpage{[ 12, 1, 9 ]}\nobreak
 \hyperdef{L}{X8670A2B078096E46}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallDegenerateRegular4Polytopes({\mdseries\slshape sizerange})\index{SmallDegenerateRegular4Polytopes@\texttt{SmallDegenerateRegular4Polytopes}}
 \label{SmallDegenerateRegular4Polytopes}
@@ -6900,7 +6995,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SmallRegular4Polytopes}}
-\logpage{[ 11, 1, 10 ]}\nobreak
+\logpage{[ 12, 1, 10 ]}\nobreak
 \hyperdef{L}{X83C76844861B7B5A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallRegular4Polytopes({\mdseries\slshape sizerange})\index{SmallRegular4Polytopes@\texttt{SmallRegular4Polytopes}}
 \label{SmallRegular4Polytopes}
@@ -6920,7 +7015,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SmallChiralPolyhedra}}
-\logpage{[ 11, 1, 11 ]}\nobreak
+\logpage{[ 12, 1, 11 ]}\nobreak
 \hyperdef{L}{X7C5BEAD87A858EE7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiralPolyhedra({\mdseries\slshape sizerange})\index{SmallChiralPolyhedra@\texttt{SmallChiralPolyhedra}}
 \label{SmallChiralPolyhedra}
@@ -6943,7 +7038,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SmallChiral4Polytopes}}
-\logpage{[ 11, 1, 12 ]}\nobreak
+\logpage{[ 12, 1, 12 ]}\nobreak
 \hyperdef{L}{X85ED37A97CE7F77C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiral4Polytopes({\mdseries\slshape sizerange})\index{SmallChiral4Polytopes@\texttt{SmallChiral4Polytopes}}
 \label{SmallChiral4Polytopes}
@@ -6965,7 +7060,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SmallReflexible3Maniplexes}}
-\logpage{[ 11, 1, 13 ]}\nobreak
+\logpage{[ 12, 1, 13 ]}\nobreak
 \hyperdef{L}{X7ED0E4347B0192A6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallReflexible3Maniplexes({\mdseries\slshape sizerange})\index{SmallReflexible3Maniplexes@\texttt{SmallReflexible3Maniplexes}}
 \label{SmallReflexible3Maniplexes}
@@ -6980,7 +7075,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{SRP}}
-\logpage{[ 11, 1, 14 ]}\nobreak
+\logpage{[ 12, 1, 14 ]}\nobreak
 \hyperdef{L}{X78C0C8BD81743643}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SRP({\mdseries\slshape minsize, maxsize[, func1, val1, func2, val2, ...]})\index{SRP@\texttt{SRP}}
 \label{SRP}
@@ -7007,7 +7102,7 @@ this function is here as a proof-of-concept. }
  
 
 \subsection{\textcolor{Chapter }{SmallTwoOrbit3Maniplexes}}
-\logpage{[ 11, 1, 15 ]}\nobreak
+\logpage{[ 12, 1, 15 ]}\nobreak
 \hyperdef{L}{X7D30D2C37BD1B341}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallTwoOrbit3Maniplexes({\mdseries\slshape I, sizerange})\index{SmallTwoOrbit3Maniplexes@\texttt{SmallTwoOrbit3Maniplexes}}
 \label{SmallTwoOrbit3Maniplexes}
@@ -7029,13 +7124,13 @@ IsList
 
  
 \section{\textcolor{Chapter }{System internal representations}}\label{Chapter_Databases_Section_System_internal_representations}
-\logpage{[ 11, 2, 0 ]}
+\logpage{[ 12, 2, 0 ]}
 \hyperdef{L}{X84020A6879FBFF00}{}
 {
   
 
 \subsection{\textcolor{Chapter }{DatabaseString (for IsManiplex)}}
-\logpage{[ 11, 2, 1 ]}\nobreak
+\logpage{[ 12, 2, 1 ]}\nobreak
 \hyperdef{L}{X7B89A32E7D94769F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DatabaseString({\mdseries\slshape M})\index{DatabaseString@\texttt{DatabaseString}!for IsManiplex}
 \label{DatabaseString:for IsManiplex}
@@ -7050,7 +7145,7 @@ String
  
 
 \subsection{\textcolor{Chapter }{ManiplexFromDatabaseString (for IsString)}}
-\logpage{[ 11, 2, 2 ]}\nobreak
+\logpage{[ 12, 2, 2 ]}\nobreak
 \hyperdef{L}{X84FC221B80847F84}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ManiplexFromDatabaseString({\mdseries\slshape maniplexString})\index{ManiplexFromDatabaseString@\texttt{ManiplexFromDatabaseString}!for IsString}
 \label{ManiplexFromDatabaseString:for IsString}
@@ -7066,7 +7161,7 @@ represented. }
  
 
 \subsection{\textcolor{Chapter }{InterpolatedString (for IsString)}}
-\logpage{[ 11, 2, 3 ]}\nobreak
+\logpage{[ 12, 2, 3 ]}\nobreak
 \hyperdef{L}{X7D879C01845D4BE9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InterpolatedString({\mdseries\slshape str})\index{InterpolatedString@\texttt{InterpolatedString}!for IsString}
 \label{InterpolatedString:for IsString}
@@ -7100,18 +7195,18 @@ interpolated this way. }
 
    
 \chapter{\textcolor{Chapter }{Stratified Operations}}\label{Chapter_Stratified_Operations}
-\logpage{[ 12, 0, 0 ]}
+\logpage{[ 13, 0, 0 ]}
 \hyperdef{L}{X7B9A7024825B378C}{}
 {
   
 \section{\textcolor{Chapter }{Computational tools}}\label{Chapter_Stratified_Operations_Section_Computational_tools}
-\logpage{[ 12, 1, 0 ]}
+\logpage{[ 13, 1, 0 ]}
 \hyperdef{L}{X871D56AE7EFE6B58}{}
 {
   I should say something more here. 
 
 \subsection{\textcolor{Chapter }{ChunkMultiply (for IsList,IsList)}}
-\logpage{[ 12, 1, 1 ]}\nobreak
+\logpage{[ 13, 1, 1 ]}\nobreak
 \hyperdef{L}{X794A197182124FB1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChunkMultiply({\mdseries\slshape element1, element2})\index{ChunkMultiply@\texttt{ChunkMultiply}!for IsList,IsList}
 \label{ChunkMultiply:for IsList,IsList}
@@ -7130,7 +7225,7 @@ defined in \cite{PelWil18}.
  
 
 \subsection{\textcolor{Chapter }{ChunkPower (for IsList,IsInt)}}
-\logpage{[ 12, 1, 2 ]}\nobreak
+\logpage{[ 13, 1, 2 ]}\nobreak
 \hyperdef{L}{X858FD5C2809828C3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChunkPower({\mdseries\slshape element, integer})\index{ChunkPower@\texttt{ChunkPower}!for IsList,IsInt}
 \label{ChunkPower:for IsList,IsInt}
@@ -7146,7 +7241,7 @@ will compute the product of element with itself integer times. }
  
 
 \subsection{\textcolor{Chapter }{ChunkGeneratedGroupElements (for IsList, IsGroup)}}
-\logpage{[ 12, 1, 3 ]}\nobreak
+\logpage{[ 13, 1, 3 ]}\nobreak
 \hyperdef{L}{X81AD40D884608C3B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChunkGeneratedGroupElements({\mdseries\slshape list, group})\index{ChunkGeneratedGroupElements@\texttt{ChunkGeneratedGroupElements}!for IsList, IsGroup}
 \label{ChunkGeneratedGroupElements:for IsList, IsGroup}
@@ -7183,7 +7278,7 @@ suitable for taking ChunkMultiply and ChunkPower. }
  
 
 \subsection{\textcolor{Chapter }{ChunkGeneratedGroup (for IsList, IsPermGroup)}}
-\logpage{[ 12, 1, 4 ]}\nobreak
+\logpage{[ 13, 1, 4 ]}\nobreak
 \hyperdef{L}{X7E759EE8836E55E0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChunkGeneratedGroup({\mdseries\slshape list, group})\index{ChunkGeneratedGroup@\texttt{ChunkGeneratedGroup}!for IsList, IsPermGroup}
 \label{ChunkGeneratedGroup:for IsList, IsPermGroup}
@@ -7226,7 +7321,7 @@ elements from group. }
  
 
 \subsection{\textcolor{Chapter }{FullyStratifiedGroup (for IsList, IsGroup)}}
-\logpage{[ 12, 1, 5 ]}\nobreak
+\logpage{[ 13, 1, 5 ]}\nobreak
 \hyperdef{L}{X7C67C6B77C6C2114}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FullyStratifiedGroup({\mdseries\slshape list, group})\index{FullyStratifiedGroup@\texttt{FullyStratifiedGroup}!for IsList, IsGroup}
 \label{FullyStratifiedGroup:for IsList, IsGroup}
@@ -7272,18 +7367,18 @@ theoretical possibility). }
 
    
 \chapter{\textcolor{Chapter }{Maps On Surfaces}}\label{Chapter_Maps_On_Surfaces}
-\logpage{[ 13, 0, 0 ]}
+\logpage{[ 14, 0, 0 ]}
 \hyperdef{L}{X802F024B80294E55}{}
 {
   
 \section{\textcolor{Chapter }{Bicontactual regular maps}}\label{Chapter_Maps_On_Surfaces_Section_Bicontactual_regular_maps}
-\logpage{[ 13, 1, 0 ]}
+\logpage{[ 14, 1, 0 ]}
 \hyperdef{L}{X81AFCB8E84DB41DE}{}
 {
   The names for the maps in this section are from S.E. Wilson's \cite{Wil85}. 
 
 \subsection{\textcolor{Chapter }{Epsilonk (for IsInt)}}
-\logpage{[ 13, 1, 1 ]}\nobreak
+\logpage{[ 14, 1, 1 ]}\nobreak
 \hyperdef{L}{X871814FE7CC7B178}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Epsilonk({\mdseries\slshape k})\index{Epsilonk@\texttt{Epsilonk}!for IsInt}
 \label{Epsilonk:for IsInt}
@@ -7305,7 +7400,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{Deltak (for IsInt)}}
-\logpage{[ 13, 1, 2 ]}\nobreak
+\logpage{[ 14, 1, 2 ]}\nobreak
 \hyperdef{L}{X7F59553F84D04CAF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Deltak({\mdseries\slshape k})\index{Deltak@\texttt{Deltak}!for IsInt}
 \label{Deltak:for IsInt}
@@ -7327,7 +7422,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{Mk (for IsInt)}}
-\logpage{[ 13, 1, 3 ]}\nobreak
+\logpage{[ 14, 1, 3 ]}\nobreak
 \hyperdef{L}{X7876740785ECAF02}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mk({\mdseries\slshape k})\index{Mk@\texttt{Mk}!for IsInt}
 \label{Mk:for IsInt}
@@ -7348,7 +7443,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{MkPrime (for IsInt)}}
-\logpage{[ 13, 1, 4 ]}\nobreak
+\logpage{[ 14, 1, 4 ]}\nobreak
 \hyperdef{L}{X7DAE3F0686CA7AA5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MkPrime({\mdseries\slshape k})\index{MkPrime@\texttt{MkPrime}!for IsInt}
 \label{MkPrime:for IsInt}
@@ -7369,7 +7464,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{Bk2l (for IsInt,IsInt)}}
-\logpage{[ 13, 1, 5 ]}\nobreak
+\logpage{[ 14, 1, 5 ]}\nobreak
 \hyperdef{L}{X7EB8C646795CB285}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2l({\mdseries\slshape k, l})\index{Bk2l@\texttt{Bk2l}!for IsInt,IsInt}
 \label{Bk2l:for IsInt,IsInt}
@@ -7389,7 +7484,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{Bk2lStar (for IsInt,IsInt)}}
-\logpage{[ 13, 1, 6 ]}\nobreak
+\logpage{[ 14, 1, 6 ]}\nobreak
 \hyperdef{L}{X8592D83D87DFCF3F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2lStar({\mdseries\slshape k, l})\index{Bk2lStar@\texttt{Bk2lStar}!for IsInt,IsInt}
 \label{Bk2lStar:for IsInt,IsInt}
@@ -7410,13 +7505,13 @@ IsManiplex
 
  
 \section{\textcolor{Chapter }{Operations on reflexible maps}}\label{Chapter_Maps_On_Surfaces_Section_Operations_on_reflexible_maps}
-\logpage{[ 13, 2, 0 ]}
+\logpage{[ 14, 2, 0 ]}
 \hyperdef{L}{X80E866D6862E1FD0}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Opp (for IsMapOnSurface)}}
-\logpage{[ 13, 2, 1 ]}\nobreak
+\logpage{[ 14, 2, 1 ]}\nobreak
 \hyperdef{L}{X788A29017AE71302}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Opp({\mdseries\slshape map})\index{Opp@\texttt{Opp}!for IsMapOnSurface}
 \label{Opp:for IsMapOnSurface}
@@ -7436,7 +7531,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{Hole (for IsMapOnSurface,IsInt)}}
-\logpage{[ 13, 2, 2 ]}\nobreak
+\logpage{[ 14, 2, 2 ]}\nobreak
 \hyperdef{L}{X835627037B606BA9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Hole({\mdseries\slshape map, j})\index{Hole@\texttt{Hole}!for IsMapOnSurface,IsInt}
 \label{Hole:for IsMapOnSurface,IsInt}
@@ -7458,7 +7553,7 @@ of those orbits. }
 
  
 \section{\textcolor{Chapter }{Map properties}}\label{Chapter_Maps_On_Surfaces_Section_Map_properties}
-\logpage{[ 13, 3, 0 ]}
+\logpage{[ 14, 3, 0 ]}
 \hyperdef{L}{X7BF319E97DEC64D2}{}
 {
   \texttt{IsMapOnSurface} will test to see if you have rank 3 maniplex. 
@@ -7470,13 +7565,13 @@ of those orbits. }
 
  
 \section{\textcolor{Chapter }{Operations on maps}}\label{Chapter_Maps_On_Surfaces_Section_Operations_on_maps}
-\logpage{[ 13, 4, 0 ]}
+\logpage{[ 14, 4, 0 ]}
 \hyperdef{L}{X8688080A7A67C820}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Truncation (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 1 ]}\nobreak
+\logpage{[ 14, 4, 1 ]}\nobreak
 \hyperdef{L}{X836355A984E78063}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Truncation({\mdseries\slshape map})\index{Truncation@\texttt{Truncation}!for IsMapOnSurface}
 \label{Truncation:for IsMapOnSurface}
@@ -7502,7 +7597,7 @@ trunc{\textunderscore}map
  
 
 \subsection{\textcolor{Chapter }{Snub (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 2 ]}\nobreak
+\logpage{[ 14, 4, 2 ]}\nobreak
 \hyperdef{L}{X87314A378600B2D5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Snub({\mdseries\slshape M})\index{Snub@\texttt{Snub}!for IsMapOnSurface}
 \label{Snub:for IsMapOnSurface}
@@ -7531,7 +7626,7 @@ vertex figures. }
  
 
 \subsection{\textcolor{Chapter }{Chamfer (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 3 ]}\nobreak
+\logpage{[ 14, 4, 3 ]}\nobreak
 \hyperdef{L}{X781B0A0880BFD546}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Chamfer({\mdseries\slshape M})\index{Chamfer@\texttt{Chamfer}!for IsMapOnSurface}
 \label{Chamfer:for IsMapOnSurface}
@@ -7560,7 +7655,7 @@ chamfered{\textunderscore}map
  
 
 \subsection{\textcolor{Chapter }{Subdivision1 (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 4 ]}\nobreak
+\logpage{[ 14, 4, 4 ]}\nobreak
 \hyperdef{L}{X7E0E11CE7CF33FBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision1({\mdseries\slshape M})\index{Subdivision1@\texttt{Subdivision1}!for IsMapOnSurface}
 \label{Subdivision1:for IsMapOnSurface}
@@ -7583,7 +7678,7 @@ with two edges. For more information on the oriented version of this, see \cite{
  
 
 \subsection{\textcolor{Chapter }{Subdivision2 (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 5 ]}\nobreak
+\logpage{[ 14, 4, 5 ]}\nobreak
 \hyperdef{L}{X84F485127B8AD294}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivision2({\mdseries\slshape M})\index{Subdivision2@\texttt{Subdivision2}!for IsMapOnSurface}
 \label{Subdivision2:for IsMapOnSurface}
@@ -7603,7 +7698,7 @@ Su2
  
 
 \subsection{\textcolor{Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 6 ]}\nobreak
+\logpage{[ 14, 4, 6 ]}\nobreak
 \hyperdef{L}{X81B9A11C788E3BDF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BarycentricSubdivision({\mdseries\slshape M})\index{BarycentricSubdivision@\texttt{BarycentricSubdivision}!for IsMapOnSurface}
 \label{BarycentricSubdivision:for IsMapOnSurface}
@@ -7625,7 +7720,7 @@ barycentric{\textunderscore}subdivision
  
 
 \subsection{\textcolor{Chapter }{Leapfrog (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 7 ]}\nobreak
+\logpage{[ 14, 4, 7 ]}\nobreak
 \hyperdef{L}{X7A3AD3EA8594B99B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Leapfrog({\mdseries\slshape M})\index{Leapfrog@\texttt{Leapfrog}!for IsMapOnSurface}
 \label{Leapfrog:for IsMapOnSurface}
@@ -7647,7 +7742,7 @@ leapfrog
  
 
 \subsection{\textcolor{Chapter }{CombinatorialMap (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 8 ]}\nobreak
+\logpage{[ 14, 4, 8 ]}\nobreak
 \hyperdef{L}{X79B68D5E7D7B3E0D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CombinatorialMap({\mdseries\slshape M})\index{CombinatorialMap@\texttt{CombinatorialMap}!for IsMapOnSurface}
 \label{CombinatorialMap:for IsMapOnSurface}
@@ -7670,7 +7765,7 @@ taking the dual of the barycentric subdivision. }
  
 
 \subsection{\textcolor{Chapter }{Angle (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 9 ]}\nobreak
+\logpage{[ 14, 4, 9 ]}\nobreak
 \hyperdef{L}{X7B3BACF57D7513DB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Angle({\mdseries\slshape M})\index{Angle@\texttt{Angle}!for IsMapOnSurface}
 \label{Angle:for IsMapOnSurface}
@@ -7693,7 +7788,7 @@ medial. }
  
 
 \subsection{\textcolor{Chapter }{Gothic (for IsMapOnSurface)}}
-\logpage{[ 13, 4, 10 ]}\nobreak
+\logpage{[ 14, 4, 10 ]}\nobreak
 \hyperdef{L}{X8711070F7D6E5A54}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gothic({\mdseries\slshape M})\index{Gothic@\texttt{Gothic}!for IsMapOnSurface}
 \label{Gothic:for IsMapOnSurface}
@@ -7717,7 +7812,7 @@ same as taking the dual of the medial of the truncation of the map. }
 
  
 \section{\textcolor{Chapter }{Conway polyhedron operator notation}}\label{Chapter_Maps_On_Surfaces_Section_Conway_polyhedron_operator_notation}
-\logpage{[ 13, 5, 0 ]}
+\logpage{[ 14, 5, 0 ]}
 \hyperdef{L}{X805E812282DDDFD7}{}
 {
   We include here operators from Wikipedia that are not included above. 
@@ -7730,7 +7825,7 @@ This is another name for \texttt{Angle}.
  Another excellent source for information on these types of operations is \texttt{https://antitile.readthedocs.io/en/latest/conway.html}. Additional functions are described below. 
 
 \subsection{\textcolor{Chapter }{Reflection (for IsManiplex)}}
-\logpage{[ 13, 5, 1 ]}\nobreak
+\logpage{[ 14, 5, 1 ]}\nobreak
 \hyperdef{L}{X83324AFF8119E1E5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Reflection({\mdseries\slshape M})\index{Reflection@\texttt{Reflection}!for IsManiplex}
 \label{Reflection:for IsManiplex}
@@ -7754,7 +7849,7 @@ reflection
  
 
 \subsection{\textcolor{Chapter }{Kis (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 2 ]}\nobreak
+\logpage{[ 14, 5, 2 ]}\nobreak
 \hyperdef{L}{X78A66D6D8305AE37}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Kis({\mdseries\slshape M})\index{Kis@\texttt{Kis}!for IsMapOnSurface}
 \label{Kis:for IsMapOnSurface}
@@ -7776,7 +7871,7 @@ kis
  
 
 \subsection{\textcolor{Chapter }{Needle (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 3 ]}\nobreak
+\logpage{[ 14, 5, 3 ]}\nobreak
 \hyperdef{L}{X7854540981C5DEFF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Needle({\mdseries\slshape M})\index{Needle@\texttt{Needle}!for IsMapOnSurface}
 \label{Needle:for IsMapOnSurface}
@@ -7797,7 +7892,7 @@ and face centers to incident vertices. }
  
 
 \subsection{\textcolor{Chapter }{Zip (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 4 ]}\nobreak
+\logpage{[ 14, 5, 4 ]}\nobreak
 \hyperdef{L}{X79B10B59858AC7DD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Zip({\mdseries\slshape M})\index{Zip@\texttt{Zip}!for IsMapOnSurface}
 \label{Zip:for IsMapOnSurface}
@@ -7817,7 +7912,7 @@ zip
  
 
 \subsection{\textcolor{Chapter }{Ortho (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 5 ]}\nobreak
+\logpage{[ 14, 5, 5 ]}\nobreak
 \hyperdef{L}{X8057E86C80D2CDF3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Ortho({\mdseries\slshape M})\index{Ortho@\texttt{Ortho}!for IsMapOnSurface}
 \label{Ortho:for IsMapOnSurface}
@@ -7837,7 +7932,7 @@ ortho
  
 
 \subsection{\textcolor{Chapter }{Expand (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 6 ]}\nobreak
+\logpage{[ 14, 5, 6 ]}\nobreak
 \hyperdef{L}{X78991DD77E84C4B0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Expand({\mdseries\slshape M})\index{Expand@\texttt{Expand}!for IsMapOnSurface}
 \label{Expand:for IsMapOnSurface}
@@ -7858,7 +7953,7 @@ twice.). }
  
 
 \subsection{\textcolor{Chapter }{Gyro (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 7 ]}\nobreak
+\logpage{[ 14, 5, 7 ]}\nobreak
 \hyperdef{L}{X861A270578877B3E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Gyro({\mdseries\slshape M})\index{Gyro@\texttt{Gyro}!for IsMapOnSurface}
 \label{Gyro:for IsMapOnSurface}
@@ -7878,7 +7973,7 @@ gyro
  
 
 \subsection{\textcolor{Chapter }{Meta (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 8 ]}\nobreak
+\logpage{[ 14, 5, 8 ]}\nobreak
 \hyperdef{L}{X82F5D51786A870C2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Meta({\mdseries\slshape M})\index{Meta@\texttt{Meta}!for IsMapOnSurface}
 \label{Meta:for IsMapOnSurface}
@@ -7899,7 +7994,7 @@ join, and then the kis operation to the map). }
  
 
 \subsection{\textcolor{Chapter }{Bevel (for IsMapOnSurface)}}
-\logpage{[ 13, 5, 9 ]}\nobreak
+\logpage{[ 14, 5, 9 ]}\nobreak
 \hyperdef{L}{X861B355F7C050517}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bevel({\mdseries\slshape M})\index{Bevel@\texttt{Bevel}!for IsMapOnSurface}
 \label{Bevel:for IsMapOnSurface}
@@ -7921,13 +8016,13 @@ of a map.) }
 
  
 \section{\textcolor{Chapter }{Extended operations}}\label{Chapter_Maps_On_Surfaces_Section_Extended_operations}
-\logpage{[ 13, 6, 0 ]}
+\logpage{[ 14, 6, 0 ]}
 \hyperdef{L}{X8506DF867A281C52}{}
 {
   A number of these were introduced by George Hart. 
 
 \subsection{\textcolor{Chapter }{Subdivide (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 1 ]}\nobreak
+\logpage{[ 14, 6, 1 ]}\nobreak
 \hyperdef{L}{X7A95E5A883DC8FD9}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Subdivide({\mdseries\slshape M})\index{Subdivide@\texttt{Subdivide}!for IsMapOnSurface}
 \label{Subdivide:for IsMapOnSurface}
@@ -7949,7 +8044,7 @@ u
  
 
 \subsection{\textcolor{Chapter }{Propeller (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 2 ]}\nobreak
+\logpage{[ 14, 6, 2 ]}\nobreak
 \hyperdef{L}{X7C0D8A6C80DADA50}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Propeller({\mdseries\slshape M})\index{Propeller@\texttt{Propeller}!for IsMapOnSurface}
 \label{Propeller:for IsMapOnSurface}
@@ -7971,7 +8066,7 @@ propeller
  
 
 \subsection{\textcolor{Chapter }{Loft (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 3 ]}\nobreak
+\logpage{[ 14, 6, 3 ]}\nobreak
 \hyperdef{L}{X847513C879F0A048}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Loft({\mdseries\slshape M})\index{Loft@\texttt{Loft}!for IsMapOnSurface}
 \label{Loft:for IsMapOnSurface}
@@ -7993,7 +8088,7 @@ loft
  
 
 \subsection{\textcolor{Chapter }{Quinto (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 4 ]}\nobreak
+\logpage{[ 14, 6, 4 ]}\nobreak
 \hyperdef{L}{X7EE97C1484C3B167}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Quinto({\mdseries\slshape M})\index{Quinto@\texttt{Quinto}!for IsMapOnSurface}
 \label{Quinto:for IsMapOnSurface}
@@ -8013,7 +8108,7 @@ quinto
  
 
 \subsection{\textcolor{Chapter }{JoinLace (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 5 ]}\nobreak
+\logpage{[ 14, 6, 5 ]}\nobreak
 \hyperdef{L}{X7EEA28B57BE65A08}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinLace({\mdseries\slshape M})\index{JoinLace@\texttt{JoinLace}!for IsMapOnSurface}
 \label{JoinLace:for IsMapOnSurface}
@@ -8033,7 +8128,7 @@ join-lace
  
 
 \subsection{\textcolor{Chapter }{Lace (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 6 ]}\nobreak
+\logpage{[ 14, 6, 6 ]}\nobreak
 \hyperdef{L}{X784615747EFE7DB1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Lace({\mdseries\slshape M})\index{Lace@\texttt{Lace}!for IsMapOnSurface}
 \label{Lace:for IsMapOnSurface}
@@ -8053,7 +8148,7 @@ lace
  
 
 \subsection{\textcolor{Chapter }{Stake (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 7 ]}\nobreak
+\logpage{[ 14, 6, 7 ]}\nobreak
 \hyperdef{L}{X7E2A1B6380D9FF22}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Stake({\mdseries\slshape M})\index{Stake@\texttt{Stake}!for IsMapOnSurface}
 \label{Stake:for IsMapOnSurface}
@@ -8073,7 +8168,7 @@ stake
  
 
 \subsection{\textcolor{Chapter }{Whirl (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 8 ]}\nobreak
+\logpage{[ 14, 6, 8 ]}\nobreak
 \hyperdef{L}{X83A031F67C29740B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Whirl({\mdseries\slshape M})\index{Whirl@\texttt{Whirl}!for IsMapOnSurface}
 \label{Whirl:for IsMapOnSurface}
@@ -8095,7 +8190,7 @@ whirl
  
 
 \subsection{\textcolor{Chapter }{Volute (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 9 ]}\nobreak
+\logpage{[ 14, 6, 9 ]}\nobreak
 \hyperdef{L}{X7B16C9818423A481}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Volute({\mdseries\slshape M})\index{Volute@\texttt{Volute}!for IsMapOnSurface}
 \label{Volute:for IsMapOnSurface}
@@ -8117,7 +8212,7 @@ volute
  
 
 \subsection{\textcolor{Chapter }{JoinKisKis (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 10 ]}\nobreak
+\logpage{[ 14, 6, 10 ]}\nobreak
 \hyperdef{L}{X86520B207A4CC8ED}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinKisKis({\mdseries\slshape M})\index{JoinKisKis@\texttt{JoinKisKis}!for IsMapOnSurface}
 \label{JoinKisKis:for IsMapOnSurface}
@@ -8137,7 +8232,7 @@ joinkiskis
  
 
 \subsection{\textcolor{Chapter }{Cross (for IsMapOnSurface)}}
-\logpage{[ 13, 6, 11 ]}\nobreak
+\logpage{[ 14, 6, 11 ]}\nobreak
 \hyperdef{L}{X7B141EA9836E1759}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Cross({\mdseries\slshape M})\index{Cross@\texttt{Cross}!for IsMapOnSurface}
 \label{Cross:for IsMapOnSurface}
@@ -8160,18 +8255,18 @@ cross
 
    
 \chapter{\textcolor{Chapter }{Utility Functions}}\label{Chapter_Utility_Functions}
-\logpage{[ 14, 0, 0 ]}
+\logpage{[ 15, 0, 0 ]}
 \hyperdef{L}{X810FFB1C8035C8BE}{}
 {
   
 \section{\textcolor{Chapter }{System}}\label{Chapter_Utility_Functions_Section_System}
-\logpage{[ 14, 1, 0 ]}
+\logpage{[ 15, 1, 0 ]}
 \hyperdef{L}{X848461D08506A4A6}{}
 {
   
 
 \subsection{\textcolor{Chapter }{InfoRamp}}
-\logpage{[ 14, 1, 1 ]}\nobreak
+\logpage{[ 15, 1, 1 ]}\nobreak
 \hyperdef{L}{X863ECFAD85CFFCB0}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InfoRamp\index{InfoRamp@\texttt{InfoRamp}}
 \label{InfoRamp}
@@ -8184,13 +8279,13 @@ cross
 
  
 \section{\textcolor{Chapter }{Polytopes}}\label{Chapter_Utility_Functions_Section_Polytopes}
-\logpage{[ 14, 2, 0 ]}
+\logpage{[ 15, 2, 0 ]}
 \hyperdef{L}{X7B933C4686727183}{}
 {
   
 
 \subsection{\textcolor{Chapter }{AbstractPolytope}}
-\logpage{[ 14, 2, 1 ]}\nobreak
+\logpage{[ 15, 2, 1 ]}\nobreak
 \hyperdef{L}{X7D63A6087BD7F5F8}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AbstractPolytope({\mdseries\slshape args})\index{AbstractPolytope@\texttt{AbstractPolytope}}
 \label{AbstractPolytope}
@@ -8208,7 +8303,7 @@ Use \texttt{AbstractPolytopeNC} to assume that the output is polytopal and mark 
  
 
 \subsection{\textcolor{Chapter }{AbstractRegularPolytope}}
-\logpage{[ 14, 2, 2 ]}\nobreak
+\logpage{[ 15, 2, 2 ]}\nobreak
 \hyperdef{L}{X7C2837FB8174C8DC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AbstractRegularPolytope({\mdseries\slshape args})\index{AbstractRegularPolytope@\texttt{AbstractRegularPolytope}}
 \label{AbstractRegularPolytope}
@@ -8226,7 +8321,7 @@ Use \texttt{AbstractRegularPolytopeNC} to assume that the output is polytopal an
  
 
 \subsection{\textcolor{Chapter }{AbstractRotaryPolytope}}
-\logpage{[ 14, 2, 3 ]}\nobreak
+\logpage{[ 15, 2, 3 ]}\nobreak
 \hyperdef{L}{X79AB055B7DDFB160}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AbstractRotaryPolytope({\mdseries\slshape args})\index{AbstractRotaryPolytope@\texttt{AbstractRotaryPolytope}}
 \label{AbstractRotaryPolytope}
@@ -8240,13 +8335,13 @@ Use \texttt{AbstractRotaryPolytopeNC} to assume that the output is polytopal and
 
  
 \section{\textcolor{Chapter }{Permutations}}\label{Chapter_Utility_Functions_Section_Permutations}
-\logpage{[ 14, 3, 0 ]}
+\logpage{[ 15, 3, 0 ]}
 \hyperdef{L}{X80F808307A2D5AB8}{}
 {
   
 
 \subsection{\textcolor{Chapter }{TranslatePerm}}
-\logpage{[ 14, 3, 1 ]}\nobreak
+\logpage{[ 15, 3, 1 ]}\nobreak
 \hyperdef{L}{X7CDF25897D4DBE57}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TranslatePerm({\mdseries\slshape perm, k})\index{TranslatePerm@\texttt{TranslatePerm}}
 \label{TranslatePerm}
@@ -8263,7 +8358,7 @@ Use \texttt{AbstractRotaryPolytopeNC} to assume that the output is polytopal and
  
 
 \subsection{\textcolor{Chapter }{MultPerm}}
-\logpage{[ 14, 3, 2 ]}\nobreak
+\logpage{[ 15, 3, 2 ]}\nobreak
 \hyperdef{L}{X83788BBF7EF52486}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MultPerm({\mdseries\slshape perm, multiplier, offset})\index{MultPerm@\texttt{MultPerm}}
 \label{MultPerm}
@@ -8283,7 +8378,7 @@ offset*2), ..., with \mbox{\texttt{\mdseries\slshape multiplier}} terms, and ret
  
 
 \subsection{\textcolor{Chapter }{InvolutionListList}}
-\logpage{[ 14, 3, 3 ]}\nobreak
+\logpage{[ 15, 3, 3 ]}\nobreak
 \hyperdef{L}{X789F611179773CEA}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{InvolutionListList({\mdseries\slshape list1, list2})\index{InvolutionListList@\texttt{InvolutionListList}}
 \label{InvolutionListList}
@@ -8303,7 +8398,7 @@ involution
  
 
 \subsection{\textcolor{Chapter }{PermFromRange (for IsPerm, IsPerm, IsPerm)}}
-\logpage{[ 14, 3, 4 ]}\nobreak
+\logpage{[ 15, 3, 4 ]}\nobreak
 \hyperdef{L}{X8738B70283F40353}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PermFromRange({\mdseries\slshape perm1[, perm2], perm3})\index{PermFromRange@\texttt{PermFromRange}!for IsPerm, IsPerm, IsPerm}
 \label{PermFromRange:for IsPerm, IsPerm, IsPerm}
@@ -8333,13 +8428,13 @@ Permutation
 
  
 \section{\textcolor{Chapter }{Words on relations}}\label{Chapter_Utility_Functions_Section_Words_on_relations}
-\logpage{[ 14, 4, 0 ]}
+\logpage{[ 15, 4, 0 ]}
 \hyperdef{L}{X8375E2157FA5BA5B}{}
 {
   
 
 \subsection{\textcolor{Chapter }{ParseStringCRels}}
-\logpage{[ 14, 4, 1 ]}\nobreak
+\logpage{[ 15, 4, 1 ]}\nobreak
 \hyperdef{L}{X7E84DB4E8746344A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseStringCRels({\mdseries\slshape rels, g})\index{ParseStringCRels@\texttt{ParseStringCRels}}
 \label{ParseStringCRels}
@@ -8368,7 +8463,7 @@ zj means r0 (r1 r2)\texttt{\symbol{94}}j (the "j-zigzag" word) and hj means r0
  
 
 \subsection{\textcolor{Chapter }{ParseRotGpRels}}
-\logpage{[ 14, 4, 2 ]}\nobreak
+\logpage{[ 15, 4, 2 ]}\nobreak
 \hyperdef{L}{X79C6D76380B9F364}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseRotGpRels({\mdseries\slshape rels, g})\index{ParseRotGpRels@\texttt{ParseRotGpRels}}
 \label{ParseRotGpRels}
@@ -8381,7 +8476,7 @@ to ParseStringCRels, but for rotation groups instead. }
  
 
 \subsection{\textcolor{Chapter }{AddOrAppend}}
-\logpage{[ 14, 4, 3 ]}\nobreak
+\logpage{[ 15, 4, 3 ]}\nobreak
 \hyperdef{L}{X829B5DA779342A28}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AddOrAppend({\mdseries\slshape L, x})\index{AddOrAppend@\texttt{AddOrAppend}}
 \label{AddOrAppend}
@@ -8405,7 +8500,7 @@ will append the characters 'f', 'o', 'o'.
  
 
 \subsection{\textcolor{Chapter }{WrappedPosetOperation}}
-\logpage{[ 14, 4, 4 ]}\nobreak
+\logpage{[ 15, 4, 4 ]}\nobreak
 \hyperdef{L}{X7C4A431283A32F67}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WrappedPosetOperation({\mdseries\slshape posetOp})\index{WrappedPosetOperation@\texttt{WrappedPosetOperation}}
 \label{WrappedPosetOperation}
@@ -8430,7 +8525,7 @@ maniplexes the way one expects. }
  
 
 \subsection{\textcolor{Chapter }{MarkAsPolytopal (for IsManiplex)}}
-\logpage{[ 14, 4, 5 ]}\nobreak
+\logpage{[ 15, 4, 5 ]}\nobreak
 \hyperdef{L}{X86B884FA7C22BC92}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MarkAsPolytopal({\mdseries\slshape M})\index{MarkAsPolytopal@\texttt{MarkAsPolytopal}!for IsManiplex}
 \label{MarkAsPolytopal:for IsManiplex}
@@ -8445,7 +8540,7 @@ maniplexes the way one expects. }
 
    
 \chapter{\textcolor{Chapter }{Synonyms for Commands}}\label{Chapter_Synonyms_for_Commands}
-\logpage{[ 15, 0, 0 ]}
+\logpage{[ 16, 0, 0 ]}
 \hyperdef{L}{X8019D74C7EBB499C}{}
 {
   Here we list, in alphabetical order, synonyms for common commands. 
@@ -8470,18 +8565,18 @@ maniplexes the way one expects. }
 
    
 \chapter{\textcolor{Chapter }{Voltage Graphs and Operations}}\label{Chapter_Voltage_Graphs_and_Operations}
-\logpage{[ 16, 0, 0 ]}
+\logpage{[ 17, 0, 0 ]}
 \hyperdef{L}{X8150D23C7BD686A4}{}
 {
   
 \section{\textcolor{Chapter }{Voltage Operator}}\label{Chapter_Voltage_Graphs_and_Operations_Section_Voltage_Operator}
-\logpage{[ 16, 1, 0 ]}
+\logpage{[ 17, 1, 0 ]}
 \hyperdef{L}{X7EDB00697FB48C33}{}
 {
   
 
 \subsection{\textcolor{Chapter }{VoltageOperator (for IsList, IsString,IsEdgeLabeledGraph)}}
-\logpage{[ 16, 1, 1 ]}\nobreak
+\logpage{[ 17, 1, 1 ]}\nobreak
 \hyperdef{L}{X8440AE1A7A45E3AD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageOperator({\mdseries\slshape etain, etaout, Xa})\index{VoltageOperator@\texttt{VoltageOperator}!for IsList, IsString,IsEdgeLabeledGraph}
 \label{VoltageOperator:for IsList, IsString,IsEdgeLabeledGraph}
@@ -8500,7 +8595,7 @@ operation is done to its flag graph. }
  
 
 \subsection{\textcolor{Chapter }{VoltageOperator (for IsList, IsString,IsManiplex)}}
-\logpage{[ 16, 1, 2 ]}\nobreak
+\logpage{[ 17, 1, 2 ]}\nobreak
 \hyperdef{L}{X7817A3787920523B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageOperator({\mdseries\slshape arg1, arg2, arg3})\index{VoltageOperator@\texttt{VoltageOperator}!for IsList, IsString,IsManiplex}
 \label{VoltageOperator:for IsList, IsString,IsManiplex}
@@ -8538,7 +8633,7 @@ operation is done to its flag graph. }
  
 
 \subsection{\textcolor{Chapter }{AdmissiblePerms (for IsInt, IsList)}}
-\logpage{[ 16, 1, 3 ]}\nobreak
+\logpage{[ 17, 1, 3 ]}\nobreak
 \hyperdef{L}{X87B717357AD16360}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdmissiblePerms({\mdseries\slshape n, I})\index{AdmissiblePerms@\texttt{AdmissiblePerms}!for IsInt, IsList}
 \label{AdmissiblePerms:for IsInt, IsList}
@@ -8561,7 +8656,7 @@ moved by ri for i in I. }
  
 
 \subsection{\textcolor{Chapter }{WythoffSTG (for IsInt, IsList)}}
-\logpage{[ 16, 1, 4 ]}\nobreak
+\logpage{[ 17, 1, 4 ]}\nobreak
 \hyperdef{L}{X7B45168A7EB410C2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffSTG({\mdseries\slshape n, I})\index{WythoffSTG@\texttt{WythoffSTG}!for IsInt, IsList}
 \label{WythoffSTG:for IsInt, IsList}
@@ -8585,7 +8680,7 @@ of indices. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES. }
  
 
 \subsection{\textcolor{Chapter }{WythoffLabeledEdges (for IsInt, IsList)}}
-\logpage{[ 16, 1, 5 ]}\nobreak
+\logpage{[ 17, 1, 5 ]}\nobreak
 \hyperdef{L}{X838E62987EA8CE63}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffLabeledEdges({\mdseries\slshape n, I})\index{WythoffLabeledEdges@\texttt{WythoffLabeledEdges}!for IsInt, IsList}
 \label{WythoffLabeledEdges:for IsInt, IsList}
@@ -8609,7 +8704,7 @@ their connection groups. }
  
 
 \subsection{\textcolor{Chapter }{WythoffVoltageOperator (for IsInt, IsList, IsManiplex)}}
-\logpage{[ 16, 1, 6 ]}\nobreak
+\logpage{[ 17, 1, 6 ]}\nobreak
 \hyperdef{L}{X79B4314B7EAE8598}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffVoltageOperator({\mdseries\slshape n, I, M})\index{WythoffVoltageOperator@\texttt{WythoffVoltageOperator}!for IsInt, IsList, IsManiplex}
 \label{WythoffVoltageOperator:for IsInt, IsList, IsManiplex}
@@ -8653,6 +8748,7 @@ IsList
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

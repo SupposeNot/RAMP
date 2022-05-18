@@ -1,107 +1,38 @@
   
-  [1X16 [33X[0;0YVoltage Graphs and Operations[133X[101X
+  [1X16 [33X[0;0YSynonyms for Commands[133X[101X
   
+  [33X[0;0YHere we list, in alphabetical order, synonyms for common commands.[133X
   
-  [1X16.1 [33X[0;0YVoltage Operator[133X[101X
+  [30X    [33X[0;6Y[10XAmbo[110X for [2XMedial[102X ([14XRAMP: Medial for ismaniplex[114X)[133X
   
-  [1X16.1-1 VoltageOperator[101X
+  [30X    [33X[0;6Y[10XAreIncidentFaces[110X  for  [2XAreIncidentElements[102X  ([14XRAMP: AreIncidentElements
+        for isobject,isobject[114X)[133X
   
-  [33X[1;0Y[29X[2XVoltageOperator[102X( [3Xetain[103X, [3Xetaout[103X, [3XXa[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [30X    [33X[0;6Y[10XARP[110X for [2XAbstractRegularPolytope[102X ([14XRAMP: AbstractRegularPolytope[114X)[133X
   
-  [33X[0;0YReturns  the  output  of  the  voltage  operator  acting  on  Xa.  Xa  is  a
-  n-premaniplex  as  an  edge  labeled  graph,  Y is a m-premaniplex. eta is a
-  voltage  assignment  on  the  darts of Y. etain is a list of all darts of Y.
-  etaout  is  a  string giving words in the universal sggi of rank n. If Xa is
-  given as a maniplex, the operation is done to its flag graph.[133X
+  [30X    [33X[0;6Y[10XFaces[110X for [2XElementsList[102X ([14XRAMP: ElementsList for isposet[114X)[133X
   
-  [1X16.1-2 VoltageOperator[101X
+  [30X    [33X[0;6Y[10XFacesList[110X for [2XElementsList[102X ([14XRAMP: ElementsList for isposet[114X)[133X
   
-  [33X[1;0Y[29X[2XVoltageOperator[102X( [3Xarg1[103X, [3Xarg2[103X, [3Xarg3[103X ) [32X operation[133X
+  [30X    [33X[0;6Y[10XFlags[110X for [2XMaximalChains[102X ([14XRAMP: MaximalChains for isposet[114X)[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[28XThe Petrial and the dual can be built using voltage operations[128X[104X
-    [4X[28XSimilarly for rank 3 other operations can be built this way.[128X[104X
-    [4X[28XSee VOLTAGE OPERATIONS ON MANIPLEXES by HUBARD, MOCHÁN, MONTERO[128X[104X
-    [4X[25Xgap>[125X [27Xetain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;[127X[104X
-    [4X[25Xgap>[125X [27Xetain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;[127X[104X
-    [4X[25Xgap>[125X [27Xetain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutPetrial:="[r0, r1 r3, r2, r3]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutDual:="[r3, r2, r1, r0]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutMedial:="[r1, r1, r0, r2, Id]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutLeapfrog:="[r1,r1,r2,r0,r0, , ]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutTruncation:="[r1, r1, r0, r2, r2,Id, Id]";;[127X[104X
-    [4X[25Xgap>[125X [27XPetrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XDual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XMedial(Dodecahedron()) = VoltageOperator(etain2, etaoutMedial, Dodecahedron());[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XLeapfrog(Simplex(3)) =  VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XTruncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
+  [30X    [33X[0;6Y[10XFlagsList[110X for [2XMaximalChains[102X ([14XRAMP: MaximalChains for isposet[114X)[133X
   
-  [1X16.1-3 AdmissiblePerms[101X
+  [30X    [33X[0;6Y[10XIsDiamondCondition[110X for [2XIsP4[102X ([14XRAMP: IsP4 for isposet[114X)[133X
   
-  [33X[1;0Y[29X[2XAdmissiblePerms[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
+  [30X    [33X[0;6Y[10XIsStronglyFlagConnected[110X for [2XIsP3[102X ([14XRAMP: IsP3 for isposet[114X)[133X
   
-  [33X[0;0YReturns  a  list  of  the  admissible  sequences that correspond to the flag
-  orbits  for a Wythoffian of a rank n maniplex. The vertex in the fundamental
-  region is moved by ri for i in I.[133X
+  [30X    [33X[0;6Y[10XMapJoin[110X for [2XAngle[102X ([14XRAMP: Angle for ismaponsurface[114X)[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[28XThere will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1][128X[104X
-    [4X[25Xgap>[125X [27XAdmissiblePerms(3,[0,1]);[127X[104X
-    [4X[28X [ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ][128X[104X
-  [4X[32X[104X
+  [30X    [33X[0;6Y[10XMonodromyGroup[110X   for   [2XConnectionGroup[102X   ([14XRAMP:   ConnectionGroup  for
+        ismaniplex[114X)[133X
   
-  [1X16.1-4 WythoffSTG[101X
+  [30X    [33X[0;6Y[10XNumberOfFlags[110X for [2XSize[102X ([14XRAMP: Size for ismaniplex[114X)[133X
   
-  [33X[1;0Y[29X[2XWythoffSTG[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
+  [30X    [33X[0;6Y[10XPetrieDual[110X for [2XPetrial[102X ([14XRAMP: Petrial for ismaniplex[114X)[133X
   
-  [33X[0;0YReturns the symmetry type graph for a Wythoffian of rank n defined by a list
-  of indices. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.[133X
+  [30X    [33X[0;6Y[10XRankPosetFaces[110X  for  [2XRankPosetElements[102X  ([14XRAMP:  RankPosetElements  for
+        isposet[114X)[133X
   
-  [4X[32X  Example  [32X[104X
-    [4X[28XSymmetry type graph of a medial operation[128X[104X
-    [4X[25Xgap>[125X [27XW:=WythoffSTG(3,[1]);[127X[104X
-    [4X[28XEdge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ][128X[104X
-    [4X[25Xgap>[125X [27XLabeledEdges(W);[127X[104X
-    [4X[28X[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ][128X[104X
-  [4X[32X[104X
-  
-  [1X16.1-5 WythoffLabeledEdges[101X
-  
-  [33X[1;0Y[29X[2XWythoffLabeledEdges[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
-  
-  [33X[0;0YReturns the labeled edges of a possible symmetry type graph for a Wythoffian
-  of rank n defined by a list of indices. The actual graph is not returned, as
-  we  require  edge  labeled  graphs  to  have  integer  vertices  in order to
-  calculate their connection groups.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[28XLabeled Edges of the Symmetry type graph of a medial operation[128X[104X
-    [4X[25Xgap>[125X [27XWythoffLabeledEdges(3,[1]);[127X[104X
-    [4X[28X[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ][128X[104X
-  [4X[32X[104X
-  
-  [1X16.1-6 WythoffVoltageOperator[101X
-  
-  [33X[1;0Y[29X[2XWythoffVoltageOperator[102X( [3Xn[103X, [3XI[103X, [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
-  
-  [33X[0;0YReturns the maniplex built from a voltage operation given a Wythoffian[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[28XTruncation built using voltages [128X[104X
-    [4X[25Xgap>[125X [27XW:=WythoffVoltageOperator(3,[0,1],Dodecahedron());[127X[104X
-    [4X[28X3-maniplex with 360 flags[128X[104X
-    [4X[25Xgap>[125X [27XW=Truncation(Dodecahedron());[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
+  [30X    [33X[0;6Y[10XRefMan[110X for [2XReflexibleManiplex[102X ([14XRAMP: ReflexibleManiplex[114X)[133X
   

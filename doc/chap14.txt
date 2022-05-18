@@ -1,199 +1,574 @@
   
-  [1X14 [33X[0;0YUtility Functions[133X[101X
+  [1X14 [33X[0;0YMaps On Surfaces[133X[101X
   
   
-  [1X14.1 [33X[0;0YSystem[133X[101X
+  [1X14.1 [33X[0;0YBicontactual regular maps[133X[101X
   
-  [1X14.1-1 InfoRamp[101X
+  [33X[0;0YThe names for the maps in this section are from S.E. Wilson's [Wil85].[133X
   
-  [33X[1;0Y[29X[2XInfoRamp[102X[32X info class[133X
+  [1X14.1-1 Epsilonk[101X
   
-  [33X[0;0YThe InfoClass for the Ramp package.[133X
+  [33X[1;0Y[29X[2XEpsilonk[102X( [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  
-  [1X14.2 [33X[0;0YPolytopes[133X[101X
-  
-  [1X14.2-1 AbstractPolytope[101X
-  
-  [33X[1;0Y[29X[2XAbstractPolytope[102X( [3Xargs[103X ) [32X function[133X
-  
-  [33X[0;0YCalls  [10XManiplex(args)[110X  and verifies whether the output is polytopal. If not,
-  this  throws  an  error. Use [10XAbstractPolytopeNC[110X to assume that the output is
-  polytopal and mark it as such.[133X
+  [33X[0;0YGiven  an  integer [3Xk[103X, gives the map [23X\epsilon_k[123X, which is [23X\{k,2\}_k[123X when [3Xk[103X is
+  even, and [23X\{k,2\}_{2k}[123X when [3Xk[103X is odd.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XAbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));[127X[104X
-    [4X[28XPgon(5)[128X[104X
+    [4X[25Xgap>[125X [27XEpsilonk(5);[127X[104X
+    [4X[28XAbstractRegularPolytope([ 5, 2 ])[128X[104X
+    [4X[25Xgap>[125X [27XEpsilonk(6);[127X[104X
+    [4X[28XAbstractRegularPolytope([ 6, 2 ])[128X[104X
   [4X[32X[104X
   
-  [1X14.2-2 AbstractRegularPolytope[101X
+  [1X14.1-2 Deltak[101X
   
-  [33X[1;0Y[29X[2XAbstractRegularPolytope[102X( [3Xargs[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XDeltak[102X( [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YCalls [10XReflexibleManiplex(args)[110X and verifies whether the output is polytopal.
-  If  not,  this throws an error. Use [10XAbstractRegularPolytopeNC[110X to assume that
-  the output is polytopal and mark it as such. Also available as [10XARP(args)[110X and
-  [10XARPNC(args)[110X.[133X
+  [33X[0;0YGiven  an  integer  [3Xk[103X, gives the map [23X\delta_k[123X, which is [23X\{2k,2\}/2[123X when [3Xk[103X is
+  even, and [23X\{2k,2\}_{k}[123X when [3Xk[103X is odd.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XPgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));[127X[104X
+    [4X[25Xgap>[125X [27XDeltak(5);[127X[104X
+    [4X[28XAbstractRegularPolytope([ 10, 2 ], "(r0 r1)^5 r2")[128X[104X
+    [4X[25Xgap>[125X [27XDeltak(6);[127X[104X
+    [4X[28XAbstractRegularPolytope([ 12, 2 ], "(r0 r1)^6 r2")[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-3 Mk[101X
+  
+  [33X[1;0Y[29X[2XMk[102X( [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven  an  integer  [3Xk[103X, gives the map [23XM_k[123X, which is [23X\{2k,2k\}_{1,0}[123X when [3Xk[103X is
+  even, and [23X\{2k,k\}_{2}[123X when [3Xk[103X is odd.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMk(5);Mk(6);[127X[104X
+    [4X[28XAbstractRegularPolytope([ 10, 5 ], "(r0 r1)^5 r0 = r2")[128X[104X
+    [4X[28XAbstractRegularPolytope([ 12, 12 ], "(r0 r1)^6 r0 = r2")[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-4 MkPrime[101X
+  
+  [33X[1;0Y[29X[2XMkPrime[102X( [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven  an  integer [3Xk[103X, gives the map [23XM'_k[123X, which is [23X\{k,k\}_2[123X when [3Xk[103X is even,
+  and [23X\{k,2k\}_{2}[123X when [3Xk[103X is odd. [10XMkPrime(k,i)[110X gives the map [23XM'_{k,i}[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMkPrime(5);MkPrime(6);[127X[104X
+    [4X[28XReflexibleManiplex([ 5, 10 ], "(r2*r1*(r0 r2))^5,z1^2")[128X[104X
+    [4X[28XReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-5 Bk2l[101X
+  
+  [33X[1;0Y[29X[2XBk2l[102X( [3Xk[103X, [3Xl[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven integers [3Xk,l[103X, gives the map [23XB(k,2l)[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XBk2l(4,5);[127X[104X
+    [4X[28X3-maniplex with 80 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-6 Bk2lStar[101X
+  
+  [33X[1;0Y[29X[2XBk2lStar[102X( [3Xk[103X, [3Xl[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven integers [3Xk,l[103X, gives the map [23XB^*(k,2l)[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XBk2lStar(5,7);[127X[104X
+    [4X[28X3-maniplex with 140 flags[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.2 [33X[0;0YOperations on reflexible maps[133X[101X
+  
+  [1X14.2-1 Opp[101X
+  
+  [33X[1;0Y[29X[2XOpp[102X( [3Xmap[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YForms the opposite map of the maniplex [3Xmap[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOpp(Bk2lStar(5,7));[127X[104X
+    [4X[28XPetrial(Dual(Petrial(3-maniplex with 140 flags)))[128X[104X
+  [4X[32X[104X
+  
+  [1X14.2-2 Hole[101X
+  
+  [33X[1;0Y[29X[2XHole[102X( [3Xmap[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven [3Xmap[103X and integer [23Xj[123X, will form the map [23XH_j(map)[123X. Note that if the action
+  of  [23X[r_0,(r_1  r_2)^{j-1} r_1, r_2][123X on the flags forms multiple orbits, then
+  the resulting map will be on just one of those orbits.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XHole(Bk2lStar(5,7),2);[127X[104X
+    [4X[28X3-maniplex with 140 flags[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.3 [33X[0;0YMap properties[133X[101X
+  
+  [33X[0;0Y[10XIsMapOnSurface[110X will test to see if you have rank 3 maniplex.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFiltered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);[127X[104X
+    [4X[28X[ HemiCube(3), Icosahedron() ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.4 [33X[0;0YOperations on maps[133X[101X
+  
+  [1X14.4-1 Truncation[101X
+  
+  [33X[1;0Y[29X[2XTruncation[102X( [3Xmap[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ytrunc_map[133X
+  
+  [33X[0;0YGiven a [3Xmap[103X on a surface, this function will return the truncation of [3Xmap[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Truncation(Simplex(3)));[127X[104X
+    [4X[28X[ [ 3, 6 ], 3 ][128X[104X
+    [4X[25Xgap>[125X [27XTruncatedTetrahedron()=Truncation(Simplex(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XTruncation(CrossPolytope(3))=TruncatedOctahedron();[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XTruncation(Cube(3))=TruncatedCube();[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X14.2-3 AbstractRotaryPolytope[101X
+  [1X14.4-2 Snub[101X
   
-  [33X[1;0Y[29X[2XAbstractRotaryPolytope[102X( [3Xargs[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XSnub[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ysnub_map[133X
   
-  [33X[0;0YCalls  [10XRotaryManiplex(args)[110X and verifies whether the output is polytopal. If
-  not,  this  throws an error. Use [10XAbstractRotaryPolytopeNC[110X to assume that the
-  output is polytopal and mark it as such.[133X
-  
-  
-  [1X14.3 [33X[0;0YPermutations[133X[101X
-  
-  [1X14.3-1 TranslatePerm[101X
-  
-  [33X[1;0Y[29X[2XTranslatePerm[102X( [3Xperm[103X, [3Xk[103X ) [32X function[133X
-  
-  [33X[0;0YReturns  a  new  permutation  obtained  from  [3Xperm[103X by adding k to each moved
-  point.[133X
+  [33X[0;0YReturns  the  snub of a given map; we require that the map have triangles as
+  vertex figures.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XTranslatePerm((1,2,3,4),5);[127X[104X
-    [4X[28X(6,7,8,9)[128X[104X
-  [4X[32X[104X
-  
-  [1X14.3-2 MultPerm[101X
-  
-  [33X[1;0Y[29X[2XMultPerm[102X( [3Xperm[103X, [3Xmultiplier[103X, [3Xoffset[103X ) [32X function[133X
-  
-  [33X[0;0YMultiplies  together  perm, TranslatePerm(perm, offset), TranslatePerm(perm,
-  offset*2), ..., with [3Xmultiplier[103X terms, and returns the result.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XMultPerm((1,2,3)(4,5,6),3,7);[127X[104X
-    [4X[28X(1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)[128X[104X
-    [4X[25Xgap>[125X [27XMultPerm((1,2,3,4),2,4);[127X[104X
-    [4X[28X(1,2,3,4)(5,6,7,8)[128X[104X
-  [4X[32X[104X
-  
-  [1X14.3-3 InvolutionListList[101X
-  
-  [33X[1;0Y[29X[2XInvolutionListList[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10Yinvolution[133X
-  
-  [33X[0;0YConstruction     the     involution    (when    possible)    with    entries
-  [10X(list1[i],list2[i])[110X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XInvolutionListList([3,4,5],[6,7,8]);[127X[104X
-    [4X[28X(3,6)(4,7)(5,8)[128X[104X
-  [4X[32X[104X
-  
-  [1X14.3-4 PermFromRange[101X
-  
-  [33X[1;0Y[29X[2XPermFromRange[102X( [3Xperm1[103X[, [3Xperm2[103X], [3Xperm3[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YPermutation[133X
-  
-  [33X[0;0YGiven  three  permutations, where [3Xperm2[103X and [3Xperm3[103X are translations of [3Xperm1[103X,
-  forms  the  permutation  that we would most likely denote by perm1 * perm2 *
-  ...  *  perm3.  Namely,  if  [3Xperm2[103X  is  a translation of [3Xperm1[103X by k, then we
-  successively  translate  by k until we get [3Xperm3[103X, and then we multiply those
-  permutations together.[133X
-  
-  [33X[0;0YWhen only two permutations are given, then [3Xperm2[103X is the smallest translation
-  of perm1 such that [10XSmallestMovedPoint(perm2) > LargestMovedPoint(perm1)[110X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XPermFromRange((1,2), (9,10));[127X[104X
-    [4X[28X(1,2)(3,4)(5,6)(7,8)(9,10)[128X[104X
-    [4X[25Xgap>[125X [27XPermFromRange((1,3), (13,15));[127X[104X
-    [4X[28X(1,3)(4,6)(7,9)(10,12)(13,15)[128X[104X
-    [4X[25Xgap>[125X [27XPermFromRange((2,3,4), (8,9,10));[127X[104X
-    [4X[28X(2,3,4)(5,6,7)(8,9,10)[128X[104X
-    [4X[25Xgap>[125X [27XPermFromRange((1,2), (101,102), (601,602));[127X[104X
-    [4X[28X(1,2)(101,102)(201,202)(301,302)(401,402)(501,502)(601,602)[128X[104X
-  [4X[32X[104X
-  
-  
-  [1X14.4 [33X[0;0YWords on relations[133X[101X
-  
-  [1X14.4-1 ParseStringCRels[101X
-  
-  [33X[1;0Y[29X[2XParseStringCRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10Ya list of relators[133X
-  
-  [33X[0;0YThis  helper  function  is  used  in  several maniplex constructors. Given a
-  string  [3Xrels[103X  that represents relations in an sggi, and an sggi g, returns a
-  list  of elements in the free group of g represented by [3Xrels[103X. These can then
-  be used to form a quotient of g.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(CubicTiling(2));;[127X[104X
-    [4X[25Xgap>[125X [27Xrels := "(r0 r1 r2 r1)^6";;[127X[104X
-    [4X[25Xgap>[125X [27Xnewrels := ParseStringCRels(rels, g);[127X[104X
-    [4X[28X[ (r0*r1*r2*r1)^6 ][128X[104X
-    [4X[25Xgap>[125X [27Xnewrels[1] in FreeGroupOfFpGroup(g);[127X[104X
+    [4X[25Xgap>[125X [27XSnub(Dodecahedron())=SnubDodecahedron();[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xg2 := FactorGroupFpGroupByRels(g, newrels);[127X[104X
-    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YFor convenience, you may use z1, z2, etc and h1, h2, etc in relations, where
-  zj  means  r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1
-  (the "j-hole" word).[133X
-  
-  [1X14.4-2 ParseRotGpRels[101X
-  
-  [33X[1;0Y[29X[2XParseRotGpRels[102X( [3Xrels[103X, [3Xg[103X ) [32X function[133X
-  
-  [33X[0;0YThis  helper  function  is  used  in  several  maniplex  constructors. It is
-  analogous to ParseStringCRels, but for rotation groups instead.[133X
-  
-  [1X14.4-3 AddOrAppend[101X
-  
-  [33X[1;0Y[29X[2XAddOrAppend[102X( [3XL[103X, [3Xx[103X ) [32X function[133X
-  
-  [33X[0;0YGiven  a  list  [3XL[103X  and  an object [3Xx[103X, this calls Append(L, x) if x is a list;
-  otherwise  it  calls  Add(L,  x).  Note  that  since  strings are internally
-  represented  as lists, AddOrAppend(L, "foo") will append the characters 'f',
-  'o', 'o'.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XL := [1, 2, 3];;[127X[104X
-    [4X[25Xgap>[125X [27XAddOrAppend(L, 4);[127X[104X
-    [4X[25Xgap>[125X [27XL;[127X[104X
-    [4X[28X[1, 2, 3, 4][128X[104X
-    [4X[25Xgap>[125X [27XAddOrAppend(L, [5, 6]);[127X[104X
-    [4X[25Xgap>[125X [27XL;[127X[104X
-    [4X[28X[1, 2, 3, 4, 5, 6];[128X[104X
-  [4X[32X[104X
-  
-  [1X14.4-4 WrappedPosetOperation[101X
-  
-  [33X[1;0Y[29X[2XWrappedPosetOperation[102X( [3XposetOp[103X ) [32X function[133X
-  
-  [33X[0;0YGiven  a  poset  operation,  creates  a  bare-bones  maniplex operation that
-  delegates to the poset operation.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xmyjoin := WrappedPosetOperation(JoinProduct);[127X[104X
-    [4X[28Xfunction( arg... ) ... end[128X[104X
-    [4X[25Xgap>[125X [27XM := myjoin(Pgon(4), Vertex());[127X[104X
-    [4X[28X3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XM = Pyramid(4);[127X[104X
+    [4X[25Xgap>[125X [27XSnub(Cube(3))=SnubCube();[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSnub(Simplex(3))=Icosahedron();[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSnub(CrossPolytope(3))=SnubCube();[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSnub(Dual(Cube(3)))=Reflection(Snub(Reflection(Cube(3))));[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YUsually, you will want to eventually create a fuller-featured wrapper of the
-  poset  operation  -- one that can infer more information from its arguments.
-  But  this  method  is  a  good way to quickly test whether a poset operation
-  works on maniplexes the way one expects.[133X
+  [1X14.4-3 Chamfer[101X
   
-  [1X14.4-5 MarkAsPolytopal[101X
+  [33X[1;0Y[29X[2XChamfer[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ychamfered_map[133X
   
-  [33X[1;0Y[29X[2XMarkAsPolytopal[102X( [3XM[103X ) [32X operation[133X
+  [33X[0;0YReturns the map obtained from the chamfering operation described in [dRF14][133X
   
-  [33X[0;0YSets  [10XIsPolytopal(M)[110X as true, and if necessary, changes [10XString(M)[110X to reflect
-  this.[133X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs0 := (4,5)(6,7)(8,9);;[127X[104X
+    [4X[25Xgap>[125X [27Xs1 := (2,6)(3,4)(5,7);;[127X[104X
+    [4X[25Xgap>[125X [27Xs2 := (1,2)(4,8)(5,9);;[127X[104X
+    [4X[25Xgap>[125X [27Xpoly := Group([s0,s1,s2]);;[127X[104X
+    [4X[25Xgap>[125X [27Xp:=ARP(poly);;[127X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(p);[127X[104X
+    [4X[28X[ 6, 3 ][128X[104X
+    [4X[25Xgap>[125X [27Xch:=Chamfer(p);[127X[104X
+    [4X[28X3-maniplex with 432 flags[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(ch);[127X[104X
+    [4X[28X[ 6, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-4 Subdivision1[101X
+  
+  [33X[1;0Y[29X[2XSubdivision1[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YSu1[133X
+  
+  [33X[0;0YReturns  the  One-dimensional subdivision of a map, which replaces each edge
+  with  two  edges.  For more information on the oriented version of this, see
+  [BPW17].[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm:=Subdivision1(Simplex(3));[127X[104X
+    [4X[28X3-maniplex with 48 flags[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(m);[127X[104X
+    [4X[28X[ 6, [ 2, 3 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-5 Subdivision2[101X
+  
+  [33X[1;0Y[29X[2XSubdivision2[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YSu2[133X
+  
+  [33X[0;0YReturns the two-dimensional subdivision of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Subdivision2(Cube(3)));[127X[104X
+    [4X[28X[ 3, [ 4, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-6 BarycentricSubdivision[101X
+  
+  [33X[1;0Y[29X[2XBarycentricSubdivision[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ybarycentric_subdivision[133X
+  
+  [33X[0;0YGives the barycentric subdivision of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm:=BarycentricSubdivision(Cube(3));;[127X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(m);NumberOfFacets(m);[127X[104X
+    [4X[28X[ 3, [ 4, 6, 8 ] ][128X[104X
+    [4X[28X48[128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-7 Leapfrog[101X
+  
+  [33X[1;0Y[29X[2XLeapfrog[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yleapfrog[133X
+  
+  [33X[0;0YGives the result of performing the leapfrog operation on a map on a surface[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLeapfrog(Dodecahedron());[127X[104X
+    [4X[28X3-maniplex with 360 flags[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ [ 5, 6 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-8 CombinatorialMap[101X
+  
+  [33X[1;0Y[29X[2XCombinatorialMap[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ycombinatorial_map[133X
+  
+  [33X[0;0YGives  the result of combinatorial operation on a map; this is equivalent to
+  taking the dual of the barycentric subdivision.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdges(Cube(3));[127X[104X
+    [4X[28X12[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdges(CombinatorialMap(Cube(3)));[127X[104X
+    [4X[28X72[128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-9 Angle[101X
+  
+  [33X[1;0Y[29X[2XAngle[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yangle_map[133X
+  
+  [33X[0;0YReturns the angle map of a map. This is equivalent to taking the dual of the
+  medial.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdges(ToroidalMap44([3,0]));[127X[104X
+    [4X[28X18[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdges(Angle(ToroidalMap44([3,0])));[127X[104X
+    [4X[28X36[128X[104X
+  [4X[32X[104X
+  
+  [1X14.4-10 Gothic[101X
+  
+  [33X[1;0Y[29X[2XGothic[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ygothic[133X
+  
+  [33X[0;0YReturns  the result of performing the gothic operation to a map. This is the
+  same as taking the dual of the medial of the truncation of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm:=AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6");;[127X[104X
+    [4X[25Xgap>[125X [27XNumberOfEdges(m); NumberOfEdges(Gothic(m));[127X[104X
+    [4X[28X27[128X[104X
+    [4X[28X162[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.5 [33X[0;0YConway polyhedron operator notation[133X[101X
+  
+  [33X[0;0YWe include here operators from Wikipedia that are not included above.[133X
+  
+  [30X    [33X[0;6Y[10XMapJoin[110X:  Creates  quadrilateral faces by placing a node in each face,
+        and  then  the  set  of edges are formed by the nodes corresponding to
+        incident vertex-face pairs. This is another name for [10XAngle[110X.[133X
+  
+  [30X    [33X[0;6Y[10XAmbo[110X: This is another name for [10XMedial[110X.[133X
+  
+  [33X[0;0YAnother  excellent  source  for  information on these types of operations is
+  [10Xhttps://antitile.readthedocs.io/en/latest/conway.html[110X.  Additional functions
+  are described below.[133X
+  
+  [1X14.5-1 Reflection[101X
+  
+  [33X[1;0Y[29X[2XReflection[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yreflection[133X
+  
+  [33X[0;0YReverses the orientation of a maniplex.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGyro(Dual(m))=Reflection(Gyro(Reflection(m)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReflection(m)=EnantiomorphicForm(m);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReflection(Truncation(m))=Truncation(EnantiomorphicForm(m));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-2 Kis[101X
+  
+  [33X[1;0Y[29X[2XKis[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ykis[133X
+  
+  [33X[0;0YReturns the Kis of the map, which erects a pyramid over each of the faces.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XKis(Cube(3));[127X[104X
+    [4X[28X3-maniplex with 144 flags[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ 3, [ 4, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-3 Needle[101X
+  
+  [33X[1;0Y[29X[2XNeedle[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yneedle[133X
+  
+  [33X[0;0YPerforms  the  needle  operation  to  the  map:  edges connect adjacent face
+  centers, and face centers to incident vertices.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Needle(Cube(3)));[127X[104X
+    [4X[28X[ 3, [ 3, 8 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-4 Zip[101X
+  
+  [33X[1;0Y[29X[2XZip[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yzip[133X
+  
+  [33X[0;0YReturns the zip of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XZip(Cube(3))=TruncatedOctahedron();[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-5 Ortho[101X
+  
+  [33X[1;0Y[29X[2XOrtho[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yortho[133X
+  
+  [33X[0;0YReturns the ortho of the map (this is the same as applying the join twice.).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Ortho(Cube(3)));[127X[104X
+    [4X[28X[ 4, [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-6 Expand[101X
+  
+  [33X[1;0Y[29X[2XExpand[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yexpand[133X
+  
+  [33X[0;0YReturns  the  expand  of  the  map  (this  is  the same as applying the ambo
+  operation twice.).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XExpand(Cube(3))=SmallRhombicuboctahedron();[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-7 Gyro[101X
+  
+  [33X[1;0Y[29X[2XGyro[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ygyro[133X
+  
+  [33X[0;0YReturns the gyro of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGyro(Dual(Cube(3)))=Gyro(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-8 Meta[101X
+  
+  [33X[1;0Y[29X[2XMeta[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymeta[133X
+  
+  [33X[0;0YConstructs  the  meta  of the given map. (This is the same as applying first
+  the join, and then the kis operation to the map).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSize(Cube(3))=NumberOfFacets(Meta(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.5-9 Bevel[101X
+  
+  [33X[1;0Y[29X[2XBevel[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ybevel[133X
+  
+  [33X[0;0YConstructs  the  bevel  of  a given map. (This is the same as truncating the
+  ambo of a map.)[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCombinatorialMap(Cube(3))=Bevel(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X14.6 [33X[0;0YExtended operations[133X[101X
+  
+  [33X[0;0YA number of these were introduced by George Hart.[133X
+  
+  [1X14.6-1 Subdivide[101X
+  
+  [33X[1;0Y[29X[2XSubdivide[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yu[133X
+  
+  [33X[0;0YReturns the subdivide (u) of [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XChamfer(Dual(Cube(3)))=Dual(Subdivide(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Subdivide(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-2 Propeller[101X
+  
+  [33X[1;0Y[29X[2XPropeller[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypropeller[133X
+  
+  [33X[0;0YConstructs the propeller of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(Propeller(Cube(3)))=Propeller(Dual(Cube(3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XDual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-3 Loft[101X
+  
+  [33X[1;0Y[29X[2XLoft[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yloft[133X
+  
+  [33X[0;0YConstructs the loft of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfFacets(Loft(Cube(3)));[127X[104X
+    [4X[28X30[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Loft(Cube(3)));[127X[104X
+    [4X[28X[ 4, [ 3, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-4 Quinto[101X
+  
+  [33X[1;0Y[29X[2XQuinto[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yquinto[133X
+  
+  [33X[0;0YConstructs the quinto of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Quinto(Cube(3)));[127X[104X
+    [4X[28X[ [ 4, 5 ], [ 3, 4 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-5 JoinLace[101X
+  
+  [33X[1;0Y[29X[2XJoinLace[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yjoin-lace[133X
+  
+  [33X[0;0YConstructs the join-lace of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(JoinLace(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 4, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-6 Lace[101X
+  
+  [33X[1;0Y[29X[2XLace[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ylace[133X
+  
+  [33X[0;0YConstructs the lace of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Lace(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 4, 9 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-7 Stake[101X
+  
+  [33X[1;0Y[29X[2XStake[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ystake[133X
+  
+  [33X[0;0YConstructs the stake of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Stake(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 4, 9 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-8 Whirl[101X
+  
+  [33X[1;0Y[29X[2XWhirl[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ywhirl[133X
+  
+  [33X[0;0YConstructs the whirl of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Whirl(Cube(3)));[127X[104X
+    [4X[28X[ [ 4, 6 ], 3 ]              ^[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Whirl(Icosahedron()));[127X[104X
+    [4X[28X[ [ 3, 6 ], [ 3, 5 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-9 Volute[101X
+  
+  [33X[1;0Y[29X[2XVolute[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yvolute[133X
+  
+  [33X[0;0YConstructs    the    volute    of   the   map.   This   is   equivalent   to
+  [10XDual(Whirl(Dual(M)))[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Volute(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 6 ] ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Volute(Dual(Cube(3))));[127X[104X
+    [4X[28X[ 3, [ 4, 6 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-10 JoinKisKis[101X
+  
+  [33X[1;0Y[29X[2XJoinKisKis[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yjoinkiskis[133X
+  
+  [33X[0;0YConstructs the join-kis-kis of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(JoinKisKis(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 3, 8, 9 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.6-11 Cross[101X
+  
+  [33X[1;0Y[29X[2XCross[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ycross[133X
+  
+  [33X[0;0YConstructs the cross of the map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Cross(Cube(3)));[127X[104X
+    [4X[28X[ [ 3, 4 ], [ 4, 6 ] ][128X[104X
+  [4X[32X[104X
   
