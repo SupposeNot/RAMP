@@ -76,7 +76,19 @@
     [4X[28X10[128X[104X
   [4X[32X[104X
   
-  [1X3.1-7 HemiCrossPolytope[101X
+  [1X3.1-7 Octahedron[101X
+  
+  [33X[1;0Y[29X[2XOctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the octahedron (3-cross-polytope).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOctahedron() = CrossPolytope(3)[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-8 HemiCrossPolytope[101X
   
   [33X[1;0Y[29X[2XHemiCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -88,7 +100,7 @@
     [4X[28X5[128X[104X
   [4X[32X[104X
   
-  [1X3.1-8 Simplex[101X
+  [1X3.1-9 Simplex[101X
   
   [33X[1;0Y[29X[2XSimplex[102X( [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -100,7 +112,19 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.1-9 CubicTiling[101X
+  [1X3.1-10 Tetrahedron[101X
+  
+  [33X[1;0Y[29X[2XTetrahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the tetrahedron (3-simplex).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTetrahedron() = Simplex(3)[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-11 CubicTiling[101X
   
   [33X[1;0Y[29X[2XCubicTiling[102X( [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -112,7 +136,7 @@
     [4X[28X[ 4, 3, 4 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-10 Dodecahedron[101X
+  [1X3.1-12 Dodecahedron[101X
   
   [33X[1;0Y[29X[2XDodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -124,7 +148,7 @@
     [4X[28XIcosahedron()[128X[104X
   [4X[32X[104X
   
-  [1X3.1-11 HemiDodecahedron[101X
+  [1X3.1-13 HemiDodecahedron[101X
   
   [33X[1;0Y[29X[2XHemiDodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -136,7 +160,7 @@
     [4X[28XReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")[128X[104X
   [4X[32X[104X
   
-  [1X3.1-12 Icosahedron[101X
+  [1X3.1-14 Icosahedron[101X
   
   [33X[1;0Y[29X[2XIcosahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -148,7 +172,7 @@
     [4X[28XDodecahedron()[128X[104X
   [4X[32X[104X
   
-  [1X3.1-13 HemiIcosahedron[101X
+  [1X3.1-15 HemiIcosahedron[101X
   
   [33X[1;0Y[29X[2XHemiIcosahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -160,7 +184,7 @@
     [4X[28X[ 6, 15, 10 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-14 SmallStellatedDodecahedron[101X
+  [1X3.1-16 SmallStellatedDodecahedron[101X
   
   [33X[1;0Y[29X[2XSmallStellatedDodecahedron[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -176,7 +200,7 @@
     [4X[28X120[128X[104X
   [4X[32X[104X
   
-  [1X3.1-15 24Cell[101X
+  [1X3.1-17 24Cell[101X
   
   [33X[1;0Y[29X[2X24Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -188,7 +212,7 @@
     [4X[28X[ 3, 4, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-16 Hemi24Cell[101X
+  [1X3.1-18 Hemi24Cell[101X
   
   [33X[1;0Y[29X[2XHemi24Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -200,7 +224,7 @@
     [4X[28X[ 3, 4, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-17 120Cell[101X
+  [1X3.1-19 120Cell[101X
   
   [33X[1;0Y[29X[2X120Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -212,7 +236,7 @@
     [4X[28X120[128X[104X
   [4X[32X[104X
   
-  [1X3.1-18 Hemi120Cell[101X
+  [1X3.1-20 Hemi120Cell[101X
   
   [33X[1;0Y[29X[2XHemi120Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -224,7 +248,7 @@
     [4X[28X60[128X[104X
   [4X[32X[104X
   
-  [1X3.1-19 600Cell[101X
+  [1X3.1-21 600Cell[101X
   
   [33X[1;0Y[29X[2X600Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -236,7 +260,7 @@
     [4X[28X120Cell()[128X[104X
   [4X[32X[104X
   
-  [1X3.1-20 Hemi600Cell[101X
+  [1X3.1-22 Hemi600Cell[101X
   
   [33X[1;0Y[29X[2XHemi600Cell[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -248,7 +272,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.1-21 BrucknerSphere[101X
+  [1X3.1-23 BrucknerSphere[101X
   
   [33X[1;0Y[29X[2XBrucknerSphere[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPoset[133X
@@ -260,7 +284,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.1-22 InternallySelfDualPolyhedron1[101X
+  [1X3.1-24 InternallySelfDualPolyhedron1[101X
   
   [33X[1;0Y[29X[2XInternallySelfDualPolyhedron1[102X( [3Xp[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
@@ -274,7 +298,7 @@
     [4X[28X[ 40, 40 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-23 InternallySelfDualPolyhedron2[101X
+  [1X3.1-25 InternallySelfDualPolyhedron2[101X
   
   [33X[1;0Y[29X[2XInternallySelfDualPolyhedron2[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X

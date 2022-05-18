@@ -107,6 +107,12 @@ InstallMethod(CrossPolytope,
 	return p;
 	end);
 
+InstallMethod(Octahedron,
+	[],
+	function()
+	return CrossPolytope(3);
+	end);
+	
 InstallMethod(HemiCrossPolytope,
 	[IsInt],
 	function(n)
@@ -148,6 +154,12 @@ InstallMethod(Simplex,
 	permgp := Group(List([1..n], i -> (i,i+1)));
 	SetAutomorphismGroupPermGroup(p, permgp);
 	return p;
+	end);
+	
+InstallMethod(Tetrahedron,
+	[],
+	function()
+	return Simplex(3);
 	end);
 	
 InstallMethod(CubicTiling,

@@ -54,6 +54,14 @@ DeclareOperation("CrossPolytope", [IsInt]);
 #! 10
 #! @EndExampleSession
 
+#! @Returns IsPolytope
+#! @Description Returns the octahedron (3-cross-polytope).
+DeclareOperation("Octahedron", []);
+#! @BeginExampleSession
+#! gap> Octahedron() = CrossPolytope(3)
+#! true
+#! @EndExampleSession
+
 #! @Arguments n
 #! @Returns IsPolytope
 #! @Description Returns the n-hemi-cross-polytope.
@@ -69,6 +77,14 @@ DeclareOperation("HemiCrossPolytope", [IsInt]);
 DeclareOperation("Simplex", [IsInt]);
 #! @BeginExampleSession
 #! gap> Petrial(Simplex(3))=HemiCube(3);
+#! true
+#! @EndExampleSession
+
+#! @Returns IsPolytope
+#! @Description Returns the tetrahedron (3-simplex).
+DeclareOperation("Tetrahedron", []);
+#! @BeginExampleSession
+#! gap> Tetrahedron() = Simplex(3)
 #! true
 #! @EndExampleSession
 

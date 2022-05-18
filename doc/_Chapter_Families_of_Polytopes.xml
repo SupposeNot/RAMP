@@ -104,6 +104,22 @@ gap> NumberOfVertices(CrossPolytope(5));
 
 
 <ManSection>
+  <Oper Arg="" Name="Octahedron" />
+ <Returns>IsPolytope
+</Returns>
+ <Description>
+Returns the octahedron (3-cross-polytope).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Octahedron() = CrossPolytope(3)
+true
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="n" Name="HemiCrossPolytope" Label="for IsInt"/>
  <Returns>IsPolytope
 </Returns>
@@ -131,6 +147,22 @@ Returns the n-simplex.
 
 <Example><![CDATA[
 gap> Petrial(Simplex(3))=HemiCube(3);
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="" Name="Tetrahedron" />
+ <Returns>IsPolytope
+</Returns>
+ <Description>
+Returns the tetrahedron (3-simplex).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Tetrahedron() = Simplex(3)
 true
 ]]></Example>
 
