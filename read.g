@@ -32,6 +32,7 @@ ReadPackage( "ramp", "lib/posetAttributes.gi");
 ReadPackage( "ramp", "lib/posetOperations.gi");
 ReadPackage( "ramp", "lib/posetElements.gi");
 ReadPackage( "ramp", "lib/poset.gi" );
+ReadPackage( "ramp", "lib/premaniplex.gi" );
 ReadPackage( "ramp", "lib/products.gi" );
 ReadPackage( "ramp", "lib/productsGH.gi");
 ReadPackage( "ramp", "lib/quotients.gi" );
