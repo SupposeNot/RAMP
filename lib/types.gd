@@ -42,6 +42,10 @@ DeclareSynonym("IsFaceOfPoset",IsElementOfPoset);
 DeclareCategory("IsEdgeLabeledGraph", IsObject);
 DeclareRepresentation("IsEdgeLabeledGraphListRep", IsComponentObjectRep and IsAttributeStoringRep,["vertices","edges","labels"]);
 
+#Premaniplex stuff
+DeclareCategory("IsPremaniplex", IsObject);
+DeclareRepresentation("IsPremaniplexConnGpRep", IsComponentObjectRep and IsAttributeStoringRep, ["conn_gp", "flags", "rank"]);
+DeclareRepresentation("IsPremaniplexGraphRep", IsComponentObjectRep and IsAttributeStoringRep, ["conn_gp", "flags", "rank"]);
 
 #Maps on surfaces stuff
 DeclareProperty("IsMapOnSurface", IsManiplex);
