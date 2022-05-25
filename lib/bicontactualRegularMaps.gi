@@ -13,7 +13,11 @@ InstallMethod(Deltak,
 	function(k)
 	local p;
 	if k<=0 then Error("Not an integer>0.");
-	else return ReflexibleManiplex([2*k,2],Concatenation("(r0 r1)^",String(k)," r2"));
+	else 
+		M := ReflexibleManiplex([2*k,2],Concatenation("(r0 r1)^",String(k)," r2"));
+		SetSize(M, 4*k);
+		SetIsPolytopal(M, false);
+		return M;
 	fi;
 	end);
 
@@ -22,10 +26,15 @@ InstallMethod(Mk,
 	function(k)
 	if k<=0 then Error("Not an integer >0");
 	elif k mod 2=0 then
-		return ReflexibleManiplex([2*k,2*k],Concatenation("(r0 r1)^",String(k)," r0 = r2"));
+		M := ReflexibleManiplex([2*k,2*k],Concatenation("(r0 r1)^",String(k)," r0 = r2"));
 	else
-		return ReflexibleManiplex([2*k, k], Concatenation("(r0 r1)^",String(k)," r0 = r2"));
+		M := ReflexibleManiplex([2*k, k], Concatenation("(r0 r1)^",String(k)," r0 = r2"));
 	fi;
+
+	SetSize(M, 4*k);
+	SetIsPolytopal(M, false);
+	return M;
+
 	end);
 
 #InstallMethod(MkPrime,
@@ -36,10 +45,18 @@ InstallMethod(MkPrime,
 	[IsInt],
 	function(k)
 	if IsEvenInt(k) then
-		return ReflexibleManiplex([k, k], "(r0 r1 r2)^2");
+		M := ReflexibleManiplex([k, k], "(r0 r1 r2)^2");
 	else
-		return ReflexibleManiplex([k, 2*k], "(r0 r1 r2)^2");
+		M := ReflexibleManiplex([k, 2*k], "(r0 r1 r2)^2");
 	fi;
+
+	SetSize(M, 4*k);
+	
+	# Only MkPrime(2) is polytopal
+	SetIsPolytopal(M, k = 2);
+
+	return M;
+
 	end);
 
 

@@ -20,9 +20,9 @@ DeclareOperation("Epsilonk",[IsInt]);
 DeclareOperation("Deltak",[IsInt]);
 #! @BeginExampleSession
 #! gap> Deltak(5);
-#! AbstractRegularPolytope([ 10, 2 ], "(r0 r1)^5 r2")
+#! ReflexibleManiplex([ 10, 2 ], "(r0 r1)^5 r2")
 #! gap> Deltak(6);
-#! AbstractRegularPolytope([ 12, 2 ], "(r0 r1)^6 r2")
+#! ReflexibleManiplex([ 12, 2 ], "(r0 r1)^6 r2")
 #! @EndExampleSession
 
 
@@ -32,8 +32,8 @@ DeclareOperation("Deltak",[IsInt]);
 DeclareOperation("Mk",[IsInt]);
 #! @BeginExampleSession
 #! gap> Mk(5);Mk(6);
-#! AbstractRegularPolytope([ 10, 5 ], "(r0 r1)^5 r0 = r2")
-#! AbstractRegularPolytope([ 12, 12 ], "(r0 r1)^6 r0 = r2")
+#! ReflexibleManiplex([ 10, 5 ], "(r0 r1)^5 r0 = r2")
+#! ReflexibleManiplex([ 12, 12 ], "(r0 r1)^6 r0 = r2")
 #! @EndExampleSession
 
 #! @Arguments k
