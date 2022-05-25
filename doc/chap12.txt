@@ -200,24 +200,26 @@
   supports  a [10Xmaxsize[110X of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
   returns maniplexes that are not polyhedra.[133X
   
-  [1X12.1-14 SRP[101X
+  [1X12.1-14 SmallReflexibleManiplexes[101X
   
-  [33X[1;0Y[29X[2XSRP[102X( [3Xminsize[103X, [3Xmaxsize[103X[, [3Xfunc1[103X, [3Xval1[103X, [3Xfunc2[103X, [3Xval2[103X, [3X...[103X] ) [32X function[133X
+  [33X[1;0Y[29X[2XSmallReflexibleManiplexes[102X( [3Xn[103X, [3Xsizerange[103X[, [3Xfilt1[103X, [3Xfilt2[103X, [3X...[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YReturns  a  list  of  all regular polyhedra with at least [3Xminsize[103X at at most
-  [3Xmaxsize[103X  flags. Optionally, you may include any number of pairs of functions
-  and  values,  in  which case this only returns those polyhedra such that the
-  given  functions  have  the  given  values.  The  name  of  this function is
-  temporary and this function is here as a proof-of-concept.[133X
+  [33X[0;0YFirst  finds  a list of all reflexible maniplexes of rank [3Xn[103X where the number
+  of  flags  is  in  [3Xsizerange[103X. Then applies the given filters and returns the
+  result.  Each  filter is either a function-value pair or a boolean function.
+  In  the  first  case,  we  keep only those maniplexes such that applying the
+  given  function  returns  the  given value. In the second case, we keep only
+  those maniplexes such that the given boolean function returns [10Xtrue[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSRP(1,200,SchlafliSymbol,[4,4]);[127X[104X
-    [4X[28X[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ][128X[104X
-    [4X[25Xgap>[125X [27XSRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);[127X[104X
-    [4X[28X[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ][128X[104X
-    [4X[25Xgap>[125X [27XSRP(1,32,p->SchlafliSymbol(p)[1], 4);[127X[104X
-    [4X[28X[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ][128X[104X
+    [4X[25Xgap>[125X [27XL := SmallReflexibleManiplexes(3, [100..200], IsPolytopal, [NumberOfVertices, 6]);;[127X[104X
+    [4X[25Xgap>[125X [27XSize(L);[127X[104X
+    [4X[28X14[128X[104X
+    [4X[25Xgap>[125X [27XForAll(L, IsPolytopal);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XList(L, NumberOfVertices);[127X[104X
+    [4X[28X[ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ][128X[104X
   [4X[32X[104X
   
   [1X12.1-15 SmallTwoOrbit3Maniplexes[101X

@@ -7074,30 +7074,32 @@ IsList
 
  
 
-\subsection{\textcolor{Chapter }{SRP}}
+\subsection{\textcolor{Chapter }{SmallReflexibleManiplexes}}
 \logpage{[ 12, 1, 14 ]}\nobreak
-\hyperdef{L}{X78C0C8BD81743643}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SRP({\mdseries\slshape minsize, maxsize[, func1, val1, func2, val2, ...]})\index{SRP@\texttt{SRP}}
-\label{SRP}
+\hyperdef{L}{X8082983086E31719}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallReflexibleManiplexes({\mdseries\slshape n, sizerange[, filt1, filt2, ...]})\index{SmallReflexibleManiplexes@\texttt{SmallReflexibleManiplexes}}
+\label{SmallReflexibleManiplexes}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
 IsList 
 
 
 
- Returns a list of all regular polyhedra with at least \mbox{\texttt{\mdseries\slshape minsize}} at at most \mbox{\texttt{\mdseries\slshape maxsize}} flags. Optionally, you may include any number of pairs of functions and
-values, in which case this only returns those polyhedra such that the given
-functions have the given values. The name of this function is temporary and
-this function is here as a proof-of-concept. }
+ First finds a list of all reflexible maniplexes of rank \mbox{\texttt{\mdseries\slshape n}} where the number of flags is in \mbox{\texttt{\mdseries\slshape sizerange}}. Then applies the given filters and returns the result. Each filter is either
+a function-value pair or a boolean function. In the first case, we keep only
+those maniplexes such that applying the given function returns the given
+value. In the second case, we keep only those maniplexes such that the given
+boolean function returns \texttt{true}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@SRP(1,200,SchlafliSymbol,[4,4]);|
-  [ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-  !gapprompt@gap>| !gapinput@SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);|
-  [ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-  !gapprompt@gap>| !gapinput@SRP(1,32,p->SchlafliSymbol(p)[1], 4);|
-  [ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+  !gapprompt@gap>| !gapinput@L := SmallReflexibleManiplexes(3, [100..200], IsPolytopal, [NumberOfVertices, 6]);;|
+  !gapprompt@gap>| !gapinput@Size(L);|
+  14
+  !gapprompt@gap>| !gapinput@ForAll(L, IsPolytopal);|
+  true
+  !gapprompt@gap>| !gapinput@List(L, NumberOfVertices);|
+  [ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ]
 \end{Verbatim}
  
 
@@ -7415,9 +7417,9 @@ IsManiplex
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@Deltak(5);|
-  AbstractRegularPolytope([ 10, 2 ], "(r0 r1)^5 r2")
+  ReflexibleManiplex([ 10, 2 ], "(r0 r1)^5 r2")
   !gapprompt@gap>| !gapinput@Deltak(6);|
-  AbstractRegularPolytope([ 12, 2 ], "(r0 r1)^6 r2")
+  ReflexibleManiplex([ 12, 2 ], "(r0 r1)^6 r2")
 \end{Verbatim}
  
 
@@ -7437,8 +7439,8 @@ IsManiplex
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@Mk(5);Mk(6);|
-  AbstractRegularPolytope([ 10, 5 ], "(r0 r1)^5 r0 = r2")
-  AbstractRegularPolytope([ 12, 12 ], "(r0 r1)^6 r0 = r2")
+  ReflexibleManiplex([ 10, 5 ], "(r0 r1)^5 r0 = r2")
+  ReflexibleManiplex([ 12, 12 ], "(r0 r1)^6 r0 = r2")
 \end{Verbatim}
  
 
@@ -8748,7 +8750,6 @@ IsList
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

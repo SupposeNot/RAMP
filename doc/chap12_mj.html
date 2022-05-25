@@ -41,7 +41,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7C5BEAD87A858EE7">12.1-11 SmallChiralPolyhedra</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X85ED37A97CE7F77C">12.1-12 SmallChiral4Polytopes</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7ED0E4347B0192A6">12.1-13 SmallReflexible3Maniplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X78C0C8BD81743643">12.1-14 SRP</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X8082983086E31719">12.1-14 SmallReflexibleManiplexes</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12_mj.html#X7D30D2C37BD1B341">12.1-15 SmallTwoOrbit3Maniplexes</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap12_mj.html#X84020A6879FBFF00">12.2 <span class="Heading">System internal representations</span></a>
@@ -262,23 +262,24 @@
 
 <p>Gives all regular 4-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 2000 or less. If the option <code class="code">nonpolytopal</code> is set, only returns maniplexes that are not polyhedra.</p>
 
-<p><a id="X78C0C8BD81743643" name="X78C0C8BD81743643"></a></p>
+<p><a id="X8082983086E31719" name="X8082983086E31719"></a></p>
 
-<h5>12.1-14 SRP</h5>
+<h5>12.1-14 SmallReflexibleManiplexes</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SRP</code>( <var class="Arg">minsize</var>, <var class="Arg">maxsize</var>[, <var class="Arg">func1</var>, <var class="Arg">val1</var>, <var class="Arg">func2</var>, <var class="Arg">val2</var>, <var class="Arg">...</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallReflexibleManiplexes</code>( <var class="Arg">n</var>, <var class="Arg">sizerange</var>[, <var class="Arg">filt1</var>, <var class="Arg">filt2</var>, <var class="Arg">...</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
 
-<p>Returns a list of all regular polyhedra with at least <var class="Arg">minsize</var> at at most <var class="Arg">maxsize</var> flags. Optionally, you may include any number of pairs of functions and values, in which case this only returns those polyhedra such that the given functions have the given values. The name of this function is temporary and this function is here as a proof-of-concept.</p>
+<p>First finds a list of all reflexible maniplexes of rank <var class="Arg">n</var> where the number of flags is in <var class="Arg">sizerange</var>. Then applies the given filters and returns the result. Each filter is either a function-value pair or a boolean function. In the first case, we keep only those maniplexes such that applying the given function returns the given value. In the second case, we keep only those maniplexes such that the given boolean function returns <code class="code">true</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4]);</span>
-[ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);</span>
-[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SRP(1,32,p-&gt;SchlafliSymbol(p)[1], 4);</span>
-[ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := SmallReflexibleManiplexes(3, [100..200], IsPolytopal, [NumberOfVertices, 6]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(L);</span>
+14
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll(L, IsPolytopal);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, NumberOfVertices);</span>
+[ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ]
 </pre></div>
 
 <p><a id="X7D30D2C37BD1B341" name="X7D30D2C37BD1B341"></a></p>
