@@ -11,7 +11,7 @@ InstallMethod(Epsilonk,
 InstallMethod(Deltak,
 	[IsInt],
 	function(k)
-	local p;
+	local M;
 	if k<=0 then Error("Not an integer>0.");
 	else 
 		M := ReflexibleManiplex([2*k,2],Concatenation("(r0 r1)^",String(k)," r2"));
@@ -24,6 +24,7 @@ InstallMethod(Deltak,
 InstallMethod(Mk,
 	[IsInt],
 	function(k)
+	local M;
 	if k<=0 then Error("Not an integer >0");
 	elif k mod 2=0 then
 		M := ReflexibleManiplex([2*k,2*k],Concatenation("(r0 r1)^",String(k)," r0 = r2"));
@@ -44,6 +45,7 @@ InstallMethod(Mk,
 InstallMethod(MkPrime,
 	[IsInt],
 	function(k)
+	local M;
 	if IsEvenInt(k) then
 		M := ReflexibleManiplex([k, k], "(r0 r1 r2)^2");
 	else

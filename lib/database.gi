@@ -556,8 +556,9 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 	
 	return manis;
 	end);
-	
-SmallReflexibleManiplexes := function(n, sizes, arg...)
+
+InstallGlobalFunction(SmallReflexibleManiplexes,
+	function(n, sizes, arg...)
 	local L, i, filter, filter_fn, filter_result;
 
 	if n = 3 then
@@ -581,7 +582,7 @@ SmallReflexibleManiplexes := function(n, sizes, arg...)
 	fi;
 
 	return L;
-	end;
+	end);
 
 
 #! @Arguments I, sizerange
