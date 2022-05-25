@@ -31,6 +31,7 @@ ReadPackage( "ramp", "lib/posetConstructors.gd");
 ReadPackage( "ramp", "lib/posetAttributes.gd");
 ReadPackage( "ramp", "lib/posetOperations.gd");
 ReadPackage( "ramp", "lib/posetElements.gd");
+ReadPackage( "ramp", "lib/premaniplex.gd" ); 
 ReadPackage( "ramp", "lib/products.gd" );
 ReadPackage( "ramp", "lib/productsGH.gd");
 ReadPackage( "ramp", "lib/quotients.gd" );
