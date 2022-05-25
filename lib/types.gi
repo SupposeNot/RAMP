@@ -2,6 +2,7 @@ BindGlobal("ManiplexFamily", NewFamily("Maniplexes", IsManiplex));
 BindGlobal("PosetFamily", NewFamily("Posets", IsPoset));
 BindGlobal("PosetElementFamily", NewFamily("PosetElements", IsObject));
 BindGlobal("EdgeLabeledGraphFamily", NewFamily("EdgeLabeledGraphs", IsEdgeLabeledGraph));
+BindGlobal("PremaniplexFamily", NewFamily("Premaniplexes", IsPremaniplex));
 
 
 InstallTrueMethod(IsReflexibleManiplex, IsManiplex and IsReflexible);
