@@ -557,15 +557,32 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 	return manis;
 	end);
 	
-InstallGlobalFunction(SRP,
-	function(minsize, maxsize, arg...)
-	local L, i;
-	L := SmallRegularPolyhedra([minsize, maxsize]);
-	for i in [1..Size(arg)/2] do
-		L := Filtered(L, x -> arg[2*i-1](x) = arg[2*i]);
-	od;
+SmallReflexibleManiplexes := function(n, sizes, arg...)
+	local L, i, filter, filter_fn, filter_result;
+
+	if n = 3 then
+		# For now, we assume sizes is [minsize, maxsize] or just maxsize
+		# Later we will expand to allow any set of sizes, and we'll rewrite the code below.
+		
+		# We should look for a few filters that help us get the data out more efficiently
+		# Polytopal, orientable, etc.
+		L := SmallReflexible3Maniplexes(sizes);
+		for filter in arg do
+			if IsList(filter) then
+				filter_fn := filter[1];
+				filter_result := filter[2];
+				L := Filtered(L, M -> filter_fn(M) = filter_result);
+			else
+				L := Filtered(L, filter);
+			fi;
+		od;
+	else
+		Error("Ranks other than 3 are currently unsupported.");
+	fi;
+
 	return L;
-	end);
+	end;
+
 
 #! @Arguments I, sizerange
 #! @Returns IsList

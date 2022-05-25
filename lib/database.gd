@@ -172,21 +172,23 @@ DeclareGlobalFunction("SmallChiral4Polytopes");
 #! are not polyhedra.
 DeclareGlobalFunction("SmallReflexible3Maniplexes");
 
-#! @Arguments minsize, maxsize[, func1, val1, func2, val2, ...]
+#! @Arguments n, sizerange[, filt1, filt2, ...]
 #! @Returns IsList
-#! @Description Returns a list of all regular polyhedra with at least <A>minsize</A>
-#! at at most <A>maxsize</A> flags. Optionally, you may include any number of pairs
-#! of functions and values, in which case this only returns those polyhedra such that
-#! the given functions have the given values.
-#! The name of this function is temporary and this function is here as a proof-of-concept.
-DeclareGlobalFunction("SRP");
+#! @Description First finds a list of all reflexible maniplexes of rank <A>n</A>
+#! where the number of flags is in <A>sizerange</A>. Then applies the given filters
+#! and returns the result. Each filter is either a function-value pair or a boolean
+#! function. In the first case, we keep only those maniplexes such that applying the
+#! given function returns the given value. In the second case, we keep only those
+#! maniplexes such that the given boolean function returns `true`.
+DeclareGlobalFunction("SmallReflexibleManiplexes");
 #! @BeginExampleSession
-#! gap> SRP(1,200,SchlafliSymbol,[4,4]);
-#! [ FlatOrientablyRegularPolyhedron(4,4,-1,1), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-#! gap> SRP(1,200,SchlafliSymbol,[4,4],IsFlat,false);
-#! [ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^4"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^6"), AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^5") ]
-#! gap> SRP(1,32,p->SchlafliSymbol(p)[1], 4);
-#! [ AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0 r1)^3 (r1 r2)^2"), FlatOrientablyRegularPolyhedron(4,4,-1,1) ]
+#! gap> L := SmallReflexibleManiplexes(3, [100..200], IsPolytopal, [NumberOfVertices, 6]);;
+#! gap> Size(L);
+#! 14
+#! gap> ForAll(L, IsPolytopal);
+#! true
+#! gap> List(L, NumberOfVertices);
+#! [ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ]
 #! @EndExampleSession
 
 #! @Arguments I, sizerange
