@@ -835,6 +835,9 @@ InstallMethod(ConnectionGroup,
 	for i in [1..rank] do
 	gens[i]:=();
 	od;
+	if Size(Vertices(F)) = 1 then
+	return Group(gens);
+	fi;
 	labed:=LabeledEdges(F);
 	for ed in labed do
 	if Size(ed[1]) = 2 and (ed[1][1] < ed[1][2]) then
