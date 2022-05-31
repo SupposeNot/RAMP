@@ -11,7 +11,7 @@ InstallMethod(ReflexibleManiplexNC,
 	local n, p;
 	n := Size(GeneratorsOfGroup(autgp));
 
-	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
 	
 	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
 	SetRankManiplex(p, n);
@@ -149,7 +149,7 @@ InstallMethod(Maniplex,
 		return Pgon(NrMovedPoints(g) / 2);
 	fi;
 	
-	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true)));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexConnGpRep), rec( conn_gp := g, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true)));
 	
 	SetSize(p, NrMovedPoints(g));
 	SetRankManiplex(p, n);
@@ -167,7 +167,7 @@ InstallMethod(Maniplex,
 		Error("The given group is not a subgroup of AutomorphismGroup(M).");
 	fi;
 	
-	M2 := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G, attr_computers := NewDictionary(Size, true) ));
+	M2 := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexQuotientRep), rec( parent := M, subgroup := G, attr_computers := NewDictionary(Size, true) ));
 	
 	SetRankManiplex(M2, n);
 	return M2;
@@ -176,7 +176,7 @@ InstallMethod(Maniplex,
 InstallMethod(Maniplex,
 	[IsFunction, IsList],
 	function(oper, inputs)
-	return Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexInstructionsRep), rec( operation := oper, args := inputs, attr_computers := NewDictionary(Size, true) ));
+	return Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexInstructionsRep), rec( operation := oper, args := inputs, attr_computers := NewDictionary(Size, true) ));
 	end);
 
 InstallMethod(Maniplex,
@@ -184,7 +184,7 @@ InstallMethod(Maniplex,
 	function(P)
 	local M, n;
 	n := Rank(P);
-	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexPosetRep), rec( poset := P, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
+	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexPosetRep), rec( poset := P, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
 	SetRankManiplex(M, n);
 	return M;
 	end);
@@ -194,7 +194,7 @@ InstallMethod(Maniplex,
 	function(x)
 	local M,n;
 	n:=Size(Set(Labels(x)));
-	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsManiplexFlagGraphRep), rec(fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
+	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexFlagGraphRep), rec(fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
 	SetRankManiplex(M, Size(Set(Labels(x))));
 	SetConnectionGroup(M, ConnectionGroup(x));
 	SetSize(M, Size(Vertices(x)));

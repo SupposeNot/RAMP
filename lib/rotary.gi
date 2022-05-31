@@ -58,7 +58,7 @@ InstallMethod(RotaryManiplexNC,
 	local n, p;
 	n := 1 + Size(GeneratorsOfGroup(rotgp));
 
-	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsRotaryManiplexRotGpRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsRotaryManiplexRotGpRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
 	
 	if HasSize(rotgp) then SetSize(p, 2*Size(rotgp)); fi;
 	SetRankManiplex(p, n);
