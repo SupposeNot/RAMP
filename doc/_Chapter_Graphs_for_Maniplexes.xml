@@ -554,22 +554,11 @@ Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
 
 
 <ManSection>
-  <Oper Arg="EdgeLabeledGraph, String" Name="ViewGraph" Label="for IsEdgeLabeledGraph, IsString"/>
+  <Oper Arg="G, software_name" Name="ViewGraph" Label="for IsObject, IsString"/>
  <Returns><Code>IsString</Code>.
 </Returns>
  <Description>
-This takes an edge labeled graph and outputs code to view the graph in other software.
- Currently mathematica and sage are supported.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="Graph, String" Name="ViewGraph" Label="for IsObject, IsString"/>
- <Returns><Code>IsString</Code>.
-</Returns>
- <Description>
-This takes a graph and outputs code to view the graph in other software.
+Given a Graph or EdgeLabeledGraph <A>G</A>, outputs code to view the graph in other software.
  Currently mathematica and sage are supported.
  </Description>
 </ManSection>

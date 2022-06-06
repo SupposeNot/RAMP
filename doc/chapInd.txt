@@ -15,7 +15,7 @@
   [2XAdjacentFlag[102X, for IsPosetOfFlags,IsList,IsInt 8.3-5 
   [2XAdjacentFlags[102X, for IsPoset,IsList,IsInt 8.3-6 
   [2XAdjacentVertices[102X, for IsEdgeLabeledGraph, IsObject 11.2-19 
-  [2XAdmissiblePerms[102X, for IsInt, IsList 17.1-3 
+  [2XAdmissiblePerms[102X, for IsInt, IsList 18.1-3 
   [2XAmalgamate[102X, for IsManiplex, IsManiplex 9.1-6 
   [2XAngle[102X, for IsMapOnSurface 14.4-9 
   [2XAntiprism[102X, for IsInt 9.3-3 
@@ -62,7 +62,7 @@
   [2XCompleteBipartiteGraph[102X, for IsInt,IsInt 11.1-4 
   [2XConnectedComponents[102X, for IsEdgeLabeledGraph, IsList 11.2-16 
   [2XConnectionGeneratorOfPoset[102X, for IsPoset,IsInt 8.3-8 
-  [2XConnectionGroup[102X, for IsEdgeLabeledGraph 11.2-27 
+  [2XConnectionGroup[102X, for IsEdgeLabeledGraph 11.2-26 
       for IsManiplex 3.1-2 
       for IsPoset 8.3-9 
   [2XCoSkeleton[102X, for IsManiplex 11.2-7 
@@ -285,6 +285,8 @@
   [2XPosetFromPartialOrder[102X, for IsBinaryRelation 8.1-4 
   [2XPosetFromSuccessorList[102X, for IsList 8.1-7 
   [2XPosetIsomorphism[102X, for IsPoset,IsPoset 8.3-2 
+  [2XPremaniplex[102X, for IsEdgeLabeledGraph 17.1-2 
+      for IsGroup 17.1-1 
   [2XPRGraph[102X, for IsGroup 11.2-17 
   [2XPrism[102X, for IsInt 9.3-2 
       for IsManiplex 9.3-2 
@@ -384,17 +386,16 @@
   [2XVertexFigure[102X, for IsManiplex 10.1-9 
       for IsManiplex, IsInt 10.1-9 
   [2XVertexFigures[102X, for IsManiplex 10.1-9 
-  [2XViewGraph[102X, for IsEdgeLabeledGraph, IsString 11.2-25 
-      for IsObject, IsString 11.2-26 
-  [2XVoltageOperator[102X, for IsList, IsString,IsEdgeLabeledGraph 17.1-1 
-      for IsList, IsString,IsManiplex 17.1-2 
+  [2XViewGraph[102X, for IsObject, IsString 11.2-25 
+  [2XVoltageOperator[102X, for IsList, IsString,IsEdgeLabeledGraph 18.1-1 
+      for IsList, IsString,IsManiplex 18.1-2 
   [2XVolute[102X, for IsMapOnSurface 14.6-9 
   [2XWhirl[102X, for IsMapOnSurface 14.6-8 
   [2XWrappedPosetOperation[102X 15.4-4 
   [2XWriteManiplexesToFile[102X 12.1-1 
-  [2XWythoffLabeledEdges[102X, for IsInt, IsList 17.1-5 
-  [2XWythoffSTG[102X, for IsInt, IsList 17.1-4 
-  [2XWythoffVoltageOperator[102X, for IsInt, IsList, IsManiplex 17.1-6 
+  [2XWythoffLabeledEdges[102X, for IsInt, IsList 18.1-5 
+  [2XWythoffSTG[102X, for IsInt, IsList 18.1-4 
+  [2XWythoffVoltageOperator[102X, for IsInt, IsList, IsManiplex 18.1-6 
   [2XZigzagLength[102X, for IsManiplex, IsInt 10.5-1 
   [2XZigzagVector[102X, for IsManiplex 10.5-2 
   [2XZip[102X, for IsMapOnSurface 14.5-4 
