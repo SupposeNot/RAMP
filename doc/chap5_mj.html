@@ -18,7 +18,7 @@
 <body class="chap5"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chap17_mj.html">17</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chap17_mj.html">17</a>  <a href="chap18_mj.html">18</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
@@ -79,9 +79,9 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(g);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(g);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
 true
 </pre></div>
 
@@ -91,12 +91,12 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));</span>
 72
 </pre></div>
 
@@ -104,8 +104,8 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
 [ false, true, true, true, true ]
 </pre></div>
 
@@ -124,12 +124,12 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(G);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(G);</span>
 Pgon(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := ConnectionGroup(Cube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := ConnectionGroup(Cube(3));</span>
 &lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(c) = Cube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(c) = Cube(3);</span>
 true
 </pre></div>
 
@@ -144,15 +144,15 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4]);</span>
 CubicTiling(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AutomorphismGroup(M);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AutomorphismGroup(M);</span>
 &lt;fp group of size infinity on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);</span>
 Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M2 := Maniplex(M, H);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M2 := Maniplex(M, H);</span>
 3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M2);</span>
 16
 </pre></div>
 
@@ -324,7 +324,7 @@ Group([ (1,2) ])
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chap17_mj.html">17</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chap8_mj.html">8</a>  <a href="chap9_mj.html">9</a>  <a href="chap10_mj.html">10</a>  <a href="chap11_mj.html">11</a>  <a href="chap12_mj.html">12</a>  <a href="chap13_mj.html">13</a>  <a href="chap14_mj.html">14</a>  <a href="chap15_mj.html">15</a>  <a href="chap16_mj.html">16</a>  <a href="chap17_mj.html">17</a>  <a href="chap18_mj.html">18</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

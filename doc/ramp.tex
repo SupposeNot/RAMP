@@ -1578,11 +1578,11 @@ IsManiplex
  }
 
  
-\section{\textcolor{Chapter }{Uniform polyhedra}}\label{Chapter_Families_of_Polytopes_Section_Uniform_polyhedra}
+\section{\textcolor{Chapter }{Uniform and Archimedean polyhedra}}\label{Chapter_Families_of_Polytopes_Section_Uniform_and_Archimedean_polyhedra}
 \logpage{[ 4, 5, 0 ]}
-\hyperdef{L}{X8708502981F8565A}{}
+\hyperdef{L}{X858942527933AF92}{}
 {
-  Representations of the uniform polyhedra here are from \cite{HarWil10}. 
+  Representations of the uniform and Archimedean polyhedra here are from \cite{HarWil10}. 
 
 \subsection{\textcolor{Chapter }{Cuboctahedron}}
 \logpage{[ 4, 5, 1 ]}\nobreak
@@ -1910,9 +1910,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. 
@@ -1922,12 +1922,12 @@ relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
 replaced with the value of \texttt{variable} (but for global variables only). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
-  !gapprompt@gap>| !gapinput@n := 3;;|
-  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@n := 3;;|
+  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
   72
 \end{Verbatim}
  The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the reflexible maniplex that is the quotient of the universal
@@ -1936,8 +1936,8 @@ maniplexes. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
-  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
+  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
+  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
   [ false, true, true, true, true ]
 \end{Verbatim}
  
@@ -1962,12 +1962,12 @@ should only be used if you know that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. The output may not make sense if \mbox{\texttt{\mdseries\slshape G}} is not an sggi. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -1989,15 +1989,15 @@ should only be used if you know that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -3016,7 +3016,7 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
@@ -3037,9 +3037,9 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
@@ -3059,9 +3059,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -8566,19 +8566,79 @@ maniplexes the way one expects. }
  }
 
    
-\chapter{\textcolor{Chapter }{Voltage Graphs and Operations}}\label{Chapter_Voltage_Graphs_and_Operations}
+\chapter{\textcolor{Chapter }{Graphs for Premaniplexes}}\label{Chapter_Graphs_for_Premaniplexes}
 \logpage{[ 17, 0, 0 ]}
+\hyperdef{L}{X832EB60880155740}{}
+{
+  
+\section{\textcolor{Chapter }{Constructors of Premaniplexes}}\label{Chapter_Graphs_for_Premaniplexes_Section_Constructors_of_Premaniplexes}
+\logpage{[ 17, 1, 0 ]}
+\hyperdef{L}{X79636D1B82B8AF46}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{Premaniplex (for IsGroup)}}
+\logpage{[ 17, 1, 1 ]}\nobreak
+\hyperdef{L}{X7B81F23579DC1CC4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Premaniplex({\mdseries\slshape group})\index{Premaniplex@\texttt{Premaniplex}!for IsGroup}
+\label{Premaniplex:for IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsPremaniplex}. 
+
+
+
+ Given a group we return the premaniplex with that group as its connection
+group. Note: We will assume (but not check) that the group is an sggi. }
+
+ Here we build a premaniplex with 3 flags. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g:=Group((1,2),(2,3),(1,2));;|
+  !gapprompt@gap>| !gapinput@Premaniplex(g);|
+  Premaniplex of rank 3 with 3 flags
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Premaniplex (for IsEdgeLabeledGraph)}}
+\logpage{[ 17, 1, 2 ]}\nobreak
+\hyperdef{L}{X82F7D8227F616FD2}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Premaniplex({\mdseries\slshape edgelabeledgraph})\index{Premaniplex@\texttt{Premaniplex}!for IsEdgeLabeledGraph}
+\label{Premaniplex:for IsEdgeLabeledGraph}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsPremaniplex}. 
+
+
+
+ Given an edge labeled graph we return the premaniplex with for that graph.
+Note: We will assume (but not check) that the graph is a premaniplex, that is
+to say, we are assumging each vertex is incident with one edge of each label. }
+
+ Here we have a premaniplex with 2 flags. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@gap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;|
+  !gapprompt@gap>| !gapinput@F:=EdgeLabeledGraphFromLabeledEdges(L);;|
+  !gapprompt@gap>| !gapinput@Premaniplex(F);|
+  Premaniplex of rank 3 with 2 flags
+\end{Verbatim}
+ }
+
+ }
+
+   
+\chapter{\textcolor{Chapter }{Voltage Graphs and Operations}}\label{Chapter_Voltage_Graphs_and_Operations}
+\logpage{[ 18, 0, 0 ]}
 \hyperdef{L}{X8150D23C7BD686A4}{}
 {
   
 \section{\textcolor{Chapter }{Voltage Operator}}\label{Chapter_Voltage_Graphs_and_Operations_Section_Voltage_Operator}
-\logpage{[ 17, 1, 0 ]}
+\logpage{[ 18, 1, 0 ]}
 \hyperdef{L}{X7EDB00697FB48C33}{}
 {
   
 
 \subsection{\textcolor{Chapter }{VoltageOperator (for IsList, IsString,IsEdgeLabeledGraph)}}
-\logpage{[ 17, 1, 1 ]}\nobreak
+\logpage{[ 18, 1, 1 ]}\nobreak
 \hyperdef{L}{X8440AE1A7A45E3AD}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageOperator({\mdseries\slshape etain, etaout, Xa})\index{VoltageOperator@\texttt{VoltageOperator}!for IsList, IsString,IsEdgeLabeledGraph}
 \label{VoltageOperator:for IsList, IsString,IsEdgeLabeledGraph}
@@ -8597,7 +8657,7 @@ operation is done to its flag graph. }
  
 
 \subsection{\textcolor{Chapter }{VoltageOperator (for IsList, IsString,IsManiplex)}}
-\logpage{[ 17, 1, 2 ]}\nobreak
+\logpage{[ 18, 1, 2 ]}\nobreak
 \hyperdef{L}{X7817A3787920523B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageOperator({\mdseries\slshape arg1, arg2, arg3})\index{VoltageOperator@\texttt{VoltageOperator}!for IsList, IsString,IsManiplex}
 \label{VoltageOperator:for IsList, IsString,IsManiplex}
@@ -8635,7 +8695,7 @@ operation is done to its flag graph. }
  
 
 \subsection{\textcolor{Chapter }{AdmissiblePerms (for IsInt, IsList)}}
-\logpage{[ 17, 1, 3 ]}\nobreak
+\logpage{[ 18, 1, 3 ]}\nobreak
 \hyperdef{L}{X87B717357AD16360}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AdmissiblePerms({\mdseries\slshape n, I})\index{AdmissiblePerms@\texttt{AdmissiblePerms}!for IsInt, IsList}
 \label{AdmissiblePerms:for IsInt, IsList}
@@ -8658,7 +8718,7 @@ moved by ri for i in I. }
  
 
 \subsection{\textcolor{Chapter }{WythoffSTG (for IsInt, IsList)}}
-\logpage{[ 17, 1, 4 ]}\nobreak
+\logpage{[ 18, 1, 4 ]}\nobreak
 \hyperdef{L}{X7B45168A7EB410C2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffSTG({\mdseries\slshape n, I})\index{WythoffSTG@\texttt{WythoffSTG}!for IsInt, IsList}
 \label{WythoffSTG:for IsInt, IsList}
@@ -8682,7 +8742,7 @@ of indices. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES. }
  
 
 \subsection{\textcolor{Chapter }{WythoffLabeledEdges (for IsInt, IsList)}}
-\logpage{[ 17, 1, 5 ]}\nobreak
+\logpage{[ 18, 1, 5 ]}\nobreak
 \hyperdef{L}{X838E62987EA8CE63}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffLabeledEdges({\mdseries\slshape n, I})\index{WythoffLabeledEdges@\texttt{WythoffLabeledEdges}!for IsInt, IsList}
 \label{WythoffLabeledEdges:for IsInt, IsList}
@@ -8706,7 +8766,7 @@ their connection groups. }
  
 
 \subsection{\textcolor{Chapter }{WythoffVoltageOperator (for IsInt, IsList, IsManiplex)}}
-\logpage{[ 17, 1, 6 ]}\nobreak
+\logpage{[ 18, 1, 6 ]}\nobreak
 \hyperdef{L}{X79B4314B7EAE8598}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffVoltageOperator({\mdseries\slshape n, I, M})\index{WythoffVoltageOperator@\texttt{WythoffVoltageOperator}!for IsInt, IsList, IsManiplex}
 \label{WythoffVoltageOperator:for IsInt, IsList, IsManiplex}

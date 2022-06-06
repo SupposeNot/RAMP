@@ -2,8 +2,8 @@
 
 
 #! @Chapter Families of Polytopes
-#! @Section Uniform polyhedra
-#! Representations of the uniform polyhedra here are from <Cite Key="HarWil10"/>.
+#! @Section Uniform and Archimedean polyhedra
+#! Representations of the uniform and Archimedean polyhedra here are from <Cite Key="HarWil10"/>.
 
 #! @Arguments
 #! @Returns maniplex

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Graphs_for_Premaniplexes">
+<Heading>Graphs for Premaniplexes</Heading>
+
+<Section Label="Chapter_Graphs_for_Premaniplexes_Section_Constructors_of_Premaniplexes">
+<Heading>Constructors of Premaniplexes</Heading>
+
+<ManSection>
+  <Oper Arg="group" Name="Premaniplex" Label="for IsGroup"/>
+ <Returns><Code>IsPremaniplex</Code>.
+</Returns>
+ <Description>
+Given a group we return the premaniplex with that group as its connection group.
+ Note: We will assume (but not check) that the group is an sggi.    
+ </Description>
+</ManSection>
+
+
+ Here we build a premaniplex with 3 flags.
+<Example><![CDATA[
+gap> g:=Group((1,2),(2,3),(1,2));;
+gap> Premaniplex(g);
+Premaniplex of rank 3 with 3 flags
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="edgelabeledgraph" Name="Premaniplex" Label="for IsEdgeLabeledGraph"/>
+ <Returns><Code>IsPremaniplex</Code>.
+</Returns>
+ <Description>
+Given an edge labeled graph we return the premaniplex with for that graph.
+ Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.
+ </Description>
+</ManSection>
+
+
+ Here we have a premaniplex with 2 flags.
+<Example><![CDATA[
+gap> gap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;
+gap> F:=EdgeLabeledGraphFromLabeledEdges(L);;
+gap> Premaniplex(F);
+Premaniplex of rank 3 with 2 flags
+]]></Example>
+
+
+</Section>
+
+
+</Chapter>
+
