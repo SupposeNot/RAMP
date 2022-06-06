@@ -512,21 +512,13 @@
   
   [1X11.2-25 ViewGraph[101X
   
-  [33X[1;0Y[29X[2XViewGraph[102X( [3XEdgeLabeledGraph[103X, [3XString[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XViewGraph[102X( [3XG[103X, [3Xsoftware_name[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
   
-  [33X[0;0YThis takes an edge labeled graph and outputs code to view the graph in other
+  [33X[0;0YGiven a Graph or EdgeLabeledGraph [3XG[103X, outputs code to view the graph in other
   software. Currently mathematica and sage are supported.[133X
   
-  [1X11.2-26 ViewGraph[101X
-  
-  [33X[1;0Y[29X[2XViewGraph[102X( [3XGraph[103X, [3XString[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
-  
-  [33X[0;0YThis  takes  a  graph  and outputs code to view the graph in other software.
-  Currently mathematica and sage are supported.[133X
-  
-  [1X11.2-27 ConnectionGroup[101X
+  [1X11.2-26 ConnectionGroup[101X
   
   [33X[1;0Y[29X[2XConnectionGroup[102X( [3XF[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsPermGroup[110X[133X

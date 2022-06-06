@@ -417,16 +417,9 @@ DeclareOperation("DerivedGraph",[IsList,IsList,IsList]);
 
 
 
-#! @Arguments EdgeLabeledGraph, String
+#! @Arguments G, software_name
 #! @Returns `IsString`. 
-#! @Description This takes an edge labeled graph and outputs code to view the graph in other software.
-#! Currently mathematica and sage are supported.
-DeclareOperation("ViewGraph",[IsEdgeLabeledGraph, IsString]);
-
-
-#! @Arguments Graph, String
-#! @Returns `IsString`. 
-#! @Description This takes a graph and outputs code to view the graph in other software.
+#! @Description Given a Graph or EdgeLabeledGraph <A>G</A>, outputs code to view the graph in other software.
 #! Currently mathematica and sage are supported.
 DeclareOperation("ViewGraph",[IsObject, IsString]);
 

@@ -751,7 +751,7 @@ local ans, eds, verts, A, i, j,bad;
 if not IsGraph(g) then
 return "Not a graph";
 fi;
-if s = "Sage" or s = "sage" or s = "SAGE" then
+if LowercaseString(s) = "sage" then
  ans:="";
  verts:=Vertices(g);
  ans:=Concatenation(ans,"G= Graph({");
@@ -789,7 +789,7 @@ Print("P.show() 	\n");
 ##  P.show() 
 return;
 ##OUTPUT IS CODE TO COPY INTO MATHEMATICA.
-elif s = "Mathematica" or s = "mathematica" or s = "MATHEMATICA" then
+elif LowercaseString(s) = "mathematica" then
 ans:= "GraphPlot3D[{";
 verts:=Vertices(g);
 eds:=UndirectedEdges(UnderlyingGraph(g));
