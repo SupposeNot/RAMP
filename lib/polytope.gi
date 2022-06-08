@@ -341,3 +341,28 @@ InstallMethod(SatisfiesWeakPathIntersectionProperty,
 	od;
 	return true;
 	end);
+
+InstallMethod(IsFaithful,
+	[IsManiplex],
+	function(m)
+	#for each flag we will test if the intersection of all the i faces containing it 
+	# is just the flag itself.  If not, it isn't faithful.
+	local c, gens, M, f, i, ind, Ci, test;
+	c:=ConnectionGroup(m);
+	gens:=GeneratorsOfGroup(c);	
+	M:=MovedPoints(c);
+	for f in M do 
+	test:=ShallowCopy(M);
+	for i in [1..Size(gens)] do
+	ind:=[1..Size(gens)];
+	Remove(ind,i);
+	Ci:=Group(List(ind, j-> gens[j]));	
+	test:=Intersection(Orbit(Ci,f),test);
+	od;
+	if Size(test) <> 1 then 
+	return false;
+	fi;
+	od;
+	return true;
+	end);
+	
