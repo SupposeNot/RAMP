@@ -203,3 +203,16 @@ DeclareGlobalFunction("MANIPLEX_STRING");
 #! @Returns IsBool
 #! @Description Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GleHub18"/>.
 DeclareProperty("SatisfiesWeakPathIntersectionProperty", IsManiplex);
+
+
+#! @Arguments m
+#! @Description Returns whether the maniplex <A>m</A> is
+#! faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.
+DeclareOperation("IsFaithful", [IsManiplex]);
+#! @BeginExampleSession
+#! gap> IsFaithful(Cube(3));
+#! true
+#! gap> IsFaithful(ToroidalMap44([1,0]));
+#! false
+#! @EndExampleSession
+
