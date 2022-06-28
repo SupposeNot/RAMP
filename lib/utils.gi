@@ -3,20 +3,20 @@ SetInfoLevel(InfoRamp, 1);
 
 TEST_RAMP := function()
 	local test_files, filename;
-	test_files := DirectoryContents(DirectoriesLibrary("pkg/ramp/tst")[1]);
+	test_files := DirectoryContents(DirectoriesPackageLibrary("ramp", "tst")[1]);
 	test_files := Filtered(test_files, w -> "tst" in SplitString(w,"."));
 	for filename in test_files do
-		Test(Filename(DirectoriesLibrary("pkg/ramp/tst"), filename));
+		Test(Filename(DirectoriesPackageLibrary("ramp", "tst"), filename));
 	od;
 	end;
 
-BindGlobal("RampPath", DirectoriesLibrary("pkg/ramp/lib")[1]);
-BindGlobal("RampDataPath", DirectoriesLibrary("pkg/ramp/data")[1]);
+BindGlobal("RampPath", DirectoriesPackageLibrary("ramp"));
+BindGlobal("RampDataPath", DirectoriesPackageLibrary("ramp", "data"));
 
 BindGlobal("TestRamp", 
 	function(filename)
 	local testFile;
-	testFile := Filename(DirectoriesLibrary("pkg/ramp/tst"), filename);
+	testFile := Filename(DirectoriesPackageLibrary("ramp", "tst"), filename);
 	Test(testFile);
 	end);
 
