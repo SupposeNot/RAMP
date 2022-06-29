@@ -311,8 +311,8 @@ you the size of the truncation and absolutely nothing else. So we would want to 
 attribute computer for the connection group probably. This will fail for infinite
 maniplexes, but that is to be expected.
 
-Documentation notes:
-Some general rules:
+#Documentation notes:#
+##Some general rules:##
 - @Returns should always be followed by a type, e.g. IsPolytope
 - @Description should tell you information about which thing of that type we are getting (i.e., "Creates the cube of dimension <A>p</A>."
 - we have inconsistent formatting for things like {3,p}. I think we should go ahead and put these in math format (i.e., ${3,p}$).
