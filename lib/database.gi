@@ -552,6 +552,10 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 
 	# Get the rest from a file
 	L := ManiplexesFromFile("Reflexible3ManiplexesNonPolytopal.txt");
+	for M in L do
+		SetSchlafliSymbol(M, PseudoSchlafliSymbol(M));
+		SetIsPolytopal(M, false);
+	od;
 	Append(manis, Filtered(L, M -> minsize <= Size(M) and Size(M) <= maxsize));
 	
 	return manis;
