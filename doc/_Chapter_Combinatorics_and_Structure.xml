@@ -234,6 +234,17 @@ gap> SchlafliSymbol(SmallRhombicosidodecahedron());
 </ManSection>
 
 
+<Example><![CDATA[
+gap> M := ReflexibleManiplex([4,4], "(r0 r1)^2");;
+gap> PseudoSchlafliSymbol(M);
+[4, 4]
+gap> SchlafliSymbol(M);
+[2, 4]
+gap> PseudoSchlafliSymbol(M);
+[2, 4]
+]]></Example>
+
+
 <ManSection>
   <Prop Arg="M" Name="IsEquivelar" Label="for IsManiplex"/>
  <Returns>the the maniplex <A>M</A> is equivelar; i.e.,  whether its Schlafli Symbol consists of integers at each

@@ -75,13 +75,14 @@ InstallMethod(IsStringC,
 # TODO: Currently will fail for infinite groups.
 # I started coding something for this, but Intersection(g,h) where g is infinite
 # doesn't appear to work. Requires more thought...
-# TODO: Currently assumes g is a string rotation group
 InstallMethod(IsStringCPlus,
 	[IsGroup],
 	function(g)
 	local n, facetGroup, vfigGroup, i, h, h2;
 	n := Size(GeneratorsOfGroup(g));
-	if n <= 1 then
+	if not(IsStringRotationGroup(g)) then
+		return false;
+	elif n <= 1 then
 		return true;
 	elif n = 2 then
 		facetGroup := Subgroup(g, GeneratorsOfGroup(g){[1]});

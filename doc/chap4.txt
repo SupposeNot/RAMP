@@ -488,6 +488,15 @@
   [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,3,4,3\}_{\vec s}[123X
   where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 1 or 2.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := 3343Toroid(3,1);[127X[104X
+    [4X[28XReflexibleManiplex([ 3, 3, 4, 3 ], "(r0 r1 r2 r3 r2 r1 r4 r3 r2 r3 r4 r1 r2 r3 r2 r1)^3")[128X[104X
+    [4X[25Xgap>[125X [27XIsPolytopal(M);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsPolytopal(3343Toroid(1,1));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
   [1X4.4-7 24CellToroid[101X
   
   [33X[1;0Y[29X[2X24CellToroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
@@ -495,6 +504,12 @@
   
   [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,4,3,3\}_{\vec s}[123X
   where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 1 or 2.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := 24CellToroid(3,1);;[127X[104X
+    [4X[25Xgap>[125X [27XDual(M) = 3343Toroid(3,1);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   
   [1X4.5 [33X[0;0YUniform and Archimedean polyhedra[133X[101X

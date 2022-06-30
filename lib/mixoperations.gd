@@ -37,6 +37,17 @@ DeclareOperation("Mix", [IsManiplex, IsManiplex]);
 #! the connected component with the base flags of p and q, and then builds a maniplex
 #! from this.
 DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
+#! @BeginExampleSession
+#! gap> M := ToroidalMap44([1,2]);;
+#! gap> FlagMix(M,M) = M;
+#! true
+#! gap> R := FlagMix(M, EnantiomorphicForm(M));
+#! 3-maniplex with 200 flags
+#! gap> IsReflexible(R);
+#! true
+#! gap> R = ToroidalMap44([5,0]);
+#! true
+#! @EndExampleSession
 
 
 

@@ -17,10 +17,10 @@
   those returned by GeneratorsOfGroup(g).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
+    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
@@ -35,13 +35,13 @@
   replaced with the value of [10Xvariable[110X (but for global variables only).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
-    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
-    [4X[25Xgap>[125X [27Xn := 3;;[127X[104X
-    [4X[25Xgap>[125X [27XSize(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));[127X[104X
-    [4X[28X72[128X[104X
+    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
+    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
+    [4X[25Xgap>[125X [27Xn := 3;;[127X[104X
+    [4X[25Xgap>[125X [27XSize(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));[127X[104X
+    [4X[28X72[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThe  third  form  takes  the  Schlafli  Symbol  [3Xsym[103X,  a list of [3Xwords[103X in the
@@ -51,9 +51,9 @@
   is primarily useful for quickly constructing a family of related maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XL := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;[127X[104X
-    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
-    [4X[28X[ false, true, true, true, true ][128X[104X
+    [4X[25Xgap>[125X [27XL := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;[127X[104X
+    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
+    [4X[28X[ false, true, true, true, true ][128X[104X
   [4X[32X[104X
   
   [33X[0;0YIn  the  second  and third forms, if the option set_schlafli is set, then we
@@ -74,13 +74,13 @@
   sggi.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
-    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
-    [4X[28XPgon(3)[128X[104X
-    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
+    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
+    [4X[28XPgon(3)[128X[104X
+    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
+    [4X[28X<permutation group with 3 generators>[128X[104X
+    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.1-3 Maniplex[101X
@@ -95,16 +95,16 @@
   subgroup. The example below builds the map [23X\{4, 4\}_{(1,0), (0,2)}[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
-    [4X[28XCubicTiling(2)[128X[104X
-    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
-    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
-    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
-    [4X[28X3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
-    [4X[28X16[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
+    [4X[28XCubicTiling(2)[128X[104X
+    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
+    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
+    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
+    [4X[28X3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
+    [4X[28X16[128X[104X
   [4X[32X[104X
   
   [1X5.1-4 Maniplex[101X
@@ -187,6 +187,18 @@
   connected  component  with  the  base  flags  of  p and q, and then builds a
   maniplex from this.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := ToroidalMap44([1,2]);;[127X[104X
+    [4X[25Xgap>[125X [27XFlagMix(M,M) = M;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XR := FlagMix(M, EnantiomorphicForm(M));[127X[104X
+    [4X[28X3-maniplex with 200 flags[128X[104X
+    [4X[25Xgap>[125X [27XIsReflexible(R);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XR = ToroidalMap44([5,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   
   [1X5.2-4 [33X[0;0YComix[133X[101X
   
@@ -228,11 +240,23 @@
   
   [33X[0;0YReturns the rotation subgroup of the universal Coxeter Group of rank n.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalRotationGroup(3);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
+  [4X[32X[104X
+  
   [1X5.3-2 UniversalRotationGroup[101X
   
   [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xsym[103X ) [32X operation[133X
   
   [33X[0;0YReturns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XUniversalRotationGroup([4,4]);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XUniversalRotationGroup([3,3,3]);[127X[104X
+    [4X[28X<fp group of size 60 on the generators [ s1, s2, s3 ]>[128X[104X
+  [4X[32X[104X
   
   
   [1X5.3-3 [33X[0;0YRotaryManiplex[133X[101X
@@ -248,8 +272,20 @@
   function   first   checks   whether   g   is   a   StringRotationGroup.  Use
   [10XRotaryManiplexNC[110X to bypass that check.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := RotaryManiplex(UniversalRotationGroup([3,3]));;[127X[104X
+    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [33X[0;0YThe  second  form  returns  the  universal rotary maniplex (in fact, regular
   polytope) with Schlafli symbol [3Xsym[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := RotaryManiplex([4,3]);;[127X[104X
+    [4X[25Xgap>[125X [27XM = Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [33X[0;0YThe  third  form  returns the rotary maniplex with the given Schlafli symbol
   and  with  the  given  relations.  The  relations are given by a string that
@@ -260,6 +296,8 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := RotaryManiplex([4,4], "(s2^-1 s1)^6");;[127X[104X
+    [4X[25Xgap>[125X [27XM = ToroidalMap44([6,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThe  fourth  form  takes  the  Schlafli  Symbol  [3Xsym[103X, a list of [3Xwords[103X in the
@@ -279,6 +317,16 @@
   symbol,  since  the  relations  may cause a collapse, so this should only be
   used if you know that the Schlafli symbol is correct.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;[127X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(M);[127X[104X
+    [4X[28X#I  Coset table calculation failed -- trying with bigger table limit[128X[104X
+    [4X[28X... eventually give up with CTRL-C[128X[104X
+    [4X[25Xgap>[125X [27XM := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;[127X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(M);[127X[104X
+    [4X[28X[6, 6][128X[104X
+  [4X[32X[104X
+  
   [1X5.3-4 EnantiomorphicForm[101X
   
   [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
@@ -288,4 +336,16 @@
   original  base  flag.  If  M  is reflexible, then this choice has no effect.
   Otherwise, if M is chiral, then the enantiomorphic form gives us a different
   presentation for the rotation group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := ToroidalMap44([1,2]);;[127X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(M);[127X[104X
+    [4X[28X<fp group of size 20 on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XRelatorsOfFpGroup(g);[127X[104X
+    [4X[28X[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ][128X[104X
+    [4X[25Xgap>[125X [27Xh := AutomorphismGroup(EnantiomorphicForm(M));[127X[104X
+    [4X[28X<fp group of size 20 on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XRelatorsOfFpGroup(h);[127X[104X
+    [4X[28X[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ][128X[104X
+  [4X[32X[104X
   

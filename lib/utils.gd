@@ -43,6 +43,12 @@ DeclareSynonym("ARPNC", AbstractRegularPolytopeNC);
 #! If not, this throws an error. Use `AbstractRotaryPolytopeNC` to assume that the output
 #! is polytopal and mark it as such.
 DeclareGlobalFunction("AbstractRotaryPolytope");
+#! @BeginExampleSession
+#! gap> M := AbstractRotaryPolytope(Group((1,2)(3,4), (1,4)(2,3)));
+#! regular 3-polytope of type [ 2, 2 ] with 8 flags
+#! gap> M := AbstractRotaryPolytope(Group((1,2,3,4), (1,2)));
+#! Error, The given group is not a String Rotation Group...
+#! @EndExampleSession
 
 DeclareGlobalFunction("AbstractRotaryPolytopeNC");
 
@@ -132,8 +138,39 @@ DeclareGlobalFunction("ParseStringCRels");
 #! @Description This helper function is used in several maniplex constructors.
 #! It is analogous to ParseStringCRels, but for rotation groups instead.
 DeclareGlobalFunction("ParseRotGpRels");
+#! @BeginExampleSession
+#! gap> g := UniversalRotationGroup([4,4]);
+#! <fp group of size infinity on the generators [ s1, s2 ]>
+#! gap> rels := "(s1 s2^-1)^6";;
+#! gap> newrels := ParseRotGpRels(rels, g);
+#! [ (s1*s2^-1)^6 ]
+#! gap> g2 := FactorGroupFpGroupByRels(g, newrels);
+#! <fp group on the generators [ s1, s2 ]>
+#! gap> M := RotaryManiplex(g2);
+#! 3-maniplex with 288 flags
+#! gap> M = ToroidalMap44([6,0]);
+#! true
+#! @EndExampleSession
 
+#! @Arguments g
+#! @Returns IsSggi
+#! @Description Takes an sggi, and returns an isomorphic sggi that is a quotient of the universal
+#! sggi of the appropriate rank.
 DeclareGlobalFunction("StandardizeSggi");
+#! @BeginExampleSession
+#! gap> f := FreeGroup("x","y","z");
+#! <free group on the generators [ x, y, z ]>
+#! gap> AssignGeneratorVariables(f);
+#! #I  Assigned the global variables [ x, y, z ]
+#! gap> g := f / [x^2, y^2, z^2, (x*z)^2, (x*y)^4, (y*z)^4, (x*y*z)^6];
+#! <fp group on the generators [ x, y, z ]>
+#! gap> IsSggi(g);
+#! true
+#! gap> g2 := StandardizeSggi(g);
+#! <fp group on the generators [ r0, r1, r2 ]>
+#! gap> ReflexibleManiplex(g) = ReflexibleManiplex(g2);
+#! true
+#! @EndExampleSession
 
 #! @Arguments L, x
 #! @Description Given a list <A>L</A> and an object <A>x</A>, this calls

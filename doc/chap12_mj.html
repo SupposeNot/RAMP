@@ -309,7 +309,16 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DatabaseString</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: String</p>
 
-<p>Given a maniplex <var class="Arg">M</var>, returns a string representation of <var class="Arg">M</var> suitable for saving in a database for later retrieval.</p>
+<p>Given a maniplex <var class="Arg">M</var>, returns a string representation of <var class="Arg">M</var> suitable for saving in a database for later retrieval. This works for any maniplex such that String(<var class="Arg">M</var>) contains defining information for <var class="Arg">M</var> - otherwise the output may not be so useful.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DatabaseString(Cube(3));</span>
+"Cube(3)#6#48"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DatabaseString(M);</span>
+"&lt;object&gt;#4#24"
+</pre></div>
 
 <p><a id="X84FC221B80847F84" name="X84FC221B80847F84"></a></p>
 
@@ -318,7 +327,17 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ManiplexFromDatabaseString</code>( <var class="Arg">maniplexString</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
 
-<p>Given a string <var class="Arg">maniplexString</var>, representing a maniplex stored in a database, returns the maniplex that is represented.</p>
+<p>Given a string <var class="Arg">maniplexString</var>, representing a maniplex stored in a database, returns the maniplex that is represented. In particular, ManiplexFromDatabaseString(DatabaseString(M)) is isomorphic to M if DatabaseString(M) contains defining information for M.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ManiplexFromDatabaseString("Cube(3)#6#48") = Cube(3);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ManiplexFromDatabaseString(DatabaseString(M));</span>
+Syntax error: expression expected in stream:1
+_EVALSTRINGTMP:=&lt;object&gt;;
+</pre></div>
 
 <p><a id="X7D879C01845D4BE9" name="X7D879C01845D4BE9"></a></p>
 

@@ -28,18 +28,15 @@ DeclareAttribute("BaseFlag", IsManiplex);
 #! @EndExampleSession
 
 
-#! @Arguments M
-#! Returns the Symmetry Type Graph of the maniplex <A>M</A>.
+#! @Arguments M[, A]
+#! @Returns IsPremaniplex
+#! @Description Returns the Symmetry Type Graph of the maniplex <A>M</A> with respect to the subgroup <A>A</A> of the automorphism
+#! group; that is, the quotient of the flag graph of <A>M</A> by <A>A</A>. If <A>A</A> is not included, then returns the Symmetry
+#! Type Graph relative to the whole automorphism group of <A>M</A>.
 DeclareAttribute("SymmetryTypeGraph", IsManiplex);
 #! @BeginExampleSession
 #! gap> SymmetryTypeGraph(Prism(Simplex(3)));
 #! Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
-#! @EndExampleSession
-
-#! @Arguments M, A
-#! Returns the Symmetry Type Graph of the maniplex <A>M</A> built from any subgroup <A>A</A> of the automorphism group acting on flags.  The the quotient of the flag graph of <A>M</A> by <A>A</A> is returned. 
-DeclareAttribute("SymmetryTypeGraph", IsManiplex);
-#! @BeginExampleSession
 #! gap> M:=Cube(3);;
 #! gap> A:=AutomorphismGroupOnFlags(M);;
 #! gap> B:=Group(A.1,A.2*A.3);;

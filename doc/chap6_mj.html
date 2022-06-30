@@ -55,14 +55,13 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X874B016C792074D0">6.3-1 Flags</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7F5C8C7E82073034">6.3-2 BaseFlag</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X856ED1E7866152A0">6.3-3 SymmetryTypeGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X856ED1E7866152A0">6.3-4 SymmetryTypeGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X78060E3A788D2D3C">6.3-5 NumberOfFlagOrbits</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X852C679D8338AB53">6.3-6 FlagOrbitRepresentatives</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X81C0D5667D83EB88">6.3-7 FlagOrbitsStabilizer</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7E4E689F86171C78">6.3-8 IsReflexible</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7D74CD997C7FF39D">6.3-9 IsChiral</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7DACFE5483893523">6.3-10 IsRotary</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7B29BD1C87239567">6.3-11 FlagOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X78060E3A788D2D3C">6.3-4 NumberOfFlagOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X852C679D8338AB53">6.3-5 FlagOrbitRepresentatives</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X81C0D5667D83EB88">6.3-6 FlagOrbitsStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7E4E689F86171C78">6.3-7 IsReflexible</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7D74CD997C7FF39D">6.3-8 IsChiral</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7DACFE5483893523">6.3-9 IsRotary</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7B29BD1C87239567">6.3-10 FlagOrbits</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6_mj.html#X861E4BAD800B2785">6.4 <span class="Heading">Orientability</span></a>
 </span>
@@ -81,6 +80,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7BB02182844EA5EB">6.5-2 IsFacetFaithful</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7F2F8EEE8663AB89">6.5-3 MaxVertexFaithfulQuotient</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7F788D2E7F41CD69">6.5-4 SatisfiesWeakPathIntersectionProperty</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7DEE9BDE7EA6F995">6.5-5 IsFaithful</a></span>
 </div></div>
 </div>
 
@@ -385,24 +385,15 @@ true
 
 <h5>6.3-3 SymmetryTypeGraph</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var>[, <var class="Arg">A</var>] )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsPremaniplex</p>
+
+<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var> with respect to the subgroup <var class="Arg">A</var> of the automorphism group; that is, the quotient of the flag graph of <var class="Arg">M</var> by <var class="Arg">A</var>. If <var class="Arg">A</var> is not included, then returns the Symmetry Type Graph relative to the whole automorphism group of <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SymmetryTypeGraph(Prism(Simplex(3)));</span>
 Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
-</pre></div>
-
-<p><a id="X856ED1E7866152A0" name="X856ED1E7866152A0"></a></p>
-
-<h5>6.3-4 SymmetryTypeGraph</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var>, <var class="Arg">A</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the Symmetry Type Graph of the maniplex <var class="Arg">M</var> built from any subgroup <var class="Arg">A</var> of the automorphism group acting on flags. The the quotient of the flag graph of <var class="Arg">M</var> by <var class="Arg">A</var> is returned.</p>
-
-
-<div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=Cube(3);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A:=AutomorphismGroupOnFlags(M);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B:=Group(A.1,A.2*A.3);;</span>
@@ -412,7 +403,7 @@ Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 
 <p><a id="X78060E3A788D2D3C" name="X78060E3A788D2D3C"></a></p>
 
-<h5>6.3-5 NumberOfFlagOrbits</h5>
+<h5>6.3-4 NumberOfFlagOrbits</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
@@ -425,7 +416,7 @@ Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 
 <p><a id="X852C679D8338AB53" name="X852C679D8338AB53"></a></p>
 
-<h5>6.3-6 FlagOrbitRepresentatives</h5>
+<h5>6.3-5 FlagOrbitRepresentatives</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
@@ -438,7 +429,7 @@ Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 
 <p><a id="X81C0D5667D83EB88" name="X81C0D5667D83EB88"></a></p>
 
-<h5>6.3-7 FlagOrbitsStabilizer</h5>
+<h5>6.3-6 FlagOrbitsStabilizer</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitsStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: g</p>
@@ -459,7 +450,7 @@ true
 
 <p><a id="X7E4E689F86171C78" name="X7E4E689F86171C78"></a></p>
 
-<h5>6.3-8 IsReflexible</h5>
+<h5>6.3-7 IsReflexible</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
@@ -472,7 +463,7 @@ true
 
 <p><a id="X7D74CD997C7FF39D" name="X7D74CD997C7FF39D"></a></p>
 
-<h5>6.3-9 IsChiral</h5>
+<h5>6.3-8 IsChiral</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is chiral.</p>
@@ -485,7 +476,7 @@ true
 
 <p><a id="X7DACFE5483893523" name="X7DACFE5483893523"></a></p>
 
-<h5>6.3-10 IsRotary</h5>
+<h5>6.3-9 IsRotary</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
@@ -498,7 +489,7 @@ true
 
 <p><a id="X7B29BD1C87239567" name="X7B29BD1C87239567"></a></p>
 
-<h5>6.3-11 FlagOrbits</h5>
+<h5>6.3-10 FlagOrbits</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
@@ -609,7 +600,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsVertexFaithful(HemiCube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsVertexFaithful(HemiCube(3));</span>
 true
 </pre></div>
 
@@ -624,9 +615,9 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetFaithful(HemiCube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetFaithful(HemiCube(3));</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetFaithful(Cube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetFaithful(Cube(3));</span>
 true
 </pre></div>
 
@@ -641,9 +632,9 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MaxVertexFaithfulQuotient(HemiCrossPolytope(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MaxVertexFaithfulQuotient(HemiCrossPolytope(3));</span>
 reflexible 3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
 [ 3, 2 ]
 </pre></div>
 
@@ -655,6 +646,21 @@ reflexible 3-maniplex
 <p>Returns: IsBool</p>
 
 <p>Tests for the weak path intersection property in a maniplex. Definitions and description available in <a href="chapBib_mj.html#biBGleHub18">[GH18]</a>.</p>
+
+<p><a id="X7DEE9BDE7EA6F995" name="X7DEE9BDE7EA6F995"></a></p>
+
+<h5>6.5-5 IsFaithful</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFaithful</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns whether the maniplex <var class="Arg">m</var> is faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(Cube(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(ToroidalMap44([1,0]));</span>
+false
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap5_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap7_mj.html">[Next Chapter]</a>&nbsp;  </div>

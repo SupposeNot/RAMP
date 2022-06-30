@@ -96,8 +96,21 @@ DeclareOperation("CubicToroid",[IsInt,IsList]);
 #! @Returns IsManiplex
 #! @Description Given IsInt pair <A>s, k</A>, will return the regular toroid $\{3,3,4,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 1 or 2.
 DeclareOperation("3343Toroid",[IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> M := 3343Toroid(3,1);
+#! ReflexibleManiplex([ 3, 3, 4, 3 ], "(r0 r1 r2 r3 r2 r1 r4 r3 r2 r3 r4 r1 r2 r3 r2 r1)^3")
+#! gap> IsPolytopal(M);
+#! true
+#! gap> IsPolytopal(3343Toroid(1,1));
+#! false
+#! @EndExampleSession
 
 #! @Arguments s, k
 #! @Returns IsManiplex
 #! @Description Given IsInt pair <A>s, k</A>, will return the regular toroid $\{3,4,3,3\}_{\vec s}$ where $\vec s=(s^k, 0^{n-k})$. Note that $k$ must be 1 or 2.
 DeclareOperation("24CellToroid",[IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> M := 24CellToroid(3,1);;
+#! gap> Dual(M) = 3343Toroid(3,1);
+#! true
+#! @EndExampleSession

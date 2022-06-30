@@ -245,7 +245,17 @@
   [6XReturns:[106X  [33X[0;10YString[133X
   
   [33X[0;0YGiven a maniplex [3XM[103X, returns a string representation of [3XM[103X suitable for saving
-  in a database for later retrieval.[133X
+  in  a  database  for  later retrieval. This works for any maniplex such that
+  String([3XM[103X) contains defining information for [3XM[103X - otherwise the output may not
+  be so useful.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDatabaseString(Cube(3));[127X[104X
+    [4X[28X"Cube(3)#6#48"[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;[127X[104X
+    [4X[25Xgap>[125X [27XDatabaseString(M);[127X[104X
+    [4X[28X"<object>#4#24"[128X[104X
+  [4X[32X[104X
   
   [1X12.2-2 ManiplexFromDatabaseString[101X
   
@@ -253,7 +263,18 @@
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
   [33X[0;0YGiven a string [3XmaniplexString[103X, representing a maniplex stored in a database,
-  returns the maniplex that is represented.[133X
+  returns    the    maniplex    that    is    represented.    In   particular,
+  ManiplexFromDatabaseString(DatabaseString(M))   is   isomorphic   to   M  if
+  DatabaseString(M) contains defining information for M.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XManiplexFromDatabaseString("Cube(3)#6#48") = Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;[127X[104X
+    [4X[25Xgap>[125X [27XManiplexFromDatabaseString(DatabaseString(M));[127X[104X
+    [4X[28XSyntax error: expression expected in stream:1[128X[104X
+    [4X[28X_EVALSTRINGTMP:=<object>;[128X[104X
+  [4X[32X[104X
   
   [1X12.2-3 InterpolatedString[101X
   

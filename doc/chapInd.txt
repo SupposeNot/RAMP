@@ -10,7 +10,7 @@
   [2XAbstractPolytope[102X 15.2-1 
   [2XAbstractRegularPolytope[102X 15.2-2 
   [2XAbstractRotaryPolytope[102X 15.2-3 
-  [2XAddOrAppend[102X 15.4-3 
+  [2XAddOrAppend[102X 15.4-4 
   [2XAddRanksInPosets[102X, for IsPosetElement,IsPoset,IsInt 8.4-7 
   [2XAdjacentFlag[102X, for IsPosetOfFlags,IsList,IsInt 8.3-5 
   [2XAdjacentFlags[102X, for IsPoset,IsList,IsInt 8.3-6 
@@ -62,7 +62,7 @@
   [2XCompleteBipartiteGraph[102X, for IsInt,IsInt 11.1-4 
   [2XConnectedComponents[102X, for IsEdgeLabeledGraph, IsList 11.2-16 
   [2XConnectionGeneratorOfPoset[102X, for IsPoset,IsInt 8.3-8 
-  [2XConnectionGroup[102X, for IsEdgeLabeledGraph 11.2-27 
+  [2XConnectionGroup[102X, for IsEdgeLabeledGraph 11.2-26 
       for IsManiplex 3.1-2 
       for IsPoset 8.3-9 
   [2XCoSkeleton[102X, for IsManiplex 11.2-7 
@@ -108,9 +108,9 @@
   [2XFlagGraphWithLabels[102X, for IsGroup 11.2-4 
   [2XFlagList[102X, for IsPosetElement 8.4-8 
   [2XFlagMix[102X, for IsManiplex, IsManiplex 5.2-3 
-  [2XFlagOrbitRepresentatives[102X, for IsManiplex 6.3-6 
-  [2XFlagOrbits[102X, for IsManiplex 6.3-11 
-  [2XFlagOrbitsStabilizer[102X, for IsManiplex 6.3-7 
+  [2XFlagOrbitRepresentatives[102X, for IsManiplex 6.3-5 
+  [2XFlagOrbits[102X, for IsManiplex 6.3-10 
+  [2XFlagOrbitsStabilizer[102X, for IsManiplex 6.3-6 
   [2XFlags[102X, for IsManiplex 6.3-1 
   [2XFlagsAsFlagListFaces[102X, for IsPoset 8.3-3 
   [2XFlatExtension[102X, for IsManiplex, IsInt 9.1-5 
@@ -151,7 +151,7 @@
   [2XIsAtomic[102X, for IsPoset 8.2-6 
   [2XIsCConnected[102X, for IsManiplex 3.2-13 
   [2XIsChainTransitive[102X, for IsManiplex, IsCollection 6.2-6 
-  [2XIsChiral[102X, for IsManiplex 6.3-9 
+  [2XIsChiral[102X, for IsManiplex 6.3-8 
   [2XIsCover[102X, for IsManiplex, IsManiplex 7.1-3 
   [2XIsDegenerate[102X, for IsManiplex 10.3-4 
   [2XIsEdgeTransitive[102X, for IsManiplex 6.2-9 
@@ -161,6 +161,7 @@
   [2XIsFacetBipartite[102X, for IsManiplex 6.4-4 
   [2XIsFacetFaithful[102X, for IsManiplex 6.5-2 
   [2XIsFacetTransitive[102X, for IsManiplex 6.2-10 
+  [2XIsFaithful[102X, for IsManiplex 6.5-5 
   [2XIsFlagConnected[102X, for IsPoset 8.2-13 
   [2XIsFlaggable[102X, for IsPoset 8.2-5 
   [2XIsFlat[102X, for IsManiplex 10.2-1 
@@ -187,11 +188,11 @@
   [2XIsPrePolytope[102X, for IsPoset 8.2-16 
   [2XIsQuotient[102X, for IsManiplex, IsManiplex 7.1-1 
       for IsSggi, IsSggi 7.1-1 
-  [2XIsReflexible[102X, for IsManiplex 6.3-8 
+  [2XIsReflexible[102X, for IsManiplex 6.3-7 
   [2XIsRelationOfReflexibleManiplex[102X, for IsManiplex, IsString 3.2-11 
   [2XIsRootedCover[102X, for IsManiplex, IsManiplex 7.1-4 
   [2XIsRootedQuotient[102X, for IsManiplex, IsManiplex 7.1-2 
-  [2XIsRotary[102X, for IsManiplex 6.3-10 
+  [2XIsRotary[102X, for IsManiplex 6.3-9 
   [2XIsSelfDual[102X, for IsManiplex 9.2-2 
       for IsPoset 8.2-17 
   [2XIsSelfPetrial[102X, for IsManiplex 9.2-6 
@@ -229,7 +230,7 @@
       for IsReflexibleManiplex, IsGroup 5.1-3 
   [2XManiplexesFromFile[102X 12.1-2 
   [2XManiplexFromDatabaseString[102X, for IsString 12.2-2 
-  [2XMarkAsPolytopal[102X, for IsManiplex 15.4-5 
+  [2XMarkAsPolytopal[102X, for IsManiplex 15.4-6 
   [2XMaxFace[102X, for IsPoset 8.3-22 
   [2XMaximalChains[102X, for IsPoset 8.2-1 
   [2XMaxVertexFaithfulQuotient[102X, for IsManiplex 6.5-3 
@@ -249,7 +250,7 @@
   [2XNumberOfEdges[102X, for IsManiplex 10.1-3 
   [2XNumberOfFacetOrbits[102X, for IsManiplex 6.2-5 
   [2XNumberOfFacets[102X, for IsManiplex 10.1-4 
-  [2XNumberOfFlagOrbits[102X, for IsManiplex 6.3-5 
+  [2XNumberOfFlagOrbits[102X, for IsManiplex 6.3-4 
   [2XNumberOfIFaceOrbits[102X, for IsManiplex, IsInt 6.2-2 
   [2XNumberOfIFaces[102X, for IsManiplex, IsInt 10.1-1 
   [2XNumberOfRidges[102X, for IsManiplex 10.1-5 
@@ -353,10 +354,11 @@
   [2XSnubCube[102X 4.5-9 
   [2XSnubDodecahedron[102X 4.5-12 
   [2XStake[102X, for IsMapOnSurface 14.6-7 
+  [2XStandardizeSggi[102X 15.4-3 
   [2XSubdivide[102X, for IsMapOnSurface 14.6-1 
   [2XSubdivision1[102X, for IsMapOnSurface 14.4-4 
   [2XSubdivision2[102X, for IsMapOnSurface 14.4-5 
-  [2XSymmetryTypeGraph[102X, for IsManiplex 6.3-3  6.3-4 
+  [2XSymmetryTypeGraph[102X, for IsManiplex 6.3-3 
   [2XTetrahedron[102X 4.1-10 
   [2XTightOrientablyRegularPolytopesOfType[102X, for IsList 4.2-3 
   [2XTomotope[102X 4.3-1 
@@ -386,13 +388,12 @@
   [2XVertexFigure[102X, for IsManiplex 10.1-9 
       for IsManiplex, IsInt 10.1-9 
   [2XVertexFigures[102X, for IsManiplex 10.1-9 
-  [2XViewGraph[102X, for IsEdgeLabeledGraph, IsString 11.2-25 
-      for IsObject, IsString 11.2-26 
+  [2XViewGraph[102X, for IsObject, IsString 11.2-25 
   [2XVoltageOperator[102X, for IsList, IsString,IsEdgeLabeledGraph 18.1-1 
       for IsList, IsString,IsManiplex 18.1-2 
   [2XVolute[102X, for IsMapOnSurface 14.6-9 
   [2XWhirl[102X, for IsMapOnSurface 14.6-8 
-  [2XWrappedPosetOperation[102X 15.4-4 
+  [2XWrappedPosetOperation[102X 15.4-5 
   [2XWriteManiplexesToFile[102X 12.1-1 
   [2XWythoffLabeledEdges[102X, for IsInt, IsList 18.1-5 
   [2XWythoffSTG[102X, for IsInt, IsList 18.1-4 
