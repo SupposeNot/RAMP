@@ -258,24 +258,17 @@
   
   [1X6.3-3 SymmetryTypeGraph[101X
   
-  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X[, [3XA[103X] ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsPremaniplex[133X
   
-  [33X[0;0YReturns the Symmetry Type Graph of the maniplex [3XM[103X.[133X
+  [33X[0;0YReturns  the  Symmetry  Type  Graph  of  the  maniplex [3XM[103X with respect to the
+  subgroup  [3XA[103X  of  the  automorphism  group; that is, the quotient of the flag
+  graph  of [3XM[103X by [3XA[103X. If [3XA[103X is not included, then returns the Symmetry Type Graph
+  relative to the whole automorphism group of [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSymmetryTypeGraph(Prism(Simplex(3)));[127X[104X
     [4X[28XEdge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
-  [4X[32X[104X
-  
-  [1X6.3-4 SymmetryTypeGraph[101X
-  
-  [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X, [3XA[103X ) [32X attribute[133X
-  
-  [33X[0;0YReturns  the Symmetry Type Graph of the maniplex [3XM[103X built from any subgroup [3XA[103X
-  of  the  automorphism  group  acting  on flags. The the quotient of the flag
-  graph of [3XM[103X by [3XA[103X is returned.[133X
-  
-  [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM:=Cube(3);;[127X[104X
     [4X[25Xgap>[125X [27XA:=AutomorphismGroupOnFlags(M);;[127X[104X
     [4X[25Xgap>[125X [27XB:=Group(A.1,A.2*A.3);;[127X[104X
@@ -283,7 +276,7 @@
     [4X[28XEdge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X6.3-5 NumberOfFlagOrbits[101X
+  [1X6.3-4 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -294,7 +287,7 @@
     [4X[28X4[128X[104X
   [4X[32X[104X
   
-  [1X6.3-6 FlagOrbitRepresentatives[101X
+  [1X6.3-5 FlagOrbitRepresentatives[101X
   
   [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
   
@@ -305,7 +298,7 @@
     [4X[28X[ 1, 49, 97, 145 ][128X[104X
   [4X[32X[104X
   
-  [1X6.3-7 FlagOrbitsStabilizer[101X
+  [1X6.3-6 FlagOrbitsStabilizer[101X
   
   [33X[1;0Y[29X[2XFlagOrbitsStabilizer[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Yg[133X
@@ -324,7 +317,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-8 IsReflexible[101X
+  [1X6.3-7 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
@@ -334,7 +327,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-9 IsChiral[101X
+  [1X6.3-8 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chiral.[133X
@@ -344,7 +337,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-10 IsRotary[101X
+  [1X6.3-9 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
@@ -355,7 +348,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-11 FlagOrbits[101X
+  [1X6.3-10 FlagOrbits[101X
   
   [33X[1;0Y[29X[2XFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -452,8 +445,8 @@
   the action of the automorphism group on the vertices is faithful.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.5-2 IsFacetFaithful[101X
@@ -465,10 +458,10 @@
   the action of the automorphism group on the facets is faithful.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X6.5-3 MaxVertexFaithfulQuotient[101X
@@ -479,10 +472,10 @@
   [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
-    [4X[28Xreflexible 3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
-    [4X[28X[ 3, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ 3, 2 ][128X[104X
   [4X[32X[104X
   
   [1X6.5-4 SatisfiesWeakPathIntersectionProperty[101X
@@ -492,4 +485,19 @@
   
   [33X[0;0YTests for the weak path intersection property in a maniplex. Definitions and
   description available in [GH18].[133X
+  
+  [1X6.5-5 IsFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsFaithful[102X( [3Xm[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  whether  the maniplex [3Xm[103X is faithful, as defined in "Polytopality of
+  Maniplexes"; i.e., whether for each flag the intersection of all the i-faces
+  containing that flag is just the flag itself.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsFaithful(ToroidalMap44([1,0]));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
   

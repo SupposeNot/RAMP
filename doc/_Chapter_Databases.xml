@@ -312,8 +312,19 @@ gap> L := SmallTwoOrbit3Maniplexes([0], 100);
  <Description>
 Given a maniplex <A>M</A>, returns a string representation of
  <A>M</A> suitable for saving in a database for later retrieval.
+ This works for any maniplex such that String(<A>M</A>) contains defining
+ information for <A>M</A> - otherwise the output may not be so useful.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> DatabaseString(Cube(3));
+"Cube(3)#6#48"
+gap> M := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;
+gap> DatabaseString(M);
+"<object>#4#24"
+]]></Example>
 
 
 <ManSection>
@@ -322,9 +333,21 @@ Given a maniplex <A>M</A>, returns a string representation of
 </Returns>
  <Description>
 Given a string <A>maniplexString</A>, representing a maniplex stored
- in a database, returns the maniplex that is represented.
+ in a database, returns the maniplex that is represented. In particular,
+ ManiplexFromDatabaseString(DatabaseString(M)) is isomorphic to M if DatabaseString(M)
+ contains defining information for M.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> ManiplexFromDatabaseString("Cube(3)#6#48") = Cube(3);
+true
+gap> M := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;
+gap> ManiplexFromDatabaseString(DatabaseString(M));
+Syntax error: expression expected in stream:1
+_EVALSTRINGTMP:=<object>;
+]]></Example>
 
 
 <ManSection>

@@ -626,6 +626,16 @@ Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,3,4,3\}_{
 </ManSection>
 
 
+<Example><![CDATA[
+gap> M := 3343Toroid(3,1);
+ReflexibleManiplex([ 3, 3, 4, 3 ], "(r0 r1 r2 r3 r2 r1 r4 r3 r2 r3 r4 r1 r2 r3 r2 r1)^3")
+gap> IsPolytopal(M);
+true
+gap> IsPolytopal(3343Toroid(1,1));
+false
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="s, k" Name="24CellToroid" Label="for IsInt,IsInt"/>
  <Returns>IsManiplex
@@ -634,6 +644,13 @@ Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,3,4,3\}_{
 Given IsInt pair <A>s, k</A>, will return the regular toroid <Math>\{3,4,3,3\}_{\vec s}</Math> where <Math>\vec s=(s^k, 0^{n-k})</Math>. Note that <Math>k</Math> must be 1 or 2.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> M := 24CellToroid(3,1);;
+gap> Dual(M) = 3343Toroid(3,1);
+true
+]]></Example>
 
 
 </Section>

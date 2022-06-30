@@ -6,10 +6,10 @@
              [1X The Research Assistant for Maniplexes and Polytopes [101X
   
   
-                                      0.63
+                                      0.69
   
   
-                                 15 March 2021
+                                  28 June 2022
   
   
                                 Gabe Cunningham
@@ -195,14 +195,13 @@
       6.3-1 Flags
       6.3-2 BaseFlag
       6.3-3 SymmetryTypeGraph
-      6.3-4 SymmetryTypeGraph
-      6.3-5 NumberOfFlagOrbits
-      6.3-6 FlagOrbitRepresentatives
-      6.3-7 FlagOrbitsStabilizer
-      6.3-8 IsReflexible
-      6.3-9 IsChiral
-      6.3-10 IsRotary
-      6.3-11 FlagOrbits
+      6.3-4 NumberOfFlagOrbits
+      6.3-5 FlagOrbitRepresentatives
+      6.3-6 FlagOrbitsStabilizer
+      6.3-7 IsReflexible
+      6.3-8 IsChiral
+      6.3-9 IsRotary
+      6.3-10 FlagOrbits
     6.4 [33X[0;0YOrientability[133X
       6.4-1 IsOrientable
       6.4-2 IsIOrientable
@@ -215,6 +214,7 @@
       6.5-2 IsFacetFaithful
       6.5-3 MaxVertexFaithfulQuotient
       6.5-4 SatisfiesWeakPathIntersectionProperty
+      6.5-5 IsFaithful
   7 [33X[0;0YComparing maniplexes[133X
     7.1 [33X[0;0YQuotients and covers[133X
       7.1-1 [33X[0;0YIsQuotient[133X
@@ -487,9 +487,10 @@
     15.4 [33X[0;0YWords on relations[133X
       15.4-1 ParseStringCRels
       15.4-2 ParseRotGpRels
-      15.4-3 AddOrAppend
-      15.4-4 WrappedPosetOperation
-      15.4-5 MarkAsPolytopal
+      15.4-3 StandardizeSggi
+      15.4-4 AddOrAppend
+      15.4-5 WrappedPosetOperation
+      15.4-6 MarkAsPolytopal
   16 [33X[0;0YSynonyms for Commands[133X
   17 [33X[0;0YGraphs for Premaniplexes[133X
     17.1 [33X[0;0YConstructors of Premaniplexes[133X

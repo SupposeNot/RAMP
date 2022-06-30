@@ -8,10 +8,20 @@ DeclareGlobalVariable("UNIVERSAL_ROT_FREE_GROUPS");
 #! @Arguments n
 #! Returns the rotation subgroup of the universal Coxeter Group of rank n.
 DeclareOperation("UniversalRotationGroup", [IsInt]);
+#! @BeginExampleSession
+#! gap> UniversalRotationGroup(3);
+#! <fp group of size infinity on the generators [ s1, s2 ]>
+#! @EndExampleSession
 
 #! @Arguments sym
 #! Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.
 DeclareOperation("UniversalRotationGroup", [IsList]);
+#! @BeginExampleSession
+#! gap> UniversalRotationGroup([4,4]);
+#! <fp group of size infinity on the generators [ s1, s2 ]>
+#! gap> UniversalRotationGroup([3,3,3]);
+#! <fp group of size 60 on the generators [ s1, s2, s3 ]>
+#! @EndExampleSession
 
 
 #! @BeginGroup RotaryManiplex
@@ -23,14 +33,24 @@ DeclareOperation("UniversalRotationGroup", [IsList]);
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
 #! This function first checks whether g is a StringRotationGroup. Use `RotaryManiplexNC` to
 #! bypass that check.
+#! @BeginExampleSession
+#! gap> M := RotaryManiplex(UniversalRotationGroup([3,3]));;
+#! gap> M = Simplex(3);
+#! true
+#! @EndExampleSession
+#! 
 DeclareOperation("RotaryManiplex", [IsGroup]);
 
 DeclareOperation("RotaryManiplexNC", [IsGroup]);
 
 #! @Arguments sym
-#! 
-#! The second form returns the universal rotary maniplex (in fact, regular polytope)
+#! @Description The second form returns the universal rotary maniplex (in fact, regular polytope)
 #! with Schlafli symbol <A>sym</A>.
+#! @BeginExampleSession
+#! gap> M := RotaryManiplex([4,3]);;
+#! gap> M = Cube(3);
+#! true
+#! @EndExampleSession
 #!
 DeclareOperation("RotaryManiplex", [IsList]);
 
@@ -43,6 +63,8 @@ DeclareOperation("RotaryManiplex", [IsList]);
 #! the value of `variable` (but for global variables only).
 #! @BeginExampleSession
 #! gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
+#! gap> M = ToroidalMap44([6,0]);
+#! true
 #! @EndExampleSession
 #! 
 DeclareOperation("RotaryManiplex", [IsList, IsList]);
@@ -66,6 +88,15 @@ DeclareOperation("RotaryManiplex", [IsList, IsList, IsList]);
 #! to the one given. This may not be the correct Schlafli symbol, since
 #! the relations may cause a collapse, so this should only be used if
 #! you know that the Schlafli symbol is correct.
+#! @BeginExampleSession
+#! gap> M := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;
+#! gap> SchlafliSymbol(M);
+#! #I  Coset table calculation failed -- trying with bigger table limit
+#! ... eventually give up with CTRL-C
+#! gap> M := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;
+#! gap> SchlafliSymbol(M);
+#! [6, 6]
+#! @EndExampleSession
 #! @EndGroup
 
 #! @Arguments M
@@ -76,3 +107,14 @@ DeclareOperation("RotaryManiplex", [IsList, IsList, IsList]);
 #! Otherwise, if M is chiral, then the enantiomorphic form
 #! gives us a different presentation for the rotation group.
 DeclareOperation("EnantiomorphicForm", [IsManiplex]);
+#! @BeginExampleSession
+#! gap> M := ToroidalMap44([1,2]);;
+#! gap> g := AutomorphismGroup(M);
+#! <fp group of size 20 on the generators [ s1, s2 ]>
+#! gap> RelatorsOfFpGroup(g);
+#! [ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+#! gap> h := AutomorphismGroup(EnantiomorphicForm(M));
+#! <fp group of size 20 on the generators [ s1, s2 ]>
+#! gap> RelatorsOfFpGroup(h);
+#! [ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ]
+#! @EndExampleSession

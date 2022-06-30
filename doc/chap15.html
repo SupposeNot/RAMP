@@ -47,9 +47,10 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7E84DB4E8746344A">15.4-1 ParseStringCRels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X79C6D76380B9F364">15.4-2 ParseRotGpRels</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X829B5DA779342A28">15.4-3 AddOrAppend</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C4A431283A32F67">15.4-4 WrappedPosetOperation</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X86B884FA7C22BC92">15.4-5 MarkAsPolytopal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X85C42B4986C205D0">15.4-3 StandardizeSggi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X829B5DA779342A28">15.4-4 AddOrAppend</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C4A431283A32F67">15.4-5 WrappedPosetOperation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X86B884FA7C22BC92">15.4-6 MarkAsPolytopal</a></span>
 </div></div>
 </div>
 
@@ -102,6 +103,14 @@ true
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRotaryPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Calls <code class="code">RotaryManiplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractRotaryPolytopeNC</code> to assume that the output is polytopal and mark it as such.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := AbstractRotaryPolytope(Group((1,2)(3,4), (1,4)(2,3)));</span>
+regular 3-polytope of type [ 2, 2 ] with 8 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := AbstractRotaryPolytope(Group((1,2,3,4), (1,2)));</span>
+Error, The given group is not a String Rotation Group...
+</pre></div>
 
 <p><a id="X80F808307A2D5AB8" name="X80F808307A2D5AB8"></a></p>
 
@@ -207,9 +216,49 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseRotGpRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This helper function is used in several maniplex constructors. It is analogous to ParseStringCRels, but for rotation groups instead.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := UniversalRotationGroup([4,4]);</span>
+&lt;fp group of size infinity on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := "(s1 s2^-1)^6";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseRotGpRels(rels, g);</span>
+[ (s1*s2^-1)^6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := FactorGroupFpGroupByRels(g, newrels);</span>
+&lt;fp group on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex(g2);</span>
+3-maniplex with 288 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = ToroidalMap44([6,0]);</span>
+true
+</pre></div>
+
+<p><a id="X85C42B4986C205D0" name="X85C42B4986C205D0"></a></p>
+
+<h5>15.4-3 StandardizeSggi</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StandardizeSggi</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsSggi</p>
+
+<p>Takes an sggi, and returns an isomorphic sggi that is a quotient of the universal sggi of the appropriate rank.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := FreeGroup("x","y","z");</span>
+&lt;free group on the generators [ x, y, z ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(f);</span>
+#I  Assigned the global variables [ x, y, z ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := f / [x^2, y^2, z^2, (x*z)^2, (x*y)^4, (y*z)^4, (x*y*z)^6];</span>
+&lt;fp group on the generators [ x, y, z ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSggi(g);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := StandardizeSggi(g);</span>
+&lt;fp group on the generators [ r0, r1, r2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex(g) = ReflexibleManiplex(g2);</span>
+true
+</pre></div>
+
 <p><a id="X829B5DA779342A28" name="X829B5DA779342A28"></a></p>
 
-<h5>15.4-3 AddOrAppend</h5>
+<h5>15.4-4 AddOrAppend</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>
@@ -227,7 +276,7 @@ true
 
 <p><a id="X7C4A431283A32F67" name="X7C4A431283A32F67"></a></p>
 
-<h5>15.4-4 WrappedPosetOperation</h5>
+<h5>15.4-5 WrappedPosetOperation</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WrappedPosetOperation</code>( <var class="Arg">posetOp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Given a poset operation, creates a bare-bones maniplex operation that delegates to the poset operation.</p>
@@ -246,7 +295,7 @@ true
 
 <p><a id="X86B884FA7C22BC92" name="X86B884FA7C22BC92"></a></p>
 
-<h5>15.4-5 MarkAsPolytopal</h5>
+<h5>15.4-6 MarkAsPolytopal</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MarkAsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Sets <code class="code">IsPolytopal(M)</code> as true, and if necessary, changes <code class="code">String(M)</code> to reflect this.</p>

@@ -666,6 +666,16 @@ true
 
 <p>Given IsInt pair <var class="Arg">s, k</var>, will return the regular toroid <span class="Math">\{3,3,4,3\}_{\vec s}</span> where <span class="Math">\vec s=(s^k, 0^{n-k})</span>. Note that <span class="Math">k</span> must be 1 or 2.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := 3343Toroid(3,1);</span>
+ReflexibleManiplex([ 3, 3, 4, 3 ], "(r0 r1 r2 r3 r2 r1 r4 r3 r2 r3 r4 r1 r2 r3 r2 r1)^3")
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytopal(M);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytopal(3343Toroid(1,1));</span>
+false
+</pre></div>
+
 <p><a id="X830F2B047B0C3C13" name="X830F2B047B0C3C13"></a></p>
 
 <h5>4.4-7 24CellToroid</h5>
@@ -674,6 +684,13 @@ true
 <p>Returns: IsManiplex</p>
 
 <p>Given IsInt pair <var class="Arg">s, k</var>, will return the regular toroid <span class="Math">\{3,4,3,3\}_{\vec s}</span> where <span class="Math">\vec s=(s^k, 0^{n-k})</span>. Note that <span class="Math">k</span> must be 1 or 2.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := 24CellToroid(3,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(M) = 3343Toroid(3,1);</span>
+true
+</pre></div>
 
 <p><a id="X858942527933AF92" name="X858942527933AF92"></a></p>
 

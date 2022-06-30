@@ -268,6 +268,17 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PseudoSchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Sometimes when we make a maniplex, we know that the Schlafli symbol must be a quotient of some symbol. This most frequently happens because we start with a maniplex with a given Schlafli symbol and then take a quotient of it. In this case, we store the given Schlafli symbol and call it a <em>pseudo-Schlafli symbol</em> of <var class="Arg">M</var>. Note that whenever we compute the actual Schlafli symbol of <var class="Arg">M</var>, we update the pseudo-Schlafli symbol to match.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4], "(r0 r1)^2");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PseudoSchlafliSymbol(M);</span>
+[4, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(M);</span>
+[2, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PseudoSchlafliSymbol(M);</span>
+[2, 4]
+</pre></div>
+
 <p><a id="X7E9CCE9D794DC285" name="X7E9CCE9D794DC285"></a></p>
 
 <h5>10.3-3 IsEquivelar</h5>

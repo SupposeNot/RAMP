@@ -185,6 +185,16 @@
   [13Xpseudo-Schlafli  symbol[113X  of  [3XM[103X.  Note  that  whenever  we compute the actual
   Schlafli symbol of [3XM[103X, we update the pseudo-Schlafli symbol to match.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4], "(r0 r1)^2");;[127X[104X
+    [4X[25Xgap>[125X [27XPseudoSchlafliSymbol(M);[127X[104X
+    [4X[28X[4, 4][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(M);[127X[104X
+    [4X[28X[2, 4][128X[104X
+    [4X[25Xgap>[125X [27XPseudoSchlafliSymbol(M);[127X[104X
+    [4X[28X[2, 4][128X[104X
+  [4X[32X[104X
+  
   [1X10.3-3 IsEquivelar[101X
   
   [33X[1;0Y[29X[2XIsEquivelar[102X( [3XM[103X ) [32X property[133X

@@ -79,9 +79,9 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(g);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(g);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
 true
 </pre></div>
 
@@ -91,12 +91,12 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));</span>
 72
 </pre></div>
 
@@ -104,8 +104,8 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
 [ false, true, true, true, true ]
 </pre></div>
 
@@ -124,12 +124,12 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(G);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(G);</span>
 Pgon(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := ConnectionGroup(Cube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := ConnectionGroup(Cube(3));</span>
 &lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(c) = Cube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(c) = Cube(3);</span>
 true
 </pre></div>
 
@@ -144,15 +144,15 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4]);</span>
 CubicTiling(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AutomorphismGroup(M);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AutomorphismGroup(M);</span>
 &lt;fp group of size infinity on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);</span>
 Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M2 := Maniplex(M, H);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M2 := Maniplex(M, H);</span>
 3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M2);</span>
 16
 </pre></div>
 
@@ -236,6 +236,19 @@ Group([ (1,2) ])
 
 <p>Given two maniplexes p, q this returns the maniplex of their "flag" mix. That is, it constructs the mix of their connection groups, keeps the connected component with the base flags of p and q, and then builds a maniplex from this.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ToroidalMap44([1,2]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagMix(M,M) = M;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := FlagMix(M, EnantiomorphicForm(M));</span>
+3-maniplex with 200 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsReflexible(R);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R = ToroidalMap44([5,0]);</span>
+true
+</pre></div>
+
 <p><a id="X86B6B5DB7850FCA9" name="X86B6B5DB7850FCA9"></a></p>
 
 <h5>5.2-4 <span class="Heading">Comix</span></h5>
@@ -276,12 +289,26 @@ Group([ (1,2) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the rotation subgroup of the universal Coxeter Group of rank n.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalRotationGroup(3);</span>
+&lt;fp group of size infinity on the generators [ s1, s2 ]&gt;
+</pre></div>
+
 <p><a id="X7D6042317A76FDC3" name="X7D6042317A76FDC3"></a></p>
 
 <h5>5.3-2 UniversalRotationGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalRotationGroup([4,4]);</span>
+&lt;fp group of size infinity on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalRotationGroup([3,3,3]);</span>
+&lt;fp group of size 60 on the generators [ s1, s2, s3 ]&gt;
+</pre></div>
 
 <p><a id="X80791E367E43CA25" name="X80791E367E43CA25"></a></p>
 
@@ -293,13 +320,29 @@ Group([ (1,2) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>In the first form, given a group g (which should be a string rotation group), returns the rotary maniplex with that rotation group, where the privileged generators are those returned by GeneratorsOfGroup(g). This function first checks whether g is a StringRotationGroup. Use <code class="code">RotaryManiplexNC</code> to bypass that check.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex(UniversalRotationGroup([3,3]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
+true
+</pre></div>
+
 <p>The second form returns the universal rotary maniplex (in fact, regular polytope) with Schlafli symbol <var class="Arg">sym</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([4,3]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Cube(3);</span>
+true
+</pre></div>
 
 <p>The third form returns the rotary maniplex with the given Schlafli symbol and with the given relations. The relations are given by a string that refers to the generators s1, s2, etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only).</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = ToroidalMap44([6,0]);</span>
+true
 </pre></div>
 
 <p>The fourth form takes the Schlafli Symbol <var class="Arg">sym</var>, a list of <var class="Arg">words</var> in the generators r0 etc, and a list of <var class="Arg">orders</var>. It returns the rotary maniplex that is the quotient of the universal maniplex with that Schlalfi Symbol by the relations obtained by setting each <var class="Arg">word[i]</var> to have order <var class="Arg">order[i]</var>. This is primarily useful for quickly constructing a family of related maniplexes.</p>
@@ -313,12 +356,36 @@ Group([ (1,2) ])
 
 <p>In the last two forms, if the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(M);</span>
+#I  Coset table calculation failed -- trying with bigger table limit
+... eventually give up with CTRL-C
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(M);</span>
+[6, 6]
+</pre></div>
+
 <p><a id="X8745361B80626A39" name="X8745361B80626A39"></a></p>
 
 <h5>5.3-4 EnantiomorphicForm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnantiomorphicForm</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>The <em>enantiomorphic form</em> of a rotary maniplex is the same maniplex, but where we choose the new base flag to be one of the flags that is adjacent to the original base flag. If M is reflexible, then this choice has no effect. Otherwise, if M is chiral, then the enantiomorphic form gives us a different presentation for the rotation group.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ToroidalMap44([1,2]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(M);</span>
+&lt;fp group of size 20 on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RelatorsOfFpGroup(g);</span>
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := AutomorphismGroup(EnantiomorphicForm(M));</span>
+&lt;fp group of size 20 on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RelatorsOfFpGroup(h);</span>
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ]
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6_mj.html">[Next Chapter]</a>&nbsp;  </div>

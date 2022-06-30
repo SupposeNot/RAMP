@@ -97,6 +97,14 @@ DeclareAttribute("RotationGroupFpGroup", IsManiplex);
 #! reflexible quotient. In particular, the chirality group
 #! is trivial if and only if <A>M</A> is reflexible.
 DeclareAttribute("ChiralityGroup", IsRotaryManiplex);
+#! @BeginExampleSession
+#! gap> M := ToroidalMap44([1,2]);
+#! ToroidalMap44([ 1, 2 ])
+#! gap> G := ChiralityGroup(M);
+#! Group([ s2^-1*s1^-1*s2*s1^3*s2*s1 ])
+#! gap> Size(G);
+#! 5
+#! @EndExampleSession
 
 
 #! @Arguments M

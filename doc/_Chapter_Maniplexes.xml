@@ -226,6 +226,19 @@ Given two maniplexes p, q this returns the maniplex of their
 </ManSection>
 
 
+<Example><![CDATA[
+gap> M := ToroidalMap44([1,2]);;
+gap> FlagMix(M,M) = M;
+true
+gap> R := FlagMix(M, EnantiomorphicForm(M));
+3-maniplex with 200 flags
+gap> IsReflexible(R);
+true
+gap> R = ToroidalMap44([5,0]);
+true
+]]></Example>
+
+
 <ManSection Label="Comix">
 <Heading>Comix</Heading>
   <Oper Arg="fpgroup, fpgroup" Name="Comix" Label="for IsFpGroup, IsFpGroup"/>
@@ -278,12 +291,26 @@ gap> LtoC(8,5,4);
 </ManSection>
 
 
+<Example><![CDATA[
+gap> UniversalRotationGroup(3);
+<fp group of size infinity on the generators [ s1, s2 ]>
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="sym" Name="UniversalRotationGroup" Label="for IsList"/>
  <Description>
  Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> UniversalRotationGroup([4,4]);
+<fp group of size infinity on the generators [ s1, s2 ]>
+gap> UniversalRotationGroup([3,3,3]);
+<fp group of size 60 on the generators [ s1, s2, s3 ]>
+]]></Example>
 
 
 <ManSection Label="RotaryManiplex">
@@ -298,9 +325,23 @@ In the first form, given a group g (which should be a string rotation group),
  where the privileged generators are those returned by GeneratorsOfGroup(g).
  This function first checks whether g is a StringRotationGroup. Use <Code>RotaryManiplexNC</Code> to
  bypass that check.
+<Example><![CDATA[
+gap> M := RotaryManiplex(UniversalRotationGroup([3,3]));;
+gap> M = Simplex(3);
+true
+]]></Example>
+
+
 <P/>
- The second form returns the universal rotary maniplex (in fact, regular polytope)
+The second form returns the universal rotary maniplex (in fact, regular polytope)
  with Schlafli symbol <A>sym</A>.
+<Example><![CDATA[
+gap> M := RotaryManiplex([4,3]);;
+gap> M = Cube(3);
+true
+]]></Example>
+
+
 <P/>
 The third form returns the rotary maniplex with the given Schlafli
  symbol and with the given relations.
@@ -310,6 +351,8 @@ The third form returns the rotary maniplex with the given Schlafli
  the value of <Code>variable</Code> (but for global variables only).
 <Example><![CDATA[
 gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
+gap> M = ToroidalMap44([6,0]);
+true
 ]]></Example>
 
 
@@ -336,6 +379,17 @@ gap> List(L, IsPolytopal);
  to the one given. This may not be the correct Schlafli symbol, since
  the relations may cause a collapse, so this should only be used if
  you know that the Schlafli symbol is correct.
+<Example><![CDATA[
+gap> M := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;
+gap> SchlafliSymbol(M);
+#I  Coset table calculation failed -- trying with bigger table limit
+... eventually give up with CTRL-C
+gap> M := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;
+gap> SchlafliSymbol(M);
+[6, 6]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="M" Name="EnantiomorphicForm" Label="for IsManiplex"/>
  <Description>
@@ -347,6 +401,19 @@ The <Emph>enantiomorphic form</Emph> of a rotary maniplex is
  gives us a different presentation for the rotation group.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> M := ToroidalMap44([1,2]);;
+gap> g := AutomorphismGroup(M);
+<fp group of size 20 on the generators [ s1, s2 ]>
+gap> RelatorsOfFpGroup(g);
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+gap> h := AutomorphismGroup(EnantiomorphicForm(M));
+<fp group of size 20 on the generators [ s1, s2 ]>
+gap> RelatorsOfFpGroup(h);
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ]
+]]></Example>
 
 
 </Section>

@@ -48,6 +48,13 @@
   not,  this  throws an error. Use [10XAbstractRotaryPolytopeNC[110X to assume that the
   output is polytopal and mark it as such.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := AbstractRotaryPolytope(Group((1,2)(3,4), (1,4)(2,3)));[127X[104X
+    [4X[28Xregular 3-polytope of type [ 2, 2 ] with 8 flags[128X[104X
+    [4X[25Xgap>[125X [27XM := AbstractRotaryPolytope(Group((1,2,3,4), (1,2)));[127X[104X
+    [4X[28XError, The given group is not a String Rotation Group...[128X[104X
+  [4X[32X[104X
+  
   
   [1X15.3 [33X[0;0YPermutations[133X[101X
   
@@ -150,7 +157,44 @@
   [33X[0;0YThis  helper  function  is  used  in  several  maniplex  constructors. It is
   analogous to ParseStringCRels, but for rotation groups instead.[133X
   
-  [1X15.4-3 AddOrAppend[101X
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := UniversalRotationGroup([4,4]);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xrels := "(s1 s2^-1)^6";;[127X[104X
+    [4X[25Xgap>[125X [27Xnewrels := ParseRotGpRels(rels, g);[127X[104X
+    [4X[28X[ (s1*s2^-1)^6 ][128X[104X
+    [4X[25Xgap>[125X [27Xg2 := FactorGroupFpGroupByRels(g, newrels);[127X[104X
+    [4X[28X<fp group on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XM := RotaryManiplex(g2);[127X[104X
+    [4X[28X3-maniplex with 288 flags[128X[104X
+    [4X[25Xgap>[125X [27XM = ToroidalMap44([6,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X15.4-3 StandardizeSggi[101X
+  
+  [33X[1;0Y[29X[2XStandardizeSggi[102X( [3Xg[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsSggi[133X
+  
+  [33X[0;0YTakes  an  sggi,  and  returns  an isomorphic sggi that is a quotient of the
+  universal sggi of the appropriate rank.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xf := FreeGroup("x","y","z");[127X[104X
+    [4X[28X<free group on the generators [ x, y, z ]>[128X[104X
+    [4X[25Xgap>[125X [27XAssignGeneratorVariables(f);[127X[104X
+    [4X[28X#I  Assigned the global variables [ x, y, z ][128X[104X
+    [4X[25Xgap>[125X [27Xg := f / [x^2, y^2, z^2, (x*z)^2, (x*y)^4, (y*z)^4, (x*y*z)^6];[127X[104X
+    [4X[28X<fp group on the generators [ x, y, z ]>[128X[104X
+    [4X[25Xgap>[125X [27XIsSggi(g);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xg2 := StandardizeSggi(g);[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XReflexibleManiplex(g) = ReflexibleManiplex(g2);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X15.4-4 AddOrAppend[101X
   
   [33X[1;0Y[29X[2XAddOrAppend[102X( [3XL[103X, [3Xx[103X ) [32X function[133X
   
@@ -169,7 +213,7 @@
     [4X[28X[1, 2, 3, 4, 5, 6];[128X[104X
   [4X[32X[104X
   
-  [1X15.4-4 WrappedPosetOperation[101X
+  [1X15.4-5 WrappedPosetOperation[101X
   
   [33X[1;0Y[29X[2XWrappedPosetOperation[102X( [3XposetOp[103X ) [32X function[133X
   
@@ -190,7 +234,7 @@
   But  this  method  is  a  good way to quickly test whether a poset operation
   works on maniplexes the way one expects.[133X
   
-  [1X15.4-5 MarkAsPolytopal[101X
+  [1X15.4-6 MarkAsPolytopal[101X
   
   [33X[1;0Y[29X[2XMarkAsPolytopal[102X( [3XM[103X ) [32X operation[133X
   
