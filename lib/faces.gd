@@ -187,6 +187,15 @@ DeclareAttribute("SchlafliSymbol", IsManiplex);
 #! Schlafli symbol of <A>M</A>, we update the pseudo-Schlafli
 #! symbol to match.
 DeclareAttribute("PseudoSchlafliSymbol", IsManiplex);
+#! @BeginExampleSession
+#! gap> M := ReflexibleManiplex([4,4], "(r0 r1)^2");;
+#! gap> PseudoSchlafliSymbol(M);
+#! [4, 4]
+#! gap> SchlafliSymbol(M);
+#! [2, 4]
+#! gap> PseudoSchlafliSymbol(M);
+#! [2, 4]
+#! @EndExampleSession
 
 
 #! @Arguments M
