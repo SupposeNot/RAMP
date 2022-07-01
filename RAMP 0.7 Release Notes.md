@@ -6,7 +6,7 @@ The easiest way to access the full documentation once you have loaded RAMP is to
 
 **RAMP** package is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](http://www.fsf.org/licenses/gpl.html) as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
-If you use RAMP in your research, please cite it - you can get citation information in GAP by typing `Cite("RAMP")`. Of course, you should also cite GAP - type `Cite()` into GAP.
+If you use RAMP in your research, please cite it - you can get citation information in GAP by typing `Cite("RAMP")`. Our doi is 10.5281/zenodo.6774889. Of course, you should also cite GAP - type `Cite()` into GAP.
 
 ## Changes since 0.6.3
 
