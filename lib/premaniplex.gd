@@ -32,3 +32,64 @@ DeclareOperation("Premaniplex",[IsEdgeLabeledGraph]);
 #! gap> Premaniplex(F);
 #! Premaniplex of rank 3 with 2 flags
 #! @EndExampleSession
+
+#! @Arguments premaniplex
+#! @Returns permgroup
+#! @Description Constructs the connection group from a Premaniplex.
+#! Semi-edges, and non-edges give fixed points.
+#! Graph is assumed to be coming from a Premaniplex.  Some weird things could happen if it is not
+DeclareAttribute("ConnectionGroup", IsPremaniplex);
+
+
+#! @Arguments int
+#! @Returns premaniplex
+#! @Description Builds the 1 flag premaniplex of rank n
+#! Note See VOLTAGE OPERATIONS ON MANIPLEXES
+DeclareOperation("STG1",[IsInt]);
+#! @BeginExampleSession
+#! gap> STG1(5);
+#! Premaniplex of rank 5 with 1 flag
+#! @EndExampleSession
+
+
+#! @Arguments int, list
+#! @Returns premaniplex
+#! @Description Builds the 2 flag premaniplex of rank n with semi-edges in I
+#! Note See VOLTAGE OPERATIONS ON MANIPLEXES
+DeclareOperation("STG2",[IsInt,IsList]);
+#! @BeginExampleSession
+#! gap> STG2(5,[2,4]);
+#! Premaniplex of rank 5 with 2 flags
+#! @EndExampleSession
+
+
+#! @Arguments int, int
+#! @Returns premaniplex
+#! @Description Builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes.  There are edges of label i-1 and i+1 are parallel.
+DeclareOperation("STG3",[IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> STG3(5,2);
+#! Premaniplex of rank 5 with 3 flags
+#! @EndExampleSession
+
+
+#! @Arguments int, int, int
+#! @Returns premaniplex
+#! @Description Assumes j=i+1 and builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes.  There are edges of label i and j.
+DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> STG3(6,2,3);
+#! Premaniplex of rank 6 with 3 flags
+#! @EndExampleSession
+
+
+#! @Arguments premaniplex
+#! @Returns edgelabeledgraph
+#! @Description Returns the flag graph of a premaniplex
+DeclareOperation("FlagGraph",[IsPremaniplex]);
+#! @BeginExampleSession
+#! gap> STG3(4,1);;
+#!  gap> FlagGraph(last);
+#! Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
+#! @EndExampleSession
+
