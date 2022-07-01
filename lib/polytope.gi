@@ -140,13 +140,39 @@ InstallMethod(ReflexibleManiplex,
 InstallMethod(Maniplex,
 	[IsPermGroup],
 	function(g)
-	local n, fam, p;
-	n := Size(GeneratorsOfGroup(g));
+	if not(IsSggi(g)) then
+		Error("g must be an Sggi!");
+	else
+		return ManiplexNC(g);
+	fi;
+	end);
+	
+InstallMethod(ManiplexNC,
+	[IsPermGroup],
+	function(g)
+	local gens, genprods, i, j, n, num_flags, fam, p;
+
+	gens := GeneratorsOfGroup(g);
+	n := Size(gens);
+	num_flags := NrMovedPoints(g);
+	genprods := [];
+	for i in [1..n-1] do
+		for j in [i+1..n] do
+			Add(genprods, gens[i]*gens[j]);
+		od;
+	od;
+		
+	# If any generator or product of generators has fixed points, then return a pre-maniplex instead.
+	if ForAny(gens, x -> NrMovedPoints(x) < num_flags) or ForAny(genprods, x -> NrMovedPoints(x) < num_flags) then
+		Info(InfoRamp, 1, "The given Sggi defines a pre-maniplex but not a maniplex.");		
+		return PremaniplexNC(g);
+	fi;
+	
 	if n = 0 then
 		return UniversalPolytope(0);
 	elif n = 1 then
 		return UniversalPolytope(1);
-	elif n = 2 and NrMovedPoints(g.1) = NrMovedPoints(g) and NrMovedPoints(g) >= 4 and ValueOption("no_reindexing") <> true then
+	elif n = 2 and ValueOption("no_reindexing") <> true then
 		return Pgon(NrMovedPoints(g) / 2);
 	fi;
 	

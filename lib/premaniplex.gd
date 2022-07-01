@@ -6,7 +6,8 @@
 #! @Arguments group
 #! @Returns `IsPremaniplex`. 
 #! @Description Given a group we return the premaniplex with that group as its connection group.  
-#! Note: We will assume (but not check) that the group is an sggi.    
+#! This function first checks whether <A>group</A> is an Sggi. Use `PremaniplexNC` to
+#! bypass that check.
 DeclareOperation("Premaniplex",[IsGroup]);
 #! Here we build a premaniplex with 3 flags.
 #! @BeginExampleSession
@@ -15,6 +16,7 @@ DeclareOperation("Premaniplex",[IsGroup]);
 #! Premaniplex of rank 3 with 3 flags
 #! @EndExampleSession
 
+DeclareOperation("PremaniplexNC",[IsGroup]);
 
 
 

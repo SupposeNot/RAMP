@@ -80,7 +80,8 @@ DeclareSynonym("RefManNC", ReflexibleManiplexNC);
 #! @Returns `IsManiplex`
 #! @Description Given a permutation group <A>G</A> on the set [1..N],
 #! returns a maniplex with N flags with connection group <A>G</A>.
-#! The output may not make sense if <A>G</A> is not an sggi.
+#! This function first checks whether g is an Sggi. Use `ManiplexNC` to
+#! bypass that check.
 #! @BeginExampleSession
 #! gap> G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;
 #! gap> M := Maniplex(G);
@@ -91,6 +92,9 @@ DeclareSynonym("RefManNC", ReflexibleManiplexNC);
 #! true
 #! @EndExampleSession
 DeclareOperation("Maniplex", [IsPermGroup]);
+
+DeclareOperation("ManiplexNC", [IsPermGroup]);
+
 
 #! @Arguments M, H
 #! @Returns `IsManiplex`

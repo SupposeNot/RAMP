@@ -13,7 +13,8 @@
 </Returns>
  <Description>
 Given a group we return the premaniplex with that group as its connection group.
- Note: We will assume (but not check) that the group is an sggi.    
+ This function first checks whether <A>group</A> is an Sggi. Use <Code>PremaniplexNC</Code> to
+ bypass that check.
  </Description>
 </ManSection>
 

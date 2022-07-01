@@ -3,11 +3,20 @@
 InstallMethod(Premaniplex,
 	[IsGroup],
 	function(g)
+	if not(IsSggi(g)) then
+		Error("g must be an Sggi!");
+	else
+		return PremaniplexNC(g);
+	fi;
+	end);
+
+InstallMethod(PremaniplexNC,
+	[IsGroup],
+	function(g)
 	local pm;
 	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexConnGpRep),  	    rec(conn_gp:=g, flags:=MovedPoints(g), rank:=Size(GeneratorsOfGroup(g))));
 	return(pm);
 	end);
-
 
 InstallMethod(Premaniplex,
 	[IsEdgeLabeledGraph],

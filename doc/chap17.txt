@@ -10,7 +10,8 @@
   [6XReturns:[106X  [33X[0;10Y[10XIsPremaniplex[110X.[133X
   
   [33X[0;0YGiven  a  group  we return the premaniplex with that group as its connection
-  group. Note: We will assume (but not check) that the group is an sggi.[133X
+  group.   This   function   first  checks  whether  [3Xgroup[103X  is  an  Sggi.  Use
+  [10XPremaniplexNC[110X to bypass that check.[133X
   
   [33X[0;0YHere we build a premaniplex with 3 flags.[133X
   
