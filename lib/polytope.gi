@@ -22,6 +22,7 @@ InstallMethod(ReflexibleManiplexNC,
 		SetAutomorphismGroupPermGroup(p, autgp);
 	fi;
 	SetIsReflexible(p, true);
+	if HasSchlafliSymbol(autgp) then SetSchlafliSymbol(p, SchlafliSymbol(autgp)); fi;
 
 	return p;
 	end);
