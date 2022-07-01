@@ -40,3 +40,79 @@
     [4X[28XPremaniplex of rank 3 with 2 flags[128X[104X
   [4X[32X[104X
   
+  [1X17.1-3 ConnectionGroup[101X
+  
+  [33X[1;0Y[29X[2XConnectionGroup[102X( [3Xpremaniplex[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Ypermgroup[133X
+  
+  [33X[0;0YConstructs   the  connection  group  from  a  Premaniplex.  Semi-edges,  and
+  non-edges  give  fixed  points.  Graph  is  assumed  to  be  coming  from  a
+  Premaniplex. Some weird things could happen if it is not[133X
+  
+  [1X17.1-4 STG1[101X
+  
+  [33X[1;0Y[29X[2XSTG1[102X( [3Xint[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YBuilds  the  1  flag  premaniplex  of  rank n Note See VOLTAGE OPERATIONS ON
+  MANIPLEXES[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG1(5);[127X[104X
+    [4X[28XPremaniplex of rank 5 with 1 flag[128X[104X
+  [4X[32X[104X
+  
+  [1X17.1-5 STG2[101X
+  
+  [33X[1;0Y[29X[2XSTG2[102X( [3Xint[103X, [3Xlist[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YBuilds  the  2  flag  premaniplex  of  rank  n with semi-edges in I Note See
+  VOLTAGE OPERATIONS ON MANIPLEXES[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG2(5,[2,4]);[127X[104X
+    [4X[28XPremaniplex of rank 5 with 2 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X17.1-6 STG3[101X
+  
+  [33X[1;0Y[29X[2XSTG3[102X( [3Xint[103X, [3Xint[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YBuilds  the  3  flag  premaniplex of rank n described on Page 11 of Symmetry
+  Type  Graphs  of  Polytopes and Maniplexes. There are edges of label i-1 and
+  i+1 are parallel.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG3(5,2);[127X[104X
+    [4X[28XPremaniplex of rank 5 with 3 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X17.1-7 STG3[101X
+  
+  [33X[1;0Y[29X[2XSTG3[102X( [3Xint[103X, [3Xint[103X, [3Xint[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YAssumes  j=i+1 and builds the 3 flag premaniplex of rank n described on Page
+  11  of  Symmetry Type Graphs of Polytopes and Maniplexes. There are edges of
+  label i and j.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG3(6,2,3);[127X[104X
+    [4X[28XPremaniplex of rank 6 with 3 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X17.1-8 FlagGraph[101X
+  
+  [33X[1;0Y[29X[2XFlagGraph[102X( [3Xpremaniplex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yedgelabeledgraph[133X
+  
+  [33X[0;0YReturns the flag graph of a premaniplex[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG3(4,1);;[127X[104X
+    [4X[28X gap> FlagGraph(last);[128X[104X
+    [4X[28XEdge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
+  [4X[32X[104X
+  

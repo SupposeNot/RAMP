@@ -23,7 +23,7 @@
   \item \texttt  {AdjacentVertices}
     \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{85}
   \item \texttt  {AdmissiblePerms}
-    \subitem for IsInt, IsList, \hyperpage{114}
+    \subitem for IsInt, IsList, \hyperpage{115}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{65}
   \item \texttt  {Angle}
@@ -116,6 +116,7 @@
     \subitem for IsEdgeLabeledGraph, \hyperpage{86}
     \subitem for IsManiplex, \hyperpage{10}
     \subitem for IsPoset, \hyperpage{57}
+    \subitem for IsPremaniplex, \hyperpage{112}
   \item \texttt  {CoSkeleton}
     \subitem for IsManiplex, \hyperpage{82}
   \item \texttt  {CPRGraphFromGroups}
@@ -199,6 +200,7 @@
     \subitem for IsManiplex, \hyperpage{71}
   \item \texttt  {FlagGraph}
     \subitem for IsGroup, \hyperpage{83}
+    \subitem for IsPremaniplex, \hyperpage{113}
   \item \texttt  {FlagGraphWithLabels}
     \subitem for IsGroup, \hyperpage{80}
   \item \texttt  {FlagList}
@@ -659,7 +661,7 @@
   \item \texttt  {Skeleton}
     \subitem for IsManiplex, \hyperpage{82}
   \item \texttt  {SmallChiral4Polytopes}, \hyperpage{90}
-  \item \texttt  {SmallChiralPolyhedra}, \hyperpage{89}
+  \item \texttt  {SmallChiralPolyhedra}, \hyperpage{90}
   \item \texttt  {SmallDegenerateRegular4Polytopes}, \hyperpage{89}
   \item \texttt  {SmallestReflexibleCover}
     \subitem for IsManiplex, \hyperpage{45}
@@ -667,11 +669,11 @@
   \item \texttt  {SmallReflexibleManiplexes}, \hyperpage{90}
   \item \texttt  {SmallRegular4Polytopes}, \hyperpage{89}
   \item \texttt  {SmallRegularPolyhedra}, \hyperpage{89}
-  \item \texttt  {SmallRegularPolyhedraFromFile}, \hyperpage{88}
+  \item \texttt  {SmallRegularPolyhedraFromFile}, \hyperpage{89}
   \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{26}
   \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{25}
   \item \texttt  {SmallStellatedDodecahedron}, \hyperpage{19}
-  \item \texttt  {SmallTwoOrbit3Maniplexes}, \hyperpage{90}
+  \item \texttt  {SmallTwoOrbit3Maniplexes}, \hyperpage{91}
   \item \texttt  {Snub}
     \subitem for IsMapOnSurface, \hyperpage{98}
   \item \texttt  {SnubCube}, \hyperpage{26}
@@ -679,6 +681,13 @@
   \item \texttt  {Stake}
     \subitem for IsMapOnSurface, \hyperpage{104}
   \item \texttt  {StandardizeSggi}, \hyperpage{109}
+  \item \texttt  {STG1}
+    \subitem for IsInt, \hyperpage{113}
+  \item \texttt  {STG2}
+    \subitem for IsInt,IsList, \hyperpage{113}
+  \item \texttt  {STG3}
+    \subitem for IsInt,IsInt, \hyperpage{113}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{113}
   \item \texttt  {Subdivide}
     \subitem for IsMapOnSurface, \hyperpage{103}
   \item \texttt  {Subdivision1}
@@ -740,8 +749,8 @@
   \item \texttt  {ViewGraph}
     \subitem for IsObject, IsString, \hyperpage{86}
   \item \texttt  {VoltageOperator}
-    \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{113}
-    \subitem for IsList, IsString,IsManiplex, \hyperpage{113}
+    \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{114}
+    \subitem for IsList, IsString,IsManiplex, \hyperpage{114}
   \item \texttt  {Volute}
     \subitem for IsMapOnSurface, \hyperpage{105}
 
@@ -752,11 +761,11 @@
   \item \texttt  {WrappedPosetOperation}, \hyperpage{110}
   \item \texttt  {WriteManiplexesToFile}, \hyperpage{87}
   \item \texttt  {WythoffLabeledEdges}
-    \subitem for IsInt, IsList, \hyperpage{114}
+    \subitem for IsInt, IsList, \hyperpage{115}
   \item \texttt  {WythoffSTG}
-    \subitem for IsInt, IsList, \hyperpage{114}
+    \subitem for IsInt, IsList, \hyperpage{115}
   \item \texttt  {WythoffVoltageOperator}
-    \subitem for IsInt, IsList, IsManiplex, \hyperpage{114}
+    \subitem for IsInt, IsList, IsManiplex, \hyperpage{115}
 
   \indexspace
 

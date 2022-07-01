@@ -17,8 +17,8 @@
 SetPackageInfo( rec(
 	PackageName := "RAMP",
 	Subtitle := "The Research Assistant for Maniplexes and Polytopes",
-	Version := "0.69",
-	Date := "28/06/2022",
+	Version := "0.7",
+	Date := "July 1, 2022",
 
 ## Optional: license of the package, as an SPDX short-form identifiers;
 ## see <https://spdx.org/ids> for an explanation what an SPDX ID is, and

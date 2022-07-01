@@ -98,8 +98,8 @@
 {\Huge \textbf{ The Research Assistant for Maniplexes and Polytopes \mbox{}}}\\
 \vfill
 
-{\Huge  0.69 \mbox{}}\\[1cm]
-{ 28 June 2022 \mbox{}}\\[1cm]
+{\Huge  0.7 \mbox{}}\\[1cm]
+{ July 1, 2022 \mbox{}}\\[1cm]
 \mbox{}\\[2cm]
 {\Large \textbf{ Gabe Cunningham\\
     \mbox{}}}\\
@@ -1984,9 +1984,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. 
@@ -1996,12 +1996,12 @@ relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
 replaced with the value of \texttt{variable} (but for global variables only). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
-  !gapprompt@gap>| !gapinput@n := 3;;|
-  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@n := 3;;|
+  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
   72
 \end{Verbatim}
  The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the reflexible maniplex that is the quotient of the universal
@@ -2010,8 +2010,8 @@ maniplexes. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
-  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
+  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
+  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
   [ false, true, true, true, true ]
 \end{Verbatim}
  
@@ -2036,12 +2036,12 @@ should only be used if you know that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. This function first checks whether g is an Sggi. Use \texttt{ManiplexNC} to bypass that check. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -2063,15 +2063,15 @@ should only be used if you know that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -3138,7 +3138,7 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
@@ -3159,9 +3159,9 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
@@ -3181,9 +3181,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -3218,9 +3218,9 @@ flag itself. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
   true
-  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
+  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
   false
 \end{Verbatim}
  }
@@ -8841,6 +8841,130 @@ to say, we are assumging each vertex is incident with one edge of each label. }
   !gapprompt@gap>| !gapinput@F:=EdgeLabeledGraphFromLabeledEdges(L);;|
   !gapprompt@gap>| !gapinput@Premaniplex(F);|
   Premaniplex of rank 3 with 2 flags
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ConnectionGroup (for IsPremaniplex)}}
+\logpage{[ 17, 1, 3 ]}\nobreak
+\hyperdef{L}{X860DF96279DD28AB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConnectionGroup({\mdseries\slshape premaniplex})\index{ConnectionGroup@\texttt{ConnectionGroup}!for IsPremaniplex}
+\label{ConnectionGroup:for IsPremaniplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+permgroup 
+
+
+
+ Constructs the connection group from a Premaniplex. Semi-edges, and non-edges
+give fixed points. Graph is assumed to be coming from a Premaniplex. Some
+weird things could happen if it is not }
+
+ 
+
+\subsection{\textcolor{Chapter }{STG1 (for IsInt)}}
+\logpage{[ 17, 1, 4 ]}\nobreak
+\hyperdef{L}{X7DB8D3047E0B5A7D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG1({\mdseries\slshape int})\index{STG1@\texttt{STG1}!for IsInt}
+\label{STG1:for IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+premaniplex 
+
+
+
+ Builds the 1 flag premaniplex of rank n Note See VOLTAGE OPERATIONS ON
+MANIPLEXES }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@STG1(5);|
+  Premaniplex of rank 5 with 1 flag
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{STG2 (for IsInt,IsList)}}
+\logpage{[ 17, 1, 5 ]}\nobreak
+\hyperdef{L}{X7BCF47AC7876459A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG2({\mdseries\slshape int, list})\index{STG2@\texttt{STG2}!for IsInt,IsList}
+\label{STG2:for IsInt,IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+premaniplex 
+
+
+
+ Builds the 2 flag premaniplex of rank n with semi-edges in I Note See VOLTAGE
+OPERATIONS ON MANIPLEXES }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@STG2(5,[2,4]);|
+  Premaniplex of rank 5 with 2 flags
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{STG3 (for IsInt,IsInt)}}
+\logpage{[ 17, 1, 6 ]}\nobreak
+\hyperdef{L}{X7C2B1DB07CB38F59}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG3({\mdseries\slshape int, int})\index{STG3@\texttt{STG3}!for IsInt,IsInt}
+\label{STG3:for IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+premaniplex 
+
+
+
+ Builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type
+Graphs of Polytopes and Maniplexes. There are edges of label i-1 and i+1 are
+parallel. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@STG3(5,2);|
+  Premaniplex of rank 5 with 3 flags
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{STG3 (for IsInt,IsInt,IsInt)}}
+\logpage{[ 17, 1, 7 ]}\nobreak
+\hyperdef{L}{X7EFDB6887DEAFB4F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG3({\mdseries\slshape int, int, int})\index{STG3@\texttt{STG3}!for IsInt,IsInt,IsInt}
+\label{STG3:for IsInt,IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+premaniplex 
+
+
+
+ Assumes j=i+1 and builds the 3 flag premaniplex of rank n described on Page 11
+of Symmetry Type Graphs of Polytopes and Maniplexes. There are edges of label
+i and j. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@STG3(6,2,3);|
+  Premaniplex of rank 6 with 3 flags
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{FlagGraph (for IsPremaniplex)}}
+\logpage{[ 17, 1, 8 ]}\nobreak
+\hyperdef{L}{X863F65F6865859F1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagGraph({\mdseries\slshape premaniplex})\index{FlagGraph@\texttt{FlagGraph}!for IsPremaniplex}
+\label{FlagGraph:for IsPremaniplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+edgelabeledgraph 
+
+
+
+ Returns the flag graph of a premaniplex }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@STG3(4,1);;|
+   gap> FlagGraph(last);
+  Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 \end{Verbatim}
  }
 
