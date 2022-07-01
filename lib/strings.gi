@@ -90,7 +90,11 @@ InstallGlobalFunction(MANIPLEX_STRING,
 		Append(str, Concatenation(" of type ", String(SchlafliSymbol(p))));
 	fi;
 	if HasSize(p) then 
-		Append(str, Concatenation(" with ", String(Size(p)), " flags")); 
+		if IsFinite(p) then
+			Append(str, Concatenation(" with ", String(Size(p)), " flags")); 
+		else
+			Append(str, " with infinitely many flags"); 
+		fi;
 	fi;
 	return str;
 	end);
