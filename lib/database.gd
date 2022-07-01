@@ -1,7 +1,20 @@
 
 #! @Chapter Databases
+#! We are indebted to those who have made their data on polytopes and maps
+#! freely available. Data on small regular polytopes is from Marston Conder:
+#!
+#! https://www.math.auckland.ac.nz/~conder/RegularPolytopesWithUpTo4000Flags-ByOrder.txt
+#! 
+#! Data on small reflexible maniplexes was produced for RAMP by Mark Mixer.
+#!
+#! Data on small chiral polytopes is from Marston Conder:
+#!
+#! https://www.math.auckland.ac.nz/~conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt
+#!
+#! Data on small 2-orbit polyhedra in class 2_0 (available in Rank3AG_2_0.txt in the data folder)
+#! was produced for RAMP by Mark Mixer.
+
 #! @Section Regular polyhedra
-#! Eventually we should put information here about where the data comes from.
 
 #! @Arguments maniplexes, filename, attributeNames
 #! @Description Writes the data in <A>maniplexes</A> to the designated file,
