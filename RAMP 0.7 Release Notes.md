@@ -6,6 +6,8 @@ The easiest way to access the full documentation once you have loaded RAMP is to
 
 **RAMP** package is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License](http://www.fsf.org/licenses/gpl.html) as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
+If you use RAMP in your research, please cite it - you can get citation information in GAP by typing `Cite("RAMP")`. Of course, you should also cite GAP - type `Cite()` into GAP.
+
 ## Changes since 0.6.3
 
 - Fix to allow directed graphs as imputs to ViewGraph.
@@ -30,7 +32,7 @@ The easiest way to access the full documentation once you have loaded RAMP is to
 - Wythoff operations!!!
 - Extensive improvements to graph representations and bug fixes to existing graph code.
 - Made RotationGroupFpGroup work for infinite polytopes, AutomorphismGroupFpGroup work gracefully with chiral maniplexes.
-- Syncing of attributes after isomorphism testing.
+- Fixed syncing of attributes after isomorphism testing.
 - Support for rooted covers, quotients, and isomorphism.
 - Reworked maniplex string and display code.
 - String interpolation improvements, e.g., to RotaryManiplex
