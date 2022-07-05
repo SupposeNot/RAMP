@@ -167,7 +167,7 @@ Persons := [
     FirstNames    := "Mark",
     IsAuthor      := true,
     IsMaintainer  := true,
-    Email         := "mixerm@wit.edu",
+    Email         := "mixerm@wit.edu"
   ),
   rec( 
     LastName      := "Williams",
