@@ -108,6 +108,21 @@ InstallMethod(IsExternallySelfDual,
 	return IsSelfDual(M) and not(IsInternallySelfDual(M));
 	end);
 
+InstallMethod(IsProperlySelfDual,
+	[IsManiplex],
+	function(M)
+	
+	if not(IsSelfDual(M)) then
+		return false;
+	elif HasIsReflexible(M) and IsReflexible(M) then
+		return true;
+	elif IsRotary(M) then
+		return IsIsomorphicRootedManiplex(M, Dual(M));
+	else
+		Error("IsProperlySelfDual is only defined for rotary (chiral and reflexible) maniplexes!");
+	fi;
+	end);
+
 InstallMethod(Petrial,
 	[IsManiplex],
 	function(M)

@@ -63,6 +63,27 @@ DeclareProperty("IsExternallySelfDual", IsManiplex);
 #! false
 #! @EndExampleSession
 
+#! @Arguments M
+#! @Description Returns whether this rooted maniplex is "properly self-dual", meaning that 
+#! there is an isomorphism of rooted maniplexes from <A>M</A> to its dual. 
+#! In other words, there is a duality of <A>M</A> that fixes the base flag.
+#! Note that all reflexible self-dual maniplexes are properly self-dual.
+DeclareProperty("IsProperlySelfDual", IsManiplex);
+#! @BeginExampleSession
+#! gap> IsProperlySelfDual(Cube(4));
+#! false
+#! gap> IsProperlySelfDual(Simplex(4));
+#! true
+#! gap> IsProperlySelfDual(ARP([4,5,4]));
+#! true
+#! gap> IsProperlySelfDual(ToroidalMap44([1,2]));
+#! false
+#! gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));
+#! true
+#! gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));
+#! false
+#! @EndExampleSession
+
 #! @BeginGroup
 #! @GroupTitle Petrie Dual
 #! @Arguments M
