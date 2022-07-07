@@ -1,4 +1,20 @@
+InstallGlobalFunction(FinalizedOutputMap,
+	function(m, m2, op_name)
+	SetString(m2, "");
+	m2!.String := Concatenation(op_name, "(", String(m), ")");
+	return m2;
+	end);
 
+InstallGlobalFunction(MapOperation,
+	function(op, op_name)
+	local wrapped_op;
+	wrapped_op := function(m)
+		local m2;
+		m2 := op(m);
+		return FinalizedOutputMap(m, m2, op_name);
+		end;
+	return wrapped_op;
+	end);
 
 
 # InstallMethod(Truncation,
@@ -34,9 +50,19 @@
 # 	return Maniplex(Group([s0,s1,s2]));
 # 	end);
 
+#InstallMethod(Snub,
+#	[IsMapOnSurface],
+#	function(m)
+#	local m2;
+#	m2 := Dual(Gyro(m));
+#	SetString(m2, "");
+#	m2!.String := Concatenation("Snub(", String(m), ")");
+#	return m2;
+#	end);
+
 InstallMethod(Snub,
 	[IsMapOnSurface],
-	m->Dual(Gyro(m)));
+	MapOperation(m -> Dual(Gyro(m)), "Snub"));
 		
 # InstallMethod(Snub,
 # 	[IsManiplex],
@@ -91,7 +117,7 @@ InstallMethod(Snub,
 InstallMethod(Chamfer,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -107,13 +133,14 @@ InstallMethod(Chamfer,
 	s0:=c.1*TranslatePerm(c.1,len)*PermList(s0List);
 	s1:=c.2*TranslatePerm(c.3,3*len)*PermList(s1List);
 	s2:=PermList(s2List)*TranslatePerm(c.2,2*len)*TranslatePerm(c.2,3*len);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2, "Chamfer");
 	end);
 
 InstallMethod(Subdivision1,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -121,121 +148,112 @@ InstallMethod(Subdivision1,
 	s0:=PermList(Concatenation(List([1..len],x->x+len),List([len+1..2*len],x->x-len)));
 	s1:=c.2*TranslatePerm(c.1,len);
 	s2:=MultPerm(c.3,2,len);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Subdivision1");
 	end);
 	
-
 InstallMethod(Subdivision2,
 	[IsMapOnSurface],
-	function(m)
-	return Dual(Truncation(Dual(m)));
-	end);
-
+	MapOperation(m -> Dual(Truncation(Dual(m))), "Subdivision2"));
+		
 InstallMethod(BarycentricSubdivision,
 	[IsMapOnSurface],
-	function(m)
-	return Subdivision2(Subdivision1(m));
-	end);
+	MapOperation(m -> Subdivision2(Subdivision1(m)), "BarycentricSubdivision"));
 	
 InstallMethod(Leapfrog,
 	[IsMapOnSurface],
-	function(m)
-	return Truncation(Dual(m));
-	end);	
+	MapOperation(m -> Truncation(Dual(m)), "Leapfrog"));
 
 InstallMethod(CombinatorialMap,
 	[IsMapOnSurface],
-	function(m)
-	return Dual(BarycentricSubdivision(m));
-	end);	
+	MapOperation(m -> Dual(BarycentricSubdivision(m)), "CombinatorialMap"));
 
 InstallMethod(Reflection,
 	[IsManiplex],
-	function(m) local c, nc;
+	function(m) local c, nc, m2;
 	c:=ConnectionGroup(m);
 	nc:=ConjugateGroup(c,c.1);
-	return Maniplex(nc);
+	m2 := Maniplex(nc);
+	return FinalizedOutputMap(m,m2,"Reflection");
 	end);
 	
 InstallMethod(Angle,
 	[IsMapOnSurface],
-	function(m)
-	return Dual(Medial(m));
-	end);		
+	MapOperation(m -> Dual(Medial(m)), "Angle"));
 	
 InstallMethod(Gothic,
 	[IsMapOnSurface],
-	function(m)
-	return Dual(Medial(Truncation(m)));
-	end);		
+	MapOperation(m -> Dual(Medial(Truncation(m))), "Gothic"));
 
 InstallMethod(Kis,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
 	s0:=c.1* PermList(Concatenation([1..len], List([1..len],x->x+2*len), List([1..len],x->x+len)));
 	s1:=PermList( Concatenation(List([1..len],x->x+len), [1..len])) * TranslatePerm(c.1,2*len);
 	s2:=c.3*TranslatePerm(c.2,len)*TranslatePerm(c.2,2*len);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Kis");
 	end);
 
 InstallMethod(Needle,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
 	s0:=PermList(Concatenation([len+1..2*len],[1..len]))*TranslatePerm(c.3,2*len);
 	s1:=c.3*PermList(Concatenation([1..len],[2*len+1..3*len],[len+1..2*len]));
 	s2:=c.2*TranslatePerm(c.2,len)*TranslatePerm(c.1,2*len);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Needle");
 	end);
 	
 InstallMethod(Zip,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
 	s0:=c.3*TranslatePerm(c.2,len)*TranslatePerm(c.2,2*len);
 	s1:=PermList(Concatenation([len+1..2*len],[1..len]))*TranslatePerm(c.1,2*len);
 	s2:=c.1*PermList(Concatenation([1..len],[2*len+1..3*len],[len+1..2*len]));
-	return Maniplex(Group([s0,s1,s2]));#[c,Group([s0,s1,s2])];
+	m2 := Maniplex(Group([s0,s1,s2]));#[c,Group([s0,s1,s2])];
+	return FinalizedOutputMap(m,m2,"Zip");
 	end);
 	
 InstallMethod(Truncation,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
 	s0:=c.1*TranslatePerm(c.2,len)*TranslatePerm(c.2,2*len);
 	s1:=PermList(Concatenation([len+1..2*len],[1..len]))*TranslatePerm(c.3,2*len);
 	s2:=c.3*PermList(Concatenation([1..len],[2*len+1..3*len],[len+1..2*len]));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Truncation");
 	end);
 
 
 InstallMethod(Ortho,
 	[IsMapOnSurface],
-	m->MapJoin(MapJoin(m))
-	);
+	MapOperation(m -> MapJoin(MapJoin(m)), "Ortho"));
 
 InstallMethod(Expand,
 	[IsMapOnSurface],
-	m->Ambo(Ambo(m))
-	);
+	MapOperation(m -> Ambo(Ambo(m)), "Expand"));
 
 InstallMethod(Gyro,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
+	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x, m2;
 	if IsOrientable(m)<>true then Error("Not an orientable map."); fi;
     c:=ConnectionGroup(m);
 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
@@ -260,22 +278,23 @@ InstallMethod(Gyro,
 	List(k,x->Position(points,points[x]^r12))+len, #8
 	List(k,x->Position(points,points[x]^r12)) #9
 	));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Gyro");
 	end);
 	#Should be the case that gyro(dual(m))=EnantiomorphicForm(gyro(enantioMorphicform(m))). Is it?
 
 InstallMethod(Meta,
 	[IsMapOnSurface],
-	m->Kis(MapJoin(m)));
+	MapOperation(m -> Kis(MapJoin(m)), "Meta"));
 
 InstallMethod(Bevel,
 	[IsMapOnSurface],
-	m->Truncation(Ambo(m)));
+	MapOperation(m -> Truncation(Ambo(m)), "Bevel"));
 
 InstallMethod(Subdivide,
 	[IsMapOnSurface],
 	function(m)
-	local c, l, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
+	local c, l, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(points);
@@ -283,13 +302,14 @@ InstallMethod(Subdivide,
 	s0:=PermList(Concatenation(k+l,k))*TranslatePerm(c.2,2*l)*TranslatePerm(c.2,3*l);
 	s1:=c.2*MappingPermListList(k+2*l,k+l)*TranslatePerm(c.1,3*l);
 	s2:=c.3*TranslatePerm(c.3,l)*MappingPermListList(k+3*l,k+2*l);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Subdivide");
 	end);
 
 InstallMethod(Propeller,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
+	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x, m2;
 	c:=ConnectionGroup(m);
 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
 	len:=Length(points);
@@ -314,13 +334,14 @@ InstallMethod(Propeller,
 	List(k,x->Position(points,points[x]^r12))+0*len, #7
 	k+2*len, k+3*len
 	));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Propeller");
 	end);
 	
 InstallMethod(Loft,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -328,13 +349,14 @@ InstallMethod(Loft,
 	s0:=c.1*PermList(Concatenation(k, k+2*len, k+1*len))*TranslatePerm(c.1,3*len)* TranslatePerm(c.1, 4*len);
 	s1:=PermList(Concatenation(k+ len, k, k+3*len, k+2*len))*TranslatePerm(c.2,4*len);
 	s2:=c.3*TranslatePerm(c.2,len)*TranslatePerm(c.2,2*len)* PermList(Concatenation([1..3*len],k+4*len, k+3*len));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Loft");
 	end);
 
 InstallMethod(Quinto,
 	[IsMapOnSurface],
 	function(m)
-	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, len, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	len:=Length(MovedPoints(c));
@@ -342,13 +364,14 @@ InstallMethod(Quinto,
 	s0:=PermList(Concatenation( k+len, k, k+3*len, k+2*len))* TranslatePerm(c.2,4*len) * TranslatePerm(c.2,5*len);
 	s1:=c.2*PermList(Concatenation(k,k+2*len,k+len, k+4*len, k+3*len))* TranslatePerm(c.1,5*len);
 	s2:=c.3* TranslatePerm(c.3,len)* TranslatePerm(c.1,2*len)* TranslatePerm(c.1,3*len)* PermList(Concatenation([1..4*len],k+5*len, k+4*len));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Quinto");
 	end);
 
 InstallMethod(JoinLace,
 	[IsMapOnSurface],
 	function(m)
-	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(MovedPoints(c));
@@ -356,14 +379,15 @@ InstallMethod(JoinLace,
 	s0:=PermList(Concatenation(k+l,k,k+3*l,k+2*l))* TranslatePerm(c.2,4*l)* TranslatePerm(c.2,5*l);
 	s1:=c.3*TranslatePerm(c.1,l)* TranslatePerm(c.2,2*l)* MappingPermListList(k+3*l,k+4*l)* TranslatePerm(c.1,5*l);
 	s2:=PermList(Concatenation(k+2*l,k+3*l,k,k+l,k+5*l,k+4*l));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"JoinLace");
 	end);
 
 
 InstallMethod(Lace,
 	[IsMapOnSurface],
 	function(m)
-	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(MovedPoints(c));
@@ -371,13 +395,14 @@ InstallMethod(Lace,
 	s0:=c.1*PermList(Concatenation( k, k+2*l, k+l, k+4*l, k+3*l))* TranslatePerm(c.2,5*l)* TranslatePerm(c.2,6*l);
 	s1:=PermList(Concatenation(k+l, k, [2*l+1..4*l], k+5*l, k+4*l))* TranslatePerm(c.2,3*l)* TranslatePerm(c.1,6*l);
 	s2:=c.3*PermList(Concatenation(k, k+3*l, k+4*l, k+l, k+2*l, k+6*l, k+5*l));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Lace");
 	end);
 
 InstallMethod(Stake,
 	[IsMapOnSurface],
 	function(m)
-	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k;
+	local c, l, s0, s1, s2, s0List, s1List, s2List, points, k, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(MovedPoints(c));
@@ -385,13 +410,14 @@ InstallMethod(Stake,
 	s0:=c.1*MappingPermListList(k+2*l,k+l)* MappingPermListList(k+4*l,k+3*l)* MappingPermListList(k+6*l,k+5*l);
 	s1:=PermList(Concatenation(k+l,k))* TranslatePerm(c.1,2*l)* TranslatePerm(c.2, 3*l)* MappingPermListList(k+5*l,k+4*l)* TranslatePerm(c.2,6*l);
 	s2:=c.3*MappingPermListList(k+l,k+3*l)* MappingPermListList(k+4*l,k+2*l)* TranslatePerm(c.1,5*l)* TranslatePerm(c.1, 6*l);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Stake");
 	end);
 
 InstallMethod(Whirl,
 	[IsMapOnSurface],
 	function(m)
-	local c, l, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x;
+	local c, l, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x, m2;
 	c:=ConnectionGroup(m);
 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
 	l:=Length(points);
@@ -427,17 +453,18 @@ InstallMethod(Whirl,
 	k+4*l, #12
 	k+5*l #13
 	));
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Whirl");
 	end);
 
 InstallMethod(Volute,
 	[IsMapOnSurface],
-	m->Dual(Whirl(Dual(m))));
+	MapOperation(m -> Dual(Whirl(Dual(m))), "Volute"));
 
 InstallMethod(JoinKisKis,
 	[IsMapOnSurface],
 	function(m)
-	local c, l, r01, r12, r10, r21, s0, s1, s2, points, k,x;
+	local c, l, r01, r12, r10, r21, s0, s1, s2, points, k,x, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(points);
@@ -446,13 +473,14 @@ InstallMethod(JoinKisKis,
 	s1:=c.3*TranslatePerm(c.1,l)*MappingPermListList([2*l+1..8*l],Concatenation(
 	[k+7*l, k+4*l, k+3*l, k+6*l, k+5*l, k+2*l]));
 	s2:=PermList(Concatenation(k+2*l,k+3*l, k,k+l))* TranslatePerm(c.1,4*l)* TranslatePerm(c.1,5*l)* TranslatePerm(c.2,6*l)* TranslatePerm(c.2,7*l);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"JoinKisKis");
 	end);
 
 InstallMethod(Cross,
 	[IsMapOnSurface],
 		function(m)
-	local c, l, r01, r12, r10, r21, s0, s1, s2, points, k,x;
+	local c, l, r01, r12, r10, r21, s0, s1, s2, points, k,x, m2;
 	c:=ConnectionGroup(m);
 	points:=MovedPoints(c);
 	l:=Length(points);
@@ -462,5 +490,6 @@ InstallMethod(Cross,
 	s1:=PermList(Concatenation(
 	k+5*l, k+2*l,k+1*l, k+4*l,k+3*l, k))* TranslatePerm(c.1, 6*l)* MappingPermListList(k+7*l,k+8*l)* TranslatePerm(c.1, 9*l);
 	s2:=c.3* TranslatePerm(c.3,l)* MappingPermListList(k+2*l, k+6*l)* MappingPermListList(k+3*l, k+7*l)* TranslatePerm(c.2,4*l)* TranslatePerm(c.2, 5*l)* TranslatePerm(c.2,8*l)* TranslatePerm(c.2, 9*l);
-	return Maniplex(Group([s0,s1,s2]));
+	m2 := Maniplex(Group([s0,s1,s2]));
+	return FinalizedOutputMap(m,m2,"Cross");
 	end);

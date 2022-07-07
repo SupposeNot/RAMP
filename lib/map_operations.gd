@@ -2,6 +2,8 @@
 #! @Chapter Maps On Surfaces
 #! @Section Map properties
 
+DeclareGlobalFunction("FinalizedOutputMap");
+DeclareGlobalFunction("MapOperation");
 
 #! `IsMapOnSurface` will test to see if you have rank 3 maniplex.
 #! @BeginExampleSession
