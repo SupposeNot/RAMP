@@ -164,7 +164,7 @@ InstallMethod(Amalgamate,
 		Error("Amalgamate is not currently defined for non-reflexible maniplexes.\n");
 	fi;
 	
-	g := AutomorphismGroup(p);
+	g := AutomorphismGroupFpGroup(p);
 	n := Rank(p);
 	if Rank(q) <> n then
 		Error("p and q must be the same rank.\n");
