@@ -111,6 +111,7 @@ InstallMethod(IsExternallySelfDual,
 InstallMethod(IsProperlySelfDual,
 	[IsManiplex],
 	function(M)
+	local Md, reps;
 	
 	if not(IsSelfDual(M)) then
 		return false;
@@ -119,7 +120,10 @@ InstallMethod(IsProperlySelfDual,
 	elif IsRotary(M) then
 		return IsIsomorphicRootedManiplex(M, Dual(M));
 	else
-		Error("IsProperlySelfDual is only defined for rotary (chiral and reflexible) maniplexes!");
+		# Is there an isomorphism from M to Md that fixes every flag orbit?
+		Md := Dual(M);
+		reps := FlagOrbitRepresentatives(M);
+		return ForAll(reps, i -> IsIsomorphicRootedManiplex(M, Md, i, i));
 	fi;
 	end);
 

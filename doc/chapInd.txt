@@ -80,7 +80,7 @@
   [2XDegeneratePolyhedra[102X 12.1-3 
   [2XDeltak[102X, for IsInt 14.1-2 
   [2XDerivedGraph[102X, for IsList,IsList,IsList 11.2-24 
-  [2XDirectDerivates[102X, for IsManiplex 9.2-7 
+  [2XDirectDerivates[102X, for IsManiplex 9.2-8 
   [2XDirectedGraphFromListOfEdges[102X, for IsList,IsList 11.2-1 
   [2XDirectSumOfManiplexes[102X, for IsManiplex, IsManiplex 9.3-6 
   [2XDirectSumOfPosets[102X, for IsPoset,IsPoset 8.6-3 
@@ -154,7 +154,7 @@
   [2XIsCConnected[102X, for IsManiplex 3.2-13 
   [2XIsChainTransitive[102X, for IsManiplex, IsCollection 6.2-6 
   [2XIsChiral[102X, for IsManiplex 6.3-8 
-  [2XIsCover[102X, for IsManiplex, IsManiplex 7.1-3 
+  [2XIsCover[102X, for IsManiplex, IsManiplex 7.1-4 
   [2XIsDegenerate[102X, for IsManiplex 10.3-4 
   [2XIsEdgeTransitive[102X, for IsManiplex 6.2-9 
   [2XIsEqualFaces[102X, for IsFace, IsFace, IsPoset 8.5-3 
@@ -173,9 +173,10 @@
   [2XIsIFaceTransitive[102X, for IsManiplex, IsInt 6.2-7 
   [2XIsInternallySelfDual[102X, for IsManiplex 9.2-3 
   [2XIsIOrientable[102X, for IsManiplex, IsList 6.4-2 
-  [2XIsIsomorphicManiplex[102X, for IsManiplex, IsManiplex 7.1-5 
+  [2XIsIsomorphicManiplex[102X, for IsManiplex, IsManiplex 7.1-7 
   [2XIsIsomorphicPoset[102X, for IsPoset,IsPoset 8.3-1 
-  [2XIsIsomorphicRootedManiplex[102X, for IsManiplex, IsManiplex 7.1-6 
+  [2XIsIsomorphicRootedManiplex[102X, for IsManiplex, IsManiplex 7.1-9 
+      for IsManiplex, IsManiplex, IsInt, IsInt 7.1-8 
   [2XIsLattice[102X, for IsPoset 8.2-8 
   [2XIsLocallySpherical[102X, for IsManiplex 10.3-9 
   [2XIsLocallyToroidal[102X, for IsManiplex 10.3-11 
@@ -188,16 +189,19 @@
   [2XIsPolytopal[102X, for IsManiplex 5.1-7 
   [2XIsPolytope[102X, for IsPoset 8.2-15 
   [2XIsPrePolytope[102X, for IsPoset 8.2-16 
+  [2XIsProperlySelfDual[102X, for IsManiplex 9.2-5 
   [2XIsQuotient[102X, for IsManiplex, IsManiplex 7.1-1 
       for IsSggi, IsSggi 7.1-1 
   [2XIsReflexible[102X, for IsManiplex 6.3-7 
   [2XIsRelationOfReflexibleManiplex[102X, for IsManiplex, IsString 3.2-11 
-  [2XIsRootedCover[102X, for IsManiplex, IsManiplex 7.1-4 
-  [2XIsRootedQuotient[102X, for IsManiplex, IsManiplex 7.1-2 
+  [2XIsRootedCover[102X, for IsManiplex, IsManiplex 7.1-6 
+      for IsManiplex, IsManiplex, IsInt, IsInt 7.1-5 
+  [2XIsRootedQuotient[102X, for IsManiplex, IsManiplex 7.1-3 
+      for IsManiplex, IsManiplex, IsInt, IsInt 7.1-2 
   [2XIsRotary[102X, for IsManiplex 6.3-9 
   [2XIsSelfDual[102X, for IsManiplex 9.2-2 
       for IsPoset 8.2-17 
-  [2XIsSelfPetrial[102X, for IsManiplex 9.2-6 
+  [2XIsSelfPetrial[102X, for IsManiplex 9.2-7 
   [2XIsSggi[102X, for IsGroup 3.2-5 
   [2XIsSpherical[102X, for IsManiplex 10.3-8 
   [2XIsStringC[102X, for IsGroup 3.2-7 
@@ -271,7 +275,7 @@
   [2XPartialOrder[102X, for IsPoset 8.2-7 
   [2XPermFromRange[102X, for IsPerm, IsPerm, IsPerm 15.3-4 
   [2XPetersenGraph[102X 11.1-2 
-  [2XPetrial[102X, for IsManiplex 9.2-5 
+  [2XPetrial[102X, for IsManiplex 9.2-6 
   [2XPetrieLength[102X, for IsManiplex 10.5-3 
   [2XPetrieRelation[102X, for IsInt, IsInt 10.5-4 
   [2XPgon[102X, for IsInt 4.1-3 
@@ -300,10 +304,10 @@
       for IsManiplex 9.3-1 
   [2XQuinto[102X, for IsMapOnSurface 14.6-4 
   [2XQuotientByLabel[102X, for IsObject,IsList, IsList, IsList 11.2-9 
-  [2XQuotientManiplex[102X, for IsReflexibleManiplex, IsString 7.1-8 
-  [2XQuotientManiplexByAutomorphismSubgroup[102X, for IsManiplex,IsPermGroup 7.1-12 
-  [2XQuotientSggi[102X, for IsGroup, IsList 7.1-10 
-  [2XQuotientSggiByNormalSubgroup[102X, for IsGroup,IsGroup 7.1-11 
+  [2XQuotientManiplex[102X, for IsReflexibleManiplex, IsString 7.1-11 
+  [2XQuotientManiplexByAutomorphismSubgroup[102X, for IsManiplex,IsPermGroup 7.1-15 
+  [2XQuotientSggi[102X, for IsGroup, IsList 7.1-13 
+  [2XQuotientSggiByNormalSubgroup[102X, for IsGroup,IsGroup 7.1-14 
   [2XRankedFaceListOfPoset[102X, for IsPoset 8.3-4 
   [2XRankInPoset[102X, for IsPosetElement,IsPoset 8.5-1 
   [2XRankManiplex[102X, for IsManiplex 10.4-2 
@@ -314,7 +318,7 @@
   [2XReflexibleManiplex[102X, for IsGroup 5.1-1 
       for IsList 5.1-1 
       for IsList, IsList, IsList 5.1-1 
-  [2XReflexibleQuotientManiplex[102X, for IsManiplex, IsList 7.1-9 
+  [2XReflexibleQuotientManiplex[102X, for IsManiplex, IsList 7.1-12 
   [2XRegularToroidalPolyhedra36[102X 12.1-6 
   [2XRegularToroidalPolyhedra44[102X 12.1-5 
   [2XRotaryManiplex[102X, for IsGroup 5.3-3 
@@ -342,7 +346,7 @@
   [2XSmallChiral4Polytopes[102X 12.1-12 
   [2XSmallChiralPolyhedra[102X 12.1-11 
   [2XSmallDegenerateRegular4Polytopes[102X 12.1-9 
-  [2XSmallestReflexibleCover[102X, for IsManiplex 7.1-7 
+  [2XSmallestReflexibleCover[102X, for IsManiplex 7.1-10 
   [2XSmallReflexible3Maniplexes[102X 12.1-13 
   [2XSmallReflexibleManiplexes[102X 12.1-14 
   [2XSmallRegular4Polytopes[102X 12.1-10 

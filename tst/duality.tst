@@ -48,3 +48,5 @@ gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^
 true
 gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));
 false
+gap> IsProperlySelfDual(Pyramid(ToroidalMap44([2,0])));
+false

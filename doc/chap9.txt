@@ -166,8 +166,32 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
+  [1X9.2-5 IsProperlySelfDual[101X
   
-  [1X9.2-5 [33X[0;0YPetrie Dual[133X[101X
+  [33X[1;0Y[29X[2XIsProperlySelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  
+  [33X[0;0YReturns  whether  this rooted maniplex is "properly self-dual", meaning that
+  there  is  an  isomorphism  of [3XM[103X to its dual that preserves the flag-orbits.
+  Note that all reflexible self-dual maniplexes are properly self-dual.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsProperlySelfDual(Cube(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsProperlySelfDual(Simplex(4));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsProperlySelfDual(ARP([4,5,4]));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsProperlySelfDual(ToroidalMap44([1,2]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.2-6 [33X[0;0YPetrie Dual[133X[101X
   
   [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YThe Petrial (Petrie dual) of [3XM[103X.[133X
@@ -183,7 +207,7 @@
     [4X[28XReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")[128X[104X
   [4X[32X[104X
   
-  [1X9.2-6 IsSelfPetrial[101X
+  [1X9.2-7 IsSelfPetrial[101X
   
   [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
@@ -199,7 +223,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.2-7 DirectDerivates[101X
+  [1X9.2-8 DirectDerivates[101X
   
   [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
   

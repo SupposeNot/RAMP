@@ -65,8 +65,7 @@ DeclareProperty("IsExternallySelfDual", IsManiplex);
 
 #! @Arguments M
 #! @Description Returns whether this rooted maniplex is "properly self-dual", meaning that 
-#! there is an isomorphism of rooted maniplexes from <A>M</A> to its dual. 
-#! In other words, there is a duality of <A>M</A> that fixes the base flag.
+#! there is an isomorphism of <A>M</A> to its dual that preserves the flag-orbits.
 #! Note that all reflexible self-dual maniplexes are properly self-dual.
 DeclareProperty("IsProperlySelfDual", IsManiplex);
 #! @BeginExampleSession

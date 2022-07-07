@@ -43,6 +43,25 @@ true
 
 
 <ManSection>
+  <Oper Arg="M1, M2, i, j" Name="IsRootedQuotient" Label="for IsManiplex, IsManiplex, IsInt, IsInt"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether there is a maniplex homomorphism from <A>M1</A> to <A>M2</A>
+ that sends flag <A>i</A> of <A>M1</A> to flag <A>j</A> of <A>M2</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsRootedQuotient(Pyramid(8), Pyramid(4), 1, 1);
+true
+gap> IsRootedQuotient(Pyramid(8), Pyramid(4), 1, 2);
+false
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="M1, M2" Name="IsRootedQuotient" Label="for IsManiplex, IsManiplex"/>
  <Returns><Code>IsBool</Code>
 </Returns>
@@ -78,6 +97,25 @@ true
 
 
 <ManSection>
+  <Oper Arg="M1, M2, i, j" Name="IsRootedCover" Label="for IsManiplex, IsManiplex, IsInt, IsInt"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether there is a maniplex homomorphism from <A>M2</A> to <A>M1</A>
+ that sends flag <A>j</A> of <A>M2</A> to flag <A>i</A> of <A>M1</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsRootedCover(Pyramid(4), Pyramid(8), 1, 1);
+true
+gap> IsRootedCover(Pyramid(4), Pyramid(8), 1, 2);
+false
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="M1, M2" Name="IsRootedCover" Label="for IsManiplex, IsManiplex"/>
  <Returns><Code>IsBool</Code>
 </Returns>
@@ -109,6 +147,31 @@ Returns whether <A>M1</A> is isomorphic to <A>M2</A>.
 <Example><![CDATA[
 gap> IsIsomorphicManiplex(HemiCube(3),Petrial(Simplex(3)));
 true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M1, M2, i, j" Name="IsIsomorphicRootedManiplex" Label="for IsManiplex, IsManiplex, IsInt, IsInt"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether there is an isomorphism from <A>M1</A> to <A>M2</A>
+ that sends flag <A>j</A> of <A>M2</A> to flag <A>i</A> of <A>M1</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+true
+gap> FlagOrbitRepresentatives(ToroidalMap44([1,2]));
+[1, 21]
+gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([1,2]), 1, 1);
+true
+gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([1,2]), 1, 21);
+false
+gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]), 1, 1);
+false
 ]]></Example>
 
 

@@ -43,10 +43,11 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7FF8B96C83DA60CB">9.2-2 IsSelfDual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79287DCF7835E0F4">9.2-3 IsInternallySelfDual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X871BE6737FF36FE6">9.2-4 IsExternallySelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86E347E67EE31555">9.2-5 <span class="Heading">Petrie Dual</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X879D377778BF2175">9.2-5 IsProperlySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86E347E67EE31555">9.2-6 <span class="Heading">Petrie Dual</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-6 IsSelfPetrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-7 DirectDerivates</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-7 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-8 DirectDerivates</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X86CE352C7851221F">9.3 <span class="Heading">Products</span></a>
 </span>
@@ -249,9 +250,34 @@ false
 false
 </pre></div>
 
+<p><a id="X879D377778BF2175" name="X879D377778BF2175"></a></p>
+
+<h5>9.2-5 IsProperlySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsProperlySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether this rooted maniplex is "properly self-dual", meaning that there is an isomorphism of <var class="Arg">M</var> to its dual that preserves the flag-orbits. Note that all reflexible self-dual maniplexes are properly self-dual.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(Cube(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(Simplex(4));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(ARP([4,5,4]));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(ToroidalMap44([1,2]));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));</span>
+false
+</pre></div>
+
 <p><a id="X86E347E67EE31555" name="X86E347E67EE31555"></a></p>
 
-<h5>9.2-5 <span class="Heading">Petrie Dual</span></h5>
+<h5>9.2-6 <span class="Heading">Petrie Dual</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>.</p>
@@ -268,7 +294,7 @@ ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
 
 <p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
-<h5>9.2-6 IsSelfPetrial</h5>
+<h5>9.2-7 IsSelfPetrial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
@@ -287,7 +313,7 @@ true
 
 <p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
 
-<h5>9.2-7 DirectDerivates</h5>
+<h5>9.2-8 DirectDerivates</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
