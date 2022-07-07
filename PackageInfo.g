@@ -18,7 +18,7 @@ SetPackageInfo( rec(
 	PackageName := "RAMP",
 	Subtitle := "The Research Assistant for Maniplexes and Polytopes",
 	Version := "0.7",
-	Date := "July 1, 2022",
+	Date := "01/07/2022",
 
 ## Optional: license of the package, as an SPDX short-form identifiers;
 ## see <https://spdx.org/ids> for an explanation what an SPDX ID is, and
@@ -51,7 +51,7 @@ SourceRepository := rec(
     URL := "https://github.com/SupposeNot/RAMP",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-SupportEmail := "gabriel.cunningham@umb.edu",
+SupportEmail := "giwilliams@alaska.edu",
 
 ##  URL of the archive(s) of the current package release, but *without*
 ##  the format extension(s), like '.tar.gz' or '-win.zip', which are given next.
@@ -151,16 +151,8 @@ Persons := [
     FirstNames    := "Gabe",
     IsAuthor      := true,
     IsMaintainer  := true,
-    Email         := "gabriel.cunningham@umb.edu",
+    Email         := "gabriel.cunningham@gmail.com",
     WWWHome       := "http://www.gabrielcunningham.com",
-    PostalAddress := Concatenation( [
-                       "Gabe Cunningham\n",
-                       "Department of Mathematics\n",
-                       "University of Massachusetts Boston\n",
-                       "100 William T. Morrissey Blvd.\n",
-                       "Boston MA 02125\n" ] ),
-    Place         := "Boston",
-    Institution   := "University of Massachusetts Boston"
   ),
   rec( 
     LastName      := "Mixer",
