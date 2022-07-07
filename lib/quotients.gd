@@ -39,6 +39,18 @@ DeclareOperation("IsQuotient", [IsSggi, IsSggi]);
 
 #! @EndGroup
 
+#! @Arguments M1, M2, i, j
+#! @Returns `IsBool`
+#! @Description Returns whether there is a maniplex homomorphism from <A>M1</A> to <A>M2</A>
+#! that sends flag <A>i</A> of <A>M1</A> to flag <A>j</A> of <A>M2</A>.
+DeclareOperation("IsRootedQuotient", [IsManiplex, IsManiplex, IsInt, IsInt]);
+#! @BeginExampleSession
+#! gap> IsRootedQuotient(Pyramid(8), Pyramid(4), 1, 1);
+#! true
+#! gap> IsRootedQuotient(Pyramid(8), Pyramid(4), 1, 2);
+#! false
+#! @EndExampleSession
+
 #! @Arguments M1, M2
 #! @Returns `IsBool`
 #! @Description Returns whether there is a maniplex homomorphism from <A>M1</A> to <A>M2</A>
@@ -60,6 +72,19 @@ DeclareOperation("IsCover", [IsManiplex, IsManiplex]);
 #! true
 #! @EndExampleSession
 
+#! @Arguments M1, M2, i, j
+#! @Returns `IsBool`
+#! @Description Returns whether there is a maniplex homomorphism from <A>M2</A> to <A>M1</A>
+#! that sends flag <A>j</A> of <A>M2</A> to flag <A>i</A> of <A>M1</A>.
+DeclareOperation("IsRootedCover", [IsManiplex, IsManiplex, IsInt, IsInt]);
+#! @BeginExampleSession
+#! gap> IsRootedCover(Pyramid(4), Pyramid(8), 1, 1);
+#! true
+#! gap> IsRootedCover(Pyramid(4), Pyramid(8), 1, 2);
+#! false
+#! @EndExampleSession
+
+
 #! @Arguments M1, M2
 #! @Returns `IsBool`
 #! @Description Returns whether there is a maniplex homomorphism from <A>M2</A> to <A>M1</A>
@@ -80,6 +105,24 @@ DeclareOperation("IsIsomorphicManiplex", [IsManiplex, IsManiplex]);
 #! @BeginExampleSession
 #! gap> IsIsomorphicManiplex(HemiCube(3),Petrial(Simplex(3)));
 #! true
+#! @EndExampleSession
+
+#! @Arguments M1, M2, i, j
+#! @Returns `IsBool`
+#! @Description Returns whether there is an isomorphism from <A>M1</A> to <A>M2</A>
+#! that sends flag <A>j</A> of <A>M2</A> to flag <A>i</A> of <A>M1</A>.
+DeclareOperation("IsIsomorphicRootedManiplex", [IsManiplex, IsManiplex, IsInt, IsInt]);
+#! @BeginExampleSession
+#! gap> IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));
+#! true
+#! gap> FlagOrbitRepresentatives(ToroidalMap44([1,2]));
+#! [1, 21]
+#! gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([1,2]), 1, 1);
+#! true
+#! gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([1,2]), 1, 21);
+#! false
+#! gap> IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]), 1, 1);
+#! false
 #! @EndExampleSession
 
 #! @Arguments M1, M2

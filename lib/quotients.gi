@@ -158,8 +158,8 @@ InstallMethod(IsQuotient,
 
 InstallMethod(IsRootedQuotient,
 	ReturnTrue,
-	[IsManiplex, IsManiplex],
-	function(q,p)
+	[IsManiplex, IsManiplex, IsInt, IsInt],
+	function(q,p,qflag,pflag)
 	local g1, g2, hom, s1, s2, i, flags, phi;
 	if not(CouldBeQuotient(q,p)) then return false; fi;
 	
@@ -174,16 +174,29 @@ InstallMethod(IsRootedQuotient,
 	if hom = fail then
 		return false;
 	else
-		return IsSubset(PreImage(hom, Stabilizer(g2, BaseFlag(p))), Stabilizer(g1, BaseFlag(q)));
+		return IsSubset(PreImage(hom, Stabilizer(g2, pflag)), Stabilizer(g1, qflag));
 	fi;
 	end);
 
+InstallMethod(IsRootedQuotient,
+	ReturnTrue,
+	[IsManiplex, IsManiplex],
+	function(q,p)
+	return IsRootedQuotient(q,p,BaseFlag(q),BaseFlag(p));
+	end);
 	
 InstallMethod(IsCover,
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	return IsQuotient(q,p);
+	end);
+
+InstallMethod(IsRootedCover,
+	ReturnTrue,
+	[IsManiplex, IsManiplex, IsInt, IsInt],
+	function(p,q,i,j)
+	return IsRootedQuotient(q,p,j,i);
 	end);
 
 InstallMethod(IsRootedCover,
@@ -236,8 +249,8 @@ InstallMethod(IsIsomorphicManiplex,
 	
 InstallMethod(IsIsomorphicRootedManiplex,
 	ReturnTrue,
-	[IsManiplex, IsManiplex],
-	function(p,q)
+	[IsManiplex, IsManiplex, IsInt, IsInt],
+	function(p,q,pflag,qflag)
 	local atts, att, val, prop;
 	atts := [Size, SchlafliSymbol, Fvector];
 	for att in atts do
@@ -246,9 +259,9 @@ InstallMethod(IsIsomorphicRootedManiplex,
 	
 	if HasIsFinite(p) and HasIsFinite(q) and IsFinite(p) and IsFinite(q) then
 		# At this point, we know that p and q are the same size and finite.
-		val := IsRootedQuotient(p,q);
+		val := IsRootedQuotient(p,q,pflag,qflag);
 	else
-		val := (IsRootedQuotient(p,q) and IsRootedCover(p,q));
+		val := (IsRootedQuotient(p,q,pflag,qflag) and IsRootedCover(p,q,pflag,qflag));
 	fi;
 	
 	# If the maniplexes are isomorphic, then we sync up some properties that could otherwise
@@ -258,6 +271,13 @@ InstallMethod(IsIsomorphicRootedManiplex,
 	fi;
 
 	return val;
+	end);
+
+InstallMethod(IsIsomorphicRootedManiplex,
+	ReturnTrue,
+	[IsManiplex, IsManiplex],
+	function(p,q)
+	return IsIsomorphicRootedManiplex(p,q,BaseFlag(p),BaseFlag(q));
 	end);
 	
 InstallMethod( \=,
