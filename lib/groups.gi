@@ -292,7 +292,7 @@ InstallMethod(ChiralityGroup,
 	M2 := EnantiomorphicForm(M);
 	extra_rels := ExtraRotRelators(M2);
 	extra_rels := List(extra_rels, r -> ElementOfFpGroup(FamilyObj(g.1), r));
-	h := Subgroup(g, extra_rels);
+	h := NormalClosure(g, Subgroup(g, extra_rels));
 	return h;
 	end);
 
