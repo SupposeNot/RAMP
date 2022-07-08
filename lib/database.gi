@@ -558,6 +558,8 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 	od;
 	Append(manis, Filtered(L, M -> minsize <= Size(M) and Size(M) <= maxsize));
 	
+	SortBy(manis, Size);
+	
 	return manis;
 	end);
 
