@@ -15,6 +15,7 @@ InstallMethod(PremaniplexNC,
 	local pm;
 	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexConnGpRep),  	    rec(conn_gp:=g, flags:=MovedPoints(g), rank:=Size(GeneratorsOfGroup(g))));
 	SetConnectionGroup(pm,g);
+	SetSize(pm, NrMovedPoints(g));
 	return(pm);
 	end);
 
@@ -26,6 +27,7 @@ InstallMethod(Premaniplex,
 	c:=ConnectionGroup(g);
 	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexGraphRep),  	    rec(conn_gp:=c, flags:=Vertices(g), rank:=Size(Set(Labels(g)))));
 	SetConnectionGroup(pm,c);
+	SetSize(pm, NrMovedPoints(c));
 	return(pm);
 	end);
 
