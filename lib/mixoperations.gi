@@ -1,26 +1,27 @@
 InstallMethod(Mix,
 	[IsPermGroup, IsPermGroup],
 	function(gp,gq)
-	local gens1, r1, gens2, r2, N1, gensnew, i, L1, L2;
+	local gens1, r1, gens2, r2, N1, gensnew, i, p1, p2;
 	gens1:=GeneratorsOfGroup(gp);
 	r1:=Size(gens1);
 	gens2:=GeneratorsOfGroup(gq);
 	r2:=Size(gens2);	
-	N1:=Size(MovedPoints(gp));
+	N1:=LargestMovedPoint(gp);
 	gensnew:=[];
 	for i in [1..Maximum(r1,r2)] do	
 		if i > r1 then
-		L1:=[1..N1];
+			p1 := ();
 		else
-		L1:=ListPerm(gens1[i]);
+			p1 := gens1[i];
 		fi;
+		
 		if i > r2 then
-		L2:=[N1+1 .. N1+Size(MovedPoints(gq))];
+			p2 := ();
 		else
-		L2:=ListPerm(gens2[i])+N1;
+			p2 := TranslatePerm(gens2[i], N1);
 		fi;
-		Append(L1,L2);
-		Add(gensnew,PermList(L1));
+		
+		Add(gensnew, p1*p2);
 	od; 
 	return Group(gensnew);
 	end);
@@ -77,7 +78,7 @@ InstallMethod(LtoC,
 	end);
 
 InstallMethod(FlagMix,
-	[IsManiplex, IsManiplex],
+	[IsPremaniplex, IsPremaniplex],
 	function(p,q)
 	local gp, gq, gensp , r1, gensq, r2, Np, Nq, gensnew,  i, r, j;
 	gp:=ConnectionGroup(p);

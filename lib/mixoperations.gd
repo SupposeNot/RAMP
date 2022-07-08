@@ -36,7 +36,7 @@ DeclareOperation("Mix", [IsManiplex, IsManiplex]);
 #! "flag" mix. That is, it constructs the mix of their connection groups, keeps
 #! the connected component with the base flags of p and q, and then builds a maniplex
 #! from this.
-DeclareOperation("FlagMix", [IsManiplex, IsManiplex]);
+DeclareOperation("FlagMix", [IsPremaniplex, IsPremaniplex]);
 #! @BeginExampleSession
 #! gap> M := ToroidalMap44([1,2]);;
 #! gap> FlagMix(M,M) = M;
