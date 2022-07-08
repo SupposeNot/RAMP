@@ -88,7 +88,7 @@
 \indexentry{Mix@\texttt  {Mix}!for IsPermGroup, IsPermGroup|hyperpage}{30}
 \indexentry{Mix@\texttt  {Mix}!for IsFpGroup, IsFpGroup|hyperpage}{30}
 \indexentry{Mix@\texttt  {Mix}!for IsManiplex, IsManiplex|hyperpage}{30}
-\indexentry{FlagMix@\texttt  {FlagMix}!for IsManiplex, IsManiplex|hyperpage}{31}
+\indexentry{FlagMix@\texttt  {FlagMix}!for IsPremaniplex, IsPremaniplex|hyperpage}{31}
 \indexentry{Comix@\texttt  {Comix}!for IsFpGroup, IsFpGroup|hyperpage}{31}
 \indexentry{Comix@\texttt  {Comix}!for IsReflexibleManiplex, IsReflexibleManiplex|hyperpage}{31}
 \indexentry{CtoL@\texttt  {CtoL}!for IsInt,IsInt,IsInt,IsInt|hyperpage}{31}
@@ -138,268 +138,272 @@
 \indexentry{IsFaithful@\texttt  {IsFaithful}!for IsManiplex|hyperpage}{42}
 \indexentry{IsQuotient@\texttt  {IsQuotient}!for IsManiplex, IsManiplex|hyperpage}{43}
 \indexentry{IsQuotient@\texttt  {IsQuotient}!for IsSggi, IsSggi|hyperpage}{43}
-\indexentry{IsRootedQuotient@\texttt  {IsRootedQuotient}!for IsManiplex, IsManiplex|hyperpage}{43}
+\indexentry{IsRootedQuotient@\texttt  {IsRootedQuotient}!for IsManiplex, IsManiplex, IsInt, IsInt|hyperpage}{43}
+\indexentry{IsRootedQuotient@\texttt  {IsRootedQuotient}!for IsManiplex, IsManiplex|hyperpage}{44}
 \indexentry{IsCover@\texttt  {IsCover}!for IsManiplex, IsManiplex|hyperpage}{44}
+\indexentry{IsRootedCover@\texttt  {IsRootedCover}!for IsManiplex, IsManiplex, IsInt, IsInt|hyperpage}{44}
 \indexentry{IsRootedCover@\texttt  {IsRootedCover}!for IsManiplex, IsManiplex|hyperpage}{44}
-\indexentry{IsIsomorphicManiplex@\texttt  {IsIsomorphicManiplex}!for IsManiplex, IsManiplex|hyperpage}{44}
-\indexentry{IsIsomorphicRootedManiplex@\texttt  {IsIsomorphicRootedManiplex}!for IsManiplex, IsManiplex|hyperpage}{44}
+\indexentry{IsIsomorphicManiplex@\texttt  {IsIsomorphicManiplex}!for IsManiplex, IsManiplex|hyperpage}{45}
+\indexentry{IsIsomorphicRootedManiplex@\texttt  {IsIsomorphicRootedManiplex}!for IsManiplex, IsManiplex, IsInt, IsInt|hyperpage}{45}
+\indexentry{IsIsomorphicRootedManiplex@\texttt  {IsIsomorphicRootedManiplex}!for IsManiplex, IsManiplex|hyperpage}{45}
 \indexentry{SmallestReflexibleCover@\texttt  {SmallestReflexibleCover}!for IsManiplex|hyperpage}{45}
-\indexentry{QuotientManiplex@\texttt  {QuotientManiplex}!for IsReflexibleManiplex, IsString|hyperpage}{45}
-\indexentry{ReflexibleQuotientManiplex@\texttt  {ReflexibleQuotientManiplex}!for IsManiplex, IsList|hyperpage}{45}
-\indexentry{QuotientSggi@\texttt  {QuotientSggi}!for IsGroup, IsList|hyperpage}{45}
-\indexentry{QuotientSggiByNormalSubgroup@\texttt  {QuotientSggiByNormalSubgroup}!for IsGroup,IsGroup|hyperpage}{46}
-\indexentry{QuotientManiplexByAutomorphismSubgroup@\texttt  {Quotient}\-\texttt  {Maniplex}\-\texttt  {By}\-\texttt  {Automorphism}\-\texttt  {Subgroup}!for IsManiplex,IsPermGroup|hyperpage}{46}
-\indexentry{PosetFromFaceListOfFlags@\texttt  {PosetFromFaceListOfFlags}!for IsList|hyperpage}{47}
-\indexentry{PosetFromConnectionGroup@\texttt  {PosetFromConnectionGroup}!for IsPermGroup|hyperpage}{48}
-\indexentry{PosetFromManiplex@\texttt  {PosetFromManiplex}!for IsManiplex|hyperpage}{48}
-\indexentry{PosetFromPartialOrder@\texttt  {PosetFromPartialOrder}!for IsBinaryRelation|hyperpage}{48}
-\indexentry{PosetFromAtomicList@\texttt  {PosetFromAtomicList}!for IsList|hyperpage}{49}
-\indexentry{PosetFromElements@\texttt  {PosetFromElements}!for IsList,IsFunction|hyperpage}{49}
-\indexentry{PosetFromSuccessorList@\texttt  {PosetFromSuccessorList}!for IsList|hyperpage}{50}
-\indexentry{PairCompareFlagsList@\texttt  {PairCompareFlagsList}!for IsList,IsList|hyperpage}{50}
-\indexentry{PairCompareAtomsList@\texttt  {PairCompareAtomsList}!for IsList,IsList|hyperpage}{50}
-\indexentry{DualPoset@\texttt  {DualPoset}!for IsPoset|hyperpage}{50}
-\indexentry{Section@\texttt  {Section}!for IsFace, IsFace, IsPoset|hyperpage}{51}
-\indexentry{Cleave@\texttt  {Cleave}!for IsPoset,IsInt|hyperpage}{51}
-\indexentry{PartiallyCleave@\texttt  {PartiallyCleave}!for IsPoset,IsInt|hyperpage}{51}
-\indexentry{MaximalChains@\texttt  {MaximalChains}!for IsPoset|hyperpage}{51}
-\indexentry{RankPoset@\texttt  {RankPoset}!for IsPoset|hyperpage}{52}
-\indexentry{ElementsList@\texttt  {ElementsList}!for IsPoset|hyperpage}{52}
-\indexentry{OrderingFunction@\texttt  {OrderingFunction}!for IsPoset|hyperpage}{52}
-\indexentry{IsFlaggable@\texttt  {IsFlaggable}!for IsPoset|hyperpage}{52}
-\indexentry{IsAtomic@\texttt  {IsAtomic}!for IsPoset|hyperpage}{53}
-\indexentry{PartialOrder@\texttt  {PartialOrder}!for IsPoset|hyperpage}{53}
-\indexentry{IsLattice@\texttt  {IsLattice}!for IsPoset|hyperpage}{53}
-\indexentry{IsAllMeets@\texttt  {IsAllMeets}!for IsPoset|hyperpage}{53}
-\indexentry{IsAllJoins@\texttt  {IsAllJoins}!for IsPoset|hyperpage}{53}
-\indexentry{ListIsP1Poset@\texttt  {ListIsP1Poset}!for IsList|hyperpage}{54}
-\indexentry{IsP1@\texttt  {IsP1}!for IsPoset|hyperpage}{54}
-\indexentry{IsP2@\texttt  {IsP2}!for IsPoset|hyperpage}{54}
-\indexentry{IsP3@\texttt  {IsP3}!for IsPoset|hyperpage}{54}
-\indexentry{IsFlagConnected@\texttt  {IsFlagConnected}!for IsPoset|hyperpage}{55}
-\indexentry{IsP4@\texttt  {IsP4}!for IsPoset|hyperpage}{55}
-\indexentry{IsPolytope@\texttt  {IsPolytope}!for IsPoset|hyperpage}{55}
-\indexentry{IsPrePolytope@\texttt  {IsPrePolytope}!for IsPoset|hyperpage}{55}
-\indexentry{IsSelfDual@\texttt  {IsSelfDual}!for IsPoset|hyperpage}{55}
-\indexentry{IsIsomorphicPoset@\texttt  {IsIsomorphicPoset}!for IsPoset,IsPoset|hyperpage}{56}
-\indexentry{PosetIsomorphism@\texttt  {PosetIsomorphism}!for IsPoset,IsPoset|hyperpage}{56}
-\indexentry{FlagsAsFlagListFaces@\texttt  {FlagsAsFlagListFaces}!for IsPoset|hyperpage}{56}
-\indexentry{RankedFaceListOfPoset@\texttt  {RankedFaceListOfPoset}!for IsPoset|hyperpage}{56}
-\indexentry{AdjacentFlag@\texttt  {AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt|hyperpage}{57}
-\indexentry{AdjacentFlags@\texttt  {AdjacentFlags}!for IsPoset,IsList,IsInt|hyperpage}{57}
-\indexentry{EqualChains@\texttt  {EqualChains}!for IsList,IsList|hyperpage}{57}
-\indexentry{ConnectionGeneratorOfPoset@\texttt  {ConnectionGeneratorOfPoset}!for IsPoset,IsInt|hyperpage}{57}
-\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsPoset|hyperpage}{57}
-\indexentry{AutomorphismGroup@\texttt  {AutomorphismGroup}!for IsPoset|hyperpage}{57}
-\indexentry{AutomorphismGroupOnElements@\texttt  {AutomorphismGroupOnElements}!for IsPoset|hyperpage}{57}
-\indexentry{AutomorphismGroupOnChains@\texttt  {AutomorphismGroupOnChains}!for IsPoset, IsCollection|hyperpage}{58}
-\indexentry{AutomorphismGroupOnIFaces@\texttt  {AutomorphismGroupOnIFaces}!for IsPoset, IsInt|hyperpage}{58}
-\indexentry{AutomorphismGroupOnFacets@\texttt  {AutomorphismGroupOnFacets}!for IsPoset|hyperpage}{58}
-\indexentry{AutomorphismGroupOnEdges@\texttt  {AutomorphismGroupOnEdges}!for IsPoset|hyperpage}{58}
-\indexentry{AutomorphismGroupOnVertices@\texttt  {AutomorphismGroupOnVertices}!for IsPoset|hyperpage}{58}
-\indexentry{FaceListOfPoset@\texttt  {FaceListOfPoset}!for IsPoset|hyperpage}{58}
-\indexentry{RankPosetElements@\texttt  {RankPosetElements}!for IsPoset|hyperpage}{58}
-\indexentry{FacesByRankOfPoset@\texttt  {FacesByRankOfPoset}!for IsPoset|hyperpage}{59}
-\indexentry{HasseDiagramOfPoset@\texttt  {HasseDiagramOfPoset}!for IsPoset|hyperpage}{59}
-\indexentry{AsPosetOfAtoms@\texttt  {AsPosetOfAtoms}!for IsPoset|hyperpage}{59}
-\indexentry{MinFace@\texttt  {MinFace}!for IsPoset|hyperpage}{59}
-\indexentry{MaxFace@\texttt  {MaxFace}!for IsPoset|hyperpage}{59}
-\indexentry{PosetElementWithOrder@\texttt  {PosetElementWithOrder}!for IsObject,IsFunction|hyperpage}{59}
-\indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsPoset,IsInt|hyperpage}{59}
-\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList|hyperpage}{60}
-\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject|hyperpage}{60}
-\indexentry{PosetElementWithPartialOrder@\texttt  {PosetElementWithPartialOrder}!for IsObject, IsBinaryRelation|hyperpage}{60}
-\indexentry{RanksInPosets@\texttt  {RanksInPosets}!for IsPosetElement|hyperpage}{60}
-\indexentry{AddRanksInPosets@\texttt  {AddRanksInPosets}!for IsPosetElement,IsPoset,IsInt|hyperpage}{60}
-\indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{60}
-\indexentry{AtomList@\texttt  {AtomList}!for IsPosetElement|hyperpage}{60}
-\indexentry{RankInPoset@\texttt  {RankInPoset}!for IsPosetElement,IsPoset|hyperpage}{61}
-\indexentry{IsSubface@\texttt  {IsSubface}!for IsFace,IsFace,IsPoset|hyperpage}{61}
-\indexentry{IsEqualFaces@\texttt  {IsEqualFaces}!for IsFace, IsFace, IsPoset|hyperpage}{61}
-\indexentry{AreIncidentElements@\texttt  {AreIncidentElements}!for IsObject,IsObject|hyperpage}{61}
-\indexentry{Meet@\texttt  {Meet}!for IsFace, IsFace, IsPoset|hyperpage}{61}
-\indexentry{Join@\texttt  {Join}!for IsFace, IsFace, IsPoset|hyperpage}{61}
-\indexentry{JoinProduct@\texttt  {JoinProduct}!for IsPoset,IsPoset|hyperpage}{62}
-\indexentry{CartesianProduct@\texttt  {CartesianProduct}!for IsPoset,IsPoset|hyperpage}{62}
-\indexentry{DirectSumOfPosets@\texttt  {DirectSumOfPosets}!for IsPoset,IsPoset|hyperpage}{62}
-\indexentry{TopologicalProduct@\texttt  {TopologicalProduct}!for IsPoset,IsPoset|hyperpage}{63}
-\indexentry{Antiprism@\texttt  {Antiprism}!for IsPoset|hyperpage}{63}
-\indexentry{UniversalPolytope@\texttt  {UniversalPolytope}!for IsInt|hyperpage}{64}
-\indexentry{UniversalExtension@\texttt  {UniversalExtension}!for IsManiplex|hyperpage}{64}
-\indexentry{UniversalExtension@\texttt  {UniversalExtension}!for IsManiplex, IsInt|hyperpage}{64}
-\indexentry{TrivialExtension@\texttt  {TrivialExtension}!for IsManiplex|hyperpage}{65}
-\indexentry{FlatExtension@\texttt  {FlatExtension}!for IsManiplex, IsInt|hyperpage}{65}
-\indexentry{Amalgamate@\texttt  {Amalgamate}!for IsManiplex, IsManiplex|hyperpage}{65}
-\indexentry{Medial@\texttt  {Medial}!for IsManiplex|hyperpage}{65}
-\indexentry{Dual@\texttt  {Dual}!for IsManiplex|hyperpage}{65}
-\indexentry{IsSelfDual@\texttt  {IsSelfDual}!for IsManiplex|hyperpage}{66}
-\indexentry{IsInternallySelfDual@\texttt  {IsInternallySelfDual}!for IsManiplex|hyperpage}{66}
-\indexentry{IsExternallySelfDual@\texttt  {IsExternallySelfDual}!for IsManiplex|hyperpage}{66}
-\indexentry{Petrial@\texttt  {Petrial}!for IsManiplex|hyperpage}{67}
-\indexentry{IsSelfPetrial@\texttt  {IsSelfPetrial}!for IsManiplex|hyperpage}{67}
-\indexentry{DirectDerivates@\texttt  {DirectDerivates}!for IsManiplex|hyperpage}{67}
-\indexentry{Pyramid@\texttt  {Pyramid}!for IsManiplex|hyperpage}{67}
-\indexentry{Pyramid@\texttt  {Pyramid}!for IsInt|hyperpage}{67}
-\indexentry{Prism@\texttt  {Prism}!for IsManiplex|hyperpage}{68}
-\indexentry{Prism@\texttt  {Prism}!for IsInt|hyperpage}{68}
-\indexentry{Antiprism@\texttt  {Antiprism}!for IsManiplex|hyperpage}{68}
-\indexentry{Antiprism@\texttt  {Antiprism}!for IsInt|hyperpage}{68}
-\indexentry{JoinProduct@\texttt  {JoinProduct}!for IsManiplex, IsManiplex|hyperpage}{68}
-\indexentry{CartesianProduct@\texttt  {CartesianProduct}!for IsManiplex, IsManiplex|hyperpage}{68}
-\indexentry{DirectSumOfManiplexes@\texttt  {DirectSumOfManiplexes}!for IsManiplex, IsManiplex|hyperpage}{69}
-\indexentry{TopologicalProduct@\texttt  {TopologicalProduct}!for IsManiplex, IsManiplex|hyperpage}{69}
-\indexentry{NumberOfIFaces@\texttt  {NumberOfIFaces}!for IsManiplex, IsInt|hyperpage}{70}
-\indexentry{NumberOfVertices@\texttt  {NumberOfVertices}!for IsManiplex|hyperpage}{70}
-\indexentry{NumberOfEdges@\texttt  {NumberOfEdges}!for IsManiplex|hyperpage}{70}
-\indexentry{NumberOfFacets@\texttt  {NumberOfFacets}!for IsManiplex|hyperpage}{70}
-\indexentry{NumberOfRidges@\texttt  {NumberOfRidges}!for IsManiplex|hyperpage}{71}
-\indexentry{Fvector@\texttt  {Fvector}!for IsManiplex|hyperpage}{71}
-\indexentry{Section@\texttt  {Section}!for IsManiplex, IsInt, IsInt|hyperpage}{71}
-\indexentry{Section@\texttt  {Section}!for IsManiplex, IsInt, IsInt, IsInt|hyperpage}{71}
-\indexentry{Sections@\texttt  {Sections}!for IsManiplex, IsInt, IsInt|hyperpage}{71}
-\indexentry{Facets@\texttt  {Facets}!for IsManiplex|hyperpage}{71}
-\indexentry{Facet@\texttt  {Facet}!for IsManiplex, IsInt|hyperpage}{71}
-\indexentry{Facet@\texttt  {Facet}!for IsManiplex|hyperpage}{71}
-\indexentry{VertexFigures@\texttt  {VertexFigures}!for IsManiplex|hyperpage}{72}
-\indexentry{VertexFigure@\texttt  {VertexFigure}!for IsManiplex, IsInt|hyperpage}{72}
-\indexentry{VertexFigure@\texttt  {VertexFigure}!for IsManiplex|hyperpage}{72}
-\indexentry{IsFlat@\texttt  {IsFlat}!for IsManiplex|hyperpage}{72}
-\indexentry{IsFlat@\texttt  {IsFlat}!for IsManiplex, IsInt, IsInt|hyperpage}{72}
-\indexentry{SchlafliSymbol@\texttt  {SchlafliSymbol}!for IsManiplex|hyperpage}{73}
-\indexentry{PseudoSchlafliSymbol@\texttt  {PseudoSchlafliSymbol}!for IsManiplex|hyperpage}{73}
-\indexentry{IsEquivelar@\texttt  {IsEquivelar}!for IsManiplex|hyperpage}{73}
-\indexentry{IsDegenerate@\texttt  {IsDegenerate}!for IsManiplex|hyperpage}{73}
-\indexentry{IsTight@\texttt  {IsTight}!for IsManiplex|hyperpage}{74}
-\indexentry{EulerCharacteristic@\texttt  {EulerCharacteristic}!for IsManiplex|hyperpage}{74}
-\indexentry{Genus@\texttt  {Genus}!for IsManiplex|hyperpage}{74}
-\indexentry{IsSpherical@\texttt  {IsSpherical}!for IsManiplex|hyperpage}{74}
-\indexentry{IsLocallySpherical@\texttt  {IsLocallySpherical}!for IsManiplex|hyperpage}{75}
-\indexentry{IsToroidal@\texttt  {IsToroidal}!for IsManiplex|hyperpage}{75}
-\indexentry{IsLocallyToroidal@\texttt  {IsLocallyToroidal}!for IsManiplex|hyperpage}{75}
-\indexentry{Size@\texttt  {Size}!for IsManiplex|hyperpage}{75}
-\indexentry{RankManiplex@\texttt  {RankManiplex}!for IsManiplex|hyperpage}{76}
-\indexentry{ZigzagLength@\texttt  {ZigzagLength}!for IsManiplex, IsInt|hyperpage}{76}
-\indexentry{ZigzagVector@\texttt  {ZigzagVector}!for IsManiplex|hyperpage}{76}
-\indexentry{PetrieLength@\texttt  {PetrieLength}!for IsManiplex|hyperpage}{76}
-\indexentry{PetrieRelation@\texttt  {PetrieRelation}!for IsInt, IsInt|hyperpage}{76}
-\indexentry{HoleLength@\texttt  {HoleLength}!for IsManiplex, IsInt|hyperpage}{77}
-\indexentry{HoleVector@\texttt  {HoleVector}!for IsManiplex|hyperpage}{77}
-\indexentry{HeawoodGraph@\texttt  {HeawoodGraph}|hyperpage}{78}
-\indexentry{PetersenGraph@\texttt  {PetersenGraph}|hyperpage}{78}
-\indexentry{CirculantGraph@\texttt  {CirculantGraph}!for IsInt,IsList|hyperpage}{78}
-\indexentry{CompleteBipartiteGraph@\texttt  {CompleteBipartiteGraph}!for IsInt,IsInt|hyperpage}{78}
-\indexentry{DirectedGraphFromListOfEdges@\texttt  {DirectedGraphFromListOfEdges}!for IsList,IsList|hyperpage}{78}
-\indexentry{GraphFromListOfEdges@\texttt  {GraphFromListOfEdges}!for IsList,IsList|hyperpage}{79}
-\indexentry{UnlabeledFlagGraph@\texttt  {UnlabeledFlagGraph}!for IsGroup|hyperpage}{79}
-\indexentry{FlagGraphWithLabels@\texttt  {FlagGraphWithLabels}!for IsGroup|hyperpage}{80}
-\indexentry{LayerGraph@\texttt  {LayerGraph}!for IsGroup, IsInt, IsInt|hyperpage}{81}
-\indexentry{Skeleton@\texttt  {Skeleton}!for IsManiplex|hyperpage}{82}
-\indexentry{CoSkeleton@\texttt  {CoSkeleton}!for IsManiplex|hyperpage}{82}
-\indexentry{Hasse@\texttt  {Hasse}!for IsManiplex|hyperpage}{82}
-\indexentry{QuotientByLabel@\texttt  {QuotientByLabel}!for IsObject,IsList, IsList, IsList|hyperpage}{82}
-\indexentry{EdgeLabeledGraphFromEdges@\texttt  {EdgeLabeledGraphFromEdges}!for IsList, IsList,IsList|hyperpage}{83}
-\indexentry{EdgeLabeledGraphFromLabeledEdges@\texttt  {EdgeLabeledGraphFromLabeledEdges}!for IsList|hyperpage}{83}
-\indexentry{FlagGraph@\texttt  {FlagGraph}!for IsGroup|hyperpage}{83}
-\indexentry{UnlabeledSimpleGraph@\texttt  {UnlabeledSimpleGraph}!for IsEdgeLabeledGraph|hyperpage}{84}
-\indexentry{EdgeLabelPreservingAutomorphismGroup@\texttt  {Edge}\-\texttt  {Label}\-\texttt  {Preserving}\-\texttt  {Automorphism}\-\texttt  {Group}!for IsEdgeLabeledGraph|hyperpage}{84}
-\indexentry{Simple@\texttt  {Simple}!for IsEdgeLabeledGraph|hyperpage}{84}
-\indexentry{ConnectedComponents@\texttt  {ConnectedComponents}!for IsEdgeLabeledGraph, IsList|hyperpage}{84}
-\indexentry{PRGraph@\texttt  {PRGraph}!for IsGroup|hyperpage}{84}
-\indexentry{CPRGraphFromGroups@\texttt  {CPRGraphFromGroups}!for IsGroup,IsGroup|hyperpage}{85}
-\indexentry{AdjacentVertices@\texttt  {AdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{85}
-\indexentry{LabeledAdjacentVertices@\texttt  {LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{85}
-\indexentry{SemiEdges@\texttt  {SemiEdges}!for IsEdgeLabeledGraph|hyperpage}{85}
-\indexentry{LabeledSemiEdges@\texttt  {LabeledSemiEdges}!for IsEdgeLabeledGraph|hyperpage}{85}
-\indexentry{LabeledDarts@\texttt  {LabeledDarts}!for IsEdgeLabeledGraph|hyperpage}{85}
-\indexentry{DerivedGraph@\texttt  {DerivedGraph}!for IsList,IsList,IsList|hyperpage}{86}
-\indexentry{ViewGraph@\texttt  {ViewGraph}!for IsObject, IsString|hyperpage}{86}
-\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsEdgeLabeledGraph|hyperpage}{86}
-\indexentry{WriteManiplexesToFile@\texttt  {WriteManiplexesToFile}|hyperpage}{87}
-\indexentry{ManiplexesFromFile@\texttt  {ManiplexesFromFile}|hyperpage}{87}
-\indexentry{DegeneratePolyhedra@\texttt  {DegeneratePolyhedra}|hyperpage}{87}
-\indexentry{FlatRegularPolyhedra@\texttt  {FlatRegularPolyhedra}|hyperpage}{88}
-\indexentry{RegularToroidalPolyhedra44@\texttt  {RegularToroidalPolyhedra44}|hyperpage}{88}
-\indexentry{RegularToroidalPolyhedra36@\texttt  {RegularToroidalPolyhedra36}|hyperpage}{88}
-\indexentry{SmallRegularPolyhedraFromFile@\texttt  {SmallRegularPolyhedraFromFile}|hyperpage}{89}
-\indexentry{SmallRegularPolyhedra@\texttt  {SmallRegularPolyhedra}|hyperpage}{89}
-\indexentry{SmallDegenerateRegular4Polytopes@\texttt  {SmallDegenerateRegular4Polytopes}|hyperpage}{89}
-\indexentry{SmallRegular4Polytopes@\texttt  {SmallRegular4Polytopes}|hyperpage}{89}
-\indexentry{SmallChiralPolyhedra@\texttt  {SmallChiralPolyhedra}|hyperpage}{90}
-\indexentry{SmallChiral4Polytopes@\texttt  {SmallChiral4Polytopes}|hyperpage}{90}
-\indexentry{SmallReflexible3Maniplexes@\texttt  {SmallReflexible3Maniplexes}|hyperpage}{90}
-\indexentry{SmallReflexibleManiplexes@\texttt  {SmallReflexibleManiplexes}|hyperpage}{90}
-\indexentry{SmallTwoOrbit3Maniplexes@\texttt  {SmallTwoOrbit3Maniplexes}|hyperpage}{91}
-\indexentry{DatabaseString@\texttt  {DatabaseString}!for IsManiplex|hyperpage}{91}
-\indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{91}
-\indexentry{InterpolatedString@\texttt  {InterpolatedString}!for IsString|hyperpage}{91}
-\indexentry{ChunkMultiply@\texttt  {ChunkMultiply}!for IsList,IsList|hyperpage}{93}
-\indexentry{ChunkPower@\texttt  {ChunkPower}!for IsList,IsInt|hyperpage}{93}
-\indexentry{ChunkGeneratedGroupElements@\texttt  {ChunkGeneratedGroupElements}!for IsList, IsGroup|hyperpage}{93}
-\indexentry{ChunkGeneratedGroup@\texttt  {ChunkGeneratedGroup}!for IsList, IsPermGroup|hyperpage}{94}
-\indexentry{FullyStratifiedGroup@\texttt  {FullyStratifiedGroup}!for IsList, IsGroup|hyperpage}{94}
-\indexentry{Epsilonk@\texttt  {Epsilonk}!for IsInt|hyperpage}{96}
-\indexentry{Deltak@\texttt  {Deltak}!for IsInt|hyperpage}{96}
-\indexentry{Mk@\texttt  {Mk}!for IsInt|hyperpage}{96}
-\indexentry{MkPrime@\texttt  {MkPrime}!for IsInt|hyperpage}{97}
-\indexentry{Bk2l@\texttt  {Bk2l}!for IsInt,IsInt|hyperpage}{97}
-\indexentry{Bk2lStar@\texttt  {Bk2lStar}!for IsInt,IsInt|hyperpage}{97}
-\indexentry{Opp@\texttt  {Opp}!for IsMapOnSurface|hyperpage}{97}
-\indexentry{Hole@\texttt  {Hole}!for IsMapOnSurface,IsInt|hyperpage}{98}
-\indexentry{Truncation@\texttt  {Truncation}!for IsMapOnSurface|hyperpage}{98}
-\indexentry{Snub@\texttt  {Snub}!for IsMapOnSurface|hyperpage}{98}
-\indexentry{Chamfer@\texttt  {Chamfer}!for IsMapOnSurface|hyperpage}{99}
-\indexentry{Subdivision1@\texttt  {Subdivision1}!for IsMapOnSurface|hyperpage}{99}
-\indexentry{Subdivision2@\texttt  {Subdivision2}!for IsMapOnSurface|hyperpage}{99}
-\indexentry{BarycentricSubdivision@\texttt  {BarycentricSubdivision}!for IsMapOnSurface|hyperpage}{99}
-\indexentry{Leapfrog@\texttt  {Leapfrog}!for IsMapOnSurface|hyperpage}{100}
-\indexentry{CombinatorialMap@\texttt  {CombinatorialMap}!for IsMapOnSurface|hyperpage}{100}
-\indexentry{Angle@\texttt  {Angle}!for IsMapOnSurface|hyperpage}{100}
-\indexentry{Gothic@\texttt  {Gothic}!for IsMapOnSurface|hyperpage}{100}
-\indexentry{Reflection@\texttt  {Reflection}!for IsManiplex|hyperpage}{101}
-\indexentry{Kis@\texttt  {Kis}!for IsMapOnSurface|hyperpage}{101}
-\indexentry{Needle@\texttt  {Needle}!for IsMapOnSurface|hyperpage}{102}
-\indexentry{Zip@\texttt  {Zip}!for IsMapOnSurface|hyperpage}{102}
-\indexentry{Ortho@\texttt  {Ortho}!for IsMapOnSurface|hyperpage}{102}
-\indexentry{Expand@\texttt  {Expand}!for IsMapOnSurface|hyperpage}{102}
-\indexentry{Gyro@\texttt  {Gyro}!for IsMapOnSurface|hyperpage}{102}
-\indexentry{Meta@\texttt  {Meta}!for IsMapOnSurface|hyperpage}{103}
-\indexentry{Bevel@\texttt  {Bevel}!for IsMapOnSurface|hyperpage}{103}
-\indexentry{Subdivide@\texttt  {Subdivide}!for IsMapOnSurface|hyperpage}{103}
-\indexentry{Propeller@\texttt  {Propeller}!for IsMapOnSurface|hyperpage}{103}
-\indexentry{Loft@\texttt  {Loft}!for IsMapOnSurface|hyperpage}{104}
-\indexentry{Quinto@\texttt  {Quinto}!for IsMapOnSurface|hyperpage}{104}
-\indexentry{JoinLace@\texttt  {JoinLace}!for IsMapOnSurface|hyperpage}{104}
-\indexentry{Lace@\texttt  {Lace}!for IsMapOnSurface|hyperpage}{104}
-\indexentry{Stake@\texttt  {Stake}!for IsMapOnSurface|hyperpage}{104}
-\indexentry{Whirl@\texttt  {Whirl}!for IsMapOnSurface|hyperpage}{105}
-\indexentry{Volute@\texttt  {Volute}!for IsMapOnSurface|hyperpage}{105}
-\indexentry{JoinKisKis@\texttt  {JoinKisKis}!for IsMapOnSurface|hyperpage}{105}
-\indexentry{Cross@\texttt  {Cross}!for IsMapOnSurface|hyperpage}{105}
-\indexentry{InfoRamp@\texttt  {InfoRamp}|hyperpage}{106}
-\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{106}
-\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{106}
-\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{107}
-\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{107}
-\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{107}
-\indexentry{InvolutionListList@\texttt  {InvolutionListList}|hyperpage}{107}
-\indexentry{PermFromRange@\texttt  {PermFromRange}!for IsPerm, IsPerm, IsPerm|hyperpage}{108}
-\indexentry{ParseStringCRels@\texttt  {ParseStringCRels}|hyperpage}{108}
-\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{108}
-\indexentry{StandardizeSggi@\texttt  {StandardizeSggi}|hyperpage}{109}
-\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{109}
-\indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{110}
-\indexentry{MarkAsPolytopal@\texttt  {MarkAsPolytopal}!for IsManiplex|hyperpage}{110}
-\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsGroup|hyperpage}{112}
-\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsEdgeLabeledGraph|hyperpage}{112}
-\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsPremaniplex|hyperpage}{112}
-\indexentry{STG1@\texttt  {STG1}!for IsInt|hyperpage}{113}
-\indexentry{STG2@\texttt  {STG2}!for IsInt,IsList|hyperpage}{113}
-\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt|hyperpage}{113}
-\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt,IsInt|hyperpage}{113}
-\indexentry{FlagGraph@\texttt  {FlagGraph}!for IsPremaniplex|hyperpage}{113}
-\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsEdgeLabeledGraph|hyperpage}{114}
-\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsManiplex|hyperpage}{114}
-\indexentry{AdmissiblePerms@\texttt  {AdmissiblePerms}!for IsInt, IsList|hyperpage}{115}
-\indexentry{WythoffSTG@\texttt  {WythoffSTG}!for IsInt, IsList|hyperpage}{115}
-\indexentry{WythoffLabeledEdges@\texttt  {WythoffLabeledEdges}!for IsInt, IsList|hyperpage}{115}
-\indexentry{WythoffVoltageOperator@\texttt  {WythoffVoltageOperator}!for IsInt, IsList, IsManiplex|hyperpage}{115}
+\indexentry{QuotientManiplex@\texttt  {QuotientManiplex}!for IsReflexibleManiplex, IsString|hyperpage}{46}
+\indexentry{ReflexibleQuotientManiplex@\texttt  {ReflexibleQuotientManiplex}!for IsManiplex, IsList|hyperpage}{46}
+\indexentry{QuotientSggi@\texttt  {QuotientSggi}!for IsGroup, IsList|hyperpage}{46}
+\indexentry{QuotientSggiByNormalSubgroup@\texttt  {QuotientSggiByNormalSubgroup}!for IsGroup,IsGroup|hyperpage}{47}
+\indexentry{QuotientManiplexByAutomorphismSubgroup@\texttt  {Quotient}\-\texttt  {Maniplex}\-\texttt  {By}\-\texttt  {Automorphism}\-\texttt  {Subgroup}!for IsManiplex,IsPermGroup|hyperpage}{47}
+\indexentry{PosetFromFaceListOfFlags@\texttt  {PosetFromFaceListOfFlags}!for IsList|hyperpage}{48}
+\indexentry{PosetFromConnectionGroup@\texttt  {PosetFromConnectionGroup}!for IsPermGroup|hyperpage}{49}
+\indexentry{PosetFromManiplex@\texttt  {PosetFromManiplex}!for IsManiplex|hyperpage}{49}
+\indexentry{PosetFromPartialOrder@\texttt  {PosetFromPartialOrder}!for IsBinaryRelation|hyperpage}{49}
+\indexentry{PosetFromAtomicList@\texttt  {PosetFromAtomicList}!for IsList|hyperpage}{50}
+\indexentry{PosetFromElements@\texttt  {PosetFromElements}!for IsList,IsFunction|hyperpage}{50}
+\indexentry{PosetFromSuccessorList@\texttt  {PosetFromSuccessorList}!for IsList|hyperpage}{51}
+\indexentry{PairCompareFlagsList@\texttt  {PairCompareFlagsList}!for IsList,IsList|hyperpage}{51}
+\indexentry{PairCompareAtomsList@\texttt  {PairCompareAtomsList}!for IsList,IsList|hyperpage}{51}
+\indexentry{DualPoset@\texttt  {DualPoset}!for IsPoset|hyperpage}{51}
+\indexentry{Section@\texttt  {Section}!for IsFace, IsFace, IsPoset|hyperpage}{52}
+\indexentry{Cleave@\texttt  {Cleave}!for IsPoset,IsInt|hyperpage}{52}
+\indexentry{PartiallyCleave@\texttt  {PartiallyCleave}!for IsPoset,IsInt|hyperpage}{52}
+\indexentry{MaximalChains@\texttt  {MaximalChains}!for IsPoset|hyperpage}{52}
+\indexentry{RankPoset@\texttt  {RankPoset}!for IsPoset|hyperpage}{53}
+\indexentry{ElementsList@\texttt  {ElementsList}!for IsPoset|hyperpage}{53}
+\indexentry{OrderingFunction@\texttt  {OrderingFunction}!for IsPoset|hyperpage}{53}
+\indexentry{IsFlaggable@\texttt  {IsFlaggable}!for IsPoset|hyperpage}{53}
+\indexentry{IsAtomic@\texttt  {IsAtomic}!for IsPoset|hyperpage}{54}
+\indexentry{PartialOrder@\texttt  {PartialOrder}!for IsPoset|hyperpage}{54}
+\indexentry{IsLattice@\texttt  {IsLattice}!for IsPoset|hyperpage}{54}
+\indexentry{IsAllMeets@\texttt  {IsAllMeets}!for IsPoset|hyperpage}{54}
+\indexentry{IsAllJoins@\texttt  {IsAllJoins}!for IsPoset|hyperpage}{54}
+\indexentry{ListIsP1Poset@\texttt  {ListIsP1Poset}!for IsList|hyperpage}{55}
+\indexentry{IsP1@\texttt  {IsP1}!for IsPoset|hyperpage}{55}
+\indexentry{IsP2@\texttt  {IsP2}!for IsPoset|hyperpage}{55}
+\indexentry{IsP3@\texttt  {IsP3}!for IsPoset|hyperpage}{55}
+\indexentry{IsFlagConnected@\texttt  {IsFlagConnected}!for IsPoset|hyperpage}{56}
+\indexentry{IsP4@\texttt  {IsP4}!for IsPoset|hyperpage}{56}
+\indexentry{IsPolytope@\texttt  {IsPolytope}!for IsPoset|hyperpage}{56}
+\indexentry{IsPrePolytope@\texttt  {IsPrePolytope}!for IsPoset|hyperpage}{56}
+\indexentry{IsSelfDual@\texttt  {IsSelfDual}!for IsPoset|hyperpage}{56}
+\indexentry{IsIsomorphicPoset@\texttt  {IsIsomorphicPoset}!for IsPoset,IsPoset|hyperpage}{57}
+\indexentry{PosetIsomorphism@\texttt  {PosetIsomorphism}!for IsPoset,IsPoset|hyperpage}{57}
+\indexentry{FlagsAsFlagListFaces@\texttt  {FlagsAsFlagListFaces}!for IsPoset|hyperpage}{57}
+\indexentry{RankedFaceListOfPoset@\texttt  {RankedFaceListOfPoset}!for IsPoset|hyperpage}{57}
+\indexentry{AdjacentFlag@\texttt  {AdjacentFlag}!for IsPosetOfFlags,IsList,IsInt|hyperpage}{58}
+\indexentry{AdjacentFlags@\texttt  {AdjacentFlags}!for IsPoset,IsList,IsInt|hyperpage}{58}
+\indexentry{EqualChains@\texttt  {EqualChains}!for IsList,IsList|hyperpage}{58}
+\indexentry{ConnectionGeneratorOfPoset@\texttt  {ConnectionGeneratorOfPoset}!for IsPoset,IsInt|hyperpage}{58}
+\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsPoset|hyperpage}{58}
+\indexentry{AutomorphismGroup@\texttt  {AutomorphismGroup}!for IsPoset|hyperpage}{58}
+\indexentry{AutomorphismGroupOnElements@\texttt  {AutomorphismGroupOnElements}!for IsPoset|hyperpage}{58}
+\indexentry{AutomorphismGroupOnChains@\texttt  {AutomorphismGroupOnChains}!for IsPoset, IsCollection|hyperpage}{59}
+\indexentry{AutomorphismGroupOnIFaces@\texttt  {AutomorphismGroupOnIFaces}!for IsPoset, IsInt|hyperpage}{59}
+\indexentry{AutomorphismGroupOnFacets@\texttt  {AutomorphismGroupOnFacets}!for IsPoset|hyperpage}{59}
+\indexentry{AutomorphismGroupOnEdges@\texttt  {AutomorphismGroupOnEdges}!for IsPoset|hyperpage}{59}
+\indexentry{AutomorphismGroupOnVertices@\texttt  {AutomorphismGroupOnVertices}!for IsPoset|hyperpage}{59}
+\indexentry{FaceListOfPoset@\texttt  {FaceListOfPoset}!for IsPoset|hyperpage}{59}
+\indexentry{RankPosetElements@\texttt  {RankPosetElements}!for IsPoset|hyperpage}{59}
+\indexentry{FacesByRankOfPoset@\texttt  {FacesByRankOfPoset}!for IsPoset|hyperpage}{60}
+\indexentry{HasseDiagramOfPoset@\texttt  {HasseDiagramOfPoset}!for IsPoset|hyperpage}{60}
+\indexentry{AsPosetOfAtoms@\texttt  {AsPosetOfAtoms}!for IsPoset|hyperpage}{60}
+\indexentry{MinFace@\texttt  {MinFace}!for IsPoset|hyperpage}{60}
+\indexentry{MaxFace@\texttt  {MaxFace}!for IsPoset|hyperpage}{60}
+\indexentry{PosetElementWithOrder@\texttt  {PosetElementWithOrder}!for IsObject,IsFunction|hyperpage}{60}
+\indexentry{PosetElementFromListOfFlags@\texttt  {PosetElementFromListOfFlags}!for IsList,IsPoset,IsInt|hyperpage}{60}
+\indexentry{PosetElementFromAtomList@\texttt  {PosetElementFromAtomList}!for IsList|hyperpage}{61}
+\indexentry{PosetElementFromIndex@\texttt  {PosetElementFromIndex}!for IsObject|hyperpage}{61}
+\indexentry{PosetElementWithPartialOrder@\texttt  {PosetElementWithPartialOrder}!for IsObject, IsBinaryRelation|hyperpage}{61}
+\indexentry{RanksInPosets@\texttt  {RanksInPosets}!for IsPosetElement|hyperpage}{61}
+\indexentry{AddRanksInPosets@\texttt  {AddRanksInPosets}!for IsPosetElement,IsPoset,IsInt|hyperpage}{61}
+\indexentry{FlagList@\texttt  {FlagList}!for IsPosetElement|hyperpage}{61}
+\indexentry{AtomList@\texttt  {AtomList}!for IsPosetElement|hyperpage}{61}
+\indexentry{RankInPoset@\texttt  {RankInPoset}!for IsPosetElement,IsPoset|hyperpage}{62}
+\indexentry{IsSubface@\texttt  {IsSubface}!for IsFace,IsFace,IsPoset|hyperpage}{62}
+\indexentry{IsEqualFaces@\texttt  {IsEqualFaces}!for IsFace, IsFace, IsPoset|hyperpage}{62}
+\indexentry{AreIncidentElements@\texttt  {AreIncidentElements}!for IsObject,IsObject|hyperpage}{62}
+\indexentry{Meet@\texttt  {Meet}!for IsFace, IsFace, IsPoset|hyperpage}{62}
+\indexentry{Join@\texttt  {Join}!for IsFace, IsFace, IsPoset|hyperpage}{62}
+\indexentry{JoinProduct@\texttt  {JoinProduct}!for IsPoset,IsPoset|hyperpage}{63}
+\indexentry{CartesianProduct@\texttt  {CartesianProduct}!for IsPoset,IsPoset|hyperpage}{63}
+\indexentry{DirectSumOfPosets@\texttt  {DirectSumOfPosets}!for IsPoset,IsPoset|hyperpage}{63}
+\indexentry{TopologicalProduct@\texttt  {TopologicalProduct}!for IsPoset,IsPoset|hyperpage}{64}
+\indexentry{Antiprism@\texttt  {Antiprism}!for IsPoset|hyperpage}{64}
+\indexentry{UniversalPolytope@\texttt  {UniversalPolytope}!for IsInt|hyperpage}{65}
+\indexentry{UniversalExtension@\texttt  {UniversalExtension}!for IsManiplex|hyperpage}{65}
+\indexentry{UniversalExtension@\texttt  {UniversalExtension}!for IsManiplex, IsInt|hyperpage}{65}
+\indexentry{TrivialExtension@\texttt  {TrivialExtension}!for IsManiplex|hyperpage}{66}
+\indexentry{FlatExtension@\texttt  {FlatExtension}!for IsManiplex, IsInt|hyperpage}{66}
+\indexentry{Amalgamate@\texttt  {Amalgamate}!for IsManiplex, IsManiplex|hyperpage}{66}
+\indexentry{Medial@\texttt  {Medial}!for IsManiplex|hyperpage}{66}
+\indexentry{Dual@\texttt  {Dual}!for IsManiplex|hyperpage}{66}
+\indexentry{IsSelfDual@\texttt  {IsSelfDual}!for IsManiplex|hyperpage}{67}
+\indexentry{IsInternallySelfDual@\texttt  {IsInternallySelfDual}!for IsManiplex|hyperpage}{67}
+\indexentry{IsExternallySelfDual@\texttt  {IsExternallySelfDual}!for IsManiplex|hyperpage}{67}
+\indexentry{IsProperlySelfDual@\texttt  {IsProperlySelfDual}!for IsManiplex|hyperpage}{68}
+\indexentry{Petrial@\texttt  {Petrial}!for IsManiplex|hyperpage}{68}
+\indexentry{IsSelfPetrial@\texttt  {IsSelfPetrial}!for IsManiplex|hyperpage}{68}
+\indexentry{DirectDerivates@\texttt  {DirectDerivates}!for IsManiplex|hyperpage}{69}
+\indexentry{Pyramid@\texttt  {Pyramid}!for IsManiplex|hyperpage}{69}
+\indexentry{Pyramid@\texttt  {Pyramid}!for IsInt|hyperpage}{69}
+\indexentry{Prism@\texttt  {Prism}!for IsManiplex|hyperpage}{69}
+\indexentry{Prism@\texttt  {Prism}!for IsInt|hyperpage}{69}
+\indexentry{Antiprism@\texttt  {Antiprism}!for IsManiplex|hyperpage}{70}
+\indexentry{Antiprism@\texttt  {Antiprism}!for IsInt|hyperpage}{70}
+\indexentry{JoinProduct@\texttt  {JoinProduct}!for IsManiplex, IsManiplex|hyperpage}{70}
+\indexentry{CartesianProduct@\texttt  {CartesianProduct}!for IsManiplex, IsManiplex|hyperpage}{70}
+\indexentry{DirectSumOfManiplexes@\texttt  {DirectSumOfManiplexes}!for IsManiplex, IsManiplex|hyperpage}{70}
+\indexentry{TopologicalProduct@\texttt  {TopologicalProduct}!for IsManiplex, IsManiplex|hyperpage}{70}
+\indexentry{NumberOfIFaces@\texttt  {NumberOfIFaces}!for IsManiplex, IsInt|hyperpage}{72}
+\indexentry{NumberOfVertices@\texttt  {NumberOfVertices}!for IsManiplex|hyperpage}{72}
+\indexentry{NumberOfEdges@\texttt  {NumberOfEdges}!for IsManiplex|hyperpage}{72}
+\indexentry{NumberOfFacets@\texttt  {NumberOfFacets}!for IsManiplex|hyperpage}{72}
+\indexentry{NumberOfRidges@\texttt  {NumberOfRidges}!for IsManiplex|hyperpage}{73}
+\indexentry{Fvector@\texttt  {Fvector}!for IsManiplex|hyperpage}{73}
+\indexentry{Section@\texttt  {Section}!for IsManiplex, IsInt, IsInt|hyperpage}{73}
+\indexentry{Section@\texttt  {Section}!for IsManiplex, IsInt, IsInt, IsInt|hyperpage}{73}
+\indexentry{Sections@\texttt  {Sections}!for IsManiplex, IsInt, IsInt|hyperpage}{73}
+\indexentry{Facets@\texttt  {Facets}!for IsManiplex|hyperpage}{73}
+\indexentry{Facet@\texttt  {Facet}!for IsManiplex, IsInt|hyperpage}{73}
+\indexentry{Facet@\texttt  {Facet}!for IsManiplex|hyperpage}{73}
+\indexentry{VertexFigures@\texttt  {VertexFigures}!for IsManiplex|hyperpage}{74}
+\indexentry{VertexFigure@\texttt  {VertexFigure}!for IsManiplex, IsInt|hyperpage}{74}
+\indexentry{VertexFigure@\texttt  {VertexFigure}!for IsManiplex|hyperpage}{74}
+\indexentry{IsFlat@\texttt  {IsFlat}!for IsManiplex|hyperpage}{74}
+\indexentry{IsFlat@\texttt  {IsFlat}!for IsManiplex, IsInt, IsInt|hyperpage}{74}
+\indexentry{SchlafliSymbol@\texttt  {SchlafliSymbol}!for IsManiplex|hyperpage}{75}
+\indexentry{PseudoSchlafliSymbol@\texttt  {PseudoSchlafliSymbol}!for IsManiplex|hyperpage}{75}
+\indexentry{IsEquivelar@\texttt  {IsEquivelar}!for IsManiplex|hyperpage}{75}
+\indexentry{IsDegenerate@\texttt  {IsDegenerate}!for IsManiplex|hyperpage}{75}
+\indexentry{IsTight@\texttt  {IsTight}!for IsManiplex|hyperpage}{76}
+\indexentry{EulerCharacteristic@\texttt  {EulerCharacteristic}!for IsManiplex|hyperpage}{76}
+\indexentry{Genus@\texttt  {Genus}!for IsManiplex|hyperpage}{76}
+\indexentry{IsSpherical@\texttt  {IsSpherical}!for IsManiplex|hyperpage}{76}
+\indexentry{IsLocallySpherical@\texttt  {IsLocallySpherical}!for IsManiplex|hyperpage}{77}
+\indexentry{IsToroidal@\texttt  {IsToroidal}!for IsManiplex|hyperpage}{77}
+\indexentry{IsLocallyToroidal@\texttt  {IsLocallyToroidal}!for IsManiplex|hyperpage}{77}
+\indexentry{Size@\texttt  {Size}!for IsManiplex|hyperpage}{77}
+\indexentry{RankManiplex@\texttt  {RankManiplex}!for IsManiplex|hyperpage}{78}
+\indexentry{ZigzagLength@\texttt  {ZigzagLength}!for IsManiplex, IsInt|hyperpage}{78}
+\indexentry{ZigzagVector@\texttt  {ZigzagVector}!for IsManiplex|hyperpage}{78}
+\indexentry{PetrieLength@\texttt  {PetrieLength}!for IsManiplex|hyperpage}{78}
+\indexentry{PetrieRelation@\texttt  {PetrieRelation}!for IsInt, IsInt|hyperpage}{78}
+\indexentry{HoleLength@\texttt  {HoleLength}!for IsManiplex, IsInt|hyperpage}{79}
+\indexentry{HoleVector@\texttt  {HoleVector}!for IsManiplex|hyperpage}{79}
+\indexentry{HeawoodGraph@\texttt  {HeawoodGraph}|hyperpage}{80}
+\indexentry{PetersenGraph@\texttt  {PetersenGraph}|hyperpage}{80}
+\indexentry{CirculantGraph@\texttt  {CirculantGraph}!for IsInt,IsList|hyperpage}{80}
+\indexentry{CompleteBipartiteGraph@\texttt  {CompleteBipartiteGraph}!for IsInt,IsInt|hyperpage}{80}
+\indexentry{DirectedGraphFromListOfEdges@\texttt  {DirectedGraphFromListOfEdges}!for IsList,IsList|hyperpage}{80}
+\indexentry{GraphFromListOfEdges@\texttt  {GraphFromListOfEdges}!for IsList,IsList|hyperpage}{81}
+\indexentry{UnlabeledFlagGraph@\texttt  {UnlabeledFlagGraph}!for IsGroup|hyperpage}{81}
+\indexentry{FlagGraphWithLabels@\texttt  {FlagGraphWithLabels}!for IsGroup|hyperpage}{82}
+\indexentry{LayerGraph@\texttt  {LayerGraph}!for IsGroup, IsInt, IsInt|hyperpage}{83}
+\indexentry{Skeleton@\texttt  {Skeleton}!for IsManiplex|hyperpage}{84}
+\indexentry{CoSkeleton@\texttt  {CoSkeleton}!for IsManiplex|hyperpage}{84}
+\indexentry{Hasse@\texttt  {Hasse}!for IsManiplex|hyperpage}{84}
+\indexentry{QuotientByLabel@\texttt  {QuotientByLabel}!for IsObject,IsList, IsList, IsList|hyperpage}{84}
+\indexentry{EdgeLabeledGraphFromEdges@\texttt  {EdgeLabeledGraphFromEdges}!for IsList, IsList,IsList|hyperpage}{85}
+\indexentry{EdgeLabeledGraphFromLabeledEdges@\texttt  {EdgeLabeledGraphFromLabeledEdges}!for IsList|hyperpage}{85}
+\indexentry{FlagGraph@\texttt  {FlagGraph}!for IsGroup|hyperpage}{85}
+\indexentry{UnlabeledSimpleGraph@\texttt  {UnlabeledSimpleGraph}!for IsEdgeLabeledGraph|hyperpage}{86}
+\indexentry{EdgeLabelPreservingAutomorphismGroup@\texttt  {Edge}\-\texttt  {Label}\-\texttt  {Preserving}\-\texttt  {Automorphism}\-\texttt  {Group}!for IsEdgeLabeledGraph|hyperpage}{86}
+\indexentry{Simple@\texttt  {Simple}!for IsEdgeLabeledGraph|hyperpage}{86}
+\indexentry{ConnectedComponents@\texttt  {ConnectedComponents}!for IsEdgeLabeledGraph, IsList|hyperpage}{86}
+\indexentry{PRGraph@\texttt  {PRGraph}!for IsGroup|hyperpage}{86}
+\indexentry{CPRGraphFromGroups@\texttt  {CPRGraphFromGroups}!for IsGroup,IsGroup|hyperpage}{87}
+\indexentry{AdjacentVertices@\texttt  {AdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{87}
+\indexentry{LabeledAdjacentVertices@\texttt  {LabeledAdjacentVertices}!for IsEdgeLabeledGraph, IsObject|hyperpage}{87}
+\indexentry{SemiEdges@\texttt  {SemiEdges}!for IsEdgeLabeledGraph|hyperpage}{87}
+\indexentry{LabeledSemiEdges@\texttt  {LabeledSemiEdges}!for IsEdgeLabeledGraph|hyperpage}{87}
+\indexentry{LabeledDarts@\texttt  {LabeledDarts}!for IsEdgeLabeledGraph|hyperpage}{87}
+\indexentry{DerivedGraph@\texttt  {DerivedGraph}!for IsList,IsList,IsList|hyperpage}{88}
+\indexentry{ViewGraph@\texttt  {ViewGraph}!for IsObject, IsString|hyperpage}{88}
+\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsEdgeLabeledGraph|hyperpage}{88}
+\indexentry{WriteManiplexesToFile@\texttt  {WriteManiplexesToFile}|hyperpage}{89}
+\indexentry{ManiplexesFromFile@\texttt  {ManiplexesFromFile}|hyperpage}{89}
+\indexentry{DegeneratePolyhedra@\texttt  {DegeneratePolyhedra}|hyperpage}{89}
+\indexentry{FlatRegularPolyhedra@\texttt  {FlatRegularPolyhedra}|hyperpage}{90}
+\indexentry{RegularToroidalPolyhedra44@\texttt  {RegularToroidalPolyhedra44}|hyperpage}{90}
+\indexentry{RegularToroidalPolyhedra36@\texttt  {RegularToroidalPolyhedra36}|hyperpage}{90}
+\indexentry{SmallRegularPolyhedraFromFile@\texttt  {SmallRegularPolyhedraFromFile}|hyperpage}{91}
+\indexentry{SmallRegularPolyhedra@\texttt  {SmallRegularPolyhedra}|hyperpage}{91}
+\indexentry{SmallDegenerateRegular4Polytopes@\texttt  {SmallDegenerateRegular4Polytopes}|hyperpage}{91}
+\indexentry{SmallRegular4Polytopes@\texttt  {SmallRegular4Polytopes}|hyperpage}{91}
+\indexentry{SmallChiralPolyhedra@\texttt  {SmallChiralPolyhedra}|hyperpage}{92}
+\indexentry{SmallChiral4Polytopes@\texttt  {SmallChiral4Polytopes}|hyperpage}{92}
+\indexentry{SmallReflexible3Maniplexes@\texttt  {SmallReflexible3Maniplexes}|hyperpage}{92}
+\indexentry{SmallReflexibleManiplexes@\texttt  {SmallReflexibleManiplexes}|hyperpage}{92}
+\indexentry{SmallTwoOrbit3Maniplexes@\texttt  {SmallTwoOrbit3Maniplexes}|hyperpage}{93}
+\indexentry{DatabaseString@\texttt  {DatabaseString}!for IsManiplex|hyperpage}{93}
+\indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{93}
+\indexentry{InterpolatedString@\texttt  {InterpolatedString}!for IsString|hyperpage}{93}
+\indexentry{ChunkMultiply@\texttt  {ChunkMultiply}!for IsList,IsList|hyperpage}{95}
+\indexentry{ChunkPower@\texttt  {ChunkPower}!for IsList,IsInt|hyperpage}{95}
+\indexentry{ChunkGeneratedGroupElements@\texttt  {ChunkGeneratedGroupElements}!for IsList, IsGroup|hyperpage}{95}
+\indexentry{ChunkGeneratedGroup@\texttt  {ChunkGeneratedGroup}!for IsList, IsPermGroup|hyperpage}{96}
+\indexentry{FullyStratifiedGroup@\texttt  {FullyStratifiedGroup}!for IsList, IsGroup|hyperpage}{96}
+\indexentry{Epsilonk@\texttt  {Epsilonk}!for IsInt|hyperpage}{98}
+\indexentry{Deltak@\texttt  {Deltak}!for IsInt|hyperpage}{98}
+\indexentry{Mk@\texttt  {Mk}!for IsInt|hyperpage}{98}
+\indexentry{MkPrime@\texttt  {MkPrime}!for IsInt|hyperpage}{99}
+\indexentry{Bk2l@\texttt  {Bk2l}!for IsInt,IsInt|hyperpage}{99}
+\indexentry{Bk2lStar@\texttt  {Bk2lStar}!for IsInt,IsInt|hyperpage}{99}
+\indexentry{Opp@\texttt  {Opp}!for IsMapOnSurface|hyperpage}{99}
+\indexentry{Hole@\texttt  {Hole}!for IsMapOnSurface,IsInt|hyperpage}{100}
+\indexentry{Truncation@\texttt  {Truncation}!for IsMapOnSurface|hyperpage}{100}
+\indexentry{Snub@\texttt  {Snub}!for IsMapOnSurface|hyperpage}{100}
+\indexentry{Chamfer@\texttt  {Chamfer}!for IsMapOnSurface|hyperpage}{101}
+\indexentry{Subdivision1@\texttt  {Subdivision1}!for IsMapOnSurface|hyperpage}{101}
+\indexentry{Subdivision2@\texttt  {Subdivision2}!for IsMapOnSurface|hyperpage}{101}
+\indexentry{BarycentricSubdivision@\texttt  {BarycentricSubdivision}!for IsMapOnSurface|hyperpage}{101}
+\indexentry{Leapfrog@\texttt  {Leapfrog}!for IsMapOnSurface|hyperpage}{102}
+\indexentry{CombinatorialMap@\texttt  {CombinatorialMap}!for IsMapOnSurface|hyperpage}{102}
+\indexentry{Angle@\texttt  {Angle}!for IsMapOnSurface|hyperpage}{102}
+\indexentry{Gothic@\texttt  {Gothic}!for IsMapOnSurface|hyperpage}{102}
+\indexentry{Reflection@\texttt  {Reflection}!for IsManiplex|hyperpage}{103}
+\indexentry{Kis@\texttt  {Kis}!for IsMapOnSurface|hyperpage}{103}
+\indexentry{Needle@\texttt  {Needle}!for IsMapOnSurface|hyperpage}{104}
+\indexentry{Zip@\texttt  {Zip}!for IsMapOnSurface|hyperpage}{104}
+\indexentry{Ortho@\texttt  {Ortho}!for IsMapOnSurface|hyperpage}{104}
+\indexentry{Expand@\texttt  {Expand}!for IsMapOnSurface|hyperpage}{104}
+\indexentry{Gyro@\texttt  {Gyro}!for IsMapOnSurface|hyperpage}{104}
+\indexentry{Meta@\texttt  {Meta}!for IsMapOnSurface|hyperpage}{105}
+\indexentry{Bevel@\texttt  {Bevel}!for IsMapOnSurface|hyperpage}{105}
+\indexentry{Subdivide@\texttt  {Subdivide}!for IsMapOnSurface|hyperpage}{105}
+\indexentry{Propeller@\texttt  {Propeller}!for IsMapOnSurface|hyperpage}{105}
+\indexentry{Loft@\texttt  {Loft}!for IsMapOnSurface|hyperpage}{106}
+\indexentry{Quinto@\texttt  {Quinto}!for IsMapOnSurface|hyperpage}{106}
+\indexentry{JoinLace@\texttt  {JoinLace}!for IsMapOnSurface|hyperpage}{106}
+\indexentry{Lace@\texttt  {Lace}!for IsMapOnSurface|hyperpage}{106}
+\indexentry{Stake@\texttt  {Stake}!for IsMapOnSurface|hyperpage}{106}
+\indexentry{Whirl@\texttt  {Whirl}!for IsMapOnSurface|hyperpage}{107}
+\indexentry{Volute@\texttt  {Volute}!for IsMapOnSurface|hyperpage}{107}
+\indexentry{JoinKisKis@\texttt  {JoinKisKis}!for IsMapOnSurface|hyperpage}{107}
+\indexentry{Cross@\texttt  {Cross}!for IsMapOnSurface|hyperpage}{107}
+\indexentry{InfoRamp@\texttt  {InfoRamp}|hyperpage}{108}
+\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{108}
+\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{108}
+\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{109}
+\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{109}
+\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{109}
+\indexentry{InvolutionListList@\texttt  {InvolutionListList}|hyperpage}{109}
+\indexentry{PermFromRange@\texttt  {PermFromRange}!for IsPerm, IsPerm, IsPerm|hyperpage}{110}
+\indexentry{ParseStringCRels@\texttt  {ParseStringCRels}|hyperpage}{110}
+\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{110}
+\indexentry{StandardizeSggi@\texttt  {StandardizeSggi}|hyperpage}{111}
+\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{111}
+\indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{112}
+\indexentry{MarkAsPolytopal@\texttt  {MarkAsPolytopal}!for IsManiplex|hyperpage}{112}
+\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsGroup|hyperpage}{114}
+\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsEdgeLabeledGraph|hyperpage}{114}
+\indexentry{ConnectionGroup@\texttt  {ConnectionGroup}!for IsPremaniplex|hyperpage}{114}
+\indexentry{STG1@\texttt  {STG1}!for IsInt|hyperpage}{115}
+\indexentry{STG2@\texttt  {STG2}!for IsInt,IsList|hyperpage}{115}
+\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt|hyperpage}{115}
+\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt,IsInt|hyperpage}{115}
+\indexentry{FlagGraph@\texttt  {FlagGraph}!for IsPremaniplex|hyperpage}{115}
+\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsEdgeLabeledGraph|hyperpage}{116}
+\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsManiplex|hyperpage}{116}
+\indexentry{AdmissiblePerms@\texttt  {AdmissiblePerms}!for IsInt, IsList|hyperpage}{117}
+\indexentry{WythoffSTG@\texttt  {WythoffSTG}!for IsInt, IsList|hyperpage}{117}
+\indexentry{WythoffLabeledEdges@\texttt  {WythoffLabeledEdges}!for IsInt, IsList|hyperpage}{117}
+\indexentry{WythoffVoltageOperator@\texttt  {WythoffVoltageOperator}!for IsInt, IsList, IsManiplex|hyperpage}{117}

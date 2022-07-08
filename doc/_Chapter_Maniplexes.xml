@@ -215,7 +215,7 @@ Given two maniplexes, returns their mix. For two reflexible maniplexes returns t
 
 
 <ManSection>
-  <Oper Arg="maniplex, maniplex" Name="FlagMix" Label="for IsManiplex, IsManiplex"/>
+  <Oper Arg="maniplex, maniplex" Name="FlagMix" Label="for IsPremaniplex, IsPremaniplex"/>
  <Returns><Code>IsManiplex </Code>.
 </Returns>
  <Description>
