@@ -565,11 +565,17 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="IOrientableCover" Label="for IsManiplex, IsList"/>
+  <Oper Arg="M, I" Name="IOrientableCover" Label="for IsManiplex, IsList"/>
  <Description>
 Returns the minimal <Emph>I-orientable cover</Emph> of the maniplex <A>M</A>.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(IOrientableCover(Cube(3), [2]));
+[ 4, 6 ]
+]]></Example>
 
 
 </Section>

@@ -3098,13 +3098,18 @@ is equivalent to being I-orientable for I =
 \subsection{\textcolor{Chapter }{IOrientableCover (for IsManiplex, IsList)}}
 \logpage{[ 6, 4, 6 ]}\nobreak
 \hyperdef{L}{X81EF6062840E85AF}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IOrientableCover({\mdseries\slshape M})\index{IOrientableCover@\texttt{IOrientableCover}!for IsManiplex, IsList}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IOrientableCover({\mdseries\slshape M, I})\index{IOrientableCover@\texttt{IOrientableCover}!for IsManiplex, IsList}
 \label{IOrientableCover:for IsManiplex, IsList}
 }\hfill{\scriptsize (operation)}}\\
 
 
  Returns the minimal \emph{I-orientable cover} of the maniplex \mbox{\texttt{\mdseries\slshape M}}. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(IOrientableCover(Cube(3), [2]));|
+  [ 4, 6 ]
+\end{Verbatim}
  }
 
  

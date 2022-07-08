@@ -51,6 +51,10 @@ DeclareAttribute("OrientableCover", IsManiplex);
 #! true
 #! @EndExampleSession
 
-#! @Arguments M
+#! @Arguments M, I
 #! @Description Returns the minimal __I-orientable cover__ of the maniplex <A>M</A>.
 DeclareOperation("IOrientableCover", [IsManiplex, IsList]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(IOrientableCover(Cube(3), [2]));
+#! [ 4, 6 ]
+#! @EndExampleSession
