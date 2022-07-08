@@ -101,7 +101,19 @@ InstallMethod(IsQuotient,
 	relsp := List(ExtraRelators(p), TietzeWordAbstractWord);
 	relsq := List(ExtraRelators(q), TietzeWordAbstractWord);
 
-	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) and IsSubset(relsp, relsq) then return true; fi;
+	# ExtraRelators causes computation of the Schlafli symbols - recheck them.
+	for i in [1..Rank(p)-1] do
+		k1 := SchlafliSymbol(p)[i];
+		k2 := SchlafliSymbol(q)[i];
+		if k2 < k1 then 	# This also handles infinity
+			return false;
+		elif k1 < infinity and k2 < infinity and not(IsInt(k2/k1)) then
+			return false;
+		fi;
+	od;
+	
+	# At this point, we know the Schlafli symbols are "compatible" for a quotient.
+	if IsSubset(relsp, relsq) then return true; fi;
 	
 	if HasSize(p) and IsFinite(p) then
 		# add rels from q to p...
