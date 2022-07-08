@@ -270,6 +270,7 @@ InstallMethod(ConnectionGroup,
 		fi;
 	fi;
 	
+	SetIsSggi(connectionGroup, true);
 	return connectionGroup;
 	end);
 
