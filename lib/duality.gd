@@ -15,12 +15,12 @@ DeclareOperation("Dual", [IsManiplex]);
 #! @Returns Whether this maniplex is isomorphic to its dual.
 #! @Description Also works for IsPoset objects.
 DeclareProperty("IsSelfDual", IsManiplex);
-# ! @BeginExampleSession
-# ! gap> IsSelfDual(Cube(3));
-# ! false
-# ! gap> IsSelfDual(Simplex(5));
-# ! true
-# ! @EndExampleSession
+#! @BeginExampleSession
+#! gap> IsSelfDual(Cube(3));
+#! false
+#! gap> IsSelfDual(Simplex(5));
+#! true
+#! @EndExampleSession
 
 #! @Arguments M[, x]
 #! @Description Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in
@@ -29,14 +29,23 @@ DeclareProperty("IsSelfDual", IsManiplex);
 #! the isomorphism between <A>M</A> and its dual is an inner automorphism.
 #! If the optional group element <A>x</A> is given, then we first check whether <A>x</A> is a dualizing
 #! automorphism of <A>M</A>, and if not, then we search the whole automorphism group of <A>M</A>.
+#! You can also input a string for <A>x</A>, in which case it is converted to `SggiElement(M, x)`.
+#! This property is only defined for rotary (chiral or reflexible) maniplexes.
 DeclareProperty("IsInternallySelfDual", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsInternallySelfDual(Simplex(4));
 #! true
-#! gap> IsInternallySelfDual(ARP([4,4], "h2^6"));
-#! false
-#! gap> IsInternallySelfDual(ARP([4,4], "h2^5"));
+#! gap> IsInternallySelfDual(Simplex(3), "r0")
+#! #I  The given automorphism is not dualizing; searching for another...
 #! true
+#! gap> IsInternallySelfDual(Simplex(3), "r0 r1 r2 r0 r1 r0");
+#! true
+#! gap> IsInternallySelfDual(ToroidalMap44([6,0]));
+#! false
+#! gap> IsInternallySelfDual(ToroidalMap44([5,0]));
+#! true
+#! gap> IsInternallySelfDual(ToroidalMap44([1,2]));
+#! false
 #! gap> IsInternallySelfDual(Cube(3));
 #! false
 #! gap> M := InternallySelfDualPolyhedron2(10,1);;
@@ -55,9 +64,9 @@ DeclareProperty("IsExternallySelfDual", IsManiplex);
 #! @BeginExampleSession
 #! gap> IsExternallySelfDual(Simplex(4));
 #! false
-#! gap> IsExternallySelfDual(ARP([4,4], "h2^6"));
+#! gap> IsExternallySelfDual(ToroidalMap44([6,0]));
 #! true
-#! gap> IsExternallySelfDual(ARP([4,4], "h2^5"));
+#! gap> IsExternallySelfDual(ToroidalMap44([5,0]));
 #! false
 #! gap> IsExternallySelfDual(Cube(3));
 #! false

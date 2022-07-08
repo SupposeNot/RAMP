@@ -201,6 +201,14 @@ Cube(3)
 
 <p>Also works for IsPoset objects.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(Cube(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(Simplex(5));</span>
+true
+</pre></div>
+
 <p><a id="X79287DCF7835E0F4" name="X79287DCF7835E0F4"></a></p>
 
 <h5>9.2-3 IsInternallySelfDual</h5>
@@ -208,16 +216,23 @@ Cube(3)
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>.</p>
+<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>. You can also input a string for <var class="Arg">x</var>, in which case it is converted to <code class="code">SggiElement(M, x)</code>. This property is only defined for rotary (chiral or reflexible) maniplexes.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(4));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^6"));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ARP([4,4], "h2^5"));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(3), "r0")</span>
+#I  The given automorphism is not dualizing; searching for another...
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(3), "r0 r1 r2 r0 r1 r0");</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ToroidalMap44([6,0]));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ToroidalMap44([5,0]));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ToroidalMap44([1,2]));</span>
+false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Cube(3));</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron2(10,1);;</span>
@@ -239,9 +254,9 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Simplex(4));</span>
 false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^6"));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ToroidalMap44([6,0]));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ARP([4,4], "h2^5"));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ToroidalMap44([5,0]));</span>
 false
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Cube(3));</span>
 false

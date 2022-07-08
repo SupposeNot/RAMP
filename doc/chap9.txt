@@ -116,6 +116,13 @@
   
   [33X[0;0YAlso works for IsPoset objects.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsSelfDual(Cube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDual(Simplex(5));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [1X9.2-3 IsInternallySelfDual[101X
   
   [33X[1;0Y[29X[2XIsInternallySelfDual[102X( [3XM[103X[, [3Xx[103X] ) [32X property[133X
@@ -127,15 +134,24 @@
   that   induces   the  isomorphism  between  [3XM[103X  and  its  dual  is  an  inner
   automorphism.  If the optional group element [3Xx[103X is given, then we first check
   whether  [3Xx[103X  is a dualizing automorphism of [3XM[103X, and if not, then we search the
-  whole automorphism group of [3XM[103X.[133X
+  whole  automorphism  group of [3XM[103X. You can also input a string for [3Xx[103X, in which
+  case it is converted to [10XSggiElement(M, x)[110X. This property is only defined for
+  rotary (chiral or reflexible) maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(4));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsInternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(3), "r0")[127X[104X
+    [4X[28X#I  The given automorphism is not dualizing; searching for another...[128X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(Simplex(3), "r0 r1 r2 r0 r1 r0");[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ToroidalMap44([6,0]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ToroidalMap44([5,0]));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsInternallySelfDual(ToroidalMap44([1,2]));[127X[104X
+    [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsInternallySelfDual(Cube(3));[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron2(10,1);;[127X[104X
@@ -158,9 +174,9 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsExternallySelfDual(Simplex(4));[127X[104X
     [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^6"));[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ToroidalMap44([6,0]));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsExternallySelfDual(ARP([4,4], "h2^5"));[127X[104X
+    [4X[25Xgap>[125X [27XIsExternallySelfDual(ToroidalMap44([5,0]));[127X[104X
     [4X[28Xfalse[128X[104X
     [4X[25Xgap>[125X [27XIsExternallySelfDual(Cube(3));[127X[104X
     [4X[28Xfalse[128X[104X

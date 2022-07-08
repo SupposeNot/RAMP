@@ -60,16 +60,23 @@ InstallMethod(IsInternallySelfDual,
 	function(M)
 	local g, n, x, gens;
 	
-	if not(IsReflexible(M)) then
-		Error("IsInternallySelfDual is only defined for reflexible maniplexes.\n");
+	if not(IsRotary(M)) then
+		Error("IsInternallySelfDual is only defined for rotary maniplexes.\n");
 	fi;
 
-	g := AutomorphismGroup(M);
+	# Make sure that we get the standard generators
+	if IsChiral(M) then
+		g := AutomorphismGroupFpGroup(M);
+	else
+		g := AutomorphismGroup(M);
+	fi;
 	n := Rank(M);
 	gens := GeneratorsOfGroup(g);
 	
 	for x in g do
-		if ForAll([1..n], i -> gens[i]^x = gens[n-i+1]) then
+		if IsReflexible(M) and ForAll([1..n], i -> gens[i]^x = gens[n-i+1]) then
+			return true;
+		elif IsChiral(M) and ForAll([1..n-1], i -> gens[i]^x = gens[n-i]^-1) then
 			return true;
 		fi;
 	od;
@@ -81,17 +88,29 @@ InstallOtherMethod(IsInternallySelfDual,
 	function(M, x)
 	local g, n, gens;
 	
-	if not(IsReflexible(M)) then
-		Error("IsInternallySelfDual is only defined for reflexible maniplexes.\n");
+	if not(IsRotary(M)) then
+		Error("IsInternallySelfDual is only defined for rotary maniplexes.\n");
 	fi;	
 	
-	g := AutomorphismGroup(M);
+	# Make sure that we get the standard generators
+	if IsChiral(M) then
+		g := AutomorphismGroupFpGroup(M);
+	else
+		g := AutomorphismGroup(M);
+	fi;
 	n := Rank(M);
 	gens := GeneratorsOfGroup(g);
 	
-	if ForAll([1..n], i -> gens[i]^x = gens[n-i+1]) then
+	if IsString(x) then
+		x := SggiElement(M, x);
+	fi;
+	
+	if IsReflexible(M) and ForAll([1..n], i -> gens[i]^x = gens[n-i+1]) then
+		return true;
+	elif IsChiral(M) and ForAll([1..n], i -> gens[i]^x = gens[n-i]^-1) then
 		return true;
 	else
+		Info(InfoRamp, 1, "The given automorphism is not dualizing; searching for another...");
 		return IsInternallySelfDual(M);
 	fi;
 	end);
@@ -101,8 +120,8 @@ InstallMethod(IsExternallySelfDual,
 	[IsManiplex],
 	function(M)
 	
-	if not(IsReflexible(M)) then
-		Error("IsExternallySelfDual is only defined for reflexible maniplexes.\n");
+	if not(IsRotary(M)) then
+		Error("IsExternallySelfDual is only defined for rotary maniplexes.\n");
 	fi;
 	
 	return IsSelfDual(M) and not(IsInternallySelfDual(M));

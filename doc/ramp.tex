@@ -5265,6 +5265,13 @@ Whether this maniplex is isomorphic to its dual.
  Also works for IsPoset objects. }
 
  
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsSelfDual(Cube(3));|
+  false
+  !gapprompt@gap>| !gapinput@IsSelfDual(Simplex(5));|
+  true
+\end{Verbatim}
+ 
 
 \subsection{\textcolor{Chapter }{IsInternallySelfDual (for IsManiplex)}}
 \logpage{[ 9, 2, 3 ]}\nobreak
@@ -5279,16 +5286,23 @@ Whether this maniplex is isomorphic to its dual.
 
  Returns whether this maniplex is "internally self-dual", as defined by
 Cunningham and Mixer in \cite{CunMix17} (\href{ https://doi.org/10.11575/cdm.v12i2.62785} {\texttt{ https://doi.org/10.11575/cdm.v12i2.62785}}). That is, if \mbox{\texttt{\mdseries\slshape M}} is self-dual, and the automorphism of AutomorphismGroup(M) that induces the
-isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner automorphism. If the optional group element \mbox{\texttt{\mdseries\slshape x}} is given, then we first check whether \mbox{\texttt{\mdseries\slshape x}} is a dualizing automorphism of \mbox{\texttt{\mdseries\slshape M}}, and if not, then we search the whole automorphism group of \mbox{\texttt{\mdseries\slshape M}}. }
+isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an inner automorphism. If the optional group element \mbox{\texttt{\mdseries\slshape x}} is given, then we first check whether \mbox{\texttt{\mdseries\slshape x}} is a dualizing automorphism of \mbox{\texttt{\mdseries\slshape M}}, and if not, then we search the whole automorphism group of \mbox{\texttt{\mdseries\slshape M}}. You can also input a string for \mbox{\texttt{\mdseries\slshape x}}, in which case it is converted to \texttt{SggiElement(M, x)}. This property is only defined for rotary (chiral or reflexible) maniplexes. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@IsInternallySelfDual(Simplex(4));|
   true
-  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ARP([4,4], "h2^6"));|
-  false
-  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ARP([4,4], "h2^5"));|
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(Simplex(3), "r0")|
+  #I  The given automorphism is not dualizing; searching for another...
   true
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(Simplex(3), "r0 r1 r2 r0 r1 r0");|
+  true
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ToroidalMap44([6,0]));|
+  false
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ToroidalMap44([5,0]));|
+  true
+  !gapprompt@gap>| !gapinput@IsInternallySelfDual(ToroidalMap44([1,2]));|
+  false
   !gapprompt@gap>| !gapinput@IsInternallySelfDual(Cube(3));|
   false
   !gapprompt@gap>| !gapinput@M := InternallySelfDualPolyhedron2(10,1);;|
@@ -5317,9 +5331,9 @@ isomorphism between \mbox{\texttt{\mdseries\slshape M}} and its dual is an outer
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@IsExternallySelfDual(Simplex(4));|
   false
-  !gapprompt@gap>| !gapinput@IsExternallySelfDual(ARP([4,4], "h2^6"));|
+  !gapprompt@gap>| !gapinput@IsExternallySelfDual(ToroidalMap44([6,0]));|
   true
-  !gapprompt@gap>| !gapinput@IsExternallySelfDual(ARP([4,4], "h2^5"));|
+  !gapprompt@gap>| !gapinput@IsExternallySelfDual(ToroidalMap44([5,0]));|
   false
   !gapprompt@gap>| !gapinput@IsExternallySelfDual(Cube(3));|
   false
