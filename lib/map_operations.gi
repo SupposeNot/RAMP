@@ -393,7 +393,7 @@ InstallMethod(Lace,
 	l:=Length(MovedPoints(c));
 	k:=[1..l];
 	s0:=c.1*PermList(Concatenation( k, k+2*l, k+l, k+4*l, k+3*l))* TranslatePerm(c.2,5*l)* TranslatePerm(c.2,6*l);
-	s1:=PermList(Concatenation(k+l, k, [2*l+1..4*l], k+5*l, k+4*l))* TranslatePerm(c.2,3*l)* TranslatePerm(c.1,6*l);
+	s1:=PermListList(Concatenation(k,k+l,k+2*l,k+3*l, k+4*l,k+5*l),Concatenation(k+l,k,k+2*l,k+3*l,k+5*l,k+4*l))*TranslatePerm(c.2,3*l)* TranslatePerm(c.1,6*l)*TranslatePerm(c.1,2*l);
 	s2:=c.3*PermList(Concatenation(k, k+3*l, k+4*l, k+l, k+2*l, k+6*l, k+5*l));
 	m2 := Maniplex(Group([s0,s1,s2]));
 	return FinalizedOutputMap(m,m2,"Lace");
