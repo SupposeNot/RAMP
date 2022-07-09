@@ -17,7 +17,7 @@
 SetPackageInfo( rec(
 	PackageName := "RAMP",
 	Subtitle := "The Research Assistant for Maniplexes and Polytopes",
-	Version := "0.7",
+	Version := "0.7.01",
 	Date := "01/07/2022",
 
 ## Optional: license of the package, as an SPDX short-form identifiers;
