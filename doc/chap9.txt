@@ -264,7 +264,8 @@
   [33X[1;0Y[29X[2XPyramid[102X( [3XM[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the pyramid over [3XM[103X. Returns the pyramid over a [3Xk[103X-gon.[133X
+  [33X[0;0YIn  the  first form, returns the pyramid over [3XM[103X. In the second form, returns
+  the pyramid over a [3Xk[103X-gon.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Pyramid(Cube(3)));[127X[104X
@@ -279,7 +280,8 @@
   [33X[1;0Y[29X[2XPrism[102X( [3XM[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the prism over [3XM[103X. Returns the prism over a [3Xk[103X-gon.[133X
+  [33X[0;0YIn the first form, returns the prism over [3XM[103X. In the second form, returns the
+  prism over a [3Xk[103X-gon.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XCube(3)=Prism(Cube(2));[127X[104X
@@ -294,7 +296,8 @@
   [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
   
-  [33X[0;0YReturns the antiprism over [3XM[103X. Returns the antiprism over a [3Xk[103X-gon.[133X
+  [33X[0;0YIn the first form, returns the antiprism over [3XM[103X. In the second form, returns
+  the antiprism over a [3Xk[103X-gon.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Antiprism(Dodecahedron()));[127X[104X

@@ -5,11 +5,11 @@
 #! @BeginGroup Pyramid
 #! @GroupTitle Pyramids
 #! @Arguments M
-#! Returns the pyramid over <A>M</A>.
+#! @Description In the first form, returns the pyramid over <A>M</A>.
 DeclareOperation("Pyramid", [IsManiplex]);
 
 #! @Arguments k
-#! Returns the pyramid over a <A>k</A>-gon.
+#! @Description In the second form, returns the pyramid over a <A>k</A>-gon.
 DeclareOperation("Pyramid", [IsInt]);
 
 #! @BeginExampleSession
@@ -25,11 +25,11 @@ DeclareOperation("Pyramid", [IsInt]);
 #! @BeginGroup Prisms
 #! @GroupTitle Prisms
 #! @Arguments M
-#! Returns the prism over <A>M</A>.
+#! @Description In the first form, returns the prism over <A>M</A>.
 DeclareOperation("Prism", [IsManiplex]);
 
 #! @Arguments k
-#! Returns the prism over a <A>k</A>-gon.
+#! @Description In the second form, returns the prism over a <A>k</A>-gon.
 DeclareOperation("Prism", [IsInt]);
 #! @BeginExampleSession
 #! gap> Cube(3)=Prism(Cube(2));
@@ -42,11 +42,11 @@ DeclareOperation("Prism", [IsInt]);
 #! @BeginGroup Antiprisms
 #! @GroupTitle Antiprisms
 #! @Arguments M
-#! Returns the antiprism over <A>M</A>.
+#! @Description In the first form, returns the antiprism over <A>M</A>.
 DeclareOperation("Antiprism", [IsManiplex]);
 
 #! @Arguments k
-#! Returns the antiprism over a <A>k</A>-gon.
+#! @Description In the second form, returns the antiprism over a <A>k</A>-gon.
 DeclareOperation("Antiprism", [IsInt]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(Antiprism(Dodecahedron()));
