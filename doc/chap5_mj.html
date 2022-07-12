@@ -73,6 +73,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">name</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsReflexibleManiplex</code></p>
 
 <p>In the first form, we are given an Sggi <var class="Arg">g</var> and we return the reflexible maniplex with that automorphism group, where the privileged generators are those returned by GeneratorsOfGroup(g).</p>
@@ -107,6 +108,23 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
 [ false, true, true, true, true ]
+</pre></div>
+
+<p>The fourth form accepts common names for reflexible 3-maniplexes that specify the lengths of holes and zigzags. That is, "{p, q | h2, \ldots, hk\}_z1, ..., zL" is the quotient of <span class="SimpleMath">\(\{p,q\}\)</span> by the relations that make the 2-holes have length h2, ..., and the 1-zigzags have length z1, etc.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex("{6,6 | 6,2}_4");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(M,2);</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(M,3);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(M,1);</span>
+4
 </pre></div>
 
 <p>In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>

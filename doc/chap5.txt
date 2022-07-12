@@ -10,6 +10,7 @@
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
   
   [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
@@ -54,6 +55,25 @@
     [4X[25Xgap>[125X [27XL := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;[127X[104X
     [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
     [4X[28X[ false, true, true, true, true ][128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  fourth  form  accepts  common  names  for  reflexible 3-maniplexes that
+  specify  the  lengths  of  holes  and zigzags. That is, "{p, q | h2, \ldots,
+  hk\}_z1,  ..., zL" is the quotient of [23X\{p,q\}[123X by the relations that make the
+  2-holes have length h2, ..., and the 1-zigzags have length z1, etc.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex("{6,6 | 6,2}_4");;[127X[104X
+    [4X[25Xgap>[125X [27XHoleLength(M,2);[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XHoleLength(M,3);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XZigzagLength(M,1);[127X[104X
+    [4X[28X4[128X[104X
   [4X[32X[104X
   
   [33X[0;0YIn  the  second  and third forms, if the option set_schlafli is set, then we

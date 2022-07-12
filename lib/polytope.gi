@@ -136,6 +136,57 @@ InstallMethod(ReflexibleManiplex,
 	return ReflexibleManiplex(sym, relstr);
 	end);
 
+InstallMethod(ReflexibleManiplex,
+	[IsString],
+	function(name)
+	local newname, L, L2, holes, zigzags, sym, hrels, zrels, i, zlengths, symlist, hlengths, rels, M;
+	RemoveCharacters(name, " ");
+	L := SplitString(name, "_");
+	zigzags := "";
+	if Size(L) > 1 then
+		zigzags := L[2];
+	fi;
+	newname := L[1];
+	L2 := SplitString(newname, "|");
+	hrels := "";
+	if Size(L2) = 2 then
+		holes := SplitString(L2[2], "}")[1];
+		hrels := "";
+		hlengths := SplitString(holes, ",");
+		for i in [1..Size(hlengths)] do
+			Append(hrels, Concatenation("(r0 r1 (r2 r1)^", String(i), ")^", String(hlengths[i])));
+			if i <> Size(hlengths) then
+				Append(hrels, ", ");
+			fi;
+		od;
+		
+	fi;
+	sym := SplitString(L2[1], "{}")[2];
+	
+	zrels := "";
+	if zigzags <> "" then
+		zlengths := SplitString(zigzags, ",");
+		for i in [1..Size(zlengths)] do
+			Append(zrels, Concatenation("(r0 (r1 r2)^", String(i), ")^", String(zlengths[i])));
+			if i <> Size(zlengths) then
+				Append(zrels, ", ");
+			fi;
+		od;
+	fi;
+	
+	rels := hrels;
+	if hrels <> "" and zrels <> "" then
+		Append(rels, ", ");
+	fi;
+	Append(rels, zrels);
+	
+	symlist := SplitString(sym, ",");
+	symlist := List(symlist, Int);
+	
+	M := ReflexibleManiplex(symlist, rels);
+	return M;
+	end);
+
 # Given a permutation group (sggi), builds a maniplex with that as its connection group.	
 InstallMethod(Maniplex,
 	[IsPermGroup],

@@ -12,6 +12,7 @@
   <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
   <Oper Arg="sym[, relations]" Name="ReflexibleManiplex" Label="for IsList"/>
   <Oper Arg="sym, words, orders" Name="ReflexibleManiplex" Label="for IsList, IsList, IsList"/>
+  <Oper Arg="name" Name="ReflexibleManiplex" Label="for IsString"/>
  <Returns><Code>IsReflexibleManiplex</Code>
 </Returns>
  <Description>
@@ -54,10 +55,6 @@ The third form takes the Schlafli Symbol <A>sym</A>, a list
  maniplex with that Schlalfi Symbol by the relations obtained by setting each
  <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
  quickly constructing a family of related maniplexes.
- </Description>
-</ManSection>
-
-
 <Example><![CDATA[
 gap> L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;
 gap> List(L, IsPolytopal);
@@ -66,6 +63,29 @@ gap> List(L, IsPolytopal);
 
 
 <P/>
+The fourth form accepts common names for reflexible 3-maniplexes that
+ specify the lengths of holes and zigzags. That is, "{p, q | h2, \ldots, hk\}_z1, ..., zL"
+ is the quotient of <Math>\{p,q\}</Math> by the relations that make the 2-holes have length h2, ...,
+ and the 1-zigzags have length z1, etc.
+<Example><![CDATA[
+gap> ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);
+true
+gap> ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);
+true
+gap> M := ReflexibleManiplex("{6,6 | 6,2}_4");;
+gap> HoleLength(M,2);
+6
+gap> HoleLength(M,3);
+2
+gap> ZigzagLength(M,1);
+4
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
  In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol
  to the one given. This may not be the correct Schlafli symbol, since
  the relations may cause a collapse, so this should only be used if

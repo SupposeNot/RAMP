@@ -1968,6 +1968,9 @@ maniplex
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape sym, words, orders})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList, IsList, IsList}
 \label{ReflexibleManiplex:for IsList, IsList, IsList}
 }\hfill{\scriptsize (operation)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape name})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsString}
+\label{ReflexibleManiplex:for IsString}
+}\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsReflexibleManiplex} 
 
@@ -1998,15 +2001,34 @@ replaced with the value of \texttt{variable} (but for global variables only).
 \end{Verbatim}
  The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the reflexible maniplex that is the quotient of the universal
 maniplex with that Schlalfi Symbol by the relations obtained by setting each \mbox{\texttt{\mdseries\slshape word[i]}} to have order \mbox{\texttt{\mdseries\slshape order[i]}}. This is primarily useful for quickly constructing a family of related
-maniplexes. }
-
- 
+maniplexes. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
   !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
   [ false, true, true, true, true ]
 \end{Verbatim}
  
+
+ The fourth form accepts common names for reflexible 3-maniplexes that specify
+the lengths of holes and zigzags. That is, "\texttt{\symbol{123}}p, q | h2,
+\texttt{\symbol{92}}ldots,
+hk\texttt{\symbol{92}}\texttt{\symbol{125}}{\textunderscore}z1, ..., zL" is
+the quotient of $\{p,q\}$ by the relations that make the 2-holes have length h2, ..., and the 1-zigzags
+have length z1, etc. 
+\begin{Verbatim}[commandchars=!@A,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);A
+  true
+  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);A
+  true
+  !gapprompt@gap>A !gapinput@M := ReflexibleManiplex("{6,6 | 6,2}_4");;A
+  !gapprompt@gap>A !gapinput@HoleLength(M,2);A
+  6
+  !gapprompt@gap>A !gapinput@HoleLength(M,3);A
+  2
+  !gapprompt@gap>A !gapinput@ZigzagLength(M,1);A
+  4
+\end{Verbatim}
+ }
 
  In the second and third forms, if the option set{\textunderscore}schlafli is
 set, then we set the Schlafli symbol to the one given. This may not be the

@@ -54,18 +54,38 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList]);
 #! maniplex with that Schlalfi Symbol by the relations obtained by setting each
 #! <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
 #! quickly constructing a family of related maniplexes.
-DeclareOperation("ReflexibleManiplex", [IsList, IsList, IsList]);
 #! @BeginExampleSession
 #! gap> L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;
 #! gap> List(L, IsPolytopal);
 #! [ false, true, true, true, true ]
 #! @EndExampleSession
 #! 
+DeclareOperation("ReflexibleManiplex", [IsList, IsList, IsList]);
 #! In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol
 #! to the one given. This may not be the correct Schlafli symbol, since
 #! the relations may cause a collapse, so this should only be used if
 #! you know that the Schlafli symbol is correct.
 #! 
+
+#! @Arguments name
+#! @Description The fourth form accepts common names for reflexible 3-maniplexes that
+#! specify the lengths of holes and zigzags. That is, "{p, q | h2, \ldots, hk\}_z1, ..., zL"
+#! is the quotient of $\{p,q\}$ by the relations that make the 2-holes have length h2, ...,
+#! and the 1-zigzags have length z1, etc.
+#! @BeginExampleSession
+#! gap> ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);
+#! true
+#! gap> ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);
+#! true
+#! gap> M := ReflexibleManiplex("{6,6 | 6,2}_4");;
+#! gap> HoleLength(M,2);
+#! 6
+#! gap> HoleLength(M,3);
+#! 2
+#! gap> ZigzagLength(M,1);
+#! 4
+#! @EndExampleSession
+DeclareOperation("ReflexibleManiplex", [IsString]);
 #! The abbreviations `RefMan` and `RefManNC` are also available for all of these usages.
 #! @EndGroup
 
