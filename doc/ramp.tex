@@ -3272,8 +3272,8 @@ of the method ParseStringCRels that underlies many quotient operations.
 \logpage{[ 7, 1, 1 ]}
 \hyperdef{L}{X87EB22A184A49FB8}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsQuotient({\mdseries\slshape M1, M2})\index{IsQuotient@\texttt{IsQuotient}!for IsManiplex, IsManiplex}
-\label{IsQuotient:for IsManiplex, IsManiplex}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsQuotient({\mdseries\slshape M1, M2})\index{IsQuotient@\texttt{IsQuotient}!for IsPremaniplex, IsPremaniplex}
+\label{IsQuotient:for IsPremaniplex, IsPremaniplex}
 }\hfill{\scriptsize (operation)}}\\
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsQuotient({\mdseries\slshape g, h})\index{IsQuotient@\texttt{IsQuotient}!for IsSggi, IsSggi}
 \label{IsQuotient:for IsSggi, IsSggi}
@@ -3339,11 +3339,11 @@ corresponding generator of h. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsCover (for IsManiplex, IsManiplex)}}
+\subsection{\textcolor{Chapter }{IsCover (for IsPremaniplex, IsPremaniplex)}}
 \logpage{[ 7, 1, 4 ]}\nobreak
-\hyperdef{L}{X845044F47ACF897C}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCover({\mdseries\slshape M1, M2})\index{IsCover@\texttt{IsCover}!for IsManiplex, IsManiplex}
-\label{IsCover:for IsManiplex, IsManiplex}
+\hyperdef{L}{X7FB4904D7E99C0A0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCover({\mdseries\slshape M1, M2})\index{IsCover@\texttt{IsCover}!for IsPremaniplex, IsPremaniplex}
+\label{IsCover:for IsPremaniplex, IsPremaniplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsBool} 
@@ -5468,6 +5468,32 @@ derivates that are polytopal. }
   [ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
     ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
     ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsKaleidoscopic (for IsMapOnSurface)}}
+\logpage{[ 9, 2, 9 ]}\nobreak
+\hyperdef{L}{X814A6AB1824DBB9B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsKaleidoscopic({\mdseries\slshape M})\index{IsKaleidoscopic@\texttt{IsKaleidoscopic}!for IsMapOnSurface}
+\label{IsKaleidoscopic:for IsMapOnSurface}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether the map \mbox{\texttt{\mdseries\slshape M}} with $q$-valent vertices is \emph{kaleidoscopic}, meaning that for each integer e in [2..q-1] that is coprime to q, the map
+'Hole(M, e)' is isomorphic to M as a rooted map. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M := AbstractRegularPolytope([4,5], "(r0 r1 r2)^5");;|
+  !gapprompt@gap>| !gapinput@ForAll([2,3,4], e -> IsIsomorphicRootedManiplex(Hole(M,e), M));|
+  true
+  !gapprompt@gap>| !gapinput@IsKaleidoscopic(M);|
+  true
+  !gapprompt@gap>| !gapinput@Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);|
+  [ ]
 \end{Verbatim}
  }
 

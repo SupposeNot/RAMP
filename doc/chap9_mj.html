@@ -48,6 +48,7 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-7 IsSelfPetrial</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-8 DirectDerivates</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X814A6AB1824DBB9B">9.2-9 IsKaleidoscopic</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X86CE352C7851221F">9.3 <span class="Heading">Products</span></a>
 </span>
@@ -339,6 +340,26 @@ true
 [ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
   ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
   ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
+</pre></div>
+
+<p><a id="X814A6AB1824DBB9B" name="X814A6AB1824DBB9B"></a></p>
+
+<h5>9.2-9 IsKaleidoscopic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsKaleidoscopic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+
+<p>Returns whether the map <var class="Arg">M</var> with <span class="SimpleMath">\(q\)</span>-valent vertices is <em>kaleidoscopic</em>, meaning that for each integer e in [2..q-1] that is coprime to q, the map 'Hole(M, e)' is isomorphic to M as a rooted map.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := AbstractRegularPolytope([4,5], "(r0 r1 r2)^5");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll([2,3,4], e -&gt; IsIsomorphicRootedManiplex(Hole(M,e), M));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsKaleidoscopic(M);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);</span>
+[ ]
 </pre></div>
 
 <p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>

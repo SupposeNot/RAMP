@@ -214,3 +214,16 @@ InstallMethod(DirectDerivates,
 		return Unique(maniplexes);
 	fi;
 	end);
+
+InstallMethod(IsKaleidoscopic,
+	[IsMapOnSurface],
+	function(M)
+	local exps, q;
+	q := SchlafliSymbol(M)[2];
+	if not(IsInt(q)) then
+		Error("IsKaleidoscopic is only defined for maps with constant valency!");
+	fi;
+	exps := Filtered([2..q-1], x -> Gcd(x,q) = 1);
+	return ForAll(exps, e -> IsIsomorphicRootedManiplex(M, Hole(M, e)));
+	end);
+	

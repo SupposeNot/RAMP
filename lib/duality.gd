@@ -139,3 +139,18 @@ DeclareOperation("DirectDerivates", [IsManiplex]);
 #!   ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
 #!   ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
 #! @EndExampleSession
+
+#! @Arguments M
+#! @Description Returns whether the map <A>M</A> with $q$-valent vertices is __kaleidoscopic__,
+#! meaning that for each integer e in [2..q-1] that is coprime to q, the map
+#! 'Hole(M, e)' is isomorphic to M as a rooted map.
+DeclareProperty("IsKaleidoscopic", IsMapOnSurface);
+#! @BeginExampleSession
+#! gap> M := AbstractRegularPolytope([4,5], "(r0 r1 r2)^5");;
+#! gap> ForAll([2,3,4], e -> IsIsomorphicRootedManiplex(Hole(M,e), M));
+#! true
+#! gap> IsKaleidoscopic(M);
+#! true
+#! gap> Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);
+#! [ ]
+#! @EndExampleSession

@@ -21,7 +21,7 @@
  method ParseStringCRels that underlies many quotient operations.
 <ManSection Label="AutoDoc_generated_group2">
 <Heading>IsQuotient</Heading>
-  <Oper Arg="M1, M2" Name="IsQuotient" Label="for IsManiplex, IsManiplex"/>
+  <Oper Arg="M1, M2" Name="IsQuotient" Label="for IsPremaniplex, IsPremaniplex"/>
   <Oper Arg="g, h" Name="IsQuotient" Label="for IsSggi, IsSggi"/>
  <Returns><Code>IsBool</Code>
 </Returns>
@@ -81,7 +81,7 @@ false
 
 
 <ManSection>
-  <Oper Arg="M1, M2" Name="IsCover" Label="for IsManiplex, IsManiplex"/>
+  <Oper Arg="M1, M2" Name="IsCover" Label="for IsPremaniplex, IsPremaniplex"/>
  <Returns><Code>IsBool</Code>
 </Returns>
  <Description>
