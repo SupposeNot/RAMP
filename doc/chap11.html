@@ -424,14 +424,18 @@ X2:=EdgeLabeledGraphFromLabeledEdges(L);
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraph</code>( <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsEdgeLabeledGraph</code>.</p>
 
-<p>Given group, assumed to be a connection group, output the labeled flag graph. The input could also be a maniplex, then the connection group is calculated.</p>
+<p>Given group, assumed to be a connection group, output the labeled flag graph. The input could also be a premaniplex, then the connection group is calculated.</p>
 
 <p>Here we have the flag graph of the 3-simplex from its connection group.</p>
 
 
 <div class="example"><pre>
-C:=ConnectionGroup(Simplex(3));;
-gamma:=FlagGraph(C);
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=ConnectionGroup(Simplex(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gamma:=FlagGraph(C);</span>
+Edge labeled graph with 24 vertices, and edge labels [ 0, 1, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(4,1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagGraph(last);</span>
+Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 </pre></div>
 
 <p><a id="X82A8C3AD871EC6D7" name="X82A8C3AD871EC6D7"></a></p>

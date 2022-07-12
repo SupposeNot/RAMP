@@ -33,14 +33,6 @@ DeclareOperation("Premaniplex",[IsEdgeLabeledGraph]);
 #! Premaniplex of rank 3 with 2 flags
 #! @EndExampleSession
 
-#! @Arguments premaniplex
-#! @Returns permgroup
-#! @Description Constructs the connection group from a Premaniplex.
-#! Semi-edges, and non-edges give fixed points.
-#! Graph is assumed to be coming from a Premaniplex.  Some weird things could happen if it is not
-DeclareAttribute("ConnectionGroup", IsPremaniplex);
-
-
 #! @Arguments int
 #! @Returns premaniplex
 #! @Description Builds the 1 flag premaniplex of rank n
@@ -83,13 +75,13 @@ DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
 #! @EndExampleSession
 
 
-#! @Arguments premaniplex
-#! @Returns edgelabeledgraph
-#! @Description Returns the flag graph of a premaniplex
-DeclareOperation("FlagGraph",[IsPremaniplex]);
-#! @BeginExampleSession
-#! gap> STG3(4,1);;
-#!  gap> FlagGraph(last);
-#! Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
-#! @EndExampleSession
+# #! @Arguments premaniplex
+# #! @Returns edgelabeledgraph
+# #! @Description Returns the flag graph of a premaniplex
+# DeclareOperation("FlagGraph",[IsPremaniplex]);
+# #! @BeginExampleSession
+# #! gap> STG3(4,1);;
+# #!  gap> FlagGraph(last);
+# #! Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
+# #! @EndExampleSession
 

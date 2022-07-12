@@ -7,6 +7,7 @@ BindGlobal("PremaniplexFamily", NewFamily("Premaniplexes", IsPremaniplex));
 
 InstallTrueMethod(IsReflexibleManiplex, IsManiplex and IsReflexible);
 InstallTrueMethod(IsManiplex and IsReflexible, IsReflexibleManiplex);
+InstallTrueMethod(IsPremaniplex, IsManiplex);
 
 InstallMethod(IsReflexibleManiplex, [IsManiplex],
 	function(M)

@@ -48,18 +48,6 @@ Premaniplex of rank 3 with 2 flags
 
 
 <ManSection>
-  <Attr Arg="premaniplex" Name="ConnectionGroup" Label="for IsPremaniplex"/>
- <Returns>permgroup
-</Returns>
- <Description>
-Constructs the connection group from a Premaniplex.
- Semi-edges, and non-edges give fixed points.
- Graph is assumed to be coming from a Premaniplex.  Some weird things could happen if it is not
- </Description>
-</ManSection>
-
-
-<ManSection>
   <Oper Arg="int" Name="STG1" Label="for IsInt"/>
  <Returns>premaniplex
 </Returns>

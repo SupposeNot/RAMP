@@ -22,7 +22,7 @@ DeclareGlobalFunction("CouldBeQuotient");
 #! @Arguments M1, M2
 #! @Returns `IsBool`
 #! @Description Returns whether <A>M2</A> is a quotient of <A>M1</A>.
-DeclareOperation("IsQuotient", [IsManiplex, IsManiplex]);
+DeclareOperation("IsQuotient", [IsPremaniplex, IsPremaniplex]);
 
 #! @Arguments g, h
 #! @Returns `IsBool`
@@ -66,7 +66,7 @@ DeclareOperation("IsRootedQuotient", [IsManiplex, IsManiplex]);
 #! @Arguments M1, M2
 #! @Returns `IsBool`
 #! @Description Returns whether <A>M2</A> is a cover of <A>M1</A>.
-DeclareOperation("IsCover", [IsManiplex, IsManiplex]);
+DeclareOperation("IsCover", [IsPremaniplex, IsPremaniplex]);
 #! @BeginExampleSession
 #! gap> IsCover(HemiDodecahedron(),Dodecahedron());
 #! true

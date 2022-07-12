@@ -4,8 +4,8 @@
 
 #! @Arguments M
 #! @Returns IsList
-#! @Description The list of flags of the maniplex <A>M</A>.
-DeclareAttribute("Flags", IsManiplex);
+#! @Description The list of flags of the premaniplex <A>M</A>.
+DeclareAttribute("Flags", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> Flags(Pgon(5));
 #! [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -16,9 +16,9 @@ DeclareAttribute("Flags", IsManiplex);
 
 #! @Arguments M
 #! @Returns IsObject
-#! @Description The base flag of the maniplex <A>M</A>. By default, when the set of flags is a set of positive integers,
+#! @Description The base flag of the premaniplex <A>M</A>. By default, when the set of flags is a set of positive integers,
 #! the base flag is the minimum of the set of flags.
-DeclareAttribute("BaseFlag", IsManiplex);
+DeclareAttribute("BaseFlag", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> BaseFlag(Cube(3));
 #! 1
@@ -30,10 +30,10 @@ DeclareAttribute("BaseFlag", IsManiplex);
 
 #! @Arguments M[, A]
 #! @Returns IsPremaniplex
-#! @Description Returns the Symmetry Type Graph of the maniplex <A>M</A> with respect to the subgroup <A>A</A> of the automorphism
+#! @Description Returns the Symmetry Type Graph of the premaniplex <A>M</A> with respect to the subgroup <A>A</A> of the automorphism
 #! group; that is, the quotient of the flag graph of <A>M</A> by <A>A</A>. If <A>A</A> is not included, then returns the Symmetry
 #! Type Graph relative to the whole automorphism group of <A>M</A>.
-DeclareAttribute("SymmetryTypeGraph", IsManiplex);
+DeclareAttribute("SymmetryTypeGraph", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> SymmetryTypeGraph(Prism(Simplex(3)));
 #! Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
@@ -47,7 +47,7 @@ DeclareAttribute("SymmetryTypeGraph", IsManiplex);
 #! @Arguments M
 #! Returns the number of orbits of the automorphism group of <A>M</A>
 #! on its flags.
-DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
+DeclareAttribute("NumberOfFlagOrbits", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> NumberOfFlagOrbits(Prism(Simplex(3)));
 #! 4
@@ -55,7 +55,7 @@ DeclareAttribute("NumberOfFlagOrbits", IsManiplex);
 
 #! @Arguments M
 #! Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
-DeclareAttribute("FlagOrbitRepresentatives", IsManiplex);
+DeclareAttribute("FlagOrbitRepresentatives", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> FlagOrbitRepresentatives(Prism(Simplex(3)));
 #! [ 1, 49, 97, 145 ]
@@ -64,8 +64,7 @@ DeclareAttribute("FlagOrbitRepresentatives", IsManiplex);
 #! @Arguments M
 #! @Returns g
 #! @Description Returns the subgroup of the connection group that preserves the flag orbits under the action of the automorphism group.
-DeclareAttribute("FlagOrbitsStabilizer", IsManiplex);
-
+DeclareAttribute("FlagOrbitsStabilizer", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> m:=Prism(Dodecahedron());
 #! Prism(Dodecahedron())
@@ -79,16 +78,16 @@ DeclareAttribute("FlagOrbitsStabilizer", IsManiplex);
 
 
 #! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
-DeclareProperty("IsReflexible", IsManiplex);
+#! @Returns Whether the premaniplex <A>M</A> is reflexible (has one flag orbit).
+DeclareProperty("IsReflexible", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> IsReflexible(Epsilonk(6));
 #! true
 #! @EndExampleSession
 
 #! @Arguments M
-#! @Returns Whether the maniplex <A>M</A> is chiral.
-DeclareProperty("IsChiral", IsManiplex);
+#! @Returns Whether the premaniplex <A>M</A> is chiral.
+DeclareProperty("IsChiral", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> IsChiral(ToroidalMap44([2,3]));
 #! true
@@ -97,7 +96,7 @@ DeclareProperty("IsChiral", IsManiplex);
 #! @Arguments M
 #! @Returns Whether the maniplex <A>M</A> is rotary; i.e., whether it is 
 #! either reflexible or chiral.
-DeclareProperty("IsRotary", IsManiplex);
+DeclareProperty("IsRotary", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> IsRotary(ToroidalMap44([3,5]));
 #! true
@@ -105,7 +104,7 @@ DeclareProperty("IsRotary", IsManiplex);
 
 #! @Arguments M
 #! Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<A>M</A>).
-DeclareAttribute("FlagOrbits", IsManiplex);
+DeclareAttribute("FlagOrbits", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> FlagOrbits(ToroidalMap44([3,2]));
 #! [ [ 1, 9, 7, 33, 15, 63, 5, 65, 39, 23, 13, 71, 61, 101, 3, 89, 47, 37, 95, 21, 11, 79, 69, 29, 59, 77, 99, 51, 49, 55, 45, 35, 103, 93, 19, 83, 87, 67, 85, 27, 57, 75, 91, 97, 43, 81, 53, 31, 17, 25, 73, 41 ], 

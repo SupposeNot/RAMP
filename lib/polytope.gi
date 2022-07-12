@@ -310,7 +310,7 @@ InstallMethod(RankManiplex,
 	[IsManiplex and IsManiplexQuotientRep],
 	M -> Rank(M!.parent));
 
-InstallMethod(Rank, [IsManiplex], RankManiplex);
+InstallMethod(Rank, [IsPremaniplex], RankManiplex);
 	
 InstallMethod(IsVertexFaithful,
 	[IsManiplex],

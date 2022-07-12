@@ -46,11 +46,11 @@ DeclareAttribute("AutomorphismGroupOnFlags", IsManiplex);
 #! @EndGroup
 
 #! @Arguments M
-#! Returns the connection group of <A>M</A> as a
+#! Returns the connection group of the premaniplex <A>M</A> as a
 #! permutation group. We may eventually allow other types
 #! of connection groups.
 #! Synonym: MonodromyGroup
-DeclareAttribute("ConnectionGroup", IsManiplex);
+DeclareAttribute("ConnectionGroup", IsPremaniplex);
 
 DeclareSynonymAttr("MonodromyGroup", ConnectionGroup);
 #! @BeginExampleSession

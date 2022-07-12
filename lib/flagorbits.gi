@@ -1,12 +1,12 @@
 
 InstallMethod(Flags,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return MovedPoints(ConnectionGroup(M));
 	end);
 
 InstallMethod(BaseFlag,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	if HasConnectionGroup(M) then
 		return SmallestMovedPoint(ConnectionGroup(M));
@@ -16,7 +16,7 @@ InstallMethod(BaseFlag,
 	end);
 	
 InstallMethod(SymmetryTypeGraph,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	local r, gens, c, stab, norm, stg, vertnew, edgesnew, labelsnew, i, j ;
 	c:=ConnectionGroup(m);
@@ -59,7 +59,7 @@ end);
 
 
 InstallOtherMethod(SymmetryTypeGraph,
-	[IsManiplex,IsGroup],
+	[IsPremaniplex,IsGroup],
 	function(m,A)
 	local c, gamma, vert, ed, lab, labnew, O, vertnew, ednew, trips, edfixed, labfixed, r, i ,j, k , t;
 	c:=ConnectionGroup(m);
@@ -100,7 +100,7 @@ InstallOtherMethod(SymmetryTypeGraph,
 end);
 
 InstallMethod(NumberOfFlagOrbits,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local numberOfFlagOrbits, g, h, n;
 	
@@ -124,7 +124,7 @@ InstallMethod(NumberOfFlagOrbits,
 	end);
 
 InstallMethod(FlagOrbitRepresentatives,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local c, reps, norm, stab, flags, i;
 	if HasIsReflexible(M) and IsReflexible(M) then
@@ -145,7 +145,7 @@ InstallMethod(FlagOrbitRepresentatives,
 	end);
 
 InstallMethod(FlagOrbitsStabilizer,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local c, a, orbs, s;
 	c:=ConnectionGroup(M); a:=AutomorphismGroupOnFlags(M);
@@ -155,7 +155,7 @@ InstallMethod(FlagOrbitsStabilizer,
 	end);
 
 InstallMethod(IsReflexible,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local val;
 	val := (NumberOfFlagOrbits(M) = 1);
@@ -169,7 +169,7 @@ InstallMethod(IsChiral,
 	end);
 
 InstallMethod(IsChiral,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local stg, val;
 	stg := SymmetryTypeGraph(M);
@@ -178,7 +178,7 @@ InstallMethod(IsChiral,
 	end);
 
 InstallMethod(IsRotary,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local val;
 	val := IsReflexible(M) or IsChiral(M);
@@ -187,7 +187,7 @@ InstallMethod(IsRotary,
 	
 
 InstallMethod(FlagOrbits,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local reps, c, flags, orbits, i, stab, norm;
 		reps:= FlagOrbitRepresentatives(M);

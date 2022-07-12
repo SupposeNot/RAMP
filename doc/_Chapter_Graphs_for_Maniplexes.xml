@@ -374,15 +374,19 @@ X2:=EdgeLabeledGraphFromLabeledEdges(L);
  <Returns><Code>IsEdgeLabeledGraph</Code>.
 </Returns>
  <Description>
-Given group, assumed to be a connection group, output the labeled flag graph. The input could also be a maniplex, then the connection group is calculated.
+Given group, assumed to be a connection group, output the labeled flag graph. The input could also be a premaniplex, then the connection group is calculated.
  </Description>
 </ManSection>
 
 
  Here we have the flag graph of the 3-simplex from its connection group.  
 <Example><![CDATA[
-C:=ConnectionGroup(Simplex(3));;
-gamma:=FlagGraph(C);
+gap> C:=ConnectionGroup(Simplex(3));;
+gap> gamma:=FlagGraph(C);
+Edge labeled graph with 24 vertices, and edge labels [ 0, 1, 2 ]
+gap> STG3(4,1);;
+gap> FlagGraph(last);
+Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 ]]></Example>
 
 

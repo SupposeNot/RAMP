@@ -39,7 +39,7 @@ InstallGlobalFunction(CouldBeQuotient,
 
 InstallMethod(IsQuotient,
 	ReturnTrue,
-	[IsManiplex, IsManiplex],
+	[IsPremaniplex, IsPremaniplex],
 	function(q,p)
 	local g1, g2, hom, s1, s2, i, flags, phi;
 	if not(CouldBeQuotient(q,p)) then return false; fi;
@@ -199,7 +199,7 @@ InstallMethod(IsRootedQuotient,
 	
 InstallMethod(IsCover,
 	ReturnTrue,
-	[IsManiplex, IsManiplex],
+	[IsPremaniplex, IsPremaniplex],
 	function(p,q)
 	return IsQuotient(q,p);
 	end);

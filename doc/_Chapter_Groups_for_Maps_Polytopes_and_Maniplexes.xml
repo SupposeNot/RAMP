@@ -49,9 +49,9 @@ gap> GeneratorsOfGroup(last);
 
 
 <ManSection>
-  <Attr Arg="M" Name="ConnectionGroup" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="ConnectionGroup" Label="for IsPremaniplex"/>
  <Description>
- Returns the connection group of <A>M</A> as a
+ Returns the connection group of the premaniplex <A>M</A> as a
  permutation group. We may eventually allow other types
  of connection groups.
  Synonym: MonodromyGroup

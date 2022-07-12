@@ -230,7 +230,7 @@
   [33X[1;0Y[29X[2XFlags[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YThe list of flags of the maniplex [3XM[103X.[133X
+  [33X[0;0YThe list of flags of the premaniplex [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XFlags(Pgon(5));[127X[104X
@@ -245,8 +245,8 @@
   [33X[1;0Y[29X[2XBaseFlag[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YIsObject[133X
   
-  [33X[0;0YThe  base flag of the maniplex [3XM[103X. By default, when the set of flags is a set
-  of positive integers, the base flag is the minimum of the set of flags.[133X
+  [33X[0;0YThe  base  flag of the premaniplex [3XM[103X. By default, when the set of flags is a
+  set of positive integers, the base flag is the minimum of the set of flags.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XBaseFlag(Cube(3));[127X[104X
@@ -261,7 +261,7 @@
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X[, [3XA[103X] ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YIsPremaniplex[133X
   
-  [33X[0;0YReturns  the  Symmetry  Type  Graph  of  the  maniplex [3XM[103X with respect to the
+  [33X[0;0YReturns  the  Symmetry  Type  Graph of the premaniplex [3XM[103X with respect to the
   subgroup  [3XA[103X  of  the  automorphism  group; that is, the quotient of the flag
   graph  of [3XM[103X by [3XA[103X. If [3XA[103X is not included, then returns the Symmetry Type Graph
   relative to the whole automorphism group of [3XM[103X.[133X
@@ -320,7 +320,7 @@
   [1X6.3-7 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is reflexible (has one flag orbit).[133X
+  [6XReturns:[106X  [33X[0;10YWhether the premaniplex [3XM[103X is reflexible (has one flag orbit).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsReflexible(Epsilonk(6));[127X[104X
@@ -330,7 +330,7 @@
   [1X6.3-8 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YWhether the maniplex [3XM[103X is chiral.[133X
+  [6XReturns:[106X  [33X[0;10YWhether the premaniplex [3XM[103X is chiral.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsChiral(ToroidalMap44([2,3]));[127X[104X

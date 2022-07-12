@@ -287,15 +287,19 @@ DeclareOperation("EdgeLabeledGraphFromLabeledEdges",[IsList]);
 
 #! @Arguments group
 #! @Returns `IsEdgeLabeledGraph`. 
-#! @Description Given group, assumed to be a connection group, output the labeled flag graph.  The input could also be a maniplex, then the connection group is calculated.
+#! @Description Given group, assumed to be a connection group, output the labeled flag graph.  The input could also be a premaniplex, then the connection group is calculated.
 DeclareOperation("FlagGraph",[IsGroup]);
 #! Here we have the flag graph of the 3-simplex from its connection group.  
 #! @BeginExampleSession
-#! C:=ConnectionGroup(Simplex(3));;
-#! gamma:=FlagGraph(C);
+#! gap> C:=ConnectionGroup(Simplex(3));;
+#! gap> gamma:=FlagGraph(C);
+#! Edge labeled graph with 24 vertices, and edge labels [ 0, 1, 2 ]
+#! gap> STG3(4,1);;
+#! gap> FlagGraph(last);
+#! Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 #! @EndExampleSession
 
-DeclareOperation("FlagGraph",[IsManiplex]);
+DeclareOperation("FlagGraph",[IsPremaniplex]);
 
 
 #! @Arguments edge-labeled-graph

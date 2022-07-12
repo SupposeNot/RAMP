@@ -180,8 +180,8 @@ DeclareAttribute("Size", IsManiplex);
 DeclareSynonymAttr("NumberOfFlags", Size);
 
 #! @Arguments M
-#! @Returns The rank of the maniplex <A>M</A>.
-DeclareAttribute("RankManiplex", IsManiplex);
+#! @Returns The rank of the premaniplex <A>M</A>.
+DeclareAttribute("RankManiplex", IsPremaniplex);
 
 
 #! @Chapter Maniplex Properties

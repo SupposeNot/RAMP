@@ -232,7 +232,7 @@ InstallMethod(RotationGroupFpGroup,
 #	end);
 
 InstallMethod(ConnectionGroup,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local connectionGroup, g, h, w, wgens, wpgens, wp, hom, ker;
 	

@@ -15,6 +15,7 @@ InstallMethod(PremaniplexNC,
 	local pm;
 	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexConnGpRep),  	    rec(conn_gp:=g, flags:=MovedPoints(g), rank:=Size(GeneratorsOfGroup(g))));
 	SetConnectionGroup(pm,g);
+	SetRankManiplex(pm, pm!.rank);	
 	SetSize(pm, NrMovedPoints(g));
 	return(pm);
 	end);
@@ -27,6 +28,7 @@ InstallMethod(Premaniplex,
 	c:=ConnectionGroup(g);
 	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexGraphRep),  	    rec(conn_gp:=c, flags:=Vertices(g), rank:=Size(Set(Labels(g)))));
 	SetConnectionGroup(pm,c);
+	SetRankManiplex(pm, pm!.rank);	
 	SetSize(pm, NrMovedPoints(c));
 	return(pm);
 	end);
@@ -116,36 +118,5 @@ InstallMethod(STG3,
 		fi;
 	od;
 	return Premaniplex(EdgeLabeledGraphFromLabeledEdges(labedges));
-	end);
-
-
-
-
-
-InstallMethod(FlagGraph,
-	[IsPremaniplex],
-	function(m)
-	local c, gens, V, labedges, i, j,g;
-	c:=ConnectionGroup(m);
-	gens:=GeneratorsOfGroup(c);
-	V:=MovedPoints(c);
-	labedges:=[];
-	if Size(V) = 0 then
-	for j in [1..Size(gens)] do
-		Add(labedges,[[1],j-1]);
-	od;
-	else
-	for i in V do
-	for j in [1..Size(gens)] do
-		g:=gens[j];
-		if i^g = i then
-		Add(labedges,[[i],j-1]);
-		elif i<i^g then
-		Add(labedges,[[i,i^g],j-1]);
-		fi;
-	od;
-	od;
-	fi;
-	return EdgeLabeledGraphFromLabeledEdges(labedges);
 	end);
 

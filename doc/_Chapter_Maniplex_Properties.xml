@@ -299,11 +299,11 @@ true
 <Heading>Flag orbits</Heading>
 
 <ManSection>
-  <Attr Arg="M" Name="Flags" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="Flags" Label="for IsPremaniplex"/>
  <Returns>IsList
 </Returns>
  <Description>
-The list of flags of the maniplex <A>M</A>.
+The list of flags of the premaniplex <A>M</A>.
  </Description>
 </ManSection>
 
@@ -318,11 +318,11 @@ gap> Flags(M);
 
 
 <ManSection>
-  <Attr Arg="M" Name="BaseFlag" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="BaseFlag" Label="for IsPremaniplex"/>
  <Returns>IsObject
 </Returns>
  <Description>
-The base flag of the maniplex <A>M</A>. By default, when the set of flags is a set of positive integers,
+The base flag of the premaniplex <A>M</A>. By default, when the set of flags is a set of positive integers,
  the base flag is the minimum of the set of flags.
  </Description>
 </ManSection>
@@ -338,11 +338,11 @@ gap> BaseFlag(M);
 
 
 <ManSection>
-  <Attr Arg="M[, A]" Name="SymmetryTypeGraph" Label="for IsManiplex"/>
+  <Attr Arg="M[, A]" Name="SymmetryTypeGraph" Label="for IsPremaniplex"/>
  <Returns>IsPremaniplex
 </Returns>
  <Description>
-Returns the Symmetry Type Graph of the maniplex <A>M</A> with respect to the subgroup <A>A</A> of the automorphism
+Returns the Symmetry Type Graph of the premaniplex <A>M</A> with respect to the subgroup <A>A</A> of the automorphism
  group; that is, the quotient of the flag graph of <A>M</A> by <A>A</A>. If <A>A</A> is not included, then returns the Symmetry
  Type Graph relative to the whole automorphism group of <A>M</A>.
  </Description>
@@ -361,7 +361,7 @@ Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 
 
 <ManSection>
-  <Attr Arg="M" Name="NumberOfFlagOrbits" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="NumberOfFlagOrbits" Label="for IsPremaniplex"/>
  <Description>
  Returns the number of orbits of the automorphism group of <A>M</A>
  on its flags.
@@ -376,7 +376,7 @@ gap> NumberOfFlagOrbits(Prism(Simplex(3)));
 
 
 <ManSection>
-  <Attr Arg="M" Name="FlagOrbitRepresentatives" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="FlagOrbitRepresentatives" Label="for IsPremaniplex"/>
  <Description>
  Returns one flag from each orbit under the action of AutomorphismGroup(<A>M</A>).
  </Description>
@@ -390,7 +390,7 @@ gap> FlagOrbitRepresentatives(Prism(Simplex(3)));
 
 
 <ManSection>
-  <Attr Arg="M" Name="FlagOrbitsStabilizer" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="FlagOrbitsStabilizer" Label="for IsPremaniplex"/>
  <Returns>g
 </Returns>
  <Description>
@@ -412,8 +412,8 @@ true
 
 
 <ManSection>
-  <Prop Arg="M" Name="IsReflexible" Label="for IsManiplex"/>
- <Returns>Whether the maniplex <A>M</A> is reflexible (has one flag orbit).
+  <Prop Arg="M" Name="IsReflexible" Label="for IsPremaniplex"/>
+ <Returns>Whether the premaniplex <A>M</A> is reflexible (has one flag orbit).
 </Returns>
  <Description>
 <P/>
@@ -428,8 +428,8 @@ true
 
 
 <ManSection>
-  <Prop Arg="M" Name="IsChiral" Label="for IsManiplex"/>
- <Returns>Whether the maniplex <A>M</A> is chiral.
+  <Prop Arg="M" Name="IsChiral" Label="for IsPremaniplex"/>
+ <Returns>Whether the premaniplex <A>M</A> is chiral.
 </Returns>
  <Description>
 <P/>
@@ -444,7 +444,7 @@ true
 
 
 <ManSection>
-  <Prop Arg="M" Name="IsRotary" Label="for IsManiplex"/>
+  <Prop Arg="M" Name="IsRotary" Label="for IsPremaniplex"/>
  <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is  either reflexible or chiral.
 </Returns>
  <Description>
@@ -460,7 +460,7 @@ true
 
 
 <ManSection>
-  <Attr Arg="M" Name="FlagOrbits" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="FlagOrbits" Label="for IsPremaniplex"/>
  <Description>
  Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<A>M</A>).
  </Description>

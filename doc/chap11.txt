@@ -351,14 +351,18 @@
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
   
   [33X[0;0YGiven  group,  assumed  to  be  a  connection group, output the labeled flag
-  graph.  The  input  could  also  be a maniplex, then the connection group is
+  graph.  The  input could also be a premaniplex, then the connection group is
   calculated.[133X
   
   [33X[0;0YHere we have the flag graph of the 3-simplex from its connection group.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XC:=ConnectionGroup(Simplex(3));;[128X[104X
-    [4X[28Xgamma:=FlagGraph(C);[128X[104X
+    [4X[25Xgap>[125X [27XC:=ConnectionGroup(Simplex(3));;[127X[104X
+    [4X[25Xgap>[125X [27Xgamma:=FlagGraph(C);[127X[104X
+    [4X[28XEdge labeled graph with 24 vertices, and edge labels [ 0, 1, 2 ][128X[104X
+    [4X[25Xgap>[125X [27XSTG3(4,1);;[127X[104X
+    [4X[25Xgap>[125X [27XFlagGraph(last);[127X[104X
+    [4X[28XEdge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
   [4X[32X[104X
   
   [1X11.2-13 UnlabeledSimpleGraph[101X

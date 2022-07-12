@@ -266,6 +266,34 @@ InstallMethod(FlagGraph,
 	return(EdgeLabeledGraphFromEdges(Vertices(all[1]),all[2],all[3]));
 	end);
 
+InstallMethod(FlagGraph,
+	[IsPremaniplex],
+	function(m)
+	local c, gens, V, labedges, i, j,g;
+	c:=ConnectionGroup(m);
+	gens:=GeneratorsOfGroup(c);
+	V:=MovedPoints(c);
+	labedges:=[];
+	if Size(V) = 0 then
+	for j in [1..Size(gens)] do
+		Add(labedges,[[1],j-1]);
+	od;
+	else
+	for i in V do
+	for j in [1..Size(gens)] do
+		g:=gens[j];
+		if i^g = i then
+		Add(labedges,[[i],j-1]);
+		elif i<i^g then
+		Add(labedges,[[i,i^g],j-1]);
+		fi;
+	od;
+	od;
+	fi;
+	return EdgeLabeledGraphFromLabeledEdges(labedges);
+	end);
+
+
 
 InstallMethod(UnlabeledSimpleGraph,
 	[IsEdgeLabeledGraph],
