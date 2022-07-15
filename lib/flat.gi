@@ -21,6 +21,7 @@ InstallMethod(FlatOrientablyRegularPolyhedron,
 		SetSize(poly, 2*p*q);
 		SetFvector(poly, [q, p*q/2, p]);
 		SetSchlafliSymbol(poly, [p,q]);
+		SetIsFlat(poly, true);
 		poly!.String := Concatenation("FlatOrientablyRegularPolyhedron(", String(p), ",", String(q), ",", String(i), ",", String(j), ")");
 		return poly;	
 	fi;

@@ -21,6 +21,7 @@ InstallMethod(Deltak,
 		r1 := (1,4*k) * PermFromRange((2,3), (4*k-2, 4*k-1));
 		r2 := (r0*r1)^k;
 		SetConnectionGroup(M, Group(r0,r1,r2));
+		SetIsFlat(M, true);
 		return M;
 	fi;
 	end);
@@ -43,6 +44,7 @@ InstallMethod(Mk,
 	r1 := (1,4*k) * PermFromRange((2,3), (4*k-2, 4*k-1));
 	r2 := (r0*r1)^k * r0;
 	SetConnectionGroup(M, Group(r0,r1,r2));
+	SetIsFlat(M, true);
 	return M;
 
 	end);
