@@ -13,17 +13,32 @@ InstallGlobalFunction(WriteManiplexesToFile,
 	CloseStream(databaseFile);
 	end);
 
+# WOrk in progress - add a sizerange so that I don't have to go through the whole file...
 InstallGlobalFunction(ManiplexesFromFile,
-	function(filename)
-	local databaseFile, maniplexes, maniplexString, attributeNames, attributes;
+	function(filename, args...)
+	local databaseFile, maniplexes, maniplexString, attributeNames, attributes, sizerange, minsize, maxsize;
 	databaseFile := InputTextFile(Filename(RampDataPath, filename));
 	maniplexes := [];
+	
+	if Size(args) > 0 then
+		sizerange := args[1];
+		minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+		maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+	else
+		minsize := 0;
+		maxsize := 10000000; # This is stupid but probably safe
+	fi;
 
 	attributeNames := SplitString(ReadLine(databaseFile), ",");
 	attributes := List(attributeNames, EvalString);
 	maniplexString := ReadLine(databaseFile);
 	repeat
-		Add(maniplexes, ManiplexFromDatabaseString(maniplexString, attributes));
+		M := ManiplexFromDatabaseString(maniplexString, attributes);
+		if Size(M) > maxsize then
+			break;
+		elif Size(M) >= minsize then
+			Add(maniplexes, ManiplexFromDatabaseString(maniplexString, attributes));
+		fi;
 		maniplexString := ReadLine(databaseFile);
 	until IsEndOfStream(databaseFile);
 
@@ -551,11 +566,13 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 	Append(manis, wilsons);
 
 	# Get the rest from a file
-	L := ManiplexesFromFile("Reflexible3ManiplexesNonPolytopal.txt");
+	L := ManiplexesFromFile("Reflexible3ManiplexesNonPolytopal.txt", sizerange);
 	for M in L do
 		SetSchlafliSymbol(M, PseudoSchlafliSymbol(M));
 		SetIsPolytopal(M, false);
 	od;
+	
+	# This next line is probably not necessary, but just to be safe...
 	Append(manis, Filtered(L, M -> minsize <= Size(M) and Size(M) <= maxsize));
 	
 	SortBy(manis, Size);
