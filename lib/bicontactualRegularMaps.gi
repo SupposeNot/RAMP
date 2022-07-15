@@ -17,6 +17,10 @@ InstallMethod(Deltak,
 		M := ReflexibleManiplex([2*k,2],Concatenation("(r0 r1)^",String(k)," r2") : set_schlafli);
 		SetSize(M, 4*k);
 		SetIsPolytopal(M, false);
+		r0 := PermFromRange((1,2), (4*k-1, 4*k));
+		r1 := (1,4*k) * PermFromRange((2,3), (4*k-2, 4*k-1));
+		r2 := (r0*r1)^k;
+		SetConnectionGroup(M, Group(r0,r1,r2));
 		return M;
 	fi;
 	end);
@@ -34,6 +38,11 @@ InstallMethod(Mk,
 
 	SetSize(M, 4*k);
 	SetIsPolytopal(M, false);
+	
+	r0 := PermFromRange((1,2), (4*k-1, 4*k));
+	r1 := (1,4*k) * PermFromRange((2,3), (4*k-2, 4*k-1));
+	r2 := (r0*r1)^k * r0;
+	SetConnectionGroup(M, Group(r0,r1,r2));
 	return M;
 
 	end);
