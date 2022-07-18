@@ -1,4 +1,20 @@
 
+BindGlobal("MINSIZE_FROM_SIZERANGE",
+	function(sizerange)
+	if IsInt(sizerange) then return 1;
+	elif IsEmpty(sizerange) then return 0;
+	else return First(sizerange);
+	fi;
+	end);
+	
+BindGlobal("MAXSIZE_FROM_SIZERANGE",
+	function(sizerange)
+	if IsInt(sizerange) then return sizerange;
+	elif IsEmpty(sizerange) then return 0;
+	else return Last(sizerange);
+	fi;
+	end);
+
 InstallGlobalFunction(WriteManiplexesToFile,
 	function(maniplexes, filename, attributeNames)
 	local databaseFile, M, attributes;
@@ -16,7 +32,7 @@ InstallGlobalFunction(WriteManiplexesToFile,
 # WOrk in progress - add a sizerange so that I don't have to go through the whole file...
 InstallGlobalFunction(ManiplexesFromFile,
 	function(filename, args...)
-	local databaseFile, maniplexes, maniplexString, attributeNames, attributes, sizerange, minsize, maxsize;
+	local databaseFile, maniplexes, maniplexString, attributeNames, attributes, sizerange, minsize, maxsize, M;
 	databaseFile := InputTextFile(Filename(RampDataPath, filename));
 	maniplexes := [];
 	
@@ -44,22 +60,6 @@ InstallGlobalFunction(ManiplexesFromFile,
 
 	CloseStream(databaseFile);
 	return maniplexes;
-	end);
-
-BindGlobal("MINSIZE_FROM_SIZERANGE",
-	function(sizerange)
-	if IsInt(sizerange) then return 1;
-	elif IsEmpty(sizerange) then return 0;
-	else return First(sizerange);
-	fi;
-	end);
-	
-BindGlobal("MAXSIZE_FROM_SIZERANGE",
-	function(sizerange)
-	if IsInt(sizerange) then return sizerange;
-	elif IsEmpty(sizerange) then return 0;
-	else return Last(sizerange);
-	fi;
 	end);
 
 InstallGlobalFunction(DegeneratePolyhedra,
