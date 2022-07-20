@@ -220,7 +220,7 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 
 InstallGlobalFunction(RegularToroidalPolyhedra44,
 	function(sizerange)
-	local polys, minsize, maxsize, t, p;
+	local polys, minsize, maxsize, t, p, M;
 	polys := [];
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
@@ -231,10 +231,16 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 	t := 2;
 	while 8*t^2 <= maxsize do
 		if 8*t^2 >= minsize then
-			Add(polys, ARP([4,4], Concatenation("(r0 r1 r2 r1)^", String(t))));
+			M := AbstractRegularPolytopeNC([4,4], Concatenation("(r0 r1 r2 r1)^", String(t)) : set_schlafli);
+			SetSize(M, 8*t^2);
+			SetPetrieLength(M, 2*t);
+			Add(polys, M);
 		fi;
 		if 16*t^2 >= minsize and 16*t^2 <= maxsize then
-			Add(polys, ARP([4,4], Concatenation("(r0 r1 r2)^", String(2*t))));
+			M := AbstractRegularPolytopeNC([4,4], Concatenation("(r0 r1 r2)^", String(2*t)) : set_schlafli);
+			SetSize(M, 16*t^2);
+			SetPetrieLength(M, 2*t);
+			Add(polys, M);
 		fi;
 		t := t + 1;
 	od;
@@ -244,7 +250,7 @@ InstallGlobalFunction(RegularToroidalPolyhedra44,
 
 InstallGlobalFunction(RegularToroidalPolyhedra36,
 	function(sizerange)
-	local polys, minsize, maxsize, t, p;
+	local polys, minsize, maxsize, t, p, M;
 	polys := [];
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
@@ -258,10 +264,16 @@ InstallGlobalFunction(RegularToroidalPolyhedra36,
 	t := 1;
 	while 12*t^2 <= maxsize do
 		if 12*t^2 >= minsize then
-			Add(polys, ARP([3,6], Concatenation("(r0 r1 r2)^", String(2*t))));
+			M := AbstractRegularPolytopeNC([3,6], Concatenation("(r0 r1 r2)^", String(2*t)) : set_schlafli);
+			SetSize(M, 12*t^2);
+			SetPetrieLength(M, 2*t);
+			Add(polys, M);
 		fi;
 		if 36*t^2 >= minsize and 36*t^2 <= maxsize then
-			Add(polys, ARP([3,6], Concatenation("(r0 r1 r2 r1 r2)^", String(2*t))));
+			M := AbstractRegularPolytopeNC([3,6], Concatenation("(r0 r1 r2 r1 r2)^", String(2*t)) : set_schlafli);
+			SetSize(M, 36*t^2);
+			SetPetrieLength(M, 6*t);
+			Add(polys, M);
 		fi;
 		t := t + 1;
 	od;
@@ -351,7 +363,7 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	
 	Append(polys, SmallRegularPolyhedraFromFile(sizerange));
 
-	SortBy(polys, p -> Size(p));
+	SortBy(polys, Size);
 	
 	if ValueOption("nontoroidal") = true then
 		polys := Filtered(polys, p -> not(SchlafliSymbol(p) in [[3,6],[6,3],[4,4]]));
