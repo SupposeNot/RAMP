@@ -24,6 +24,11 @@ InstallMethod(Deltak,
 		r2 := (r0*r1)^k;
 		SetConnectionGroup(M, Group(r0,r1,r2));
 		SetIsFlat(M, true);
+		if IsEvenInt(k) then
+			SetPetrieLength(M, 2*k);
+		else
+			SetPetrieLength(M, k);
+		fi;
 		return M;
 	fi;
 	end);
@@ -41,6 +46,7 @@ InstallMethod(Mk,
 
 	SetSize(M, 4*k);
 	SetIsPolytopal(M, false);
+	SetPetrieLength(M, 2);
 	
 	r0 := PermFromRange((1,2), (4*k-1, 4*k));
 	r1 := (1,4*k) * PermFromRange((2,3), (4*k-2, 4*k-1));
@@ -66,6 +72,7 @@ InstallMethod(MkPrime,
 	fi;
 
 	SetSize(M, 4*k);
+	SetPetrieLength(M, 2);
 	
 	# Only MkPrime(2) is polytopal
 	SetIsPolytopal(M, k = 2);
