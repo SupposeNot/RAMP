@@ -22,6 +22,9 @@ InstallMethod(FlatOrientablyRegularPolyhedron,
 		SetFvector(poly, [q, p*q/2, p]);
 		SetSchlafliSymbol(poly, [p,q]);
 		SetIsFlat(poly, true);
+		
+		# We can show that s1^2 and s2^2 commute in this group, and from that we can compute the Petrie length
+		SetPetrieLength(poly, 2*Lcm(p/Gcd(p,2), q/Gcd(q,2)));
 		poly!.String := Concatenation("FlatOrientablyRegularPolyhedron(", String(p), ",", String(q), ",", String(i), ",", String(j), ")");
 		return poly;	
 	fi;

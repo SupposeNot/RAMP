@@ -194,7 +194,6 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	# Grab the rest from a file.
 	# In principle, we know all of the flat regular polyhedra of a given type from theory.
 	# But I'm too lazy to code it right now, so we read from a file.
-	# rampPath := DirectoriesLibrary("pkg/ramp/lib");
 	filename := Filename(RampDataPath, "flatRegularPolyhedra.txt");
 	stream := InputTextFile(filename);
 	
