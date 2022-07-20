@@ -70,7 +70,13 @@ InstallMethod(PetrieLength,
 	[IsReflexibleManiplex],
 	function(M)
 	local g;
-	g := AutomorphismGroup(M);
+	if HasAutomorphismGroupPermGroup(M) then
+		g := AutomorphismGroupPermGroup(M);
+	elif HasConnectionGroup(M) then
+		g := ConnectionGroup(M);
+	else
+		g := AutomorphismGroup(M);
+	fi;
 	return Order(Product(GeneratorsOfGroup(g)));
 	end);
 

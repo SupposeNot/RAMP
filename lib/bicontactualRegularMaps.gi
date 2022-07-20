@@ -3,9 +3,11 @@
 InstallMethod(Epsilonk,
 	[IsInt],
 	function(k)
-	local p, q;
+	local p, q, M;
 	if k<=0 then Error("Not an integer>0."); fi;
-	return ReflexibleManiplex([k,2]);
+	M := AbstractRegularPolytopeNC([k,2]);
+	SetPetrieLength(M, Lcm(k,2));
+	return M;
 	end);
 
 InstallMethod(Deltak,
