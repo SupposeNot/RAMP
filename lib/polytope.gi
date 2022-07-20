@@ -77,6 +77,13 @@ InstallMethod(ReflexibleManiplex,
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
+	
+	if n = 3 and sym[1] = 2 then
+		SetPetrieLength(p, Lcm(2, sym[2]));
+	elif n = 3 and sym[2] = 2 then
+		SetPetrieLength(p, Lcm(2, sym[1]));	
+	fi;
+	
 	if not(1 in sym) then
 		SetIsPolytopal(p, true);
 		SetString(p, Concatenation("AbstractRegularPolytope(", String(sym), ")"));
