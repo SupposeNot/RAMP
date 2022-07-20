@@ -169,6 +169,8 @@ InstallMethod(Petrial,
 		
 		sym[1] := pet;
 		Mp := ReflexibleManiplex(sym, JoinStringsWithSeparator(rels));
+		
+		SetPetrieLength(Mp, SchlafliSymbol(M)[1]);
 	else
 		Mp := Maniplex(Petrial, [M]);
 		SetRankManiplex(Mp, Rank(M));

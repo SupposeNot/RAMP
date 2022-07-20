@@ -195,8 +195,16 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 		while 48*r*k <= maxsize do
 			if (r mod 4) = 1 then
 				poly := D(4*r, 6*k, 3*r-1, 1+3*k, 1+2*r, 2);
+				
+				# We can show that for k = 1, we have r0 r1 r2 = s1^-1 s2^2 s1^-1 * s1^1-r.
+				# It follows that for k = 1, the petrie length is 12r / gcd(r+3,12).
+				# By mixing [4, 6k] (r = 1) with [4r, 6] (k = 1), we get the following.
+				SetPetrieLength(poly, Lcm(3*k, 12*r / Gcd(r+3, 12)));
 			else
 				poly := D(4*r, 6*k, r-1, 1+3*k, 1+2*r, 2);
+			
+				# Similar to the last case, but now r0 r1 r2 = s1^-1 s2^2 s1 * s1^1+r.
+				SetPetrieLength(poly, Lcm(3*k, 12*r / Gcd(r-3, 12)));
 			fi;
 			Add(polys, poly);
 			Add(polys, Dual(poly));
