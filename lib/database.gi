@@ -162,10 +162,24 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	k := 1 + Int((minsize-1)/24);
 	while 24*k <= maxsize do
 		poly := D(4, 3*k, 2, 1, 3, 2);
+		# s2^-1 s1 = s1^2 r1 s2 implies s1^-1 s2^-1 s1 = s1 r1 s2 = r0 r1 r2. So PetrieLength = q
+		SetPetrieLength(poly, 3*k);
 		Add(polys, poly);
 		Add(polys, Dual(poly));
 		if IsEvenInt(k) then
+			# From s2^-2 s1 = s1^3 s2^2, we can conclude that s1^-1 s2^-3 s1 = (s1^-1 s2^-1) * s1^3 s2^2 = s2 s1 s1^3 s2^2 = s2^3.
+			# So <s2^3> is normal, and <s2^3k/2> is central.
+			# Now note that s1^-1 s2^-1 s1 = s1 r1 s2 s2^3k/2, so r0 r1 r2 = s1 r1 s2 = (s1^-1 s2^-1 s1) s2^3k/2.
+			# Then (r0 r1 r2)^3 = s1^-1 s2^-3 s1 s2^9k/2 = s2^(3 +9k/2).
+			# Thus the order of (r0 r1 r2)^3 is 3k / gcd(3k, 3+9k/2) = k / gcd(k, 1+k/2) = k / gcd(2, 1+k/2)
+			# If k is divisible by 4, this is k. Otherwise, if k = 2 (mod 4), then this is k/2.
+			# So PetrieLength is 3k if k is divisible by 4, or 3k/2 otherwise.
 			poly := D(4, 3*k, 2, 1+3*k/2, 3, 2);
+			if IsInt(k/4) then
+				SetPetrieLength(poly, 3*k);
+			else
+				SetPetrieLength(poly, 3*k/2);
+			fi;
 			Add(polys, poly);
 			Add(polys, Dual(poly));
 		fi;
