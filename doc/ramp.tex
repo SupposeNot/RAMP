@@ -8612,7 +8612,15 @@ cross
 }\hfill{\scriptsize (info class)}}\\
 
 
- The InfoClass for the Ramp package. }
+ The InfoClass for the Ramp package. This is sort of an "information channel"
+that functions can send updates to, and by default, users of Ramp will see
+these messages. To add such a message to a function that you are writing for
+Ramp, use \texttt{Info(InfoRamp, 1, "This is a message!");}. For example, if you have a function \texttt{f} with this line, then the user will see this: 
+\begin{Verbatim}[commandchars=@|A,fontsize=\small,frame=single,label=Example]
+  @gapprompt|gap>A @gapinput|f(3);;A
+  #I This is a message!
+\end{Verbatim}
+ To turn off messages from this class, use \texttt{SetInfoLevel(InfoRamp, 0)}. }
 
  }
 
@@ -8946,7 +8954,7 @@ maniplexes the way one expects. }
 \item  \texttt{IsDiamondCondition} for \texttt{IsP4} (\textbf{RAMP: IsP4 for isposet}) 
 \item  \texttt{IsStronglyFlagConnected} for \texttt{IsP3} (\textbf{RAMP: IsP3 for isposet}) 
 \item  \texttt{MapJoin} for \texttt{Angle} (\textbf{RAMP: Angle for ismaponsurface}) 
-\item  \texttt{MonodromyGroup} for \texttt{ConnectionGroup} (\textbf{RAMP: ConnectionGroup for ismaniplex}) 
+\item  \texttt{MonodromyGroup} for \texttt{ConnectionGroup} (\textbf{RAMP: ConnectionGroup for ispremaniplex}) 
 \item  \texttt{NumberOfFlags} for \texttt{Size} (\textbf{RAMP: Size for ismaniplex}) 
 \item  \texttt{PetrieDual} for \texttt{Petrial} (\textbf{RAMP: Petrial for ismaniplex}) 
 \item  \texttt{RankPosetFaces} for \texttt{RankPosetElements} (\textbf{RAMP: RankPosetElements for isposet}) 

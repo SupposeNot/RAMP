@@ -65,7 +65,15 @@
 <h5>15.1-1 InfoRamp</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoRamp</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
-<p>The InfoClass for the Ramp package.</p>
+<p>The InfoClass for the Ramp package. This is sort of an "information channel" that functions can send updates to, and by default, users of Ramp will see these messages. To add such a message to a function that you are writing for Ramp, use <code class="code">Info(InfoRamp, 1, "This is a message!");</code>. For example, if you have a function <code class="code">f</code> with this line, then the user will see this:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f(3);;</span>
+#I This is a message!
+</pre></div>
+
+<p>To turn off messages from this class, use <code class="code">SetInfoLevel(InfoRamp, 0)</code>.</p>
 
 <p><a id="X7B933C4686727183" name="X7B933C4686727183"></a></p>
 

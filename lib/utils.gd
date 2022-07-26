@@ -6,6 +6,15 @@
 
 
 #! @Description The InfoClass for the Ramp package.
+#! This is sort of an "information channel" that functions can send updates to, and
+#! by default, users of Ramp will see these messages. To add such a message to a function
+#! that you are writing for Ramp, use `Info(InfoRamp, 1, "This is a message!");`. For example,
+#! if you have a function `f` with this line, then the user will see this:
+#! @BeginExampleSession
+#! gap> f(3);;
+#! #I This is a message!
+#! @EndExampleSession
+#! To turn off messages from this class, use `SetInfoLevel(InfoRamp, 0)`.
 DeclareInfoClass("InfoRamp");
 
 #! @Section Polytopes

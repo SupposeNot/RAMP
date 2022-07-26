@@ -8,7 +8,18 @@
   
   [33X[1;0Y[29X[2XInfoRamp[102X[32X info class[133X
   
-  [33X[0;0YThe InfoClass for the Ramp package.[133X
+  [33X[0;0YThe InfoClass for the Ramp package. This is sort of an "information channel"
+  that  functions  can send updates to, and by default, users of Ramp will see
+  these messages. To add such a message to a function that you are writing for
+  Ramp, use [10XInfo(InfoRamp, 1, "This is a message!");[110X. For example, if you have
+  a function [10Xf[110X with this line, then the user will see this:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xf(3);;[127X[104X
+    [4X[28X#I This is a message![128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YTo turn off messages from this class, use [10XSetInfoLevel(InfoRamp, 0)[110X.[133X
   
   
   [1X15.2 [33X[0;0YPolytopes[133X[101X
