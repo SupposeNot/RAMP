@@ -200,6 +200,8 @@ InstallMethod(Maniplex,
 	function(g)
 	if not(IsSggi(g)) then
 		Error("g must be an Sggi!");
+	elif not(IsTransitive(g)) then
+		Error("g must act transitively!");
 	else
 		return ManiplexNC(g);
 	fi;
@@ -278,6 +280,9 @@ InstallMethod(Maniplex,
 	[IsEdgeLabeledGraph],
 	function(x)
 	local M,n;
+	if not(IsTransitive(ConnectionGroup(x))) then
+		Error("Flag graph must be connected!");
+	fi;
 	n:=Size(Set(Labels(x)));
 	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexFlagGraphRep), rec(fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
 	SetRankManiplex(M, Size(Set(Labels(x))));
