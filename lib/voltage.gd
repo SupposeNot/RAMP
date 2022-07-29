@@ -8,7 +8,8 @@
 #! @Returns IsManiplex
 #! @Description Returns the output of the voltage operator acting on Xa.
 #! Xa is a n-premaniplex as an edge labeled graph, Y is a m-premaniplex.  eta is a voltage assignment on the darts of Y.
-#! etain is a list of all darts of Y.  etaout is a string giving words in the universal sggi of rank n.
+#! etain is a list of all darts of Y.  etaout is a string giving words in the universal sggi of rank n, and the order
+#! of the words corresponds to the order of the darts in etain.
 #! If Xa is given as a maniplex, the operation is done to its flag graph.
 DeclareOperation("VoltageOperator", [IsList, IsString,IsEdgeLabeledGraph]);
 DeclareOperation("VoltageOperator", [IsList, IsString,IsManiplex]);
@@ -19,11 +20,11 @@ DeclareOperation("VoltageOperator", [IsList, IsString,IsManiplex]);
 #! gap> etain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;
 #! gap> etain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;
 #! gap> etain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;
-#! gap> etaoutPetrial:="[r0, r1 r3, r2, r3]";;
-#! gap> etaoutDual:="[r3, r2, r1, r0]";;
-#! gap> etaoutMedial:="[r1, r1, r0, r2, Id]";;
-#! gap> etaoutLeapfrog:="[r1,r1,r2,r0,r0, , ]";;
-#! gap> etaoutTruncation:="[r1, r1, r0, r2, r2,Id, Id]";;
+#! gap> etaoutPetrial:="r0, r1 r3, r2, r3";;
+#! gap> etaoutDual:="r3, r2, r1, r0";;
+#! gap> etaoutMedial:="r1, r1, r0, r2, Id";;
+#! gap> etaoutLeapfrog:="r1,r1,r2,r0,r0, , ";;
+#! gap> etaoutTruncation:="r1, r1, r0, r2, r2,Id, Id";;
 #! gap> Petrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));
 #! true
 #! gap> Dual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));

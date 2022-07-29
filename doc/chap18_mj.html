@@ -50,7 +50,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">etain</var>, <var class="Arg">etaout</var>, <var class="Arg">Xa</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
 
-<p>Returns the output of the voltage operator acting on Xa. Xa is a n-premaniplex as an edge labeled graph, Y is a m-premaniplex. eta is a voltage assignment on the darts of Y. etain is a list of all darts of Y. etaout is a string giving words in the universal sggi of rank n. If Xa is given as a maniplex, the operation is done to its flag graph.</p>
+<p>Returns the output of the voltage operator acting on Xa. Xa is a n-premaniplex as an edge labeled graph, Y is a m-premaniplex. eta is a voltage assignment on the darts of Y. etain is a list of all darts of Y. etaout is a string giving words in the universal sggi of rank n, and the order of the words corresponds to the order of the darts in etain. If Xa is given as a maniplex, the operation is done to its flag graph.</p>
 
 <p><a id="X7817A3787920523B" name="X7817A3787920523B"></a></p>
 
@@ -65,11 +65,11 @@ See VOLTAGE OPERATIONS ON MANIPLEXES by HUBARD, MOCHÁN, MONTERO
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutPetrial:="[r0, r1 r3, r2, r3]";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutDual:="[r3, r2, r1, r0]";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutMedial:="[r1, r1, r0, r2, Id]";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutLeapfrog:="[r1,r1,r2,r0,r0, , ]";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutTruncation:="[r1, r1, r0, r2, r2,Id, Id]";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutPetrial:="r0, r1 r3, r2, r3";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutDual:="r3, r2, r1, r0";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutMedial:="r1, r1, r0, r2, Id";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutLeapfrog:="r1,r1,r2,r0,r0, , ";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutTruncation:="r1, r1, r0, r2, r2,Id, Id";;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));</span>

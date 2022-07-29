@@ -12,7 +12,8 @@
   [33X[0;0YReturns  the  output  of  the  voltage  operator  acting  on  Xa.  Xa  is  a
   n-premaniplex  as  an  edge  labeled  graph,  Y is a m-premaniplex. eta is a
   voltage  assignment  on  the  darts of Y. etain is a list of all darts of Y.
-  etaout  is  a  string giving words in the universal sggi of rank n. If Xa is
+  etaout  is  a  string  giving words in the universal sggi of rank n, and the
+  order  of the words corresponds to the order of the darts in etain. If Xa is
   given as a maniplex, the operation is done to its flag graph.[133X
   
   [1X18.1-2 VoltageOperator[101X
@@ -26,11 +27,11 @@
     [4X[25Xgap>[125X [27Xetain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;[127X[104X
     [4X[25Xgap>[125X [27Xetain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;[127X[104X
     [4X[25Xgap>[125X [27Xetain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutPetrial:="[r0, r1 r3, r2, r3]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutDual:="[r3, r2, r1, r0]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutMedial:="[r1, r1, r0, r2, Id]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutLeapfrog:="[r1,r1,r2,r0,r0, , ]";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutTruncation:="[r1, r1, r0, r2, r2,Id, Id]";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutPetrial:="r0, r1 r3, r2, r3";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutDual:="r3, r2, r1, r0";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutMedial:="r1, r1, r0, r2, Id";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutLeapfrog:="r1,r1,r2,r0,r0, , ";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutTruncation:="r1, r1, r0, r2, r2,Id, Id";;[127X[104X
     [4X[25Xgap>[125X [27XPetrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));[127X[104X

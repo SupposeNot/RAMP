@@ -15,13 +15,15 @@ InstallMethod(VoltageOperator,
 	gensY:=GeneratorsOfGroup(CY);
 	images:=[];
 	for i in [1..Size(eta2)] do
-	out:=CX.1^2;
-	for j in eta2[i] do
-	if IsDigitChar(j) then
- 	out:=out*gensX[SIntChar(j)+1-48];  ### Weird behavior of ints as characters.
-	fi;
-	od;
-	Add(images,out);
+	NormalizeWhitespace(eta2[i]);
+	Add(images, SggiElement(CX, eta2[i]));
+	#out:=CX.1^2;
+	#for j in eta2[i] do
+	#if IsDigitChar(j) then
+ 	#out:=out*gensX[SIntChar(j)+1-48];  ### Weird behavior of ints as characters.
+	#fi;
+	#od;
+	#Add(images,out);
 	od;
 	newLabEdges:=[];
 	for x in V1 do
@@ -185,7 +187,7 @@ InstallMethod(WythoffVoltageOperator,
 	od;	
 	etain1:=LabEd1;
 	etain2:=LabEd2;
-	etaout:="[";
+	etaout:="";
 
 	for i in [1..Size(etain1)-1] do
 	ed:=etain1[i][1];
@@ -208,7 +210,6 @@ InstallMethod(WythoffVoltageOperator,
 	s:=String(ed[1][lab+1]);
 	etaout:= Concatenation(etaout, "r");
 	etaout:= Concatenation(etaout, s);
-	etaout:= Concatenation(etaout, "]");	
 	fi;
 	return VoltageOperator(etain2,etaout,M);
 	end);
