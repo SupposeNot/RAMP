@@ -32,9 +32,9 @@ gap> IsInternallySelfDual(CubicToroid(3,1,3));
 true
 gap> IsInternallySelfDual(CubicToroid(4,1,3));
 false
-gap> M := InternallySelfDualPolyhedron2(10,1);;
+gap> M := InternallySelfDualPolyhedron2(8,1);;
 gap> g := AutomorphismGroup(M);;
-gap> IsInternallySelfDual(M, (g.1*g.3*g.2)^6);
+gap> IsInternallySelfDual(M, (g.1*g.3*g.2)^4);
 true
 gap> IsProperlySelfDual(Cube(4));
 false
