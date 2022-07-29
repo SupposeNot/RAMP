@@ -116,7 +116,7 @@ InstallMethod(SggiElement,
 		Error("SggiElement is only defined when g IsSggi.");
 	fi;
 	
-	if str = "" then
+	if str = "" or UppercaseString(str) = "ID" then
 		return Identity(g);
 	fi;
 
