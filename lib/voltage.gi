@@ -221,7 +221,7 @@ InstallMethod(WythoffVoltageOperator,
 InstallMethod( ViewObj,
 	[IsVoltageGraph],
 	function(vg)
-	Print(Concatenation("Voltage Graph with voltages from ", String(vg!.voltage_group)));
+	Print(Concatenation("Voltage Graph with ", String(Size(Flags(vg!.premaniplex))), " vertices, and voltages from ", ViewString(vg!.voltage_group)));
 	end);
 
 
