@@ -85,3 +85,18 @@ DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
 # #! Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 # #! @EndExampleSession
 
+
+
+#! @Arguments p
+#! @Returns list
+#! @Description Given a Premaniples p, returns the list of labeled darts from its flag graph.
+DeclareAttribute("LabeledDarts",IsPremaniplex);
+#! @BeginExampleSession
+#! gap> P:=STG2(5,[2,4]);;
+#! gap> LabeledDarts(P);
+#! [ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
+#! @EndExampleSession
+
+
+DeclareOperation("LabeledDart",[IsPremaniplex, IsInt,IsInt]);
+

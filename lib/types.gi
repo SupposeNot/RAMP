@@ -3,6 +3,8 @@ BindGlobal("PosetFamily", NewFamily("Posets", IsPoset));
 BindGlobal("PosetElementFamily", NewFamily("PosetElements", IsObject));
 BindGlobal("EdgeLabeledGraphFamily", NewFamily("EdgeLabeledGraphs", IsEdgeLabeledGraph));
 BindGlobal("PremaniplexFamily", NewFamily("Premaniplexes", IsPremaniplex));
+BindGlobal("VoltageGraphFamily", NewFamily("VoltageGraphs", IsVoltageGraph));
+
 
 
 InstallTrueMethod(IsReflexibleManiplex, IsManiplex and IsReflexible);

@@ -49,3 +49,8 @@ DeclareRepresentation("IsPremaniplexGraphRep", IsComponentObjectRep and IsAttrib
 
 #Maps on surfaces stuff
 DeclareProperty("IsMapOnSurface", IsManiplex);
+
+#VoltageGraph stuff
+DeclareCategory("IsVoltageGraph", IsObject);
+DeclareRepresentation("IsVoltageGraphListRep", IsComponentObjectRep and IsAttributeStoringRep, ["voltage_group", "labels", "darts", "premaniplex", "voltages"]);
+DeclareRepresentation("IsVoltageGraphPremaniplexRep", IsComponentObjectRep and IsAttributeStoringRep, ["voltage_group", "premaniplex", "voltages"]);

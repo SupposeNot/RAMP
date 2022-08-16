@@ -95,3 +95,106 @@ DeclareOperation("WythoffVoltageOperator", [IsInt, IsList, IsManiplex]);
 
 
 
+
+
+#! @Arguments G, L, V
+#! @Returns IsVoltageGraph
+#! @Description Given an IsGroup <A>G</A>, an IsList <A>L</A>, and an IsList  <A>V</A>, `VoltageGraph(G,L,V)` will construct the voltage graph with voltages from G, labeled darts from L, and voltages from V.
+DeclareOperation("VoltageGraph", [IsGroup,IsList,IsList]);
+#! @BeginExampleSession
+#! gap> G:=ConnectionGroup(Cube(3));;
+#! gap> L:=[ [[1],0], [[1],1], [[1,2],2], [[2],0], [[2],1]];;
+#! gap> V:=[G.2, G.1, Identity(G), G.2, G.1];;
+#! gap> VG:=VoltageGraph(G,L,V);
+#! Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)
+#! (12,24)(14,43)(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)
+#! (40,46)(42,44), (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)
+#! (17,41)(18,21)(19,22)(20,23)(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), (1,3)(2,7)
+#! (4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)
+#! (29,39)(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+#! @EndExampleSession
+
+
+#! @Arguments G, P, V
+#! @Returns IsVoltageGraph
+#! @Description Given an IsGroup <A>G</A>, an IsPremaniplex <A>P</A>, and an IsList  <A>V</A>, `VoltageGraph(G,P,V)` will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and voltages from V.
+DeclareOperation("VoltageGraph", [IsGroup,IsPremaniplex,IsList]);
+#! @BeginExampleSession
+#! gap> G:=ConnectionGroup(Cube(3));;
+#! gap> P:=STG2(3,[0,1]);
+#! Premaniplex of rank 3 with 2 flags
+#! gap> L:=LabeledDarts(P);
+#! [ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2, 1 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
+#! gap> V:=[G.2, G.1, Identity(G), Identity(G), G.2, G.1];;
+#! gap> VG:=VoltageGraph(G,P,V);
+#! Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)(12,24)(14,43)
+#! (15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)(40,46)(42,44), 
+#! (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)(17,41)(18,21)(19,22)(20,23)
+#! (24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), 
+#! (1,3)(2,7)(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)(29,39)
+#! (30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+#! @EndExampleSession
+
+
+
+
+#! @Arguments G, P
+#! @Returns IsVoltageGraph
+#! @Description Given an IsGroup <A>G</A>, and an IsPremaniplex <A>P</A>, `VoltageGraph(G,P)` will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and trivial voltages.
+DeclareOperation("VoltageGraph", [IsGroup,IsPremaniplex]);
+
+
+
+
+
+
+
+#! @Arguments VG, ld, g
+#! @Description Given an IsVoltageGraph <A>VG</A>, an IsList <A>ld</A>, and an IsObject <A>g</A>, `ChangeVoltage(VG,ld,g)` will change the voltage for the one labeled dart ld to the group element g.
+DeclareOperation("ChangeVoltage", [IsVoltageGraph,IsList, IsObject]);
+
+
+#! @Arguments VG, lab, startvert, g 
+#! @Description Given an IsVoltageGraph <A>VG</A>, an IsInt <A>lab</A>, an IsInt <A>startvert</A>, and an IsObject <A>g</A>, `ChangeVoltage(VG,lab, startvert,g)` will change the voltage for the one labeled dart of label lab and start vertex startvert to the group element g.
+DeclareOperation("ChangeVoltage", [IsVoltageGraph,IsInt,IsInt, IsObject]);
+
+
+
+#! @Arguments VG
+#! @Returns IsVoltageGraph
+#! @Description Given an IsVoltageGraph <A>VG</A>, a `DerivedGraph(VG)` will construct the derived graph of the voltage graph VG.
+DeclareAttribute("DerivedGraph", IsVoltageGraph);
+
+
+#! @Arguments VG, M
+#! @Description Given an IsVoltageGraph <A>VG</A>, and an IsManiplex <A>M</A>, `VoltageOperator(VG,M)` will return the voltage operator VG acting on M.
+DeclareOperation("VoltageOperator", [IsVoltageGraph, IsManiplex]);
+#! @BeginExampleSession
+#! gap> M:=Dodecahedron();;
+#! gap> S:=STG2(3,[0,1]);
+#! Premaniplex of rank 3 with 2 flags
+#! gap> C:=ConnectionGroup(M);;
+#! gap> V:=VoltageGraph(C,S);;
+#! gap> ChangeVoltage(V,0,1,C.2);;
+#! gap> ChangeVoltage(V,0,2,C.2);;
+#! gap> ChangeVoltage(V,1,1,C.1);;
+#! gap> ChangeVoltage(V,1,2,C.3);;
+#! gap> Medial(M) = VoltageOperator(V,M);
+#! true
+#! @EndExampleSession
+
+
+#! @Arguments VG, ELG
+#! @Description Given an IsVoltageGraph <A>VG</A>, and an IsEdgeLabeledGraph <A>ELM</A>, `VoltageOperator(VG,M)` will return the voltage operator VG acting on ELM.
+DeclareOperation("VoltageOperator", [IsVoltageGraph,IsEdgeLabeledGraph]);
+
+
+DeclareAttribute("VoltageGroup", IsVoltageGraph);
+DeclareAttribute("LabeledDarts", IsVoltageGraph);
+DeclareAttribute("Voltages", IsVoltageGraph);
+DeclareOperation("Premaniplex", [IsVoltageGraph]);
+
+
+
+
+

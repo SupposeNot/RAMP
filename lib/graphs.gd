@@ -150,7 +150,7 @@ DeclareOperation("FlagGraphWithLabels",[IsManiplex]);
 DeclareOperation("Vertices",[IsEdgeLabeledGraph]);
 #DeclareOperation("Edges",[IsEdgeLabeledGraph]);
 #DeclareOperation("Labels",[IsEdgeLabeledGraph]);
-DeclareOperation("LabeledEdges",[IsEdgeLabeledGraph]);
+DeclareAttribute("LabeledEdges",IsEdgeLabeledGraph);
 
 
 
@@ -385,19 +385,19 @@ DeclareOperation("CPRGraphFromGroups",[IsGroup,IsGroup]);
 #! @Arguments EdgeLabeledGraph
 #! @Returns `IsList`. 
 #! @Description Takes in an edge labeled graph and a vertex, and outputs a list of semiedges
-DeclareOperation("SemiEdges",[IsEdgeLabeledGraph]);
+DeclareAttribute("SemiEdges",IsEdgeLabeledGraph);
 
 
 #! @Arguments EdgeLabeledGraph
 #! @Returns `IsList, IsList`. 
 #! @Description Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges and their labels
-DeclareOperation("LabeledSemiEdges",[IsEdgeLabeledGraph]);
+DeclareAttribute("LabeledSemiEdges",IsEdgeLabeledGraph);
 
 
 #! @Arguments EdgeLabeledGraph
 #! @Returns `IsList`. 
 #! @Description Takes in an edge labeled graph and outputs the labeled darts.
-DeclareOperation("LabeledDarts",[IsEdgeLabeledGraph]);
+DeclareAttribute("LabeledDarts",IsEdgeLabeledGraph);
 
 #! @Arguments list, list, list
 #! @Returns `IsEdgeLabeledGraph`. 
