@@ -6,7 +6,7 @@
 \contentsline {chapter}{\numberline {3}\textcolor {Chapter }{Groups for Maps, Polytopes, and Maniplexes}}{9}{chapter.3}%
 \contentsline {section}{\numberline {3.1}\textcolor {Chapter }{Groups of Maps, Polytopes, and Maniplexes}}{9}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}\textcolor {Chapter }{Automorphism Groups}}{9}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}\textcolor {Chapter }{ConnectionGroup (for IsManiplex)}}{10}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}\textcolor {Chapter }{ConnectionGroup (for IsPremaniplex)}}{10}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}\textcolor {Chapter }{EvenConnectionGroup (for IsManiplex)}}{10}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4}\textcolor {Chapter }{RotationGroup (for IsManiplex)}}{10}{subsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.1.5}\textcolor {Chapter }{RotationGroupFpGroup (for IsManiplex)}}{10}{subsection.3.1.5}%
@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {3.2.5}\textcolor {Chapter }{IsSggi (for IsGroup)}}{13}{subsection.3.2.5}%
 \contentsline {subsection}{\numberline {3.2.6}\textcolor {Chapter }{IsStringRotationGroup (for IsGroup)}}{13}{subsection.3.2.6}%
 \contentsline {subsection}{\numberline {3.2.7}\textcolor {Chapter }{IsStringC (for IsGroup)}}{13}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}\textcolor {Chapter }{IsStringCPlus (for IsGroup)}}{13}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.8}\textcolor {Chapter }{IsStringCPlus (for IsGroup)}}{14}{subsection.3.2.8}%
 \contentsline {subsection}{\numberline {3.2.9}\textcolor {Chapter }{SggiElement (for IsGroup, IsString)}}{14}{subsection.3.2.9}%
 \contentsline {subsection}{\numberline {3.2.10}\textcolor {Chapter }{SimplifiedSggiElement (for IsGroup, IsString)}}{14}{subsection.3.2.10}%
 \contentsline {subsection}{\numberline {3.2.11}\textcolor {Chapter }{IsRelationOfReflexibleManiplex (for IsManiplex, IsString)}}{14}{subsection.3.2.11}%
@@ -89,13 +89,13 @@
 \contentsline {subsection}{\numberline {5.1.1}\textcolor {Chapter }{ReflexibleManiplex}}{28}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}\textcolor {Chapter }{Maniplex (for IsPermGroup)}}{29}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.1.3}\textcolor {Chapter }{Maniplex (for IsReflexibleManiplex, IsGroup)}}{29}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}\textcolor {Chapter }{Maniplex (for IsFunction, IsList)}}{29}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.4}\textcolor {Chapter }{Maniplex (for IsFunction, IsList)}}{30}{subsection.5.1.4}%
 \contentsline {subsection}{\numberline {5.1.5}\textcolor {Chapter }{Maniplex (for IsPoset)}}{30}{subsection.5.1.5}%
 \contentsline {subsection}{\numberline {5.1.6}\textcolor {Chapter }{Maniplex (for IsEdgeLabeledGraph)}}{30}{subsection.5.1.6}%
 \contentsline {subsection}{\numberline {5.1.7}\textcolor {Chapter }{IsPolytopal (for IsManiplex)}}{30}{subsection.5.1.7}%
 \contentsline {section}{\numberline {5.2}\textcolor {Chapter }{Mixing of Maniplexes functions}}{30}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}\textcolor {Chapter }{Mix of groups}}{30}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}\textcolor {Chapter }{Mix (for IsManiplex, IsManiplex)}}{30}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.2}\textcolor {Chapter }{Mix (for IsManiplex, IsManiplex)}}{31}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}\textcolor {Chapter }{FlagMix (for IsPremaniplex, IsPremaniplex)}}{31}{subsection.5.2.3}%
 \contentsline {subsection}{\numberline {5.2.4}\textcolor {Chapter }{Comix}}{31}{subsection.5.2.4}%
 \contentsline {subsection}{\numberline {5.2.5}\textcolor {Chapter }{Indexed array tools}}{31}{subsection.5.2.5}%
@@ -104,347 +104,356 @@
 \contentsline {subsection}{\numberline {5.3.2}\textcolor {Chapter }{UniversalRotationGroup (for IsList)}}{32}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}\textcolor {Chapter }{RotaryManiplex}}{32}{subsection.5.3.3}%
 \contentsline {subsection}{\numberline {5.3.4}\textcolor {Chapter }{EnantiomorphicForm (for IsManiplex)}}{33}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {6}\textcolor {Chapter }{Maniplex Properties}}{34}{chapter.6}%
-\contentsline {section}{\numberline {6.1}\textcolor {Chapter }{Automorphism group acting on faces and chains}}{34}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}\textcolor {Chapter }{AutomorphismGroupOnChains (for IsManiplex, IsCollection)}}{34}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}\textcolor {Chapter }{AutomorphismGroupOnIFaces (for IsManiplex, IsInt)}}{34}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}\textcolor {Chapter }{AutomorphismGroupOnVertices (for IsManiplex)}}{34}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}\textcolor {Chapter }{AutomorphismGroupOnEdges (for IsManiplex)}}{35}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}{35}{subsection.6.1.5}%
-\contentsline {section}{\numberline {6.2}\textcolor {Chapter }{Number of orbits and transitivity}}{35}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}\textcolor {Chapter }{NumberOfChainOrbits (for IsManiplex, IsCollection)}}{35}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}\textcolor {Chapter }{NumberOfIFaceOrbits (for IsManiplex, IsInt)}}{35}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}\textcolor {Chapter }{NumberOfVertexOrbits (for IsManiplex)}}{35}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}\textcolor {Chapter }{NumberOfEdgeOrbits (for IsManiplex)}}{36}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}\textcolor {Chapter }{NumberOfFacetOrbits (for IsManiplex)}}{36}{subsection.6.2.5}%
-\contentsline {subsection}{\numberline {6.2.6}\textcolor {Chapter }{IsChainTransitive (for IsManiplex, IsCollection)}}{36}{subsection.6.2.6}%
-\contentsline {subsection}{\numberline {6.2.7}\textcolor {Chapter }{IsIFaceTransitive (for IsManiplex, IsInt)}}{36}{subsection.6.2.7}%
-\contentsline {subsection}{\numberline {6.2.8}\textcolor {Chapter }{IsVertexTransitive (for IsManiplex)}}{36}{subsection.6.2.8}%
-\contentsline {subsection}{\numberline {6.2.9}\textcolor {Chapter }{IsEdgeTransitive (for IsManiplex)}}{37}{subsection.6.2.9}%
-\contentsline {subsection}{\numberline {6.2.10}\textcolor {Chapter }{IsFacetTransitive (for IsManiplex)}}{37}{subsection.6.2.10}%
-\contentsline {subsection}{\numberline {6.2.11}\textcolor {Chapter }{IsFullyTransitive (for IsManiplex)}}{37}{subsection.6.2.11}%
-\contentsline {section}{\numberline {6.3}\textcolor {Chapter }{Flag orbits}}{37}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}\textcolor {Chapter }{Flags (for IsManiplex)}}{37}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}\textcolor {Chapter }{BaseFlag (for IsManiplex)}}{38}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}\textcolor {Chapter }{SymmetryTypeGraph (for IsManiplex)}}{38}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}\textcolor {Chapter }{NumberOfFlagOrbits (for IsManiplex)}}{38}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}\textcolor {Chapter }{FlagOrbitRepresentatives (for IsManiplex)}}{38}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}\textcolor {Chapter }{FlagOrbitsStabilizer (for IsManiplex)}}{39}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}\textcolor {Chapter }{IsReflexible (for IsManiplex)}}{39}{subsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.3.8}\textcolor {Chapter }{IsChiral (for IsManiplex)}}{39}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}\textcolor {Chapter }{IsRotary (for IsManiplex)}}{39}{subsection.6.3.9}%
-\contentsline {subsection}{\numberline {6.3.10}\textcolor {Chapter }{FlagOrbits (for IsManiplex)}}{39}{subsection.6.3.10}%
-\contentsline {section}{\numberline {6.4}\textcolor {Chapter }{Orientability}}{40}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}\textcolor {Chapter }{IsOrientable (for IsManiplex)}}{40}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}\textcolor {Chapter }{IsIOrientable (for IsManiplex, IsList)}}{40}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}\textcolor {Chapter }{IsVertexBipartite (for IsManiplex)}}{40}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}\textcolor {Chapter }{IsFacetBipartite (for IsManiplex)}}{40}{subsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.4.5}\textcolor {Chapter }{OrientableCover (for IsManiplex)}}{40}{subsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.4.6}\textcolor {Chapter }{IOrientableCover (for IsManiplex, IsList)}}{41}{subsection.6.4.6}%
-\contentsline {section}{\numberline {6.5}\textcolor {Chapter }{Faithfulness}}{41}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}\textcolor {Chapter }{IsVertexFaithful (for IsManiplex)}}{41}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}\textcolor {Chapter }{IsFacetFaithful (for IsManiplex)}}{41}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}\textcolor {Chapter }{MaxVertexFaithfulQuotient (for IsManiplex)}}{41}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}\textcolor {Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}{42}{subsection.6.5.4}%
-\contentsline {subsection}{\numberline {6.5.5}\textcolor {Chapter }{IsFaithful (for IsManiplex)}}{42}{subsection.6.5.5}%
-\contentsline {chapter}{\numberline {7}\textcolor {Chapter }{Comparing maniplexes}}{43}{chapter.7}%
-\contentsline {section}{\numberline {7.1}\textcolor {Chapter }{Quotients and covers}}{43}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}\textcolor {Chapter }{IsQuotient}}{43}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}\textcolor {Chapter }{IsRootedQuotient (for IsManiplex, IsManiplex, IsInt, IsInt)}}{43}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}\textcolor {Chapter }{IsRootedQuotient (for IsManiplex, IsManiplex)}}{44}{subsection.7.1.3}%
-\contentsline {subsection}{\numberline {7.1.4}\textcolor {Chapter }{IsCover (for IsManiplex, IsManiplex)}}{44}{subsection.7.1.4}%
-\contentsline {subsection}{\numberline {7.1.5}\textcolor {Chapter }{IsRootedCover (for IsManiplex, IsManiplex, IsInt, IsInt)}}{44}{subsection.7.1.5}%
-\contentsline {subsection}{\numberline {7.1.6}\textcolor {Chapter }{IsRootedCover (for IsManiplex, IsManiplex)}}{44}{subsection.7.1.6}%
-\contentsline {subsection}{\numberline {7.1.7}\textcolor {Chapter }{IsIsomorphicManiplex (for IsManiplex, IsManiplex)}}{45}{subsection.7.1.7}%
-\contentsline {subsection}{\numberline {7.1.8}\textcolor {Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex, IsInt, IsInt)}}{45}{subsection.7.1.8}%
-\contentsline {subsection}{\numberline {7.1.9}\textcolor {Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex)}}{45}{subsection.7.1.9}%
-\contentsline {subsection}{\numberline {7.1.10}\textcolor {Chapter }{SmallestReflexibleCover (for IsManiplex)}}{45}{subsection.7.1.10}%
-\contentsline {subsection}{\numberline {7.1.11}\textcolor {Chapter }{QuotientManiplex (for IsReflexibleManiplex, IsString)}}{46}{subsection.7.1.11}%
-\contentsline {subsection}{\numberline {7.1.12}\textcolor {Chapter }{ReflexibleQuotientManiplex (for IsManiplex, IsList)}}{46}{subsection.7.1.12}%
-\contentsline {subsection}{\numberline {7.1.13}\textcolor {Chapter }{QuotientSggi (for IsGroup, IsList)}}{46}{subsection.7.1.13}%
-\contentsline {subsection}{\numberline {7.1.14}\textcolor {Chapter }{QuotientSggiByNormalSubgroup (for IsGroup,IsGroup)}}{47}{subsection.7.1.14}%
-\contentsline {subsection}{\numberline {7.1.15}\textcolor {Chapter }{QuotientManiplexByAutomorphismSubgroup (for IsManiplex,IsPermGroup)}}{47}{subsection.7.1.15}%
-\contentsline {chapter}{\numberline {8}\textcolor {Chapter }{Posets}}{48}{chapter.8}%
-\contentsline {section}{\numberline {8.1}\textcolor {Chapter }{Poset constructors}}{48}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}\textcolor {Chapter }{PosetFromFaceListOfFlags (for IsList)}}{48}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}\textcolor {Chapter }{PosetFromConnectionGroup (for IsPermGroup)}}{49}{subsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.1.3}\textcolor {Chapter }{PosetFromManiplex (for IsManiplex)}}{49}{subsection.8.1.3}%
-\contentsline {subsection}{\numberline {8.1.4}\textcolor {Chapter }{PosetFromPartialOrder (for IsBinaryRelation)}}{49}{subsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.1.5}\textcolor {Chapter }{PosetFromAtomicList (for IsList)}}{50}{subsection.8.1.5}%
-\contentsline {subsection}{\numberline {8.1.6}\textcolor {Chapter }{PosetFromElements (for IsList,IsFunction)}}{50}{subsection.8.1.6}%
-\contentsline {subsection}{\numberline {8.1.7}\textcolor {Chapter }{PosetFromSuccessorList (for IsList)}}{51}{subsection.8.1.7}%
-\contentsline {subsection}{\numberline {8.1.8}\textcolor {Chapter }{Helper functions for special partial orders}}{51}{subsection.8.1.8}%
-\contentsline {subsection}{\numberline {8.1.9}\textcolor {Chapter }{DualPoset (for IsPoset)}}{51}{subsection.8.1.9}%
-\contentsline {subsection}{\numberline {8.1.10}\textcolor {Chapter }{Section (for IsFace, IsFace, IsPoset)}}{52}{subsection.8.1.10}%
-\contentsline {subsection}{\numberline {8.1.11}\textcolor {Chapter }{Cleaving polytopes}}{52}{subsection.8.1.11}%
-\contentsline {section}{\numberline {8.2}\textcolor {Chapter }{Poset attributes}}{52}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}\textcolor {Chapter }{MaximalChains (for IsPoset)}}{52}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}\textcolor {Chapter }{RankPoset (for IsPoset)}}{53}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}\textcolor {Chapter }{ElementsList (for IsPoset)}}{53}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}\textcolor {Chapter }{OrderingFunction (for IsPoset)}}{53}{subsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.2.5}\textcolor {Chapter }{IsFlaggable (for IsPoset)}}{53}{subsection.8.2.5}%
-\contentsline {subsection}{\numberline {8.2.6}\textcolor {Chapter }{IsAtomic (for IsPoset)}}{54}{subsection.8.2.6}%
-\contentsline {subsection}{\numberline {8.2.7}\textcolor {Chapter }{PartialOrder (for IsPoset)}}{54}{subsection.8.2.7}%
-\contentsline {subsection}{\numberline {8.2.8}\textcolor {Chapter }{Lattices}}{54}{subsection.8.2.8}%
-\contentsline {subsection}{\numberline {8.2.9}\textcolor {Chapter }{ListIsP1Poset (for IsList)}}{55}{subsection.8.2.9}%
-\contentsline {subsection}{\numberline {8.2.10}\textcolor {Chapter }{IsP1 (for IsPoset)}}{55}{subsection.8.2.10}%
-\contentsline {subsection}{\numberline {8.2.11}\textcolor {Chapter }{IsP2 (for IsPoset)}}{55}{subsection.8.2.11}%
-\contentsline {subsection}{\numberline {8.2.12}\textcolor {Chapter }{IsP3 (for IsPoset)}}{55}{subsection.8.2.12}%
-\contentsline {subsection}{\numberline {8.2.13}\textcolor {Chapter }{IsFlagConnected (for IsPoset)}}{56}{subsection.8.2.13}%
-\contentsline {subsection}{\numberline {8.2.14}\textcolor {Chapter }{IsP4 (for IsPoset)}}{56}{subsection.8.2.14}%
-\contentsline {subsection}{\numberline {8.2.15}\textcolor {Chapter }{IsPolytope (for IsPoset)}}{56}{subsection.8.2.15}%
-\contentsline {subsection}{\numberline {8.2.16}\textcolor {Chapter }{IsPrePolytope (for IsPoset)}}{56}{subsection.8.2.16}%
-\contentsline {subsection}{\numberline {8.2.17}\textcolor {Chapter }{IsSelfDual (for IsPoset)}}{56}{subsection.8.2.17}%
-\contentsline {section}{\numberline {8.3}\textcolor {Chapter }{Working with posets}}{57}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}\textcolor {Chapter }{IsIsomorphicPoset (for IsPoset,IsPoset)}}{57}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}\textcolor {Chapter }{PosetIsomorphism (for IsPoset,IsPoset)}}{57}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}\textcolor {Chapter }{FlagsAsFlagListFaces (for IsPoset)}}{57}{subsection.8.3.3}%
-\contentsline {subsection}{\numberline {8.3.4}\textcolor {Chapter }{RankedFaceListOfPoset (for IsPoset)}}{57}{subsection.8.3.4}%
-\contentsline {subsection}{\numberline {8.3.5}\textcolor {Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}{58}{subsection.8.3.5}%
-\contentsline {subsection}{\numberline {8.3.6}\textcolor {Chapter }{AdjacentFlags (for IsPoset,IsList,IsInt)}}{58}{subsection.8.3.6}%
-\contentsline {subsection}{\numberline {8.3.7}\textcolor {Chapter }{EqualChains (for IsList,IsList)}}{58}{subsection.8.3.7}%
-\contentsline {subsection}{\numberline {8.3.8}\textcolor {Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}{58}{subsection.8.3.8}%
-\contentsline {subsection}{\numberline {8.3.9}\textcolor {Chapter }{ConnectionGroup (for IsPoset)}}{58}{subsection.8.3.9}%
-\contentsline {subsection}{\numberline {8.3.10}\textcolor {Chapter }{AutomorphismGroup (for IsPoset)}}{58}{subsection.8.3.10}%
-\contentsline {subsection}{\numberline {8.3.11}\textcolor {Chapter }{AutomorphismGroupOnElements (for IsPoset)}}{58}{subsection.8.3.11}%
-\contentsline {subsection}{\numberline {8.3.12}\textcolor {Chapter }{AutomorphismGroupOnChains (for IsPoset, IsCollection)}}{59}{subsection.8.3.12}%
-\contentsline {subsection}{\numberline {8.3.13}\textcolor {Chapter }{AutomorphismGroupOnIFaces (for IsPoset, IsInt)}}{59}{subsection.8.3.13}%
-\contentsline {subsection}{\numberline {8.3.14}\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsPoset)}}{59}{subsection.8.3.14}%
-\contentsline {subsection}{\numberline {8.3.15}\textcolor {Chapter }{AutomorphismGroupOnEdges (for IsPoset)}}{59}{subsection.8.3.15}%
-\contentsline {subsection}{\numberline {8.3.16}\textcolor {Chapter }{AutomorphismGroupOnVertices (for IsPoset)}}{59}{subsection.8.3.16}%
-\contentsline {subsection}{\numberline {8.3.17}\textcolor {Chapter }{FaceListOfPoset (for IsPoset)}}{59}{subsection.8.3.17}%
-\contentsline {subsection}{\numberline {8.3.18}\textcolor {Chapter }{RankPosetElements (for IsPoset)}}{59}{subsection.8.3.18}%
-\contentsline {subsection}{\numberline {8.3.19}\textcolor {Chapter }{FacesByRankOfPoset (for IsPoset)}}{60}{subsection.8.3.19}%
-\contentsline {subsection}{\numberline {8.3.20}\textcolor {Chapter }{HasseDiagramOfPoset (for IsPoset)}}{60}{subsection.8.3.20}%
-\contentsline {subsection}{\numberline {8.3.21}\textcolor {Chapter }{AsPosetOfAtoms (for IsPoset)}}{60}{subsection.8.3.21}%
-\contentsline {subsection}{\numberline {8.3.22}\textcolor {Chapter }{Max/min faces}}{60}{subsection.8.3.22}%
-\contentsline {section}{\numberline {8.4}\textcolor {Chapter }{Element constructors}}{60}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}\textcolor {Chapter }{PosetElementWithOrder (for IsObject,IsFunction)}}{60}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}\textcolor {Chapter }{PosetElementFromListOfFlags (for IsList,IsPoset,IsInt)}}{60}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}\textcolor {Chapter }{PosetElementFromAtomList (for IsList)}}{61}{subsection.8.4.3}%
-\contentsline {subsection}{\numberline {8.4.4}\textcolor {Chapter }{PosetElementFromIndex (for IsObject)}}{61}{subsection.8.4.4}%
-\contentsline {subsection}{\numberline {8.4.5}\textcolor {Chapter }{PosetElementWithPartialOrder (for IsObject, IsBinaryRelation)}}{61}{subsection.8.4.5}%
-\contentsline {subsection}{\numberline {8.4.6}\textcolor {Chapter }{RanksInPosets (for IsPosetElement)}}{61}{subsection.8.4.6}%
-\contentsline {subsection}{\numberline {8.4.7}\textcolor {Chapter }{AddRanksInPosets (for IsPosetElement,IsPoset,IsInt)}}{61}{subsection.8.4.7}%
-\contentsline {subsection}{\numberline {8.4.8}\textcolor {Chapter }{FlagList (for IsPosetElement)}}{61}{subsection.8.4.8}%
-\contentsline {subsection}{\numberline {8.4.9}\textcolor {Chapter }{AtomList (for IsPosetElement)}}{61}{subsection.8.4.9}%
-\contentsline {section}{\numberline {8.5}\textcolor {Chapter }{Element operations}}{62}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}\textcolor {Chapter }{RankInPoset (for IsPosetElement,IsPoset)}}{62}{subsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.5.2}\textcolor {Chapter }{IsSubface (for IsFace,IsFace,IsPoset)}}{62}{subsection.8.5.2}%
-\contentsline {subsection}{\numberline {8.5.3}\textcolor {Chapter }{IsEqualFaces (for IsFace, IsFace, IsPoset)}}{62}{subsection.8.5.3}%
-\contentsline {subsection}{\numberline {8.5.4}\textcolor {Chapter }{AreIncidentElements (for IsObject,IsObject)}}{62}{subsection.8.5.4}%
-\contentsline {subsection}{\numberline {8.5.5}\textcolor {Chapter }{Meet (for IsFace, IsFace, IsPoset)}}{62}{subsection.8.5.5}%
-\contentsline {subsection}{\numberline {8.5.6}\textcolor {Chapter }{Join (for IsFace, IsFace, IsPoset)}}{62}{subsection.8.5.6}%
-\contentsline {section}{\numberline {8.6}\textcolor {Chapter }{Product operations}}{63}{section.8.6}%
-\contentsline {subsection}{\numberline {8.6.1}\textcolor {Chapter }{JoinProduct (for IsPoset,IsPoset)}}{63}{subsection.8.6.1}%
-\contentsline {subsection}{\numberline {8.6.2}\textcolor {Chapter }{CartesianProduct (for IsPoset,IsPoset)}}{63}{subsection.8.6.2}%
-\contentsline {subsection}{\numberline {8.6.3}\textcolor {Chapter }{DirectSumOfPosets (for IsPoset,IsPoset)}}{63}{subsection.8.6.3}%
-\contentsline {subsection}{\numberline {8.6.4}\textcolor {Chapter }{TopologicalProduct (for IsPoset,IsPoset)}}{64}{subsection.8.6.4}%
-\contentsline {subsection}{\numberline {8.6.5}\textcolor {Chapter }{Antiprism (for IsPoset)}}{64}{subsection.8.6.5}%
-\contentsline {chapter}{\numberline {9}\textcolor {Chapter }{Polytope Constructions and Operations}}{65}{chapter.9}%
-\contentsline {section}{\numberline {9.1}\textcolor {Chapter }{Extensions, amalgamations, and quotients}}{65}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}\textcolor {Chapter }{UniversalPolytope (for IsInt)}}{65}{subsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}\textcolor {Chapter }{UniversalExtension (for IsManiplex)}}{65}{subsection.9.1.2}%
-\contentsline {subsection}{\numberline {9.1.3}\textcolor {Chapter }{UniversalExtension (for IsManiplex, IsInt)}}{65}{subsection.9.1.3}%
-\contentsline {subsection}{\numberline {9.1.4}\textcolor {Chapter }{TrivialExtension (for IsManiplex)}}{66}{subsection.9.1.4}%
-\contentsline {subsection}{\numberline {9.1.5}\textcolor {Chapter }{FlatExtension (for IsManiplex, IsInt)}}{66}{subsection.9.1.5}%
-\contentsline {subsection}{\numberline {9.1.6}\textcolor {Chapter }{Amalgamate (for IsManiplex, IsManiplex)}}{66}{subsection.9.1.6}%
-\contentsline {subsection}{\numberline {9.1.7}\textcolor {Chapter }{Medial (for IsManiplex)}}{66}{subsection.9.1.7}%
-\contentsline {section}{\numberline {9.2}\textcolor {Chapter }{Duality}}{66}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}\textcolor {Chapter }{Dual (for IsManiplex)}}{66}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}\textcolor {Chapter }{IsSelfDual (for IsManiplex)}}{67}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}\textcolor {Chapter }{IsInternallySelfDual (for IsManiplex)}}{67}{subsection.9.2.3}%
-\contentsline {subsection}{\numberline {9.2.4}\textcolor {Chapter }{IsExternallySelfDual (for IsManiplex)}}{67}{subsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.2.5}\textcolor {Chapter }{IsProperlySelfDual (for IsManiplex)}}{68}{subsection.9.2.5}%
-\contentsline {subsection}{\numberline {9.2.6}\textcolor {Chapter }{Petrie Dual}}{68}{subsection.9.2.6}%
-\contentsline {subsection}{\numberline {9.2.7}\textcolor {Chapter }{IsSelfPetrial (for IsManiplex)}}{68}{subsection.9.2.7}%
-\contentsline {subsection}{\numberline {9.2.8}\textcolor {Chapter }{DirectDerivates (for IsManiplex)}}{69}{subsection.9.2.8}%
-\contentsline {section}{\numberline {9.3}\textcolor {Chapter }{Products}}{69}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}\textcolor {Chapter }{Pyramids}}{69}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}\textcolor {Chapter }{Prisms}}{69}{subsection.9.3.2}%
-\contentsline {subsection}{\numberline {9.3.3}\textcolor {Chapter }{Antiprisms}}{70}{subsection.9.3.3}%
-\contentsline {subsection}{\numberline {9.3.4}\textcolor {Chapter }{JoinProduct (for IsManiplex, IsManiplex)}}{70}{subsection.9.3.4}%
-\contentsline {subsection}{\numberline {9.3.5}\textcolor {Chapter }{CartesianProduct (for IsManiplex, IsManiplex)}}{70}{subsection.9.3.5}%
-\contentsline {subsection}{\numberline {9.3.6}\textcolor {Chapter }{DirectSumOfManiplexes (for IsManiplex, IsManiplex)}}{70}{subsection.9.3.6}%
-\contentsline {subsection}{\numberline {9.3.7}\textcolor {Chapter }{TopologicalProduct (for IsManiplex, IsManiplex)}}{70}{subsection.9.3.7}%
-\contentsline {chapter}{\numberline {10}\textcolor {Chapter }{Combinatorics and Structure}}{72}{chapter.10}%
-\contentsline {section}{\numberline {10.1}\textcolor {Chapter }{Faces}}{72}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}\textcolor {Chapter }{NumberOfIFaces (for IsManiplex, IsInt)}}{72}{subsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.1.2}\textcolor {Chapter }{NumberOfVertices (for IsManiplex)}}{72}{subsection.10.1.2}%
-\contentsline {subsection}{\numberline {10.1.3}\textcolor {Chapter }{NumberOfEdges (for IsManiplex)}}{72}{subsection.10.1.3}%
-\contentsline {subsection}{\numberline {10.1.4}\textcolor {Chapter }{NumberOfFacets (for IsManiplex)}}{72}{subsection.10.1.4}%
-\contentsline {subsection}{\numberline {10.1.5}\textcolor {Chapter }{NumberOfRidges (for IsManiplex)}}{73}{subsection.10.1.5}%
-\contentsline {subsection}{\numberline {10.1.6}\textcolor {Chapter }{Fvector (for IsManiplex)}}{73}{subsection.10.1.6}%
-\contentsline {subsection}{\numberline {10.1.7}\textcolor {Chapter }{Section(s)}}{73}{subsection.10.1.7}%
-\contentsline {subsection}{\numberline {10.1.8}\textcolor {Chapter }{Facet(s)}}{73}{subsection.10.1.8}%
-\contentsline {subsection}{\numberline {10.1.9}\textcolor {Chapter }{Vertex Figure(s)}}{74}{subsection.10.1.9}%
-\contentsline {section}{\numberline {10.2}\textcolor {Chapter }{Flatness}}{74}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}\textcolor {Chapter }{Flatness}}{74}{subsection.10.2.1}%
-\contentsline {section}{\numberline {10.3}\textcolor {Chapter }{Schlafli symbol}}{75}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}\textcolor {Chapter }{SchlafliSymbol (for IsManiplex)}}{75}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}\textcolor {Chapter }{PseudoSchlafliSymbol (for IsManiplex)}}{75}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}\textcolor {Chapter }{IsEquivelar (for IsManiplex)}}{75}{subsection.10.3.3}%
-\contentsline {subsection}{\numberline {10.3.4}\textcolor {Chapter }{IsDegenerate (for IsManiplex)}}{75}{subsection.10.3.4}%
-\contentsline {subsection}{\numberline {10.3.5}\textcolor {Chapter }{IsTight (for IsManiplex)}}{76}{subsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.3.6}\textcolor {Chapter }{EulerCharacteristic (for IsManiplex)}}{76}{subsection.10.3.6}%
-\contentsline {subsection}{\numberline {10.3.7}\textcolor {Chapter }{Genus (for IsManiplex)}}{76}{subsection.10.3.7}%
-\contentsline {subsection}{\numberline {10.3.8}\textcolor {Chapter }{IsSpherical (for IsManiplex)}}{76}{subsection.10.3.8}%
-\contentsline {subsection}{\numberline {10.3.9}\textcolor {Chapter }{IsLocallySpherical (for IsManiplex)}}{77}{subsection.10.3.9}%
-\contentsline {subsection}{\numberline {10.3.10}\textcolor {Chapter }{IsToroidal (for IsManiplex)}}{77}{subsection.10.3.10}%
-\contentsline {subsection}{\numberline {10.3.11}\textcolor {Chapter }{IsLocallyToroidal (for IsManiplex)}}{77}{subsection.10.3.11}%
-\contentsline {section}{\numberline {10.4}\textcolor {Chapter }{Basics}}{77}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}\textcolor {Chapter }{Size (for IsManiplex)}}{77}{subsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.4.2}\textcolor {Chapter }{RankManiplex (for IsManiplex)}}{78}{subsection.10.4.2}%
-\contentsline {section}{\numberline {10.5}\textcolor {Chapter }{Zigzags and holes}}{78}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}\textcolor {Chapter }{ZigzagLength (for IsManiplex, IsInt)}}{78}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}\textcolor {Chapter }{ZigzagVector (for IsManiplex)}}{78}{subsection.10.5.2}%
-\contentsline {subsection}{\numberline {10.5.3}\textcolor {Chapter }{PetrieLength (for IsManiplex)}}{78}{subsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.5.4}\textcolor {Chapter }{PetrieRelation (for IsInt, IsInt)}}{78}{subsection.10.5.4}%
-\contentsline {subsection}{\numberline {10.5.5}\textcolor {Chapter }{HoleLength (for IsManiplex, IsInt)}}{79}{subsection.10.5.5}%
-\contentsline {subsection}{\numberline {10.5.6}\textcolor {Chapter }{HoleVector (for IsManiplex)}}{79}{subsection.10.5.6}%
-\contentsline {chapter}{\numberline {11}\textcolor {Chapter }{Graphs for Maniplexes}}{80}{chapter.11}%
-\contentsline {section}{\numberline {11.1}\textcolor {Chapter }{Graph families}}{80}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}\textcolor {Chapter }{HeawoodGraph}}{80}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}\textcolor {Chapter }{PetersenGraph}}{80}{subsection.11.1.2}%
-\contentsline {subsection}{\numberline {11.1.3}\textcolor {Chapter }{CirculantGraph (for IsInt,IsList)}}{80}{subsection.11.1.3}%
-\contentsline {subsection}{\numberline {11.1.4}\textcolor {Chapter }{CompleteBipartiteGraph (for IsInt,IsInt)}}{80}{subsection.11.1.4}%
-\contentsline {section}{\numberline {11.2}\textcolor {Chapter }{Graph constructors for maniplexes}}{80}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}\textcolor {Chapter }{DirectedGraphFromListOfEdges (for IsList,IsList)}}{80}{subsection.11.2.1}%
-\contentsline {subsection}{\numberline {11.2.2}\textcolor {Chapter }{GraphFromListOfEdges (for IsList,IsList)}}{81}{subsection.11.2.2}%
-\contentsline {subsection}{\numberline {11.2.3}\textcolor {Chapter }{UnlabeledFlagGraph (for IsGroup)}}{81}{subsection.11.2.3}%
-\contentsline {subsection}{\numberline {11.2.4}\textcolor {Chapter }{FlagGraphWithLabels (for IsGroup)}}{82}{subsection.11.2.4}%
-\contentsline {subsection}{\numberline {11.2.5}\textcolor {Chapter }{LayerGraph (for IsGroup, IsInt, IsInt)}}{83}{subsection.11.2.5}%
-\contentsline {subsection}{\numberline {11.2.6}\textcolor {Chapter }{Skeleton (for IsManiplex)}}{83}{subsection.11.2.6}%
-\contentsline {subsection}{\numberline {11.2.7}\textcolor {Chapter }{CoSkeleton (for IsManiplex)}}{84}{subsection.11.2.7}%
-\contentsline {subsection}{\numberline {11.2.8}\textcolor {Chapter }{Hasse (for IsManiplex)}}{84}{subsection.11.2.8}%
-\contentsline {subsection}{\numberline {11.2.9}\textcolor {Chapter }{QuotientByLabel (for IsObject,IsList, IsList, IsList)}}{84}{subsection.11.2.9}%
-\contentsline {subsection}{\numberline {11.2.10}\textcolor {Chapter }{EdgeLabeledGraphFromEdges (for IsList, IsList,IsList)}}{85}{subsection.11.2.10}%
-\contentsline {subsection}{\numberline {11.2.11}\textcolor {Chapter }{EdgeLabeledGraphFromLabeledEdges (for IsList)}}{85}{subsection.11.2.11}%
-\contentsline {subsection}{\numberline {11.2.12}\textcolor {Chapter }{FlagGraph (for IsGroup)}}{85}{subsection.11.2.12}%
-\contentsline {subsection}{\numberline {11.2.13}\textcolor {Chapter }{UnlabeledSimpleGraph (for IsEdgeLabeledGraph)}}{86}{subsection.11.2.13}%
-\contentsline {subsection}{\numberline {11.2.14}\textcolor {Chapter }{EdgeLabelPreservingAutomorphismGroup (for IsEdgeLabeledGraph)}}{86}{subsection.11.2.14}%
-\contentsline {subsection}{\numberline {11.2.15}\textcolor {Chapter }{Simple (for IsEdgeLabeledGraph)}}{86}{subsection.11.2.15}%
-\contentsline {subsection}{\numberline {11.2.16}\textcolor {Chapter }{ConnectedComponents (for IsEdgeLabeledGraph, IsList)}}{86}{subsection.11.2.16}%
-\contentsline {subsection}{\numberline {11.2.17}\textcolor {Chapter }{PRGraph (for IsGroup)}}{86}{subsection.11.2.17}%
-\contentsline {subsection}{\numberline {11.2.18}\textcolor {Chapter }{CPRGraphFromGroups (for IsGroup,IsGroup)}}{87}{subsection.11.2.18}%
-\contentsline {subsection}{\numberline {11.2.19}\textcolor {Chapter }{AdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}{87}{subsection.11.2.19}%
-\contentsline {subsection}{\numberline {11.2.20}\textcolor {Chapter }{LabeledAdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}{87}{subsection.11.2.20}%
-\contentsline {subsection}{\numberline {11.2.21}\textcolor {Chapter }{SemiEdges (for IsEdgeLabeledGraph)}}{87}{subsection.11.2.21}%
-\contentsline {subsection}{\numberline {11.2.22}\textcolor {Chapter }{LabeledSemiEdges (for IsEdgeLabeledGraph)}}{87}{subsection.11.2.22}%
-\contentsline {subsection}{\numberline {11.2.23}\textcolor {Chapter }{LabeledDarts (for IsEdgeLabeledGraph)}}{87}{subsection.11.2.23}%
-\contentsline {subsection}{\numberline {11.2.24}\textcolor {Chapter }{DerivedGraph (for IsList,IsList,IsList)}}{88}{subsection.11.2.24}%
-\contentsline {subsection}{\numberline {11.2.25}\textcolor {Chapter }{ViewGraph (for IsObject, IsString)}}{88}{subsection.11.2.25}%
-\contentsline {subsection}{\numberline {11.2.26}\textcolor {Chapter }{ConnectionGroup (for IsEdgeLabeledGraph)}}{88}{subsection.11.2.26}%
-\contentsline {chapter}{\numberline {12}\textcolor {Chapter }{Databases}}{89}{chapter.12}%
-\contentsline {section}{\numberline {12.1}\textcolor {Chapter }{Regular polyhedra}}{89}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}\textcolor {Chapter }{WriteManiplexesToFile}}{89}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}\textcolor {Chapter }{ManiplexesFromFile}}{89}{subsection.12.1.2}%
-\contentsline {subsection}{\numberline {12.1.3}\textcolor {Chapter }{DegeneratePolyhedra}}{89}{subsection.12.1.3}%
-\contentsline {subsection}{\numberline {12.1.4}\textcolor {Chapter }{FlatRegularPolyhedra}}{90}{subsection.12.1.4}%
-\contentsline {subsection}{\numberline {12.1.5}\textcolor {Chapter }{RegularToroidalPolyhedra44}}{90}{subsection.12.1.5}%
-\contentsline {subsection}{\numberline {12.1.6}\textcolor {Chapter }{RegularToroidalPolyhedra36}}{90}{subsection.12.1.6}%
-\contentsline {subsection}{\numberline {12.1.7}\textcolor {Chapter }{SmallRegularPolyhedraFromFile}}{91}{subsection.12.1.7}%
-\contentsline {subsection}{\numberline {12.1.8}\textcolor {Chapter }{SmallRegularPolyhedra}}{91}{subsection.12.1.8}%
-\contentsline {subsection}{\numberline {12.1.9}\textcolor {Chapter }{SmallDegenerateRegular4Polytopes}}{91}{subsection.12.1.9}%
-\contentsline {subsection}{\numberline {12.1.10}\textcolor {Chapter }{SmallRegular4Polytopes}}{91}{subsection.12.1.10}%
-\contentsline {subsection}{\numberline {12.1.11}\textcolor {Chapter }{SmallChiralPolyhedra}}{92}{subsection.12.1.11}%
-\contentsline {subsection}{\numberline {12.1.12}\textcolor {Chapter }{SmallChiral4Polytopes}}{92}{subsection.12.1.12}%
-\contentsline {subsection}{\numberline {12.1.13}\textcolor {Chapter }{SmallReflexible3Maniplexes}}{92}{subsection.12.1.13}%
-\contentsline {subsection}{\numberline {12.1.14}\textcolor {Chapter }{SmallReflexibleManiplexes}}{92}{subsection.12.1.14}%
-\contentsline {subsection}{\numberline {12.1.15}\textcolor {Chapter }{SmallTwoOrbit3Maniplexes}}{93}{subsection.12.1.15}%
-\contentsline {section}{\numberline {12.2}\textcolor {Chapter }{System internal representations}}{93}{section.12.2}%
-\contentsline {subsection}{\numberline {12.2.1}\textcolor {Chapter }{DatabaseString (for IsManiplex)}}{93}{subsection.12.2.1}%
-\contentsline {subsection}{\numberline {12.2.2}\textcolor {Chapter }{ManiplexFromDatabaseString (for IsString)}}{93}{subsection.12.2.2}%
-\contentsline {subsection}{\numberline {12.2.3}\textcolor {Chapter }{InterpolatedString (for IsString)}}{93}{subsection.12.2.3}%
-\contentsline {chapter}{\numberline {13}\textcolor {Chapter }{Stratified Operations}}{95}{chapter.13}%
-\contentsline {section}{\numberline {13.1}\textcolor {Chapter }{Computational tools}}{95}{section.13.1}%
-\contentsline {subsection}{\numberline {13.1.1}\textcolor {Chapter }{ChunkMultiply (for IsList,IsList)}}{95}{subsection.13.1.1}%
-\contentsline {subsection}{\numberline {13.1.2}\textcolor {Chapter }{ChunkPower (for IsList,IsInt)}}{95}{subsection.13.1.2}%
-\contentsline {subsection}{\numberline {13.1.3}\textcolor {Chapter }{ChunkGeneratedGroupElements (for IsList, IsGroup)}}{95}{subsection.13.1.3}%
-\contentsline {subsection}{\numberline {13.1.4}\textcolor {Chapter }{ChunkGeneratedGroup (for IsList, IsPermGroup)}}{96}{subsection.13.1.4}%
-\contentsline {subsection}{\numberline {13.1.5}\textcolor {Chapter }{FullyStratifiedGroup (for IsList, IsGroup)}}{96}{subsection.13.1.5}%
-\contentsline {chapter}{\numberline {14}\textcolor {Chapter }{Maps On Surfaces}}{98}{chapter.14}%
-\contentsline {section}{\numberline {14.1}\textcolor {Chapter }{Bicontactual regular maps}}{98}{section.14.1}%
-\contentsline {subsection}{\numberline {14.1.1}\textcolor {Chapter }{Epsilonk (for IsInt)}}{98}{subsection.14.1.1}%
-\contentsline {subsection}{\numberline {14.1.2}\textcolor {Chapter }{Deltak (for IsInt)}}{98}{subsection.14.1.2}%
-\contentsline {subsection}{\numberline {14.1.3}\textcolor {Chapter }{Mk (for IsInt)}}{98}{subsection.14.1.3}%
-\contentsline {subsection}{\numberline {14.1.4}\textcolor {Chapter }{MkPrime (for IsInt)}}{99}{subsection.14.1.4}%
-\contentsline {subsection}{\numberline {14.1.5}\textcolor {Chapter }{Bk2l (for IsInt,IsInt)}}{99}{subsection.14.1.5}%
-\contentsline {subsection}{\numberline {14.1.6}\textcolor {Chapter }{Bk2lStar (for IsInt,IsInt)}}{99}{subsection.14.1.6}%
-\contentsline {section}{\numberline {14.2}\textcolor {Chapter }{Operations on reflexible maps}}{99}{section.14.2}%
-\contentsline {subsection}{\numberline {14.2.1}\textcolor {Chapter }{Opp (for IsMapOnSurface)}}{99}{subsection.14.2.1}%
-\contentsline {subsection}{\numberline {14.2.2}\textcolor {Chapter }{Hole (for IsMapOnSurface,IsInt)}}{100}{subsection.14.2.2}%
-\contentsline {section}{\numberline {14.3}\textcolor {Chapter }{Map properties}}{100}{section.14.3}%
-\contentsline {section}{\numberline {14.4}\textcolor {Chapter }{Operations on maps}}{100}{section.14.4}%
-\contentsline {subsection}{\numberline {14.4.1}\textcolor {Chapter }{Truncation (for IsMapOnSurface)}}{100}{subsection.14.4.1}%
-\contentsline {subsection}{\numberline {14.4.2}\textcolor {Chapter }{Snub (for IsMapOnSurface)}}{100}{subsection.14.4.2}%
-\contentsline {subsection}{\numberline {14.4.3}\textcolor {Chapter }{Chamfer (for IsMapOnSurface)}}{101}{subsection.14.4.3}%
-\contentsline {subsection}{\numberline {14.4.4}\textcolor {Chapter }{Subdivision1 (for IsMapOnSurface)}}{101}{subsection.14.4.4}%
-\contentsline {subsection}{\numberline {14.4.5}\textcolor {Chapter }{Subdivision2 (for IsMapOnSurface)}}{101}{subsection.14.4.5}%
-\contentsline {subsection}{\numberline {14.4.6}\textcolor {Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}{101}{subsection.14.4.6}%
-\contentsline {subsection}{\numberline {14.4.7}\textcolor {Chapter }{Leapfrog (for IsMapOnSurface)}}{102}{subsection.14.4.7}%
-\contentsline {subsection}{\numberline {14.4.8}\textcolor {Chapter }{CombinatorialMap (for IsMapOnSurface)}}{102}{subsection.14.4.8}%
-\contentsline {subsection}{\numberline {14.4.9}\textcolor {Chapter }{Angle (for IsMapOnSurface)}}{102}{subsection.14.4.9}%
-\contentsline {subsection}{\numberline {14.4.10}\textcolor {Chapter }{Gothic (for IsMapOnSurface)}}{102}{subsection.14.4.10}%
-\contentsline {section}{\numberline {14.5}\textcolor {Chapter }{Conway polyhedron operator notation}}{103}{section.14.5}%
-\contentsline {subsection}{\numberline {14.5.1}\textcolor {Chapter }{Reflection (for IsManiplex)}}{103}{subsection.14.5.1}%
-\contentsline {subsection}{\numberline {14.5.2}\textcolor {Chapter }{Kis (for IsMapOnSurface)}}{103}{subsection.14.5.2}%
-\contentsline {subsection}{\numberline {14.5.3}\textcolor {Chapter }{Needle (for IsMapOnSurface)}}{104}{subsection.14.5.3}%
-\contentsline {subsection}{\numberline {14.5.4}\textcolor {Chapter }{Zip (for IsMapOnSurface)}}{104}{subsection.14.5.4}%
-\contentsline {subsection}{\numberline {14.5.5}\textcolor {Chapter }{Ortho (for IsMapOnSurface)}}{104}{subsection.14.5.5}%
-\contentsline {subsection}{\numberline {14.5.6}\textcolor {Chapter }{Expand (for IsMapOnSurface)}}{104}{subsection.14.5.6}%
-\contentsline {subsection}{\numberline {14.5.7}\textcolor {Chapter }{Gyro (for IsMapOnSurface)}}{104}{subsection.14.5.7}%
-\contentsline {subsection}{\numberline {14.5.8}\textcolor {Chapter }{Meta (for IsMapOnSurface)}}{105}{subsection.14.5.8}%
-\contentsline {subsection}{\numberline {14.5.9}\textcolor {Chapter }{Bevel (for IsMapOnSurface)}}{105}{subsection.14.5.9}%
-\contentsline {section}{\numberline {14.6}\textcolor {Chapter }{Extended operations}}{105}{section.14.6}%
-\contentsline {subsection}{\numberline {14.6.1}\textcolor {Chapter }{Subdivide (for IsMapOnSurface)}}{105}{subsection.14.6.1}%
-\contentsline {subsection}{\numberline {14.6.2}\textcolor {Chapter }{Propeller (for IsMapOnSurface)}}{105}{subsection.14.6.2}%
-\contentsline {subsection}{\numberline {14.6.3}\textcolor {Chapter }{Loft (for IsMapOnSurface)}}{106}{subsection.14.6.3}%
-\contentsline {subsection}{\numberline {14.6.4}\textcolor {Chapter }{Quinto (for IsMapOnSurface)}}{106}{subsection.14.6.4}%
-\contentsline {subsection}{\numberline {14.6.5}\textcolor {Chapter }{JoinLace (for IsMapOnSurface)}}{106}{subsection.14.6.5}%
-\contentsline {subsection}{\numberline {14.6.6}\textcolor {Chapter }{Lace (for IsMapOnSurface)}}{106}{subsection.14.6.6}%
-\contentsline {subsection}{\numberline {14.6.7}\textcolor {Chapter }{Stake (for IsMapOnSurface)}}{106}{subsection.14.6.7}%
-\contentsline {subsection}{\numberline {14.6.8}\textcolor {Chapter }{Whirl (for IsMapOnSurface)}}{107}{subsection.14.6.8}%
-\contentsline {subsection}{\numberline {14.6.9}\textcolor {Chapter }{Volute (for IsMapOnSurface)}}{107}{subsection.14.6.9}%
-\contentsline {subsection}{\numberline {14.6.10}\textcolor {Chapter }{JoinKisKis (for IsMapOnSurface)}}{107}{subsection.14.6.10}%
-\contentsline {subsection}{\numberline {14.6.11}\textcolor {Chapter }{Cross (for IsMapOnSurface)}}{107}{subsection.14.6.11}%
-\contentsline {chapter}{\numberline {15}\textcolor {Chapter }{Utility Functions}}{108}{chapter.15}%
-\contentsline {section}{\numberline {15.1}\textcolor {Chapter }{System}}{108}{section.15.1}%
-\contentsline {subsection}{\numberline {15.1.1}\textcolor {Chapter }{InfoRamp}}{108}{subsection.15.1.1}%
-\contentsline {section}{\numberline {15.2}\textcolor {Chapter }{Polytopes}}{108}{section.15.2}%
-\contentsline {subsection}{\numberline {15.2.1}\textcolor {Chapter }{AbstractPolytope}}{108}{subsection.15.2.1}%
-\contentsline {subsection}{\numberline {15.2.2}\textcolor {Chapter }{AbstractRegularPolytope}}{108}{subsection.15.2.2}%
-\contentsline {subsection}{\numberline {15.2.3}\textcolor {Chapter }{AbstractRotaryPolytope}}{109}{subsection.15.2.3}%
-\contentsline {section}{\numberline {15.3}\textcolor {Chapter }{Permutations}}{109}{section.15.3}%
-\contentsline {subsection}{\numberline {15.3.1}\textcolor {Chapter }{TranslatePerm}}{109}{subsection.15.3.1}%
-\contentsline {subsection}{\numberline {15.3.2}\textcolor {Chapter }{MultPerm}}{109}{subsection.15.3.2}%
-\contentsline {subsection}{\numberline {15.3.3}\textcolor {Chapter }{InvolutionListList}}{109}{subsection.15.3.3}%
-\contentsline {subsection}{\numberline {15.3.4}\textcolor {Chapter }{PermFromRange (for IsPerm, IsPerm, IsPerm)}}{110}{subsection.15.3.4}%
-\contentsline {section}{\numberline {15.4}\textcolor {Chapter }{Words on relations}}{110}{section.15.4}%
-\contentsline {subsection}{\numberline {15.4.1}\textcolor {Chapter }{ParseStringCRels}}{110}{subsection.15.4.1}%
-\contentsline {subsection}{\numberline {15.4.2}\textcolor {Chapter }{ParseRotGpRels}}{110}{subsection.15.4.2}%
-\contentsline {subsection}{\numberline {15.4.3}\textcolor {Chapter }{StandardizeSggi}}{111}{subsection.15.4.3}%
-\contentsline {subsection}{\numberline {15.4.4}\textcolor {Chapter }{AddOrAppend}}{111}{subsection.15.4.4}%
-\contentsline {subsection}{\numberline {15.4.5}\textcolor {Chapter }{WrappedPosetOperation}}{112}{subsection.15.4.5}%
-\contentsline {subsection}{\numberline {15.4.6}\textcolor {Chapter }{MarkAsPolytopal (for IsManiplex)}}{112}{subsection.15.4.6}%
-\contentsline {chapter}{\numberline {16}\textcolor {Chapter }{Synonyms for Commands}}{113}{chapter.16}%
-\contentsline {chapter}{\numberline {17}\textcolor {Chapter }{Graphs for Premaniplexes}}{114}{chapter.17}%
-\contentsline {section}{\numberline {17.1}\textcolor {Chapter }{Constructors of Premaniplexes}}{114}{section.17.1}%
-\contentsline {subsection}{\numberline {17.1.1}\textcolor {Chapter }{Premaniplex (for IsGroup)}}{114}{subsection.17.1.1}%
-\contentsline {subsection}{\numberline {17.1.2}\textcolor {Chapter }{Premaniplex (for IsEdgeLabeledGraph)}}{114}{subsection.17.1.2}%
-\contentsline {subsection}{\numberline {17.1.3}\textcolor {Chapter }{ConnectionGroup (for IsPremaniplex)}}{114}{subsection.17.1.3}%
-\contentsline {subsection}{\numberline {17.1.4}\textcolor {Chapter }{STG1 (for IsInt)}}{115}{subsection.17.1.4}%
-\contentsline {subsection}{\numberline {17.1.5}\textcolor {Chapter }{STG2 (for IsInt,IsList)}}{115}{subsection.17.1.5}%
-\contentsline {subsection}{\numberline {17.1.6}\textcolor {Chapter }{STG3 (for IsInt,IsInt)}}{115}{subsection.17.1.6}%
-\contentsline {subsection}{\numberline {17.1.7}\textcolor {Chapter }{STG3 (for IsInt,IsInt,IsInt)}}{115}{subsection.17.1.7}%
-\contentsline {subsection}{\numberline {17.1.8}\textcolor {Chapter }{FlagGraph (for IsPremaniplex)}}{115}{subsection.17.1.8}%
-\contentsline {chapter}{\numberline {18}\textcolor {Chapter }{Voltage Graphs and Operations}}{116}{chapter.18}%
-\contentsline {section}{\numberline {18.1}\textcolor {Chapter }{Voltage Operator}}{116}{section.18.1}%
-\contentsline {subsection}{\numberline {18.1.1}\textcolor {Chapter }{VoltageOperator (for IsList, IsString,IsEdgeLabeledGraph)}}{116}{subsection.18.1.1}%
-\contentsline {subsection}{\numberline {18.1.2}\textcolor {Chapter }{VoltageOperator (for IsList, IsString,IsManiplex)}}{116}{subsection.18.1.2}%
-\contentsline {subsection}{\numberline {18.1.3}\textcolor {Chapter }{AdmissiblePerms (for IsInt, IsList)}}{117}{subsection.18.1.3}%
-\contentsline {subsection}{\numberline {18.1.4}\textcolor {Chapter }{WythoffSTG (for IsInt, IsList)}}{117}{subsection.18.1.4}%
-\contentsline {subsection}{\numberline {18.1.5}\textcolor {Chapter }{WythoffLabeledEdges (for IsInt, IsList)}}{117}{subsection.18.1.5}%
-\contentsline {subsection}{\numberline {18.1.6}\textcolor {Chapter }{WythoffVoltageOperator (for IsInt, IsList, IsManiplex)}}{117}{subsection.18.1.6}%
-\contentsline {chapter}{References}{119}{chapter*.4}%
-\contentsline {chapter}{Index}{120}{section*.5}%
+\contentsline {chapter}{\numberline {6}\textcolor {Chapter }{Maniplex Properties}}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}\textcolor {Chapter }{Automorphism group acting on faces and chains}}{35}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}\textcolor {Chapter }{AutomorphismGroupOnChains (for IsManiplex, IsCollection)}}{35}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}\textcolor {Chapter }{AutomorphismGroupOnIFaces (for IsManiplex, IsInt)}}{35}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}\textcolor {Chapter }{AutomorphismGroupOnVertices (for IsManiplex)}}{35}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}\textcolor {Chapter }{AutomorphismGroupOnEdges (for IsManiplex)}}{36}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}{36}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}\textcolor {Chapter }{Number of orbits and transitivity}}{36}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}\textcolor {Chapter }{NumberOfChainOrbits (for IsManiplex, IsCollection)}}{36}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}\textcolor {Chapter }{NumberOfIFaceOrbits (for IsManiplex, IsInt)}}{36}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}\textcolor {Chapter }{NumberOfVertexOrbits (for IsManiplex)}}{36}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}\textcolor {Chapter }{NumberOfEdgeOrbits (for IsManiplex)}}{37}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}\textcolor {Chapter }{NumberOfFacetOrbits (for IsManiplex)}}{37}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}\textcolor {Chapter }{IsChainTransitive (for IsManiplex, IsCollection)}}{37}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}\textcolor {Chapter }{IsIFaceTransitive (for IsManiplex, IsInt)}}{37}{subsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.2.8}\textcolor {Chapter }{IsVertexTransitive (for IsManiplex)}}{37}{subsection.6.2.8}%
+\contentsline {subsection}{\numberline {6.2.9}\textcolor {Chapter }{IsEdgeTransitive (for IsManiplex)}}{38}{subsection.6.2.9}%
+\contentsline {subsection}{\numberline {6.2.10}\textcolor {Chapter }{IsFacetTransitive (for IsManiplex)}}{38}{subsection.6.2.10}%
+\contentsline {subsection}{\numberline {6.2.11}\textcolor {Chapter }{IsFullyTransitive (for IsManiplex)}}{38}{subsection.6.2.11}%
+\contentsline {section}{\numberline {6.3}\textcolor {Chapter }{Flag orbits}}{38}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}\textcolor {Chapter }{Flags (for IsPremaniplex)}}{38}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}\textcolor {Chapter }{BaseFlag (for IsPremaniplex)}}{39}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}\textcolor {Chapter }{SymmetryTypeGraph (for IsPremaniplex)}}{39}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}\textcolor {Chapter }{NumberOfFlagOrbits (for IsPremaniplex)}}{39}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}\textcolor {Chapter }{FlagOrbitRepresentatives (for IsPremaniplex)}}{39}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}\textcolor {Chapter }{FlagOrbitsStabilizer (for IsPremaniplex)}}{40}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}\textcolor {Chapter }{IsReflexible (for IsPremaniplex)}}{40}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}\textcolor {Chapter }{IsChiral (for IsPremaniplex)}}{40}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}\textcolor {Chapter }{IsRotary (for IsPremaniplex)}}{40}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}\textcolor {Chapter }{FlagOrbits (for IsPremaniplex)}}{40}{subsection.6.3.10}%
+\contentsline {section}{\numberline {6.4}\textcolor {Chapter }{Orientability}}{41}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}\textcolor {Chapter }{IsOrientable (for IsManiplex)}}{41}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}\textcolor {Chapter }{IsIOrientable (for IsManiplex, IsList)}}{41}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}\textcolor {Chapter }{IsVertexBipartite (for IsManiplex)}}{41}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}\textcolor {Chapter }{IsFacetBipartite (for IsManiplex)}}{41}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}\textcolor {Chapter }{OrientableCover (for IsManiplex)}}{41}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}\textcolor {Chapter }{IOrientableCover (for IsManiplex, IsList)}}{42}{subsection.6.4.6}%
+\contentsline {section}{\numberline {6.5}\textcolor {Chapter }{Faithfulness}}{42}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}\textcolor {Chapter }{IsVertexFaithful (for IsManiplex)}}{42}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}\textcolor {Chapter }{IsFacetFaithful (for IsManiplex)}}{42}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}\textcolor {Chapter }{MaxVertexFaithfulQuotient (for IsManiplex)}}{42}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}\textcolor {Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}{43}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.5}\textcolor {Chapter }{IsFaithful (for IsManiplex)}}{43}{subsection.6.5.5}%
+\contentsline {chapter}{\numberline {7}\textcolor {Chapter }{Comparing maniplexes}}{44}{chapter.7}%
+\contentsline {section}{\numberline {7.1}\textcolor {Chapter }{Quotients and covers}}{44}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}\textcolor {Chapter }{IsQuotient}}{44}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}\textcolor {Chapter }{IsRootedQuotient (for IsManiplex, IsManiplex, IsInt, IsInt)}}{44}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}\textcolor {Chapter }{IsRootedQuotient (for IsManiplex, IsManiplex)}}{45}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}\textcolor {Chapter }{IsCover (for IsPremaniplex, IsPremaniplex)}}{45}{subsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.1.5}\textcolor {Chapter }{IsRootedCover (for IsManiplex, IsManiplex, IsInt, IsInt)}}{45}{subsection.7.1.5}%
+\contentsline {subsection}{\numberline {7.1.6}\textcolor {Chapter }{IsRootedCover (for IsManiplex, IsManiplex)}}{45}{subsection.7.1.6}%
+\contentsline {subsection}{\numberline {7.1.7}\textcolor {Chapter }{IsIsomorphicManiplex (for IsManiplex, IsManiplex)}}{46}{subsection.7.1.7}%
+\contentsline {subsection}{\numberline {7.1.8}\textcolor {Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex, IsInt, IsInt)}}{46}{subsection.7.1.8}%
+\contentsline {subsection}{\numberline {7.1.9}\textcolor {Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex)}}{46}{subsection.7.1.9}%
+\contentsline {subsection}{\numberline {7.1.10}\textcolor {Chapter }{SmallestReflexibleCover (for IsManiplex)}}{46}{subsection.7.1.10}%
+\contentsline {subsection}{\numberline {7.1.11}\textcolor {Chapter }{QuotientManiplex (for IsReflexibleManiplex, IsString)}}{47}{subsection.7.1.11}%
+\contentsline {subsection}{\numberline {7.1.12}\textcolor {Chapter }{ReflexibleQuotientManiplex (for IsManiplex, IsList)}}{47}{subsection.7.1.12}%
+\contentsline {subsection}{\numberline {7.1.13}\textcolor {Chapter }{QuotientSggi (for IsGroup, IsList)}}{47}{subsection.7.1.13}%
+\contentsline {subsection}{\numberline {7.1.14}\textcolor {Chapter }{QuotientSggiByNormalSubgroup (for IsGroup,IsGroup)}}{48}{subsection.7.1.14}%
+\contentsline {subsection}{\numberline {7.1.15}\textcolor {Chapter }{QuotientManiplexByAutomorphismSubgroup (for IsManiplex,IsPermGroup)}}{48}{subsection.7.1.15}%
+\contentsline {chapter}{\numberline {8}\textcolor {Chapter }{Posets}}{49}{chapter.8}%
+\contentsline {section}{\numberline {8.1}\textcolor {Chapter }{Poset constructors}}{49}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}\textcolor {Chapter }{PosetFromFaceListOfFlags (for IsList)}}{49}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}\textcolor {Chapter }{PosetFromConnectionGroup (for IsPermGroup)}}{50}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}\textcolor {Chapter }{PosetFromManiplex (for IsManiplex)}}{50}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}\textcolor {Chapter }{PosetFromPartialOrder (for IsBinaryRelation)}}{50}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}\textcolor {Chapter }{PosetFromAtomicList (for IsList)}}{51}{subsection.8.1.5}%
+\contentsline {subsection}{\numberline {8.1.6}\textcolor {Chapter }{PosetFromElements (for IsList,IsFunction)}}{51}{subsection.8.1.6}%
+\contentsline {subsection}{\numberline {8.1.7}\textcolor {Chapter }{PosetFromSuccessorList (for IsList)}}{52}{subsection.8.1.7}%
+\contentsline {subsection}{\numberline {8.1.8}\textcolor {Chapter }{Helper functions for special partial orders}}{52}{subsection.8.1.8}%
+\contentsline {subsection}{\numberline {8.1.9}\textcolor {Chapter }{DualPoset (for IsPoset)}}{52}{subsection.8.1.9}%
+\contentsline {subsection}{\numberline {8.1.10}\textcolor {Chapter }{Section (for IsFace, IsFace, IsPoset)}}{53}{subsection.8.1.10}%
+\contentsline {subsection}{\numberline {8.1.11}\textcolor {Chapter }{Cleaving polytopes}}{53}{subsection.8.1.11}%
+\contentsline {section}{\numberline {8.2}\textcolor {Chapter }{Poset attributes}}{53}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}\textcolor {Chapter }{MaximalChains (for IsPoset)}}{53}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}\textcolor {Chapter }{RankPoset (for IsPoset)}}{54}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}\textcolor {Chapter }{ElementsList (for IsPoset)}}{54}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}\textcolor {Chapter }{OrderingFunction (for IsPoset)}}{54}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}\textcolor {Chapter }{IsFlaggable (for IsPoset)}}{54}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}\textcolor {Chapter }{IsAtomic (for IsPoset)}}{55}{subsection.8.2.6}%
+\contentsline {subsection}{\numberline {8.2.7}\textcolor {Chapter }{PartialOrder (for IsPoset)}}{55}{subsection.8.2.7}%
+\contentsline {subsection}{\numberline {8.2.8}\textcolor {Chapter }{Lattices}}{55}{subsection.8.2.8}%
+\contentsline {subsection}{\numberline {8.2.9}\textcolor {Chapter }{ListIsP1Poset (for IsList)}}{56}{subsection.8.2.9}%
+\contentsline {subsection}{\numberline {8.2.10}\textcolor {Chapter }{IsP1 (for IsPoset)}}{56}{subsection.8.2.10}%
+\contentsline {subsection}{\numberline {8.2.11}\textcolor {Chapter }{IsP2 (for IsPoset)}}{56}{subsection.8.2.11}%
+\contentsline {subsection}{\numberline {8.2.12}\textcolor {Chapter }{IsP3 (for IsPoset)}}{56}{subsection.8.2.12}%
+\contentsline {subsection}{\numberline {8.2.13}\textcolor {Chapter }{IsFlagConnected (for IsPoset)}}{57}{subsection.8.2.13}%
+\contentsline {subsection}{\numberline {8.2.14}\textcolor {Chapter }{IsP4 (for IsPoset)}}{57}{subsection.8.2.14}%
+\contentsline {subsection}{\numberline {8.2.15}\textcolor {Chapter }{IsPolytope (for IsPoset)}}{57}{subsection.8.2.15}%
+\contentsline {subsection}{\numberline {8.2.16}\textcolor {Chapter }{IsPrePolytope (for IsPoset)}}{57}{subsection.8.2.16}%
+\contentsline {subsection}{\numberline {8.2.17}\textcolor {Chapter }{IsSelfDual (for IsPoset)}}{57}{subsection.8.2.17}%
+\contentsline {section}{\numberline {8.3}\textcolor {Chapter }{Working with posets}}{58}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}\textcolor {Chapter }{IsIsomorphicPoset (for IsPoset,IsPoset)}}{58}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}\textcolor {Chapter }{PosetIsomorphism (for IsPoset,IsPoset)}}{58}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}\textcolor {Chapter }{FlagsAsFlagListFaces (for IsPoset)}}{58}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.4}\textcolor {Chapter }{RankedFaceListOfPoset (for IsPoset)}}{58}{subsection.8.3.4}%
+\contentsline {subsection}{\numberline {8.3.5}\textcolor {Chapter }{AdjacentFlag (for IsPosetOfFlags,IsList,IsInt)}}{59}{subsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.3.6}\textcolor {Chapter }{AdjacentFlags (for IsPoset,IsList,IsInt)}}{59}{subsection.8.3.6}%
+\contentsline {subsection}{\numberline {8.3.7}\textcolor {Chapter }{EqualChains (for IsList,IsList)}}{59}{subsection.8.3.7}%
+\contentsline {subsection}{\numberline {8.3.8}\textcolor {Chapter }{ConnectionGeneratorOfPoset (for IsPoset,IsInt)}}{59}{subsection.8.3.8}%
+\contentsline {subsection}{\numberline {8.3.9}\textcolor {Chapter }{ConnectionGroup (for IsPoset)}}{59}{subsection.8.3.9}%
+\contentsline {subsection}{\numberline {8.3.10}\textcolor {Chapter }{AutomorphismGroup (for IsPoset)}}{59}{subsection.8.3.10}%
+\contentsline {subsection}{\numberline {8.3.11}\textcolor {Chapter }{AutomorphismGroupOnElements (for IsPoset)}}{59}{subsection.8.3.11}%
+\contentsline {subsection}{\numberline {8.3.12}\textcolor {Chapter }{AutomorphismGroupOnChains (for IsPoset, IsCollection)}}{60}{subsection.8.3.12}%
+\contentsline {subsection}{\numberline {8.3.13}\textcolor {Chapter }{AutomorphismGroupOnIFaces (for IsPoset, IsInt)}}{60}{subsection.8.3.13}%
+\contentsline {subsection}{\numberline {8.3.14}\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsPoset)}}{60}{subsection.8.3.14}%
+\contentsline {subsection}{\numberline {8.3.15}\textcolor {Chapter }{AutomorphismGroupOnEdges (for IsPoset)}}{60}{subsection.8.3.15}%
+\contentsline {subsection}{\numberline {8.3.16}\textcolor {Chapter }{AutomorphismGroupOnVertices (for IsPoset)}}{60}{subsection.8.3.16}%
+\contentsline {subsection}{\numberline {8.3.17}\textcolor {Chapter }{FaceListOfPoset (for IsPoset)}}{60}{subsection.8.3.17}%
+\contentsline {subsection}{\numberline {8.3.18}\textcolor {Chapter }{RankPosetElements (for IsPoset)}}{60}{subsection.8.3.18}%
+\contentsline {subsection}{\numberline {8.3.19}\textcolor {Chapter }{FacesByRankOfPoset (for IsPoset)}}{61}{subsection.8.3.19}%
+\contentsline {subsection}{\numberline {8.3.20}\textcolor {Chapter }{HasseDiagramOfPoset (for IsPoset)}}{61}{subsection.8.3.20}%
+\contentsline {subsection}{\numberline {8.3.21}\textcolor {Chapter }{AsPosetOfAtoms (for IsPoset)}}{61}{subsection.8.3.21}%
+\contentsline {subsection}{\numberline {8.3.22}\textcolor {Chapter }{Max/min faces}}{61}{subsection.8.3.22}%
+\contentsline {section}{\numberline {8.4}\textcolor {Chapter }{Element constructors}}{61}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}\textcolor {Chapter }{PosetElementWithOrder (for IsObject,IsFunction)}}{61}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}\textcolor {Chapter }{PosetElementFromListOfFlags (for IsList,IsPoset,IsInt)}}{61}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}\textcolor {Chapter }{PosetElementFromAtomList (for IsList)}}{62}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}\textcolor {Chapter }{PosetElementFromIndex (for IsObject)}}{62}{subsection.8.4.4}%
+\contentsline {subsection}{\numberline {8.4.5}\textcolor {Chapter }{PosetElementWithPartialOrder (for IsObject, IsBinaryRelation)}}{62}{subsection.8.4.5}%
+\contentsline {subsection}{\numberline {8.4.6}\textcolor {Chapter }{RanksInPosets (for IsPosetElement)}}{62}{subsection.8.4.6}%
+\contentsline {subsection}{\numberline {8.4.7}\textcolor {Chapter }{AddRanksInPosets (for IsPosetElement,IsPoset,IsInt)}}{62}{subsection.8.4.7}%
+\contentsline {subsection}{\numberline {8.4.8}\textcolor {Chapter }{FlagList (for IsPosetElement)}}{62}{subsection.8.4.8}%
+\contentsline {subsection}{\numberline {8.4.9}\textcolor {Chapter }{AtomList (for IsPosetElement)}}{62}{subsection.8.4.9}%
+\contentsline {section}{\numberline {8.5}\textcolor {Chapter }{Element operations}}{63}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}\textcolor {Chapter }{RankInPoset (for IsPosetElement,IsPoset)}}{63}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}\textcolor {Chapter }{IsSubface (for IsFace,IsFace,IsPoset)}}{63}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}\textcolor {Chapter }{IsEqualFaces (for IsFace, IsFace, IsPoset)}}{63}{subsection.8.5.3}%
+\contentsline {subsection}{\numberline {8.5.4}\textcolor {Chapter }{AreIncidentElements (for IsObject,IsObject)}}{63}{subsection.8.5.4}%
+\contentsline {subsection}{\numberline {8.5.5}\textcolor {Chapter }{Meet (for IsFace, IsFace, IsPoset)}}{63}{subsection.8.5.5}%
+\contentsline {subsection}{\numberline {8.5.6}\textcolor {Chapter }{Join (for IsFace, IsFace, IsPoset)}}{63}{subsection.8.5.6}%
+\contentsline {section}{\numberline {8.6}\textcolor {Chapter }{Product operations}}{64}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}\textcolor {Chapter }{JoinProduct (for IsPoset,IsPoset)}}{64}{subsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.6.2}\textcolor {Chapter }{CartesianProduct (for IsPoset,IsPoset)}}{64}{subsection.8.6.2}%
+\contentsline {subsection}{\numberline {8.6.3}\textcolor {Chapter }{DirectSumOfPosets (for IsPoset,IsPoset)}}{64}{subsection.8.6.3}%
+\contentsline {subsection}{\numberline {8.6.4}\textcolor {Chapter }{TopologicalProduct (for IsPoset,IsPoset)}}{65}{subsection.8.6.4}%
+\contentsline {subsection}{\numberline {8.6.5}\textcolor {Chapter }{Antiprism (for IsPoset)}}{65}{subsection.8.6.5}%
+\contentsline {chapter}{\numberline {9}\textcolor {Chapter }{Polytope Constructions and Operations}}{66}{chapter.9}%
+\contentsline {section}{\numberline {9.1}\textcolor {Chapter }{Extensions, amalgamations, and quotients}}{66}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}\textcolor {Chapter }{UniversalPolytope (for IsInt)}}{66}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}\textcolor {Chapter }{UniversalExtension (for IsManiplex)}}{66}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}\textcolor {Chapter }{UniversalExtension (for IsManiplex, IsInt)}}{66}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}\textcolor {Chapter }{TrivialExtension (for IsManiplex)}}{67}{subsection.9.1.4}%
+\contentsline {subsection}{\numberline {9.1.5}\textcolor {Chapter }{FlatExtension (for IsManiplex, IsInt)}}{67}{subsection.9.1.5}%
+\contentsline {subsection}{\numberline {9.1.6}\textcolor {Chapter }{Amalgamate (for IsManiplex, IsManiplex)}}{67}{subsection.9.1.6}%
+\contentsline {subsection}{\numberline {9.1.7}\textcolor {Chapter }{Medial (for IsManiplex)}}{67}{subsection.9.1.7}%
+\contentsline {section}{\numberline {9.2}\textcolor {Chapter }{Duality}}{67}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}\textcolor {Chapter }{Dual (for IsManiplex)}}{67}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}\textcolor {Chapter }{IsSelfDual (for IsManiplex)}}{68}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}\textcolor {Chapter }{IsInternallySelfDual (for IsManiplex)}}{68}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}\textcolor {Chapter }{IsExternallySelfDual (for IsManiplex)}}{68}{subsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.2.5}\textcolor {Chapter }{IsProperlySelfDual (for IsManiplex)}}{69}{subsection.9.2.5}%
+\contentsline {subsection}{\numberline {9.2.6}\textcolor {Chapter }{Petrie Dual}}{69}{subsection.9.2.6}%
+\contentsline {subsection}{\numberline {9.2.7}\textcolor {Chapter }{IsSelfPetrial (for IsManiplex)}}{69}{subsection.9.2.7}%
+\contentsline {subsection}{\numberline {9.2.8}\textcolor {Chapter }{DirectDerivates (for IsManiplex)}}{70}{subsection.9.2.8}%
+\contentsline {subsection}{\numberline {9.2.9}\textcolor {Chapter }{IsKaleidoscopic (for IsMapOnSurface)}}{70}{subsection.9.2.9}%
+\contentsline {section}{\numberline {9.3}\textcolor {Chapter }{Products}}{70}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}\textcolor {Chapter }{Pyramids}}{70}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}\textcolor {Chapter }{Prisms}}{71}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}\textcolor {Chapter }{Antiprisms}}{71}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}\textcolor {Chapter }{JoinProduct (for IsManiplex, IsManiplex)}}{71}{subsection.9.3.4}%
+\contentsline {subsection}{\numberline {9.3.5}\textcolor {Chapter }{CartesianProduct (for IsManiplex, IsManiplex)}}{71}{subsection.9.3.5}%
+\contentsline {subsection}{\numberline {9.3.6}\textcolor {Chapter }{DirectSumOfManiplexes (for IsManiplex, IsManiplex)}}{72}{subsection.9.3.6}%
+\contentsline {subsection}{\numberline {9.3.7}\textcolor {Chapter }{TopologicalProduct (for IsManiplex, IsManiplex)}}{72}{subsection.9.3.7}%
+\contentsline {chapter}{\numberline {10}\textcolor {Chapter }{Combinatorics and Structure}}{73}{chapter.10}%
+\contentsline {section}{\numberline {10.1}\textcolor {Chapter }{Faces}}{73}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}\textcolor {Chapter }{NumberOfIFaces (for IsManiplex, IsInt)}}{73}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}\textcolor {Chapter }{NumberOfVertices (for IsManiplex)}}{73}{subsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.1.3}\textcolor {Chapter }{NumberOfEdges (for IsManiplex)}}{73}{subsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.1.4}\textcolor {Chapter }{NumberOfFacets (for IsManiplex)}}{73}{subsection.10.1.4}%
+\contentsline {subsection}{\numberline {10.1.5}\textcolor {Chapter }{NumberOfRidges (for IsManiplex)}}{74}{subsection.10.1.5}%
+\contentsline {subsection}{\numberline {10.1.6}\textcolor {Chapter }{Fvector (for IsManiplex)}}{74}{subsection.10.1.6}%
+\contentsline {subsection}{\numberline {10.1.7}\textcolor {Chapter }{Section(s)}}{74}{subsection.10.1.7}%
+\contentsline {subsection}{\numberline {10.1.8}\textcolor {Chapter }{Facet(s)}}{74}{subsection.10.1.8}%
+\contentsline {subsection}{\numberline {10.1.9}\textcolor {Chapter }{Vertex Figure(s)}}{75}{subsection.10.1.9}%
+\contentsline {section}{\numberline {10.2}\textcolor {Chapter }{Flatness}}{75}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}\textcolor {Chapter }{Flatness}}{75}{subsection.10.2.1}%
+\contentsline {section}{\numberline {10.3}\textcolor {Chapter }{Schlafli symbol}}{76}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}\textcolor {Chapter }{SchlafliSymbol (for IsManiplex)}}{76}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}\textcolor {Chapter }{PseudoSchlafliSymbol (for IsManiplex)}}{76}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}\textcolor {Chapter }{IsEquivelar (for IsManiplex)}}{76}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}\textcolor {Chapter }{IsDegenerate (for IsManiplex)}}{76}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}\textcolor {Chapter }{IsTight (for IsManiplex)}}{77}{subsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.3.6}\textcolor {Chapter }{EulerCharacteristic (for IsManiplex)}}{77}{subsection.10.3.6}%
+\contentsline {subsection}{\numberline {10.3.7}\textcolor {Chapter }{Genus (for IsManiplex)}}{77}{subsection.10.3.7}%
+\contentsline {subsection}{\numberline {10.3.8}\textcolor {Chapter }{IsSpherical (for IsManiplex)}}{77}{subsection.10.3.8}%
+\contentsline {subsection}{\numberline {10.3.9}\textcolor {Chapter }{IsLocallySpherical (for IsManiplex)}}{78}{subsection.10.3.9}%
+\contentsline {subsection}{\numberline {10.3.10}\textcolor {Chapter }{IsToroidal (for IsManiplex)}}{78}{subsection.10.3.10}%
+\contentsline {subsection}{\numberline {10.3.11}\textcolor {Chapter }{IsLocallyToroidal (for IsManiplex)}}{78}{subsection.10.3.11}%
+\contentsline {section}{\numberline {10.4}\textcolor {Chapter }{Basics}}{78}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}\textcolor {Chapter }{Size (for IsManiplex)}}{78}{subsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.4.2}\textcolor {Chapter }{RankManiplex (for IsPremaniplex)}}{79}{subsection.10.4.2}%
+\contentsline {section}{\numberline {10.5}\textcolor {Chapter }{Zigzags and holes}}{79}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}\textcolor {Chapter }{ZigzagLength (for IsManiplex, IsInt)}}{79}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}\textcolor {Chapter }{ZigzagVector (for IsManiplex)}}{79}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.3}\textcolor {Chapter }{PetrieLength (for IsManiplex)}}{79}{subsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.5.4}\textcolor {Chapter }{PetrieRelation (for IsInt, IsInt)}}{79}{subsection.10.5.4}%
+\contentsline {subsection}{\numberline {10.5.5}\textcolor {Chapter }{HoleLength (for IsManiplex, IsInt)}}{80}{subsection.10.5.5}%
+\contentsline {subsection}{\numberline {10.5.6}\textcolor {Chapter }{HoleVector (for IsManiplex)}}{80}{subsection.10.5.6}%
+\contentsline {chapter}{\numberline {11}\textcolor {Chapter }{Graphs for Maniplexes}}{81}{chapter.11}%
+\contentsline {section}{\numberline {11.1}\textcolor {Chapter }{Graph families}}{81}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}\textcolor {Chapter }{HeawoodGraph}}{81}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}\textcolor {Chapter }{PetersenGraph}}{81}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}\textcolor {Chapter }{CirculantGraph (for IsInt,IsList)}}{81}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}\textcolor {Chapter }{CompleteBipartiteGraph (for IsInt,IsInt)}}{81}{subsection.11.1.4}%
+\contentsline {section}{\numberline {11.2}\textcolor {Chapter }{Graph constructors for maniplexes}}{81}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}\textcolor {Chapter }{DirectedGraphFromListOfEdges (for IsList,IsList)}}{81}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}\textcolor {Chapter }{GraphFromListOfEdges (for IsList,IsList)}}{82}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}\textcolor {Chapter }{UnlabeledFlagGraph (for IsGroup)}}{82}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}\textcolor {Chapter }{FlagGraphWithLabels (for IsGroup)}}{83}{subsection.11.2.4}%
+\contentsline {subsection}{\numberline {11.2.5}\textcolor {Chapter }{LayerGraph (for IsGroup, IsInt, IsInt)}}{84}{subsection.11.2.5}%
+\contentsline {subsection}{\numberline {11.2.6}\textcolor {Chapter }{Skeleton (for IsManiplex)}}{84}{subsection.11.2.6}%
+\contentsline {subsection}{\numberline {11.2.7}\textcolor {Chapter }{CoSkeleton (for IsManiplex)}}{85}{subsection.11.2.7}%
+\contentsline {subsection}{\numberline {11.2.8}\textcolor {Chapter }{Hasse (for IsManiplex)}}{85}{subsection.11.2.8}%
+\contentsline {subsection}{\numberline {11.2.9}\textcolor {Chapter }{QuotientByLabel (for IsObject,IsList, IsList, IsList)}}{85}{subsection.11.2.9}%
+\contentsline {subsection}{\numberline {11.2.10}\textcolor {Chapter }{EdgeLabeledGraphFromEdges (for IsList, IsList,IsList)}}{86}{subsection.11.2.10}%
+\contentsline {subsection}{\numberline {11.2.11}\textcolor {Chapter }{EdgeLabeledGraphFromLabeledEdges (for IsList)}}{86}{subsection.11.2.11}%
+\contentsline {subsection}{\numberline {11.2.12}\textcolor {Chapter }{FlagGraph (for IsGroup)}}{86}{subsection.11.2.12}%
+\contentsline {subsection}{\numberline {11.2.13}\textcolor {Chapter }{UnlabeledSimpleGraph (for IsEdgeLabeledGraph)}}{87}{subsection.11.2.13}%
+\contentsline {subsection}{\numberline {11.2.14}\textcolor {Chapter }{EdgeLabelPreservingAutomorphismGroup (for IsEdgeLabeledGraph)}}{87}{subsection.11.2.14}%
+\contentsline {subsection}{\numberline {11.2.15}\textcolor {Chapter }{Simple (for IsEdgeLabeledGraph)}}{87}{subsection.11.2.15}%
+\contentsline {subsection}{\numberline {11.2.16}\textcolor {Chapter }{ConnectedComponents (for IsEdgeLabeledGraph, IsList)}}{87}{subsection.11.2.16}%
+\contentsline {subsection}{\numberline {11.2.17}\textcolor {Chapter }{PRGraph (for IsGroup)}}{88}{subsection.11.2.17}%
+\contentsline {subsection}{\numberline {11.2.18}\textcolor {Chapter }{CPRGraphFromGroups (for IsGroup,IsGroup)}}{88}{subsection.11.2.18}%
+\contentsline {subsection}{\numberline {11.2.19}\textcolor {Chapter }{AdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}{88}{subsection.11.2.19}%
+\contentsline {subsection}{\numberline {11.2.20}\textcolor {Chapter }{LabeledAdjacentVertices (for IsEdgeLabeledGraph, IsObject)}}{88}{subsection.11.2.20}%
+\contentsline {subsection}{\numberline {11.2.21}\textcolor {Chapter }{SemiEdges (for IsEdgeLabeledGraph)}}{88}{subsection.11.2.21}%
+\contentsline {subsection}{\numberline {11.2.22}\textcolor {Chapter }{LabeledSemiEdges (for IsEdgeLabeledGraph)}}{88}{subsection.11.2.22}%
+\contentsline {subsection}{\numberline {11.2.23}\textcolor {Chapter }{LabeledDarts (for IsEdgeLabeledGraph)}}{89}{subsection.11.2.23}%
+\contentsline {subsection}{\numberline {11.2.24}\textcolor {Chapter }{DerivedGraph (for IsList,IsList,IsList)}}{89}{subsection.11.2.24}%
+\contentsline {subsection}{\numberline {11.2.25}\textcolor {Chapter }{ViewGraph (for IsObject, IsString)}}{89}{subsection.11.2.25}%
+\contentsline {subsection}{\numberline {11.2.26}\textcolor {Chapter }{ConnectionGroup (for IsEdgeLabeledGraph)}}{89}{subsection.11.2.26}%
+\contentsline {chapter}{\numberline {12}\textcolor {Chapter }{Databases}}{90}{chapter.12}%
+\contentsline {section}{\numberline {12.1}\textcolor {Chapter }{Regular polyhedra}}{90}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}\textcolor {Chapter }{WriteManiplexesToFile}}{90}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}\textcolor {Chapter }{ManiplexesFromFile}}{90}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}\textcolor {Chapter }{DegeneratePolyhedra}}{90}{subsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.1.4}\textcolor {Chapter }{FlatRegularPolyhedra}}{91}{subsection.12.1.4}%
+\contentsline {subsection}{\numberline {12.1.5}\textcolor {Chapter }{RegularToroidalPolyhedra44}}{91}{subsection.12.1.5}%
+\contentsline {subsection}{\numberline {12.1.6}\textcolor {Chapter }{RegularToroidalPolyhedra36}}{91}{subsection.12.1.6}%
+\contentsline {subsection}{\numberline {12.1.7}\textcolor {Chapter }{SmallRegularPolyhedraFromFile}}{92}{subsection.12.1.7}%
+\contentsline {subsection}{\numberline {12.1.8}\textcolor {Chapter }{SmallRegularPolyhedra}}{92}{subsection.12.1.8}%
+\contentsline {subsection}{\numberline {12.1.9}\textcolor {Chapter }{SmallDegenerateRegular4Polytopes}}{92}{subsection.12.1.9}%
+\contentsline {subsection}{\numberline {12.1.10}\textcolor {Chapter }{SmallRegular4Polytopes}}{92}{subsection.12.1.10}%
+\contentsline {subsection}{\numberline {12.1.11}\textcolor {Chapter }{SmallChiralPolyhedra}}{93}{subsection.12.1.11}%
+\contentsline {subsection}{\numberline {12.1.12}\textcolor {Chapter }{SmallChiral4Polytopes}}{93}{subsection.12.1.12}%
+\contentsline {subsection}{\numberline {12.1.13}\textcolor {Chapter }{SmallReflexible3Maniplexes}}{93}{subsection.12.1.13}%
+\contentsline {subsection}{\numberline {12.1.14}\textcolor {Chapter }{SmallReflexibleManiplexes}}{93}{subsection.12.1.14}%
+\contentsline {subsection}{\numberline {12.1.15}\textcolor {Chapter }{SmallTwoOrbit3Maniplexes}}{94}{subsection.12.1.15}%
+\contentsline {section}{\numberline {12.2}\textcolor {Chapter }{System internal representations}}{94}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}\textcolor {Chapter }{DatabaseString (for IsManiplex)}}{94}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}\textcolor {Chapter }{ManiplexFromDatabaseString (for IsString)}}{94}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}\textcolor {Chapter }{InterpolatedString (for IsString)}}{94}{subsection.12.2.3}%
+\contentsline {chapter}{\numberline {13}\textcolor {Chapter }{Stratified Operations}}{96}{chapter.13}%
+\contentsline {section}{\numberline {13.1}\textcolor {Chapter }{Computational tools}}{96}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}\textcolor {Chapter }{ChunkMultiply (for IsList,IsList)}}{96}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}\textcolor {Chapter }{ChunkPower (for IsList,IsInt)}}{96}{subsection.13.1.2}%
+\contentsline {subsection}{\numberline {13.1.3}\textcolor {Chapter }{ChunkGeneratedGroupElements (for IsList, IsGroup)}}{96}{subsection.13.1.3}%
+\contentsline {subsection}{\numberline {13.1.4}\textcolor {Chapter }{ChunkGeneratedGroup (for IsList, IsPermGroup)}}{97}{subsection.13.1.4}%
+\contentsline {subsection}{\numberline {13.1.5}\textcolor {Chapter }{FullyStratifiedGroup (for IsList, IsGroup)}}{97}{subsection.13.1.5}%
+\contentsline {chapter}{\numberline {14}\textcolor {Chapter }{Maps On Surfaces}}{99}{chapter.14}%
+\contentsline {section}{\numberline {14.1}\textcolor {Chapter }{Bicontactual regular maps}}{99}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}\textcolor {Chapter }{Epsilonk (for IsInt)}}{99}{subsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.1.2}\textcolor {Chapter }{Deltak (for IsInt)}}{99}{subsection.14.1.2}%
+\contentsline {subsection}{\numberline {14.1.3}\textcolor {Chapter }{Mk (for IsInt)}}{99}{subsection.14.1.3}%
+\contentsline {subsection}{\numberline {14.1.4}\textcolor {Chapter }{MkPrime (for IsInt)}}{100}{subsection.14.1.4}%
+\contentsline {subsection}{\numberline {14.1.5}\textcolor {Chapter }{Bk2l (for IsInt,IsInt)}}{100}{subsection.14.1.5}%
+\contentsline {subsection}{\numberline {14.1.6}\textcolor {Chapter }{Bk2lStar (for IsInt,IsInt)}}{100}{subsection.14.1.6}%
+\contentsline {section}{\numberline {14.2}\textcolor {Chapter }{Operations on reflexible maps}}{100}{section.14.2}%
+\contentsline {subsection}{\numberline {14.2.1}\textcolor {Chapter }{Opp (for IsMapOnSurface)}}{100}{subsection.14.2.1}%
+\contentsline {subsection}{\numberline {14.2.2}\textcolor {Chapter }{Hole (for IsMapOnSurface,IsInt)}}{101}{subsection.14.2.2}%
+\contentsline {section}{\numberline {14.3}\textcolor {Chapter }{Map properties}}{101}{section.14.3}%
+\contentsline {section}{\numberline {14.4}\textcolor {Chapter }{Operations on maps}}{101}{section.14.4}%
+\contentsline {subsection}{\numberline {14.4.1}\textcolor {Chapter }{Truncation (for IsMapOnSurface)}}{101}{subsection.14.4.1}%
+\contentsline {subsection}{\numberline {14.4.2}\textcolor {Chapter }{Snub (for IsMapOnSurface)}}{101}{subsection.14.4.2}%
+\contentsline {subsection}{\numberline {14.4.3}\textcolor {Chapter }{Chamfer (for IsMapOnSurface)}}{102}{subsection.14.4.3}%
+\contentsline {subsection}{\numberline {14.4.4}\textcolor {Chapter }{Subdivision1 (for IsMapOnSurface)}}{102}{subsection.14.4.4}%
+\contentsline {subsection}{\numberline {14.4.5}\textcolor {Chapter }{Subdivision2 (for IsMapOnSurface)}}{102}{subsection.14.4.5}%
+\contentsline {subsection}{\numberline {14.4.6}\textcolor {Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}{102}{subsection.14.4.6}%
+\contentsline {subsection}{\numberline {14.4.7}\textcolor {Chapter }{Leapfrog (for IsMapOnSurface)}}{103}{subsection.14.4.7}%
+\contentsline {subsection}{\numberline {14.4.8}\textcolor {Chapter }{CombinatorialMap (for IsMapOnSurface)}}{103}{subsection.14.4.8}%
+\contentsline {subsection}{\numberline {14.4.9}\textcolor {Chapter }{Angle (for IsMapOnSurface)}}{103}{subsection.14.4.9}%
+\contentsline {subsection}{\numberline {14.4.10}\textcolor {Chapter }{Gothic (for IsMapOnSurface)}}{103}{subsection.14.4.10}%
+\contentsline {section}{\numberline {14.5}\textcolor {Chapter }{Conway polyhedron operator notation}}{104}{section.14.5}%
+\contentsline {subsection}{\numberline {14.5.1}\textcolor {Chapter }{Reflection (for IsManiplex)}}{104}{subsection.14.5.1}%
+\contentsline {subsection}{\numberline {14.5.2}\textcolor {Chapter }{Kis (for IsMapOnSurface)}}{104}{subsection.14.5.2}%
+\contentsline {subsection}{\numberline {14.5.3}\textcolor {Chapter }{Needle (for IsMapOnSurface)}}{105}{subsection.14.5.3}%
+\contentsline {subsection}{\numberline {14.5.4}\textcolor {Chapter }{Zip (for IsMapOnSurface)}}{105}{subsection.14.5.4}%
+\contentsline {subsection}{\numberline {14.5.5}\textcolor {Chapter }{Ortho (for IsMapOnSurface)}}{105}{subsection.14.5.5}%
+\contentsline {subsection}{\numberline {14.5.6}\textcolor {Chapter }{Expand (for IsMapOnSurface)}}{105}{subsection.14.5.6}%
+\contentsline {subsection}{\numberline {14.5.7}\textcolor {Chapter }{Gyro (for IsMapOnSurface)}}{105}{subsection.14.5.7}%
+\contentsline {subsection}{\numberline {14.5.8}\textcolor {Chapter }{Meta (for IsMapOnSurface)}}{106}{subsection.14.5.8}%
+\contentsline {subsection}{\numberline {14.5.9}\textcolor {Chapter }{Bevel (for IsMapOnSurface)}}{106}{subsection.14.5.9}%
+\contentsline {section}{\numberline {14.6}\textcolor {Chapter }{Extended operations}}{106}{section.14.6}%
+\contentsline {subsection}{\numberline {14.6.1}\textcolor {Chapter }{Subdivide (for IsMapOnSurface)}}{106}{subsection.14.6.1}%
+\contentsline {subsection}{\numberline {14.6.2}\textcolor {Chapter }{Propeller (for IsMapOnSurface)}}{106}{subsection.14.6.2}%
+\contentsline {subsection}{\numberline {14.6.3}\textcolor {Chapter }{Loft (for IsMapOnSurface)}}{107}{subsection.14.6.3}%
+\contentsline {subsection}{\numberline {14.6.4}\textcolor {Chapter }{Quinto (for IsMapOnSurface)}}{107}{subsection.14.6.4}%
+\contentsline {subsection}{\numberline {14.6.5}\textcolor {Chapter }{JoinLace (for IsMapOnSurface)}}{107}{subsection.14.6.5}%
+\contentsline {subsection}{\numberline {14.6.6}\textcolor {Chapter }{Lace (for IsMapOnSurface)}}{107}{subsection.14.6.6}%
+\contentsline {subsection}{\numberline {14.6.7}\textcolor {Chapter }{Stake (for IsMapOnSurface)}}{107}{subsection.14.6.7}%
+\contentsline {subsection}{\numberline {14.6.8}\textcolor {Chapter }{Whirl (for IsMapOnSurface)}}{108}{subsection.14.6.8}%
+\contentsline {subsection}{\numberline {14.6.9}\textcolor {Chapter }{Volute (for IsMapOnSurface)}}{108}{subsection.14.6.9}%
+\contentsline {subsection}{\numberline {14.6.10}\textcolor {Chapter }{JoinKisKis (for IsMapOnSurface)}}{108}{subsection.14.6.10}%
+\contentsline {subsection}{\numberline {14.6.11}\textcolor {Chapter }{Cross (for IsMapOnSurface)}}{108}{subsection.14.6.11}%
+\contentsline {chapter}{\numberline {15}\textcolor {Chapter }{Utility Functions}}{109}{chapter.15}%
+\contentsline {section}{\numberline {15.1}\textcolor {Chapter }{System}}{109}{section.15.1}%
+\contentsline {subsection}{\numberline {15.1.1}\textcolor {Chapter }{InfoRamp}}{109}{subsection.15.1.1}%
+\contentsline {section}{\numberline {15.2}\textcolor {Chapter }{Polytopes}}{109}{section.15.2}%
+\contentsline {subsection}{\numberline {15.2.1}\textcolor {Chapter }{AbstractPolytope}}{109}{subsection.15.2.1}%
+\contentsline {subsection}{\numberline {15.2.2}\textcolor {Chapter }{AbstractRegularPolytope}}{109}{subsection.15.2.2}%
+\contentsline {subsection}{\numberline {15.2.3}\textcolor {Chapter }{AbstractRotaryPolytope}}{110}{subsection.15.2.3}%
+\contentsline {section}{\numberline {15.3}\textcolor {Chapter }{Permutations}}{110}{section.15.3}%
+\contentsline {subsection}{\numberline {15.3.1}\textcolor {Chapter }{TranslatePerm}}{110}{subsection.15.3.1}%
+\contentsline {subsection}{\numberline {15.3.2}\textcolor {Chapter }{MultPerm}}{110}{subsection.15.3.2}%
+\contentsline {subsection}{\numberline {15.3.3}\textcolor {Chapter }{InvolutionListList}}{110}{subsection.15.3.3}%
+\contentsline {subsection}{\numberline {15.3.4}\textcolor {Chapter }{PermFromRange (for IsPerm, IsPerm, IsPerm)}}{111}{subsection.15.3.4}%
+\contentsline {section}{\numberline {15.4}\textcolor {Chapter }{Words on relations}}{111}{section.15.4}%
+\contentsline {subsection}{\numberline {15.4.1}\textcolor {Chapter }{ParseStringCRels}}{111}{subsection.15.4.1}%
+\contentsline {subsection}{\numberline {15.4.2}\textcolor {Chapter }{ParseRotGpRels}}{111}{subsection.15.4.2}%
+\contentsline {subsection}{\numberline {15.4.3}\textcolor {Chapter }{StandardizeSggi}}{112}{subsection.15.4.3}%
+\contentsline {subsection}{\numberline {15.4.4}\textcolor {Chapter }{AddOrAppend}}{112}{subsection.15.4.4}%
+\contentsline {subsection}{\numberline {15.4.5}\textcolor {Chapter }{WrappedPosetOperation}}{113}{subsection.15.4.5}%
+\contentsline {subsection}{\numberline {15.4.6}\textcolor {Chapter }{MarkAsPolytopal (for IsManiplex)}}{113}{subsection.15.4.6}%
+\contentsline {chapter}{\numberline {16}\textcolor {Chapter }{Synonyms for Commands}}{114}{chapter.16}%
+\contentsline {chapter}{\numberline {17}\textcolor {Chapter }{Graphs for Premaniplexes}}{115}{chapter.17}%
+\contentsline {section}{\numberline {17.1}\textcolor {Chapter }{Constructors of Premaniplexes}}{115}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}\textcolor {Chapter }{Premaniplex (for IsGroup)}}{115}{subsection.17.1.1}%
+\contentsline {subsection}{\numberline {17.1.2}\textcolor {Chapter }{Premaniplex (for IsEdgeLabeledGraph)}}{115}{subsection.17.1.2}%
+\contentsline {subsection}{\numberline {17.1.3}\textcolor {Chapter }{STG1 (for IsInt)}}{115}{subsection.17.1.3}%
+\contentsline {subsection}{\numberline {17.1.4}\textcolor {Chapter }{STG2 (for IsInt,IsList)}}{116}{subsection.17.1.4}%
+\contentsline {subsection}{\numberline {17.1.5}\textcolor {Chapter }{STG3 (for IsInt,IsInt)}}{116}{subsection.17.1.5}%
+\contentsline {subsection}{\numberline {17.1.6}\textcolor {Chapter }{STG3 (for IsInt,IsInt,IsInt)}}{116}{subsection.17.1.6}%
+\contentsline {subsection}{\numberline {17.1.7}\textcolor {Chapter }{FlagGraph (for IsPremaniplex)}}{116}{subsection.17.1.7}%
+\contentsline {subsection}{\numberline {17.1.8}\textcolor {Chapter }{LabeledDarts (for IsPremaniplex)}}{117}{subsection.17.1.8}%
+\contentsline {chapter}{\numberline {18}\textcolor {Chapter }{Voltage Graphs and Operations}}{118}{chapter.18}%
+\contentsline {section}{\numberline {18.1}\textcolor {Chapter }{Voltage Operator}}{118}{section.18.1}%
+\contentsline {subsection}{\numberline {18.1.1}\textcolor {Chapter }{VoltageOperator (for IsList, IsString,IsEdgeLabeledGraph)}}{118}{subsection.18.1.1}%
+\contentsline {subsection}{\numberline {18.1.2}\textcolor {Chapter }{VoltageOperator (for IsList, IsString,IsManiplex)}}{118}{subsection.18.1.2}%
+\contentsline {subsection}{\numberline {18.1.3}\textcolor {Chapter }{AdmissiblePerms (for IsInt, IsList)}}{119}{subsection.18.1.3}%
+\contentsline {subsection}{\numberline {18.1.4}\textcolor {Chapter }{WythoffSTG (for IsInt, IsList)}}{119}{subsection.18.1.4}%
+\contentsline {subsection}{\numberline {18.1.5}\textcolor {Chapter }{WythoffLabeledEdges (for IsInt, IsList)}}{119}{subsection.18.1.5}%
+\contentsline {subsection}{\numberline {18.1.6}\textcolor {Chapter }{WythoffVoltageOperator (for IsInt, IsList, IsManiplex)}}{119}{subsection.18.1.6}%
+\contentsline {subsection}{\numberline {18.1.7}\textcolor {Chapter }{VoltageGraph (for IsGroup,IsList,IsList)}}{120}{subsection.18.1.7}%
+\contentsline {subsection}{\numberline {18.1.8}\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex,IsList)}}{120}{subsection.18.1.8}%
+\contentsline {subsection}{\numberline {18.1.9}\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex)}}{120}{subsection.18.1.9}%
+\contentsline {subsection}{\numberline {18.1.10}\textcolor {Chapter }{ChangeVoltage (for IsVoltageGraph,IsList, IsObject)}}{121}{subsection.18.1.10}%
+\contentsline {subsection}{\numberline {18.1.11}\textcolor {Chapter }{ChangeVoltage (for IsVoltageGraph,IsInt,IsInt, IsObject)}}{121}{subsection.18.1.11}%
+\contentsline {subsection}{\numberline {18.1.12}\textcolor {Chapter }{DerivedGraph (for IsVoltageGraph)}}{121}{subsection.18.1.12}%
+\contentsline {subsection}{\numberline {18.1.13}\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph, IsManiplex)}}{121}{subsection.18.1.13}%
+\contentsline {subsection}{\numberline {18.1.14}\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph,IsEdgeLabeledGraph)}}{121}{subsection.18.1.14}%
+\contentsline {chapter}{References}{122}{chapter*.4}%
+\contentsline {chapter}{Index}{123}{section*.5}%

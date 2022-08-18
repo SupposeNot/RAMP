@@ -31,6 +31,14 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X7B45168A7EB410C2">18.1-4 WythoffSTG</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X838E62987EA8CE63">18.1-5 WythoffLabeledEdges</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X79B4314B7EAE8598">18.1-6 WythoffVoltageOperator</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X80D0DC17799E3DBF">18.1-7 VoltageGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X83B940167FBDDB22">18.1-8 VoltageGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X81682EEF8674907A">18.1-9 VoltageGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X7FFBBED6838B11AD">18.1-10 ChangeVoltage</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X78C2B4FE8389CF98">18.1-11 ChangeVoltage</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X7BC3B94379122B29">18.1-12 DerivedGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X87B722CB84C389BB">18.1-13 VoltageOperator</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18.html#X7C446B798146B031">18.1-14 VoltageOperator</a></span>
 </div></div>
 </div>
 
@@ -146,6 +154,116 @@ Truncation built using voltages
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W=Truncation(Dodecahedron());</span>
 true
 </pre></div>
+
+<p><a id="X80D0DC17799E3DBF" name="X80D0DC17799E3DBF"></a></p>
+
+<h5>18.1-7 VoltageGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGraph</code>( <var class="Arg">G</var>, <var class="Arg">L</var>, <var class="Arg">V</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsVoltageGraph</p>
+
+<p>Given an IsGroup <var class="Arg">G</var>, an IsList <var class="Arg">L</var>, and an IsList <var class="Arg">V</var>, <code class="code">VoltageGraph(G,L,V)</code> will construct the voltage graph with voltages from G, labeled darts from L, and voltages from V.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=ConnectionGroup(Cube(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[ [[1],0], [[1],1], [[1,2],2], [[2],0], [[2],1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=[G.2, G.1, Identity(G), G.2, G.1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG:=VoltageGraph(G,L,V);</span>
+Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)
+(12,24)(14,43)(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)
+(40,46)(42,44), (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)
+(17,41)(18,21)(19,22)(20,23)(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), (1,3)(2,7)
+(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)
+(29,39)(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+</pre></div>
+
+<p><a id="X83B940167FBDDB22" name="X83B940167FBDDB22"></a></p>
+
+<h5>18.1-8 VoltageGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGraph</code>( <var class="Arg">G</var>, <var class="Arg">P</var>, <var class="Arg">V</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsVoltageGraph</p>
+
+<p>Given an IsGroup <var class="Arg">G</var>, an IsPremaniplex <var class="Arg">P</var>, and an IsList <var class="Arg">V</var>, <code class="code">VoltageGraph(G,P,V)</code> will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and voltages from V.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=ConnectionGroup(Cube(3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=STG2(3,[0,1]);</span>
+Premaniplex of rank 3 with 2 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=LabeledDarts(P);</span>
+[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2, 1 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=[G.2, G.1, Identity(G), Identity(G), G.2, G.1];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG:=VoltageGraph(G,P,V);</span>
+Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)(12,24)(14,43)
+(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)(40,46)(42,44), 
+(1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)(17,41)(18,21)(19,22)(20,23)
+(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), 
+(1,3)(2,7)(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)(29,39)
+(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+</pre></div>
+
+<p><a id="X81682EEF8674907A" name="X81682EEF8674907A"></a></p>
+
+<h5>18.1-9 VoltageGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGraph</code>( <var class="Arg">G</var>, <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsVoltageGraph</p>
+
+<p>Given an IsGroup <var class="Arg">G</var>, and an IsPremaniplex <var class="Arg">P</var>, <code class="code">VoltageGraph(G,P)</code> will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and trivial voltages.</p>
+
+<p><a id="X7FFBBED6838B11AD" name="X7FFBBED6838B11AD"></a></p>
+
+<h5>18.1-10 ChangeVoltage</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChangeVoltage</code>( <var class="Arg">VG</var>, <var class="Arg">ld</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given an IsVoltageGraph <var class="Arg">VG</var>, an IsList <var class="Arg">ld</var>, and an IsObject <var class="Arg">g</var>, <code class="code">ChangeVoltage(VG,ld,g)</code> will change the voltage for the one labeled dart ld to the group element g.</p>
+
+<p><a id="X78C2B4FE8389CF98" name="X78C2B4FE8389CF98"></a></p>
+
+<h5>18.1-11 ChangeVoltage</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChangeVoltage</code>( <var class="Arg">VG</var>, <var class="Arg">lab</var>, <var class="Arg">startvert</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given an IsVoltageGraph <var class="Arg">VG</var>, an IsInt <var class="Arg">lab</var>, an IsInt <var class="Arg">startvert</var>, and an IsObject <var class="Arg">g</var>, <code class="code">ChangeVoltage(VG,lab, startvert,g)</code> will change the voltage for the one labeled dart of label lab and start vertex startvert to the group element g.</p>
+
+<p><a id="X7BC3B94379122B29" name="X7BC3B94379122B29"></a></p>
+
+<h5>18.1-12 DerivedGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DerivedGraph</code>( <var class="Arg">VG</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsVoltageGraph</p>
+
+<p>Given an IsVoltageGraph <var class="Arg">VG</var>, a <code class="code">DerivedGraph(VG)</code> will construct the derived graph of the voltage graph VG.</p>
+
+<p><a id="X87B722CB84C389BB" name="X87B722CB84C389BB"></a></p>
+
+<h5>18.1-13 VoltageOperator</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">VG</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given an IsVoltageGraph <var class="Arg">VG</var>, and an IsManiplex <var class="Arg">M</var>, <code class="code">VoltageOperator(VG,M)</code> will return the voltage operator VG acting on M.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=Dodecahedron();;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S:=STG2(3,[0,1]);</span>
+Premaniplex of rank 3 with 2 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=ConnectionGroup(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=VoltageGraph(C,S);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,0,1,C.2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,0,2,C.2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,1,1,C.1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,1,2,C.3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Medial(M) = VoltageOperator(V,M);</span>
+true
+</pre></div>
+
+<p><a id="X7C446B798146B031" name="X7C446B798146B031"></a></p>
+
+<h5>18.1-14 VoltageOperator</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">VG</var>, <var class="Arg">ELG</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Given an IsVoltageGraph <var class="Arg">VG</var>, and an IsEdgeLabeledGraph <var class="Arg">ELM</var>, <code class="code">VoltageOperator(VG,M)</code> will return the voltage operator VG acting on ELM.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap17.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>

@@ -130,6 +130,23 @@ Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 ]]></Example>
 
 
+<ManSection>
+  <Attr Arg="p" Name="LabeledDarts" Label="for IsPremaniplex"/>
+ <Returns>list
+</Returns>
+ <Description>
+Given a Premaniples p, returns the list of labeled darts from its flag graph.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> P:=STG2(5,[2,4]);;
+gap> LabeledDarts(P);
+[ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
+]]></Example>
+
+
 </Section>
 
 

@@ -107,3 +107,17 @@
     [4X[28XEdge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
   [4X[32X[104X
   
+  [1X17.1-8 LabeledDarts[101X
+  
+  [33X[1;0Y[29X[2XLabeledDarts[102X( [3Xp[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Ylist[133X
+  
+  [33X[0;0YGiven  a  Premaniples  p,  returns  the  list of labeled darts from its flag
+  graph.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XP:=STG2(5,[2,4]);;[127X[104X
+    [4X[25Xgap>[125X [27XLabeledDarts(P);[127X[104X
+    [4X[28X[ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ][128X[104X
+  [4X[32X[104X
+  

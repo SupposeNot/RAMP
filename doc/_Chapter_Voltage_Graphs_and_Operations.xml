@@ -129,6 +129,124 @@ true
 ]]></Example>
 
 
+<ManSection>
+  <Oper Arg="G, L, V" Name="VoltageGraph" Label="for IsGroup,IsList,IsList"/>
+ <Returns>IsVoltageGraph
+</Returns>
+ <Description>
+Given an IsGroup <A>G</A>, an IsList <A>L</A>, and an IsList <A>V</A>, <Code>VoltageGraph(G,L,V)</Code> will construct the voltage graph with voltages from G, labeled darts from L, and voltages from V.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> G:=ConnectionGroup(Cube(3));;
+gap> L:=[ [[1],0], [[1],1], [[1,2],2], [[2],0], [[2],1]];;
+gap> V:=[G.2, G.1, Identity(G), G.2, G.1];;
+gap> VG:=VoltageGraph(G,L,V);
+Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)
+(12,24)(14,43)(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)
+(40,46)(42,44), (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)
+(17,41)(18,21)(19,22)(20,23)(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), (1,3)(2,7)
+(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)
+(29,39)(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="G, P, V" Name="VoltageGraph" Label="for IsGroup,IsPremaniplex,IsList"/>
+ <Returns>IsVoltageGraph
+</Returns>
+ <Description>
+Given an IsGroup <A>G</A>, an IsPremaniplex <A>P</A>, and an IsList <A>V</A>, <Code>VoltageGraph(G,P,V)</Code> will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and voltages from V.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> G:=ConnectionGroup(Cube(3));;
+gap> P:=STG2(3,[0,1]);
+Premaniplex of rank 3 with 2 flags
+gap> L:=LabeledDarts(P);
+[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2, 1 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
+gap> V:=[G.2, G.1, Identity(G), Identity(G), G.2, G.1];;
+gap> VG:=VoltageGraph(G,P,V);
+Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)(12,24)(14,43)
+(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)(40,46)(42,44), 
+(1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)(17,41)(18,21)(19,22)(20,23)
+(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), 
+(1,3)(2,7)(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)(29,39)
+(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="G, P" Name="VoltageGraph" Label="for IsGroup,IsPremaniplex"/>
+ <Returns>IsVoltageGraph
+</Returns>
+ <Description>
+Given an IsGroup <A>G</A>, and an IsPremaniplex <A>P</A>, <Code>VoltageGraph(G,P)</Code> will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and trivial voltages.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="VG, ld, g" Name="ChangeVoltage" Label="for IsVoltageGraph,IsList, IsObject"/>
+ <Description>
+Given an IsVoltageGraph <A>VG</A>, an IsList <A>ld</A>, and an IsObject <A>g</A>, <Code>ChangeVoltage(VG,ld,g)</Code> will change the voltage for the one labeled dart ld to the group element g.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="VG, lab, startvert, g" Name="ChangeVoltage" Label="for IsVoltageGraph,IsInt,IsInt, IsObject"/>
+ <Description>
+Given an IsVoltageGraph <A>VG</A>, an IsInt <A>lab</A>, an IsInt <A>startvert</A>, and an IsObject <A>g</A>, <Code>ChangeVoltage(VG,lab, startvert,g)</Code> will change the voltage for the one labeled dart of label lab and start vertex startvert to the group element g.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Attr Arg="VG" Name="DerivedGraph" Label="for IsVoltageGraph"/>
+ <Returns>IsVoltageGraph
+</Returns>
+ <Description>
+Given an IsVoltageGraph <A>VG</A>, a <Code>DerivedGraph(VG)</Code> will construct the derived graph of the voltage graph VG.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="VG, M" Name="VoltageOperator" Label="for IsVoltageGraph, IsManiplex"/>
+ <Description>
+Given an IsVoltageGraph <A>VG</A>, and an IsManiplex <A>M</A>, <Code>VoltageOperator(VG,M)</Code> will return the voltage operator VG acting on M.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> M:=Dodecahedron();;
+gap> S:=STG2(3,[0,1]);
+Premaniplex of rank 3 with 2 flags
+gap> C:=ConnectionGroup(M);;
+gap> V:=VoltageGraph(C,S);;
+gap> ChangeVoltage(V,0,1,C.2);;
+gap> ChangeVoltage(V,0,2,C.2);;
+gap> ChangeVoltage(V,1,1,C.1);;
+gap> ChangeVoltage(V,1,2,C.3);;
+gap> Medial(M) = VoltageOperator(V,M);
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="VG, ELG" Name="VoltageOperator" Label="for IsVoltageGraph,IsEdgeLabeledGraph"/>
+ <Description>
+Given an IsVoltageGraph <A>VG</A>, and an IsEdgeLabeledGraph <A>ELM</A>, <Code>VoltageOperator(VG,M)</Code> will return the voltage operator VG acting on ELM.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

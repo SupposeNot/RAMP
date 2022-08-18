@@ -1979,9 +1979,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. 
@@ -1991,20 +1991,20 @@ relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
 replaced with the value of \texttt{variable} (but for global variables only). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
-  !gapprompt@gap>| !gapinput@n := 3;;|
-  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@n := 3;;|
+  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
   72
 \end{Verbatim}
  The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the reflexible maniplex that is the quotient of the universal
 maniplex with that Schlalfi Symbol by the relations obtained by setting each \mbox{\texttt{\mdseries\slshape word[i]}} to have order \mbox{\texttt{\mdseries\slshape order[i]}}. This is primarily useful for quickly constructing a family of related
 maniplexes. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
-  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
+  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
+  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
   [ false, true, true, true, true ]
 \end{Verbatim}
  
@@ -2016,16 +2016,16 @@ hk\texttt{\symbol{92}}\texttt{\symbol{125}}{\textunderscore}z1, ..., zL" is
 the quotient of $\{p,q\}$ by the relations that make the 2-holes have length h2, ..., and the 1-zigzags
 have length z1, etc. 
 \begin{Verbatim}[commandchars=!@A,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);A
+  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);A
   true
-  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);A
+  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);A
   true
-  !gapprompt@gap>A !gapinput@M := ReflexibleManiplex("{6,6 | 6,2}_4");;A
-  !gapprompt@gap>A !gapinput@HoleLength(M,2);A
+  !gapprompt@gap>A !gapinput@M := ReflexibleManiplex("{6,6 | 6,2}_4");;A
+  !gapprompt@gap>A !gapinput@HoleLength(M,2);A
   6
-  !gapprompt@gap>A !gapinput@HoleLength(M,3);A
+  !gapprompt@gap>A !gapinput@HoleLength(M,3);A
   2
-  !gapprompt@gap>A !gapinput@ZigzagLength(M,1);A
+  !gapprompt@gap>A !gapinput@ZigzagLength(M,1);A
   4
 \end{Verbatim}
  }
@@ -2050,12 +2050,12 @@ should only be used if you know that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. This function first checks whether g is an Sggi. Use \texttt{ManiplexNC} to bypass that check. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -2077,15 +2077,15 @@ should only be used if you know that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -3157,7 +3157,7 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
@@ -3178,9 +3178,9 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
@@ -3200,9 +3200,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -3237,9 +3237,9 @@ flag itself. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
   true
-  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
+  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
   false
 \end{Verbatim}
  }
@@ -6986,7 +6986,7 @@ of adjacent vertices, and the labels of the corresponding edges. }
 \hyperdef{L}{X791A59B97A44470F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{SemiEdges@\texttt{SemiEdges}!for IsEdgeLabeledGraph}
 \label{SemiEdges:for IsEdgeLabeledGraph}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsList}. 
 
@@ -7001,7 +7001,7 @@ of adjacent vertices, and the labels of the corresponding edges. }
 \hyperdef{L}{X82490C307F022606}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledSemiEdges({\mdseries\slshape EdgeLabeledGraph})\index{LabeledSemiEdges@\texttt{LabeledSemiEdges}!for IsEdgeLabeledGraph}
 \label{LabeledSemiEdges:for IsEdgeLabeledGraph}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsList, IsList}. 
 
@@ -7017,7 +7017,7 @@ and their labels }
 \hyperdef{L}{X811C8FB3842D6D2E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape EdgeLabeledGraph})\index{LabeledDarts@\texttt{LabeledDarts}!for IsEdgeLabeledGraph}
 \label{LabeledDarts:for IsEdgeLabeledGraph}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsList}. 
 
@@ -9125,6 +9125,27 @@ edgelabeledgraph
    gap> FlagGraph(last);
   Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{LabeledDarts (for IsPremaniplex)}}
+\logpage{[ 17, 1, 8 ]}\nobreak
+\hyperdef{L}{X7E7E64817A09366F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape p})\index{LabeledDarts@\texttt{LabeledDarts}!for IsPremaniplex}
+\label{LabeledDarts:for IsPremaniplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+list 
+
+
+
+ Given a Premaniples p, returns the list of labeled darts from its flag graph. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@P:=STG2(5,[2,4]);;|
+  !gapprompt@gap>| !gapinput@LabeledDarts(P);|
+  [ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
+\end{Verbatim}
  }
 
  }
@@ -9291,6 +9312,161 @@ IsList
   !gapprompt@gap>| !gapinput@W=Truncation(Dodecahedron());|
   true
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{VoltageGraph (for IsGroup,IsList,IsList)}}
+\logpage{[ 18, 1, 7 ]}\nobreak
+\hyperdef{L}{X80D0DC17799E3DBF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageGraph({\mdseries\slshape G, L, V})\index{VoltageGraph@\texttt{VoltageGraph}!for IsGroup,IsList,IsList}
+\label{VoltageGraph:for IsGroup,IsList,IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsVoltageGraph 
+
+
+
+ Given an IsGroup \mbox{\texttt{\mdseries\slshape G}}, an IsList \mbox{\texttt{\mdseries\slshape L}}, and an IsList \mbox{\texttt{\mdseries\slshape V}}, \texttt{VoltageGraph(G,L,V)} will construct the voltage graph with voltages from G, labeled darts from L,
+and voltages from V. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@G:=ConnectionGroup(Cube(3));;|
+  !gapprompt@gap>| !gapinput@L:=[ [[1],0], [[1],1], [[1,2],2], [[2],0], [[2],1]];;|
+  !gapprompt@gap>| !gapinput@V:=[G.2, G.1, Identity(G), G.2, G.1];;|
+  !gapprompt@gap>| !gapinput@VG:=VoltageGraph(G,L,V);|
+  Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)
+  (12,24)(14,43)(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)
+  (40,46)(42,44), (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)
+  (17,41)(18,21)(19,22)(20,23)(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), (1,3)(2,7)
+  (4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)
+  (29,39)(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{VoltageGraph (for IsGroup,IsPremaniplex,IsList)}}
+\logpage{[ 18, 1, 8 ]}\nobreak
+\hyperdef{L}{X83B940167FBDDB22}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageGraph({\mdseries\slshape G, P, V})\index{VoltageGraph@\texttt{VoltageGraph}!for IsGroup,IsPremaniplex,IsList}
+\label{VoltageGraph:for IsGroup,IsPremaniplex,IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsVoltageGraph 
+
+
+
+ Given an IsGroup \mbox{\texttt{\mdseries\slshape G}}, an IsPremaniplex \mbox{\texttt{\mdseries\slshape P}}, and an IsList \mbox{\texttt{\mdseries\slshape V}}, \texttt{VoltageGraph(G,P,V)} will construct the voltage graph with voltages from G, labeled darts from the
+premaniplex P, and voltages from V. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@G:=ConnectionGroup(Cube(3));;|
+  !gapprompt@gap>| !gapinput@P:=STG2(3,[0,1]);|
+  Premaniplex of rank 3 with 2 flags
+  !gapprompt@gap>| !gapinput@L:=LabeledDarts(P);|
+  [ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2, 1 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
+  !gapprompt@gap>| !gapinput@V:=[G.2, G.1, Identity(G), Identity(G), G.2, G.1];;|
+  !gapprompt@gap>| !gapinput@VG:=VoltageGraph(G,P,V);|
+  Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)(12,24)(14,43)
+  (15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)(40,46)(42,44), 
+  (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)(17,41)(18,21)(19,22)(20,23)
+  (24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), 
+  (1,3)(2,7)(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)(29,39)
+  (30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{VoltageGraph (for IsGroup,IsPremaniplex)}}
+\logpage{[ 18, 1, 9 ]}\nobreak
+\hyperdef{L}{X81682EEF8674907A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageGraph({\mdseries\slshape G, P})\index{VoltageGraph@\texttt{VoltageGraph}!for IsGroup,IsPremaniplex}
+\label{VoltageGraph:for IsGroup,IsPremaniplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsVoltageGraph 
+
+
+
+ Given an IsGroup \mbox{\texttt{\mdseries\slshape G}}, and an IsPremaniplex \mbox{\texttt{\mdseries\slshape P}}, \texttt{VoltageGraph(G,P)} will construct the voltage graph with voltages from G, labeled darts from the
+premaniplex P, and trivial voltages. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ChangeVoltage (for IsVoltageGraph,IsList, IsObject)}}
+\logpage{[ 18, 1, 10 ]}\nobreak
+\hyperdef{L}{X7FFBBED6838B11AD}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChangeVoltage({\mdseries\slshape VG, ld, g})\index{ChangeVoltage@\texttt{ChangeVoltage}!for IsVoltageGraph,IsList, IsObject}
+\label{ChangeVoltage:for IsVoltageGraph,IsList, IsObject}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given an IsVoltageGraph \mbox{\texttt{\mdseries\slshape VG}}, an IsList \mbox{\texttt{\mdseries\slshape ld}}, and an IsObject \mbox{\texttt{\mdseries\slshape g}}, \texttt{ChangeVoltage(VG,ld,g)} will change the voltage for the one labeled dart ld to the group element g. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ChangeVoltage (for IsVoltageGraph,IsInt,IsInt, IsObject)}}
+\logpage{[ 18, 1, 11 ]}\nobreak
+\hyperdef{L}{X78C2B4FE8389CF98}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChangeVoltage({\mdseries\slshape VG, lab, startvert, g})\index{ChangeVoltage@\texttt{ChangeVoltage}!for IsVoltageGraph,IsInt,IsInt, IsObject}
+\label{ChangeVoltage:for IsVoltageGraph,IsInt,IsInt, IsObject}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given an IsVoltageGraph \mbox{\texttt{\mdseries\slshape VG}}, an IsInt \mbox{\texttt{\mdseries\slshape lab}}, an IsInt \mbox{\texttt{\mdseries\slshape startvert}}, and an IsObject \mbox{\texttt{\mdseries\slshape g}}, \texttt{ChangeVoltage(VG,lab, startvert,g)} will change the voltage for the one labeled dart of label lab and start vertex
+startvert to the group element g. }
+
+ 
+
+\subsection{\textcolor{Chapter }{DerivedGraph (for IsVoltageGraph)}}
+\logpage{[ 18, 1, 12 ]}\nobreak
+\hyperdef{L}{X7BC3B94379122B29}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DerivedGraph({\mdseries\slshape VG})\index{DerivedGraph@\texttt{DerivedGraph}!for IsVoltageGraph}
+\label{DerivedGraph:for IsVoltageGraph}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+IsVoltageGraph 
+
+
+
+ Given an IsVoltageGraph \mbox{\texttt{\mdseries\slshape VG}}, a \texttt{DerivedGraph(VG)} will construct the derived graph of the voltage graph VG. }
+
+ 
+
+\subsection{\textcolor{Chapter }{VoltageOperator (for IsVoltageGraph, IsManiplex)}}
+\logpage{[ 18, 1, 13 ]}\nobreak
+\hyperdef{L}{X87B722CB84C389BB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageOperator({\mdseries\slshape VG, M})\index{VoltageOperator@\texttt{VoltageOperator}!for IsVoltageGraph, IsManiplex}
+\label{VoltageOperator:for IsVoltageGraph, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given an IsVoltageGraph \mbox{\texttt{\mdseries\slshape VG}}, and an IsManiplex \mbox{\texttt{\mdseries\slshape M}}, \texttt{VoltageOperator(VG,M)} will return the voltage operator VG acting on M. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M:=Dodecahedron();;|
+  !gapprompt@gap>| !gapinput@S:=STG2(3,[0,1]);|
+  Premaniplex of rank 3 with 2 flags
+  !gapprompt@gap>| !gapinput@C:=ConnectionGroup(M);;|
+  !gapprompt@gap>| !gapinput@V:=VoltageGraph(C,S);;|
+  !gapprompt@gap>| !gapinput@ChangeVoltage(V,0,1,C.2);;|
+  !gapprompt@gap>| !gapinput@ChangeVoltage(V,0,2,C.2);;|
+  !gapprompt@gap>| !gapinput@ChangeVoltage(V,1,1,C.1);;|
+  !gapprompt@gap>| !gapinput@ChangeVoltage(V,1,2,C.3);;|
+  !gapprompt@gap>| !gapinput@Medial(M) = VoltageOperator(V,M);|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{VoltageOperator (for IsVoltageGraph,IsEdgeLabeledGraph)}}
+\logpage{[ 18, 1, 14 ]}\nobreak
+\hyperdef{L}{X7C446B798146B031}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VoltageOperator({\mdseries\slshape VG, ELG})\index{VoltageOperator@\texttt{VoltageOperator}!for IsVoltageGraph,IsEdgeLabeledGraph}
+\label{VoltageOperator:for IsVoltageGraph,IsEdgeLabeledGraph}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Given an IsVoltageGraph \mbox{\texttt{\mdseries\slshape VG}}, and an IsEdgeLabeledGraph \mbox{\texttt{\mdseries\slshape ELM}}, \texttt{VoltageOperator(VG,M)} will return the voltage operator VG acting on ELM. }
+
  }
 
  }

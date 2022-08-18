@@ -501,7 +501,7 @@ Takes in an edge labeled graph and a vertex, and outputs two lists: the list of 
 
 
 <ManSection>
-  <Oper Arg="EdgeLabeledGraph" Name="SemiEdges" Label="for IsEdgeLabeledGraph"/>
+  <Attr Arg="EdgeLabeledGraph" Name="SemiEdges" Label="for IsEdgeLabeledGraph"/>
  <Returns><Code>IsList</Code>.
 </Returns>
  <Description>
@@ -511,7 +511,7 @@ Takes in an edge labeled graph and a vertex, and outputs a list of semiedges
 
 
 <ManSection>
-  <Oper Arg="EdgeLabeledGraph" Name="LabeledSemiEdges" Label="for IsEdgeLabeledGraph"/>
+  <Attr Arg="EdgeLabeledGraph" Name="LabeledSemiEdges" Label="for IsEdgeLabeledGraph"/>
  <Returns><Code>IsList, IsList</Code>.
 </Returns>
  <Description>
@@ -521,7 +521,7 @@ Takes in an edge labeled graph and a vertex, and outputs two lists: SemiEdges an
 
 
 <ManSection>
-  <Oper Arg="EdgeLabeledGraph" Name="LabeledDarts" Label="for IsEdgeLabeledGraph"/>
+  <Attr Arg="EdgeLabeledGraph" Name="LabeledDarts" Label="for IsEdgeLabeledGraph"/>
  <Returns><Code>IsList</Code>.
 </Returns>
  <Description>

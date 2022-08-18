@@ -49,6 +49,8 @@
   [2XCartesianProduct[102X, for IsManiplex, IsManiplex 9.3-5 
       for IsPoset,IsPoset 8.6-2 
   [2XChamfer[102X, for IsMapOnSurface 14.4-3 
+  [2XChangeVoltage[102X, for IsVoltageGraph,IsInt,IsInt, IsObject 18.1-11 
+      for IsVoltageGraph,IsList, IsObject 18.1-10 
   [2XChiralityGroup[102X, for IsRotaryManiplex 3.1-6 
   [2XChunkGeneratedGroup[102X, for IsList, IsPermGroup 13.1-4 
   [2XChunkGeneratedGroupElements[102X, for IsList, IsGroup 13.1-3 
@@ -79,6 +81,7 @@
   [2XDegeneratePolyhedra[102X 12.1-3 
   [2XDeltak[102X, for IsInt 14.1-2 
   [2XDerivedGraph[102X, for IsList,IsList,IsList 11.2-24 
+      for IsVoltageGraph 18.1-12 
   [2XDirectDerivates[102X, for IsManiplex 9.2-8 
   [2XDirectedGraphFromListOfEdges[102X, for IsList,IsList 11.2-1 
   [2XDirectSumOfManiplexes[102X, for IsManiplex, IsManiplex 9.3-6 
@@ -222,6 +225,7 @@
   [2XKis[102X, for IsMapOnSurface 14.5-2 
   [2XLabeledAdjacentVertices[102X, for IsEdgeLabeledGraph, IsObject 11.2-20 
   [2XLabeledDarts[102X, for IsEdgeLabeledGraph 11.2-23 
+      for IsPremaniplex 17.1-8 
   [2XLabeledSemiEdges[102X, for IsEdgeLabeledGraph 11.2-22 
   [2XLace[102X, for IsMapOnSurface 14.6-6 
   [2XLayerGraph[102X, for IsGroup, IsInt, IsInt 11.2-5 
@@ -400,8 +404,13 @@
       for IsManiplex, IsInt 10.1-9 
   [2XVertexFigures[102X, for IsManiplex 10.1-9 
   [2XViewGraph[102X, for IsObject, IsString 11.2-25 
+  [2XVoltageGraph[102X, for IsGroup,IsList,IsList 18.1-7 
+      for IsGroup,IsPremaniplex 18.1-9 
+      for IsGroup,IsPremaniplex,IsList 18.1-8 
   [2XVoltageOperator[102X, for IsList, IsString,IsEdgeLabeledGraph 18.1-1 
       for IsList, IsString,IsManiplex 18.1-2 
+      for IsVoltageGraph, IsManiplex 18.1-13 
+      for IsVoltageGraph,IsEdgeLabeledGraph 18.1-14 
   [2XVolute[102X, for IsMapOnSurface 14.6-9 
   [2XWhirl[102X, for IsMapOnSurface 14.6-8 
   [2XWrappedPosetOperation[102X 15.4-5 

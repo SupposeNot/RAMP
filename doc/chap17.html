@@ -32,6 +32,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17.html#X7C2B1DB07CB38F59">17.1-5 STG3</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17.html#X7EFDB6887DEAFB4F">17.1-6 STG3</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17.html#X863F65F6865859F1">17.1-7 FlagGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17.html#X7E7E64817A09366F">17.1-8 LabeledDarts</a></span>
 </div></div>
 </div>
 
@@ -152,6 +153,22 @@ Premaniplex of rank 6 with 3 flags
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(4,1);;</span>
  gap&gt; FlagGraph(last);
 Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
+</pre></div>
+
+<p><a id="X7E7E64817A09366F" name="X7E7E64817A09366F"></a></p>
+
+<h5>17.1-8 LabeledDarts</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledDarts</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Given a Premaniples p, returns the list of labeled darts from its flag graph.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=STG2(5,[2,4]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LabeledDarts(P);</span>
+[ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
 </pre></div>
 
 
