@@ -358,7 +358,8 @@ InstallMethod(QuotientSggiByNormalSubgroup,
 	[IsGroup,IsGroup],
 	function(sggi,n)
 	if IsSggi(sggi)=false or IsNormal(sggi,n)<>true then Error("That isn't a normal subgroup in an SGGI.");fi;
-	return Group(Image(NaturalHomomorphismByNormalSubgroup(sggi,n),GeneratorsOfGroup(sggi)));	
+	return Image(ReallyNaturalHomomorphismByNormalSubgroup(sggi,n));
+#   return Group(Image(NaturalHomomorphismByNormalSubgroup(sggi,n),GeneratorsOfGroup(sggi)));	
 	end);
 	
 InstallMethod(QuotientManiplexByAutomorphismSubgroup,

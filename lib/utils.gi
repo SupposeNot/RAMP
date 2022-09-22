@@ -301,4 +301,14 @@ InstallMethod(MarkAsPolytopal,
 	return;
 	
 	end);
-	
+
+
+InstallMethod(ReallyNaturalHomomorphismByNormalSubgroup,
+	[IsGroup,IsGroup],
+	function(G,N)
+	local phi,gens,qgens;
+	phi:=NaturalHomomorphismByNormalSubgroup(G,N);
+	gens:=GeneratorsOfGroup(G);
+	qgens:=List(gens,x->Image(phi,x));
+	return GroupHomomorphismByImages(G,FactorGroup(G,N),gens,qgens);
+	end);	

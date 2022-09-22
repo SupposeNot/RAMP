@@ -74,4 +74,4 @@ DeclareOperation("Medial", [IsManiplex]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(Medial(Dodecahedron()));
 #! [ [ 3, 5 ], 4 ]
-#! @EndExampleSession
+#! @EndExampleSession78
