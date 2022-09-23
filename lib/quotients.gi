@@ -358,14 +358,14 @@ InstallMethod(QuotientSggiByNormalSubgroup,
 	[IsGroup,IsGroup],
 	function(sggi,n)
 	if IsSggi(sggi)=false or IsNormal(sggi,n)<>true then Error("That isn't a normal subgroup in an SGGI.");fi;
-	return Image(ReallyNaturalHomomorphismByNormalSubgroup(sggi,n));
-#   return Group(Image(NaturalHomomorphismByNormalSubgroup(sggi,n),GeneratorsOfGroup(sggi)));	
+	return Group(Image(NaturalHomomorphismByNormalSubgroup(sggi,n),GeneratorsOfGroup(sggi)));	
 	end);
 	
 InstallMethod(QuotientManiplexByAutomorphismSubgroup,
 	[IsManiplex,IsPermGroup],
 	function(m,h)
 	local flags, orbits, conn, aut, Norbits, ims,x,y, orb,gensC, newGens;
+	if Size(h) = 1 then return m; fi;
 	aut:=AutomorphismGroupOnFlags(m);
 	if IsSubgroup(aut,h)=false then Error("Your subgroup needs to be a subgroup of the automorphism group acting on the flags.");fi;
 	flags:=MovedPoints(aut);
