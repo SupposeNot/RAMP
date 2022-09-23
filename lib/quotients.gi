@@ -370,7 +370,7 @@ InstallMethod(QuotientManiplexByAutomorphismSubgroup,
 	aut:=AutomorphismGroupOnFlags(m);
 	if IsSubgroup(aut,h)=false then Error("Your subgroup needs to be a subgroup of the automorphism group acting on the flags.");fi;
 	flags:=MovedPoints(aut);
-	orbits:=List(Orbits(h),AsSet);
+	orbits:=List(Orbits(h, flags),AsSet);
 #  	Norbits:=Length(orbits);
  	conn:=ConnectionGroup(m);
  	gensC:=GeneratorsOfGroup(conn);
