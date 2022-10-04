@@ -1979,9 +1979,9 @@ maniplex
  In the first form, we are given an Sggi \mbox{\texttt{\mdseries\slshape g}} and we return the reflexible maniplex with that automorphism group, where the
 privileged generators are those returned by GeneratorsOfGroup(g). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
-  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  !gapprompt@gap>| !gapinput@g := Group([(1,2), (2,3), (3,4)]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(g);|
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
   true
 \end{Verbatim}
  This function first checks whether g is an Sggi. Use \texttt{ReflexibleManiplexNC} to bypass that check. 
@@ -1991,20 +1991,20 @@ relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
 replaced with the value of \texttt{variable} (but for global variables only). 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
-  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
+  !gapprompt@gap>| !gapinput@q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;|
+  !gapprompt@gap>| !gapinput@q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");|
   true
-  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
-  !gapprompt@gap>| !gapinput@n := 3;;|
-  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
+  !gapprompt@gap>| !gapinput@p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;|
+  !gapprompt@gap>| !gapinput@n := 3;;|
+  !gapprompt@gap>| !gapinput@Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));|
   72
 \end{Verbatim}
  The third form takes the Schlafli Symbol \mbox{\texttt{\mdseries\slshape sym}}, a list of \mbox{\texttt{\mdseries\slshape words}} in the generators r0 etc, and a list of \mbox{\texttt{\mdseries\slshape orders}}. It returns the reflexible maniplex that is the quotient of the universal
 maniplex with that Schlalfi Symbol by the relations obtained by setting each \mbox{\texttt{\mdseries\slshape word[i]}} to have order \mbox{\texttt{\mdseries\slshape order[i]}}. This is primarily useful for quickly constructing a family of related
 maniplexes. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
-  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
+  !gapprompt@gap>| !gapinput@L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;|
+  !gapprompt@gap>| !gapinput@List(L, IsPolytopal);|
   [ false, true, true, true, true ]
 \end{Verbatim}
  
@@ -2016,16 +2016,16 @@ hk\texttt{\symbol{92}}\texttt{\symbol{125}}{\textunderscore}z1, ..., zL" is
 the quotient of $\{p,q\}$ by the relations that make the 2-holes have length h2, ..., and the 1-zigzags
 have length z1, etc. 
 \begin{Verbatim}[commandchars=!@A,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);A
+  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);A
   true
-  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);A
+  !gapprompt@gap>A !gapinput@ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);A
   true
-  !gapprompt@gap>A !gapinput@M := ReflexibleManiplex("{6,6 | 6,2}_4");;A
-  !gapprompt@gap>A !gapinput@HoleLength(M,2);A
+  !gapprompt@gap>A !gapinput@M := ReflexibleManiplex("{6,6 | 6,2}_4");;A
+  !gapprompt@gap>A !gapinput@HoleLength(M,2);A
   6
-  !gapprompt@gap>A !gapinput@HoleLength(M,3);A
+  !gapprompt@gap>A !gapinput@HoleLength(M,3);A
   2
-  !gapprompt@gap>A !gapinput@ZigzagLength(M,1);A
+  !gapprompt@gap>A !gapinput@ZigzagLength(M,1);A
   4
 \end{Verbatim}
  }
@@ -2050,12 +2050,12 @@ should only be used if you know that the Schlafli symbol is correct.
 
  Given a permutation group \mbox{\texttt{\mdseries\slshape G}} on the set [1..N], returns a maniplex with N flags with connection group \mbox{\texttt{\mdseries\slshape G}}. This function first checks whether g is an Sggi. Use \texttt{ManiplexNC} to bypass that check. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
-  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
+  !gapprompt@gap>| !gapinput@G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;|
+  !gapprompt@gap>| !gapinput@M := Maniplex(G);|
   Pgon(3)
-  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
+  !gapprompt@gap>| !gapinput@c := ConnectionGroup(Cube(3));|
   <permutation group with 3 generators>
-  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
+  !gapprompt@gap>| !gapinput@Maniplex(c) = Cube(3);|
   true
 \end{Verbatim}
  }
@@ -2077,15 +2077,15 @@ should only be used if you know that the Schlafli symbol is correct.
 which takes a string of relations as input instead of a subgroup. The example
 below builds the map $\{4, 4\}_{(1,0), (0,2)}$. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([4,4]);|
   CubicTiling(2)
-  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
+  !gapprompt@gap>| !gapinput@G := AutomorphismGroup(M);|
   <fp group of size infinity on the generators [ r0, r1, r2 ]>
-  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
+  !gapprompt@gap>| !gapinput@H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);|
   Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
+  !gapprompt@gap>| !gapinput@M2 := Maniplex(M, H);|
   3-maniplex
-  !gapprompt@gap>| !gapinput@Size(M2);|
+  !gapprompt@gap>| !gapinput@Size(M2);|
   16
 \end{Verbatim}
  }
@@ -2166,11 +2166,8 @@ base. See AddAttrComputer for more information. }
 \logpage{[ 5, 2, 1 ]}
 \hyperdef{L}{X8648D2398775125D}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape permgroup, permgroup})\index{Mix@\texttt{Mix}!for IsPermGroup, IsPermGroup}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape g, h})\index{Mix@\texttt{Mix}!for IsPermGroup, IsPermGroup}
 \label{Mix:for IsPermGroup, IsPermGroup}
-}\hfill{\scriptsize (operation)}}\\
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape fpgroup, fpgroup})\index{Mix@\texttt{Mix}!for IsFpGroup, IsFpGroup}
-\label{Mix:for IsFpGroup, IsFpGroup}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsGroup }. 
@@ -2178,9 +2175,8 @@ base. See AddAttrComputer for more information. }
 
 
  Given two groups (either both permutation groups or both FpGroups), returns
-the mix of those groups. 
-
- }
+the mix of those groups. If g and h are permutation groups of degree m and n,
+respectively, then the mix is a permutation group of degree m+n. }
 
  Here we build the mix of the connection groups of a 3-cube and an edge. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -3157,7 +3153,7 @@ vertices is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
   true
 \end{Verbatim}
  
@@ -3178,9 +3174,9 @@ facets is faithful. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
   false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
   true
 \end{Verbatim}
  
@@ -3200,9 +3196,9 @@ Q
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
   reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
 \end{Verbatim}
  
@@ -3237,9 +3233,9 @@ flag itself. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
+  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
   true
-  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
+  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
   false
 \end{Verbatim}
  }
@@ -8932,6 +8928,23 @@ maniplexes the way one expects. }
 
 
  Sets \texttt{IsPolytopal(M)} as true, and if necessary, changes \texttt{String(M)} to reflect this. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ReallyNaturalHomomorphismByNormalSubgroup (for IsGroup,IsGroup)}}
+\logpage{[ 15, 4, 7 ]}\nobreak
+\hyperdef{L}{X7F5C8A788040FFBF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReallyNaturalHomomorphismByNormalSubgroup({\mdseries\slshape G, N})\index{ReallyNaturalHomomorphismByNormalSubgroup@\texttt{Really}\-\texttt{Natural}\-\texttt{Homomorphism}\-\texttt{By}\-\texttt{Normal}\-\texttt{Subgroup}!for IsGroup,IsGroup}
+\label{ReallyNaturalHomomorphismByNormalSubgroup:for IsGroup,IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+quotient group with generators appropriately mapped 
+
+
+
+ Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient
+efficient in terms of the number of generators, which is disastrous for
+studying Sggis. This fixes that. }
 
  }
 

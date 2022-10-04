@@ -77,9 +77,9 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(g);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(g);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
 true
 </pre></div>
 
@@ -89,12 +89,12 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := 3;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));</span>
 72
 </pre></div>
 
@@ -102,8 +102,8 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
 [ false, true, true, true, true ]
 </pre></div>
 
@@ -111,16 +111,16 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex("{6,6 | 6,2}_4");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(M,2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex("{6,6 | 6,2}_4");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(M,2);</span>
 6
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(M,3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(M,3);</span>
 2
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(M,1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(M,1);</span>
 4
 </pre></div>
 
@@ -139,12 +139,12 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(G);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(G);</span>
 Pgon(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := ConnectionGroup(Cube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">c := ConnectionGroup(Cube(3));</span>
 &lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(c) = Cube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(c) = Cube(3);</span>
 true
 </pre></div>
 
@@ -159,15 +159,15 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4]);</span>
 CubicTiling(2)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AutomorphismGroup(M);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AutomorphismGroup(M);</span>
 &lt;fp group of size infinity on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);</span>
 Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M2 := Maniplex(M, H);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M2 := Maniplex(M, H);</span>
 3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M2);</span>
 16
 </pre></div>
 
@@ -215,11 +215,10 @@ Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
 
 <h5>5.2-1 <span class="Heading">Mix of groups</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">permgroup</var>, <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">fpgroup</var>, <var class="Arg">fpgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">g</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsGroup </code>.</p>
 
-<p>Given two groups (either both permutation groups or both FpGroups), returns the mix of those groups.</p>
+<p>Given two groups (either both permutation groups or both FpGroups), returns the mix of those groups. If g and h are permutation groups of degree m and n, respectively, then the mix is a permutation group of degree m+n.</p>
 
 <p>Here we build the mix of the connection groups of a 3-cube and an edge.</p>
 

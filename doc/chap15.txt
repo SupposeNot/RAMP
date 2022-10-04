@@ -252,3 +252,12 @@
   [33X[0;0YSets  [10XIsPolytopal(M)[110X as true, and if necessary, changes [10XString(M)[110X to reflect
   this.[133X
   
+  [1X15.4-7 ReallyNaturalHomomorphismByNormalSubgroup[101X
+  
+  [33X[1;0Y[29X[2XReallyNaturalHomomorphismByNormalSubgroup[102X( [3XG[103X, [3XN[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yquotient group with generators appropriately mapped[133X
+  
+  [33X[0;0YImage(NaturalHomomorphismByNormalSubgroup(G,N))  tries  to make the quotient
+  efficient  in  terms  of  the  number of generators, which is disastrous for
+  studying Sggis. This fixes that.[133X
+  

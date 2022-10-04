@@ -202,13 +202,13 @@ Returns whether the maniplex <A>M</A> is polytopal;
 
 <ManSection Label="Mix">
 <Heading>Mix of groups</Heading>
-  <Oper Arg="permgroup, permgroup" Name="Mix" Label="for IsPermGroup, IsPermGroup"/>
-  <Oper Arg="fpgroup, fpgroup" Name="Mix" Label="for IsFpGroup, IsFpGroup"/>
+  <Oper Arg="g, h" Name="Mix" Label="for IsPermGroup, IsPermGroup"/>
  <Returns><Code>IsGroup </Code>.
 </Returns>
  <Description>
 Given two groups (either both permutation groups or both FpGroups), returns the mix of those groups.
-<P/>
+ If g and h are permutation groups of degree m and n, respectively, then the mix is a permutation group of degree
+ m+n.
  </Description>
 </ManSection>
 

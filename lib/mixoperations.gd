@@ -6,12 +6,13 @@
 #! @BeginGroup Mix
 #! @GroupTitle Mix of groups
 
-#! @Arguments permgroup, permgroup
+#! @Arguments g, h
 #! @Returns `IsGroup `. 
 #! @Description Given two groups (either both permutation groups or both FpGroups), returns the mix of those groups.  
+#! If g and h are permutation groups of degree m and n, respectively, then the mix is a permutation group of degree
+#! m+n.
 DeclareOperation("Mix", [IsPermGroup, IsPermGroup]);
 
-#! @Arguments fpgroup, fpgroup
 DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 #! Here we build the mix of the connection groups of a 3-cube and an edge.
 #! @BeginExampleSession
@@ -26,13 +27,13 @@ DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 
 #! @Arguments maniplex,  maniplex
 #! @Returns `IsReflexibleManiplex `. 
-#! @Description Given two maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups.  In general, it returns the "flag mix" of the two maniplexes (see `FlagMix`).
-DeclareOperation("Mix", [IsManiplex, IsManiplex]);
+#! @Description Given two (pre-)maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups.  In general, it returns the "flag mix" of the two maniplexes (see `FlagMix`).
+DeclareOperation("Mix", [IsPremaniplex, IsPremaniplex]);
 
 
 #! @Arguments maniplex, maniplex
 #! @Returns `IsManiplex `. 
-#! @Description Given two maniplexes p, q this returns the maniplex of their  
+#! @Description Given two (pre-)maniplexes p, q this returns the (pre-)maniplex of their  
 #! "flag" mix. That is, it constructs the mix of their connection groups, keeps
 #! the connected component with the base flags of p and q, and then builds a maniplex
 #! from this.

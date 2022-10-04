@@ -7,7 +7,7 @@
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A>.
 #! This group is not guaranteed to be in any particular form. For particular permutation representations you should consider the various AutomorphismGroupOn... functions, or AutomorphismGroupFpGroup.
-DeclareAttribute("AutomorphismGroup", IsManiplex);
+DeclareAttribute("AutomorphismGroup", IsPremaniplex);
 
 #! @Arguments M
 #! Returns the automorphism group of <A>M</A> as a

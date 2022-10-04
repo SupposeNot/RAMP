@@ -51,6 +51,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X829B5DA779342A28">15.4-4 AddOrAppend</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C4A431283A32F67">15.4-5 WrappedPosetOperation</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X86B884FA7C22BC92">15.4-6 MarkAsPolytopal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7F5C8A788040FFBF">15.4-7 ReallyNaturalHomomorphismByNormalSubgroup</a></span>
 </div></div>
 </div>
 
@@ -307,6 +308,15 @@ true
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MarkAsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Sets <code class="code">IsPolytopal(M)</code> as true, and if necessary, changes <code class="code">String(M)</code> to reflect this.</p>
+
+<p><a id="X7F5C8A788040FFBF" name="X7F5C8A788040FFBF"></a></p>
+
+<h5>15.4-7 ReallyNaturalHomomorphismByNormalSubgroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReallyNaturalHomomorphismByNormalSubgroup</code>( <var class="Arg">G</var>, <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: quotient group with generators appropriately mapped</p>
+
+<p>Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient efficient in terms of the number of generators, which is disastrous for studying Sggis. This fixes that.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap14.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap16.html">[Next Chapter]</a>&nbsp;  </div>

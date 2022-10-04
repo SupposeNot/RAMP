@@ -305,6 +305,16 @@ Sets <Code>IsPolytopal(M)</Code> as true, and if necessary, changes
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="G, N" Name="ReallyNaturalHomomorphismByNormalSubgroup" Label="for IsGroup,IsGroup"/>
+ <Returns>quotient group with generators appropriately mapped
+</Returns>
+ <Description>
+Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient efficient in terms of the number of generators, which is disastrous for studying Sggis. This fixes that.
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

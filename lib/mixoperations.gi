@@ -122,7 +122,7 @@ InstallMethod(FlagMix,
 
 
 InstallMethod(Mix,
-	[IsManiplex, IsManiplex],
+	[IsPremaniplex, IsPremaniplex],
 	function(p,q)
 	if IsReflexible(p) and IsReflexible(q) then
 	return ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));

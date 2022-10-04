@@ -13,7 +13,7 @@ InstallMethod(PremaniplexNC,
 	[IsGroup],
 	function(g)
 	local pm;
-	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexConnGpRep),  	    rec(conn_gp:=g, flags:=MovedPoints(g), rank:=Size(GeneratorsOfGroup(g))));
+	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexConnGpRep),  	    rec(conn_gp:=g, flags:=MovedPoints(g), rank:=Size(GeneratorsOfGroup(g)), attr_computers := NewDictionary(Size, true)));
 	SetConnectionGroup(pm,g);
 	SetRankManiplex(pm, pm!.rank);	
 	SetSize(pm, NrMovedPoints(g));
@@ -26,7 +26,7 @@ InstallMethod(Premaniplex,
 	function(g)
 	local pm, c;
 	c:=ConnectionGroup(g);
-	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexGraphRep),  	    rec(conn_gp:=c, flags:=Vertices(g), rank:=Size(Set(Labels(g)))));
+	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexGraphRep),  	    rec(conn_gp:=c, flags:=Vertices(g), rank:=Size(Set(Labels(g))), attr_computers := NewDictionary(Size, true)));
 	SetConnectionGroup(pm,c);
 	SetRankManiplex(pm, pm!.rank);	
 	SetSize(pm, NrMovedPoints(c));

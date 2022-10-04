@@ -1,6 +1,6 @@
 
 InstallMethod(AutomorphismGroup, 
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local c, stab, norm;
 	c := ConnectionGroup(M);
