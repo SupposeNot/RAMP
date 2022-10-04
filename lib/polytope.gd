@@ -93,6 +93,8 @@ DeclareOperation("ReflexibleManiplex", [IsString]);
 DeclareSynonym("RefMan", ReflexibleManiplex);
 DeclareSynonym("RefManNC", ReflexibleManiplexNC);
 
+DeclareOperation("ReflexibleManiplexFromName", [IsString]);
+
 
 
 

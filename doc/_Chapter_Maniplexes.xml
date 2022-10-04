@@ -225,11 +225,11 @@ gap> Mix(g1,g2);
 
 
 <ManSection>
-  <Oper Arg="maniplex, maniplex" Name="Mix" Label="for IsManiplex, IsManiplex"/>
+  <Oper Arg="maniplex, maniplex" Name="Mix" Label="for IsPremaniplex, IsPremaniplex"/>
  <Returns><Code>IsReflexibleManiplex </Code>.
 </Returns>
  <Description>
-Given two maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups. In general, it returns the "flag mix" of the two maniplexes (see <Code>FlagMix</Code>).
+Given two (pre-)maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups. In general, it returns the "flag mix" of the two maniplexes (see <Code>FlagMix</Code>).
  </Description>
 </ManSection>
 
@@ -239,7 +239,7 @@ Given two maniplexes, returns their mix. For two reflexible maniplexes returns t
  <Returns><Code>IsManiplex </Code>.
 </Returns>
  <Description>
-Given two maniplexes p, q this returns the maniplex of their
+Given two (pre-)maniplexes p, q this returns the (pre-)maniplex of their
  "flag" mix. That is, it constructs the mix of their connection groups, keeps
  the connected component with the base flags of p and q, and then builds a maniplex
  from this.

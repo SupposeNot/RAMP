@@ -46,6 +46,9 @@ InstallMethod(ReflexibleManiplex,
 	#if ForAny(sym, x -> not(IsInt(x) or x = infinity) or x < 2) then
 	#	Error("Each entry of the Schlafli symbol must be a positive integer at least 2.");
 	#fi;
+	if IsString(sym) then
+		return ReflexibleManiplexFromName(sym);
+	fi;
 	n := Size(sym)+1;
 
 	if n = 1 then
@@ -143,7 +146,7 @@ InstallMethod(ReflexibleManiplex,
 	return ReflexibleManiplex(sym, relstr);
 	end);
 
-InstallMethod(ReflexibleManiplex,
+InstallMethod(ReflexibleManiplexFromName,
 	[IsString],
 	function(name)
 	local newname, L, L2, holes, zigzags, sym, hrels, zrels, i, zlengths, symlist, hlengths, rels, M;

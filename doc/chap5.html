@@ -39,7 +39,7 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X8648D2398775125D">5.2-1 <span class="Heading">Mix of groups</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X7FB8D59C83B5819C">5.2-2 Mix</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X848CD6837BE77B6E">5.2-2 Mix</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X80CE0BA87B6CBDC2">5.2-3 FlagMix</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5.html#X86B6B5DB7850FCA9">5.2-4 <span class="Heading">Comix</span></a>
 </span>
@@ -232,14 +232,14 @@ Group([ (1,2) ])
 &lt;permutation group with 3 generators&gt;
 </pre></div>
 
-<p><a id="X7FB8D59C83B5819C" name="X7FB8D59C83B5819C"></a></p>
+<p><a id="X848CD6837BE77B6E" name="X848CD6837BE77B6E"></a></p>
 
 <h5>5.2-2 Mix</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsReflexibleManiplex </code>.</p>
 
-<p>Given two maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups. In general, it returns the "flag mix" of the two maniplexes (see <code class="code">FlagMix</code>).</p>
+<p>Given two (pre-)maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups. In general, it returns the "flag mix" of the two maniplexes (see <code class="code">FlagMix</code>).</p>
 
 <p><a id="X80CE0BA87B6CBDC2" name="X80CE0BA87B6CBDC2"></a></p>
 
@@ -248,7 +248,7 @@ Group([ (1,2) ])
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagMix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsManiplex </code>.</p>
 
-<p>Given two maniplexes p, q this returns the maniplex of their "flag" mix. That is, it constructs the mix of their connection groups, keeps the connected component with the base flags of p and q, and then builds a maniplex from this.</p>
+<p>Given two (pre-)maniplexes p, q this returns the (pre-)maniplex of their "flag" mix. That is, it constructs the mix of their connection groups, keeps the connected component with the base flags of p and q, and then builds a maniplex from this.</p>
 
 
 <div class="example"><pre>

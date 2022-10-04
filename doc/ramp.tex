@@ -293,8 +293,8 @@ properly, then it will also build a pdf manual.
 \logpage{[ 3, 1, 1 ]}
 \hyperdef{L}{X7A007A0C80D26351}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroup({\mdseries\slshape M})\index{AutomorphismGroup@\texttt{AutomorphismGroup}!for IsManiplex}
-\label{AutomorphismGroup:for IsManiplex}
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroup({\mdseries\slshape M})\index{AutomorphismGroup@\texttt{AutomorphismGroup}!for IsPremaniplex}
+\label{AutomorphismGroup:for IsPremaniplex}
 }\hfill{\scriptsize (attribute)}}\\
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismGroupFpGroup({\mdseries\slshape M})\index{AutomorphismGroupFpGroup@\texttt{AutomorphismGroupFpGroup}!for IsManiplex}
 \label{AutomorphismGroupFpGroup:for IsManiplex}
@@ -2189,20 +2189,20 @@ respectively, then the mix is a permutation group of degree m+n. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Mix (for IsManiplex, IsManiplex)}}
+\subsection{\textcolor{Chapter }{Mix (for IsPremaniplex, IsPremaniplex)}}
 \logpage{[ 5, 2, 2 ]}\nobreak
-\hyperdef{L}{X7FB8D59C83B5819C}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape maniplex, maniplex})\index{Mix@\texttt{Mix}!for IsManiplex, IsManiplex}
-\label{Mix:for IsManiplex, IsManiplex}
+\hyperdef{L}{X848CD6837BE77B6E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Mix({\mdseries\slshape maniplex, maniplex})\index{Mix@\texttt{Mix}!for IsPremaniplex, IsPremaniplex}
+\label{Mix:for IsPremaniplex, IsPremaniplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 \texttt{IsReflexibleManiplex }. 
 
 
 
- Given two maniplexes, returns their mix. For two reflexible maniplexes returns
-the IsReflexibleManiplex from the mix of their connection groups. In general,
-it returns the "flag mix" of the two maniplexes (see \texttt{FlagMix}). }
+ Given two (pre-)maniplexes, returns their mix. For two reflexible maniplexes
+returns the IsReflexibleManiplex from the mix of their connection groups. In
+general, it returns the "flag mix" of the two maniplexes (see \texttt{FlagMix}). }
 
  
 
@@ -2217,10 +2217,10 @@ it returns the "flag mix" of the two maniplexes (see \texttt{FlagMix}). }
 
 
 
- Given two maniplexes p, q this returns the maniplex of their "flag" mix. That
-is, it constructs the mix of their connection groups, keeps the connected
-component with the base flags of p and q, and then builds a maniplex from
-this. }
+ Given two (pre-)maniplexes p, q this returns the (pre-)maniplex of their
+"flag" mix. That is, it constructs the mix of their connection groups, keeps
+the connected component with the base flags of p and q, and then builds a
+maniplex from this. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]

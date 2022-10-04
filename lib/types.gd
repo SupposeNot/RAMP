@@ -8,8 +8,8 @@ DeclareRepresentation("IsManiplexInstructionsRep", IsComponentObjectRep and IsAt
 DeclareRepresentation("IsManiplexPosetRep", IsComponentObjectRep and IsAttributeStoringRep, ["poset", "fvec"]);
 DeclareRepresentation("IsManiplexFlagGraphRep", IsComponentObjectRep and IsAttributeStoringRep, ["flaggraph", "fvec"]);
 
-DeclareGlobalFunction("AddAttrComputer", [IsManiplex and IsManiplexInstructionsRep, IsAttribute, IsFunction]);
-DeclareGlobalFunction("ComputeAttr", [IsManiplex and IsManiplexInstructionsRep, IsAttribute]);
+DeclareGlobalFunction("AddAttrComputer");
+DeclareGlobalFunction("ComputeAttr");
 
 
 # These are defined for convenience. They don't define new categories; they just combine information

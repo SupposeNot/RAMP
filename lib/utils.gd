@@ -88,7 +88,7 @@ DeclareGlobalFunction("MultPerm");
 #! @Arguments list1, list2
 #! @Returns  involution
 #! @Description Construction the involution (when possible) with entries `(list1[i],list2[i])`.
-DeclareGlobalFunction("InvolutionListList", [IsList, IsList]);
+DeclareGlobalFunction("InvolutionListList");
 #! @BeginExampleSession
 #! gap> InvolutionListList([3,4,5],[6,7,8]);
 #! (3,6)(4,7)(5,8)

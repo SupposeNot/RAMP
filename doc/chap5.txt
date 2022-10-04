@@ -193,7 +193,7 @@
   [33X[1;0Y[29X[2XMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
   
-  [33X[0;0YGiven  two  maniplexes,  returns  their  mix.  For two reflexible maniplexes
+  [33X[0;0YGiven two (pre-)maniplexes, returns their mix. For two reflexible maniplexes
   returns the IsReflexibleManiplex from the mix of their connection groups. In
   general, it returns the "flag mix" of the two maniplexes (see [10XFlagMix[110X).[133X
   
@@ -202,9 +202,9 @@
   [33X[1;0Y[29X[2XFlagMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsManiplex [110X.[133X
   
-  [33X[0;0YGiven  two  maniplexes  p,  q this returns the maniplex of their "flag" mix.
-  That  is,  it  constructs  the  mix  of  their  connection groups, keeps the
-  connected  component  with  the  base  flags  of  p and q, and then builds a
+  [33X[0;0YGiven  two  (pre-)maniplexes  p,  q this returns the (pre-)maniplex of their
+  "flag" mix. That is, it constructs the mix of their connection groups, keeps
+  the  connected  component  with the base flags of p and q, and then builds a
   maniplex from this.[133X
   
   [4X[32X  Example  [32X[104X
