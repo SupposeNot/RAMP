@@ -25,6 +25,28 @@ InstallMethod(IsSggi,
 	return IsGgi(g) and IsStringy(g);
 	end);
 	
+InstallMethod(IsFixedPointFreeSggi,
+	[IsGroup],
+	function(g)
+	local gens, n, num_flags, genprods, i, j;
+	if not(IsSggi(g)) then
+		return false;
+	else
+		gens := GeneratorsOfGroup(g);
+		n := Size(gens);
+		num_flags := NrMovedPoints(g);
+		genprods := [];
+		for i in [1..n-1] do
+			for j in [i+1..n] do
+				Add(genprods, gens[i]*gens[j]);
+			od;
+		od;
+		
+		return not(ForAny(gens, x -> NrMovedPoints(x) < num_flags) or ForAny(genprods, x -> NrMovedPoints(x) < num_flags));
+		
+	fi;
+	end);
+	
 InstallMethod(IsStringRotationGroup,
 	[IsGroup],
 	function(g)

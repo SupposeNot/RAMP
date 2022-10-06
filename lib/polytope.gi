@@ -213,23 +213,14 @@ InstallMethod(Maniplex,
 InstallMethod(ManiplexNC,
 	[IsPermGroup],
 	function(g)
-	local gens, genprods, i, j, n, num_flags, fam, p;
+	local n, p;
 
-	gens := GeneratorsOfGroup(g);
-	n := Size(gens);
-	num_flags := NrMovedPoints(g);
-	genprods := [];
-	for i in [1..n-1] do
-		for j in [i+1..n] do
-			Add(genprods, gens[i]*gens[j]);
-		od;
-	od;
-		
-	# If any generator or product of generators has fixed points, then return a pre-maniplex instead.
-	if ForAny(gens, x -> NrMovedPoints(x) < num_flags) or ForAny(genprods, x -> NrMovedPoints(x) < num_flags) then
+	if not(IsFixedPointFreeSggi(g)) then
 		Info(InfoRamp, 1, "The given Sggi defines a pre-maniplex but not a maniplex.");		
 		return PremaniplexNC(g);
 	fi;
+	
+	n := Size(GeneratorsOfGroup(g));
 	
 	if n = 0 then
 		return UniversalPolytope(0);
@@ -282,10 +273,19 @@ InstallMethod(Maniplex,
 InstallMethod(Maniplex,
 	[IsEdgeLabeledGraph],
 	function(x)
-	local M,n;
-	if not(IsTransitive(ConnectionGroup(x))) then
+	local g,M,n;
+
+	g := ConnectionGroup(x);
+	
+	if not(IsTransitive(g)) then
 		Error("Flag graph must be connected!");
 	fi;
+
+	if not(IsFixedPointFreeSggi(g)) then
+		Info(InfoRamp, 1, "The given graph defines a pre-maniplex but not a maniplex.");		
+		return Premaniplex(x);
+	fi;
+	
 	n:=Size(Set(Labels(x)));
 	M := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsManiplexFlagGraphRep), rec(fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true))); 
 	SetRankManiplex(M, Size(Set(Labels(x))));
