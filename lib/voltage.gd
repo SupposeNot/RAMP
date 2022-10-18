@@ -43,8 +43,8 @@ DeclareOperation("VoltageOperator", [IsList, IsString,IsManiplex]);
 
 #! @Arguments n, I
 #! @Returns IsList
-#! @Description Returns a list of the admissible sequences that correspond to the flag orbits for a Wythoffian of a rank n maniplex.
-#! The vertex in the fundamental region is moved by ri for i in I.
+#! @Description Returns a list of the admissible sequences that correspond to the flag orbits for a Wythoffian of a rank <A>n</A> maniplex.
+#! The vertex in the fundamental region is moved by ri for i in <A>I</A>.
 DeclareOperation("AdmissiblePerms", [IsInt, IsList]);
 #! @BeginExampleSession
 #! There will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1]
@@ -56,7 +56,7 @@ DeclareOperation("AdmissiblePerms", [IsInt, IsList]);
 
 #! @Arguments n, I
 #! @Returns IsList
-#! @Description Returns the symmetry type graph for a Wythoffian of rank n defined by a list of indices.
+#! @Description Returns the symmetry type graph for a Wythoffian of rank <A>n</A> defined by a list of indices <A>I</A>.
 #! See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.
 DeclareOperation("WythoffSTG", [IsInt, IsList]);
 #! @BeginExampleSession
@@ -71,7 +71,7 @@ DeclareOperation("WythoffSTG", [IsInt, IsList]);
 
 #! @Arguments n, I
 #! @Returns IsList
-#! @Description Returns the labeled edges of a possible symmetry type graph for a Wythoffian of rank n defined by a list of indices.
+#! @Description Returns the labeled edges of a possible symmetry type graph for a Wythoffian of rank <A>n</A> defined by a list of indices <A>I</A>.
 #! The actual graph is not returned, as we require edge labeled graphs to have integer vertices in order to calculate their connection groups.
 DeclareOperation("WythoffLabeledEdges", [IsInt, IsList]);
 #! @BeginExampleSession
@@ -83,7 +83,7 @@ DeclareOperation("WythoffLabeledEdges", [IsInt, IsList]);
 
 #! @Arguments n, I, M
 #! @Returns IsList
-#! @Description Returns the maniplex built from a voltage operation given a Wythoffian
+#! @Description Returns the maniplex built from a voltage operation given a Wythoffian. That is, this computes the Wythoffian of the rank <A>n</A> maniplex <A>M</A> using the index set <A>I</A>.
 DeclareOperation("WythoffVoltageOperator", [IsInt, IsList, IsManiplex]);
 #! @BeginExampleSession
 #! Truncation built using voltages 

@@ -50,8 +50,8 @@
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
   [33X[0;0YReturns  a  list  of  the  admissible  sequences that correspond to the flag
-  orbits  for a Wythoffian of a rank n maniplex. The vertex in the fundamental
-  region is moved by ri for i in I.[133X
+  orbits  for a Wythoffian of a rank [3Xn[103X maniplex. The vertex in the fundamental
+  region is moved by ri for i in [3XI[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[28XThere will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1][128X[104X
@@ -64,8 +64,8 @@
   [33X[1;0Y[29X[2XWythoffSTG[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YReturns the symmetry type graph for a Wythoffian of rank n defined by a list
-  of indices. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.[133X
+  [33X[0;0YReturns the symmetry type graph for a Wythoffian of rank [3Xn[103X defined by a list
+  of indices [3XI[103X. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[28XSymmetry type graph of a medial operation[128X[104X
@@ -81,8 +81,8 @@
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
   [33X[0;0YReturns the labeled edges of a possible symmetry type graph for a Wythoffian
-  of rank n defined by a list of indices. The actual graph is not returned, as
-  we  require  edge  labeled  graphs  to  have  integer  vertices  in order to
+  of  rank [3Xn[103X defined by a list of indices [3XI[103X. The actual graph is not returned,
+  as  we  require  edge  labeled  graphs  to have integer vertices in order to
   calculate their connection groups.[133X
   
   [4X[32X  Example  [32X[104X
@@ -96,7 +96,9 @@
   [33X[1;0Y[29X[2XWythoffVoltageOperator[102X( [3Xn[103X, [3XI[103X, [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YReturns the maniplex built from a voltage operation given a Wythoffian[133X
+  [33X[0;0YReturns the maniplex built from a voltage operation given a Wythoffian. That
+  is,  this  computes  the Wythoffian of the rank [3Xn[103X maniplex [3XM[103X using the index
+  set [3XI[103X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[28XTruncation built using voltages [128X[104X

@@ -28,22 +28,22 @@ Petersen Graph as described at https://www.gap-system.org/Manuals/pkg/grape/htm/
 
 
 <ManSection>
-  <Oper Arg="int, list" Name="CirculantGraph" Label="for IsInt,IsList"/>
+  <Oper Arg="n, L" Name="CirculantGraph" Label="for IsInt,IsList"/>
  <Returns><Code>IsGraph</Code>
 </Returns>
  <Description>
-Given an integer n and a list L, this returns the Circulant Graph with n vertices
- For each i in the list L and each vertex v, there is an edge from v to v+i and v-i (mod n)
+Given an integer <A>n</A> and a list <A>L</A>, this returns the Circulant Graph with <A>n</A> vertices.
+ For each <Code>i</Code> in the list <A>L</A> and each vertex <Code>v</Code>, there is an edge from <Code>v</Code> to <Code>v+i</Code> and <Code>v-i</Code> (mod <A>n</A>)
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Oper Arg="int, list" Name="CompleteBipartiteGraph" Label="for IsInt,IsInt"/>
+  <Oper Arg="n, m" Name="CompleteBipartiteGraph" Label="for IsInt,IsInt"/>
  <Returns><Code>IsGraph</Code>
 </Returns>
  <Description>
-Given two integers n, m, this returns the Complete Bipartite Graph K_{n,m}
+Given two integers <A>n, m</A>, this returns the Complete Bipartite Graph <Code>K_{n,m}</Code>.
  </Description>
 </ManSection>
 
