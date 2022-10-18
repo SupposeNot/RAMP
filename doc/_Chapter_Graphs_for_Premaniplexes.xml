@@ -8,11 +8,11 @@
 <Heading>Constructors of Premaniplexes</Heading>
 
 <ManSection>
-  <Oper Arg="group" Name="Premaniplex" Label="for IsGroup"/>
+  <Oper Arg="g" Name="Premaniplex" Label="for IsGroup"/>
  <Returns><Code>IsPremaniplex</Code>.
 </Returns>
  <Description>
-Given a group we return the premaniplex with that group as its connection group.
+Given a group <A>g</A> we return the premaniplex with connection group <A>g</A>.
  This function first checks whether <A>group</A> is an Sggi. Use <Code>PremaniplexNC</Code> to
  bypass that check.
  </Description>
@@ -28,11 +28,11 @@ Premaniplex of rank 3 with 3 flags
 
 
 <ManSection>
-  <Oper Arg="edgelabeledgraph" Name="Premaniplex" Label="for IsEdgeLabeledGraph"/>
+  <Oper Arg="G" Name="Premaniplex" Label="for IsEdgeLabeledGraph"/>
  <Returns><Code>IsPremaniplex</Code>.
 </Returns>
  <Description>
-Given an edge labeled graph we return the premaniplex with for that graph.
+Given an edge labeled graph <A>G</A> we return the premaniplex with that graph.
  Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.
  </Description>
 </ManSection>
@@ -48,12 +48,12 @@ Premaniplex of rank 3 with 2 flags
 
 
 <ManSection>
-  <Oper Arg="int" Name="STG1" Label="for IsInt"/>
+  <Oper Arg="n" Name="STG1" Label="for IsInt"/>
  <Returns>premaniplex
 </Returns>
  <Description>
-Builds the 1 flag premaniplex of rank n
- Note See VOLTAGE OPERATIONS ON MANIPLEXES
+Builds the 1 flag premaniplex of rank <A>n</A>.
+ See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
  </Description>
 </ManSection>
 
@@ -65,12 +65,12 @@ Premaniplex of rank 5 with 1 flag
 
 
 <ManSection>
-  <Oper Arg="int, list" Name="STG2" Label="for IsInt,IsList"/>
+  <Oper Arg="n, I" Name="STG2" Label="for IsInt,IsList"/>
  <Returns>premaniplex
 </Returns>
  <Description>
-Builds the 2 flag premaniplex of rank n with semi-edges in I
- Note See VOLTAGE OPERATIONS ON MANIPLEXES
+Builds the 2 flag premaniplex of rank <A>n</A> with semi-edges in <A>I</A>.
+ See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
  </Description>
 </ManSection>
 
@@ -82,11 +82,11 @@ Premaniplex of rank 5 with 2 flags
 
 
 <ManSection>
-  <Oper Arg="int, int" Name="STG3" Label="for IsInt,IsInt"/>
+  <Oper Arg="n, i" Name="STG3" Label="for IsInt,IsInt"/>
  <Returns>premaniplex
 </Returns>
  <Description>
-Builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes. There are edges of label i-1 and i+1 are parallel.
+Builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). The edges of label i-1 and i+1 are parallel.
  </Description>
 </ManSection>
 
@@ -98,11 +98,11 @@ Premaniplex of rank 5 with 3 flags
 
 
 <ManSection>
-  <Oper Arg="int, int, int" Name="STG3" Label="for IsInt,IsInt,IsInt"/>
+  <Oper Arg="n, i, j" Name="STG3" Label="for IsInt,IsInt,IsInt"/>
  <Returns>premaniplex
 </Returns>
  <Description>
-Assumes j=i+1 and builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes. There are edges of label i and j.
+Assumes <Code>j=i+1</Code> and builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). There are edges of label <A>i</A> and <A>j</A>.
  </Description>
 </ManSection>
 
@@ -114,11 +114,11 @@ Premaniplex of rank 6 with 3 flags
 
 
 <ManSection>
-  <Oper Arg="premaniplex" Name="FlagGraph" Label="for IsPremaniplex"/>
+  <Oper Arg="M" Name="FlagGraph" Label="for IsPremaniplex"/>
  <Returns>edgelabeledgraph
 </Returns>
  <Description>
-Returns the flag graph of a premaniplex
+Returns the flag graph of a premaniplex <A>M</A>.
  </Description>
 </ManSection>
 
@@ -131,11 +131,11 @@ Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
 
 
 <ManSection>
-  <Attr Arg="p" Name="LabeledDarts" Label="for IsPremaniplex"/>
+  <Attr Arg="M" Name="LabeledDarts" Label="for IsPremaniplex"/>
  <Returns>list
 </Returns>
  <Description>
-Given a Premaniples p, returns the list of labeled darts from its flag graph.
+Given a Premaniplex <A>M</A>, returns the list of labeled darts from its flag graph.
  </Description>
 </ManSection>
 

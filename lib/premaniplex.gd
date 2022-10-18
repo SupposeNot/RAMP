@@ -3,9 +3,9 @@
 #! @Chapter Graphs for Premaniplexes
 #! @Section Constructors of Premaniplexes
 
-#! @Arguments group
+#! @Arguments g
 #! @Returns `IsPremaniplex`. 
-#! @Description Given a group we return the premaniplex with that group as its connection group.  
+#! @Description Given a group <A>g</A> we return the premaniplex with connection group <A>g</A>.  
 #! This function first checks whether <A>group</A> is an Sggi. Use `PremaniplexNC` to
 #! bypass that check.
 DeclareOperation("Premaniplex",[IsGroup]);
@@ -20,9 +20,9 @@ DeclareOperation("PremaniplexNC",[IsGroup]);
 
 
 
-#! @Arguments edgelabeledgraph
+#! @Arguments G
 #! @Returns `IsPremaniplex`. 
-#! @Description Given an edge labeled graph we return the premaniplex with for that graph.  
+#! @Description Given an edge labeled graph <A>G</A> we return the premaniplex with that graph.  
 #! Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.
 DeclareOperation("Premaniplex",[IsEdgeLabeledGraph]);
 #! Here we have a premaniplex with 2 flags.
@@ -33,10 +33,10 @@ DeclareOperation("Premaniplex",[IsEdgeLabeledGraph]);
 #! Premaniplex of rank 3 with 2 flags
 #! @EndExampleSession
 
-#! @Arguments int
+#! @Arguments n
 #! @Returns premaniplex
-#! @Description Builds the 1 flag premaniplex of rank n
-#! Note See VOLTAGE OPERATIONS ON MANIPLEXES
+#! @Description Builds the 1 flag premaniplex of rank <A>n</A>.
+#! See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
 DeclareOperation("STG1",[IsInt]);
 #! @BeginExampleSession
 #! gap> STG1(5);
@@ -44,10 +44,10 @@ DeclareOperation("STG1",[IsInt]);
 #! @EndExampleSession
 
 
-#! @Arguments int, list
+#! @Arguments n, I
 #! @Returns premaniplex
-#! @Description Builds the 2 flag premaniplex of rank n with semi-edges in I
-#! Note See VOLTAGE OPERATIONS ON MANIPLEXES
+#! @Description Builds the 2 flag premaniplex of rank <A>n</A> with semi-edges in <A>I</A>.
+#! See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
 DeclareOperation("STG2",[IsInt,IsList]);
 #! @BeginExampleSession
 #! gap> STG2(5,[2,4]);
@@ -55,9 +55,9 @@ DeclareOperation("STG2",[IsInt,IsList]);
 #! @EndExampleSession
 
 
-#! @Arguments int, int
+#! @Arguments n, i
 #! @Returns premaniplex
-#! @Description Builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes.  There are edges of label i-1 and i+1 are parallel.
+#! @Description Builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). The edges of label i-1 and i+1 are parallel.
 DeclareOperation("STG3",[IsInt,IsInt]);
 #! @BeginExampleSession
 #! gap> STG3(5,2);
@@ -65,9 +65,9 @@ DeclareOperation("STG3",[IsInt,IsInt]);
 #! @EndExampleSession
 
 
-#! @Arguments int, int, int
+#! @Arguments n, i, j
 #! @Returns premaniplex
-#! @Description Assumes j=i+1 and builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes.  There are edges of label i and j.
+#! @Description Assumes `j=i+1` and builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). There are edges of label <A>i</A> and <A>j</A>.
 DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
 #! @BeginExampleSession
 #! gap> STG3(6,2,3);
@@ -75,9 +75,9 @@ DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
 #! @EndExampleSession
 
 
-# #! @Arguments premaniplex
+# #! @Arguments M
 # #! @Returns edgelabeledgraph
-# #! @Description Returns the flag graph of a premaniplex
+# #! @Description Returns the flag graph of a premaniplex <A>M</A>.
 # DeclareOperation("FlagGraph",[IsPremaniplex]);
 # #! @BeginExampleSession
 # #! gap> STG3(4,1);;
@@ -87,9 +87,9 @@ DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
 
 
 
-#! @Arguments p
+#! @Arguments M
 #! @Returns list
-#! @Description Given a Premaniples p, returns the list of labeled darts from its flag graph.
+#! @Description Given a Premaniplex <A>M</A>, returns the list of labeled darts from its flag graph.
 DeclareAttribute("LabeledDarts",IsPremaniplex);
 #! @BeginExampleSession
 #! gap> P:=STG2(5,[2,4]);;
