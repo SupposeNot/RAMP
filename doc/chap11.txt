@@ -22,19 +22,19 @@
   
   [1X11.1-3 CirculantGraph[101X
   
-  [33X[1;0Y[29X[2XCirculantGraph[102X( [3Xint[103X, [3Xlist[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCirculantGraph[102X( [3Xn[103X, [3XL[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X[133X
   
-  [33X[0;0YGiven  an  integer  n  and a list L, this returns the Circulant Graph with n
-  vertices For each i in the list L and each vertex v, there is an edge from v
-  to v+i and v-i (mod n)[133X
+  [33X[0;0YGiven  an  integer  [3Xn[103X  and a list [3XL[103X, this returns the Circulant Graph with [3Xn[103X
+  vertices.  For each [10Xi[110X in the list [3XL[103X and each vertex [10Xv[110X, there is an edge from
+  [10Xv[110X to [10Xv+i[110X and [10Xv-i[110X (mod [3Xn[103X)[133X
   
   [1X11.1-4 CompleteBipartiteGraph[101X
   
-  [33X[1;0Y[29X[2XCompleteBipartiteGraph[102X( [3Xint[103X, [3Xlist[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XCompleteBipartiteGraph[102X( [3Xn[103X, [3Xm[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X[133X
   
-  [33X[0;0YGiven two integers n, m, this returns the Complete Bipartite Graph K_{n,m}[133X
+  [33X[0;0YGiven two integers [3Xn, m[103X, this returns the Complete Bipartite Graph [10XK_{n,m}[110X.[133X
   
   
   [1X11.2 [33X[0;0YGraph constructors for maniplexes[133X[101X

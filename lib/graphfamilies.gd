@@ -11,15 +11,15 @@ DeclareOperation("HeawoodGraph", []);
 #! @Description Petersen Graph as described at https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm
 DeclareOperation("PetersenGraph", []);
 
-#! @Arguments int, list
+#! @Arguments n, L
 #! @Returns `IsGraph`
-#! @Description Given an integer n and a list L, this returns the Circulant Graph with n vertices
-#! For each i in the list L and each vertex v, there is an edge from v to v+i and v-i (mod n)
+#! @Description Given an integer <A>n</A> and a list <A>L</A>, this returns the Circulant Graph with <A>n</A> vertices.
+#! For each `i` in the list <A>L</A> and each vertex `v`, there is an edge from `v` to `v+i` and `v-i` (mod <A>n</A>)
 DeclareOperation("CirculantGraph", [IsInt,IsList]);
 
-#! @Arguments int, list
+#! @Arguments n, m
 #! @Returns `IsGraph`
-#! @Description Given two integers n, m, this returns the Complete Bipartite Graph K_{n,m}
+#! @Description Given two integers <A>n, m</A>, this returns the Complete Bipartite Graph `K_{n,m}`.
 DeclareOperation("CompleteBipartiteGraph", [IsInt,IsInt]);
 
 

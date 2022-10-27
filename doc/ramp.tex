@@ -6415,7 +6415,7 @@ https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm }
 \subsection{\textcolor{Chapter }{CirculantGraph (for IsInt,IsList)}}
 \logpage{[ 11, 1, 3 ]}\nobreak
 \hyperdef{L}{X7E247B6783FBF9F9}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CirculantGraph({\mdseries\slshape int, list})\index{CirculantGraph@\texttt{CirculantGraph}!for IsInt,IsList}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CirculantGraph({\mdseries\slshape n, L})\index{CirculantGraph@\texttt{CirculantGraph}!for IsInt,IsList}
 \label{CirculantGraph:for IsInt,IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -6423,16 +6423,14 @@ https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm }
 
 
 
- Given an integer n and a list L, this returns the Circulant Graph with n
-vertices For each i in the list L and each vertex v, there is an edge from v
-to v+i and v-i (mod n) }
+ Given an integer \mbox{\texttt{\mdseries\slshape n}} and a list \mbox{\texttt{\mdseries\slshape L}}, this returns the Circulant Graph with \mbox{\texttt{\mdseries\slshape n}} vertices. For each \texttt{i} in the list \mbox{\texttt{\mdseries\slshape L}} and each vertex \texttt{v}, there is an edge from \texttt{v} to \texttt{v+i} and \texttt{v-i} (mod \mbox{\texttt{\mdseries\slshape n}}) }
 
  
 
 \subsection{\textcolor{Chapter }{CompleteBipartiteGraph (for IsInt,IsInt)}}
 \logpage{[ 11, 1, 4 ]}\nobreak
 \hyperdef{L}{X7D9F8CF285289177}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompleteBipartiteGraph({\mdseries\slshape int, list})\index{CompleteBipartiteGraph@\texttt{CompleteBipartiteGraph}!for IsInt,IsInt}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CompleteBipartiteGraph({\mdseries\slshape n, m})\index{CompleteBipartiteGraph@\texttt{CompleteBipartiteGraph}!for IsInt,IsInt}
 \label{CompleteBipartiteGraph:for IsInt,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -6440,8 +6438,7 @@ to v+i and v-i (mod n) }
 
 
 
- Given two integers n, m, this returns the Complete Bipartite Graph
-K{\textunderscore}\texttt{\symbol{123}}n,m\texttt{\symbol{125}} }
+ Given two integers \mbox{\texttt{\mdseries\slshape n, m}}, this returns the Complete Bipartite Graph \texttt{K{\textunderscore}\texttt{\symbol{123}}n,m\texttt{\symbol{125}}}. }
 
  }
 
@@ -9015,7 +9012,7 @@ studying Sggis. This fixes that. }
 \subsection{\textcolor{Chapter }{Premaniplex (for IsGroup)}}
 \logpage{[ 17, 1, 1 ]}\nobreak
 \hyperdef{L}{X7B81F23579DC1CC4}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Premaniplex({\mdseries\slshape group})\index{Premaniplex@\texttt{Premaniplex}!for IsGroup}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Premaniplex({\mdseries\slshape g})\index{Premaniplex@\texttt{Premaniplex}!for IsGroup}
 \label{Premaniplex:for IsGroup}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9023,8 +9020,7 @@ studying Sggis. This fixes that. }
 
 
 
- Given a group we return the premaniplex with that group as its connection
-group. This function first checks whether \mbox{\texttt{\mdseries\slshape group}} is an Sggi. Use \texttt{PremaniplexNC} to bypass that check. }
+ Given a group \mbox{\texttt{\mdseries\slshape g}} we return the premaniplex with connection group \mbox{\texttt{\mdseries\slshape g}}. This function first checks whether \mbox{\texttt{\mdseries\slshape group}} is an Sggi. Use \texttt{PremaniplexNC} to bypass that check. }
 
  Here we build a premaniplex with 3 flags. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9037,7 +9033,7 @@ group. This function first checks whether \mbox{\texttt{\mdseries\slshape group}
 \subsection{\textcolor{Chapter }{Premaniplex (for IsEdgeLabeledGraph)}}
 \logpage{[ 17, 1, 2 ]}\nobreak
 \hyperdef{L}{X82F7D8227F616FD2}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Premaniplex({\mdseries\slshape edgelabeledgraph})\index{Premaniplex@\texttt{Premaniplex}!for IsEdgeLabeledGraph}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Premaniplex({\mdseries\slshape G})\index{Premaniplex@\texttt{Premaniplex}!for IsEdgeLabeledGraph}
 \label{Premaniplex:for IsEdgeLabeledGraph}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9045,9 +9041,9 @@ group. This function first checks whether \mbox{\texttt{\mdseries\slshape group}
 
 
 
- Given an edge labeled graph we return the premaniplex with for that graph.
-Note: We will assume (but not check) that the graph is a premaniplex, that is
-to say, we are assumging each vertex is incident with one edge of each label. }
+ Given an edge labeled graph \mbox{\texttt{\mdseries\slshape G}} we return the premaniplex with that graph. Note: We will assume (but not
+check) that the graph is a premaniplex, that is to say, we are assumging each
+vertex is incident with one edge of each label. }
 
  Here we have a premaniplex with 2 flags. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9061,7 +9057,7 @@ to say, we are assumging each vertex is incident with one edge of each label. }
 \subsection{\textcolor{Chapter }{STG1 (for IsInt)}}
 \logpage{[ 17, 1, 3 ]}\nobreak
 \hyperdef{L}{X7DB8D3047E0B5A7D}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG1({\mdseries\slshape int})\index{STG1@\texttt{STG1}!for IsInt}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG1({\mdseries\slshape n})\index{STG1@\texttt{STG1}!for IsInt}
 \label{STG1:for IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9069,8 +9065,7 @@ premaniplex
 
 
 
- Builds the 1 flag premaniplex of rank n Note See VOLTAGE OPERATIONS ON
-MANIPLEXES }
+ Builds the 1 flag premaniplex of rank \mbox{\texttt{\mdseries\slshape n}}. See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon). }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9082,7 +9077,7 @@ MANIPLEXES }
 \subsection{\textcolor{Chapter }{STG2 (for IsInt,IsList)}}
 \logpage{[ 17, 1, 4 ]}\nobreak
 \hyperdef{L}{X7BCF47AC7876459A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG2({\mdseries\slshape int, list})\index{STG2@\texttt{STG2}!for IsInt,IsList}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG2({\mdseries\slshape n, I})\index{STG2@\texttt{STG2}!for IsInt,IsList}
 \label{STG2:for IsInt,IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9090,8 +9085,7 @@ premaniplex
 
 
 
- Builds the 2 flag premaniplex of rank n with semi-edges in I Note See VOLTAGE
-OPERATIONS ON MANIPLEXES }
+ Builds the 2 flag premaniplex of rank \mbox{\texttt{\mdseries\slshape n}} with semi-edges in \mbox{\texttt{\mdseries\slshape I}}. See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon). }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9103,7 +9097,7 @@ OPERATIONS ON MANIPLEXES }
 \subsection{\textcolor{Chapter }{STG3 (for IsInt,IsInt)}}
 \logpage{[ 17, 1, 5 ]}\nobreak
 \hyperdef{L}{X7C2B1DB07CB38F59}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG3({\mdseries\slshape int, int})\index{STG3@\texttt{STG3}!for IsInt,IsInt}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG3({\mdseries\slshape n, i})\index{STG3@\texttt{STG3}!for IsInt,IsInt}
 \label{STG3:for IsInt,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9111,9 +9105,7 @@ premaniplex
 
 
 
- Builds the 3 flag premaniplex of rank n described on Page 11 of Symmetry Type
-Graphs of Polytopes and Maniplexes. There are edges of label i-1 and i+1 are
-parallel. }
+ Builds the 3 flag premaniplex of rank \mbox{\texttt{\mdseries\slshape n}} described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes \cite{CDHT15} (\href{https://doi.org/10.1007/s00026-015-0263-z} {\texttt{https://doi.org/10.1007/s00026-015-0263-z}}). The edges of label i-1 and i+1 are parallel. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9125,7 +9117,7 @@ parallel. }
 \subsection{\textcolor{Chapter }{STG3 (for IsInt,IsInt,IsInt)}}
 \logpage{[ 17, 1, 6 ]}\nobreak
 \hyperdef{L}{X7EFDB6887DEAFB4F}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG3({\mdseries\slshape int, int, int})\index{STG3@\texttt{STG3}!for IsInt,IsInt,IsInt}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{STG3({\mdseries\slshape n, i, j})\index{STG3@\texttt{STG3}!for IsInt,IsInt,IsInt}
 \label{STG3:for IsInt,IsInt,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9133,9 +9125,7 @@ premaniplex
 
 
 
- Assumes j=i+1 and builds the 3 flag premaniplex of rank n described on Page 11
-of Symmetry Type Graphs of Polytopes and Maniplexes. There are edges of label
-i and j. }
+ Assumes \texttt{j=i+1} and builds the 3 flag premaniplex of rank \mbox{\texttt{\mdseries\slshape n}} described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes \cite{CDHT15} (\href{https://doi.org/10.1007/s00026-015-0263-z} {\texttt{https://doi.org/10.1007/s00026-015-0263-z}}). There are edges of label \mbox{\texttt{\mdseries\slshape i}} and \mbox{\texttt{\mdseries\slshape j}}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9147,7 +9137,7 @@ i and j. }
 \subsection{\textcolor{Chapter }{FlagGraph (for IsPremaniplex)}}
 \logpage{[ 17, 1, 7 ]}\nobreak
 \hyperdef{L}{X863F65F6865859F1}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagGraph({\mdseries\slshape premaniplex})\index{FlagGraph@\texttt{FlagGraph}!for IsPremaniplex}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagGraph({\mdseries\slshape M})\index{FlagGraph@\texttt{FlagGraph}!for IsPremaniplex}
 \label{FlagGraph:for IsPremaniplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -9155,7 +9145,7 @@ edgelabeledgraph
 
 
 
- Returns the flag graph of a premaniplex }
+ Returns the flag graph of a premaniplex \mbox{\texttt{\mdseries\slshape M}}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9168,7 +9158,7 @@ edgelabeledgraph
 \subsection{\textcolor{Chapter }{LabeledDarts (for IsPremaniplex)}}
 \logpage{[ 17, 1, 8 ]}\nobreak
 \hyperdef{L}{X7E7E64817A09366F}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape p})\index{LabeledDarts@\texttt{LabeledDarts}!for IsPremaniplex}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LabeledDarts({\mdseries\slshape M})\index{LabeledDarts@\texttt{LabeledDarts}!for IsPremaniplex}
 \label{LabeledDarts:for IsPremaniplex}
 }\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
@@ -9176,7 +9166,7 @@ list
 
 
 
- Given a Premaniples p, returns the list of labeled darts from its flag graph. }
+ Given a Premaniplex \mbox{\texttt{\mdseries\slshape M}}, returns the list of labeled darts from its flag graph. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9270,8 +9260,7 @@ IsList
 
 
  Returns a list of the admissible sequences that correspond to the flag orbits
-for a Wythoffian of a rank n maniplex. The vertex in the fundamental region is
-moved by ri for i in I. }
+for a Wythoffian of a rank \mbox{\texttt{\mdseries\slshape n}} maniplex. The vertex in the fundamental region is moved by ri for i in \mbox{\texttt{\mdseries\slshape I}}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9292,8 +9281,7 @@ IsList
 
 
 
- Returns the symmetry type graph for a Wythoffian of rank n defined by a list
-of indices. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES. }
+ Returns the symmetry type graph for a Wythoffian of rank \mbox{\texttt{\mdseries\slshape n}} defined by a list of indices \mbox{\texttt{\mdseries\slshape I}}. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9317,9 +9305,8 @@ IsList
 
 
  Returns the labeled edges of a possible symmetry type graph for a Wythoffian
-of rank n defined by a list of indices. The actual graph is not returned, as
-we require edge labeled graphs to have integer vertices in order to calculate
-their connection groups. }
+of rank \mbox{\texttt{\mdseries\slshape n}} defined by a list of indices \mbox{\texttt{\mdseries\slshape I}}. The actual graph is not returned, as we require edge labeled graphs to have
+integer vertices in order to calculate their connection groups. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9340,7 +9327,8 @@ IsList
 
 
 
- Returns the maniplex built from a voltage operation given a Wythoffian }
+ Returns the maniplex built from a voltage operation given a Wythoffian. That
+is, this computes the Wythoffian of the rank \mbox{\texttt{\mdseries\slshape n}} maniplex \mbox{\texttt{\mdseries\slshape M}} using the index set \mbox{\texttt{\mdseries\slshape I}}. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -9529,6 +9517,8 @@ IsVoltageGraph
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
