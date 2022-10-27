@@ -218,7 +218,7 @@ true
 <h5>9.2-3 IsInternallySelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>. You can also input a string for <var class="Arg">x</var>, in which case it is converted to <code class="code">SggiElement(M, x)</code>. This property is only defined for rotary (chiral or reflexible) maniplexes.</p>
 
@@ -250,7 +250,7 @@ true
 <h5>9.2-4 IsExternallySelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib_mj.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
 
@@ -271,7 +271,7 @@ false
 <h5>9.2-5 IsProperlySelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsProperlySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Returns whether this rooted maniplex is "properly self-dual", meaning that there is an isomorphism of <var class="Arg">M</var> to its dual that preserves the flag-orbits. Note that all reflexible self-dual maniplexes are properly self-dual.</p>
 
@@ -347,7 +347,7 @@ true
 <h5>9.2-9 IsKaleidoscopic</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsKaleidoscopic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Returns whether the map <var class="Arg">M</var> with <span class="SimpleMath">\(q\)</span>-valent vertices is <em>kaleidoscopic</em>, meaning that for each integer e in [2..q-1] that is coprime to q, the map 'Hole(M, e)' is isomorphic to M as a rooted map.</p>
 

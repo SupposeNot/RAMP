@@ -367,7 +367,7 @@
   [1X6.4-1 IsOrientable[101X
   
   [33X[1;0Y[29X[2XIsOrientable[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YA maniplex is orientable if its flag graph is bipartite.[133X
   
@@ -393,7 +393,7 @@
   [1X6.4-3 IsVertexBipartite[101X
   
   [33X[1;0Y[29X[2XIsVertexBipartite[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YA  maniplex  is  vertex-bipartite  if  its  1-skeleton is bipartite. This is
   equivalent to being I-orientable for I = {0}.[133X
@@ -406,7 +406,7 @@
   [1X6.4-4 IsFacetBipartite[101X
   
   [33X[1;0Y[29X[2XIsFacetBipartite[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YA  maniplex  is  facet-bipartite if the 1-skeleton of its dual is bipartite.
   This is equivalent to being I-orientable for I = {n-1}.[133X
@@ -444,7 +444,7 @@
   [1X6.5-1 IsVertexFaithful[101X
   
   [33X[1;0Y[29X[2XIsVertexFaithful[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YReturns  whether the reflexible maniplex [3XM[103X is vertex-faithful; i.e., whether
   the action of the automorphism group on the vertices is faithful.[133X
@@ -457,7 +457,7 @@
   [1X6.5-2 IsFacetFaithful[101X
   
   [33X[1;0Y[29X[2XIsFacetFaithful[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YReturns  whether  the reflexible maniplex [3XM[103X is facet-faithful; i.e., whether
   the action of the automorphism group on the facets is faithful.[133X

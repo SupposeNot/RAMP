@@ -324,7 +324,7 @@
   [1X8.2-5 IsFlaggable[101X
   
   [33X[1;0Y[29X[2XIsFlaggable[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YChecks  or  creates  the  value of the attribute [10XIsFlaggable[110X for an [10XIsPoset[110X.
   Point  here  is  to  see  if  the  structure  of  the poset is sufficient to
@@ -338,7 +338,7 @@
   [1X8.2-6 IsAtomic[101X
   
   [33X[1;0Y[29X[2XIsAtomic[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThis  checks  whether  or  not  the  faces of an IsP1 poset may be described
   uniquely in terms of the posets atoms.[133X
@@ -410,7 +410,7 @@
   [1X8.2-10 IsP1[101X
   
   [33X[1;0Y[29X[2XIsP1[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines  whether a poset has property P1 from ARP. Recall that a poset is
   P1 if it has a unique least, and a unique maximal element/face.[133X
@@ -429,7 +429,7 @@
   [1X8.2-11 IsP2[101X
   
   [33X[1;0Y[29X[2XIsP2[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines  whether a poset has property P2 from ARP. Recall that a poset is
   P2  if each maximal chain in the poset has the same length (for [23Xn[123X-polytopes,
@@ -453,7 +453,7 @@
   [1X8.2-12 IsP3[101X
   
   [33X[1;0Y[29X[2XIsP3[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines  whether  a  poset  is strongly flag connected (property P3' from
   ARP).  May  also  be called with command [10XIsStronglyFlagConnected[110X. If you are
@@ -467,14 +467,14 @@
   [1X8.2-13 IsFlagConnected[101X
   
   [33X[1;0Y[29X[2XIsFlagConnected[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines whether a poset is flag connected.[133X
   
   [1X8.2-14 IsP4[101X
   
   [33X[1;0Y[29X[2XIsP4[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines  whether  a  poset  satisfies  the diamond condition. May also be
   invoked  using  [10XIsDiamondCondition[110X.  Recall  that  this  means  that  if [23XF,G[123X
@@ -485,7 +485,7 @@
   [1X8.2-15 IsPolytope[101X
   
   [33X[1;0Y[29X[2XIsPolytope[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines whether a poset is an abstract polytope.[133X
   
@@ -507,7 +507,7 @@
   [1X8.2-16 IsPrePolytope[101X
   
   [33X[1;0Y[29X[2XIsPrePolytope[102X( [3Xposet[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YDetermines whether a poset is an abstract pre-polytope.[133X
   

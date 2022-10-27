@@ -334,7 +334,7 @@ false
 
 <ManSection>
   <Prop Arg="poset" Name="IsFlaggable" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Code>IsPoset</Code>. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.)
@@ -345,7 +345,7 @@ Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Co
 
 <ManSection>
   <Prop Arg="poset" Name="IsAtomic" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.
@@ -425,7 +425,7 @@ Given <A>list</A>, comprised of sublists of faces ordered by rank, each face lis
 
 <ManSection>
   <Prop Arg="poset" Name="IsP1" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset has property P1 from ARP. Recall that a poset is P1 if it has a unique least, and a unique maximal element/face.
@@ -447,7 +447,7 @@ false
 
 <ManSection>
   <Prop Arg="poset" Name="IsP2" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset has property P2 from ARP. Recall that a poset is P2 if each maximal chain in the poset has the same length (for <Math>n</Math>-polytopes, this means each flag containes <Math>n+2</Math> faces).
@@ -473,7 +473,7 @@ false
 
 <ManSection>
   <Prop Arg="poset" Name="IsP3" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <Code>IsStronglyFlagConnected</Code>. If you are not working with a pre-polytope, expect this to take a LONG time. This means that given flags <Math>\Phi</Math> and <Math>\Psi</Math>, not only is there a sequence of flags <Math>\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi</Math> such that each <Math>\Phi_i</Math> shares all but once face with <Math>\Phi_{i+1}</Math>, but that each <Math>\Phi_i\supseteq \Phi\cap\Psi</Math>.
@@ -484,7 +484,7 @@ Determines whether a poset is strongly flag connected (property P3' from ARP). M
  Helper for IsP3
 <ManSection>
   <Prop Arg="poset" Name="IsFlagConnected" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset is flag connected.
@@ -494,7 +494,7 @@ Determines whether a poset is flag connected.
 
 <ManSection>
   <Prop Arg="poset" Name="IsP4" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset satisfies the diamond condition. May also be invoked using <Code>IsDiamondCondition</Code>. Recall that this means that if <Math>F,G</Math> elements of the poset of ranks <Math>i-1</Math> and <Math>i+1</Math>, respectively, where <Math>F</Math> less than <Math>G</Math>, then there are precisely two <Math>i</Math>-faces <Math>H</Math> such that <Math>F</Math> is less than <Math>H</Math> and <Math>H</Math> is less than <Math>G</Math>.
@@ -504,7 +504,7 @@ Determines whether a poset satisfies the diamond condition. May also be invoked 
 
 <ManSection>
   <Prop Arg="poset" Name="IsPolytope" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset is an abstract polytope.
@@ -530,7 +530,7 @@ gap> KnownPropertiesOfObject(poset2);
 
 <ManSection>
   <Prop Arg="poset" Name="IsPrePolytope" Label="for IsPoset"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 Determines whether a poset is an abstract pre-polytope.

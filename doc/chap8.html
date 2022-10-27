@@ -439,7 +439,7 @@ false
 <h5>8.2-5 IsFlaggable</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlaggable</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Checks or creates the value of the attribute <code class="code">IsFlaggable</code> for an <code class="code">IsPoset</code>. Point here is to see if the structure of the poset is sufficient to determine the flag graph. For IsPosetOfFlags this is another way of saying that the intersection of the faces (thought of as collections of flags) containing a flag is that selfsame flag. (Might be equivalent to prepolytopal... but Gabe was tired and Gordon hasn't bothered to think about it yet.) Now also works with generic poset element types (not just <code class="code">IsPosetOfFlags</code>).</p>
 
@@ -448,7 +448,7 @@ false
 <h5>8.2-6 IsAtomic</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAtomic</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.</p>
 
@@ -522,7 +522,7 @@ false
 <h5>8.2-10 IsP1</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP1</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset has property P1 from ARP. Recall that a poset is P1 if it has a unique least, and a unique maximal element/face.</p>
 
@@ -543,7 +543,7 @@ false
 <h5>8.2-11 IsP2</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP2</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset has property P2 from ARP. Recall that a poset is P2 if each maximal chain in the poset has the same length (for <span class="Math">n</span>-polytopes, this means each flag containes <span class="Math">n+2</span> faces).</p>
 
@@ -569,7 +569,7 @@ false
 <h5>8.2-12 IsP3</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP3</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset is strongly flag connected (property P3' from ARP). May also be called with command <code class="code">IsStronglyFlagConnected</code>. If you are not working with a pre-polytope, expect this to take a LONG time. This means that given flags <span class="Math">\Phi</span> and <span class="Math">\Psi</span>, not only is there a sequence of flags <span class="Math">\Psi=\Phi_0=\Phi_1=\cdots=\Phi_k=\Psi</span> such that each <span class="Math">\Phi_i</span> shares all but once face with <span class="Math">\Phi_{i+1}</span>, but that each <span class="Math">\Phi_i\supseteq \Phi\cap\Psi</span>.</p>
 
@@ -580,7 +580,7 @@ false
 <h5>8.2-13 IsFlagConnected</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlagConnected</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset is flag connected.</p>
 
@@ -589,7 +589,7 @@ false
 <h5>8.2-14 IsP4</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP4</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset satisfies the diamond condition. May also be invoked using <code class="code">IsDiamondCondition</code>. Recall that this means that if <span class="Math">F,G</span> elements of the poset of ranks <span class="Math">i-1</span> and <span class="Math">i+1</span>, respectively, where <span class="Math">F</span> less than <span class="Math">G</span>, then there are precisely two <span class="Math">i</span>-faces <span class="Math">H</span> such that <span class="Math">F</span> is less than <span class="Math">H</span> and <span class="Math">H</span> is less than <span class="Math">G</span>.</p>
 
@@ -598,7 +598,7 @@ false
 <h5>8.2-15 IsPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset is an abstract polytope.</p>
 
@@ -623,7 +623,7 @@ false
 <h5>8.2-16 IsPrePolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPrePolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
 <p>Determines whether a poset is an abstract pre-polytope.</p>
 
