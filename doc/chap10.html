@@ -37,6 +37,8 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X859E4169801C72D9">10.1-9 <span class="Heading">Vertex Figure(s)</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8588E0127D2A8CD5">10.1-10 VertDegrees</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X783AE9C2807D0309">10.1-11 FaceSizes</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X877E841E7FBCEAAE">10.2 <span class="Heading">Flatness</span></a>
 </span>
@@ -222,6 +224,44 @@ Pgon(4)
 Pgon(5)
 </pre></div>
 
+<p><a id="X8588E0127D2A8CD5" name="X8588E0127D2A8CD5"></a></p>
+
+<h5>10.1-10 VertDegrees</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertDegrees</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list that describes how many vertices <var class="Arg">M</var> has of each valency. This list has the form [ [v1, n1], [v2, n2], ...] to indicate that there are n1 vertices of valcency v1, etc.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Pyramid(5));</span>
+[ [3, 5], [5, 1] ];
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Kis(Cube(3)));</span>
+[ [4, 6], [6, 8] ];
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Prism(5));</span>
+[ [3, 10] ]
+</pre></div>
+
+<p><a id="X783AE9C2807D0309" name="X783AE9C2807D0309"></a></p>
+
+<h5>10.1-11 FaceSizes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceSizes</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list that describes how many 2-faces <var class="Arg">M</var> has of each size. This list has the form [ [f1, n1], [f2, n2], ...] to indicate that there are n1 f1-gonal faces, etc.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Cube(3));</span>
+[ [ 4, 6 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Cube(4));</span>
+[ [ 4, 24 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Prism(Dodecahedron()));</span>
+[ [ 4, 30 ], [ 5, 24 ] ]
+</pre></div>
+
 <p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
 
 <h4>10.2 <span class="Heading">Flatness</span></h4>
@@ -232,7 +272,7 @@ Pgon(5)
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p>In the first form, returns true if every vertex of the maniplex <var class="Arg">M</var> is incident to every facet. In the second form, returns true if every i-face of the maniplex <var class="Arg">M</var> is incident to every j-face.</p>
 
@@ -297,7 +337,7 @@ true
 <h5>10.3-4 IsDegenerate</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
 
@@ -318,7 +358,7 @@ true
 <h5>10.3-5 IsTight</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
 <p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
 

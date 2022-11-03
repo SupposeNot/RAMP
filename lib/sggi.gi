@@ -363,3 +363,19 @@ InstallOtherMethod(SchlafliSymbol,
 InstallMethod(IsCConnected,
 	[IsManiplex],
 	m->IsStringC(ConnectionGroup(m)));
+	
+InstallMethod(VertexFigureSubgroup,
+	[IsSggi],
+	function(g)
+	local n;
+	n := Size(GeneratorsOfGroup(g));
+	return Subgroup(g, GeneratorsOfGroup(g){[2..n]});
+	end);
+	
+InstallMethod(FacetSubgroup,
+	[IsSggi],
+	function(g)
+	local n;
+	n := Size(GeneratorsOfGroup(g));
+	return Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
+	end);

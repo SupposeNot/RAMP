@@ -166,6 +166,48 @@ Pgon(5)
 ]]></Example>
 
 
+<ManSection>
+  <Attr Arg="M" Name="VertDegrees" Label="for IsManiplex"/>
+ <Returns>IsList
+</Returns>
+ <Description>
+Returns a list that describes how many vertices <A>M</A> has of each valency.
+ This list has the form [ [v1, n1], [v2, n2], ...] to indicate that there are n1 vertices of valcency v1, etc.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> VertDegrees(Pyramid(5));
+[ [3, 5], [5, 1] ];
+gap> VertDegrees(Kis(Cube(3)));
+[ [4, 6], [6, 8] ];
+gap> VertDegrees(Prism(5));
+[ [3, 10] ]
+]]></Example>
+
+
+<ManSection>
+  <Attr Arg="M" Name="FaceSizes" Label="for IsManiplex"/>
+ <Returns>IsList
+</Returns>
+ <Description>
+Returns a list that describes how many 2-faces <A>M</A> has of each size.
+ This list has the form [ [f1, n1], [f2, n2], ...] to indicate that there are n1 f1-gonal faces, etc.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> FaceSizes(Cube(3));
+[ [ 4, 6 ] ]
+gap> FaceSizes(Cube(4));
+[ [ 4, 24 ] ]
+gap> FaceSizes(Prism(Dodecahedron()));
+[ [ 4, 30 ], [ 5, 24 ] ]
+]]></Example>
+
+
 </Section>
 
 
@@ -176,7 +218,7 @@ Pgon(5)
 <Heading>Flatness</Heading>
   <Prop Arg="M" Name="IsFlat" Label="for IsManiplex"/>
   <Oper Arg="M, i, j" Name="IsFlat" Label="for IsManiplex, IsInt, IsInt"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
  In the first form, returns true if every vertex of the maniplex <A>M</A> is incident
@@ -264,7 +306,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
  Returns whether the maniplex <A>M</A> has any sections that
@@ -288,7 +330,7 @@ true
 
 <ManSection>
   <Prop Arg="P" Name="IsTight" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
  Returns whether the polytope <A>P</A> is tight, meaning that

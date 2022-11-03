@@ -266,6 +266,36 @@ InstallMethod(VertexFigure,
 	return VertexFigure(M, 1);
 	end);
 
+# THIS IS WRONG
+InstallMethod(VertDegrees,
+	[IsManiplex],
+	function(M)
+	local g, verts;
+	
+	g := Skeleton(M);
+	verts := Vertices(g);
+	return Collected(List(verts, v -> VertexDegree(g,v)));
+	end);
+	
+InstallMethod(FaceSizes,
+	[IsManiplex],
+	function(M)
+	local g, n, faces, mult, L;
+	
+	g := ConnectionGroup(M);
+	n := Size(GeneratorsOfGroup(g));
+	if n = 3 then
+		faces := OrbitLengths(Subgroup(g, [g.1,g.2]));
+	else
+		mult := Size(Subgroup(g, GeneratorsOfGroup(g){[4..n]}));
+		L := [1,2];
+		Append(L, [4..n]);
+		faces := OrbitLengths(Subgroup(g, GeneratorsOfGroup(g){L}));
+		faces := List(faces, x -> x/mult);
+	fi;
+	faces := List(faces, x -> x/2);
+	return Collected(faces);
+	end);
 
 
 

@@ -169,7 +169,7 @@ true
 
 <ManSection>
   <Prop Arg="M[, x]" Name="IsInternallySelfDual" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in
@@ -209,7 +209,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsExternallySelfDual" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in
@@ -234,7 +234,7 @@ false
 
 <ManSection>
   <Prop Arg="M" Name="IsProperlySelfDual" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 Returns whether this rooted maniplex is "properly self-dual", meaning that
@@ -325,7 +325,7 @@ gap> DirectDerivates(Cube(3));
 
 <ManSection>
   <Prop Arg="M" Name="IsKaleidoscopic" Label="for IsMapOnSurface"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 Returns whether the map <A>M</A> with <Math>q</Math>-valent vertices is <Emph>kaleidoscopic</Emph>,

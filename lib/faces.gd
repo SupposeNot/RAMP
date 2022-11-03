@@ -135,6 +135,35 @@ DeclareAttribute("VertexFigure", IsManiplex);
 #! @EndExampleSession
 #! @EndGroup
 
+#! @Arguments M
+#! @Returns IsList
+#! @Description Returns a list that describes how many vertices <A>M</A> has of each valency.
+#! This list has the form [ [v1, n1], [v2, n2], ...] to indicate that there are n1 vertices of valcency v1, etc.
+DeclareAttribute("VertDegrees", IsManiplex);
+#! @BeginExampleSession
+#! gap> VertDegrees(Pyramid(5));
+#! [ [3, 5], [5, 1] ];
+#! gap> VertDegrees(Kis(Cube(3)));
+#! [ [4, 6], [6, 8] ];
+#! gap> VertDegrees(Prism(5));
+#! [ [3, 10] ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns IsList
+#! @Description Returns a list that describes how many 2-faces <A>M</A> has of each size.
+#! This list has the form [ [f1, n1], [f2, n2], ...] to indicate that there are n1 f1-gonal faces, etc.
+DeclareAttribute("FaceSizes", IsManiplex);
+#! @BeginExampleSession
+#! gap> FaceSizes(Cube(3));
+#! [ [ 4, 6 ] ]
+#! gap> FaceSizes(Cube(4));
+#! [ [ 4, 24 ] ]
+#! gap> FaceSizes(Prism(Dodecahedron()));
+#! [ [ 4, 30 ], [ 5, 24 ] ]
+#! @EndExampleSession
+
+
 #! @Chapter Combinatorics and Structure
 #! @Section Flatness
 

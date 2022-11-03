@@ -482,7 +482,7 @@ gap> FlagOrbits(ToroidalMap44([3,2]));
 
 <ManSection>
   <Prop Arg="M" Name="IsOrientable" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 A maniplex is orientable if its flag graph is bipartite.
@@ -516,7 +516,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsVertexBipartite" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 A maniplex is vertex-bipartite if its 1-skeleton is
@@ -534,7 +534,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsFacetBipartite" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 A maniplex is facet-bipartite if the 1-skeleton of its
@@ -586,7 +586,7 @@ gap> SchlafliSymbol(IOrientableCover(Cube(3), [2]));
 
 <ManSection>
   <Prop Arg="M" Name="IsVertexFaithful" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 Returns whether the reflexible maniplex <A>M</A> is
@@ -604,7 +604,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsFacetFaithful" Label="for IsManiplex"/>
- <Returns><K>true</K> or <K>false</K>
+ <Returns><C>true</C> or <C>false</C>
 </Returns>
  <Description>
 Returns whether the reflexible maniplex <A>M</A> is

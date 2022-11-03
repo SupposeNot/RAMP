@@ -137,6 +137,42 @@
     [4X[28XPgon(5)[128X[104X
   [4X[32X[104X
   
+  [1X10.1-10 VertDegrees[101X
+  
+  [33X[1;0Y[29X[2XVertDegrees[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YReturns  a list that describes how many vertices [3XM[103X has of each valency. This
+  list  has  the form [ [v1, n1], [v2, n2], ...] to indicate that there are n1
+  vertices of valcency v1, etc.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XVertDegrees(Pyramid(5));[127X[104X
+    [4X[28X[ [3, 5], [5, 1] ];[128X[104X
+    [4X[25Xgap>[125X [27XVertDegrees(Kis(Cube(3)));[127X[104X
+    [4X[28X[ [4, 6], [6, 8] ];[128X[104X
+    [4X[25Xgap>[125X [27XVertDegrees(Prism(5));[127X[104X
+    [4X[28X[ [3, 10] ][128X[104X
+  [4X[32X[104X
+  
+  [1X10.1-11 FaceSizes[101X
+  
+  [33X[1;0Y[29X[2XFaceSizes[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YReturns a list that describes how many 2-faces [3XM[103X has of each size. This list
+  has  the  form  [  [f1,  n1],  [f2,  n2], ...] to indicate that there are n1
+  f1-gonal faces, etc.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFaceSizes(Cube(3));[127X[104X
+    [4X[28X[ [ 4, 6 ] ][128X[104X
+    [4X[25Xgap>[125X [27XFaceSizes(Cube(4));[127X[104X
+    [4X[28X[ [ 4, 24 ] ][128X[104X
+    [4X[25Xgap>[125X [27XFaceSizes(Prism(Dodecahedron()));[127X[104X
+    [4X[28X[ [ 4, 30 ], [ 5, 24 ] ][128X[104X
+  [4X[32X[104X
+  
   
   [1X10.2 [33X[0;0YFlatness[133X[101X
   
@@ -145,7 +181,7 @@
   
   [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X ) [32X property[133X
   [33X[1;0Y[29X[2XIsFlat[102X( [3XM[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YIn  the  first  form,  returns  true  if  every  vertex of the maniplex [3XM[103X is
   incident to every facet. In the second form, returns true if every i-face of
@@ -209,7 +245,7 @@
   [1X10.3-4 IsDegenerate[101X
   
   [33X[1;0Y[29X[2XIsDegenerate[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  has any sections that are digons. We may
   eventually want to include maniplexes with even smaller sections.[133X
@@ -228,7 +264,7 @@
   [1X10.3-5 IsTight[101X
   
   [33X[1;0Y[29X[2XIsTight[102X( [3XP[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
   [33X[0;0YReturns  whether  the  polytope  [3XP[103X  is tight, meaning that it has a Schlafli
   symbol  {k_1,  ...,  k_{n-1}}  and has 2 k_1 ... k_{n-1} flags, which is the
