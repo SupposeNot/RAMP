@@ -364,6 +364,14 @@ InstallMethod(IsCConnected,
 	[IsManiplex],
 	m->IsStringC(ConnectionGroup(m)));
 	
+InstallMethod(SectionSubgroup,
+	[IsSggi, IsList],
+	function(g, I)
+	local n;
+	n := Size(GeneratorsOfGroup(g));
+	return Subgroup(g, GeneratorsOfGroup(g){I+1});
+	end);
+	
 InstallMethod(VertexFigureSubgroup,
 	[IsSggi],
 	function(g)
