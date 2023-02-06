@@ -37,3 +37,13 @@ gap> IsChainTransitive(SmallRhombicuboctahedron(),[0,1]);
 false
 gap> IsChainTransitive(Cuboctahedron(),[0,1]);
 true
+gap> IsVertexFaithful(HemiCube(3));
+true
+gap> IsFacetFaithful(HemiCube(3));
+false
+gap> IsVertexFaithful(AbstractRotaryPolytope([ 6, 9 ], "(s1*s2^-2)^2,s2*s1^-3*s2^-1*s1*s2,(s1^-1*s2^-1)^2"));
+false
+gap> IsFacetFaithful(ToroidalMap44([5,0],[0,1]));
+false
+gap> IsFacetFaithful(ToroidalMap44([5,0],[0,3]));
+true

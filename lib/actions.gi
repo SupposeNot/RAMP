@@ -119,16 +119,16 @@ InstallMethod(IsVertexFaithful,
 	function(p)
 	local g, h, c, n, gens;
 	
-	if not(IsReflexible(p)) then
-		Error("IsVertexFaithful is only defined for reflexible maniplexes");
-	fi;
-	
-	g := AutomorphismGroup(p);
-	n := Rank(p);
-	gens := GeneratorsOfGroup(g){[2..n]};
-	h := Subgroup(g, gens);
-	c := Core(g,h);
-	return (Size(c) = 1);
+	if IsReflexible(p) then
+		g := AutomorphismGroup(p);
+		n := Rank(p);
+		gens := GeneratorsOfGroup(g){[2..n]};
+		h := Subgroup(g, gens);
+		c := Core(g,h);
+		return (Size(c) = 1);
+	else
+		return IsVertexTransitive(p) and (Size(AutomorphismGroupOnVertices(p)) = Size(AutomorphismGroup(p)));
+	fi;	
 	end);
 	
 InstallMethod(MaxVertexFaithfulQuotient,
@@ -153,15 +153,15 @@ InstallMethod(IsFacetFaithful,
 	function(p)
 	local g, h, c, n, gens;
 
-	if not(IsReflexible(p)) then
-		Error("IsFacetFaithful is only defined for reflexible maniplexes");
+	if IsReflexible(p) then
+		g := AutomorphismGroup(p);
+		n := Rank(p);
+		gens := GeneratorsOfGroup(g){[1..n-1]};
+		h := Subgroup(g, gens);
+		c := Core(g,h);
+		return (Size(c) = 1);
+	else
+		return IsFacetTransitive(p) and (Size(AutomorphismGroupOnFacets(p)) = Size(AutomorphismGroup(p)));
 	fi;	
-
-	g := AutomorphismGroup(p);
-	n := Rank(p);
-	gens := GeneratorsOfGroup(g){[1..n-1]};
-	h := Subgroup(g, gens);
-	c := Core(g,h);
-	return (Size(c) = 1);
 	end);
 
