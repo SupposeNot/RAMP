@@ -158,14 +158,16 @@ InstallMethod(MaxVertexFaithfulQuotient,
 
 	if not(IsReflexible(p)) then
 		Error("MaxVertexFaithfulQuotient is only defined for reflexible maniplexes");
+	else
+		return ReflexibleManiplex(AutomorphismGroupOnVertices(p));
 	fi;
 	
-	g := AutomorphismGroup(p);
-	n := Rank(p);
-	gens := GeneratorsOfGroup(g){[2..n]};
-	h := Subgroup(g, gens);
-	c := Core(g,h);
-	return ReflexibleManiplex(g/c);
+	# g := AutomorphismGroup(p);
+	# n := Rank(p);
+	# gens := GeneratorsOfGroup(g){[2..n]};
+	# h := Subgroup(g, gens);
+	# c := Core(g,h);
+	# return ReflexibleManiplex(g/c);
 	end);
 	
 InstallMethod(IsFacetFaithful,
