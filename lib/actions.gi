@@ -87,31 +87,51 @@ InstallMethod(IsChainTransitive,
 InstallMethod(IsIFaceTransitive,
 	[IsManiplex, IsInt],
 	function(M, i)
-	return (NumberOfIFaceOrbits(M, i) = 1);
+	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
+		return true;
+	else
+		return (NumberOfIFaceOrbits(M, i) = 1);
+	fi;
 	end);
 	
 InstallMethod(IsVertexTransitive,
 	[IsManiplex],
 	function(M)
-	return (NumberOfVertexOrbits(M) = 1);
+	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
+		return true;
+	else
+		return (NumberOfVertexOrbits(M) = 1);
+	fi;
 	end);
 	
 InstallMethod(IsEdgeTransitive,
 	[IsManiplex],
 	function(M)
-	return (NumberOfEdgeOrbits(M) = 1);
+	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
+		return true;
+	else
+		return (NumberOfEdgeOrbits(M) = 1);
+	fi;
 	end);
 	
 InstallMethod(IsFacetTransitive,
 	[IsManiplex],
 	function(M)
-	return (NumberOfFacetOrbits(M) = 1);
+	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
+		return true;
+	else
+		return (NumberOfFacetOrbits(M) = 1);
+	fi;
 	end);
 	
 InstallMethod(IsFullyTransitive,
 	[IsManiplex],
 	function(M)
-	return ForAll([0..Rank(M)-1], i -> IsIFaceTransitive(M, i));
+	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
+		return true;
+	else
+		return ForAll([0..Rank(M)-1], i -> IsIFaceTransitive(M, i));
+	fi;
 	end);
 	
 InstallMethod(IsVertexFaithful,
