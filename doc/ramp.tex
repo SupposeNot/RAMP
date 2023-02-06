@@ -2233,21 +2233,6 @@ base. See AddAttrComputer for more information. }
 
  Constructs the maniplex from its flag graph \mbox{\texttt{\mdseries\slshape F}}. This assumes that F actually defines a maniplex. }
 
- 
-
-\subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
-\logpage{[ 5, 1, 7 ]}\nobreak
-\hyperdef{L}{X79DD94037E0FACD4}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
-\label{IsPolytopal:for IsManiplex}
-}\hfill{\scriptsize (property)}}\\
-\textbf{\indent Returns:\ }
-\texttt{true} or \texttt{false} 
-
-
-
- Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is polytopal; i.e., the flag graph of a polytope. }
-
  }
 
  
@@ -2378,14 +2363,73 @@ Functions are inverses. }
  }
 
  
-\section{\textcolor{Chapter }{Rotary maniplexes and rotation groups}}\label{Chapter_Maniplexes_Section_Rotary_maniplexes_and_rotation_groups}
+\section{\textcolor{Chapter }{Subclasses of maniplex}}\label{Chapter_Maniplexes_Section_Subclasses_of_maniplex}
 \logpage{[ 5, 3, 0 ]}
+\hyperdef{L}{X85A22C257D9ECAB2}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{IsPolytopal (for IsManiplex)}}
+\logpage{[ 5, 3, 1 ]}\nobreak
+\hyperdef{L}{X79DD94037E0FACD4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape M})\index{IsPolytopal@\texttt{IsPolytopal}!for IsManiplex}
+\label{IsPolytopal:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is polytopal; i.e., the flag graph of a polytope. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}
+\logpage{[ 5, 3, 2 ]}\nobreak
+\hyperdef{L}{X7F788D2E7F41CD69}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesWeakPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesWeakPathIntersectionProperty@\texttt{Satisfies}\-\texttt{Weak}\-\texttt{Path}\-\texttt{Intersection}\-\texttt{Property}!for IsManiplex}
+\label{SatisfiesWeakPathIntersectionProperty:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+IsBool 
+
+
+
+ Tests for the weak path intersection property in a maniplex. Definitions and
+description available in \cite{GleHub18}. }
+
+ 
+
+\subsection{\textcolor{Chapter }{IsFaithful (for IsManiplex)}}
+\logpage{[ 5, 3, 3 ]}\nobreak
+\hyperdef{L}{X7DEE9BDE7EA6F995}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFaithful({\mdseries\slshape m})\index{IsFaithful@\texttt{IsFaithful}!for IsManiplex}
+\label{IsFaithful:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns whether the maniplex \mbox{\texttt{\mdseries\slshape m}} is faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for
+each flag the intersection of all the i-faces containing that flag is just the
+flag itself. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
+  true
+  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
+  false
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Rotary maniplexes and rotation groups}}\label{Chapter_Maniplexes_Section_Rotary_maniplexes_and_rotation_groups}
+\logpage{[ 5, 4, 0 ]}
 \hyperdef{L}{X8064E656804172CF}{}
 {
   
 
 \subsection{\textcolor{Chapter }{UniversalRotationGroup (for IsInt)}}
-\logpage{[ 5, 3, 1 ]}\nobreak
+\logpage{[ 5, 4, 1 ]}\nobreak
 \hyperdef{L}{X8056E3557E06EFF6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalRotationGroup({\mdseries\slshape n})\index{UniversalRotationGroup@\texttt{UniversalRotationGroup}!for IsInt}
 \label{UniversalRotationGroup:for IsInt}
@@ -2402,7 +2446,7 @@ Functions are inverses. }
  
 
 \subsection{\textcolor{Chapter }{UniversalRotationGroup (for IsList)}}
-\logpage{[ 5, 3, 2 ]}\nobreak
+\logpage{[ 5, 4, 2 ]}\nobreak
 \hyperdef{L}{X7D6042317A76FDC3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UniversalRotationGroup({\mdseries\slshape sym})\index{UniversalRotationGroup@\texttt{UniversalRotationGroup}!for IsList}
 \label{UniversalRotationGroup:for IsList}
@@ -2420,7 +2464,7 @@ Functions are inverses. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{RotaryManiplex}}\label{RotaryManiplex}
-\logpage{[ 5, 3, 3 ]}
+\logpage{[ 5, 4, 3 ]}
 \hyperdef{L}{X80791E367E43CA25}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotaryManiplex({\mdseries\slshape g})\index{RotaryManiplex@\texttt{RotaryManiplex}!for IsGroup}
@@ -2496,7 +2540,7 @@ be used if you know that the Schlafli symbol is correct.
  
 
 \subsection{\textcolor{Chapter }{EnantiomorphicForm (for IsManiplex)}}
-\logpage{[ 5, 3, 4 ]}\nobreak
+\logpage{[ 5, 4, 4 ]}\nobreak
 \hyperdef{L}{X8745361B80626A39}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{EnantiomorphicForm({\mdseries\slshape M})\index{EnantiomorphicForm@\texttt{EnantiomorphicForm}!for IsManiplex}
 \label{EnantiomorphicForm:for IsManiplex}
@@ -2873,14 +2917,87 @@ IsBool
  }
 
  
-\section{\textcolor{Chapter }{Flag orbits}}\label{Chapter_Maniplex_Properties_Section_Flag_orbits}
+\section{\textcolor{Chapter }{Faithfulness}}\label{Chapter_Maniplex_Properties_Section_Faithfulness}
 \logpage{[ 6, 3, 0 ]}
+\hyperdef{L}{X83355D207F38F997}{}
+{
+  
+
+\subsection{\textcolor{Chapter }{IsVertexFaithful (for IsManiplex)}}
+\logpage{[ 6, 3, 1 ]}\nobreak
+\hyperdef{L}{X7FFD0ADD7A2F6044}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexFaithful({\mdseries\slshape M})\index{IsVertexFaithful@\texttt{IsVertexFaithful}!for IsManiplex}
+\label{IsVertexFaithful:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether the reflexible maniplex \mbox{\texttt{\mdseries\slshape M}} is vertex-faithful; i.e., whether the action of the automorphism group on the
+vertices is faithful. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsFacetFaithful (for IsManiplex)}}
+\logpage{[ 6, 3, 2 ]}\nobreak
+\hyperdef{L}{X7BB02182844EA5EB}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetFaithful({\mdseries\slshape M})\index{IsFacetFaithful@\texttt{IsFacetFaithful}!for IsManiplex}
+\label{IsFacetFaithful:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether the reflexible maniplex \mbox{\texttt{\mdseries\slshape M}} is facet-faithful; i.e., whether the action of the automorphism group on the
+facets is faithful. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
+  false
+  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{MaxVertexFaithfulQuotient (for IsManiplex)}}
+\logpage{[ 6, 3, 3 ]}\nobreak
+\hyperdef{L}{X7F2F8EEE8663AB89}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxVertexFaithfulQuotient({\mdseries\slshape M})\index{MaxVertexFaithfulQuotient@\texttt{MaxVertexFaithfulQuotient}!for IsManiplex}
+\label{MaxVertexFaithfulQuotient:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+Q 
+
+
+
+ Returns the maximal vertex-faithful reflexible maniplex covered by \mbox{\texttt{\mdseries\slshape M}}. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
+  reflexible 3-maniplex
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
+  [ 3, 2 ]
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Flag orbits}}\label{Chapter_Maniplex_Properties_Section_Flag_orbits}
+\logpage{[ 6, 4, 0 ]}
 \hyperdef{L}{X7BE5F0217862DBEF}{}
 {
   
 
 \subsection{\textcolor{Chapter }{Flags (for IsPremaniplex)}}
-\logpage{[ 6, 3, 1 ]}\nobreak
+\logpage{[ 6, 4, 1 ]}\nobreak
 \hyperdef{L}{X8668368E81B4B122}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Flags({\mdseries\slshape M})\index{Flags@\texttt{Flags}!for IsPremaniplex}
 \label{Flags:for IsPremaniplex}
@@ -2903,7 +3020,7 @@ IsList
  
 
 \subsection{\textcolor{Chapter }{BaseFlag (for IsPremaniplex)}}
-\logpage{[ 6, 3, 2 ]}\nobreak
+\logpage{[ 6, 4, 2 ]}\nobreak
 \hyperdef{L}{X795A4A60852AF9A5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BaseFlag({\mdseries\slshape M})\index{BaseFlag@\texttt{BaseFlag}!for IsPremaniplex}
 \label{BaseFlag:for IsPremaniplex}
@@ -2927,7 +3044,7 @@ flag is the minimum of the set of flags. }
  
 
 \subsection{\textcolor{Chapter }{SymmetryTypeGraph (for IsPremaniplex)}}
-\logpage{[ 6, 3, 3 ]}\nobreak
+\logpage{[ 6, 4, 3 ]}\nobreak
 \hyperdef{L}{X87D5AE5F845BD88C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SymmetryTypeGraph({\mdseries\slshape M[, A]})\index{SymmetryTypeGraph@\texttt{SymmetryTypeGraph}!for IsPremaniplex}
 \label{SymmetryTypeGraph:for IsPremaniplex}
@@ -2953,7 +3070,7 @@ automorphism group of \mbox{\texttt{\mdseries\slshape M}}. }
  
 
 \subsection{\textcolor{Chapter }{NumberOfFlagOrbits (for IsPremaniplex)}}
-\logpage{[ 6, 3, 4 ]}\nobreak
+\logpage{[ 6, 4, 4 ]}\nobreak
 \hyperdef{L}{X7C14C6417F42D94D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumberOfFlagOrbits({\mdseries\slshape M})\index{NumberOfFlagOrbits@\texttt{NumberOfFlagOrbits}!for IsPremaniplex}
 \label{NumberOfFlagOrbits:for IsPremaniplex}
@@ -2970,7 +3087,7 @@ automorphism group of \mbox{\texttt{\mdseries\slshape M}}. }
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitRepresentatives (for IsPremaniplex)}}
-\logpage{[ 6, 3, 5 ]}\nobreak
+\logpage{[ 6, 4, 5 ]}\nobreak
 \hyperdef{L}{X82AFA2FE809AC358}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitRepresentatives({\mdseries\slshape M})\index{FlagOrbitRepresentatives@\texttt{FlagOrbitRepresentatives}!for IsPremaniplex}
 \label{FlagOrbitRepresentatives:for IsPremaniplex}
@@ -2987,7 +3104,7 @@ automorphism group of \mbox{\texttt{\mdseries\slshape M}}. }
  
 
 \subsection{\textcolor{Chapter }{FlagOrbitsStabilizer (for IsPremaniplex)}}
-\logpage{[ 6, 3, 6 ]}\nobreak
+\logpage{[ 6, 4, 6 ]}\nobreak
 \hyperdef{L}{X7FC9977380733F65}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbitsStabilizer({\mdseries\slshape M})\index{FlagOrbitsStabilizer@\texttt{FlagOrbitsStabilizer}!for IsPremaniplex}
 \label{FlagOrbitsStabilizer:for IsPremaniplex}
@@ -3014,7 +3131,7 @@ under the action of the automorphism group. }
  
 
 \subsection{\textcolor{Chapter }{IsReflexible (for IsPremaniplex)}}
-\logpage{[ 6, 3, 7 ]}\nobreak
+\logpage{[ 6, 4, 7 ]}\nobreak
 \hyperdef{L}{X839E8D4783F91690}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsReflexible({\mdseries\slshape M})\index{IsReflexible@\texttt{IsReflexible}!for IsPremaniplex}
 \label{IsReflexible:for IsPremaniplex}
@@ -3036,7 +3153,7 @@ Whether the premaniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has o
  
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsPremaniplex)}}
-\logpage{[ 6, 3, 8 ]}\nobreak
+\logpage{[ 6, 4, 8 ]}\nobreak
 \hyperdef{L}{X7F0108D17B523A0C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsChiral({\mdseries\slshape M})\index{IsChiral@\texttt{IsChiral}!for IsPremaniplex}
 \label{IsChiral:for IsPremaniplex}
@@ -3058,7 +3175,7 @@ Whether the premaniplex \mbox{\texttt{\mdseries\slshape M}} is chiral.
  
 
 \subsection{\textcolor{Chapter }{IsRotary (for IsPremaniplex)}}
-\logpage{[ 6, 3, 9 ]}\nobreak
+\logpage{[ 6, 4, 9 ]}\nobreak
 \hyperdef{L}{X8718754784A4FCB2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsPremaniplex}
 \label{IsRotary:for IsPremaniplex}
@@ -3080,7 +3197,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
 \subsection{\textcolor{Chapter }{FlagOrbits (for IsPremaniplex)}}
-\logpage{[ 6, 3, 10 ]}\nobreak
+\logpage{[ 6, 4, 10 ]}\nobreak
 \hyperdef{L}{X84E84D0E84BC7F59}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbits({\mdseries\slshape M})\index{FlagOrbits@\texttt{FlagOrbits}!for IsPremaniplex}
 \label{FlagOrbits:for IsPremaniplex}
@@ -3100,13 +3217,13 @@ action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
 
  
 \section{\textcolor{Chapter }{Orientability}}\label{Chapter_Maniplex_Properties_Section_Orientability}
-\logpage{[ 6, 4, 0 ]}
+\logpage{[ 6, 5, 0 ]}
 \hyperdef{L}{X861E4BAD800B2785}{}
 {
   
 
 \subsection{\textcolor{Chapter }{IsOrientable (for IsManiplex)}}
-\logpage{[ 6, 4, 1 ]}\nobreak
+\logpage{[ 6, 5, 1 ]}\nobreak
 \hyperdef{L}{X7DCAF9D27F36EBD3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsOrientable({\mdseries\slshape M})\index{IsOrientable@\texttt{IsOrientable}!for IsManiplex}
 \label{IsOrientable:for IsManiplex}
@@ -3128,7 +3245,7 @@ action of AutomorphismGroup(\mbox{\texttt{\mdseries\slshape M}}). }
  
 
 \subsection{\textcolor{Chapter }{IsIOrientable (for IsManiplex, IsList)}}
-\logpage{[ 6, 4, 2 ]}\nobreak
+\logpage{[ 6, 5, 2 ]}\nobreak
 \hyperdef{L}{X79F849DD7F778616}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIOrientable({\mdseries\slshape M, I})\index{IsIOrientable@\texttt{IsIOrientable}!for IsManiplex, IsList}
 \label{IsIOrientable:for IsManiplex, IsList}
@@ -3147,7 +3264,7 @@ even number of edges with colors in I. }
  
 
 \subsection{\textcolor{Chapter }{IsVertexBipartite (for IsManiplex)}}
-\logpage{[ 6, 4, 3 ]}\nobreak
+\logpage{[ 6, 5, 3 ]}\nobreak
 \hyperdef{L}{X877609AB7ABD24AC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexBipartite({\mdseries\slshape M})\index{IsVertexBipartite@\texttt{IsVertexBipartite}!for IsManiplex}
 \label{IsVertexBipartite:for IsManiplex}
@@ -3169,7 +3286,7 @@ equivalent to being I-orientable for I =
  
 
 \subsection{\textcolor{Chapter }{IsFacetBipartite (for IsManiplex)}}
-\logpage{[ 6, 4, 4 ]}\nobreak
+\logpage{[ 6, 5, 4 ]}\nobreak
 \hyperdef{L}{X7BD9E8A87D6E8FAB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetBipartite({\mdseries\slshape M})\index{IsFacetBipartite@\texttt{IsFacetBipartite}!for IsManiplex}
 \label{IsFacetBipartite:for IsManiplex}
@@ -3191,7 +3308,7 @@ is equivalent to being I-orientable for I =
  
 
 \subsection{\textcolor{Chapter }{OrientableCover (for IsManiplex)}}
-\logpage{[ 6, 4, 5 ]}\nobreak
+\logpage{[ 6, 5, 5 ]}\nobreak
 \hyperdef{L}{X7BAA22327D298902}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{OrientableCover({\mdseries\slshape M})\index{OrientableCover@\texttt{OrientableCover}!for IsManiplex}
 \label{OrientableCover:for IsManiplex}
@@ -3208,7 +3325,7 @@ is equivalent to being I-orientable for I =
  
 
 \subsection{\textcolor{Chapter }{IOrientableCover (for IsManiplex, IsList)}}
-\logpage{[ 6, 4, 6 ]}\nobreak
+\logpage{[ 6, 5, 6 ]}\nobreak
 \hyperdef{L}{X81EF6062840E85AF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IOrientableCover({\mdseries\slshape M, I})\index{IOrientableCover@\texttt{IOrientableCover}!for IsManiplex, IsList}
 \label{IOrientableCover:for IsManiplex, IsList}
@@ -3221,116 +3338,6 @@ is equivalent to being I-orientable for I =
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@SchlafliSymbol(IOrientableCover(Cube(3), [2]));|
   [ 4, 6 ]
-\end{Verbatim}
- }
-
- 
-\section{\textcolor{Chapter }{Faithfulness}}\label{Chapter_Maniplex_Properties_Section_Faithfulness}
-\logpage{[ 6, 5, 0 ]}
-\hyperdef{L}{X83355D207F38F997}{}
-{
-  
-
-\subsection{\textcolor{Chapter }{IsVertexFaithful (for IsManiplex)}}
-\logpage{[ 6, 5, 1 ]}\nobreak
-\hyperdef{L}{X7FFD0ADD7A2F6044}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsVertexFaithful({\mdseries\slshape M})\index{IsVertexFaithful@\texttt{IsVertexFaithful}!for IsManiplex}
-\label{IsVertexFaithful:for IsManiplex}
-}\hfill{\scriptsize (property)}}\\
-\textbf{\indent Returns:\ }
-\texttt{true} or \texttt{false} 
-
-
-
- Returns whether the reflexible maniplex \mbox{\texttt{\mdseries\slshape M}} is vertex-faithful; i.e., whether the action of the automorphism group on the
-vertices is faithful. }
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsVertexFaithful(HemiCube(3));|
-  true
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{IsFacetFaithful (for IsManiplex)}}
-\logpage{[ 6, 5, 2 ]}\nobreak
-\hyperdef{L}{X7BB02182844EA5EB}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFacetFaithful({\mdseries\slshape M})\index{IsFacetFaithful@\texttt{IsFacetFaithful}!for IsManiplex}
-\label{IsFacetFaithful:for IsManiplex}
-}\hfill{\scriptsize (property)}}\\
-\textbf{\indent Returns:\ }
-\texttt{true} or \texttt{false} 
-
-
-
- Returns whether the reflexible maniplex \mbox{\texttt{\mdseries\slshape M}} is facet-faithful; i.e., whether the action of the automorphism group on the
-facets is faithful. }
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(HemiCube(3));|
-  false
-  !gapprompt@gap>| !gapinput@IsFacetFaithful(Cube(3));|
-  true
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{MaxVertexFaithfulQuotient (for IsManiplex)}}
-\logpage{[ 6, 5, 3 ]}\nobreak
-\hyperdef{L}{X7F2F8EEE8663AB89}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxVertexFaithfulQuotient({\mdseries\slshape M})\index{MaxVertexFaithfulQuotient@\texttt{MaxVertexFaithfulQuotient}!for IsManiplex}
-\label{MaxVertexFaithfulQuotient:for IsManiplex}
-}\hfill{\scriptsize (operation)}}\\
-\textbf{\indent Returns:\ }
-Q 
-
-
-
- Returns the maximal vertex-faithful reflexible maniplex covered by \mbox{\texttt{\mdseries\slshape M}}. }
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@MaxVertexFaithfulQuotient(HemiCrossPolytope(3));|
-  reflexible 3-maniplex
-  !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
-  [ 3, 2 ]
-\end{Verbatim}
- 
-
-\subsection{\textcolor{Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}
-\logpage{[ 6, 5, 4 ]}\nobreak
-\hyperdef{L}{X7F788D2E7F41CD69}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesWeakPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesWeakPathIntersectionProperty@\texttt{Satisfies}\-\texttt{Weak}\-\texttt{Path}\-\texttt{Intersection}\-\texttt{Property}!for IsManiplex}
-\label{SatisfiesWeakPathIntersectionProperty:for IsManiplex}
-}\hfill{\scriptsize (property)}}\\
-\textbf{\indent Returns:\ }
-IsBool 
-
-
-
- Tests for the weak path intersection property in a maniplex. Definitions and
-description available in \cite{GleHub18}. }
-
- 
-
-\subsection{\textcolor{Chapter }{IsFaithful (for IsManiplex)}}
-\logpage{[ 6, 5, 5 ]}\nobreak
-\hyperdef{L}{X7DEE9BDE7EA6F995}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFaithful({\mdseries\slshape m})\index{IsFaithful@\texttt{IsFaithful}!for IsManiplex}
-\label{IsFaithful:for IsManiplex}
-}\hfill{\scriptsize (operation)}}\\
-
-
- Returns whether the maniplex \mbox{\texttt{\mdseries\slshape m}} is faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for
-each flag the intersection of all the i-faces containing that flag is just the
-flag itself. }
-
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
-  true
-  !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
-  false
 \end{Verbatim}
  }
 

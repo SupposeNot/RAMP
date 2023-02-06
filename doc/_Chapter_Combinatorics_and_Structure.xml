@@ -218,7 +218,7 @@ gap> FaceSizes(Prism(Dodecahedron()));
 <Heading>Flatness</Heading>
   <Prop Arg="M" Name="IsFlat" Label="for IsManiplex"/>
   <Oper Arg="M, i, j" Name="IsFlat" Label="for IsManiplex, IsInt, IsInt"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
  In the first form, returns true if every vertex of the maniplex <A>M</A> is incident
@@ -306,7 +306,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsDegenerate" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
  Returns whether the maniplex <A>M</A> has any sections that
@@ -330,7 +330,7 @@ true
 
 <ManSection>
   <Prop Arg="P" Name="IsTight" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
  Returns whether the polytope <A>P</A> is tight, meaning that

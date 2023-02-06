@@ -183,17 +183,6 @@ Constructs the maniplex from its flag graph <A>F</A>.
 </ManSection>
 
 
-<ManSection>
-  <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
-Returns whether the maniplex <A>M</A> is polytopal;
- i.e., the flag graph of a polytope.
- </Description>
-</ManSection>
-
-
 </Section>
 
 
@@ -295,6 +284,50 @@ gap> CtoL(3,2,5,4);
 8
 gap> LtoC(8,5,4);
 [ 3, 2 ]
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplexes_Section_Subclasses_of_maniplex">
+<Heading>Subclasses of maniplex</Heading>
+
+<ManSection>
+  <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+Returns whether the maniplex <A>M</A> is polytopal;
+ i.e., the flag graph of a polytope.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="SatisfiesWeakPathIntersectionProperty" Label="for IsManiplex"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GleHub18"/>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="m" Name="IsFaithful" Label="for IsManiplex"/>
+ <Description>
+Returns whether the maniplex <A>m</A> is
+ faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsFaithful(Cube(3));
+true
+gap> IsFaithful(ToroidalMap44([1,0]));
+false
 ]]></Example>
 
 

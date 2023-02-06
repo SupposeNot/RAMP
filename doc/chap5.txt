@@ -156,14 +156,6 @@
   [33X[0;0YConstructs  the maniplex from its flag graph [3XF[103X. This assumes that F actually
   defines a maniplex.[133X
   
-  [1X5.1-7 IsPolytopal[101X
-  
-  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
-  polytope.[133X
-  
   
   [1X5.2 [33X[0;0YMixing of Maniplexes functions[133X[101X
   
@@ -252,9 +244,43 @@
   [4X[32X[104X
   
   
-  [1X5.3 [33X[0;0YRotary maniplexes and rotation groups[133X[101X
+  [1X5.3 [33X[0;0YSubclasses of maniplex[133X[101X
   
-  [1X5.3-1 UniversalRotationGroup[101X
+  [1X5.3-1 IsPolytopal[101X
+  
+  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  
+  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
+  polytope.[133X
+  
+  [1X5.3-2 SatisfiesWeakPathIntersectionProperty[101X
+  
+  [33X[1;0Y[29X[2XSatisfiesWeakPathIntersectionProperty[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YTests for the weak path intersection property in a maniplex. Definitions and
+  description available in [GH18].[133X
+  
+  [1X5.3-3 IsFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsFaithful[102X( [3Xm[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  whether  the maniplex [3Xm[103X is faithful, as defined in "Polytopality of
+  Maniplexes"; i.e., whether for each flag the intersection of all the i-faces
+  containing that flag is just the flag itself.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsFaithful(ToroidalMap44([1,0]));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.4 [33X[0;0YRotary maniplexes and rotation groups[133X[101X
+  
+  [1X5.4-1 UniversalRotationGroup[101X
   
   [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xn[103X ) [32X operation[133X
   
@@ -265,7 +291,7 @@
     [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
   [4X[32X[104X
   
-  [1X5.3-2 UniversalRotationGroup[101X
+  [1X5.4-2 UniversalRotationGroup[101X
   
   [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xsym[103X ) [32X operation[133X
   
@@ -279,7 +305,7 @@
   [4X[32X[104X
   
   
-  [1X5.3-3 [33X[0;0YRotaryManiplex[133X[101X
+  [1X5.4-3 [33X[0;0YRotaryManiplex[133X[101X
   
   [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xg[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X ) [32X operation[133X
@@ -347,7 +373,7 @@
     [4X[28X[6, 6][128X[104X
   [4X[32X[104X
   
-  [1X5.3-4 EnantiomorphicForm[101X
+  [1X5.4-4 EnantiomorphicForm[101X
   
   [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
   

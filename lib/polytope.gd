@@ -164,66 +164,13 @@ DeclareOperation("Maniplex", [IsPoset]);
 DeclareOperation("Maniplex", [IsEdgeLabeledGraph]);
 
 
+#! @Chapter Maniplexes
+#! @Section Subclasses of maniplex
+
 #! @Arguments M
 #! @Description Returns whether the maniplex <A>M</A> is polytopal;
 #! i.e., the flag graph of a polytope.
 DeclareProperty("IsPolytopal", IsManiplex);
-
-
-
-#! @Chapter Combinatorics and Structure
-#! @Section Basics
-
-#! @Arguments M
-#! @Returns The number of flags of the maniplex <A>M</A>.
-#! @Description Synonym: `NumberOfFlags`.
-DeclareAttribute("Size", IsManiplex);
-
-DeclareSynonymAttr("NumberOfFlags", Size);
-
-#! @Arguments M
-#! @Returns The rank of the premaniplex <A>M</A>.
-DeclareAttribute("RankManiplex", IsPremaniplex);
-
-
-#! @Chapter Maniplex Properties
-#! @Section Faithfulness
-
-#! @Arguments M
-#! @Description Returns whether the reflexible maniplex <A>M</A> is
-#! vertex-faithful; i.e., whether the action of the automorphism
-#! group on the vertices is faithful.
-DeclareProperty("IsVertexFaithful", IsManiplex);
-#! @BeginExampleSession
-#! gap> IsVertexFaithful(HemiCube(3));
-#! true
-#! @EndExampleSession
-
-#! @Arguments M
-#! @Description Returns whether the reflexible maniplex <A>M</A> is
-#! facet-faithful; i.e., whether the action of the automorphism
-#! group on the facets is faithful.
-DeclareProperty("IsFacetFaithful", IsManiplex);
-#! @BeginExampleSession
-#! gap> IsFacetFaithful(HemiCube(3));
-#! false
-#! gap> IsFacetFaithful(Cube(3));
-#! true
-#! @EndExampleSession
-
-#! @Arguments M
-#! @Returns Q
-#! @Description Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
-DeclareOperation("MaxVertexFaithfulQuotient", [IsManiplex]);
-#! @BeginExampleSession
-#! gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
-#! reflexible 3-maniplex
-#! gap> SchlafliSymbol(last);
-#! [ 3, 2 ]
-#! @EndExampleSession
-
-
-DeclareGlobalFunction("MANIPLEX_STRING");
 
 #! @Arguments M
 #! @Returns IsBool
@@ -242,3 +189,21 @@ DeclareOperation("IsFaithful", [IsManiplex]);
 #! false
 #! @EndExampleSession
 
+
+
+#! @Chapter Combinatorics and Structure
+#! @Section Basics
+
+#! @Arguments M
+#! @Returns The number of flags of the maniplex <A>M</A>.
+#! @Description Synonym: `NumberOfFlags`.
+DeclareAttribute("Size", IsManiplex);
+
+DeclareSynonymAttr("NumberOfFlags", Size);
+
+#! @Arguments M
+#! @Returns The rank of the premaniplex <A>M</A>.
+DeclareAttribute("RankManiplex", IsPremaniplex);
+
+
+DeclareGlobalFunction("MANIPLEX_STRING");

@@ -35,7 +35,6 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X81DA2F5185E38D67">5.1-4 Maniplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X864C043380FB58D4">5.1-5 Maniplex</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X866AC7457DA8E2AC">5.1-6 Maniplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X79DD94037E0FACD4">5.1-7 IsPolytopal</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X7EE6BE9E7BB852DC">5.2 <span class="Heading">Mixing of Maniplexes functions</span></a>
 </span>
@@ -49,14 +48,21 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X82C3A3447A93CDD6">5.2-5 <span class="Heading">Indexed array tools</span></a>
 </span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X8064E656804172CF">5.3 <span class="Heading">Rotary maniplexes and rotation groups</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X85A22C257D9ECAB2">5.3 <span class="Heading">Subclasses of maniplex</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X8056E3557E06EFF6">5.3-1 UniversalRotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7D6042317A76FDC3">5.3-2 UniversalRotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X80791E367E43CA25">5.3-3 <span class="Heading">RotaryManiplex</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X79DD94037E0FACD4">5.3-1 IsPolytopal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7F788D2E7F41CD69">5.3-2 SatisfiesWeakPathIntersectionProperty</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7DEE9BDE7EA6F995">5.3-3 IsFaithful</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X8064E656804172CF">5.4 <span class="Heading">Rotary maniplexes and rotation groups</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X8745361B80626A39">5.3-4 EnantiomorphicForm</a></span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X8056E3557E06EFF6">5.4-1 UniversalRotationGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7D6042317A76FDC3">5.4-2 UniversalRotationGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X80791E367E43CA25">5.4-3 <span class="Heading">RotaryManiplex</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X8745361B80626A39">5.4-4 EnantiomorphicForm</a></span>
 </div></div>
 </div>
 
@@ -201,15 +207,6 @@ Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
 
 <p>Constructs the maniplex from its flag graph <var class="Arg">F</var>. This assumes that F actually defines a maniplex.</p>
 
-<p><a id="X79DD94037E0FACD4" name="X79DD94037E0FACD4"></a></p>
-
-<h5>5.1-7 IsPolytopal</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Returns whether the maniplex <var class="Arg">M</var> is polytopal; i.e., the flag graph of a polytope.</p>
-
 <p><a id="X7EE6BE9E7BB852DC" name="X7EE6BE9E7BB852DC"></a></p>
 
 <h4>5.2 <span class="Heading">Mixing of Maniplexes functions</span></h4>
@@ -295,13 +292,50 @@ true
 [ 3, 2 ]
 </pre></div>
 
+<p><a id="X85A22C257D9ECAB2" name="X85A22C257D9ECAB2"></a></p>
+
+<h4>5.3 <span class="Heading">Subclasses of maniplex</span></h4>
+
+<p><a id="X79DD94037E0FACD4" name="X79DD94037E0FACD4"></a></p>
+
+<h5>5.3-1 IsPolytopal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>Returns whether the maniplex <var class="Arg">M</var> is polytopal; i.e., the flag graph of a polytope.</p>
+
+<p><a id="X7F788D2E7F41CD69" name="X7F788D2E7F41CD69"></a></p>
+
+<h5>5.3-2 SatisfiesWeakPathIntersectionProperty</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesWeakPathIntersectionProperty</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
+
+<p>Tests for the weak path intersection property in a maniplex. Definitions and description available in <a href="chapBib_mj.html#biBGleHub18">[GH18]</a>.</p>
+
+<p><a id="X7DEE9BDE7EA6F995" name="X7DEE9BDE7EA6F995"></a></p>
+
+<h5>5.3-3 IsFaithful</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFaithful</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns whether the maniplex <var class="Arg">m</var> is faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(Cube(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(ToroidalMap44([1,0]));</span>
+false
+</pre></div>
+
 <p><a id="X8064E656804172CF" name="X8064E656804172CF"></a></p>
 
-<h4>5.3 <span class="Heading">Rotary maniplexes and rotation groups</span></h4>
+<h4>5.4 <span class="Heading">Rotary maniplexes and rotation groups</span></h4>
 
 <p><a id="X8056E3557E06EFF6" name="X8056E3557E06EFF6"></a></p>
 
-<h5>5.3-1 UniversalRotationGroup</h5>
+<h5>5.4-1 UniversalRotationGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the rotation subgroup of the universal Coxeter Group of rank n.</p>
@@ -314,7 +348,7 @@ true
 
 <p><a id="X7D6042317A76FDC3" name="X7D6042317A76FDC3"></a></p>
 
-<h5>5.3-2 UniversalRotationGroup</h5>
+<h5>5.4-2 UniversalRotationGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.</p>
@@ -329,7 +363,7 @@ true
 
 <p><a id="X80791E367E43CA25" name="X80791E367E43CA25"></a></p>
 
-<h5>5.3-3 <span class="Heading">RotaryManiplex</span></h5>
+<h5>5.4-3 <span class="Heading">RotaryManiplex</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -386,7 +420,7 @@ true
 
 <p><a id="X8745361B80626A39" name="X8745361B80626A39"></a></p>
 
-<h5>5.3-4 EnantiomorphicForm</h5>
+<h5>5.4-4 EnantiomorphicForm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnantiomorphicForm</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>The <em>enantiomorphic form</em> of a rotary maniplex is the same maniplex, but where we choose the new base flag to be one of the flags that is adjacent to the original base flag. If M is reflexible, then this choice has no effect. Otherwise, if M is chiral, then the enantiomorphic form gives us a different presentation for the rotation group.</p>

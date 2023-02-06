@@ -295,6 +295,68 @@ true
 </Section>
 
 
+<Section Label="Chapter_Maniplex_Properties_Section_Faithfulness">
+<Heading>Faithfulness</Heading>
+
+<ManSection>
+  <Prop Arg="M" Name="IsVertexFaithful" Label="for IsManiplex"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+Returns whether the reflexible maniplex <A>M</A> is
+ vertex-faithful; i.e., whether the action of the automorphism
+ group on the vertices is faithful.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsVertexFaithful(HemiCube(3));
+true
+]]></Example>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsFacetFaithful" Label="for IsManiplex"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+Returns whether the reflexible maniplex <A>M</A> is
+ facet-faithful; i.e., whether the action of the automorphism
+ group on the facets is faithful.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsFacetFaithful(HemiCube(3));
+false
+gap> IsFacetFaithful(Cube(3));
+true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsManiplex"/>
+ <Returns>Q
+</Returns>
+ <Description>
+Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
+reflexible 3-maniplex
+gap> SchlafliSymbol(last);
+[ 3, 2 ]
+]]></Example>
+
+
+</Section>
+
+
 <Section Label="Chapter_Maniplex_Properties_Section_Flag_orbits">
 <Heading>Flag orbits</Heading>
 
@@ -482,7 +544,7 @@ gap> FlagOrbits(ToroidalMap44([3,2]));
 
 <ManSection>
   <Prop Arg="M" Name="IsOrientable" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 A maniplex is orientable if its flag graph is bipartite.
@@ -516,7 +578,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsVertexBipartite" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 A maniplex is vertex-bipartite if its 1-skeleton is
@@ -534,7 +596,7 @@ true
 
 <ManSection>
   <Prop Arg="M" Name="IsFacetBipartite" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
+ <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
 A maniplex is facet-bipartite if the 1-skeleton of its
@@ -575,95 +637,6 @@ Returns the minimal <Emph>I-orientable cover</Emph> of the maniplex <A>M</A>.
 <Example><![CDATA[
 gap> SchlafliSymbol(IOrientableCover(Cube(3), [2]));
 [ 4, 6 ]
-]]></Example>
-
-
-</Section>
-
-
-<Section Label="Chapter_Maniplex_Properties_Section_Faithfulness">
-<Heading>Faithfulness</Heading>
-
-<ManSection>
-  <Prop Arg="M" Name="IsVertexFaithful" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
-Returns whether the reflexible maniplex <A>M</A> is
- vertex-faithful; i.e., whether the action of the automorphism
- group on the vertices is faithful.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> IsVertexFaithful(HemiCube(3));
-true
-]]></Example>
-
-
-<ManSection>
-  <Prop Arg="M" Name="IsFacetFaithful" Label="for IsManiplex"/>
- <Returns><C>true</C> or <C>false</C>
-</Returns>
- <Description>
-Returns whether the reflexible maniplex <A>M</A> is
- facet-faithful; i.e., whether the action of the automorphism
- group on the facets is faithful.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> IsFacetFaithful(HemiCube(3));
-false
-gap> IsFacetFaithful(Cube(3));
-true
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsManiplex"/>
- <Returns>Q
-</Returns>
- <Description>
-Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
-reflexible 3-maniplex
-gap> SchlafliSymbol(last);
-[ 3, 2 ]
-]]></Example>
-
-
-<ManSection>
-  <Prop Arg="M" Name="SatisfiesWeakPathIntersectionProperty" Label="for IsManiplex"/>
- <Returns>IsBool
-</Returns>
- <Description>
-Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GleHub18"/>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Oper Arg="m" Name="IsFaithful" Label="for IsManiplex"/>
- <Description>
-Returns whether the maniplex <A>m</A> is
- faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.
- </Description>
-</ManSection>
-
-
-<Example><![CDATA[
-gap> IsFaithful(Cube(3));
-true
-gap> IsFaithful(ToroidalMap44([1,0]));
-false
 ]]></Example>
 
 

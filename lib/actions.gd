@@ -180,3 +180,42 @@ DeclareProperty("IsFullyTransitive", IsManiplex);
 #! gap> IsFullyTransitive(Bk2l(4,5));
 #! true
 #! @EndExampleSession
+
+
+
+#! @Section Faithfulness
+
+#! @Arguments M
+#! @Description Returns whether the reflexible maniplex <A>M</A> is
+#! vertex-faithful; i.e., whether the action of the automorphism
+#! group on the vertices is faithful.
+DeclareProperty("IsVertexFaithful", IsManiplex);
+#! @BeginExampleSession
+#! gap> IsVertexFaithful(HemiCube(3));
+#! true
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Description Returns whether the reflexible maniplex <A>M</A> is
+#! facet-faithful; i.e., whether the action of the automorphism
+#! group on the facets is faithful.
+DeclareProperty("IsFacetFaithful", IsManiplex);
+#! @BeginExampleSession
+#! gap> IsFacetFaithful(HemiCube(3));
+#! false
+#! gap> IsFacetFaithful(Cube(3));
+#! true
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Returns Q
+#! @Description Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+DeclareOperation("MaxVertexFaithfulQuotient", [IsManiplex]);
+#! @BeginExampleSession
+#! gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
+#! reflexible 3-maniplex
+#! gap> SchlafliSymbol(last);
+#! [ 3, 2 ]
+#! @EndExampleSession
+
+

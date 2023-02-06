@@ -156,18 +156,21 @@
       5.1-4 Maniplex
       5.1-5 Maniplex
       5.1-6 Maniplex
-      5.1-7 IsPolytopal
     5.2 [33X[0;0YMixing of Maniplexes functions[133X
       5.2-1 [33X[0;0YMix of groups[133X
       5.2-2 Mix
       5.2-3 FlagMix
       5.2-4 [33X[0;0YComix[133X
       5.2-5 [33X[0;0YIndexed array tools[133X
-    5.3 [33X[0;0YRotary maniplexes and rotation groups[133X
-      5.3-1 UniversalRotationGroup
-      5.3-2 UniversalRotationGroup
-      5.3-3 [33X[0;0YRotaryManiplex[133X
-      5.3-4 EnantiomorphicForm
+    5.3 [33X[0;0YSubclasses of maniplex[133X
+      5.3-1 IsPolytopal
+      5.3-2 SatisfiesWeakPathIntersectionProperty
+      5.3-3 IsFaithful
+    5.4 [33X[0;0YRotary maniplexes and rotation groups[133X
+      5.4-1 UniversalRotationGroup
+      5.4-2 UniversalRotationGroup
+      5.4-3 [33X[0;0YRotaryManiplex[133X
+      5.4-4 EnantiomorphicForm
   6 [33X[0;0YManiplex Properties[133X
     6.1 [33X[0;0YAutomorphism group acting on faces and chains[133X
       6.1-1 AutomorphismGroupOnChains
@@ -187,30 +190,28 @@
       6.2-9 IsEdgeTransitive
       6.2-10 IsFacetTransitive
       6.2-11 IsFullyTransitive
-    6.3 [33X[0;0YFlag orbits[133X
-      6.3-1 Flags
-      6.3-2 BaseFlag
-      6.3-3 SymmetryTypeGraph
-      6.3-4 NumberOfFlagOrbits
-      6.3-5 FlagOrbitRepresentatives
-      6.3-6 FlagOrbitsStabilizer
-      6.3-7 IsReflexible
-      6.3-8 IsChiral
-      6.3-9 IsRotary
-      6.3-10 FlagOrbits
-    6.4 [33X[0;0YOrientability[133X
-      6.4-1 IsOrientable
-      6.4-2 IsIOrientable
-      6.4-3 IsVertexBipartite
-      6.4-4 IsFacetBipartite
-      6.4-5 OrientableCover
-      6.4-6 IOrientableCover
-    6.5 [33X[0;0YFaithfulness[133X
-      6.5-1 IsVertexFaithful
-      6.5-2 IsFacetFaithful
-      6.5-3 MaxVertexFaithfulQuotient
-      6.5-4 SatisfiesWeakPathIntersectionProperty
-      6.5-5 IsFaithful
+    6.3 [33X[0;0YFaithfulness[133X
+      6.3-1 IsVertexFaithful
+      6.3-2 IsFacetFaithful
+      6.3-3 MaxVertexFaithfulQuotient
+    6.4 [33X[0;0YFlag orbits[133X
+      6.4-1 Flags
+      6.4-2 BaseFlag
+      6.4-3 SymmetryTypeGraph
+      6.4-4 NumberOfFlagOrbits
+      6.4-5 FlagOrbitRepresentatives
+      6.4-6 FlagOrbitsStabilizer
+      6.4-7 IsReflexible
+      6.4-8 IsChiral
+      6.4-9 IsRotary
+      6.4-10 FlagOrbits
+    6.5 [33X[0;0YOrientability[133X
+      6.5-1 IsOrientable
+      6.5-2 IsIOrientable
+      6.5-3 IsVertexBipartite
+      6.5-4 IsFacetBipartite
+      6.5-5 OrientableCover
+      6.5-6 IOrientableCover
   7 [33X[0;0YComparing maniplexes[133X
     7.1 [33X[0;0YQuotients and covers[133X
       7.1-1 [33X[0;0YIsQuotient[133X

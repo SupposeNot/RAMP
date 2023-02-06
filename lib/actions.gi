@@ -114,3 +114,54 @@ InstallMethod(IsFullyTransitive,
 	return ForAll([0..Rank(M)-1], i -> IsIFaceTransitive(M, i));
 	end);
 	
+InstallMethod(IsVertexFaithful,
+	[IsManiplex],
+	function(p)
+	local g, h, c, n, gens;
+	
+	if not(IsReflexible(p)) then
+		Error("IsVertexFaithful is only defined for reflexible maniplexes");
+	fi;
+	
+	g := AutomorphismGroup(p);
+	n := Rank(p);
+	gens := GeneratorsOfGroup(g){[2..n]};
+	h := Subgroup(g, gens);
+	c := Core(g,h);
+	return (Size(c) = 1);
+	end);
+	
+InstallMethod(MaxVertexFaithfulQuotient,
+	[IsManiplex],
+	function(p)
+	local g, h, c, n, gens;
+
+	if not(IsReflexible(p)) then
+		Error("MaxVertexFaithfulQuotient is only defined for reflexible maniplexes");
+	fi;
+	
+	g := AutomorphismGroup(p);
+	n := Rank(p);
+	gens := GeneratorsOfGroup(g){[2..n]};
+	h := Subgroup(g, gens);
+	c := Core(g,h);
+	return ReflexibleManiplex(g/c);
+	end);
+	
+InstallMethod(IsFacetFaithful,
+	[IsManiplex],
+	function(p)
+	local g, h, c, n, gens;
+
+	if not(IsReflexible(p)) then
+		Error("IsFacetFaithful is only defined for reflexible maniplexes");
+	fi;	
+
+	g := AutomorphismGroup(p);
+	n := Rank(p);
+	gens := GeneratorsOfGroup(g){[1..n-1]};
+	h := Subgroup(g, gens);
+	c := Core(g,h);
+	return (Size(c) = 1);
+	end);
+

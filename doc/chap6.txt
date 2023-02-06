@@ -223,9 +223,54 @@
   [4X[32X[104X
   
   
-  [1X6.3 [33X[0;0YFlag orbits[133X[101X
+  [1X6.3 [33X[0;0YFaithfulness[133X[101X
   
-  [1X6.3-1 Flags[101X
+  [1X6.3-1 IsVertexFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsVertexFaithful[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  
+  [33X[0;0YReturns  whether the reflexible maniplex [3XM[103X is vertex-faithful; i.e., whether
+  the action of the automorphism group on the vertices is faithful.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X6.3-2 IsFacetFaithful[101X
+  
+  [33X[1;0Y[29X[2XIsFacetFaithful[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  
+  [33X[0;0YReturns  whether  the reflexible maniplex [3XM[103X is facet-faithful; i.e., whether
+  the action of the automorphism group on the facets is faithful.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X6.3-3 MaxVertexFaithfulQuotient[101X
+  
+  [33X[1;0Y[29X[2XMaxVertexFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YQ[133X
+  
+  [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[28X[ 3, 2 ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X6.4 [33X[0;0YFlag orbits[133X[101X
+  
+  [1X6.4-1 Flags[101X
   
   [33X[1;0Y[29X[2XFlags[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -240,7 +285,7 @@
     [4X[28X[ 3, 4, 5, 6, 7, 8, 9, 10 ][128X[104X
   [4X[32X[104X
   
-  [1X6.3-2 BaseFlag[101X
+  [1X6.4-2 BaseFlag[101X
   
   [33X[1;0Y[29X[2XBaseFlag[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YIsObject[133X
@@ -256,7 +301,7 @@
     [4X[28X3[128X[104X
   [4X[32X[104X
   
-  [1X6.3-3 SymmetryTypeGraph[101X
+  [1X6.4-3 SymmetryTypeGraph[101X
   
   [33X[1;0Y[29X[2XSymmetryTypeGraph[102X( [3XM[103X[, [3XA[103X] ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YIsPremaniplex[133X
@@ -276,7 +321,7 @@
     [4X[28XEdge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X6.3-4 NumberOfFlagOrbits[101X
+  [1X6.4-4 NumberOfFlagOrbits[101X
   
   [33X[1;0Y[29X[2XNumberOfFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -287,7 +332,7 @@
     [4X[28X4[128X[104X
   [4X[32X[104X
   
-  [1X6.3-5 FlagOrbitRepresentatives[101X
+  [1X6.4-5 FlagOrbitRepresentatives[101X
   
   [33X[1;0Y[29X[2XFlagOrbitRepresentatives[102X( [3XM[103X ) [32X attribute[133X
   
@@ -298,7 +343,7 @@
     [4X[28X[ 1, 49, 97, 145 ][128X[104X
   [4X[32X[104X
   
-  [1X6.3-6 FlagOrbitsStabilizer[101X
+  [1X6.4-6 FlagOrbitsStabilizer[101X
   
   [33X[1;0Y[29X[2XFlagOrbitsStabilizer[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Yg[133X
@@ -317,7 +362,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-7 IsReflexible[101X
+  [1X6.4-7 IsReflexible[101X
   
   [33X[1;0Y[29X[2XIsReflexible[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the premaniplex [3XM[103X is reflexible (has one flag orbit).[133X
@@ -327,7 +372,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-8 IsChiral[101X
+  [1X6.4-8 IsChiral[101X
   
   [33X[1;0Y[29X[2XIsChiral[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether the premaniplex [3XM[103X is chiral.[133X
@@ -337,7 +382,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-9 IsRotary[101X
+  [1X6.4-9 IsRotary[101X
   
   [33X[1;0Y[29X[2XIsRotary[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether  the  maniplex  [3XM[103X  is  rotary;  i.e., whether it is either
@@ -348,7 +393,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.3-10 FlagOrbits[101X
+  [1X6.4-10 FlagOrbits[101X
   
   [33X[1;0Y[29X[2XFlagOrbits[102X( [3XM[103X ) [32X attribute[133X
   
@@ -362,12 +407,12 @@
   [4X[32X[104X
   
   
-  [1X6.4 [33X[0;0YOrientability[133X[101X
+  [1X6.5 [33X[0;0YOrientability[133X[101X
   
-  [1X6.4-1 IsOrientable[101X
+  [1X6.5-1 IsOrientable[101X
   
   [33X[1;0Y[29X[2XIsOrientable[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YA maniplex is orientable if its flag graph is bipartite.[133X
   
@@ -378,7 +423,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.4-2 IsIOrientable[101X
+  [1X6.5-2 IsIOrientable[101X
   
   [33X[1;0Y[29X[2XIsIOrientable[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
@@ -390,10 +435,10 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.4-3 IsVertexBipartite[101X
+  [1X6.5-3 IsVertexBipartite[101X
   
   [33X[1;0Y[29X[2XIsVertexBipartite[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YA  maniplex  is  vertex-bipartite  if  its  1-skeleton is bipartite. This is
   equivalent to being I-orientable for I = {0}.[133X
@@ -403,10 +448,10 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.4-4 IsFacetBipartite[101X
+  [1X6.5-4 IsFacetBipartite[101X
   
   [33X[1;0Y[29X[2XIsFacetBipartite[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YA  maniplex  is  facet-bipartite if the 1-skeleton of its dual is bipartite.
   This is equivalent to being I-orientable for I = {n-1}.[133X
@@ -416,7 +461,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X6.4-5 OrientableCover[101X
+  [1X6.5-5 OrientableCover[101X
   
   [33X[1;0Y[29X[2XOrientableCover[102X( [3XM[103X ) [32X attribute[133X
   
@@ -427,7 +472,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X6.4-6 IOrientableCover[101X
+  [1X6.5-6 IOrientableCover[101X
   
   [33X[1;0Y[29X[2XIOrientableCover[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
@@ -436,73 +481,5 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(IOrientableCover(Cube(3), [2]));[127X[104X
     [4X[28X[ 4, 6 ][128X[104X
-  [4X[32X[104X
-  
-  
-  [1X6.5 [33X[0;0YFaithfulness[133X[101X
-  
-  [1X6.5-1 IsVertexFaithful[101X
-  
-  [33X[1;0Y[29X[2XIsVertexFaithful[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether the reflexible maniplex [3XM[103X is vertex-faithful; i.e., whether
-  the action of the automorphism group on the vertices is faithful.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsVertexFaithful(HemiCube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [1X6.5-2 IsFacetFaithful[101X
-  
-  [33X[1;0Y[29X[2XIsFacetFaithful[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
-  
-  [33X[0;0YReturns  whether  the reflexible maniplex [3XM[103X is facet-faithful; i.e., whether
-  the action of the automorphism group on the facets is faithful.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsFacetFaithful(HemiCube(3));[127X[104X
-    [4X[28Xfalse[128X[104X
-    [4X[25Xgap>[125X [27XIsFacetFaithful(Cube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
-  [4X[32X[104X
-  
-  [1X6.5-3 MaxVertexFaithfulQuotient[101X
-  
-  [33X[1;0Y[29X[2XMaxVertexFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YQ[133X
-  
-  [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
-    [4X[28Xreflexible 3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
-    [4X[28X[ 3, 2 ][128X[104X
-  [4X[32X[104X
-  
-  [1X6.5-4 SatisfiesWeakPathIntersectionProperty[101X
-  
-  [33X[1;0Y[29X[2XSatisfiesWeakPathIntersectionProperty[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YIsBool[133X
-  
-  [33X[0;0YTests for the weak path intersection property in a maniplex. Definitions and
-  description available in [GH18].[133X
-  
-  [1X6.5-5 IsFaithful[101X
-  
-  [33X[1;0Y[29X[2XIsFaithful[102X( [3Xm[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  whether  the maniplex [3Xm[103X is faithful, as defined in "Polytopality of
-  Maniplexes"; i.e., whether for each flag the intersection of all the i-faces
-  containing that flag is just the flag itself.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsFaithful(Cube(3));[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsFaithful(ToroidalMap44([1,0]));[127X[104X
-    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
