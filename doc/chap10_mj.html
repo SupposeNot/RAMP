@@ -42,6 +42,9 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X8588E0127D2A8CD5">10.1-10 VertDegrees</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X783AE9C2807D0309">10.1-11 FaceSizes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X7D5D9E0786DBEAE0">10.1-12 FacetList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X78189CDD7DF292E2">10.1-13 VertexList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10_mj.html#X843C38EC7A43292A">10.1-14 NFacesList</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10_mj.html#X877E841E7FBCEAAE">10.2 <span class="Heading">Flatness</span></a>
 </span>
@@ -263,6 +266,76 @@ Pgon(5)
 [ [ 4, 24 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Prism(Dodecahedron()));</span>
 [ [ 4, 30 ], [ 5, 24 ] ]
+</pre></div>
+
+<p><a id="X7D5D9E0786DBEAE0" name="X7D5D9E0786DBEAE0"></a></p>
+
+<h5>10.1-12 FacetList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacetList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Lists the facets of the maniplex <var class="Arg">M</var> as lists of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FacetList(m);</span>
+[ [ 1, 2, 3, 5, 7, 10, 13, 18 ], [ 4, 6, 9, 12, 16, 21 ], [ 8, 14, 15, 24, 25, 34 ], 
+[ 11, 19, 20, 29, 30, 39 ], [ 17, 26, 27, 36, 37, 46, 47, 57 ], [ 22, 31, 32, 41, 42, 52, 53, 62 ],
+[ 23, 28, 33, 38, 43, 49 ], [ 35, 44, 45, 55, 56, 65, 66, 75 ], 
+[ 40, 50, 51, 60, 61, 70, 71, 80 ], [ 48, 54, 59, 64, 69, 74 ], [ 58, 67, 68, 77, 78, 86 ], 
+[ 63, 72, 73, 82, 83, 89 ], [ 76, 81, 85, 88, 91, 93 ], [ 79, 84, 87, 90, 92, 94, 95, 96 ] ]
+</pre></div>
+
+<p><a id="X78189CDD7DF292E2" name="X78189CDD7DF292E2"></a></p>
+
+<h5>10.1-13 VertexList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Lists the vertices of the maniplex <var class="Arg">M</var> as lists of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexList(m);</span>
+[ [ 1, 3, 4, 8, 9, 15, 17, 26 ], [ 2, 5, 6, 11, 12, 20, 22, 31 ], [ 7, 13, 14, 23, 24, 33, 35, 44 ],
+  [ 10, 18, 19, 28, 29, 38, 40, 50 ], [ 16, 21, 27, 32, 37, 42, 48, 54 ], 
+  [ 25, 34, 36, 45, 46, 56, 58, 67 ], [ 30, 39, 41, 51, 52, 61, 63, 72 ], 
+  [ 43, 49, 55, 60, 65, 70, 76, 81 ], [ 47, 57, 59, 68, 69, 78, 79, 87 ], 
+  [ 53, 62, 64, 73, 74, 83, 84, 90 ], [ 66, 75, 77, 85, 86, 91, 92, 95 ], 
+  [ 71, 80, 82, 88, 89, 93, 94, 96 ] ]
+</pre></div>
+
+<p><a id="X843C38EC7A43292A" name="X843C38EC7A43292A"></a></p>
+
+<h5>10.1-14 NFacesList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NFacesList</code>( <var class="Arg">M</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Lists the <var class="Arg">n</var>-faces of the maniplex <var class="Arg">M</var> as lists of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m,2)=FacetList(m);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m,1);</span>
+[ [ 1, 2, 4, 6 ], [ 3, 7, 8, 14 ], [ 5, 10, 11, 19 ], [ 9, 16, 17, 27 ], [ 12, 21, 22, 32 ], 
+  [ 13, 18, 23, 28 ], [ 15, 25, 26, 36 ], [ 20, 30, 31, 41 ], [ 24, 34, 35, 45 ], 
+  [ 29, 39, 40, 51 ], [ 33, 43, 44, 55 ], [ 37, 47, 48, 59 ], [ 38, 49, 50, 60 ], 
+  [ 42, 53, 54, 64 ], [ 46, 57, 58, 68 ], [ 52, 62, 63, 73 ], [ 56, 66, 67, 77 ], 
+  [ 61, 71, 72, 82 ], [ 65, 75, 76, 85 ], [ 69, 74, 79, 84 ], [ 70, 80, 81, 88 ], 
+  [ 78, 86, 87, 92 ], [ 83, 89, 90, 94 ], [ 91, 93, 95, 96 ] ]
 </pre></div>
 
 <p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>

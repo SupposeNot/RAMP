@@ -469,4 +469,28 @@ InstallMethod(IsLocallyToroidal,
 	fi;
 	end);	
 	
+
+InstallMethod(FacetList,
+	[IsManiplex],
+	function(M)
+	local facets, facetSubgroup, orbs;
+	facetSubgroup:=FacetSubgroup(ConnectionGroup(M));
+	return List(Orbits(facetSubgroup),AsSet);
+	end);	
 	
+InstallMethod(VertexList,
+	[IsManiplex],
+	function(M)
+	local facets, vSubgroup, orbs;
+	vSubgroup:=VertexFigureSubgroup(ConnectionGroup(M));
+	return List(Orbits(vSubgroup),AsSet);
+	end);	
+	
+InstallMethod(NFacesList,
+	[IsManiplex,IsInt],
+	function(M,n)
+	local facets, ranks, facesSubgroup, orbs;
+	ranks:=Difference([0..(RankManiplex(M)-1)],[n]);
+	facesSubgroup:=SectionSubgroup(ConnectionGroup(M),ranks);
+	return List(Orbits(facesSubgroup),AsSet);
+	end);	

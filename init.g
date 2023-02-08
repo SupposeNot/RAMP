@@ -16,7 +16,7 @@ ReadPackage( "ramp", "lib/conn.gd" );
 ReadPackage( "ramp", "lib/constructions.gd" ); 
 ReadPackage( "ramp", "lib/database.gd" ); 
 ReadPackage( "ramp", "lib/duality.gd" ); 
-ReadPackage( "ramp", "lib/faces.gd" ); 
+
 ReadPackage( "ramp", "lib/families.gd" );
 ReadPackage( "ramp", "lib/flagorbits.gd" );
 ReadPackage( "ramp", "lib/flat.gd" );
@@ -27,6 +27,7 @@ ReadPackage( "ramp", "lib/map_operations.gd" );
 ReadPackage( "ramp", "lib/mixoperations.gd" );
 ReadPackage( "ramp", "lib/orientable.gd" );
 ReadPackage( "ramp", "lib/polytope.gd" ); 
+ReadPackage( "ramp", "lib/faces.gd" ); 
 ReadPackage( "ramp", "lib/posetConstructors.gd");
 ReadPackage( "ramp", "lib/posetAttributes.gd");
 ReadPackage( "ramp", "lib/posetOperations.gd");
