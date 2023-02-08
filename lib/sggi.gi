@@ -365,25 +365,34 @@ InstallMethod(IsCConnected,
 	m->IsStringC(ConnectionGroup(m)));
 	
 InstallMethod(SectionSubgroup,
-	[IsSggi, IsList],
+	[IsGroup, IsList],
 	function(g, I)
 	local n;
+	if not IsSggi(g) then
+		Error("FacetSubgroup is currently only implemented for sggis!");
+	fi;
 	n := Size(GeneratorsOfGroup(g));
 	return Subgroup(g, GeneratorsOfGroup(g){I+1});
 	end);
 	
 InstallMethod(VertexFigureSubgroup,
-	[IsSggi],
+	[IsGroup],
 	function(g)
 	local n;
+	if not IsSggi(g) then
+		Error("FacetSubgroup is currently only implemented for sggis!");
+	fi;
 	n := Size(GeneratorsOfGroup(g));
 	return Subgroup(g, GeneratorsOfGroup(g){[2..n]});
 	end);
 	
 InstallMethod(FacetSubgroup,
-	[IsSggi],
+	[IsGroup],
 	function(g)
 	local n;
+	if not IsSggi(g) then
+		Error("FacetSubgroup is currently only implemented for sggis!");
+	fi;
 	n := Size(GeneratorsOfGroup(g));
 	return Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
 	end);
