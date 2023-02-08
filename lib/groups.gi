@@ -72,15 +72,13 @@ InstallMethod(AutomorphismGroup,
 	
 	end);
 
-# TODO: Currently we always rewrite this as a quotient of a universal Coxeter group.
-# Is that what we actually want for non-reflexible maniplexes?
 InstallMethod(AutomorphismGroupFpGroup, 
 	[IsManiplex],
 	function(M)
 	local g, fp, w, rels, w_rels;
 	g := AutomorphismGroup(M);
 	
-	if IsChiral(M) then
+	if HasIsChiral(M) and IsChiral(M) then
 		return RotationGroupFpGroup(M);
 	else
 		fp := Image(IsomorphismFpGroupByGeneratorsNC(g, GeneratorsOfGroup(g), "f"));
