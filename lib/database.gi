@@ -151,7 +151,10 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	D := function(p,q,i,j,a,b)
 		local w, relstr, poly;
 		w := UniversalSggi(3);
-		relstr := Concatenation("r2 r1 r0 r1 = (r0 r1)^", String(i), " r1 (r1 r2)^", String(j), ", r2 r1 r2 r1 r0 r1 = (r0 r1)^", String(a), " (r1 r2)^", String(b));
+		# DANGER: We assume here that p is divisible by 4 - but that is true everywhere it is used in this function.
+		# We add the relation s2 s1^4 = s1^-4 s2 from Lemma 5.4 of Classification of Tight Regular Polyhedra.
+		# Thus r2 commutes with (r0 r1)^4. This is just to speed up calculations.
+		relstr := Concatenation("r2 (r0 r1)^4 = (r0 r1)^4 r2, r2 r1 r0 r1 = (r0 r1)^", String(i), " r1 (r1 r2)^", String(j), ", r2 r1 r2 r1 r0 r1 = (r0 r1)^", String(a), " (r1 r2)^", String(b));
 		poly := AbstractRegularPolytopeNC([p,q], relstr);
 		SetSize(poly, 2*p*q);
 		SetSize(AutomorphismGroup(poly), 2*p*q);
