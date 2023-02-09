@@ -1,5 +1,17 @@
 
 InstallMethod(AutomorphismGroupOnChains,
+	[IsReflexibleManiplex, IsCollection],
+	function(M, I)
+	local g, h, gens, ranks, chains;
+	g := AutomorphismGroup(M);
+	gens := GeneratorsOfGroup(g);
+	ranks := Difference([1..Rank(M)], I+1);
+	h := Subgroup(g, gens{ranks});
+	
+	return Action(g, RightCosets(g,h), OnRight);
+	end);
+
+InstallMethod(AutomorphismGroupOnChains,
 	[IsManiplex, IsCollection],
 	function(M, I)
 	local g, h, gens, ranks, chains;
