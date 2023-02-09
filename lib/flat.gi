@@ -10,8 +10,26 @@ InstallMethod(FlatOrientablyRegularPolyhedron,
 	if i > p/2 then i := i - p; fi;
 	if j > q/2 then j := j - q; fi;
 
-	# We only need one of these two relations, but having both may make some computations faster.
-	relstr := Concatenation("r2 r1 r0 r1 (r2 r1)^", String(j), " (r1 r0)^", String(i), ", r1 r2 r1 r0 (r1 r2)^", String(j), " (r0 r1)^", String(i));
+	# From "Classification of Tight Regular Polyhedra" Prop 3.2, we know that
+	# s2 commutes with s1^i+1 and s1 commutes with s2^j-1.
+	# Then we can show that s1^2 and s2^2 commute:
+	#s1^2 s2^2 s1^-2 s2^-2 = 
+	#s1^2 s2 (s2 s1^-1) s1^-1 s2^-2 =
+	#s1^2 s2 (s1^-i s2^-j) s1^-1 s2^-2 =
+	#s1^2 s2 s1^-i-1 s1 s2^-j s1^-1 s2^-2 =
+	#s1^2 s1^-i-1 s2 s1 s2^-j s1^-1 s2^-2 =
+	#s1^-i+1 s1^-1 s2^-1 s2^-j s1^-1 s2^-2 =
+	#s1^-i s2^-j-1 s1^-1 s2^-2 =
+	#s1^-i s2^-2 s2^-j+1 s1^-1 s2^-2 =
+	#s1^-i s2^-2 s1^-1 s2^-j+1 s2^-2 =
+	#s1^-i s2^-1 (s2^-1 s1^-1) s2^-j-1 =
+	#s1^-i s2^-1 s1 s2 s2^-j-1 =
+	#s1^-i (s2^-1 s1) s2^-j =
+	#s1^-i s1^i s2^j s2^-j =
+	#1
+
+	# So we include that relation to make computations much faster.
+	relstr := Concatenation("r2 r1 r0 r1 (r2 r1)^", String(j), " (r1 r0)^", String(i), ", (r0 r1)^2 (r1 r2)^2 = (r1 r2)^2 (r0 r1)^2");
 	poly := AbstractRegularPolytopeNC([p,q], relstr);
 	
 	if ValueOption("checkSize") <> false and Size(AutomorphismGroup(poly)) <> 2*p*q then
