@@ -13,6 +13,8 @@
   \item \texttt  {AbstractPolytope}, \hyperpage{111}
   \item \texttt  {AbstractRegularPolytope}, \hyperpage{111}
   \item \texttt  {AbstractRotaryPolytope}, \hyperpage{112}
+  \item \texttt  {ActionByGenerators}, \hyperpage{115}
+  \item \texttt  {ActionOnBlocks}, \hyperpage{115}
   \item \texttt  {AddOrAppend}, \hyperpage{114}
   \item \texttt  {AddRanksInPosets}
     \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{62}
@@ -23,7 +25,7 @@
   \item \texttt  {AdjacentVertices}
     \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{90}
   \item \texttt  {AdmissiblePerms}
-    \subitem for IsInt, IsList, \hyperpage{121}
+    \subitem for IsInt, IsList, \hyperpage{122}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{67}
   \item \texttt  {Angle}
@@ -87,8 +89,8 @@
   \item \texttt  {Chamfer}
     \subitem for IsMapOnSurface, \hyperpage{104}
   \item \texttt  {ChangeVoltage}
-    \subitem for IsVoltageGraph,IsInt,IsInt, IsObject, \hyperpage{123}
-    \subitem for IsVoltageGraph,IsList, IsObject, \hyperpage{123}
+    \subitem for IsVoltageGraph,IsInt,IsInt, IsObject, \hyperpage{124}
+    \subitem for IsVoltageGraph,IsList, IsObject, \hyperpage{124}
   \item \texttt  {ChiralityGroup}
     \subitem for IsRotaryManiplex, \hyperpage{11}
   \item \texttt  {ChunkGeneratedGroup}
@@ -147,7 +149,7 @@
     \subitem for IsInt, \hyperpage{101}
   \item \texttt  {DerivedGraph}
     \subitem for IsList,IsList,IsList, \hyperpage{91}
-    \subitem for IsVoltageGraph, \hyperpage{123}
+    \subitem for IsVoltageGraph, \hyperpage{124}
   \item \texttt  {DirectDerivates}
     \subitem for IsManiplex, \hyperpage{70}
   \item \texttt  {DirectedGraphFromListOfEdges}
@@ -206,10 +208,10 @@
   \item \texttt  {Facets}
     \subitem for IsManiplex, \hyperpage{74}
   \item \texttt  {FacetSubgroup}
-    \subitem for IsSggi, \hyperpage{16}
+    \subitem for IsGroup, \hyperpage{16}
   \item \texttt  {FlagGraph}
     \subitem for IsGroup, \hyperpage{88}
-    \subitem for IsPremaniplex, \hyperpage{118}
+    \subitem for IsPremaniplex, \hyperpage{119}
   \item \texttt  {FlagGraphWithLabels}
     \subitem for IsGroup, \hyperpage{85}
   \item \texttt  {FlagList}
@@ -295,7 +297,7 @@
   \item \texttt  {IsAtomic}
     \subitem for IsPoset, \hyperpage{55}
   \item \texttt  {IsCConnected}
-    \subitem for IsManiplex, \hyperpage{16}
+    \subitem for IsManiplex, \hyperpage{15}
   \item \texttt  {IsChainTransitive}
     \subitem for IsManiplex, IsCollection, \hyperpage{38}
   \item \texttt  {IsChiral}
@@ -442,7 +444,7 @@
     \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{90}
   \item \texttt  {LabeledDarts}
     \subitem for IsEdgeLabeledGraph, \hyperpage{91}
-    \subitem for IsPremaniplex, \hyperpage{119}
+    \subitem for IsPremaniplex, \hyperpage{120}
   \item \texttt  {LabeledSemiEdges}
     \subitem for IsEdgeLabeledGraph, \hyperpage{90}
   \item \texttt  {Lace}
@@ -584,8 +586,8 @@
   \item \texttt  {PosetIsomorphism}
     \subitem for IsPoset,IsPoset, \hyperpage{58}
   \item \texttt  {Premaniplex}
-    \subitem for IsEdgeLabeledGraph, \hyperpage{117}
-    \subitem for IsGroup, \hyperpage{117}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{118}
+    \subitem for IsGroup, \hyperpage{118}
   \item \texttt  {PRGraph}
     \subitem for IsGroup, \hyperpage{90}
   \item \texttt  {Prism}
@@ -665,7 +667,7 @@
   \item \texttt  {Sections}
     \subitem for IsManiplex, IsInt, IsInt, \hyperpage{74}
   \item \texttt  {SectionSubgroup}
-    \subitem for IsSggi, IsList, \hyperpage{16}
+    \subitem for IsGroup, IsList, \hyperpage{16}
   \item \texttt  {SemiEdges}
     \subitem for IsEdgeLabeledGraph, \hyperpage{90}
   \item \texttt  {Sggi}
@@ -680,11 +682,11 @@
   \item \texttt  {Simplex}
     \subitem for IsInt, \hyperpage{18}
   \item \texttt  {SimplifiedSggiElement}
-    \subitem for IsGroup, IsString, \hyperpage{15}
+    \subitem for IsGroup, IsString, \hyperpage{14}
   \item \texttt  {Size}
     \subitem for IsManiplex, \hyperpage{80}
   \item \texttt  {Skeleton}
-    \subitem for IsManiplex, \hyperpage{87}
+    \subitem for IsManiplex, \hyperpage{86}
   \item \texttt  {SmallChiral4Polytopes}, \hyperpage{95}
   \item \texttt  {SmallChiralPolyhedra}, \hyperpage{95}
   \item \texttt  {SmallDegenerateRegular4Polytopes}, \hyperpage{94}
@@ -707,12 +709,12 @@
     \subitem for IsMapOnSurface, \hyperpage{109}
   \item \texttt  {StandardizeSggi}, \hyperpage{114}
   \item \texttt  {STG1}
-    \subitem for IsInt, \hyperpage{117}
+    \subitem for IsInt, \hyperpage{118}
   \item \texttt  {STG2}
-    \subitem for IsInt,IsList, \hyperpage{118}
+    \subitem for IsInt,IsList, \hyperpage{119}
   \item \texttt  {STG3}
-    \subitem for IsInt,IsInt, \hyperpage{118}
-    \subitem for IsInt,IsInt,IsInt, \hyperpage{118}
+    \subitem for IsInt,IsInt, \hyperpage{119}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{119}
   \item \texttt  {Subdivide}
     \subitem for IsMapOnSurface, \hyperpage{108}
   \item \texttt  {Subdivision1}
@@ -756,8 +758,8 @@
     \subitem for IsInt, \hyperpage{33}
     \subitem for IsList, \hyperpage{34}
   \item \texttt  {UniversalSggi}
-    \subitem for IsInt, \hyperpage{12}
-    \subitem for IsList, \hyperpage{12}
+    \subitem for IsInt, \hyperpage{11}
+    \subitem for IsList, \hyperpage{11}
   \item \texttt  {UnlabeledFlagGraph}
     \subitem for IsGroup, \hyperpage{84}
   \item \texttt  {UnlabeledSimpleGraph}
@@ -774,19 +776,19 @@
   \item \texttt  {VertexFigures}
     \subitem for IsManiplex, \hyperpage{75}
   \item \texttt  {VertexFigureSubgroup}
-    \subitem for IsSggi, \hyperpage{16}
+    \subitem for IsGroup, \hyperpage{16}
   \item \texttt  {VertexList}
     \subitem for IsManiplex, \hyperpage{76}
   \item \texttt  {ViewGraph}
     \subitem for IsObject, IsString, \hyperpage{91}
   \item \texttt  {VoltageGraph}
-    \subitem for IsGroup,IsList,IsList, \hyperpage{122}
+    \subitem for IsGroup,IsList,IsList, \hyperpage{123}
     \subitem for IsGroup,IsPremaniplex, \hyperpage{123}
-    \subitem for IsGroup,IsPremaniplex,IsList, \hyperpage{122}
+    \subitem for IsGroup,IsPremaniplex,IsList, \hyperpage{123}
   \item \texttt  {VoltageOperator}
-    \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{120}
-    \subitem for IsList, IsString,IsManiplex, \hyperpage{120}
-    \subitem for IsVoltageGraph, IsManiplex, \hyperpage{123}
+    \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{121}
+    \subitem for IsList, IsString,IsManiplex, \hyperpage{121}
+    \subitem for IsVoltageGraph, IsManiplex, \hyperpage{124}
     \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{124}
   \item \texttt  {Volute}
     \subitem for IsMapOnSurface, \hyperpage{110}
@@ -798,11 +800,11 @@
   \item \texttt  {WrappedPosetOperation}, \hyperpage{115}
   \item \texttt  {WriteManiplexesToFile}, \hyperpage{92}
   \item \texttt  {WythoffLabeledEdges}
-    \subitem for IsInt, IsList, \hyperpage{121}
+    \subitem for IsInt, IsList, \hyperpage{122}
   \item \texttt  {WythoffSTG}
-    \subitem for IsInt, IsList, \hyperpage{121}
+    \subitem for IsInt, IsList, \hyperpage{122}
   \item \texttt  {WythoffVoltageOperator}
-    \subitem for IsInt, IsList, IsManiplex, \hyperpage{121}
+    \subitem for IsInt, IsList, IsManiplex, \hyperpage{122}
 
   \indexspace
 

@@ -11,8 +11,8 @@
 \indexentry{ExtraRelators@\texttt  {ExtraRelators}!for IsReflexibleManiplex|hyperpage}{11}
 \indexentry{ExtraRotRelators@\texttt  {ExtraRotRelators}!for IsRotaryManiplex|hyperpage}{11}
 \indexentry{IsManiplexable@\texttt  {IsManiplexable}!for IsPermGroup|hyperpage}{11}
-\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsInt|hyperpage}{12}
-\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsList|hyperpage}{12}
+\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsInt|hyperpage}{11}
+\indexentry{UniversalSggi@\texttt  {UniversalSggi}!for IsList|hyperpage}{11}
 \indexentry{Sggi@\texttt  {Sggi}!for IsList, IsList|hyperpage}{12}
 \indexentry{Sggi@\texttt  {Sggi}!for IsList, IsList, IsList|hyperpage}{12}
 \indexentry{IsGgi@\texttt  {IsGgi}!for IsGroup|hyperpage}{12}
@@ -23,13 +23,13 @@
 \indexentry{IsStringC@\texttt  {IsStringC}!for IsGroup|hyperpage}{14}
 \indexentry{IsStringCPlus@\texttt  {IsStringCPlus}!for IsGroup|hyperpage}{14}
 \indexentry{SggiElement@\texttt  {SggiElement}!for IsGroup, IsString|hyperpage}{14}
-\indexentry{SimplifiedSggiElement@\texttt  {SimplifiedSggiElement}!for IsGroup, IsString|hyperpage}{15}
+\indexentry{SimplifiedSggiElement@\texttt  {SimplifiedSggiElement}!for IsGroup, IsString|hyperpage}{14}
 \indexentry{IsRelationOfReflexibleManiplex@\texttt  {IsRelationOfReflexibleManiplex}!for IsManiplex, IsString|hyperpage}{15}
 \indexentry{SggiFamily@\texttt  {SggiFamily}!for IsGroup, IsList|hyperpage}{15}
-\indexentry{IsCConnected@\texttt  {IsCConnected}!for IsManiplex|hyperpage}{16}
-\indexentry{SectionSubgroup@\texttt  {SectionSubgroup}!for IsSggi, IsList|hyperpage}{16}
-\indexentry{VertexFigureSubgroup@\texttt  {VertexFigureSubgroup}!for IsSggi|hyperpage}{16}
-\indexentry{FacetSubgroup@\texttt  {FacetSubgroup}!for IsSggi|hyperpage}{16}
+\indexentry{IsCConnected@\texttt  {IsCConnected}!for IsManiplex|hyperpage}{15}
+\indexentry{SectionSubgroup@\texttt  {SectionSubgroup}!for IsGroup, IsList|hyperpage}{16}
+\indexentry{VertexFigureSubgroup@\texttt  {VertexFigureSubgroup}!for IsGroup|hyperpage}{16}
+\indexentry{FacetSubgroup@\texttt  {FacetSubgroup}!for IsGroup|hyperpage}{16}
 \indexentry{Vertex@\texttt  {Vertex}|hyperpage}{17}
 \indexentry{Edge@\texttt  {Edge}|hyperpage}{17}
 \indexentry{Pgon@\texttt  {Pgon}!for IsInt|hyperpage}{17}
@@ -307,7 +307,7 @@
 \indexentry{UnlabeledFlagGraph@\texttt  {UnlabeledFlagGraph}!for IsGroup|hyperpage}{84}
 \indexentry{FlagGraphWithLabels@\texttt  {FlagGraphWithLabels}!for IsGroup|hyperpage}{85}
 \indexentry{LayerGraph@\texttt  {LayerGraph}!for IsGroup, IsInt, IsInt|hyperpage}{86}
-\indexentry{Skeleton@\texttt  {Skeleton}!for IsManiplex|hyperpage}{87}
+\indexentry{Skeleton@\texttt  {Skeleton}!for IsManiplex|hyperpage}{86}
 \indexentry{CoSkeleton@\texttt  {CoSkeleton}!for IsManiplex|hyperpage}{87}
 \indexentry{Hasse@\texttt  {Hasse}!for IsManiplex|hyperpage}{87}
 \indexentry{QuotientByLabel@\texttt  {QuotientByLabel}!for IsObject,IsList, IsList, IsList|hyperpage}{87}
@@ -404,25 +404,27 @@
 \indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{115}
 \indexentry{MarkAsPolytopal@\texttt  {MarkAsPolytopal}!for IsManiplex|hyperpage}{115}
 \indexentry{ReallyNaturalHomomorphismByNormalSubgroup@\texttt  {Really}\-\texttt  {Natural}\-\texttt  {Homomorphism}\-\texttt  {By}\-\texttt  {Normal}\-\texttt  {Subgroup}!for IsGroup,IsGroup|hyperpage}{115}
-\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsGroup|hyperpage}{117}
-\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsEdgeLabeledGraph|hyperpage}{117}
-\indexentry{STG1@\texttt  {STG1}!for IsInt|hyperpage}{117}
-\indexentry{STG2@\texttt  {STG2}!for IsInt,IsList|hyperpage}{118}
-\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt|hyperpage}{118}
-\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt,IsInt|hyperpage}{118}
-\indexentry{FlagGraph@\texttt  {FlagGraph}!for IsPremaniplex|hyperpage}{118}
-\indexentry{LabeledDarts@\texttt  {LabeledDarts}!for IsPremaniplex|hyperpage}{119}
-\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsEdgeLabeledGraph|hyperpage}{120}
-\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsManiplex|hyperpage}{120}
-\indexentry{AdmissiblePerms@\texttt  {AdmissiblePerms}!for IsInt, IsList|hyperpage}{121}
-\indexentry{WythoffSTG@\texttt  {WythoffSTG}!for IsInt, IsList|hyperpage}{121}
-\indexentry{WythoffLabeledEdges@\texttt  {WythoffLabeledEdges}!for IsInt, IsList|hyperpage}{121}
-\indexentry{WythoffVoltageOperator@\texttt  {WythoffVoltageOperator}!for IsInt, IsList, IsManiplex|hyperpage}{121}
-\indexentry{VoltageGraph@\texttt  {VoltageGraph}!for IsGroup,IsList,IsList|hyperpage}{122}
-\indexentry{VoltageGraph@\texttt  {VoltageGraph}!for IsGroup,IsPremaniplex,IsList|hyperpage}{122}
+\indexentry{ActionByGenerators@\texttt  {ActionByGenerators}|hyperpage}{115}
+\indexentry{ActionOnBlocks@\texttt  {ActionOnBlocks}|hyperpage}{115}
+\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsGroup|hyperpage}{118}
+\indexentry{Premaniplex@\texttt  {Premaniplex}!for IsEdgeLabeledGraph|hyperpage}{118}
+\indexentry{STG1@\texttt  {STG1}!for IsInt|hyperpage}{118}
+\indexentry{STG2@\texttt  {STG2}!for IsInt,IsList|hyperpage}{119}
+\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt|hyperpage}{119}
+\indexentry{STG3@\texttt  {STG3}!for IsInt,IsInt,IsInt|hyperpage}{119}
+\indexentry{FlagGraph@\texttt  {FlagGraph}!for IsPremaniplex|hyperpage}{119}
+\indexentry{LabeledDarts@\texttt  {LabeledDarts}!for IsPremaniplex|hyperpage}{120}
+\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsEdgeLabeledGraph|hyperpage}{121}
+\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsList, IsString,IsManiplex|hyperpage}{121}
+\indexentry{AdmissiblePerms@\texttt  {AdmissiblePerms}!for IsInt, IsList|hyperpage}{122}
+\indexentry{WythoffSTG@\texttt  {WythoffSTG}!for IsInt, IsList|hyperpage}{122}
+\indexentry{WythoffLabeledEdges@\texttt  {WythoffLabeledEdges}!for IsInt, IsList|hyperpage}{122}
+\indexentry{WythoffVoltageOperator@\texttt  {WythoffVoltageOperator}!for IsInt, IsList, IsManiplex|hyperpage}{122}
+\indexentry{VoltageGraph@\texttt  {VoltageGraph}!for IsGroup,IsList,IsList|hyperpage}{123}
+\indexentry{VoltageGraph@\texttt  {VoltageGraph}!for IsGroup,IsPremaniplex,IsList|hyperpage}{123}
 \indexentry{VoltageGraph@\texttt  {VoltageGraph}!for IsGroup,IsPremaniplex|hyperpage}{123}
-\indexentry{ChangeVoltage@\texttt  {ChangeVoltage}!for IsVoltageGraph,IsList, IsObject|hyperpage}{123}
-\indexentry{ChangeVoltage@\texttt  {ChangeVoltage}!for IsVoltageGraph,IsInt,IsInt, IsObject|hyperpage}{123}
-\indexentry{DerivedGraph@\texttt  {DerivedGraph}!for IsVoltageGraph|hyperpage}{123}
-\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsVoltageGraph, IsManiplex|hyperpage}{123}
+\indexentry{ChangeVoltage@\texttt  {ChangeVoltage}!for IsVoltageGraph,IsList, IsObject|hyperpage}{124}
+\indexentry{ChangeVoltage@\texttt  {ChangeVoltage}!for IsVoltageGraph,IsInt,IsInt, IsObject|hyperpage}{124}
+\indexentry{DerivedGraph@\texttt  {DerivedGraph}!for IsVoltageGraph|hyperpage}{124}
+\indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsVoltageGraph, IsManiplex|hyperpage}{124}
 \indexentry{VoltageOperator@\texttt  {VoltageOperator}!for IsVoltageGraph,IsEdgeLabeledGraph|hyperpage}{124}

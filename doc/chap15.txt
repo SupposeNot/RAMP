@@ -261,3 +261,31 @@
   efficient  in  terms  of  the  number of generators, which is disastrous for
   studying Sggis. This fixes that.[133X
   
+  [1X15.4-8 ActionByGenerators[101X
+  
+  [33X[1;0Y[29X[2XActionByGenerators[102X( [3XG[103X, [3XS[103X, [3Xact[103X ) [32X function[133X
+  
+  [33X[0;0YReturns a permutation group that represents the action of [3XG[103X on [3XS[103X as given by
+  the  action  [3Xact[103X.  Furthermore, the generators of this permutation group are
+  the images of the generators of [3XG[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;[127X[104X
+    [4X[25Xgap>[125X [27XActionByGenerators(g, [[1,8],[2,7],[3,6],[4,5]], OnSets);[127X[104X
+    [4X[28XGroup([ (1,2)(3,4), (2,3), (3,4) ])[128X[104X
+  [4X[32X[104X
+  
+  [1X15.4-9 ActionOnBlocks[101X
+  
+  [33X[1;0Y[29X[2XActionOnBlocks[102X( [3XG[103X, [3XS[103X, [3XB[103X ) [32X function[133X
+  
+  [33X[0;0YGiven a group [3XG[103X acting on a set [3XS[103X and an initial block [3XB[103X, returns the action
+  of   [3XG[103X   on   the   block  system  induced  by  [3XB[103X.  This  is  equivalent  to
+  [10XActionByGenerators(G, Blocks(G, S, B), OnSets)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;[127X[104X
+    [4X[25Xgap>[125X [27XActionOnBlocks(g, [1..8], [1,8]);[127X[104X
+    [4X[28XGroup([ (1,2)(3,4), (2,3), (3,4) ])[128X[104X
+  [4X[32X[104X
+  

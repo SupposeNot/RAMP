@@ -224,6 +224,22 @@ DeclareOperation("MarkAsPolytopal", [IsManiplex]);
 #! @Description Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient efficient in terms of the number of generators, which is disastrous for studying Sggis. This fixes that.
 DeclareOperation("ReallyNaturalHomomorphismByNormalSubgroup", [IsGroup,IsGroup]);
 
+#! @Arguments G, S, act
+#! @Description Returns a permutation group that represents the action of <A>G</A> on <A>S</A> as given by the action <A>act</A>.
+#! Furthermore, the generators of this permutation group are the images of the generators of <A>G</A>.
+#! @BeginExampleSession
+#! gap> g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;
+#! gap> ActionByGenerators(g, [[1,8],[2,7],[3,6],[4,5]], OnSets);
+#! Group([ (1,2)(3,4), (2,3), (3,4) ])
+#! @EndExampleSession
 DeclareGlobalFunction("ActionByGenerators");
 
+#! @Arguments G, S, B
+#! @Description Given a group <A>G</A> acting on a set <A>S</A> and an initial block <A>B</A>, returns the action of <A>G</A> on the
+#! block system induced by <A>B</A>. This is equivalent to `ActionByGenerators(G, Blocks(G, S, B), OnSets)`.
+#! @BeginExampleSession
+#! gap> g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;
+#! gap> ActionOnBlocks(g, [1..8], [1,8]);
+#! Group([ (1,2)(3,4), (2,3), (3,4) ])
+#! @EndExampleSession
 DeclareGlobalFunction("ActionOnBlocks");

@@ -315,6 +315,38 @@ Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient effic
 </ManSection>
 
 
+<ManSection>
+  <Func Arg="G, S, act" Name="ActionByGenerators" />
+ <Description>
+Returns a permutation group that represents the action of <A>G</A> on <A>S</A> as given by the action <A>act</A>.
+ Furthermore, the generators of this permutation group are the images of the generators of <A>G</A>.
+<Example><![CDATA[
+gap> g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;
+gap> ActionByGenerators(g, [[1,8],[2,7],[3,6],[4,5]], OnSets);
+Group([ (1,2)(3,4), (2,3), (3,4) ])
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="G, S, B" Name="ActionOnBlocks" />
+ <Description>
+Given a group <A>G</A> acting on a set <A>S</A> and an initial block <A>B</A>, returns the action of <A>G</A> on the
+ block system induced by <A>B</A>. This is equivalent to <Code>ActionByGenerators(G, Blocks(G, S, B), OnSets)</Code>.
+<Example><![CDATA[
+gap> g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;
+gap> ActionOnBlocks(g, [1..8], [1,8]);
+Group([ (1,2)(3,4), (2,3), (3,4) ])
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

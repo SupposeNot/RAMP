@@ -867,11 +867,11 @@ group a string C-group). }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{SectionSubgroup (for IsSggi, IsList)}}
+\subsection{\textcolor{Chapter }{SectionSubgroup (for IsGroup, IsList)}}
 \logpage{[ 3, 2, 15 ]}\nobreak
-\hyperdef{L}{X83867A017E0F957E}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SectionSubgroup({\mdseries\slshape g, I})\index{SectionSubgroup@\texttt{SectionSubgroup}!for IsSggi, IsList}
-\label{SectionSubgroup:for IsSggi, IsList}
+\hyperdef{L}{X81E77DB67F3E39C1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SectionSubgroup({\mdseries\slshape g, I})\index{SectionSubgroup@\texttt{SectionSubgroup}!for IsGroup, IsList}
+\label{SectionSubgroup:for IsGroup, IsList}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsSggi 
@@ -890,11 +890,11 @@ IsSggi
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{VertexFigureSubgroup (for IsSggi)}}
+\subsection{\textcolor{Chapter }{VertexFigureSubgroup (for IsGroup)}}
 \logpage{[ 3, 2, 16 ]}\nobreak
-\hyperdef{L}{X84BB6153782DBF3C}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigureSubgroup({\mdseries\slshape g})\index{VertexFigureSubgroup@\texttt{VertexFigureSubgroup}!for IsSggi}
-\label{VertexFigureSubgroup:for IsSggi}
+\hyperdef{L}{X81588D527DCC0257}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigureSubgroup({\mdseries\slshape g})\index{VertexFigureSubgroup@\texttt{VertexFigureSubgroup}!for IsGroup}
+\label{VertexFigureSubgroup:for IsGroup}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsSggi 
@@ -913,11 +913,11 @@ generators except for the first one. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{FacetSubgroup (for IsSggi)}}
+\subsection{\textcolor{Chapter }{FacetSubgroup (for IsGroup)}}
 \logpage{[ 3, 2, 17 ]}\nobreak
-\hyperdef{L}{X78F474E37DE527D3}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacetSubgroup({\mdseries\slshape g})\index{FacetSubgroup@\texttt{FacetSubgroup}!for IsSggi}
-\label{FacetSubgroup:for IsSggi}
+\hyperdef{L}{X7FB424557AEF256A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacetSubgroup({\mdseries\slshape g})\index{FacetSubgroup@\texttt{FacetSubgroup}!for IsGroup}
+\label{FacetSubgroup:for IsGroup}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsSggi 
@@ -935,6 +935,13 @@ generators except for the last one. }
   8
 \end{Verbatim}
  }
+
+ 
+\section{\textcolor{Chapter }{Real Spherical Groups}}\label{Chapter_Groups_for_Maps_Polytopes_and_Maniplexes_Section_Real_Spherical_Groups}
+\logpage{[ 3, 3, 0 ]}
+\hyperdef{L}{X7CD5FFCA844CAA38}{}
+{
+  Here we provide representations as matrix groups acting on $\mathbb R^3$ and $\mathbb R^4$ the finite spherical groups. }
 
  }
 
@@ -9179,6 +9186,43 @@ quotient group with generators appropriately mapped
 efficient in terms of the number of generators, which is disastrous for
 studying Sggis. This fixes that. }
 
+ 
+
+\subsection{\textcolor{Chapter }{ActionByGenerators}}
+\logpage{[ 15, 4, 8 ]}\nobreak
+\hyperdef{L}{X82A3B82B7C3C67E1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ActionByGenerators({\mdseries\slshape G, S, act})\index{ActionByGenerators@\texttt{ActionByGenerators}}
+\label{ActionByGenerators}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Returns a permutation group that represents the action of \mbox{\texttt{\mdseries\slshape G}} on \mbox{\texttt{\mdseries\slshape S}} as given by the action \mbox{\texttt{\mdseries\slshape act}}. Furthermore, the generators of this permutation group are the images of the
+generators of \mbox{\texttt{\mdseries\slshape G}}. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;|
+  !gapprompt@gap>| !gapinput@ActionByGenerators(g, [[1,8],[2,7],[3,6],[4,5]], OnSets);|
+  Group([ (1,2)(3,4), (2,3), (3,4) ])
+\end{Verbatim}
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{ActionOnBlocks}}
+\logpage{[ 15, 4, 9 ]}\nobreak
+\hyperdef{L}{X826F24BE83BC6468}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ActionOnBlocks({\mdseries\slshape G, S, B})\index{ActionOnBlocks@\texttt{ActionOnBlocks}}
+\label{ActionOnBlocks}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Given a group \mbox{\texttt{\mdseries\slshape G}} acting on a set \mbox{\texttt{\mdseries\slshape S}} and an initial block \mbox{\texttt{\mdseries\slshape B}}, returns the action of \mbox{\texttt{\mdseries\slshape G}} on the block system induced by \mbox{\texttt{\mdseries\slshape B}}. This is equivalent to \texttt{ActionByGenerators(G, Blocks(G, S, B), OnSets)}. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;|
+  !gapprompt@gap>| !gapinput@ActionOnBlocks(g, [1..8], [1,8]);|
+  Group([ (1,2)(3,4), (2,3), (3,4) ])
+\end{Verbatim}
+ }
+
  }
 
  }
@@ -9728,7 +9772,6 @@ IsVoltageGraph
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

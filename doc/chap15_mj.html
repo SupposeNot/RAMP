@@ -55,6 +55,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X7C4A431283A32F67">15.4-5 WrappedPosetOperation</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X86B884FA7C22BC92">15.4-6 MarkAsPolytopal</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X7F5C8A788040FFBF">15.4-7 ReallyNaturalHomomorphismByNormalSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X82A3B82B7C3C67E1">15.4-8 ActionByGenerators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X826F24BE83BC6468">15.4-9 ActionOnBlocks</a></span>
 </div></div>
 </div>
 
@@ -320,6 +322,34 @@ true
 <p>Returns: quotient group with generators appropriately mapped</p>
 
 <p>Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient efficient in terms of the number of generators, which is disastrous for studying Sggis. This fixes that.</p>
+
+<p><a id="X82A3B82B7C3C67E1" name="X82A3B82B7C3C67E1"></a></p>
+
+<h5>15.4-8 ActionByGenerators</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionByGenerators</code>( <var class="Arg">G</var>, <var class="Arg">S</var>, <var class="Arg">act</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group that represents the action of <var class="Arg">G</var> on <var class="Arg">S</var> as given by the action <var class="Arg">act</var>. Furthermore, the generators of this permutation group are the images of the generators of <var class="Arg">G</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionByGenerators(g, [[1,8],[2,7],[3,6],[4,5]], OnSets);</span>
+Group([ (1,2)(3,4), (2,3), (3,4) ])
+</pre></div>
+
+<p><a id="X826F24BE83BC6468" name="X826F24BE83BC6468"></a></p>
+
+<h5>15.4-9 ActionOnBlocks</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionOnBlocks</code>( <var class="Arg">G</var>, <var class="Arg">S</var>, <var class="Arg">B</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a group <var class="Arg">G</var> acting on a set <var class="Arg">S</var> and an initial block <var class="Arg">B</var>, returns the action of <var class="Arg">G</var> on the block system induced by <var class="Arg">B</var>. This is equivalent to <code class="code">ActionByGenerators(G, Blocks(G, S, B), OnSets)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionOnBlocks(g, [1..8], [1,8]);</span>
+Group([ (1,2)(3,4), (2,3), (3,4) ])
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap14_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap16_mj.html">[Next Chapter]</a>&nbsp;  </div>

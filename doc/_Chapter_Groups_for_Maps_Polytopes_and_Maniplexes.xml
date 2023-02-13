@@ -507,7 +507,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="g, I" Name="SectionSubgroup" Label="for IsSggi, IsList"/>
+  <Oper Arg="g, I" Name="SectionSubgroup" Label="for IsGroup, IsList"/>
  <Returns>IsSggi
 </Returns>
  <Description>
@@ -527,7 +527,7 @@ gap> Size(last);
 
 
 <ManSection>
-  <Oper Arg="g" Name="VertexFigureSubgroup" Label="for IsSggi"/>
+  <Oper Arg="g" Name="VertexFigureSubgroup" Label="for IsGroup"/>
  <Returns>IsSggi
 </Returns>
  <Description>
@@ -546,7 +546,7 @@ gap> Size(last);
 
 
 <ManSection>
-  <Oper Arg="g" Name="FacetSubgroup" Label="for IsSggi"/>
+  <Oper Arg="g" Name="FacetSubgroup" Label="for IsGroup"/>
  <Returns>IsSggi
 </Returns>
  <Description>
@@ -564,6 +564,14 @@ gap> Size(last);
 ]]></Example>
 
 
+</Section>
+
+
+<Section Label="Chapter_Groups_for_Maps_Polytopes_and_Maniplexes_Section_Real_Spherical_Groups">
+<Heading>Real Spherical Groups</Heading>
+
+ Here we provide representations as matrix groups acting on <Math>\mathbb R^3</Math> and <Math>\mathbb R^4</Math> 
+ the finite spherical groups.
 </Section>
 
 
