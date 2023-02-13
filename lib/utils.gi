@@ -316,3 +316,15 @@ InstallMethod(ReallyNaturalHomomorphismByNormalSubgroup,
 	qgens:=List(gens,x->Image(phi,x));
 	return GroupHomomorphismByImages(G,FactorGroup(G,N),gens,qgens);
 	end);	
+
+InstallGlobalFunction(ActionByGenerators, function(G, S, act)
+	local hom, gens;
+	hom := ActionHomomorphism(G, S, act);
+	gens := List(GeneratorsOfGroup(G), x -> Image(hom,x));
+	return Group(gens);
+	end);
+	
+InstallGlobalFunction(ActionOnBlocks, function(G, S, seed)
+	return ActionByGenerators(G, Blocks(G,S,seed), OnSets);
+	end);
+	

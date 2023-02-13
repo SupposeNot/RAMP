@@ -223,3 +223,7 @@ DeclareOperation("MarkAsPolytopal", [IsManiplex]);
 #! @Returns quotient group with generators appropriately mapped
 #! @Description Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient efficient in terms of the number of generators, which is disastrous for studying Sggis. This fixes that.
 DeclareOperation("ReallyNaturalHomomorphismByNormalSubgroup", [IsGroup,IsGroup]);
+
+DeclareGlobalFunction("ActionByGenerators");
+
+DeclareGlobalFunction("ActionOnBlocks");
