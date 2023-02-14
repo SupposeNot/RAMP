@@ -8,7 +8,7 @@ InstallMethod(AutomorphismGroupOnChains,
 	ranks := Difference([1..Rank(M)], I+1);
 	h := Subgroup(g, gens{ranks});
 	
-	return Action(g, RightCosets(g,h), OnRight);
+	return ActionByGenerators(g, RightCosets(g,h), OnRight);
 	end);
 
 InstallMethod(AutomorphismGroupOnChains,
@@ -21,7 +21,7 @@ InstallMethod(AutomorphismGroupOnChains,
 	h := Subgroup(g, gens{ranks});
 	chains := List(Orbits(h), AsSet);
 	
-	return Action(AutomorphismGroupOnFlags(M), AsSet(chains), OnSets);
+	return ActionByGenerators(AutomorphismGroupOnFlags(M), AsSet(chains), OnSets);
 	end);
 
 InstallMethod(AutomorphismGroupOnIFaces,
