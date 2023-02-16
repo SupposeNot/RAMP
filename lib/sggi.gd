@@ -131,7 +131,7 @@ DeclareProperty("IsStringRotationGroup", IsGroup);
 
 #! @Arguments G
 #! @Returns Whether <A>G</A> is a string C group. Currently only works for finite groups.
-DeclareOperation("IsStringC", [IsGroup]);
+DeclareProperty("IsStringC", IsGroup);
 #! @BeginExampleSession
 #! gap> IsStringC(Sggi([4,4], "r0 r1 r2"));
 #! false
@@ -141,7 +141,7 @@ DeclareOperation("IsStringC", [IsGroup]);
 
 #! @Arguments G
 #! @Returns Whether <A>G</A> is a string C+ group. Currently only works for finite groups.
-DeclareOperation("IsStringCPlus", [IsGroup]);
+DeclareProperty("IsStringCPlus", IsGroup);
 #! @BeginExampleSession
 #! gap> IsStringCPlus(Group((1,2)(3,4), (2,3,4)));
 #! false

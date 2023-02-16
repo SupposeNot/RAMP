@@ -224,6 +224,7 @@ InstallMethod(UniversalSggi,
 	g := FactorGroupFpGroupByRels(f, rels);
 	if (n >= 2) then SetSize(g, infinity); fi;
 	SetIsSggi(g, true);
+	SetIsStringC(g, true);
 	SetSchlafliSymbol(g, List([1..n-1], i -> infinity));
 	return g;
 	end);
@@ -287,6 +288,9 @@ InstallOtherMethod(UniversalSggi,
 	h := FactorGroupFpGroupByRels(g, rels);
 	SetSize(h, COXETER_GROUP_SIZES(sym));
 	SetIsSggi(h, true);
+	if ForAll(sym, x -> x <> 1) then
+		SetIsStringC(h, true);
+	fi;
 	SetSchlafliSymbol(h, sym);
 	return h;
 	end);
