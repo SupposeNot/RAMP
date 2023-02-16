@@ -72,6 +72,21 @@ DeclareOperation("IsCover", [IsPremaniplex, IsPremaniplex]);
 #! true
 #! @EndExampleSession
 
+#! @Arguments g, h
+#! @Returns `IsBool`
+#! @Description Returns whether <A>h</A> is a cover of <A>g</A>.
+#! That is, whether there is a homomorphism sending each generator of h
+#! to the corresponding generator of g.
+DeclareOperation("IsCover", [IsSggi, IsSggi]);
+#! @BeginExampleSession
+#! gap> IsCover(HemiCube(3), Cube(3));
+#! true
+#! gap> IsCover(AutomorphismGroup(HemiCube(3)), UniversalSggi([4,3]));
+#! true
+#! @EndExampleSession
+
+
+
 #! @Arguments M1, M2, i, j
 #! @Returns `IsBool`
 #! @Description Returns whether there is a maniplex homomorphism from <A>M2</A> to <A>M1</A>

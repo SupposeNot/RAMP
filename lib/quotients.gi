@@ -204,6 +204,14 @@ InstallMethod(IsCover,
 	return IsQuotient(q,p);
 	end);
 
+InstallMethod(IsCover,
+	ReturnTrue,
+	[IsSggi, IsSggi],
+	function(p,q)
+	return IsQuotient(q,p);
+	end);
+
+
 InstallMethod(IsRootedCover,
 	ReturnTrue,
 	[IsManiplex, IsManiplex, IsInt, IsInt],
