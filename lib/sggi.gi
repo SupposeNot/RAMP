@@ -81,10 +81,12 @@ InstallMethod(IsStringC,
 		return (Order(g) = 2);
 	elif not(IsSggi(g)) then
 		return false;
+	elif d = 2 then
+		return (Order(g) = 2*Order(g.1*g.2));
 	fi;
-	vfig := Subgroup(g, GeneratorsOfGroup(g){[2..d]});
-	facet := Subgroup(g, GeneratorsOfGroup(g){[1..d-1]});
-	medial := Subgroup(g, GeneratorsOfGroup(g){[2..d-1]});
+	vfig := VertexFigureSubgroup(g);
+	facet := FacetSubgroup(g);
+	medial := SectionSubgroup(g, [1..d-2]);
 	if not(IsStringC(vfig)) then return false; fi;
 	if not(IsStringC(facet)) then return false; fi;
 	if HasIsFinite(vfig) and IsFinite(vfig) and HasIsFinite(facet) and IsFinite(facet) and HasIsFinite(medial) and IsFinite(medial) then
@@ -367,32 +369,52 @@ InstallMethod(IsCConnected,
 InstallMethod(SectionSubgroup,
 	[IsGroup, IsList],
 	function(g, I)
-	local n;
+	local n, h, old_I, new_I;
 	if not IsSggi(g) then
-		Error("FacetSubgroup is currently only implemented for sggis!");
+		Error("SectionSubgroup is currently only implemented for sggis!");
 	fi;
 	n := Size(GeneratorsOfGroup(g));
-	return Subgroup(g, GeneratorsOfGroup(g){I+1});
+	
+	# If g is already a subgroup of an sggi, we go back to that parent group and just take a more
+	# restricted subgroup of it.
+	if HasParent(g) then
+		# First we need to grab the value of I from before
+		# We translate each generator ri to the integer i first
+		old_I := List(GeneratorsOfGroup(g), x -> Int([String(x)[2]]));
+		new_I := (old_I+1){I+1};
+		h := Subgroup(Parent(g), GeneratorsOfGroup(Parent(g)){new_I});
+	else
+		h := Subgroup(g, GeneratorsOfGroup(g){I+1});
+	fi;
+	
+	# Precompute the size in some special cases
+	if Size(I) = 1 then
+		SetSize(h, Order(h.1));
+	elif Size(I) = 2 then
+		if Order(h.1) = 1 then
+			SetSize(h, Order(h.2));
+		elif Order(h.2) = 1 then
+			SetSize(h, 2);
+		else
+			SetSize(h, 2*Order(h.1*h.2));
+		fi;
+	fi;
+	
+	return h;
 	end);
 	
 InstallMethod(VertexFigureSubgroup,
 	[IsGroup],
 	function(g)
 	local n;
-	if not IsSggi(g) then
-		Error("FacetSubgroup is currently only implemented for sggis!");
-	fi;
 	n := Size(GeneratorsOfGroup(g));
-	return Subgroup(g, GeneratorsOfGroup(g){[2..n]});
+	return SectionSubgroup(g, [1..n-1]);
 	end);
 	
 InstallMethod(FacetSubgroup,
 	[IsGroup],
 	function(g)
 	local n;
-	if not IsSggi(g) then
-		Error("FacetSubgroup is currently only implemented for sggis!");
-	fi;
 	n := Size(GeneratorsOfGroup(g));
-	return Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
+	return SectionSubgroup(g, [0..n-2]);
 	end);
