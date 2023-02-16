@@ -404,6 +404,10 @@ InstallMethod(SectionSubgroup,
 		fi;
 	fi;
 	
+	if HasIsStringC(g) and IsStringC(g) then
+		SetIsStringC(h, true);
+	fi;
+	
 	return h;
 	end);
 	
