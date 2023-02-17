@@ -320,3 +320,16 @@ InstallMethod(InternallySelfDualPolyhedron2,
 
 	return ReflexibleManiplex(Group(r0,r1,r2));
 	end);
+
+InstallMethod(GrandAntiprism,
+	[],
+	function()
+	local GA, r0, r1, r2, r3;
+	GA := InputTextFile(Filename(RampDataPath, "GrandAntiprism.txt"));
+	r0 := EvalString(ReadLine(GA));
+	r1 := EvalString(ReadLine(GA));
+	r2 := EvalString(ReadLine(GA));
+	r3 := EvalString(ReadLine(GA));
+	CloseStream(GA);
+	return Maniplex(Group(r0,r1,r2,r3));
+	end);

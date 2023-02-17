@@ -217,3 +217,7 @@ DeclareOperation("InternallySelfDualPolyhedron2",[IsInt, IsInt]);
 #! gap> SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));
 #! [ 40, 40 ]
 #! @EndExampleSession
+
+#! @Returns IsPolytope
+#! @Description Returns the Grand Antiprism.
+DeclareOperation("GrandAntiprism", []);
