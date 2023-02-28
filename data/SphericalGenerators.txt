@@ -1,0 +1,21 @@
+
+# Icosahedral
+IhGens:=[ [ [ -1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ], 
+  [ [ 1/2, -1/2*E(5)^2-1/2*E(5)^3, 1/2*E(5)+1/2*E(5)^4 ], 
+      [ -1/2*E(5)^2-1/2*E(5)^3, -1/2*E(5)-1/2*E(5)^4, -1/2 ], 
+      [ 1/2*E(5)+1/2*E(5)^4, -1/2, -1/2*E(5)^2-1/2*E(5)^3 ] ], 
+  [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, -1 ] ] ];
+  
+icosahedralRootVertex:=BaseFixedSpace(IhGens{[2,3]})[1];
+dodecahedralRootVertex:=BaseFixedSpace(IhGens{[1,2]})[1];
+
+ g:=Group(IhGens);
+ v1:=icosahedralRootVertex;
+ verts:=Orbit(g,v1);;
+ e1:=[v1,v1*g.1];
+ edges:=Orbit(g,e1,OnSets);;
+ f1:=AsSet(Orbit(Group([g.1,g.2]),v1));
+ faces:=Orbit(g,f1,OnSets);;
+ p:=PosetFromAtomicList(faces);;
+ c:=ConnectionGroup(p);;
+ IsIsomorphicManiplex(Maniplex(c),ARP([3,5]));
