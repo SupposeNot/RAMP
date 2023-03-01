@@ -328,3 +328,51 @@ InstallGlobalFunction(ActionOnBlocks, function(G, S, seed)
 	return ActionByGenerators(G, Blocks(G,S,seed), OnSets);
 	end);
 	
+InstallGlobalFunction(VerifyProperties, function(M)
+	local M2, prop, attr, mismatches, prop_str, stored_value, real_value, mismatch, attr_str;
+	
+	M2 := Maniplex(ConnectionGroup(M));
+	
+	mismatches := [];
+	
+	for prop_str in KnownPropertiesOfObject(M) do
+		prop := EvalString(prop_str);
+		stored_value := prop(M);
+		real_value := prop(M2);
+		if stored_value <> real_value then
+			Add(mismatches, [prop_str, stored_value, real_value]);
+		fi;
+	od;
+	
+	# Checking attributes is harder -- we can't check all of them because not every attribute
+	# has a canonical form (e.g. automorphism group)...
+	# So we restrict ourselves to some basic combinatorial information:
+	# Size, NumberOfFlagOrbits, SchlafliSymbol, Fvector. Maybe more later.
+
+	for attr_str in ["Size", "NumberOfFlagOrbits", "SchlafliSymbol", "Fvector"] do
+		attr := EvalString(attr_str);
+		if Tester(attr)(M) then
+			stored_value := attr(M);
+			real_value := attr(M2);
+			if stored_value <> real_value then
+				Add(mismatches, [attr_str, stored_value, real_value]);
+			fi;
+		fi;
+	od;
+	
+	if Size(mismatches) = 0 then
+		Print("All properties and basic numeric attributes verified.\n");
+	else
+		for mismatch in mismatches do
+			Print("Value mismatch in ");
+			Print(mismatch[1]);
+			Print(": stored value is ");
+			Print(String(mismatch[2]));
+			Print(" and real value is ");
+			Print(String(mismatch[3]));
+			Print("\n");
+		od;
+	fi;
+	
+	return (Size(mismatches) = 0);
+	end);

@@ -289,3 +289,25 @@
     [4X[28XGroup([ (1,2)(3,4), (2,3), (3,4) ])[128X[104X
   [4X[32X[104X
   
+  [1X15.4-10 VerifyProperties[101X
+  
+  [33X[1;0Y[29X[2XVerifyProperties[102X( [3XM[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YBoolean[133X
+  
+  [33X[0;0YGiven  a  maniplex  [3XM[103X,  recalculates  all  of the stored properties (boolean
+  attributes)  and some of the stored numeric attributes of [3XM[103X. Returns true if
+  the  recalculated  values agree with the stored values. Otherwise, outputs a
+  list of which values had discrepancies and then returns false.[133X
+  
+  [33X[0;0YNote  that  the  way  that  we  recalculate the properties is to build a new
+  maniplex  from ConnectionGroup([3XM[103X). So if this connection group is incorrect,
+  then this method will not work as intended.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := Maniplex(ConnectionGroup(Cube(3)));;[127X[104X
+    [4X[25Xgap>[125X [27XSetNumberOfFlagOrbits(M, 3);[127X[104X
+    [4X[25Xgap>[125X [27XVerifyProperties(M);[127X[104X
+    [4X[28XValue mismatch in NumberOfFlagOrbits: stored value is 3 and real value is 1[128X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  

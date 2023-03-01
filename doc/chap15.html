@@ -54,6 +54,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7F5C8A788040FFBF">15.4-7 ReallyNaturalHomomorphismByNormalSubgroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X82A3B82B7C3C67E1">15.4-8 ActionByGenerators</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X826F24BE83BC6468">15.4-9 ActionOnBlocks</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X83F57BE47AD7267D">15.4-10 VerifyProperties</a></span>
 </div></div>
 </div>
 
@@ -346,6 +347,26 @@ Group([ (1,2)(3,4), (2,3), (3,4) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionOnBlocks(g, [1..8], [1,8]);</span>
 Group([ (1,2)(3,4), (2,3), (3,4) ])
+</pre></div>
+
+<p><a id="X83F57BE47AD7267D" name="X83F57BE47AD7267D"></a></p>
+
+<h5>15.4-10 VerifyProperties</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VerifyProperties</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: Boolean</p>
+
+<p>Given a maniplex <var class="Arg">M</var>, recalculates all of the stored properties (boolean attributes) and some of the stored numeric attributes of <var class="Arg">M</var>. Returns true if the recalculated values agree with the stored values. Otherwise, outputs a list of which values had discrepancies and then returns false.</p>
+
+<p>Note that the way that we recalculate the properties is to build a new maniplex from ConnectionGroup(<var class="Arg">M</var>). So if this connection group is incorrect, then this method will not work as intended.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(ConnectionGroup(Cube(3)));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetNumberOfFlagOrbits(M, 3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VerifyProperties(M);</span>
+Value mismatch in NumberOfFlagOrbits: stored value is 3 and real value is 1
+false
 </pre></div>
 
 
