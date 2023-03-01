@@ -351,7 +351,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="G" Name="IsStringC" Label="for IsGroup"/>
+  <Prop Arg="G" Name="IsStringC" Label="for IsGroup"/>
  <Returns>Whether <A>G</A> is a string C group. Currently only works for finite groups.
 </Returns>
  <Description>
@@ -369,7 +369,7 @@ true
 
 
 <ManSection>
-  <Oper Arg="G" Name="IsStringCPlus" Label="for IsGroup"/>
+  <Prop Arg="G" Name="IsStringCPlus" Label="for IsGroup"/>
  <Returns>Whether <A>G</A> is a string C+ group. Currently only works for finite groups.
 </Returns>
  <Description>
@@ -564,14 +564,6 @@ gap> Size(last);
 ]]></Example>
 
 
-</Section>
-
-
-<Section Label="Chapter_Groups_for_Maps_Polytopes_and_Maniplexes_Section_Real_Spherical_Groups">
-<Heading>Real Spherical Groups</Heading>
-
- Here we provide representations as matrix groups acting on <Math>\mathbb R^3</Math> and <Math>\mathbb R^4</Math> 
- the finite spherical groups.
 </Section>
 
 

@@ -277,6 +277,23 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
+  [1X5.3-4 IsRegularPolytope[101X
+  
+  [33X[1;0Y[29X[2XIsRegularPolytope[102X( [3Xmaniplex[103X ) [32X attribute[133X
+  
+  [33X[0;0YReturns whether a maniplex is a regular polytope.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xp:=24Cell();[127X[104X
+    [4X[28X24Cell[128X[104X
+    [4X[25Xgap>[125X [27XIsRegularPolytope(p);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xq:=CartesianProduct(Simplex(2),Cube(2));[127X[104X
+    [4X[28XCartesianProduct(Pgon(3), Pgon(4))[128X[104X
+    [4X[25Xgap>[125X [27XIsRegularPolytope(q);[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
   
   [1X5.4 [33X[0;0YRotary maniplexes and rotation groups[133X[101X
   

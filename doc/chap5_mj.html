@@ -54,6 +54,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X79DD94037E0FACD4">5.3-1 IsPolytopal</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7F788D2E7F41CD69">5.3-2 SatisfiesWeakPathIntersectionProperty</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7DEE9BDE7EA6F995">5.3-3 IsFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap5_mj.html#X7E098F677FC33B8F">5.3-4 IsRegularPolytope</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5_mj.html#X8064E656804172CF">5.4 <span class="Heading">Rotary maniplexes and rotation groups</span></a>
 </span>
@@ -326,6 +327,25 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(Cube(3));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(ToroidalMap44([1,0]));</span>
+false
+</pre></div>
+
+<p><a id="X7E098F677FC33B8F" name="X7E098F677FC33B8F"></a></p>
+
+<h5>5.3-4 IsRegularPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRegularPolytope</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns whether a maniplex is a regular polytope.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=24Cell();</span>
+24Cell
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRegularPolytope(p);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=CartesianProduct(Simplex(2),Cube(2));</span>
+CartesianProduct(Pgon(3), Pgon(4))
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRegularPolytope(q);</span>
 false
 </pre></div>
 

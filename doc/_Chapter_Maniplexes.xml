@@ -331,6 +331,26 @@ false
 ]]></Example>
 
 
+<ManSection>
+  <Attr Arg="maniplex" Name="IsRegularPolytope" Label="for IsManiplex"/>
+ <Description>
+Returns whether a maniplex is a regular polytope.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=24Cell();
+24Cell
+gap> IsRegularPolytope(p);
+true
+gap> q:=CartesianProduct(Simplex(2),Cube(2));
+CartesianProduct(Pgon(3), Pgon(4))
+gap> IsRegularPolytope(q);
+false
+]]></Example>
+
+
 </Section>
 
 

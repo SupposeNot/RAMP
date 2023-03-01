@@ -14,7 +14,6 @@
 \makelabel{ramp:Sggis}{3.2}{X8547ABE882A26E43}
 \makelabel{ramp:UniversalSggi}{3.2.1}{X7AE843CE7878951F}
 \makelabel{ramp:Sggi}{3.2.2}{X7A4E9AE88662FE00}
-\makelabel{ramp:Real Spherical Groups}{3.3}{X7CD5FFCA844CAA38}
 \makelabel{ramp:Families of Polytopes}{4}{X7BF24A5D7B3386D7}
 \makelabel{ramp:Classical polytopes}{4.1}{X7A281A1C7DCB2D96}
 \makelabel{ramp:Flat and tight polytopes}{4.2}{X7808135A8376515A}
@@ -153,6 +152,7 @@
 \makelabel{ramp:BrucknerSphere}{4.1.23}{X7E949BC7808403F4}
 \makelabel{ramp:InternallySelfDualPolyhedron1 for IsInt}{4.1.24}{X84DFF70F81CD6FF8}
 \makelabel{ramp:InternallySelfDualPolyhedron2 for IsInt, IsInt}{4.1.25}{X8724E56280B600E1}
+\makelabel{ramp:GrandAntiprism}{4.1.26}{X83A5B22B7B873BE5}
 \makelabel{ramp:FlatOrientablyRegularPolyhedron for IsInt, IsInt, IsInt, IsInt}{4.2.1}{X843987937D815A4D}
 \makelabel{ramp:FlatOrientablyRegularPolyhedraOfType for IsList}{4.2.2}{X84B0BB9A83E67A3A}
 \makelabel{ramp:TightOrientablyRegularPolytopesOfType for IsList}{4.2.3}{X83F74BA1814E8DF4}
@@ -196,6 +196,7 @@
 \makelabel{ramp:IsPolytopal for IsManiplex}{5.3.1}{X79DD94037E0FACD4}
 \makelabel{ramp:SatisfiesWeakPathIntersectionProperty for IsManiplex}{5.3.2}{X7F788D2E7F41CD69}
 \makelabel{ramp:IsFaithful for IsManiplex}{5.3.3}{X7DEE9BDE7EA6F995}
+\makelabel{ramp:IsRegularPolytope for IsManiplex}{5.3.4}{X7E098F677FC33B8F}
 \makelabel{ramp:UniversalRotationGroup for IsInt}{5.4.1}{X8056E3557E06EFF6}
 \makelabel{ramp:UniversalRotationGroup for IsList}{5.4.2}{X7D6042317A76FDC3}
 \makelabel{ramp:RotaryManiplex for IsGroup}{5.4.3}{X80791E367E43CA25}
@@ -243,17 +244,18 @@
 \makelabel{ramp:IsRootedQuotient for IsManiplex, IsManiplex, IsInt, IsInt}{7.1.2}{X8407FBD78060191A}
 \makelabel{ramp:IsRootedQuotient for IsManiplex, IsManiplex}{7.1.3}{X7F097A917AE87005}
 \makelabel{ramp:IsCover for IsPremaniplex, IsPremaniplex}{7.1.4}{X7FB4904D7E99C0A0}
-\makelabel{ramp:IsRootedCover for IsManiplex, IsManiplex, IsInt, IsInt}{7.1.5}{X83165F047B217751}
-\makelabel{ramp:IsRootedCover for IsManiplex, IsManiplex}{7.1.6}{X7923C770859A958F}
-\makelabel{ramp:IsIsomorphicManiplex for IsManiplex, IsManiplex}{7.1.7}{X7B1006697C002741}
-\makelabel{ramp:IsIsomorphicRootedManiplex for IsManiplex, IsManiplex, IsInt, IsInt}{7.1.8}{X7FCE9DF47E54D12D}
-\makelabel{ramp:IsIsomorphicRootedManiplex for IsManiplex, IsManiplex}{7.1.9}{X85A79420835EAF2A}
-\makelabel{ramp:SmallestReflexibleCover for IsManiplex}{7.1.10}{X8017B6F880D162E7}
-\makelabel{ramp:QuotientManiplex for IsReflexibleManiplex, IsString}{7.1.11}{X85BE14877927DB85}
-\makelabel{ramp:ReflexibleQuotientManiplex for IsManiplex, IsList}{7.1.12}{X87DCBB9E78E383BB}
-\makelabel{ramp:QuotientSggi for IsGroup, IsList}{7.1.13}{X83D969847E68299D}
-\makelabel{ramp:QuotientSggiByNormalSubgroup for IsGroup,IsGroup}{7.1.14}{X819D85E57B505196}
-\makelabel{ramp:QuotientManiplexByAutomorphismSubgroup for IsManiplex,IsPermGroup}{7.1.15}{X86725DD8781BF181}
+\makelabel{ramp:IsCover for IsSggi, IsSggi}{7.1.5}{X806193277FC69158}
+\makelabel{ramp:IsRootedCover for IsManiplex, IsManiplex, IsInt, IsInt}{7.1.6}{X83165F047B217751}
+\makelabel{ramp:IsRootedCover for IsManiplex, IsManiplex}{7.1.7}{X7923C770859A958F}
+\makelabel{ramp:IsIsomorphicManiplex for IsManiplex, IsManiplex}{7.1.8}{X7B1006697C002741}
+\makelabel{ramp:IsIsomorphicRootedManiplex for IsManiplex, IsManiplex, IsInt, IsInt}{7.1.9}{X7FCE9DF47E54D12D}
+\makelabel{ramp:IsIsomorphicRootedManiplex for IsManiplex, IsManiplex}{7.1.10}{X85A79420835EAF2A}
+\makelabel{ramp:SmallestReflexibleCover for IsManiplex}{7.1.11}{X8017B6F880D162E7}
+\makelabel{ramp:QuotientManiplex for IsReflexibleManiplex, IsString}{7.1.12}{X85BE14877927DB85}
+\makelabel{ramp:ReflexibleQuotientManiplex for IsManiplex, IsList}{7.1.13}{X87DCBB9E78E383BB}
+\makelabel{ramp:QuotientSggi for IsGroup, IsList}{7.1.14}{X83D969847E68299D}
+\makelabel{ramp:QuotientSggiByNormalSubgroup for IsGroup,IsGroup}{7.1.15}{X819D85E57B505196}
+\makelabel{ramp:QuotientManiplexByAutomorphismSubgroup for IsManiplex,IsPermGroup}{7.1.16}{X86725DD8781BF181}
 \makelabel{ramp:PosetFromFaceListOfFlags for IsList}{8.1.1}{X7D495B407CDFAEA2}
 \makelabel{ramp:PosetFromConnectionGroup for IsPermGroup}{8.1.2}{X8720C4757EE12082}
 \makelabel{ramp:PosetFromManiplex for IsManiplex}{8.1.3}{X7C4F3D307C5A7E7A}

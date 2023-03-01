@@ -78,7 +78,22 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-5 IsRootedCover[101X
+  [1X7.1-5 IsCover[101X
+  
+  [33X[1;0Y[29X[2XIsCover[102X( [3Xg[103X, [3Xh[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsBool[110X[133X
+  
+  [33X[0;0YReturns  whether [3Xh[103X is a cover of [3Xg[103X. That is, whether there is a homomorphism
+  sending each generator of h to the corresponding generator of g.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsCover(HemiCube(3), Cube(3));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsCover(AutomorphismGroup(HemiCube(3)), UniversalSggi([4,3]));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X7.1-6 IsRootedCover[101X
   
   [33X[1;0Y[29X[2XIsRootedCover[102X( [3XM1[103X, [3XM2[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsBool[110X[133X
@@ -93,7 +108,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X7.1-6 IsRootedCover[101X
+  [1X7.1-7 IsRootedCover[101X
   
   [33X[1;0Y[29X[2XIsRootedCover[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsBool[110X[133X
@@ -108,7 +123,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X7.1-7 IsIsomorphicManiplex[101X
+  [1X7.1-8 IsIsomorphicManiplex[101X
   
   [33X[1;0Y[29X[2XIsIsomorphicManiplex[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsBool[110X[133X
@@ -120,7 +135,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-8 IsIsomorphicRootedManiplex[101X
+  [1X7.1-9 IsIsomorphicRootedManiplex[101X
   
   [33X[1;0Y[29X[2XIsIsomorphicRootedManiplex[102X( [3XM1[103X, [3XM2[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsBool[110X[133X
@@ -141,7 +156,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X7.1-9 IsIsomorphicRootedManiplex[101X
+  [1X7.1-10 IsIsomorphicRootedManiplex[101X
   
   [33X[1;0Y[29X[2XIsIsomorphicRootedManiplex[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsBool[110X[133X
@@ -158,7 +173,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-10 SmallestReflexibleCover[101X
+  [1X7.1-11 SmallestReflexibleCover[101X
   
   [33X[1;0Y[29X[2XSmallestReflexibleCover[102X( [3XM[103X ) [32X attribute[133X
   
@@ -172,7 +187,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-11 QuotientManiplex[101X
+  [1X7.1-12 QuotientManiplex[101X
   
   [33X[1;0Y[29X[2XQuotientManiplex[102X( [3XM[103X, [3XrelStr[103X ) [32X operation[133X
   
@@ -189,7 +204,7 @@
     [4X[28X[ 4, 4 ][128X[104X
   [4X[32X[104X
   
-  [1X7.1-12 ReflexibleQuotientManiplex[101X
+  [1X7.1-13 ReflexibleQuotientManiplex[101X
   
   [33X[1;0Y[29X[2XReflexibleQuotientManiplex[102X( [3XM[103X, [3Xrels[103X ) [32X operation[133X
   
@@ -208,7 +223,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-13 QuotientSggi[101X
+  [1X7.1-14 QuotientSggi[101X
   
   [33X[1;0Y[29X[2XQuotientSggi[102X( [3Xg[103X, [3Xrels[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe  quotient of [3Xg[103X by [3Xrels[103X, which is either a list of Tietze words
@@ -223,7 +238,7 @@
     [4X[28X60[128X[104X
   [4X[32X[104X
   
-  [1X7.1-14 QuotientSggiByNormalSubgroup[101X
+  [1X7.1-15 QuotientSggiByNormalSubgroup[101X
   
   [33X[1;0Y[29X[2XQuotientSggiByNormalSubgroup[102X( [3Xg[103X, [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yg/n[133X
@@ -241,7 +256,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.1-15 QuotientManiplexByAutomorphismSubgroup[101X
+  [1X7.1-16 QuotientManiplexByAutomorphismSubgroup[101X
   
   [33X[1;0Y[29X[2XQuotientManiplexByAutomorphismSubgroup[102X( [3Xm[103X, [3Xh[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ym/h[133X

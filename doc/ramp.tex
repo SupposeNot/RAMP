@@ -694,7 +694,7 @@ that the product of adjacent generators should be an involution.
 \hyperdef{L}{X835FA8527E2442F4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringC({\mdseries\slshape G})\index{IsStringC@\texttt{IsStringC}!for IsGroup}
 \label{IsStringC:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 Whether \mbox{\texttt{\mdseries\slshape G}} is a string C group. Currently only works for finite groups. 
 
@@ -718,7 +718,7 @@ Whether \mbox{\texttt{\mdseries\slshape G}} is a string C group. Currently only 
 \hyperdef{L}{X8445AFAB7CF3F319}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsStringCPlus({\mdseries\slshape G})\index{IsStringCPlus@\texttt{IsStringCPlus}!for IsGroup}
 \label{IsStringCPlus:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 Whether \mbox{\texttt{\mdseries\slshape G}} is a string C+ group. Currently only works for finite groups. 
 
@@ -935,13 +935,6 @@ generators except for the last one. }
   8
 \end{Verbatim}
  }
-
- 
-\section{\textcolor{Chapter }{Real Spherical Groups}}\label{Chapter_Groups_for_Maps_Polytopes_and_Maniplexes_Section_Real_Spherical_Groups}
-\logpage{[ 3, 3, 0 ]}
-\hyperdef{L}{X7CD5FFCA844CAA38}{}
-{
-  Here we provide representations as matrix groups acting on $\mathbb R^3$ and $\mathbb R^4$ the finite spherical groups. }
 
  }
 
@@ -1458,6 +1451,21 @@ IsPolytope
   !gapprompt@gap>| !gapinput@SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));|
   [ 40, 40 ]
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{GrandAntiprism}}
+\logpage{[ 4, 1, 26 ]}\nobreak
+\hyperdef{L}{X83A5B22B7B873BE5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GrandAntiprism({\mdseries\slshape })\index{GrandAntiprism@\texttt{GrandAntiprism}}
+\label{GrandAntiprism}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsPolytope 
+
+
+
+ Returns the Grand Antiprism. }
+
  }
 
  
@@ -2424,6 +2432,29 @@ flag itself. }
   !gapprompt@gap>| !gapinput@IsFaithful(Cube(3));|
   true
   !gapprompt@gap>| !gapinput@IsFaithful(ToroidalMap44([1,0]));|
+  false
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsRegularPolytope (for IsManiplex)}}
+\logpage{[ 5, 3, 4 ]}\nobreak
+\hyperdef{L}{X7E098F677FC33B8F}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRegularPolytope({\mdseries\slshape maniplex})\index{IsRegularPolytope@\texttt{IsRegularPolytope}!for IsManiplex}
+\label{IsRegularPolytope:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns whether a maniplex is a regular polytope. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=24Cell();|
+  24Cell
+  !gapprompt@gap>| !gapinput@IsRegularPolytope(p);|
+  true
+  !gapprompt@gap>| !gapinput@q:=CartesianProduct(Simplex(2),Cube(2));|
+  CartesianProduct(Pgon(3), Pgon(4))
+  !gapprompt@gap>| !gapinput@IsRegularPolytope(q);|
   false
 \end{Verbatim}
  }
@@ -3468,8 +3499,31 @@ corresponding generator of h. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsRootedCover (for IsManiplex, IsManiplex, IsInt, IsInt)}}
+\subsection{\textcolor{Chapter }{IsCover (for IsSggi, IsSggi)}}
 \logpage{[ 7, 1, 5 ]}\nobreak
+\hyperdef{L}{X806193277FC69158}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCover({\mdseries\slshape g, h})\index{IsCover@\texttt{IsCover}!for IsSggi, IsSggi}
+\label{IsCover:for IsSggi, IsSggi}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsBool} 
+
+
+
+ Returns whether \mbox{\texttt{\mdseries\slshape h}} is a cover of \mbox{\texttt{\mdseries\slshape g}}. That is, whether there is a homomorphism sending each generator of h to the
+corresponding generator of g. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsCover(HemiCube(3), Cube(3));|
+  true
+  !gapprompt@gap>| !gapinput@IsCover(AutomorphismGroup(HemiCube(3)), UniversalSggi([4,3]));|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsRootedCover (for IsManiplex, IsManiplex, IsInt, IsInt)}}
+\logpage{[ 7, 1, 6 ]}\nobreak
 \hyperdef{L}{X83165F047B217751}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRootedCover({\mdseries\slshape M1, M2, i, j})\index{IsRootedCover@\texttt{IsRootedCover}!for IsManiplex, IsManiplex, IsInt, IsInt}
 \label{IsRootedCover:for IsManiplex, IsManiplex, IsInt, IsInt}
@@ -3491,7 +3545,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsRootedCover (for IsManiplex, IsManiplex)}}
-\logpage{[ 7, 1, 6 ]}\nobreak
+\logpage{[ 7, 1, 7 ]}\nobreak
 \hyperdef{L}{X7923C770859A958F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRootedCover({\mdseries\slshape M1, M2})\index{IsRootedCover@\texttt{IsRootedCover}!for IsManiplex, IsManiplex}
 \label{IsRootedCover:for IsManiplex, IsManiplex}
@@ -3513,7 +3567,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsIsomorphicManiplex (for IsManiplex, IsManiplex)}}
-\logpage{[ 7, 1, 7 ]}\nobreak
+\logpage{[ 7, 1, 8 ]}\nobreak
 \hyperdef{L}{X7B1006697C002741}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIsomorphicManiplex({\mdseries\slshape M1, M2})\index{IsIsomorphicManiplex@\texttt{IsIsomorphicManiplex}!for IsManiplex, IsManiplex}
 \label{IsIsomorphicManiplex:for IsManiplex, IsManiplex}
@@ -3533,7 +3587,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex, IsInt, IsInt)}}
-\logpage{[ 7, 1, 8 ]}\nobreak
+\logpage{[ 7, 1, 9 ]}\nobreak
 \hyperdef{L}{X7FCE9DF47E54D12D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIsomorphicRootedManiplex({\mdseries\slshape M1, M2, i, j})\index{IsIsomorphicRootedManiplex@\texttt{IsIsomorphicRootedManiplex}!for IsManiplex, IsManiplex, IsInt, IsInt}
 \label{IsIsomorphicRootedManiplex:for IsManiplex, IsManiplex, IsInt, IsInt}
@@ -3561,7 +3615,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{IsIsomorphicRootedManiplex (for IsManiplex, IsManiplex)}}
-\logpage{[ 7, 1, 9 ]}\nobreak
+\logpage{[ 7, 1, 10 ]}\nobreak
 \hyperdef{L}{X85A79420835EAF2A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsIsomorphicRootedManiplex({\mdseries\slshape M1, M2})\index{IsIsomorphicRootedManiplex@\texttt{IsIsomorphicRootedManiplex}!for IsManiplex, IsManiplex}
 \label{IsIsomorphicRootedManiplex:for IsManiplex, IsManiplex}
@@ -3585,7 +3639,7 @@ corresponding generator of h. }
  
 
 \subsection{\textcolor{Chapter }{SmallestReflexibleCover (for IsManiplex)}}
-\logpage{[ 7, 1, 10 ]}\nobreak
+\logpage{[ 7, 1, 11 ]}\nobreak
 \hyperdef{L}{X8017B6F880D162E7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallestReflexibleCover({\mdseries\slshape M})\index{SmallestReflexibleCover@\texttt{SmallestReflexibleCover}!for IsManiplex}
 \label{SmallestReflexibleCover:for IsManiplex}
@@ -3605,7 +3659,7 @@ connection group of \mbox{\texttt{\mdseries\slshape M}}. }
  
 
 \subsection{\textcolor{Chapter }{QuotientManiplex (for IsReflexibleManiplex, IsString)}}
-\logpage{[ 7, 1, 11 ]}\nobreak
+\logpage{[ 7, 1, 12 ]}\nobreak
 \hyperdef{L}{X85BE14877927DB85}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientManiplex({\mdseries\slshape M, relStr})\index{QuotientManiplex@\texttt{QuotientManiplex}!for IsReflexibleManiplex, IsString}
 \label{QuotientManiplex:for IsReflexibleManiplex, IsString}
@@ -3629,7 +3683,7 @@ r1)\texttt{\symbol{94}}5, (r1 r0 r1 r2)\texttt{\symbol{94}}2". }
  
 
 \subsection{\textcolor{Chapter }{ReflexibleQuotientManiplex (for IsManiplex, IsList)}}
-\logpage{[ 7, 1, 12 ]}\nobreak
+\logpage{[ 7, 1, 13 ]}\nobreak
 \hyperdef{L}{X87DCBB9E78E383BB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleQuotientManiplex({\mdseries\slshape M, rels})\index{ReflexibleQuotientManiplex@\texttt{ReflexibleQuotientManiplex}!for IsManiplex, IsList}
 \label{ReflexibleQuotientManiplex:for IsManiplex, IsList}
@@ -3655,7 +3709,7 @@ generated by r0 r1 r2 r1 and r1 r0 r1 r2. }
  
 
 \subsection{\textcolor{Chapter }{QuotientSggi (for IsGroup, IsList)}}
-\logpage{[ 7, 1, 13 ]}\nobreak
+\logpage{[ 7, 1, 14 ]}\nobreak
 \hyperdef{L}{X83D969847E68299D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientSggi({\mdseries\slshape g, rels})\index{QuotientSggi@\texttt{QuotientSggi}!for IsGroup, IsList}
 \label{QuotientSggi:for IsGroup, IsList}
@@ -3680,7 +3734,7 @@ parsed by ParseStringCRels.
  
 
 \subsection{\textcolor{Chapter }{QuotientSggiByNormalSubgroup (for IsGroup,IsGroup)}}
-\logpage{[ 7, 1, 14 ]}\nobreak
+\logpage{[ 7, 1, 15 ]}\nobreak
 \hyperdef{L}{X819D85E57B505196}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientSggiByNormalSubgroup({\mdseries\slshape g, n})\index{QuotientSggiByNormalSubgroup@\texttt{QuotientSggiByNormalSubgroup}!for IsGroup,IsGroup}
 \label{QuotientSggiByNormalSubgroup:for IsGroup,IsGroup}
@@ -3706,7 +3760,7 @@ generators of the original group). }
  
 
 \subsection{\textcolor{Chapter }{QuotientManiplexByAutomorphismSubgroup (for IsManiplex,IsPermGroup)}}
-\logpage{[ 7, 1, 15 ]}\nobreak
+\logpage{[ 7, 1, 16 ]}\nobreak
 \hyperdef{L}{X86725DD8781BF181}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{QuotientManiplexByAutomorphismSubgroup({\mdseries\slshape m, h})\index{QuotientManiplexByAutomorphismSubgroup@\texttt{Quotient}\-\texttt{Maniplex}\-\texttt{By}\-\texttt{Automorphism}\-\texttt{Subgroup}!for IsManiplex,IsPermGroup}
 \label{QuotientManiplexByAutomorphismSubgroup:for IsManiplex,IsPermGroup}

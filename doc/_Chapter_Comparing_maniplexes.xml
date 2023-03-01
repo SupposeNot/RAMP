@@ -97,6 +97,26 @@ true
 
 
 <ManSection>
+  <Oper Arg="g, h" Name="IsCover" Label="for IsSggi, IsSggi"/>
+ <Returns><Code>IsBool</Code>
+</Returns>
+ <Description>
+Returns whether <A>h</A> is a cover of <A>g</A>.
+ That is, whether there is a homomorphism sending each generator of h
+ to the corresponding generator of g.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsCover(HemiCube(3), Cube(3));
+true
+gap> IsCover(AutomorphismGroup(HemiCube(3)), UniversalSggi([4,3]));
+true
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="M1, M2, i, j" Name="IsRootedCover" Label="for IsManiplex, IsManiplex, IsInt, IsInt"/>
  <Returns><Code>IsBool</Code>
 </Returns>

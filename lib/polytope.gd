@@ -189,6 +189,19 @@ DeclareOperation("IsFaithful", [IsManiplex]);
 #! false
 #! @EndExampleSession
 
+#! @Arguments maniplex
+#! @Description Returns whether a maniplex is a regular polytope.
+DeclareAttribute("IsRegularPolytope",IsManiplex);
+#! @BeginExampleSession
+#! gap> p:=24Cell();
+#! 24Cell
+#! gap> IsRegularPolytope(p);
+#! true
+#! gap> q:=CartesianProduct(Simplex(2),Cube(2));
+#! CartesianProduct(Pgon(3), Pgon(4))
+#! gap> IsRegularPolytope(q);
+#! false
+#! @EndExampleSession
 
 
 #! @Chapter Combinatorics and Structure

@@ -30,17 +30,18 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8407FBD78060191A">7.1-2 IsRootedQuotient</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7F097A917AE87005">7.1-3 IsRootedQuotient</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FB4904D7E99C0A0">7.1-4 IsCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83165F047B217751">7.1-5 IsRootedCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7923C770859A958F">7.1-6 IsRootedCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B1006697C002741">7.1-7 IsIsomorphicManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FCE9DF47E54D12D">7.1-8 IsIsomorphicRootedManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85A79420835EAF2A">7.1-9 IsIsomorphicRootedManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8017B6F880D162E7">7.1-10 SmallestReflexibleCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85BE14877927DB85">7.1-11 QuotientManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X87DCBB9E78E383BB">7.1-12 ReflexibleQuotientManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83D969847E68299D">7.1-13 QuotientSggi</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X819D85E57B505196">7.1-14 QuotientSggiByNormalSubgroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X86725DD8781BF181">7.1-15 QuotientManiplexByAutomorphismSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X806193277FC69158">7.1-5 IsCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83165F047B217751">7.1-6 IsRootedCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7923C770859A958F">7.1-7 IsRootedCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B1006697C002741">7.1-8 IsIsomorphicManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FCE9DF47E54D12D">7.1-9 IsIsomorphicRootedManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85A79420835EAF2A">7.1-10 IsIsomorphicRootedManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8017B6F880D162E7">7.1-11 SmallestReflexibleCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85BE14877927DB85">7.1-12 QuotientManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X87DCBB9E78E383BB">7.1-13 ReflexibleQuotientManiplex</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83D969847E68299D">7.1-14 QuotientSggi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X819D85E57B505196">7.1-15 QuotientSggiByNormalSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X86725DD8781BF181">7.1-16 QuotientManiplexByAutomorphismSubgroup</a></span>
 </div></div>
 </div>
 
@@ -119,9 +120,26 @@ false
 true
 </pre></div>
 
+<p><a id="X806193277FC69158" name="X806193277FC69158"></a></p>
+
+<h5>7.1-5 IsCover</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCover</code>( <var class="Arg">g</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsBool</code></p>
+
+<p>Returns whether <var class="Arg">h</var> is a cover of <var class="Arg">g</var>. That is, whether there is a homomorphism sending each generator of h to the corresponding generator of g.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCover(HemiCube(3), Cube(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCover(AutomorphismGroup(HemiCube(3)), UniversalSggi([4,3]));</span>
+true
+</pre></div>
+
 <p><a id="X83165F047B217751" name="X83165F047B217751"></a></p>
 
-<h5>7.1-5 IsRootedCover</h5>
+<h5>7.1-6 IsRootedCover</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsBool</code></p>
@@ -138,7 +156,7 @@ false
 
 <p><a id="X7923C770859A958F" name="X7923C770859A958F"></a></p>
 
-<h5>7.1-6 IsRootedCover</h5>
+<h5>7.1-7 IsRootedCover</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsBool</code></p>
@@ -155,7 +173,7 @@ false
 
 <p><a id="X7B1006697C002741" name="X7B1006697C002741"></a></p>
 
-<h5>7.1-7 IsIsomorphicManiplex</h5>
+<h5>7.1-8 IsIsomorphicManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsBool</code></p>
@@ -170,7 +188,7 @@ true
 
 <p><a id="X7FCE9DF47E54D12D" name="X7FCE9DF47E54D12D"></a></p>
 
-<h5>7.1-8 IsIsomorphicRootedManiplex</h5>
+<h5>7.1-9 IsIsomorphicRootedManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicRootedManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsBool</code></p>
@@ -193,7 +211,7 @@ false
 
 <p><a id="X85A79420835EAF2A" name="X85A79420835EAF2A"></a></p>
 
-<h5>7.1-9 IsIsomorphicRootedManiplex</h5>
+<h5>7.1-10 IsIsomorphicRootedManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicRootedManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsBool</code></p>
@@ -212,7 +230,7 @@ true
 
 <p><a id="X8017B6F880D162E7" name="X8017B6F880D162E7"></a></p>
 
-<h5>7.1-10 SmallestReflexibleCover</h5>
+<h5>7.1-11 SmallestReflexibleCover</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallestReflexibleCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the smallest regular cover of <var class="Arg">M</var>, which is the maniplex whose automorphism group is isomorphic to the connection group of <var class="Arg">M</var>.</p>
@@ -227,7 +245,7 @@ true
 
 <p><a id="X85BE14877927DB85" name="X85BE14877927DB85"></a></p>
 
-<h5>7.1-11 QuotientManiplex</h5>
+<h5>7.1-12 QuotientManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientManiplex</code>( <var class="Arg">M</var>, <var class="Arg">relStr</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a reflexible maniplex <var class="Arg">M</var>, generates the subgroup S of AutomorphismGroup(<var class="Arg">M</var>) given by relStr, and returns the quotient maniplex M / S. For example, QuotientManiplex(CubicTiling(2), "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2") returns the toroidal map {4,4}_{(5,0),(0,2)}. You can also input this as CubicTiling(2) / "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2".</p>
@@ -242,7 +260,7 @@ true
 
 <p><a id="X87DCBB9E78E383BB" name="X87DCBB9E78E383BB"></a></p>
 
-<h5>7.1-12 ReflexibleQuotientManiplex</h5>
+<h5>7.1-13 ReflexibleQuotientManiplex</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleQuotientManiplex</code>( <var class="Arg">M</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a reflexible maniplex <var class="Arg">M</var>, generates the normal closure N of the subgroup S of AutomorphismGroup(<var class="Arg">M</var>) given by relStr, and returns the quotient maniplex M / N, which will be reflexible. For example, QuotientManiplex(CubicTiling(2), "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2") returns the toroidal map {4,4}_{(1,0)}, because the normal closure of the group generated by (r0 r1 r2 r1)^5 and (r1 r0 r1 r2)^2 is the group generated by r0 r1 r2 r1 and r1 r0 r1 r2.</p>
@@ -257,7 +275,7 @@ true
 
 <p><a id="X83D969847E68299D" name="X83D969847E68299D"></a></p>
 
-<h5>7.1-13 QuotientSggi</h5>
+<h5>7.1-14 QuotientSggi</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggi</code>( <var class="Arg">g</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: the quotient of <var class="Arg">g</var> by <var class="Arg">rels</var>, which is either a list of Tietze words or a string of relations that is parsed by ParseStringCRels.</p>
@@ -274,7 +292,7 @@ true
 
 <p><a id="X819D85E57B505196" name="X819D85E57B505196"></a></p>
 
-<h5>7.1-14 QuotientSggiByNormalSubgroup</h5>
+<h5>7.1-15 QuotientSggiByNormalSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggiByNormalSubgroup</code>( <var class="Arg">g</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: g/n</p>
@@ -293,7 +311,7 @@ true
 
 <p><a id="X86725DD8781BF181" name="X86725DD8781BF181"></a></p>
 
-<h5>7.1-15 QuotientManiplexByAutomorphismSubgroup</h5>
+<h5>7.1-16 QuotientManiplexByAutomorphismSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientManiplexByAutomorphismSubgroup</code>( <var class="Arg">m</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: m/h</p>

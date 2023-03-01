@@ -408,3 +408,8 @@ InstallMethod(IsFaithful,
 	return true;
 	end);
 	
+InstallMethod(IsRegularPolytope,
+	[IsManiplex],
+	function(m)
+	return IsPolytopal(m) and IsReflexible(m);
+	end);
