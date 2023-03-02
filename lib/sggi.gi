@@ -408,6 +408,11 @@ InstallMethod(SectionSubgroup,
 		SetIsStringC(h, true);
 	fi;
 	
+	# If I is a range [i, i+1, ..., j], then we inherit the SchlafliSymbol
+	if HasSchlafliSymbol(g) and IsRange(I) and Size(I) > 1 and I[2]-I[1] = 1 then
+		SetSchlafliSymbol(h, SchlafliSymbol(g){[1+I[1]..I[Size(I)]]});
+	fi;
+	
 	return h;
 	end);
 	
