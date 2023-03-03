@@ -9282,6 +9282,36 @@ generators of \mbox{\texttt{\mdseries\slshape G}}.
 \end{Verbatim}
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{VerifyProperties}}
+\logpage{[ 15, 4, 10 ]}\nobreak
+\hyperdef{L}{X83F57BE47AD7267D}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VerifyProperties({\mdseries\slshape M})\index{VerifyProperties@\texttt{VerifyProperties}}
+\label{VerifyProperties}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+Boolean 
+
+
+
+ Given a maniplex \mbox{\texttt{\mdseries\slshape M}}, recalculates all of the stored properties (boolean attributes) and some of
+the stored numeric attributes of \mbox{\texttt{\mdseries\slshape M}}. Returns true if the recalculated values agree with the stored values.
+Otherwise, outputs a list of which values had discrepancies and then returns
+false. 
+
+ Note that the way that we recalculate the properties is to build a new
+maniplex from ConnectionGroup(\mbox{\texttt{\mdseries\slshape M}}). So if this connection group is incorrect, then this method will not work as
+intended. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M := Maniplex(ConnectionGroup(Cube(3)));;|
+  !gapprompt@gap>| !gapinput@SetNumberOfFlagOrbits(M, 3);|
+  !gapprompt@gap>| !gapinput@VerifyProperties(M);|
+  Value mismatch in NumberOfFlagOrbits: stored value is 3 and real value is 1
+  false
+\end{Verbatim}
+ }
+
  }
 
  }

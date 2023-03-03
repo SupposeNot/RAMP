@@ -243,3 +243,20 @@ DeclareGlobalFunction("ActionByGenerators");
 #! Group([ (1,2)(3,4), (2,3), (3,4) ])
 #! @EndExampleSession
 DeclareGlobalFunction("ActionOnBlocks");
+
+#! @Arguments M
+#! @Returns Boolean
+#! @Description Given a maniplex <A>M</A>, recalculates all of the stored properties (boolean attributes) and some of the stored numeric attributes
+#! of <A>M</A>. Returns true if the recalculated values agree with the stored values. Otherwise, outputs a list of which values had
+#! discrepancies and then returns false.
+#!
+#! Note that the way that we recalculate the properties is to build a new maniplex from ConnectionGroup(<A>M</A>). So if 
+#! this connection group is incorrect, then this method will not work as intended.
+#! @BeginExampleSession
+#! gap> M := Maniplex(ConnectionGroup(Cube(3)));;
+#! gap> SetNumberOfFlagOrbits(M, 3);
+#! gap> VerifyProperties(M);
+#! Value mismatch in NumberOfFlagOrbits: stored value is 3 and real value is 1
+#! false
+#! @EndExampleSession
+DeclareGlobalFunction("VerifyProperties");

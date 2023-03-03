@@ -298,7 +298,7 @@
   \item \texttt  {IsAtomic}
     \subitem for IsPoset, \hyperpage{55}
   \item \texttt  {IsCConnected}
-    \subitem for IsManiplex, \hyperpage{16}
+    \subitem for IsManiplex, \hyperpage{15}
   \item \texttt  {IsChainTransitive}
     \subitem for IsManiplex, IsCollection, \hyperpage{38}
   \item \texttt  {IsChiral}
@@ -686,11 +686,11 @@
   \item \texttt  {Simplex}
     \subitem for IsInt, \hyperpage{18}
   \item \texttt  {SimplifiedSggiElement}
-    \subitem for IsGroup, IsString, \hyperpage{15}
+    \subitem for IsGroup, IsString, \hyperpage{14}
   \item \texttt  {Size}
     \subitem for IsManiplex, \hyperpage{80}
   \item \texttt  {Skeleton}
-    \subitem for IsManiplex, \hyperpage{87}
+    \subitem for IsManiplex, \hyperpage{86}
   \item \texttt  {SmallChiral4Polytopes}, \hyperpage{95}
   \item \texttt  {SmallChiralPolyhedra}, \hyperpage{95}
   \item \texttt  {SmallDegenerateRegular4Polytopes}, \hyperpage{94}
@@ -762,8 +762,8 @@
     \subitem for IsInt, \hyperpage{34}
     \subitem for IsList, \hyperpage{34}
   \item \texttt  {UniversalSggi}
-    \subitem for IsInt, \hyperpage{12}
-    \subitem for IsList, \hyperpage{12}
+    \subitem for IsInt, \hyperpage{11}
+    \subitem for IsList, \hyperpage{11}
   \item \texttt  {UnlabeledFlagGraph}
     \subitem for IsGroup, \hyperpage{84}
   \item \texttt  {UnlabeledSimpleGraph}
@@ -771,6 +771,7 @@
 
   \indexspace
 
+  \item \texttt  {VerifyProperties}, \hyperpage{116}
   \item \texttt  {VertDegrees}
     \subitem for IsManiplex, \hyperpage{75}
   \item \texttt  {Vertex}, \hyperpage{17}
@@ -787,13 +788,13 @@
     \subitem for IsObject, IsString, \hyperpage{91}
   \item \texttt  {VoltageGraph}
     \subitem for IsGroup,IsList,IsList, \hyperpage{123}
-    \subitem for IsGroup,IsPremaniplex, \hyperpage{124}
+    \subitem for IsGroup,IsPremaniplex, \hyperpage{123}
     \subitem for IsGroup,IsPremaniplex,IsList, \hyperpage{123}
   \item \texttt  {VoltageOperator}
     \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{121}
     \subitem for IsList, IsString,IsManiplex, \hyperpage{121}
     \subitem for IsVoltageGraph, IsManiplex, \hyperpage{124}
-    \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{125}
+    \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{124}
   \item \texttt  {Volute}
     \subitem for IsMapOnSurface, \hyperpage{110}
 
