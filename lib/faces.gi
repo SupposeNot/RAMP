@@ -141,7 +141,7 @@ InstallMethod(Section,
 	fi;
 
 	if IsReflexible(M) and ValueOption("no_reindexing") <> true then
-		sym := SchlafliSymbol(M){[i+2..j-1]};
+		sym := PseudoSchlafliSymbol(M){[i+2..j-1]};
 		
 		# Universal polytopes have universal sections
 		if HasExtraRelators(M) and IsEmpty(ExtraRelators(M)) then
@@ -158,7 +158,8 @@ InstallMethod(Section,
 		fi;
 		
 		g := AutomorphismGroup(M);
-		h := Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
+		h := SectionSubgroup(g, [i+1..j-1]);
+		# Subgroup(g, GeneratorsOfGroup(g){[i+2..j]});
 		q := ReflexibleManiplex(h);
 		if HasSchlafliSymbol(M) then
 			SetSchlafliSymbol(q, SchlafliSymbol(M){[i+2..j-1]});
