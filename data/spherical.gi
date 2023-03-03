@@ -29,3 +29,14 @@ InstallMethod(ReflectionMatrix,
 # 	od;
 # 	return true;
 # 	end);
+
+InstallMethod(RotationMatrix,
+	[IsInt],
+	function(p)
+	local m,c,s;
+	c:=RealPart(E(p));
+	s:=ImaginaryPart(E(p));
+	m:=[[c,-s,0],[s,c,0],[0,0,1]];
+	return m;
+	end);
+	
