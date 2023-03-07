@@ -261,8 +261,8 @@
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YReturns  whether  the map [3XM[103X with [23Xq[123X-valent vertices is [13Xkaleidoscopic[113X, meaning
-  that  for  each integer e in [2..q-1] that is coprime to q, the map 'Hole(M,
-  e)' is isomorphic to M as a rooted map.[133X
+  that for each integer e in [2..q-1] that is coprime to q, the map Hole(M, e)
+  is isomorphic to M as a rooted map.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XM := AbstractRegularPolytope([4,5], "(r0 r1 r2)^5");;[127X[104X
@@ -272,6 +272,24 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XFiltered(SmallChiralPolyhedra(200), IsKaleidoscopic);[127X[104X
     [4X[28X[ ][128X[104X
+  [4X[32X[104X
+  
+  [1X9.2-10 ExponentGroup[101X
+  
+  [33X[1;0Y[29X[2XExponentGroup[102X( [3XM[103X ) [32X attribute[133X
+  
+  [33X[0;0YGiven a map [3XM[103X with constant valency q, returns a list of those integers [23Xe[123X in
+  [23X\{1,  ...,  q-1\}[123X  such  that  [23XM^e[123X  is  isomorphic  to [23XM[123X. That is, such that
+  Hole(M,e)  is  isomorphic  to [3XM[103X as a rooted map. Note that despite the name,
+  this is simply a list and not a group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XExponentGroup(ToroidalMap44([3,0]));[127X[104X
+    [4X[28X[ 1, 3 ][128X[104X
+    [4X[25Xgap>[125X [27XExponentGroup(ToroidalMap44([1,2]));[127X[104X
+    [4X[28X[ 1 ][128X[104X
+    [4X[25Xgap>[125X [27XExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));[127X[104X
+    [4X[28X[ 1, 3, 7, 9 ][128X[104X
   [4X[32X[104X
   
   

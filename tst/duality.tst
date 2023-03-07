@@ -50,3 +50,9 @@ gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^
 false
 gap> IsProperlySelfDual(Pyramid(ToroidalMap44([2,0])));
 false
+gap> ExponentGroup(ToroidalMap44([3,0]));
+[ 1, 3 ]
+gap> ExponentGroup(ToroidalMap44([1,2]));
+[ 1 ]
+gap> ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));
+[ 1, 3, 7, 9 ]

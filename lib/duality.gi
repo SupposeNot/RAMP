@@ -236,3 +236,14 @@ InstallMethod(IsKaleidoscopic,
 	return ForAll(exps, e -> IsIsomorphicRootedManiplex(M, Hole(M, e)));
 	end);
 	
+InstallMethod(ExponentGroup,
+	[IsMapOnSurface],
+	function(M)
+	local exps, q;
+	q := SchlafliSymbol(M)[2];
+	if not(IsInt(q)) then
+		Error("ExponentGroup is only defined for maps with constant valency!");
+	fi;
+	exps := Filtered(PrimeResidues(q), i -> IsIsomorphicRootedManiplex(M, Hole(M,i)));
+	return exps;
+	end);

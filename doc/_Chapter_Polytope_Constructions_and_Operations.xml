@@ -330,7 +330,7 @@ gap> DirectDerivates(Cube(3));
  <Description>
 Returns whether the map <A>M</A> with <Math>q</Math>-valent vertices is <Emph>kaleidoscopic</Emph>,
  meaning that for each integer e in [2..q-1] that is coprime to q, the map
- 'Hole(M, e)' is isomorphic to M as a rooted map.
+ Hole(M, e) is isomorphic to M as a rooted map.
  </Description>
 </ManSection>
 
@@ -343,6 +343,26 @@ gap> IsKaleidoscopic(M);
 true
 gap> Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);
 [ ]
+]]></Example>
+
+
+<ManSection>
+  <Attr Arg="M" Name="ExponentGroup" Label="for IsMapOnSurface"/>
+ <Description>
+Given a map <A>M</A> with constant valency q, returns a list of those integers <Math>e</Math> in <Math>\{1, ..., q-1\}</Math>
+ such that <Math>M^e</Math> is isomorphic to <Math>M</Math>. That is, such that Hole(M,e) is isomorphic to <A>M</A> as a rooted map. 
+ Note that despite the name, this is simply a list and not a group.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> ExponentGroup(ToroidalMap44([3,0]));
+[ 1, 3 ]
+gap> ExponentGroup(ToroidalMap44([1,2]));
+[ 1 ]
+gap> ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));
+[ 1, 3, 7, 9 ]
 ]]></Example>
 
 

@@ -143,7 +143,7 @@ DeclareOperation("DirectDerivates", [IsManiplex]);
 #! @Arguments M
 #! @Description Returns whether the map <A>M</A> with $q$-valent vertices is __kaleidoscopic__,
 #! meaning that for each integer e in [2..q-1] that is coprime to q, the map
-#! 'Hole(M, e)' is isomorphic to M as a rooted map.
+#! Hole(M, e) is isomorphic to M as a rooted map.
 DeclareProperty("IsKaleidoscopic", IsMapOnSurface);
 #! @BeginExampleSession
 #! gap> M := AbstractRegularPolytope([4,5], "(r0 r1 r2)^5");;
@@ -153,4 +153,18 @@ DeclareProperty("IsKaleidoscopic", IsMapOnSurface);
 #! true
 #! gap> Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);
 #! [ ]
+#! @EndExampleSession
+
+#! @Arguments M
+#! @Description Given a map <A>M</A> with constant valency q, returns a list of those integers $e$ in $\{1, ..., q-1\}$ 
+#! such that $M^e$ is isomorphic to $M$. That is, such that Hole(M,e) is isomorphic to <A>M</A> as a rooted map. 
+#! Note that despite the name, this is simply a list and not a group.
+DeclareAttribute("ExponentGroup", IsMapOnSurface);
+#! @BeginExampleSession
+#! gap> ExponentGroup(ToroidalMap44([3,0]));
+#! [ 1, 3 ]
+#! gap> ExponentGroup(ToroidalMap44([1,2]));
+#! [ 1 ]
+#! gap> ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));
+#! [ 1, 3, 7, 9 ]
 #! @EndExampleSession

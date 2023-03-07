@@ -49,6 +49,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-7 IsSelfPetrial</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-8 DirectDerivates</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X814A6AB1824DBB9B">9.2-9 IsKaleidoscopic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X879B118D7CBFF49E">9.2-10 ExponentGroup</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X86CE352C7851221F">9.3 <span class="Heading">Products</span></a>
 </span>
@@ -349,7 +350,7 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsKaleidoscopic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
-<p>Returns whether the map <var class="Arg">M</var> with <span class="SimpleMath">\(q\)</span>-valent vertices is <em>kaleidoscopic</em>, meaning that for each integer e in [2..q-1] that is coprime to q, the map 'Hole(M, e)' is isomorphic to M as a rooted map.</p>
+<p>Returns whether the map <var class="Arg">M</var> with <span class="SimpleMath">\(q\)</span>-valent vertices is <em>kaleidoscopic</em>, meaning that for each integer e in [2..q-1] that is coprime to q, the map Hole(M, e) is isomorphic to M as a rooted map.</p>
 
 
 <div class="example"><pre>
@@ -360,6 +361,23 @@ true
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);</span>
 [ ]
+</pre></div>
+
+<p><a id="X879B118D7CBFF49E" name="X879B118D7CBFF49E"></a></p>
+
+<h5>9.2-10 ExponentGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExponentGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Given a map <var class="Arg">M</var> with constant valency q, returns a list of those integers <span class="SimpleMath">\(e\)</span> in <span class="SimpleMath">\(\{1, ..., q-1\}\)</span> such that <span class="SimpleMath">\(M^e\)</span> is isomorphic to <span class="SimpleMath">\(M\)</span>. That is, such that Hole(M,e) is isomorphic to <var class="Arg">M</var> as a rooted map. Note that despite the name, this is simply a list and not a group.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentGroup(ToroidalMap44([3,0]));</span>
+[ 1, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentGroup(ToroidalMap44([1,2]));</span>
+[ 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));</span>
+[ 1, 3, 7, 9 ]
 </pre></div>
 
 <p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>

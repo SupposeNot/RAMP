@@ -5646,7 +5646,7 @@ derivates that are polytopal. }
 
 
  Returns whether the map \mbox{\texttt{\mdseries\slshape M}} with $q$-valent vertices is \emph{kaleidoscopic}, meaning that for each integer e in [2..q-1] that is coprime to q, the map
-'Hole(M, e)' is isomorphic to M as a rooted map. }
+Hole(M, e) is isomorphic to M as a rooted map. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -5657,6 +5657,28 @@ derivates that are polytopal. }
   true
   !gapprompt@gap>| !gapinput@Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);|
   [ ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ExponentGroup (for IsMapOnSurface)}}
+\logpage{[ 9, 2, 10 ]}\nobreak
+\hyperdef{L}{X879B118D7CBFF49E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExponentGroup({\mdseries\slshape M})\index{ExponentGroup@\texttt{ExponentGroup}!for IsMapOnSurface}
+\label{ExponentGroup:for IsMapOnSurface}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Given a map \mbox{\texttt{\mdseries\slshape M}} with constant valency q, returns a list of those integers $e$ in $\{1, ..., q-1\}$ such that $M^e$ is isomorphic to $M$. That is, such that Hole(M,e) is isomorphic to \mbox{\texttt{\mdseries\slshape M}} as a rooted map. Note that despite the name, this is simply a list and not a
+group. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@ExponentGroup(ToroidalMap44([3,0]));|
+  [ 1, 3 ]
+  !gapprompt@gap>| !gapinput@ExponentGroup(ToroidalMap44([1,2]));|
+  [ 1 ]
+  !gapprompt@gap>| !gapinput@ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));|
+  [ 1, 3, 7, 9 ]
 \end{Verbatim}
  }
 
@@ -9861,6 +9883,7 @@ IsVoltageGraph
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
