@@ -33,6 +33,25 @@ DeclareOperation("Premaniplex",[IsEdgeLabeledGraph]);
 #! Premaniplex of rank 3 with 2 flags
 #! @EndExampleSession
 
+#! @Arguments g
+#! @Returns `IsPremaniplex`
+#! @Description In the first form, we are given an Sggi <A>g</A>
+#! and we return the reflexible premaniplex with that automorphism group,
+#! where the privileged generators are those returned by GeneratorsOfGroup(g).
+#! @BeginExampleSession
+#! gap> g := Group([(1,2), (2,3), (3,4)]);
+#! gap> M := ReflexiblePremaniplex(g);
+#! gap> M = Simplex(3);
+#! true
+#! @EndExampleSession
+#! This function first checks whether g is an Sggi. Use `ReflexiblePremaniplexNC` to
+#! bypass that check.
+#!
+DeclareOperation("ReflexiblePremaniplex", [IsGroup]);
+
+DeclareOperation("ReflexiblePremaniplexNC", [IsGroup]);
+
+
 #! @Arguments n
 #! @Returns premaniplex
 #! @Description Builds the 1 flag premaniplex of rank <A>n</A>.

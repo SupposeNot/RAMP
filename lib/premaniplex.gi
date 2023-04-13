@@ -29,23 +29,46 @@ InstallMethod(Premaniplex,
 	pm:=Objectify(NewType(PremaniplexFamily, IsPremaniplex and IsPremaniplexGraphRep),  	    rec(conn_gp:=c, flags:=Vertices(g), rank:=Size(Set(Labels(g))), attr_computers := NewDictionary(Size, true)));
 	SetConnectionGroup(pm,c);
 	SetRankManiplex(pm, pm!.rank);	
-	SetSize(pm, NrMovedPoints(c));
+	if NrMovedPoints(c) = 0 then
+		SetSize(pm, 1);
+	else
+		SetSize(pm, NrMovedPoints(c));
+	fi;
 	return(pm);
 	end);
 
+InstallMethod(ReflexiblePremaniplexNC,
+	[IsGroup],
+	function(autgp)
+	local n, p;
+	n := Size(GeneratorsOfGroup(autgp));
 
-
-InstallMethod( ViewObj,
-	[IsPremaniplex],
-	function(pm)
-	if Size(pm!.flags) = 1 then
-	Print(Concatenation("Premaniplex of rank ", String(pm!.rank), " with ", String(Size(pm!.flags)), " flag"));
-	else
-		Print(Concatenation("Premaniplex of rank ", String(pm!.rank), " with ", String(Size(pm!.flags)), " flags"));
+	p := Objectify( NewType( PremaniplexFamily, IsPremaniplex and IsReflexibleManiplexAutGpRep), rec( aut_gp := autgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
+	
+	if HasSize(autgp) then SetSize(p, Size(autgp)); fi;
+	SetRankManiplex(p, n);
+	SetAutomorphismGroup(p, autgp);
+	if IsFpGroup(autgp) then
+		SetAutomorphismGroupFpGroup(p, autgp);
+	elif IsPermGroup(autgp) then
+		SetAutomorphismGroupPermGroup(p, autgp);
 	fi;
+	SetIsReflexible(p, true);
+	if HasSchlafliSymbol(autgp) then SetSchlafliSymbol(p, SchlafliSymbol(autgp)); fi;
+
+	return p;
 	end);
 
-
+InstallMethod(ReflexiblePremaniplex,
+	[IsGroup],
+	function(autgp)
+	if ValueOption("no_check") = true or IsSggi(autgp) then
+		return ReflexiblePremaniplexNC(autgp);
+	else
+		Error("The given group is not an Sggi.");
+	fi;
+	end);
+	
 
 InstallMethod(STG1,
 	[IsInt],

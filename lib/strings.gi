@@ -68,7 +68,7 @@ InstallGlobalFunction(MANIPLEX_STRING,
 	function(p)
 	local str;
 	str := "";
-	if HasIsReflexibleManiplex(p) and IsReflexibleManiplex(p) then
+	if HasIsReflexible(p) and IsReflexible(p) then
 		if HasIsPolytopal(p) and IsPolytopal(p) then
 			Append(str, "regular ");
 		else
@@ -83,15 +83,21 @@ InstallGlobalFunction(MANIPLEX_STRING,
 	Append(str, String(Rank(p)));
 	if HasIsPolytopal(p) and IsPolytopal(p) then
 		Append(str, "-polytope");
-	else
+	elif IsManiplex(p) then
 		Append(str, "-maniplex");
+	else
+		Append(str, "-premaniplex");	
 	fi;
 	if HasSchlafliSymbol(p) then 
 		Append(str, Concatenation(" of type ", String(SchlafliSymbol(p))));
 	fi;
 	if HasSize(p) then 
 		if IsFinite(p) then
-			Append(str, Concatenation(" with ", String(Size(p)), " flags")); 
+			if Size(p) = 1 then
+				Append(str, " with 1 flag");
+			else
+				Append(str, Concatenation(" with ", String(Size(p)), " flags")); 
+			fi;
 		else
 			Append(str, " with infinitely many flags"); 
 		fi;
@@ -129,6 +135,16 @@ InstallMethod(ViewObj,
 		Print(String(M));
 	else
 		Print(MANIPLEX_STRING(M));
+	fi;
+	end);
+	
+InstallMethod( ViewObj,
+	[IsPremaniplex],
+	function(pm)
+	if HasString(pm) then
+		Print(String(pm));
+	else
+		Print(MANIPLEX_STRING(pm));
 	fi;
 	end);
 	
