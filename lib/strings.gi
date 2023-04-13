@@ -129,22 +129,12 @@ InstallMethod(DisplayString,
 	end);
 	
 InstallMethod(ViewObj,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	if HasString(M) then
 		Print(String(M));
 	else
 		Print(MANIPLEX_STRING(M));
-	fi;
-	end);
-	
-InstallMethod( ViewObj,
-	[IsPremaniplex],
-	function(pm)
-	if HasString(pm) then
-		Print(String(pm));
-	else
-		Print(MANIPLEX_STRING(pm));
 	fi;
 	end);
 	

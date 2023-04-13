@@ -210,7 +210,7 @@ DeclareAttribute("IsRegularPolytope",IsManiplex);
 #! @Arguments M
 #! @Returns The number of flags of the maniplex <A>M</A>.
 #! @Description Synonym: `NumberOfFlags`.
-DeclareAttribute("Size", IsManiplex);
+DeclareAttribute("Size", IsPremaniplex);
 
 DeclareSynonymAttr("NumberOfFlags", Size);
 

@@ -296,7 +296,7 @@ InstallMethod(Maniplex,
 	
 	
 InstallMethod(Size,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local size;
 	size := ComputeAttr(M, Size);
