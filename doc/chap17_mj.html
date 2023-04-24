@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 17: Graphs for Premaniplexes</title>
+<title>GAP (RAMP) - Chapter 17: Synonyms for Commands</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -23,157 +23,62 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap16_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap18_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap17.html">[MathJax off]</a></p>
-<p><a id="X832EB60880155740" name="X832EB60880155740"></a></p>
-<div class="ChapSects"><a href="chap17_mj.html#X832EB60880155740">17 <span class="Heading">Graphs for Premaniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap17_mj.html#X79636D1B82B8AF46">17.1 <span class="Heading">Constructors of Premaniplexes</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X7B81F23579DC1CC4">17.1-1 Premaniplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X82F7D8227F616FD2">17.1-2 Premaniplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X7DB8D3047E0B5A7D">17.1-3 STG1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X7BCF47AC7876459A">17.1-4 STG2</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X7C2B1DB07CB38F59">17.1-5 STG3</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X7EFDB6887DEAFB4F">17.1-6 STG3</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X863F65F6865859F1">17.1-7 FlagGraph</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap17_mj.html#X7E7E64817A09366F">17.1-8 LabeledDarts</a></span>
-</div></div>
+<p><a id="X8019D74C7EBB499C" name="X8019D74C7EBB499C"></a></p>
+<div class="ChapSects"><a href="chap17_mj.html#X8019D74C7EBB499C">17 <span class="Heading">Synonyms for Commands</span></a>
 </div>
 
-<h3>17 <span class="Heading">Graphs for Premaniplexes</span></h3>
+<h3>17 <span class="Heading">Synonyms for Commands</span></h3>
 
-<p><a id="X79636D1B82B8AF46" name="X79636D1B82B8AF46"></a></p>
-
-<h4>17.1 <span class="Heading">Constructors of Premaniplexes</span></h4>
-
-<p><a id="X7B81F23579DC1CC4" name="X7B81F23579DC1CC4"></a></p>
-
-<h5>17.1-1 Premaniplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Premaniplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPremaniplex</code>.</p>
-
-<p>Given a group <var class="Arg">g</var> we return the premaniplex with connection group <var class="Arg">g</var>. This function first checks whether <var class="Arg">group</var> is an Sggi. Use <code class="code">PremaniplexNC</code> to bypass that check.</p>
-
-<p>Here we build a premaniplex with 3 flags.</p>
+<p>Here we list, in alphabetical order, synonyms for common commands.</p>
 
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=Group((1,2),(2,3),(1,2));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Premaniplex(g);</span>
-Premaniplex of rank 3 with 3 flags
-</pre></div>
+<ul>
+<li><p><code class="code">Ambo</code> for <code class="func">Medial</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap9_mj.html#X840BC19484E0E9CC"><span class="RefLink">RAMP: Medial for IsManiplex</span></a>)</p>
 
-<p><a id="X82F7D8227F616FD2" name="X82F7D8227F616FD2"></a></p>
+</li>
+<li><p><code class="code">AreIncidentFaces</code> for <code class="func">AreIncidentElements</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X84B2B67A805CD31D"><span class="RefLink">RAMP: AreIncidentElements for IsObject,IsObject</span></a>)</p>
 
-<h5>17.1-2 Premaniplex</h5>
+</li>
+<li><p><code class="code">ARP</code> for <code class="func">AbstractRegularPolytope</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap15_mj.html#X7C2837FB8174C8DC"><span class="RefLink">RAMP: AbstractRegularPolytope</span></a>)</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Premaniplex</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsPremaniplex</code>.</p>
+</li>
+<li><p><code class="code">Faces</code> for <code class="func">ElementsList</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X8448C7067B0EF49D"><span class="RefLink">RAMP: ElementsList for IsPoset</span></a>)</p>
 
-<p>Given an edge labeled graph <var class="Arg">G</var> we return the premaniplex with that graph. Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.</p>
+</li>
+<li><p><code class="code">FacesList</code> for <code class="func">ElementsList</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X8448C7067B0EF49D"><span class="RefLink">RAMP: ElementsList for IsPoset</span></a>)</p>
 
-<p>Here we have a premaniplex with 2 flags.</p>
+</li>
+<li><p><code class="code">Flags</code> for <code class="func">MaximalChains</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X81E0832F7B92DB7A"><span class="RefLink">RAMP: MaximalChains for IsPoset</span></a>)</p>
 
+</li>
+<li><p><code class="code">FlagsList</code> for <code class="func">MaximalChains</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X81E0832F7B92DB7A"><span class="RefLink">RAMP: MaximalChains for IsPoset</span></a>)</p>
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gap&gt; L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=EdgeLabeledGraphFromLabeledEdges(L);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Premaniplex(F);</span>
-Premaniplex of rank 3 with 2 flags
-</pre></div>
+</li>
+<li><p><code class="code">IsDiamondCondition</code> for <code class="func">IsP4</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X80F461FA7D8FEDC7"><span class="RefLink">RAMP: IsP4 for IsPoset</span></a>)</p>
 
-<p><a id="X7DB8D3047E0B5A7D" name="X7DB8D3047E0B5A7D"></a></p>
+</li>
+<li><p><code class="code">IsStronglyFlagConnected</code> for <code class="func">IsP3</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X8723519F84529E4C"><span class="RefLink">RAMP: IsP3 for IsPoset</span></a>)</p>
 
-<h5>17.1-3 STG1</h5>
+</li>
+<li><p><code class="code">MapJoin</code> for <code class="func">Angle</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap14_mj.html#X7B3BACF57D7513DB"><span class="RefLink">RAMP: Angle for IsMapOnSurface</span></a>)</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; STG1</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: premaniplex</p>
+</li>
+<li><p><code class="code">MonodromyGroup</code> for <code class="func">ConnectionGroup</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap3_mj.html#X860DF96279DD28AB"><span class="RefLink">RAMP: ConnectionGroup for IsPremaniplex</span></a>)</p>
 
-<p>Builds the 1 flag premaniplex of rank <var class="Arg">n</var>. See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).</p>
+</li>
+<li><p><code class="code">NumberOfFlags</code> for <code class="func">Size</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap10_mj.html#X83FFD6E286EEAE3A"><span class="RefLink">RAMP: Size for IsPremaniplex</span></a>)</p>
 
+</li>
+<li><p><code class="code">PetrieDual</code> for <code class="func">Petrial</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap9_mj.html#X86E347E67EE31555"><span class="RefLink">RAMP: Petrial for IsManiplex</span></a>)</p>
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG1(5);</span>
-Premaniplex of rank 5 with 1 flag
-</pre></div>
+</li>
+<li><p><code class="code">RankPosetFaces</code> for <code class="func">RankPosetElements</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8_mj.html#X7980D74F7D8C1B95"><span class="RefLink">RAMP: RankPosetElements for IsPoset</span></a>)</p>
 
-<p><a id="X7BCF47AC7876459A" name="X7BCF47AC7876459A"></a></p>
+</li>
+<li><p><code class="code">RefMan</code> for <code class="func">ReflexibleManiplex</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap5_mj.html#X7F88B7097E9421AB"><span class="RefLink">RAMP: ReflexibleManiplex</span></a>)</p>
 
-<h5>17.1-4 STG2</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; STG2</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: premaniplex</p>
-
-<p>Builds the 2 flag premaniplex of rank <var class="Arg">n</var> with semi-edges in <var class="Arg">I</var>. See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG2(5,[2,4]);</span>
-Premaniplex of rank 5 with 2 flags
-</pre></div>
-
-<p><a id="X7C2B1DB07CB38F59" name="X7C2B1DB07CB38F59"></a></p>
-
-<h5>17.1-5 STG3</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; STG3</code>( <var class="Arg">n</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: premaniplex</p>
-
-<p>Builds the 3 flag premaniplex of rank <var class="Arg">n</var> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <a href="chapBib_mj.html#biBCDHT15">[CRHT15]</a> (<span class="URL"><a href="https://doi.org/10.1007/s00026-015-0263-z">https://doi.org/10.1007/s00026-015-0263-z</a></span>). The edges of label i-1 and i+1 are parallel.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(5,2);</span>
-Premaniplex of rank 5 with 3 flags
-</pre></div>
-
-<p><a id="X7EFDB6887DEAFB4F" name="X7EFDB6887DEAFB4F"></a></p>
-
-<h5>17.1-6 STG3</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; STG3</code>( <var class="Arg">n</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: premaniplex</p>
-
-<p>Assumes <code class="code">j=i+1</code> and builds the 3 flag premaniplex of rank <var class="Arg">n</var> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <a href="chapBib_mj.html#biBCDHT15">[CRHT15]</a> (<span class="URL"><a href="https://doi.org/10.1007/s00026-015-0263-z">https://doi.org/10.1007/s00026-015-0263-z</a></span>). There are edges of label <var class="Arg">i</var> and <var class="Arg">j</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(6,2,3);</span>
-Premaniplex of rank 6 with 3 flags
-</pre></div>
-
-<p><a id="X863F65F6865859F1" name="X863F65F6865859F1"></a></p>
-
-<h5>17.1-7 FlagGraph</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagGraph</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: edgelabeledgraph</p>
-
-<p>Returns the flag graph of a premaniplex <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(4,1);;</span>
- gap&gt; FlagGraph(last);
-Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
-</pre></div>
-
-<p><a id="X7E7E64817A09366F" name="X7E7E64817A09366F"></a></p>
-
-<h5>17.1-8 LabeledDarts</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledDarts</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: list</p>
-
-<p>Given a Premaniplex <var class="Arg">M</var>, returns the list of labeled darts from its flag graph.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=STG2(5,[2,4]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LabeledDarts(P);</span>
-[ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
-</pre></div>
-
+</li>
+</ul>
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap16_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap18_mj.html">[Next Chapter]</a>&nbsp;  </div>
 

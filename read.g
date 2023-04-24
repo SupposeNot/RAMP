@@ -12,6 +12,7 @@ ReadPackage( "ramp", "lib/types.gi" );
 ReadPackage( "ramp", "lib/utils.gi" );
 
 ReadPackage( "ramp", "lib/actions.gi" ); 
+ReadPackage( "ramp", "lib/basicConstructors.gi");
 ReadPackage( "ramp", "lib/bicontactualRegularMaps.gi");
 ReadPackage( "ramp", "lib/constructions.gi" ); 
 ReadPackage( "ramp", "lib/database.gi" ); 
@@ -32,7 +33,6 @@ ReadPackage( "ramp", "lib/posetAttributes.gi");
 ReadPackage( "ramp", "lib/posetOperations.gi");
 ReadPackage( "ramp", "lib/posetElements.gi");
 ReadPackage( "ramp", "lib/poset.gi" );
-ReadPackage( "ramp", "lib/premaniplex.gi" );
 ReadPackage( "ramp", "lib/products.gi" );
 ReadPackage( "ramp", "lib/productsGH.gi");
 ReadPackage( "ramp", "lib/quotients.gi" );

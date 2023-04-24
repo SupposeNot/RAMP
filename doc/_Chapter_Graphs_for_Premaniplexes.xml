@@ -8,46 +8,6 @@
 <Heading>Constructors of Premaniplexes</Heading>
 
 <ManSection>
-  <Oper Arg="g" Name="Premaniplex" Label="for IsGroup"/>
- <Returns><Code>IsPremaniplex</Code>.
-</Returns>
- <Description>
-Given a group <A>g</A> we return the premaniplex with connection group <A>g</A>.
- This function first checks whether <A>group</A> is an Sggi. Use <Code>PremaniplexNC</Code> to
- bypass that check.
- </Description>
-</ManSection>
-
-
- Here we build a premaniplex with 3 flags.
-<Example><![CDATA[
-gap> g:=Group((1,2),(2,3),(1,2));;
-gap> Premaniplex(g);
-Premaniplex of rank 3 with 3 flags
-]]></Example>
-
-
-<ManSection>
-  <Oper Arg="G" Name="Premaniplex" Label="for IsEdgeLabeledGraph"/>
- <Returns><Code>IsPremaniplex</Code>.
-</Returns>
- <Description>
-Given an edge labeled graph <A>G</A> we return the premaniplex with that graph.
- Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.
- </Description>
-</ManSection>
-
-
- Here we have a premaniplex with 2 flags.
-<Example><![CDATA[
-gap> gap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;
-gap> F:=EdgeLabeledGraphFromLabeledEdges(L);;
-gap> Premaniplex(F);
-Premaniplex of rank 3 with 2 flags
-]]></Example>
-
-
-<ManSection>
   <Oper Arg="n" Name="STG1" Label="for IsInt"/>
  <Returns>premaniplex
 </Returns>

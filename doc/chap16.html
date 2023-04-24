@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 16: Synonyms for Commands</title>
+<title>GAP (RAMP) - Chapter 16: Utility Functions</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -20,62 +20,355 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap15.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap17.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap16_mj.html">[MathJax on]</a></p>
-<p><a id="X8019D74C7EBB499C" name="X8019D74C7EBB499C"></a></p>
-<div class="ChapSects"><a href="chap16.html#X8019D74C7EBB499C">16 <span class="Heading">Synonyms for Commands</span></a>
+<p><a id="X810FFB1C8035C8BE" name="X810FFB1C8035C8BE"></a></p>
+<div class="ChapSects"><a href="chap16.html#X810FFB1C8035C8BE">16 <span class="Heading">Utility Functions</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap16.html#X848461D08506A4A6">16.1 <span class="Heading">System</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X863ECFAD85CFFCB0">16.1-1 InfoRamp</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap16.html#X7B933C4686727183">16.2 <span class="Heading">Polytopes</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7D63A6087BD7F5F8">16.2-1 AbstractPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7C2837FB8174C8DC">16.2-2 AbstractRegularPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79AB055B7DDFB160">16.2-3 AbstractRotaryPolytope</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap16.html#X80F808307A2D5AB8">16.3 <span class="Heading">Permutations</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7CDF25897D4DBE57">16.3-1 TranslatePerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X83788BBF7EF52486">16.3-2 MultPerm</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X789F611179773CEA">16.3-3 InvolutionListList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X8738B70283F40353">16.3-4 PermFromRange</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap16.html#X8375E2157FA5BA5B">16.4 <span class="Heading">Words on relations</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7E84DB4E8746344A">16.4-1 ParseStringCRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X79C6D76380B9F364">16.4-2 ParseRotGpRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X85C42B4986C205D0">16.4-3 StandardizeSggi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X829B5DA779342A28">16.4-4 AddOrAppend</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7C4A431283A32F67">16.4-5 WrappedPosetOperation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X86B884FA7C22BC92">16.4-6 MarkAsPolytopal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X7F5C8A788040FFBF">16.4-7 ReallyNaturalHomomorphismByNormalSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X82A3B82B7C3C67E1">16.4-8 ActionByGenerators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X826F24BE83BC6468">16.4-9 ActionOnBlocks</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16.html#X83F57BE47AD7267D">16.4-10 VerifyProperties</a></span>
+</div></div>
 </div>
 
-<h3>16 <span class="Heading">Synonyms for Commands</span></h3>
+<h3>16 <span class="Heading">Utility Functions</span></h3>
 
-<p>Here we list, in alphabetical order, synonyms for common commands.</p>
+<p><a id="X848461D08506A4A6" name="X848461D08506A4A6"></a></p>
+
+<h4>16.1 <span class="Heading">System</span></h4>
+
+<p><a id="X863ECFAD85CFFCB0" name="X863ECFAD85CFFCB0"></a></p>
+
+<h5>16.1-1 InfoRamp</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoRamp</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
+<p>The InfoClass for the Ramp package. This is sort of an "information channel" that functions can send updates to, and by default, users of Ramp will see these messages. To add such a message to a function that you are writing for Ramp, use <code class="code">Info(InfoRamp, 1, "This is a message!");</code>. For example, if you have a function <code class="code">f</code> with this line, then the user will see this:</p>
 
 
-<ul>
-<li><p><code class="code">Ambo</code> for <code class="func">Medial</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap9.html#X840BC19484E0E9CC"><span class="RefLink">RAMP: Medial for IsManiplex</span></a>)</p>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f(3);;</span>
+#I This is a message!
+</pre></div>
 
-</li>
-<li><p><code class="code">AreIncidentFaces</code> for <code class="func">AreIncidentElements</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X84B2B67A805CD31D"><span class="RefLink">RAMP: AreIncidentElements for IsObject,IsObject</span></a>)</p>
+<p>To turn off messages from this class, use <code class="code">SetInfoLevel(InfoRamp, 0)</code>.</p>
 
-</li>
-<li><p><code class="code">ARP</code> for <code class="func">AbstractRegularPolytope</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap15.html#X7C2837FB8174C8DC"><span class="RefLink">RAMP: AbstractRegularPolytope</span></a>)</p>
+<p><a id="X7B933C4686727183" name="X7B933C4686727183"></a></p>
 
-</li>
-<li><p><code class="code">Faces</code> for <code class="func">ElementsList</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X8448C7067B0EF49D"><span class="RefLink">RAMP: ElementsList for IsPoset</span></a>)</p>
+<h4>16.2 <span class="Heading">Polytopes</span></h4>
 
-</li>
-<li><p><code class="code">FacesList</code> for <code class="func">ElementsList</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X8448C7067B0EF49D"><span class="RefLink">RAMP: ElementsList for IsPoset</span></a>)</p>
+<p><a id="X7D63A6087BD7F5F8" name="X7D63A6087BD7F5F8"></a></p>
 
-</li>
-<li><p><code class="code">Flags</code> for <code class="func">MaximalChains</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X81E0832F7B92DB7A"><span class="RefLink">RAMP: MaximalChains for IsPoset</span></a>)</p>
+<h5>16.2-1 AbstractPolytope</h5>
 
-</li>
-<li><p><code class="code">FlagsList</code> for <code class="func">MaximalChains</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X81E0832F7B92DB7A"><span class="RefLink">RAMP: MaximalChains for IsPoset</span></a>)</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">Maniplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractPolytopeNC</code> to assume that the output is polytopal and mark it as such.</p>
 
-</li>
-<li><p><code class="code">IsDiamondCondition</code> for <code class="func">IsP4</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X80F461FA7D8FEDC7"><span class="RefLink">RAMP: IsP4 for IsPoset</span></a>)</p>
 
-</li>
-<li><p><code class="code">IsStronglyFlagConnected</code> for <code class="func">IsP3</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X8723519F84529E4C"><span class="RefLink">RAMP: IsP3 for IsPoset</span></a>)</p>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AbstractPolytope(Group([ (1,2)(3,4)(5,6)(7,8)(9,10), (1,10)(2,3)(4,5)(6,7)(8,9) ]));</span>
+Pgon(5)
+</pre></div>
 
-</li>
-<li><p><code class="code">MapJoin</code> for <code class="func">Angle</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap14.html#X7B3BACF57D7513DB"><span class="RefLink">RAMP: Angle for IsMapOnSurface</span></a>)</p>
+<p><a id="X7C2837FB8174C8DC" name="X7C2837FB8174C8DC"></a></p>
 
-</li>
-<li><p><code class="code">MonodromyGroup</code> for <code class="func">ConnectionGroup</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap3.html#X860DF96279DD28AB"><span class="RefLink">RAMP: ConnectionGroup for IsPremaniplex</span></a>)</p>
+<h5>16.2-2 AbstractRegularPolytope</h5>
 
-</li>
-<li><p><code class="code">NumberOfFlags</code> for <code class="func">Size</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap10.html#X7C2ADC507F19E2E3"><span class="RefLink">RAMP: Size for IsManiplex</span></a>)</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRegularPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">ReflexibleManiplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractRegularPolytopeNC</code> to assume that the output is polytopal and mark it as such. Also available as <code class="code">ARP(args)</code> and <code class="code">ARPNC(args)</code>.</p>
 
-</li>
-<li><p><code class="code">PetrieDual</code> for <code class="func">Petrial</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap9.html#X86E347E67EE31555"><span class="RefLink">RAMP: Petrial for IsManiplex</span></a>)</p>
 
-</li>
-<li><p><code class="code">RankPosetFaces</code> for <code class="func">RankPosetElements</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap8.html#X7980D74F7D8C1B95"><span class="RefLink">RAMP: RankPosetElements for IsPoset</span></a>)</p>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Pgon(5)=AbstractRegularPolytope(Group([(2,3)(4,5),(1,2)(3,4)]));</span>
+true
+</pre></div>
 
-</li>
-<li><p><code class="code">RefMan</code> for <code class="func">ReflexibleManiplex</code> (<a href="/opt/gap-4.12.1/.libs/../pkg/RAMP/doc/chap5.html#X7F88B7097E9421AB"><span class="RefLink">RAMP: ReflexibleManiplex</span></a>)</p>
+<p><a id="X79AB055B7DDFB160" name="X79AB055B7DDFB160"></a></p>
 
-</li>
-</ul>
+<h5>16.2-3 AbstractRotaryPolytope</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AbstractRotaryPolytope</code>( <var class="Arg">args</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Calls <code class="code">RotaryManiplex(args)</code> and verifies whether the output is polytopal. If not, this throws an error. Use <code class="code">AbstractRotaryPolytopeNC</code> to assume that the output is polytopal and mark it as such.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := AbstractRotaryPolytope(Group((1,2)(3,4), (1,4)(2,3)));</span>
+regular 3-polytope of type [ 2, 2 ] with 8 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := AbstractRotaryPolytope(Group((1,2,3,4), (1,2)));</span>
+Error, The given group is not a String Rotation Group...
+</pre></div>
+
+<p><a id="X80F808307A2D5AB8" name="X80F808307A2D5AB8"></a></p>
+
+<h4>16.3 <span class="Heading">Permutations</span></h4>
+
+<p><a id="X7CDF25897D4DBE57" name="X7CDF25897D4DBE57"></a></p>
+
+<h5>16.3-1 TranslatePerm</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TranslatePerm</code>( <var class="Arg">perm</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns a new permutation obtained from <var class="Arg">perm</var> by adding k to each moved point.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TranslatePerm((1,2,3,4),5);</span>
+(6,7,8,9)
+</pre></div>
+
+<p><a id="X83788BBF7EF52486" name="X83788BBF7EF52486"></a></p>
+
+<h5>16.3-2 MultPerm</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MultPerm</code>( <var class="Arg">perm</var>, <var class="Arg">multiplier</var>, <var class="Arg">offset</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MultPerm((1,2,3)(4,5,6),3,7);</span>
+(1,2,3)(4,5,6)(8,9,10)(11,12,13)(15,16,17)(18,19,20)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MultPerm((1,2,3,4),2,4);</span>
+(1,2,3,4)(5,6,7,8)
+</pre></div>
+
+<p><a id="X789F611179773CEA" name="X789F611179773CEA"></a></p>
+
+<h5>16.3-3 InvolutionListList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolutionListList</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: involution</p>
+
+<p>Construction the involution (when possible) with entries <code class="code">(list1[i],list2[i])</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InvolutionListList([3,4,5],[6,7,8]);</span>
+(3,6)(4,7)(5,8)
+</pre></div>
+
+<p><a id="X8738B70283F40353" name="X8738B70283F40353"></a></p>
+
+<h5>16.3-4 PermFromRange</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermFromRange</code>( <var class="Arg">perm1</var>[, <var class="Arg">perm2</var>], <var class="Arg">perm3</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Permutation</p>
+
+<p>Given three permutations, where <var class="Arg">perm2</var> and <var class="Arg">perm3</var> are translations of <var class="Arg">perm1</var>, forms the permutation that we would most likely denote by perm1 * perm2 * ... * perm3. Namely, if <var class="Arg">perm2</var> is a translation of <var class="Arg">perm1</var> by k, then we successively translate by k until we get <var class="Arg">perm3</var>, and then we multiply those permutations together.</p>
+
+<p>When only two permutations are given, then <var class="Arg">perm2</var> is the smallest translation of perm1 such that <code class="code">SmallestMovedPoint(perm2) &gt; LargestMovedPoint(perm1)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,2), (9,10));</span>
+(1,2)(3,4)(5,6)(7,8)(9,10)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,3), (13,15));</span>
+(1,3)(4,6)(7,9)(10,12)(13,15)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((2,3,4), (8,9,10));</span>
+(2,3,4)(5,6,7)(8,9,10)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PermFromRange((1,2), (101,102), (601,602));</span>
+(1,2)(101,102)(201,202)(301,302)(401,402)(501,502)(601,602)
+</pre></div>
+
+<p><a id="X8375E2157FA5BA5B" name="X8375E2157FA5BA5B"></a></p>
+
+<h4>16.4 <span class="Heading">Words on relations</span></h4>
+
+<p><a id="X7E84DB4E8746344A" name="X7E84DB4E8746344A"></a></p>
+
+<h5>16.4-1 ParseStringCRels</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseStringCRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a list of relators</p>
+
+<p>This helper function is used in several maniplex constructors. Given a string <var class="Arg">rels</var> that represents relations in an sggi, and an sggi g, returns a list of elements in the free group of g represented by <var class="Arg">rels</var>. These can then be used to form a quotient of g.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(CubicTiling(2));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := "(r0 r1 r2 r1)^6";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseStringCRels(rels, g);</span>
+[ (r0*r1*r2*r1)^6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels[1] in FreeGroupOfFpGroup(g);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := FactorGroupFpGroupByRels(g, newrels);</span>
+&lt;fp group on the generators [ r0, r1, r2 ]&gt;
+</pre></div>
+
+<p>For convenience, you may use z1, z2, etc and h1, h2, etc in relations, where zj means r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1 (the "j-hole" word).</p>
+
+<p><a id="X79C6D76380B9F364" name="X79C6D76380B9F364"></a></p>
+
+<h5>16.4-2 ParseRotGpRels</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseRotGpRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>This helper function is used in several maniplex constructors. It is analogous to ParseStringCRels, but for rotation groups instead.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := UniversalRotationGroup([4,4]);</span>
+&lt;fp group of size infinity on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := "(s1 s2^-1)^6";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseRotGpRels(rels, g);</span>
+[ (s1*s2^-1)^6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := FactorGroupFpGroupByRels(g, newrels);</span>
+&lt;fp group on the generators [ s1, s2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex(g2);</span>
+3-maniplex with 288 flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = ToroidalMap44([6,0]);</span>
+true
+</pre></div>
+
+<p><a id="X85C42B4986C205D0" name="X85C42B4986C205D0"></a></p>
+
+<h5>16.4-3 StandardizeSggi</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; StandardizeSggi</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsSggi</p>
+
+<p>Takes an sggi, and returns an isomorphic sggi that is a quotient of the universal sggi of the appropriate rank.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">f := FreeGroup("x","y","z");</span>
+&lt;free group on the generators [ x, y, z ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(f);</span>
+#I  Assigned the global variables [ x, y, z ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := f / [x^2, y^2, z^2, (x*z)^2, (x*y)^4, (y*z)^4, (x*y*z)^6];</span>
+&lt;fp group on the generators [ x, y, z ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSggi(g);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := StandardizeSggi(g);</span>
+&lt;fp group on the generators [ r0, r1, r2 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexibleManiplex(g) = ReflexibleManiplex(g2);</span>
+true
+</pre></div>
+
+<p><a id="X829B5DA779342A28" name="X829B5DA779342A28"></a></p>
+
+<h5>16.4-4 AddOrAppend</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AddOrAppend</code>( <var class="Arg">L</var>, <var class="Arg">x</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a list <var class="Arg">L</var> and an object <var class="Arg">x</var>, this calls Append(L, x) if x is a list; otherwise it calls Add(L, x). Note that since strings are internally represented as lists, AddOrAppend(L, "foo") will append the characters 'f', 'o', 'o'.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := [1, 2, 3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AddOrAppend(L, 4);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
+[1, 2, 3, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AddOrAppend(L, [5, 6]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L;</span>
+[1, 2, 3, 4, 5, 6];
+</pre></div>
+
+<p><a id="X7C4A431283A32F67" name="X7C4A431283A32F67"></a></p>
+
+<h5>16.4-5 WrappedPosetOperation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WrappedPosetOperation</code>( <var class="Arg">posetOp</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a poset operation, creates a bare-bones maniplex operation that delegates to the poset operation.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">myjoin := WrappedPosetOperation(JoinProduct);</span>
+function( arg... ) ... end
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := myjoin(Pgon(4), Vertex());</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Pyramid(4);</span>
+true
+</pre></div>
+
+<p>Usually, you will want to eventually create a fuller-featured wrapper of the poset operation -- one that can infer more information from its arguments. But this method is a good way to quickly test whether a poset operation works on maniplexes the way one expects.</p>
+
+<p><a id="X86B884FA7C22BC92" name="X86B884FA7C22BC92"></a></p>
+
+<h5>16.4-6 MarkAsPolytopal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MarkAsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Sets <code class="code">IsPolytopal(M)</code> as true, and if necessary, changes <code class="code">String(M)</code> to reflect this.</p>
+
+<p><a id="X7F5C8A788040FFBF" name="X7F5C8A788040FFBF"></a></p>
+
+<h5>16.4-7 ReallyNaturalHomomorphismByNormalSubgroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReallyNaturalHomomorphismByNormalSubgroup</code>( <var class="Arg">G</var>, <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: quotient group with generators appropriately mapped</p>
+
+<p>Image(NaturalHomomorphismByNormalSubgroup(G,N)) tries to make the quotient efficient in terms of the number of generators, which is disastrous for studying Sggis. This fixes that.</p>
+
+<p><a id="X82A3B82B7C3C67E1" name="X82A3B82B7C3C67E1"></a></p>
+
+<h5>16.4-8 ActionByGenerators</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionByGenerators</code>( <var class="Arg">G</var>, <var class="Arg">S</var>, <var class="Arg">act</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns a permutation group that represents the action of <var class="Arg">G</var> on <var class="Arg">S</var> as given by the action <var class="Arg">act</var>. Furthermore, the generators of this permutation group are the images of the generators of <var class="Arg">G</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionByGenerators(g, [[1,8],[2,7],[3,6],[4,5]], OnSets);</span>
+Group([ (1,2)(3,4), (2,3), (3,4) ])
+</pre></div>
+
+<p><a id="X826F24BE83BC6468" name="X826F24BE83BC6468"></a></p>
+
+<h5>16.4-9 ActionOnBlocks</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ActionOnBlocks</code>( <var class="Arg">G</var>, <var class="Arg">S</var>, <var class="Arg">B</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Given a group <var class="Arg">G</var> acting on a set <var class="Arg">S</var> and an initial block <var class="Arg">B</var>, returns the action of <var class="Arg">G</var> on the block system induced by <var class="Arg">B</var>. This is equivalent to <code class="code">ActionByGenerators(G, Blocks(G, S, B), OnSets)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,7), (3,5)(4,6) ]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ActionOnBlocks(g, [1..8], [1,8]);</span>
+Group([ (1,2)(3,4), (2,3), (3,4) ])
+</pre></div>
+
+<p><a id="X83F57BE47AD7267D" name="X83F57BE47AD7267D"></a></p>
+
+<h5>16.4-10 VerifyProperties</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VerifyProperties</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: Boolean</p>
+
+<p>Given a maniplex <var class="Arg">M</var>, recalculates all of the stored properties (boolean attributes) and some of the stored numeric attributes of <var class="Arg">M</var>. Returns true if the recalculated values agree with the stored values. Otherwise, outputs a list of which values had discrepancies and then returns false.</p>
+
+<p>Note that the way that we recalculate the properties is to build a new maniplex from ConnectionGroup(<var class="Arg">M</var>). So if this connection group is incorrect, then this method will not work as intended.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(ConnectionGroup(Cube(3)));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetNumberOfFlagOrbits(M, 3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VerifyProperties(M);</span>
+Value mismatch in NumberOfFlagOrbits: stored value is 3 and real value is 1
+false
+</pre></div>
+
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap15.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap17.html">[Next Chapter]</a>&nbsp;  </div>
 

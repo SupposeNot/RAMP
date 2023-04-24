@@ -1,128 +1,314 @@
   
-  [1X13 [33X[0;0YStratified Operations[133X[101X
+  [1X13 [33X[0;0YDatabases[133X[101X
+  
+  [33X[0;0YWe  are  indebted  to  those  who have made their data on polytopes and maps
+  freely available. Data on small regular polytopes is from Marston Conder:[133X
+  
+  [33X[0;0Yhttps://www.math.auckland.ac.nz/~conder/RegularPolytopesWithUpTo4000Flags-ByOrder.txt[133X
+  
+  [33X[0;0YData on small reflexible maniplexes was produced for RAMP by Mark Mixer.[133X
+  
+  [33X[0;0YData on small chiral polytopes is from Marston Conder:[133X
+  
+  [33X[0;0Yhttps://www.math.auckland.ac.nz/~conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt[133X
+  
+  [33X[0;0YData  on  small 2-orbit polyhedra in class 2_0 (available in Rank3AG_2_0.txt
+  in the data folder) was produced for RAMP by Mark Mixer.[133X
   
   
-  [1X13.1 [33X[0;0YComputational tools[133X[101X
+  [1X13.1 [33X[0;0YRegular polyhedra[133X[101X
   
-  [33X[0;0YI should say something more here.[133X
+  [1X13.1-1 WriteManiplexesToFile[101X
   
-  [1X13.1-1 ChunkMultiply[101X
+  [33X[1;0Y[29X[2XWriteManiplexesToFile[102X( [3Xmaniplexes[103X, [3Xfilename[103X, [3XattributeNames[103X ) [32X function[133X
   
-  [33X[1;0Y[29X[2XChunkMultiply[102X( [3Xelement1[103X, [3Xelement2[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yelement[133X
+  [33X[0;0YWrites the data in [3Xmaniplexes[103X to the designated file, including the defining
+  information  and  the values of the attributes in [3XattributeNames[103X. This calls
+  [10XDatabaseString[110X   on   each   maniplex   in   [3Xmaniplexes[103X   to  get  the  file
+  representation.[133X
   
-  [33X[0;0YElements  are  ordered pairs of the form [perm, list], where the elements of
-  list  are members of a group. Operation performed is consistent with that in
-  defined in [PW18].[133X
+  [1X13.1-2 ManiplexesFromFile[101X
   
-  [1X13.1-2 ChunkPower[101X
+  [33X[1;0Y[29X[2XManiplexesFromFile[102X( [3Xfilename[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[1;0Y[29X[2XChunkPower[102X( [3Xelement[103X, [3Xinteger[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Yelement[133X
+  [33X[0;0YReads the maniplexes from [3Xfilename[103X in the data directory of RAMP and returns
+  them  as  a  list. Note that for performance reasons, some safety checks are
+  disabled  for  data  read  from a file. For example, [10XAbstractRegularPolytope[110X
+  usually  checks  its  input  to  make  sure  that it defines a polytope, but
+  [10XManiplexesFromFile[110X   just   assumes   that   any   maniplex   defined  using
+  [10XAbstractRegularPolytope[110X really is a polytope.[133X
   
-  [33X[0;0YGiven  an element compatible with the ChunkMultiply operation, this function
-  will compute the product of element with itself integer times.[133X
+  [1X13.1-3 DegeneratePolyhedra[101X
   
-  [1X13.1-3 ChunkGeneratedGroupElements[101X
+  [33X[1;0Y[29X[2XDegeneratePolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[1;0Y[29X[2XChunkGeneratedGroupElements[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YnewList[133X
-  
-  [33X[0;0YGiven a list of generators compatible with the ChunkMultiply operation, this
-  function  will  construct  the  associated  list of group elements in a form
-  suitable for taking ChunkMultiply and ChunkPower.[133X
+  [33X[0;0YGives all degenerate polyhedra (of type [23X\{2, q\}[123X and [23X\{p, 2\}[123X) with sizes in
+  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
+  sizerange of [10X[1..maxsize][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:=AutomorphismGroup(Simplex(2));[127X[104X
-    [4X[28X<fp group of size 6 on the generators [ r0, r1 ]>[128X[104X
-    [4X[25Xgap>[125X [27XAssignGeneratorVariables(g);[127X[104X
-    [4X[28X#I  Assigned the global variables [ r0, r1 ][128X[104X
-    [4X[25Xgap>[125X [27XSetReducedMultiplication(r0);[127X[104X
-    [4X[25Xgap>[125X [27Xs0:=[(1,2),[r0,r0,r1]];;s1:=[(2,3),[r0,r1,r1]];;[127X[104X
-    [4X[25Xgap>[125X [27XChunkGeneratedGroupElements([s0,s1],g);[127X[104X
-    [4X[28X[ [ (1,2), [ r0, r0, r1 ] ], [ (2,3), [ r0, r1, r1 ] ], [128X[104X
-    [4X[28X  [ (), [ <identity ...>, <identity ...>, <identity ...> ] ], [128X[104X
-    [4X[28X  [ (1,3,2), [ <identity ...>, <identity ...>, r0*r1 ] ], [128X[104X
-    [4X[28X  [ (1,2,3), [ r1*r0, <identity ...>, <identity ...> ] ], [ (1,3), [ r0, r0, r0 ] ], [128X[104X
-    [4X[28X  [ (1,3), [ r1, r1, r1 ] ], [ (1,2,3), [ <identity ...>, r0*r1, r0*r1 ] ], [128X[104X
-    [4X[28X  [ (1,3,2), [ r1*r0, r1*r0, <identity ...> ] ], [ (2,3), [ r0*r1*r0, r0, r0 ] ], [128X[104X
-    [4X[28X  [ (1,2), [ r1, r1, r0*r1*r0 ] ], [ (), [ r0*r1, r0*r1, r0*r1 ] ], [128X[104X
-    [4X[28X  [ (), [ r1*r0, r1*r0, r1*r0 ] ], [ (1,2), [ r0*r1*r0, r0*r1*r0, r0 ] ], [128X[104X
-    [4X[28X  [ (2,3), [ r1, r0*r1*r0, r0*r1*r0 ] ], [ (1,3,2), [ r0*r1, r0*r1, r1*r0 ] ], [128X[104X
-    [4X[28X  [ (1,2,3), [ r0*r1, r1*r0, r1*r0 ] ], [ (1,3), [ r0*r1*r0, r0*r1*r0, r0*r1*r0 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XDegeneratePolyhedra(24);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 2, 2 ]), AbstractRegularPolytope([ 2, 3 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 2 ]), AbstractRegularPolytope([ 2, 4 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 2 ]), AbstractRegularPolytope([ 2, 5 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 2 ]), AbstractRegularPolytope([ 2, 6 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
   [4X[32X[104X
   
-  [1X13.1-4 ChunkGeneratedGroup[101X
+  [1X13.1-4 FlatRegularPolyhedra[101X
   
-  [33X[1;0Y[29X[2XChunkGeneratedGroup[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YpermGroup[133X
+  [33X[1;0Y[29X[2XFlatRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YGiven a list of generators compatible with the ChunkMultiply operation, this
-  function  will  construct  a  representation  of  the group as a permutation
-  group. Note that generators are of the form [perm, list], and each list is a
-  list of elements from group.[133X
+  [33X[0;0YGives all nondegenerate flat regular polyhedra with sizes in [3Xsizerange[103X. Also
+  accepts  a  single  integer  [13Xmaxsize[113X  as  input  to  indicate a sizerange of
+  [10X[1..maxsize][110X. Currently supports a maxsize of 4000 or less.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=Simplex(2); a:=AutomorphismGroup(p);[127X[104X
-    [4X[28XPgon(3)[128X[104X
-    [4X[28X<fp group of size 6 on the generators [ r0, r1 ]>[128X[104X
-    [4X[25Xgap>[125X [27Xe:=One(a);; AssignGeneratorVariables(a);[127X[104X
-    [4X[25Xgap>[125X [27Xs0:=[(3,4),[r0,r0,e,e,r0,r0]];[127X[104X
-    [4X[28X[ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xs1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];[127X[104X
-    [4X[28X[ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xs2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];[127X[104X
-    [4X[28X[ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ][128X[104X
-    [4X[25Xgap>[125X [27X gens:=[s0,s1,s2];;[127X[104X
-    [4X[25Xgap>[125X [27XChunkMultiply(s0,s1);[127X[104X
-    [4X[28X[ (2,3,5,4), [ r0*r1, <identity ...>, r0, r0, <identity ...>, r0*r1 ] ][128X[104X
-    [4X[25Xgap>[125X [27XChunkMultiply(s0,s0);[127X[104X
-    [4X[28X[ (), [ r0^2, r0^2, <identity ...>, <identity ...>, r0^2, r0^2 ] ][128X[104X
-    [4X[25Xgap>[125X [27XSetReducedMultiplication(r1);[127X[104X
-    [4X[25Xgap>[125X [27XChunkMultiply(s0,s0);[127X[104X
-    [4X[28X[ (), [ <identity ...>, <identity ...>, <identity ...>, <identity ...>, <identity ...>,  <identity ...> ] ][128X[104X
-    [4X[25Xgap>[125X [27XChunkGeneratedGroup(gens,a);[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27XSize(last);[127X[104X
-    [4X[28X1296[128X[104X
+    [4X[25Xgap>[125X [27XFlatRegularPolyhedra([10..24]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 2, 3 ]), AbstractRegularPolytope([ 3, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 2, 4 ]), AbstractRegularPolytope([ 4, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 2, 5 ]), AbstractRegularPolytope([ 5, 2 ]), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 3 ], "r2 r1 r0 r1 = (r0 r1)^2 r1 (r1 r2)^1, r2 r1 r2 r1 r0 r1 = (r0\[128X[104X
+    [4X[28X r1)^3 (r1 r2)^2"), [128X[104X
+    [4X[28X  ReflexibleManiplex([ 3, 4 ], "(r2*r1)^2*r1^2*r0*r1*r2*r1*r0,(r2*r1)^3*(r1*r0)^2*r1*r2*(r1*r0)^2"\[128X[104X
+    [4X[28X), AbstractRegularPolytope([ 2, 6 ]), AbstractRegularPolytope([ 6, 2 ]) ][128X[104X
   [4X[32X[104X
   
-  [1X13.1-5 FullyStratifiedGroup[101X
+  [1X13.1-5 RegularToroidalPolyhedra44[101X
   
-  [33X[1;0Y[29X[2XFullyStratifiedGroup[102X( [3Xlist[103X, [3Xgroup[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsPermGroup[133X
+  [33X[1;0Y[29X[2XRegularToroidalPolyhedra44[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YImplements  fully  stratified  operations  on maniplexes from [CPW22]. Given
-  [3Xlist[103X of generators compatible with the [10XChunkMultiply[110X operation, [3Xgroup[103X is the
-  underlying  group in the representation (usually the connection group of the
-  base),  this  will  calculate the connection group of the resulting maniplex
-  acting on the implicit flags of the construction. Function assumes that [3Xlist[103X
-  are  the generators of the connection group of the resulting maniplex in the
-  order [23X\langle r_0, r_1, \ldots, r_{d-1}\rangle[123X. It is possible that for some
-  groups  this  function  will  behave  poorly  because  GAP  won't  recognize
-  equivalent  representations  of  a  group  element.  If so, try again with a
-  permutation  representation  and  let  us  know so we can modify the code to
-  handle  this  problem  better  (didn't  show  up  in  our  testing, but is a
-  theoretical possibility).[133X
+  [33X[0;0YGives  all  regular  toroidal  polyhedra  of  type  [23X\{4,4\}[123X  with  sizes  in
+  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
+  sizerange of [10X[1..maxsize][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=Simplex(2);; a:=AutomorphismGroup(p);[127X[104X
-    [4X[28X<fp group of size 6 on the generators [ r0, r1 ]>[128X[104X
-    [4X[25Xgap>[125X [27Xe:=One(a);[127X[104X
-    [4X[28X<identity ...>[128X[104X
-    [4X[25Xgap>[125X [27XAssignGeneratorVariables(a);[127X[104X
-    [4X[28X#I  Assigned the global variables [ r0, r1 ][128X[104X
-    [4X[25Xgap>[125X [27Xs0:=[(3,4),[r0,r0,e,e,r0,r0]];[127X[104X
-    [4X[28X[ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xs1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];[127X[104X
-    [4X[28X[ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xs2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];[127X[104X
-    [4X[28X[ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ][128X[104X
-    [4X[25Xgap>[125X [27Xgens:=[s0,s1,s2];[127X[104X
-    [4X[28X[ [ (3,4), [ r0, r0, <identity ...>, <identity ...>, r0, r0 ] ], [128X[104X
-    [4X[28X  [ (2,3)(4,5), [ r1, <identity ...>, <identity ...>, <identity ...>, <identity ...>, r1 ] ], [128X[104X
-    [4X[28X  [ (1,2)(5,6), [ <identity ...>, <identity ...>, r1, r1, <identity ...>, <identity ...> ] ] ][128X[104X
-    [4X[25Xgap>[125X [27XManiplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));[127X[104X
+    [4X[25Xgap>[125X [27XRegularToroidalPolyhedra44([60..100]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2)^4"), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 4, 4 ], "(r0 r1 r2 r1)^3") ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-6 RegularToroidalPolyhedra36[101X
+  
+  [33X[1;0Y[29X[2XRegularToroidalPolyhedra36[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  toroidal  polyhedra  of  type  [23X\{3,6\}[123X  with  sizes  in
+  [3Xsizerange[103X.  Also  accepts  a  single  integer [13Xmaxsize[113X as input to indicate a
+  sizerange of [10X[1..maxsize][110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XRegularToroidalPolyhedra36([100..150]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6"), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2 r1 r2)^4") ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-7 SmallRegularPolyhedraFromFile[101X
+  
+  [33X[1;0Y[29X[2XSmallRegularPolyhedraFromFile[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  polyhedra with sizes in [3Xsizerange[103X flags that are stored
+  separately  in  a  file.  These  are  polyhedra  that are not part of one of
+  several  infinite  families  that  are  covered by the other generators. The
+  return  value  of  this function is unstable and may change as more infinite
+  familes of polyhedra are identified and written as separate generators.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallRegularPolyhedraFromFile(64);[127X[104X
+    [4X[28X[ Simplex(3), AbstractRegularPolytope([ 3, 6 ], "(r2*r0*r1)^2*(r0*r2*r1)^2 "), CrossPolytope(3), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 6, 3 ], "(r0*r2*r1)^2*(r2*r0*r1)^2 "), Cube(3), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 5 ], "r1*r2*r0*(r1*r0*r2)^2 "), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 3, 5 ], "(r2*r0*r1)^3*(r0*r2*r1)^2 "), [128X[104X
+    [4X[28X  AbstractRegularPolytope([ 5, 3 ], "(r0*r2*r1)^3*(r2*r0*r1)^2 ") ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-8 SmallRegularPolyhedra[101X
+  
+  [33X[1;0Y[29X[2XSmallRegularPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  polyhedra  with  sizes  in  [3Xsizerange[103X  flags. Currently
+  supports  a [10Xmaxsize[110X of 4000 or less. You can also set options [10Xnondegenerate[110X,
+  [10Xnonflat[110X, and [10Xnontoroidal[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL1 := SmallRegularPolyhedra(500);;[127X[104X
+    [4X[25Xgap>[125X [27XL2 := SmallRegularPolyhedra(1000 : nondegenerate);;[127X[104X
+    [4X[25Xgap>[125X [27XL3 := SmallRegularPolyhedra(2000 : nondegenerate, nonflat);;[127X[104X
+    [4X[25Xgap>[125X [27XLength(SmallRegularPolyhedra(64));[127X[104X
+    [4X[28X53[128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-9 SmallDegenerateRegular4Polytopes[101X
+  
+  [33X[1;0Y[29X[2XSmallDegenerateRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  degenerate  regular  4-polytopes  with sizes in [3Xsizerange[103X flags.
+  Currently supports a [10Xmaxsize[110X of 8000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X SmallDegenerateRegular4Polytopes([64]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 4, 2, 4 ]), AbstractRegularPolytope([ 2, 8, 2 ]), [128X[104X
+    [4X[28X  regular 4-polytope of type [ 4, 4, 2 ] with 64 flags, [128X[104X
+    [4X[28X  ReflexibleManiplex([ 2, 4, 4 ], "(r2*r1*r2*r3)^2,(r1*r2*r3*r2)^2") ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-10 SmallRegular4Polytopes[101X
+  
+  [33X[1;0Y[29X[2XSmallRegular4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  4-polytopes  with  sizes  in [3Xsizerange[103X flags. Currently
+  supports a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallRegular4Polytopes([100]);[127X[104X
+    [4X[28X[ AbstractRegularPolytope([ 5, 2, 5 ]) ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-11 SmallChiralPolyhedra[101X
+  
+  [33X[1;0Y[29X[2XSmallChiralPolyhedra[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives all chiral polyhedra with sizes in [3Xsizerange[103X flags. Currently supports
+  a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallChiralPolyhedra(100);[127X[104X
+    [4X[28X[ AbstractRotaryPolytope([ 4, 4 ], "s1*s2^-2*s1^2*s2^-1,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-1*s2*s1^2*s2^2*s1^-1,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 3, 6 ], "s2^-1*s1*s2^-2*s1^-1*s2*s1^-1*s2^-2,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 6, 3 ], "s1*s2^-1*s1^2*s2*s1^-1*s2*s1^2,(s2*s1)^2") ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-12 SmallChiral4Polytopes[101X
+  
+  [33X[1;0Y[29X[2XSmallChiral4Polytopes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  chiral  4-polytopes  with  sizes  in  [3Xsizerange[103X flags. Currently
+  supports a [10Xmaxsize[110X of 4000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallChiral4Polytopes([200..250]);[127X[104X
+    [4X[28X[ AbstractRotaryPolytope([ 3, 4, 4 ], "s3^-1*s2^-2*s1^-1*s3*s1,s2^-1*s3^-2*s2^2*s3,(s2^-1*s3^-1)^2,(s1^-1*s2^-1)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4, 3 ], "s1*s2^2*s3*s1^-1*s3^-1,s2*s1^2*s2^-2*s1^-1,(s2*s1)^2,(s3*s2)^2"), [128X[104X
+    [4X[28X  AbstractRotaryPolytope([ 4, 4, 4 ], "s2*s3^-2*s2^2*s3^-1,s3*s2*s1^-1*s3^2*s1,s3^-1*s2^-2*s1^-1*s3*s1,(s2^-1*s3^-1)^2,s1^-1*s2^-2*s1^2*s2,(s1^-1*s2^-1)^2") ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-13 SmallReflexible3Maniplexes[101X
+  
+  [33X[1;0Y[29X[2XSmallReflexible3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  regular  3-polytopes  with  sizes  in [3Xsizerange[103X flags. Currently
+  supports  a [10Xmaxsize[110X of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
+  returns maniplexes that are not polyhedra.[133X
+  
+  [1X13.1-14 SmallReflexibleManiplexes[101X
+  
+  [33X[1;0Y[29X[2XSmallReflexibleManiplexes[102X( [3Xn[103X, [3Xsizerange[103X[, [3Xfilt1[103X, [3Xfilt2[103X, [3X...[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YFirst  finds  a list of all reflexible maniplexes of rank [3Xn[103X where the number
+  of  flags  is  in  [3Xsizerange[103X. Then applies the given filters and returns the
+  result.  Each  filter is either a function-value pair or a boolean function.
+  In  the  first  case,  we  keep only those maniplexes such that applying the
+  given  function  returns  the  given value. In the second case, we keep only
+  those maniplexes such that the given boolean function returns [10Xtrue[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := SmallReflexibleManiplexes(3, [100..200], IsPolytopal, [NumberOfVertices, 6]);;[127X[104X
+    [4X[25Xgap>[125X [27XSize(L);[127X[104X
+    [4X[28X14[128X[104X
+    [4X[25Xgap>[125X [27XForAll(L, IsPolytopal);[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XList(L, NumberOfVertices);[127X[104X
+    [4X[28X[ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.1-15 SmallTwoOrbit3Maniplexes[101X
+  
+  [33X[1;0Y[29X[2XSmallTwoOrbit3Maniplexes[102X( [3XI[103X, [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives all two-orbit 3-maniplexes in class [23X2_I[123X with sizes in [3Xsizerange[103X flags.
+  Currently supports a [10Xmaxsize[110X of 1000 or less.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XL := SmallTwoOrbit3Maniplexes([0], 100);[127X[104X
+    [4X[28X[ TwoOrbit3ManiplexClass2_0([ 10, 4 ], "  r0*a21*a101*a21^-1, r0*a21^-1*a101*r0*a101*a21 "),[128X[104X
+    [4X[28X TwoOrbit3ManiplexClass2_0([ 14, 3 ], "  r0*a21*a101*a21^-1, r0*a101*a21*(a101*r0)^2*a21^-1 ") ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X13.2 [33X[0;0YSystem internal representations[133X[101X
+  
+  [1X13.2-1 DatabaseString[101X
+  
+  [33X[1;0Y[29X[2XDatabaseString[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YString[133X
+  
+  [33X[0;0YGiven a maniplex [3XM[103X, returns a string representation of [3XM[103X suitable for saving
+  in  a  database  for  later retrieval. This works for any maniplex such that
+  String([3XM[103X) contains defining information for [3XM[103X - otherwise the output may not
+  be so useful.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDatabaseString(Cube(3));[127X[104X
+    [4X[28X"Cube(3)#6#48"[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;[127X[104X
+    [4X[25Xgap>[125X [27XDatabaseString(M);[127X[104X
+    [4X[28X"<object>#4#24"[128X[104X
+  [4X[32X[104X
+  
+  [1X13.2-2 ManiplexFromDatabaseString[101X
+  
+  [33X[1;0Y[29X[2XManiplexFromDatabaseString[102X( [3XmaniplexString[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven a string [3XmaniplexString[103X, representing a maniplex stored in a database,
+  returns    the    maniplex    that    is    represented.    In   particular,
+  ManiplexFromDatabaseString(DatabaseString(M))   is   isomorphic   to   M  if
+  DatabaseString(M) contains defining information for M.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XManiplexFromDatabaseString("Cube(3)#6#48") = Cube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(Group((1,2),(2,3),(3,4)));;[127X[104X
+    [4X[25Xgap>[125X [27XManiplexFromDatabaseString(DatabaseString(M));[127X[104X
+    [4X[28XSyntax error: expression expected in stream:1[128X[104X
+    [4X[28X_EVALSTRINGTMP:=<object>;[128X[104X
+  [4X[32X[104X
+  
+  [1X13.2-3 InterpolatedString[101X
+  
+  [33X[1;0Y[29X[2XInterpolatedString[102X( [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsString[133X
+  
+  [33X[0;0YGiven    a    string,   replaces   each   instance   of   "$variable"   with
+  String(EvalString(variable)).  Any  character  which  cannot  be  used  in a
+  variable  name  (such as spaces, commas, etc.) marks the end of the variable
+  name.[133X
+  
+  [33X[0;0YNote  that, due to limitations with EvalString, only global variables can be
+  interpolated this way.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xn := 5;;[127X[104X
+    [4X[25Xgap>[125X [27XInterpolatedString("2 + 3 = $n");[127X[104X
+    [4X[28X"2 + 3 = 5"[128X[104X
+    [4X[25Xgap>[125X [27XInterpolatedString("2 + 3 = $n, right?");[127X[104X
+    [4X[28X"2 + 3 = 5, right?"[128X[104X
+    [4X[25Xgap>[125X [27Xnn := 17;;[127X[104X
+    [4X[25Xgap>[125X [27XInterpolatedString("$n and $nn are different");[127X[104X
+    [4X[28X"5 and 17 are different"[128X[104X
   [4X[32X[104X
   

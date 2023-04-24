@@ -580,6 +580,40 @@ Constructs the connection group from an edge labeled graph.
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="M" Name="FlagGraph" Label="for IsPremaniplex"/>
+ <Returns>edgelabeledgraph
+</Returns>
+ <Description>
+Returns the flag graph of a premaniplex <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> STG3(4,1);;
+ gap> FlagGraph(last);
+Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
+]]></Example>
+
+
+<ManSection>
+  <Attr Arg="M" Name="LabeledDarts" Label="for IsPremaniplex"/>
+ <Returns>list
+</Returns>
+ <Description>
+Given a Premaniplex <A>M</A>, returns the list of labeled darts from its flag graph.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> P:=STG2(5,[2,4]);;
+gap> LabeledDarts(P);
+[ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
+]]></Example>
+
+
 </Section>
 
 

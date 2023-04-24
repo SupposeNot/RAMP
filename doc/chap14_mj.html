@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (RAMP) - Chapter 14: Maps On Surfaces</title>
+<title>GAP (RAMP) - Chapter 14: Stratified Operations</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -23,747 +23,139 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap13_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap15_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap14.html">[MathJax off]</a></p>
-<p><a id="X802F024B80294E55" name="X802F024B80294E55"></a></p>
-<div class="ChapSects"><a href="chap14_mj.html#X802F024B80294E55">14 <span class="Heading">Maps On Surfaces</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X81AFCB8E84DB41DE">14.1 <span class="Heading">Bicontactual regular maps</span></a>
+<p><a id="X7B9A7024825B378C" name="X7B9A7024825B378C"></a></p>
+<div class="ChapSects"><a href="chap14_mj.html#X7B9A7024825B378C">14 <span class="Heading">Stratified Operations</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X871D56AE7EFE6B58">14.1 <span class="Heading">Computational tools</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X871814FE7CC7B178">14.1-1 Epsilonk</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7F59553F84D04CAF">14.1-2 Deltak</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7876740785ECAF02">14.1-3 Mk</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7DAE3F0686CA7AA5">14.1-4 MkPrime</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7EB8C646795CB285">14.1-5 Bk2l</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X8592D83D87DFCF3F">14.1-6 Bk2lStar</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X80E866D6862E1FD0">14.2 <span class="Heading">Operations on reflexible maps</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X788A29017AE71302">14.2-1 Opp</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X835627037B606BA9">14.2-2 Hole</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X7BF319E97DEC64D2">14.3 <span class="Heading">Map properties</span></a>
-</span>
-</div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X8688080A7A67C820">14.4 <span class="Heading">Operations on maps</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X836355A984E78063">14.4-1 Truncation</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X87314A378600B2D5">14.4-2 Snub</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X781B0A0880BFD546">14.4-3 Chamfer</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7E0E11CE7CF33FBB">14.4-4 Subdivision1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X84F485127B8AD294">14.4-5 Subdivision2</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X81B9A11C788E3BDF">14.4-6 BarycentricSubdivision</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7A3AD3EA8594B99B">14.4-7 Leapfrog</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X79B68D5E7D7B3E0D">14.4-8 CombinatorialMap</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7B3BACF57D7513DB">14.4-9 Angle</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X8711070F7D6E5A54">14.4-10 Gothic</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X805E812282DDDFD7">14.5 <span class="Heading">Conway polyhedron operator notation</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X83324AFF8119E1E5">14.5-1 Reflection</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X78A66D6D8305AE37">14.5-2 Kis</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7854540981C5DEFF">14.5-3 Needle</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X79B10B59858AC7DD">14.5-4 Zip</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X8057E86C80D2CDF3">14.5-5 Ortho</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X78991DD77E84C4B0">14.5-6 Expand</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X861A270578877B3E">14.5-7 Gyro</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X82F5D51786A870C2">14.5-8 Meta</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X861B355F7C050517">14.5-9 Bevel</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap14_mj.html#X8506DF867A281C52">14.6 <span class="Heading">Extended operations</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7A95E5A883DC8FD9">14.6-1 Subdivide</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7C0D8A6C80DADA50">14.6-2 Propeller</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X847513C879F0A048">14.6-3 Loft</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7EE97C1484C3B167">14.6-4 Quinto</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7EEA28B57BE65A08">14.6-5 JoinLace</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X784615747EFE7DB1">14.6-6 Lace</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7E2A1B6380D9FF22">14.6-7 Stake</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X83A031F67C29740B">14.6-8 Whirl</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7B16C9818423A481">14.6-9 Volute</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X86520B207A4CC8ED">14.6-10 JoinKisKis</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7B141EA9836E1759">14.6-11 Cross</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X794A197182124FB1">14.1-1 ChunkMultiply</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X858FD5C2809828C3">14.1-2 ChunkPower</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X81AD40D884608C3B">14.1-3 ChunkGeneratedGroupElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7E759EE8836E55E0">14.1-4 ChunkGeneratedGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14_mj.html#X7C67C6B77C6C2114">14.1-5 FullyStratifiedGroup</a></span>
 </div></div>
 </div>
 
-<h3>14 <span class="Heading">Maps On Surfaces</span></h3>
+<h3>14 <span class="Heading">Stratified Operations</span></h3>
 
-<p><a id="X81AFCB8E84DB41DE" name="X81AFCB8E84DB41DE"></a></p>
+<p><a id="X871D56AE7EFE6B58" name="X871D56AE7EFE6B58"></a></p>
 
-<h4>14.1 <span class="Heading">Bicontactual regular maps</span></h4>
+<h4>14.1 <span class="Heading">Computational tools</span></h4>
 
-<p>The names for the maps in this section are from S.E. Wilson's <a href="chapBib_mj.html#biBWil85">[Wil85]</a>.</p>
+<p>I should say something more here.</p>
 
-<p><a id="X871814FE7CC7B178" name="X871814FE7CC7B178"></a></p>
+<p><a id="X794A197182124FB1" name="X794A197182124FB1"></a></p>
 
-<h5>14.1-1 Epsilonk</h5>
+<h5>14.1-1 ChunkMultiply</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Epsilonk</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkMultiply</code>( <var class="Arg">element1</var>, <var class="Arg">element2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: element</p>
 
-<p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(\epsilon_k\)</span>, which is <span class="SimpleMath">\(\{k,2\}_k\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{k,2\}_{2k}\)</span> when <var class="Arg">k</var> is odd.</p>
+<p>Elements are ordered pairs of the form [perm, list], where the elements of list are members of a group. Operation performed is consistent with that in defined in <a href="chapBib_mj.html#biBPelWil18">[PW18]</a>.</p>
+
+<p><a id="X858FD5C2809828C3" name="X858FD5C2809828C3"></a></p>
+
+<h5>14.1-2 ChunkPower</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkPower</code>( <var class="Arg">element</var>, <var class="Arg">integer</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: element</p>
+
+<p>Given an element compatible with the ChunkMultiply operation, this function will compute the product of element with itself integer times.</p>
+
+<p><a id="X81AD40D884608C3B" name="X81AD40D884608C3B"></a></p>
+
+<h5>14.1-3 ChunkGeneratedGroupElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroupElements</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: newList</p>
+
+<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Epsilonk(5);</span>
-AbstractRegularPolytope([ 5, 2 ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Epsilonk(6);</span>
-AbstractRegularPolytope([ 6, 2 ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AutomorphismGroup(Simplex(2));</span>
+&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(g);</span>
+#I  Assigned the global variables [ r0, r1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r0);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(1,2),[r0,r0,r1]];;s1:=[(2,3),[r0,r1,r1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroupElements([s0,s1],g);</span>
+[ [ (1,2), [ r0, r0, r1 ] ], [ (2,3), [ r0, r1, r1 ] ], 
+  [ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt; ] ], 
+  [ (1,3,2), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r0*r1 ] ], 
+  [ (1,2,3), [ r1*r0, &lt;identity ...&gt;, &lt;identity ...&gt; ] ], [ (1,3), [ r0, r0, r0 ] ], 
+  [ (1,3), [ r1, r1, r1 ] ], [ (1,2,3), [ &lt;identity ...&gt;, r0*r1, r0*r1 ] ], 
+  [ (1,3,2), [ r1*r0, r1*r0, &lt;identity ...&gt; ] ], [ (2,3), [ r0*r1*r0, r0, r0 ] ], 
+  [ (1,2), [ r1, r1, r0*r1*r0 ] ], [ (), [ r0*r1, r0*r1, r0*r1 ] ], 
+  [ (), [ r1*r0, r1*r0, r1*r0 ] ], [ (1,2), [ r0*r1*r0, r0*r1*r0, r0 ] ], 
+  [ (2,3), [ r1, r0*r1*r0, r0*r1*r0 ] ], [ (1,3,2), [ r0*r1, r0*r1, r1*r0 ] ], 
+  [ (1,2,3), [ r0*r1, r1*r0, r1*r0 ] ], [ (1,3), [ r0*r1*r0, r0*r1*r0, r0*r1*r0 ] ] ]
 </pre></div>
 
-<p><a id="X7F59553F84D04CAF" name="X7F59553F84D04CAF"></a></p>
+<p><a id="X7E759EE8836E55E0" name="X7E759EE8836E55E0"></a></p>
 
-<h5>14.1-2 Deltak</h5>
+<h5>14.1-4 ChunkGeneratedGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Deltak</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: permGroup</p>
 
-<p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(\delta_k\)</span>, which is <span class="SimpleMath">\(\{2k,2\}/2\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{2k,2\}_{k}\)</span> when <var class="Arg">k</var> is odd.</p>
+<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct a representation of the group as a permutation group. Note that generators are of the form [perm, list], and each list is a list of elements from group.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Deltak(5);</span>
-ReflexibleManiplex([ 10, 2 ], "(r0 r1)^5 r2")
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Deltak(6);</span>
-ReflexibleManiplex([ 12, 2 ], "(r0 r1)^6 r2")
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2); a:=AutomorphismGroup(p);</span>
+Pgon(3)
+&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);; AssignGeneratorVariables(a);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
+[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
+[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
+[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> gens:=[s0,s1,s2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s1);</span>
+[ (2,3,5,4), [ r0*r1, &lt;identity ...&gt;, r0, r0, &lt;identity ...&gt;, r0*r1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
+[ (), [ r0^2, r0^2, &lt;identity ...&gt;, &lt;identity ...&gt;, r0^2, r0^2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
+[ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;,  &lt;identity ...&gt; ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroup(gens,a);</span>
+&lt;permutation group with 3 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(last);</span>
+1296
 </pre></div>
 
-<p><a id="X7876740785ECAF02" name="X7876740785ECAF02"></a></p>
+<p><a id="X7C67C6B77C6C2114" name="X7C67C6B77C6C2114"></a></p>
 
-<h5>14.1-3 Mk</h5>
+<h5>14.1-5 FullyStratifiedGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mk</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FullyStratifiedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
 
-<p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(M_k\)</span>, which is <span class="SimpleMath">\(\{2k,2k\}_{1,0}\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{2k,k\}_{2}\)</span> when <var class="Arg">k</var> is odd.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Mk(5);Mk(6);</span>
-ReflexibleManiplex([ 10, 5 ], "(r0 r1)^5 r0 = r2")
-ReflexibleManiplex([ 12, 12 ], "(r0 r1)^6 r0 = r2")
-</pre></div>
-
-<p><a id="X7DAE3F0686CA7AA5" name="X7DAE3F0686CA7AA5"></a></p>
-
-<h5>14.1-4 MkPrime</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MkPrime</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Given an integer <var class="Arg">k</var>, gives the map <span class="SimpleMath">\(M'_k\)</span>, which is <span class="SimpleMath">\(\{k,k\}_2\)</span> when <var class="Arg">k</var> is even, and <span class="SimpleMath">\(\{k,2k\}_{2}\)</span> when <var class="Arg">k</var> is odd. <code class="code">MkPrime(k,i)</code> gives the map <span class="SimpleMath">\(M'_{k,i}\)</span>.</p>
+<p>Implements fully stratified operations on maniplexes from <a href="chapBib_mj.html#biBCunPelWil22">[CPW22]</a>. Given <var class="Arg">list</var> of generators compatible with the <code class="code">ChunkMultiply</code> operation, <var class="Arg">group</var> is the underlying group in the representation (usually the connection group of the base), this will calculate the connection group of the resulting maniplex acting on the implicit flags of the construction. Function assumes that <var class="Arg">list</var> are the generators of the connection group of the resulting maniplex in the order <span class="SimpleMath">\(\langle r_0, r_1, \ldots, r_{d-1}\rangle\)</span>. It is possible that for some groups this function will behave poorly because GAP won't recognize equivalent representations of a group element. If so, try again with a permutation representation and let us know so we can modify the code to handle this problem better (didn't show up in our testing, but is a theoretical possibility).</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MkPrime(5);MkPrime(6);</span>
-ReflexibleManiplex([ 5, 10 ], "(r2*r1*(r0 r2))^5,z1^2")
-ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
-</pre></div>
-
-<p><a id="X7EB8C646795CB285" name="X7EB8C646795CB285"></a></p>
-
-<h5>14.1-5 Bk2l</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2l</code>( <var class="Arg">k</var>, <var class="Arg">l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Given integers <var class="Arg">k,l</var>, gives the map <span class="SimpleMath">\(B(k,2l)\)</span>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2l(4,5);</span>
-3-maniplex with 80 flags
-</pre></div>
-
-<p><a id="X8592D83D87DFCF3F" name="X8592D83D87DFCF3F"></a></p>
-
-<h5>14.1-6 Bk2lStar</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2lStar</code>( <var class="Arg">k</var>, <var class="Arg">l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Given integers <var class="Arg">k,l</var>, gives the map <span class="SimpleMath">\(B^*(k,2l)\)</span>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2lStar(5,7);</span>
-3-maniplex with 140 flags
-</pre></div>
-
-<p><a id="X80E866D6862E1FD0" name="X80E866D6862E1FD0"></a></p>
-
-<h4>14.2 <span class="Heading">Operations on reflexible maps</span></h4>
-
-<p><a id="X788A29017AE71302" name="X788A29017AE71302"></a></p>
-
-<h5>14.2-1 Opp</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Opp</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Forms the opposite map of the maniplex <var class="Arg">map</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Opp(Bk2lStar(5,7));</span>
-Petrial(Dual(Petrial(3-maniplex with 140 flags)))
-</pre></div>
-
-<p><a id="X835627037B606BA9" name="X835627037B606BA9"></a></p>
-
-<h5>14.2-2 Hole</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Hole</code>( <var class="Arg">map</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Given <var class="Arg">map</var> and integer <span class="SimpleMath">\(j\)</span>, will form the map <span class="SimpleMath">\(H_j(map)\)</span>. Note that if the action of <span class="SimpleMath">\([r_0,(r_1 r_2)^{j-1} r_1, r_2]\)</span> on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Hole(Bk2lStar(5,7),2);</span>
-3-maniplex with 140 flags
-</pre></div>
-
-<p><a id="X7BF319E97DEC64D2" name="X7BF319E97DEC64D2"></a></p>
-
-<h4>14.3 <span class="Heading">Map properties</span></h4>
-
-<p><code class="code">IsMapOnSurface</code> will test to see if you have rank 3 maniplex.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);</span>
-[ HemiCube(3), Icosahedron() ]
-</pre></div>
-
-<p><a id="X8688080A7A67C820" name="X8688080A7A67C820"></a></p>
-
-<h4>14.4 <span class="Heading">Operations on maps</span></h4>
-
-<p><a id="X836355A984E78063" name="X836355A984E78063"></a></p>
-
-<h5>14.4-1 Truncation</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Truncation</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: trunc_map</p>
-
-<p>Given a <var class="Arg">map</var> on a surface, this function will return the truncation of <var class="Arg">map</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Truncation(Simplex(3)));</span>
-[ [ 3, 6 ], 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TruncatedTetrahedron()=Truncation(Simplex(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2);; a:=AutomorphismGroup(p);</span>
+&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);</span>
+&lt;identity ...&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(a);</span>
+#I  Assigned the global variables [ r0, r1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
+[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
+[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
+[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gens:=[s0,s1,s2];</span>
+[ [ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ], 
+  [ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ], 
+  [ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(CrossPolytope(3))=TruncatedOctahedron();</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(Cube(3))=TruncatedCube();</span>
-true
-</pre></div>
-
-<p><a id="X87314A378600B2D5" name="X87314A378600B2D5"></a></p>
-
-<h5>14.4-2 Snub</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Snub</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: snub_map</p>
-
-<p>Returns the snub of a given map; we require that the map have triangles as vertex figures.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Dodecahedron())=SnubDodecahedron();</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Cube(3))=SnubCube();</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Simplex(3))=Icosahedron();</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(CrossPolytope(3))=SnubCube();</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Snub(Dual(Cube(3)))=Reflection(Snub(Reflection(Cube(3))));</span>
-true
-</pre></div>
-
-<p><a id="X781B0A0880BFD546" name="X781B0A0880BFD546"></a></p>
-
-<h5>14.4-3 Chamfer</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Chamfer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: chamfered_map</p>
-
-<p>Returns the map obtained from the chamfering operation described in <a href="chapBib_mj.html#biBRio14">[dRF14]</a></p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := (4,5)(6,7)(8,9);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := (2,6)(3,4)(5,7);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := (1,2)(4,8)(5,9);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(p);</span>
-[ 6, 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ch:=Chamfer(p);</span>
-3-maniplex with 432 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(ch);</span>
-[ 6, 3 ]
-</pre></div>
-
-<p><a id="X7E0E11CE7CF33FBB" name="X7E0E11CE7CF33FBB"></a></p>
-
-<h5>14.4-4 Subdivision1</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Subdivision1</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: Su1</p>
-
-<p>Returns the One-dimensional subdivision of a map, which replaces each edge with two edges. For more information on the oriented version of this, see <a href="chapBib_mj.html#biBBerPisWil17">[BPW17]</a>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Subdivision1(Simplex(3));</span>
-3-maniplex with 48 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(m);</span>
-[ 6, [ 2, 3 ] ]
-</pre></div>
-
-<p><a id="X84F485127B8AD294" name="X84F485127B8AD294"></a></p>
-
-<h5>14.4-5 Subdivision2</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Subdivision2</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: Su2</p>
-
-<p>Returns the two-dimensional subdivision of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Subdivision2(Cube(3)));</span>
-[ 3, [ 4, 6 ] ]
-</pre></div>
-
-<p><a id="X81B9A11C788E3BDF" name="X81B9A11C788E3BDF"></a></p>
-
-<h5>14.4-6 BarycentricSubdivision</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BarycentricSubdivision</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: barycentric_subdivision</p>
-
-<p>Gives the barycentric subdivision of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=BarycentricSubdivision(Cube(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(m);NumberOfFacets(m);</span>
-[ 3, [ 4, 6, 8 ] ]
-48
-</pre></div>
-
-<p><a id="X7A3AD3EA8594B99B" name="X7A3AD3EA8594B99B"></a></p>
-
-<h5>14.4-7 Leapfrog</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Leapfrog</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: leapfrog</p>
-
-<p>Gives the result of performing the leapfrog operation on a map on a surface</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Leapfrog(Dodecahedron());</span>
-3-maniplex with 360 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
-[ [ 5, 6 ], 3 ]
-</pre></div>
-
-<p><a id="X79B68D5E7D7B3E0D" name="X79B68D5E7D7B3E0D"></a></p>
-
-<h5>14.4-8 CombinatorialMap</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CombinatorialMap</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: combinatorial_map</p>
-
-<p>Gives the result of combinatorial operation on a map; this is equivalent to taking the dual of the barycentric subdivision.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(Cube(3));</span>
-12
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(CombinatorialMap(Cube(3)));</span>
-72
-</pre></div>
-
-<p><a id="X7B3BACF57D7513DB" name="X7B3BACF57D7513DB"></a></p>
-
-<h5>14.4-9 Angle</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Angle</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: angle_map</p>
-
-<p>Returns the angle map of a map. This is equivalent to taking the dual of the medial.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(ToroidalMap44([3,0]));</span>
-18
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(Angle(ToroidalMap44([3,0])));</span>
-36
-</pre></div>
-
-<p><a id="X8711070F7D6E5A54" name="X8711070F7D6E5A54"></a></p>
-
-<h5>14.4-10 Gothic</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Gothic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: gothic</p>
-
-<p>Returns the result of performing the gothic operation to a map. This is the same as taking the dual of the medial of the truncation of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=AbstractRegularPolytope([ 3, 6 ], "(r0 r1 r2)^6");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(m); NumberOfEdges(Gothic(m));</span>
-27
-162
-</pre></div>
-
-<p><a id="X805E812282DDDFD7" name="X805E812282DDDFD7"></a></p>
-
-<h4>14.5 <span class="Heading">Conway polyhedron operator notation</span></h4>
-
-<p>We include here operators from Wikipedia that are not included above.</p>
-
-
-<ul>
-<li><p><code class="code">MapJoin</code>: Creates quadrilateral faces by placing a node in each face, and then the set of edges are formed by the nodes corresponding to incident vertex-face pairs. This is another name for <code class="code">Angle</code>.</p>
-
-</li>
-<li><p><code class="code">Ambo</code>: This is another name for <code class="code">Medial</code>.</p>
-
-</li>
-</ul>
-<p>Another excellent source for information on these types of operations is <code class="code">https://antitile.readthedocs.io/en/latest/conway.html</code>. Additional functions are described below.</p>
-
-<p><a id="X83324AFF8119E1E5" name="X83324AFF8119E1E5"></a></p>
-
-<h5>14.5-1 Reflection</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Reflection</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: reflection</p>
-
-<p>Reverses the orientation of a maniplex.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gyro(Dual(m))=Reflection(Gyro(Reflection(m)));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Reflection(m)=EnantiomorphicForm(m);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Reflection(Truncation(m))=Truncation(EnantiomorphicForm(m));</span>
-true
-</pre></div>
-
-<p><a id="X78A66D6D8305AE37" name="X78A66D6D8305AE37"></a></p>
-
-<h5>14.5-2 Kis</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Kis</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: kis</p>
-
-<p>Returns the Kis of the map, which erects a pyramid over each of the faces.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Kis(Cube(3));</span>
-3-maniplex with 144 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
-[ 3, [ 4, 6 ] ]
-</pre></div>
-
-<p><a id="X7854540981C5DEFF" name="X7854540981C5DEFF"></a></p>
-
-<h5>14.5-3 Needle</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Needle</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: needle</p>
-
-<p>Performs the needle operation to the map: edges connect adjacent face centers, and face centers to incident vertices.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Needle(Cube(3)));</span>
-[ 3, [ 3, 8 ] ]
-</pre></div>
-
-<p><a id="X79B10B59858AC7DD" name="X79B10B59858AC7DD"></a></p>
-
-<h5>14.5-4 Zip</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Zip</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: zip</p>
-
-<p>Returns the zip of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Zip(Cube(3))=TruncatedOctahedron();</span>
-true
-</pre></div>
-
-<p><a id="X8057E86C80D2CDF3" name="X8057E86C80D2CDF3"></a></p>
-
-<h5>14.5-5 Ortho</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Ortho</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: ortho</p>
-
-<p>Returns the ortho of the map (this is the same as applying the join twice.).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Ortho(Cube(3)));</span>
-[ 4, [ 3, 4 ] ]
-</pre></div>
-
-<p><a id="X78991DD77E84C4B0" name="X78991DD77E84C4B0"></a></p>
-
-<h5>14.5-6 Expand</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Expand</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: expand</p>
-
-<p>Returns the expand of the map (this is the same as applying the ambo operation twice.).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Expand(Cube(3))=SmallRhombicuboctahedron();</span>
-true
-</pre></div>
-
-<p><a id="X861A270578877B3E" name="X861A270578877B3E"></a></p>
-
-<h5>14.5-7 Gyro</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Gyro</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: gyro</p>
-
-<p>Returns the gyro of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gyro(Dual(Cube(3)))=Gyro(Cube(3));</span>
-true
-</pre></div>
-
-<p><a id="X82F5D51786A870C2" name="X82F5D51786A870C2"></a></p>
-
-<h5>14.5-8 Meta</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Meta</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: meta</p>
-
-<p>Constructs the meta of the given map. (This is the same as applying first the join, and then the kis operation to the map).</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Cube(3))=NumberOfFacets(Meta(Cube(3)));</span>
-true
-</pre></div>
-
-<p><a id="X861B355F7C050517" name="X861B355F7C050517"></a></p>
-
-<h5>14.5-9 Bevel</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bevel</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: bevel</p>
-
-<p>Constructs the bevel of a given map. (This is the same as truncating the ambo of a map.)</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CombinatorialMap(Cube(3))=Bevel(Cube(3));</span>
-true
-</pre></div>
-
-<p><a id="X8506DF867A281C52" name="X8506DF867A281C52"></a></p>
-
-<h4>14.6 <span class="Heading">Extended operations</span></h4>
-
-<p>A number of these were introduced by George Hart.</p>
-
-<p><a id="X7A95E5A883DC8FD9" name="X7A95E5A883DC8FD9"></a></p>
-
-<h5>14.6-1 Subdivide</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Subdivide</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: u</p>
-
-<p>Returns the subdivide (u) of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Chamfer(Dual(Cube(3)))=Dual(Subdivide(Cube(3)));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Subdivide(Cube(3)));</span>
-[ [ 3, 4 ], [ 3, 6 ] ]
-</pre></div>
-
-<p><a id="X7C0D8A6C80DADA50" name="X7C0D8A6C80DADA50"></a></p>
-
-<h5>14.6-2 Propeller</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Propeller</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: propeller</p>
-
-<p>Constructs the propeller of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Propeller(Cube(3)))=Propeller(Dual(Cube(3)));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Propeller(Dual(Cube(3))))=Propeller(Cube(3));</span>
-true
-</pre></div>
-
-<p><a id="X847513C879F0A048" name="X847513C879F0A048"></a></p>
-
-<h5>14.6-3 Loft</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Loft</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: loft</p>
-
-<p>Constructs the loft of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFacets(Loft(Cube(3)));</span>
-30
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Loft(Cube(3)));</span>
-[ 4, [ 3, 6 ] ]
-</pre></div>
-
-<p><a id="X7EE97C1484C3B167" name="X7EE97C1484C3B167"></a></p>
-
-<h5>14.6-4 Quinto</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Quinto</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: quinto</p>
-
-<p>Constructs the quinto of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Quinto(Cube(3)));</span>
-[ [ 4, 5 ], [ 3, 4 ] ]
-</pre></div>
-
-<p><a id="X7EEA28B57BE65A08" name="X7EEA28B57BE65A08"></a></p>
-
-<h5>14.6-5 JoinLace</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinLace</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: join-lace</p>
-
-<p>Constructs the join-lace of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(JoinLace(Cube(3)));</span>
-[ [ 3, 4 ], [ 4, 6 ] ]
-</pre></div>
-
-<p><a id="X784615747EFE7DB1" name="X784615747EFE7DB1"></a></p>
-
-<h5>14.6-6 Lace</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Lace</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: lace</p>
-
-<p>Constructs the lace of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Lace(Cube(3)));</span>
-[ [ 3, 4 ], [ 4, 9 ] ]
-</pre></div>
-
-<p><a id="X7E2A1B6380D9FF22" name="X7E2A1B6380D9FF22"></a></p>
-
-<h5>14.6-7 Stake</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Stake</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: stake</p>
-
-<p>Constructs the stake of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Stake(Cube(3)));</span>
-[ [ 3, 4 ], [ 3, 4, 9 ] ]
-</pre></div>
-
-<p><a id="X83A031F67C29740B" name="X83A031F67C29740B"></a></p>
-
-<h5>14.6-8 Whirl</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Whirl</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: whirl</p>
-
-<p>Constructs the whirl of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Whirl(Cube(3)));</span>
-[ [ 4, 6 ], 3 ]              ^
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Whirl(Icosahedron()));</span>
-[ [ 3, 6 ], [ 3, 5 ] ]
-</pre></div>
-
-<p><a id="X7B16C9818423A481" name="X7B16C9818423A481"></a></p>
-
-<h5>14.6-9 Volute</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Volute</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: volute</p>
-
-<p>Constructs the volute of the map. This is equivalent to <code class="code">Dual(Whirl(Dual(M)))</code>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Volute(Cube(3)));</span>
-[ [ 3, 4 ], [ 3, 6 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Volute(Dual(Cube(3))));</span>
-[ 3, [ 4, 6 ] ]
-</pre></div>
-
-<p><a id="X86520B207A4CC8ED" name="X86520B207A4CC8ED"></a></p>
-
-<h5>14.6-10 JoinKisKis</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinKisKis</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: joinkiskis</p>
-
-<p>Constructs the join-kis-kis of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(JoinKisKis(Cube(3)));</span>
-[ [ 3, 4 ], [ 3, 8, 9 ] ]
-</pre></div>
-
-<p><a id="X7B141EA9836E1759" name="X7B141EA9836E1759"></a></p>
-
-<h5>14.6-11 Cross</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Cross</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: cross</p>
-
-<p>Constructs the cross of the map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Cross(Cube(3)));</span>
-[ [ 3, 4 ], [ 4, 6 ] ]
 </pre></div>
 
 

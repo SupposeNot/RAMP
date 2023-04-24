@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 7: Comparing maniplexes</title>
+<title>GAP (RAMP) - Chapter 7: Maniplex Properties</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -20,316 +20,623 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap6.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap8.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap7_mj.html">[MathJax on]</a></p>
-<p><a id="X7A3CC7F9873E02BF" name="X7A3CC7F9873E02BF"></a></p>
-<div class="ChapSects"><a href="chap7.html#X7A3CC7F9873E02BF">7 <span class="Heading">Comparing maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7CD5138B85A97590">7.1 <span class="Heading">Quotients and covers</span></a>
+<p><a id="X831BE6F07FED02F3" name="X831BE6F07FED02F3"></a></p>
+<div class="ChapSects"><a href="chap7.html#X831BE6F07FED02F3">7 <span class="Heading">Maniplex Properties</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X84F0885E8664F785">7.1 <span class="Heading">Automorphism group acting on faces and chains</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X87EB22A184A49FB8">7.1-1 <span class="Heading">IsQuotient</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X84B5DAED82D403DE">7.1-1 AutomorphismGroupOnChains</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8549DB2585A989E4">7.1-2 AutomorphismGroupOnIFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X81972F5187B9C2AF">7.1-3 AutomorphismGroupOnVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X86CBC88A8718D7E4">7.1-4 AutomorphismGroupOnEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X82726AF27C1E00D6">7.1-5 AutomorphismGroupOnFacets</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7A07E55F7D617911">7.2 <span class="Heading">Number of orbits and transitivity</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8407FBD78060191A">7.1-2 IsRootedQuotient</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7F097A917AE87005">7.1-3 IsRootedQuotient</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FB4904D7E99C0A0">7.1-4 IsCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X806193277FC69158">7.1-5 IsCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83165F047B217751">7.1-6 IsRootedCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7923C770859A958F">7.1-7 IsRootedCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B1006697C002741">7.1-8 IsIsomorphicManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FCE9DF47E54D12D">7.1-9 IsIsomorphicRootedManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85A79420835EAF2A">7.1-10 IsIsomorphicRootedManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8017B6F880D162E7">7.1-11 SmallestReflexibleCover</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85BE14877927DB85">7.1-12 QuotientManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X87DCBB9E78E383BB">7.1-13 ReflexibleQuotientManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X83D969847E68299D">7.1-14 QuotientSggi</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X819D85E57B505196">7.1-15 QuotientSggiByNormalSubgroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X86725DD8781BF181">7.1-16 QuotientManiplexByAutomorphismSubgroup</a></span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8423C2647CFF8C2E">7.2-1 NumberOfChainOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X82D959517BC24461">7.2-2 NumberOfIFaceOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X86A6A073804A5780">7.2-3 NumberOfVertexOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7A41AD2B7A606FB2">7.2-4 NumberOfEdgeOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X81C6FD5078C637E6">7.2-5 NumberOfFacetOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7A2326997FB2CAA8">7.2-6 IsChainTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X80F9303F7A272F20">7.2-7 IsIFaceTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7E29A16E7B724836">7.2-8 IsVertexTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7CA8A3A17CB62B51">7.2-9 IsEdgeTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85436C5C84C4031E">7.2-10 IsFacetTransitive</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B898E19857B356F">7.2-11 IsFullyTransitive</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X83355D207F38F997">7.3 <span class="Heading">Faithfulness</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FFD0ADD7A2F6044">7.3-1 IsVertexFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7BB02182844EA5EB">7.3-2 IsFacetFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7F2F8EEE8663AB89">7.3-3 MaxVertexFaithfulQuotient</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7BE5F0217862DBEF">7.4 <span class="Heading">Flag orbits</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8668368E81B4B122">7.4-1 Flags</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X795A4A60852AF9A5">7.4-2 BaseFlag</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X87D5AE5F845BD88C">7.4-3 SymmetryTypeGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7C14C6417F42D94D">7.4-4 NumberOfFlagOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X82AFA2FE809AC358">7.4-5 FlagOrbitRepresentatives</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FC9977380733F65">7.4-6 FlagOrbitsStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X839E8D4783F91690">7.4-7 IsReflexible</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7F0108D17B523A0C">7.4-8 IsChiral</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8718754784A4FCB2">7.4-9 IsRotary</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X84E84D0E84BC7F59">7.4-10 FlagOrbits</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X861E4BAD800B2785">7.5 <span class="Heading">Orientability</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7DCAF9D27F36EBD3">7.5-1 IsOrientable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X79F849DD7F778616">7.5-2 IsIOrientable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X877609AB7ABD24AC">7.5-3 IsVertexBipartite</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7BD9E8A87D6E8FAB">7.5-4 IsFacetBipartite</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7BAA22327D298902">7.5-5 OrientableCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X81EF6062840E85AF">7.5-6 IOrientableCover</a></span>
 </div></div>
 </div>
 
-<h3>7 <span class="Heading">Comparing maniplexes</span></h3>
+<h3>7 <span class="Heading">Maniplex Properties</span></h3>
 
-<p><a id="X7CD5138B85A97590" name="X7CD5138B85A97590"></a></p>
+<p><a id="X84F0885E8664F785" name="X84F0885E8664F785"></a></p>
 
-<h4>7.1 <span class="Heading">Quotients and covers</span></h4>
+<h4>7.1 <span class="Heading">Automorphism group acting on faces and chains</span></h4>
 
-<p>Many of the quotient operations let you describe some relations in terms of a string. We assume that Sggis have a generating set of <span class="Math">\{r0, r1, ..., r_{n-1}\}</span>, so these relation strings will look something like "(r0 r1 r2)^5, r2 = (r0 r1)^3". Notice that we can mix relations like "r2 = (r0 r1)^3" with relators like "(r0 r1 r2)^5"; the latter is treated as the relation "(r0 r1 r2)^5 = 1". For convenience, we also allow relations to contain the following strings: s1, s2, s3, etc, where si is expanded to r(i-1) ri. For example, s2 becomes r1 r2. z1, z2, z3, etc, where zi is expanded to r0 (r1 r2)^i (the "i-zigzag" word). h1, h2, h3, etc, where hi is expanded to r0 (r1 r2)^(j-1) r1 (the "i-hole" word). We note that these strings are all restricted to have <span class="Math">i \leq 9</span>, <em>including ri</em>. This restriction might be changed eventually, but it will require a rewrite of the method ParseStringCRels that underlies many quotient operations.</p>
+<p><a id="X84B5DAED82D403DE" name="X84B5DAED82D403DE"></a></p>
 
-<p><a id="X87EB22A184A49FB8" name="X87EB22A184A49FB8"></a></p>
+<h5>7.1-1 AutomorphismGroupOnChains</h5>
 
-<h5>7.1-1 <span class="Heading">IsQuotient</span></h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnChains</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsQuotient</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsQuotient</code>( <var class="Arg">g</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
-
-<p>Returns whether <var class="Arg">M2</var> is a quotient of <var class="Arg">M1</var>. Returns whether <var class="Arg">h</var> is a quotient of <var class="Arg">g</var>. That is, whether there is a homomorphism sending each generator of g to the corresponding generator of h.</p>
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the chains of <var class="Arg">M</var> of type <var class="Arg">I</var>. If the automorphism group has a standard set of generators in a standard order, then the output is generated by the action of those generators.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsQuotient(Cube(3),HemiCube(3));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsQuotient(UniversalSggi([4,3]),AutomorphismGroup(HemiCube(3)));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroupOnChains(HemiCube(3),[0,2]);</span>
+Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
+  (9,12) ])
+</pre></div>
+
+<p><a id="X8549DB2585A989E4" name="X8549DB2585A989E4"></a></p>
+
+<h5>7.1-2 AutomorphismGroupOnIFaces</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnIFaces</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
+
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the <var class="Arg">i</var>-faces of <var class="Arg">M</var>. If the automorphism group has a standard set of generators in a standard order, then the output is generated by the action of those generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroupOnIFaces(HemiCube(3),2);</span>
+Group([ (), (2,3), (1,2) ])
+</pre></div>
+
+<p><a id="X81972F5187B9C2AF" name="X81972F5187B9C2AF"></a></p>
+
+<h5>7.1-3 AutomorphismGroupOnVertices</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnVertices</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
+
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the vertices of <var class="Arg">M</var>. If the automorphism group has a standard set of generators in a standard order, then the output is generated by the action of those generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroupOnVertices(HemiCube(4));</span>
+Group([ (1,2)(3,4)(5,6)(7,8), (2,3)(6,8), (3,5)(4,6), (5,7)(6,8) ])
+</pre></div>
+
+<p><a id="X86CBC88A8718D7E4" name="X86CBC88A8718D7E4"></a></p>
+
+<h5>7.1-4 AutomorphismGroupOnEdges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnEdges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
+
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the edges of <var class="Arg">M</var>. If the automorphism group has a standard set of generators in a standard order, then the output is generated by the action of those generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroupOnEdges(Simplex(4));</span>
+Group([ (2,5)(3,6)(4,7), (1,2)(6,8)(7,9), (2,3)(5,6)(9,10), (3,4)(6,7)(8,9) ])
+</pre></div>
+
+<p><a id="X82726AF27C1E00D6" name="X82726AF27C1E00D6"></a></p>
+
+<h5>7.1-5 AutomorphismGroupOnFacets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismGroupOnFacets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
+
+<p>Returns a permutation group, representing the action of AutomorphismGroup(<var class="Arg">M</var>) on the facets of <var class="Arg">M</var>. If the automorphism group has a standard set of generators in a standard order, then the output is generated by the action of those generators.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroupOnFacets(HemiCube(5));</span>
+Group([ (), (4,5), (3,4), (2,3), (1,2) ])
+</pre></div>
+
+<p><a id="X7A07E55F7D617911" name="X7A07E55F7D617911"></a></p>
+
+<h4>7.2 <span class="Heading">Number of orbits and transitivity</span></h4>
+
+<p><a id="X8423C2647CFF8C2E" name="X8423C2647CFF8C2E"></a></p>
+
+<h5>7.2-1 NumberOfChainOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfChainOrbits</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsInt</p>
+
+<p>Returns the number of orbits of chains of type <var class="Arg">I</var> under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfChainOrbits(Cuboctahedron(),[0,2]);</span>
+2
+</pre></div>
+
+<p><a id="X82D959517BC24461" name="X82D959517BC24461"></a></p>
+
+<h5>7.2-2 NumberOfIFaceOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfIFaceOrbits</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsInt</p>
+
+<p>Returns the number of orbits of <var class="Arg">i</var>-faces under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaceOrbits(SnubDodecahedron(),2);</span>
+3
+</pre></div>
+
+<p><a id="X86A6A073804A5780" name="X86A6A073804A5780"></a></p>
+
+<h5>7.2-3 NumberOfVertexOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfVertexOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsInt</p>
+
+<p>Returns the number of orbits of vertices under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfVertexOrbits(Dual(SnubDodecahedron()));</span>
+3
+</pre></div>
+
+<p><a id="X7A41AD2B7A606FB2" name="X7A41AD2B7A606FB2"></a></p>
+
+<h5>7.2-4 NumberOfEdgeOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfEdgeOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsInt</p>
+
+<p>Returns the number of orbits of edges under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdgeOrbits(SnubDodecahedron());</span>
+3
+</pre></div>
+
+<p><a id="X81C6FD5078C637E6" name="X81C6FD5078C637E6"></a></p>
+
+<h5>7.2-5 NumberOfFacetOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFacetOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsInt</p>
+
+<p>Returns the number of orbits of facets under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFacetOrbits(SnubCube());</span>
+3
+</pre></div>
+
+<p><a id="X7A2326997FB2CAA8" name="X7A2326997FB2CAA8"></a></p>
+
+<h5>7.2-6 IsChainTransitive</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChainTransitive</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
+
+<p>Determines whether the action of AutomorphismGroup(<var class="Arg">M</var>) on chains of type <var class="Arg">I</var> is transitive.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsChainTransitive(SmallRhombicuboctahedron(),[0,2]);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsChainTransitive(SmallRhombicuboctahedron(),[0,1]);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsChainTransitive(Cuboctahedron(),[0,1]);</span>
 true
 </pre></div>
 
-<p><a id="X8407FBD78060191A" name="X8407FBD78060191A"></a></p>
+<p><a id="X80F9303F7A272F20" name="X80F9303F7A272F20"></a></p>
 
-<h5>7.1-2 IsRootedQuotient</h5>
+<h5>7.2-7 IsIFaceTransitive</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedQuotient</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIFaceTransitive</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
 
-<p>Returns whether there is a maniplex homomorphism from <var class="Arg">M1</var> to <var class="Arg">M2</var> that sends flag <var class="Arg">i</var> of <var class="Arg">M1</var> to flag <var class="Arg">j</var> of <var class="Arg">M2</var>.</p>
+<p>Determines whether the action of AutomorphismGroup(<var class="Arg">M</var>) on <var class="Arg">i</var>-faces is transitive.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedQuotient(Pyramid(8), Pyramid(4), 1, 1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIFaceTransitive(Cuboctahedron(),1);</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedQuotient(Pyramid(8), Pyramid(4), 1, 2);</span>
+</pre></div>
+
+<p><a id="X7E29A16E7B724836" name="X7E29A16E7B724836"></a></p>
+
+<h5>7.2-8 IsVertexTransitive</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
+
+<p>Determines whether the action of AutomorphismGroup(<var class="Arg">M</var>) on vertices is transitive.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsVertexTransitive(Bk2l(4,5));</span>
+true
+</pre></div>
+
+<p><a id="X7CA8A3A17CB62B51" name="X7CA8A3A17CB62B51"></a></p>
+
+<h5>7.2-9 IsEdgeTransitive</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEdgeTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
+
+<p>Determines whether the action of AutomorphismGroup(<var class="Arg">M</var>) on edges is transitive.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEdgeTransitive(Prism(Simplex(3)));</span>
 false
 </pre></div>
 
-<p><a id="X7F097A917AE87005" name="X7F097A917AE87005"></a></p>
+<p><a id="X85436C5C84C4031E" name="X85436C5C84C4031E"></a></p>
 
-<h5>7.1-3 IsRootedQuotient</h5>
+<h5>7.2-10 IsFacetTransitive</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedQuotient</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
 
-<p>Returns whether there is a maniplex homomorphism from <var class="Arg">M1</var> to <var class="Arg">M2</var> that sends <code class="code">BaseFlag(M1)</code> to <code class="code">BaseFlag(M2)</code>.</p>
+<p>Determines whether the action of AutomorphismGroup(<var class="Arg">M</var>) on facets is transitive.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedQuotient(ToroidalMap44([4,4]), ToroidalMap44([4,0]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedQuotient(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetTransitive(Prism(HemiCube(3)));</span>
 false
 </pre></div>
 
-<p><a id="X7FB4904D7E99C0A0" name="X7FB4904D7E99C0A0"></a></p>
+<p><a id="X7B898E19857B356F" name="X7B898E19857B356F"></a></p>
 
-<h5>7.1-4 IsCover</h5>
+<h5>7.2-11 IsFullyTransitive</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFullyTransitive</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: IsBool</p>
 
-<p>Returns whether <var class="Arg">M2</var> is a cover of <var class="Arg">M1</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCover(HemiDodecahedron(),Dodecahedron());</span>
-true
-</pre></div>
-
-<p><a id="X806193277FC69158" name="X806193277FC69158"></a></p>
-
-<h5>7.1-5 IsCover</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCover</code>( <var class="Arg">g</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
-
-<p>Returns whether <var class="Arg">h</var> is a cover of <var class="Arg">g</var>. That is, whether there is a homomorphism sending each generator of h to the corresponding generator of g.</p>
+<p>Determines whether the action of AutomorphismGroup(<var class="Arg">M</var>) on i-faces is transitive for every i.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCover(HemiCube(3), Cube(3));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCover(AutomorphismGroup(HemiCube(3)), UniversalSggi([4,3]));</span>
-true
-</pre></div>
-
-<p><a id="X83165F047B217751" name="X83165F047B217751"></a></p>
-
-<h5>7.1-6 IsRootedCover</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
-
-<p>Returns whether there is a maniplex homomorphism from <var class="Arg">M2</var> to <var class="Arg">M1</var> that sends flag <var class="Arg">j</var> of <var class="Arg">M2</var> to flag <var class="Arg">i</var> of <var class="Arg">M1</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedCover(Pyramid(4), Pyramid(8), 1, 1);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedCover(Pyramid(4), Pyramid(8), 1, 2);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFullyTransitive(SmallRhombicuboctahedron());</span>
 false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFullyTransitive(Bk2l(4,5));</span>
+true
 </pre></div>
 
-<p><a id="X7923C770859A958F" name="X7923C770859A958F"></a></p>
+<p><a id="X83355D207F38F997" name="X83355D207F38F997"></a></p>
 
-<h5>7.1-7 IsRootedCover</h5>
+<h4>7.3 <span class="Heading">Faithfulness</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRootedCover</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
+<p><a id="X7FFD0ADD7A2F6044" name="X7FFD0ADD7A2F6044"></a></p>
 
-<p>Returns whether there is a maniplex homomorphism from <var class="Arg">M2</var> to <var class="Arg">M1</var> that sends <code class="code">BaseFlag(M2)</code> to <code class="code">BaseFlag(M1)</code>.</p>
+<h5>7.3-1 IsVertexFaithful</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is vertex-faithful; i.e., whether the action of the automorphism group on the vertices is faithful.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedCover(ToroidalMap44([4,0]), ToroidalMap44([4,4]));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsVertexFaithful(HemiCube(3));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRootedCover(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
+</pre></div>
+
+<p><a id="X7BB02182844EA5EB" name="X7BB02182844EA5EB"></a></p>
+
+<h5>7.3-2 IsFacetFaithful</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetFaithful</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>Returns whether the reflexible maniplex <var class="Arg">M</var> is facet-faithful; i.e., whether the action of the automorphism group on the facets is faithful.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetFaithful(HemiCube(3));</span>
 false
-</pre></div>
-
-<p><a id="X7B1006697C002741" name="X7B1006697C002741"></a></p>
-
-<h5>7.1-8 IsIsomorphicManiplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
-
-<p>Returns whether <var class="Arg">M1</var> is isomorphic to <var class="Arg">M2</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicManiplex(HemiCube(3),Petrial(Simplex(3)));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetFaithful(Cube(3));</span>
 true
 </pre></div>
 
-<p><a id="X7FCE9DF47E54D12D" name="X7FCE9DF47E54D12D"></a></p>
+<p><a id="X7F2F8EEE8663AB89" name="X7F2F8EEE8663AB89"></a></p>
 
-<h5>7.1-9 IsIsomorphicRootedManiplex</h5>
+<h5>7.3-3 MaxVertexFaithfulQuotient</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicRootedManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxVertexFaithfulQuotient</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Q</p>
 
-<p>Returns whether there is an isomorphism from <var class="Arg">M1</var> to <var class="Arg">M2</var> that sends flag <var class="Arg">j</var> of <var class="Arg">M2</var> to flag <var class="Arg">i</var> of <var class="Arg">M1</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagOrbitRepresentatives(ToroidalMap44([1,2]));</span>
-[1, 21]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([1,2]), 1, 1);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([1,2]), 1, 21);</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]), 1, 1);</span>
-false
-</pre></div>
-
-<p><a id="X85A79420835EAF2A" name="X85A79420835EAF2A"></a></p>
-
-<h5>7.1-10 IsIsomorphicRootedManiplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIsomorphicRootedManiplex</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsBool</code></p>
-
-<p>Returns whether there is an isomorphism from <var class="Arg">M1</var> to <var class="Arg">M2</var> that sends <code class="code">BaseFlag(M2)</code> to <code class="code">BaseFlag(M1)</code>.</p>
+<p>Returns the maximal vertex-faithful reflexible maniplex covered by <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), ToroidalMap44([2,1]));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIsomorphicRootedManiplex(ToroidalMap44([1,2]), EnantiomorphicForm(ToroidalMap44([2,1])));</span>
-true
-</pre></div>
-
-<p><a id="X8017B6F880D162E7" name="X8017B6F880D162E7"></a></p>
-
-<h5>7.1-11 SmallestReflexibleCover</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallestReflexibleCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns the smallest regular cover of <var class="Arg">M</var>, which is the maniplex whose automorphism group is isomorphic to the connection group of <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallestReflexibleCover(ToroidalMap44([2,3],[3,2]));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MaxVertexFaithfulQuotient(HemiCrossPolytope(3));</span>
 reflexible 3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=ToroidalMap44([5,0]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+[ 3, 2 ]
+</pre></div>
+
+<p><a id="X7BE5F0217862DBEF" name="X7BE5F0217862DBEF"></a></p>
+
+<h4>7.4 <span class="Heading">Flag orbits</span></h4>
+
+<p><a id="X8668368E81B4B122" name="X8668368E81B4B122"></a></p>
+
+<h5>7.4-1 Flags</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Flags</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>The list of flags of the premaniplex <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Flags(Pgon(5));</span>
+[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Flags(M);</span>
+[ 3, 4, 5, 6, 7, 8, 9, 10 ]
+</pre></div>
+
+<p><a id="X795A4A60852AF9A5" name="X795A4A60852AF9A5"></a></p>
+
+<h5>7.4-2 BaseFlag</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BaseFlag</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsObject</p>
+
+<p>The base flag of the premaniplex <var class="Arg">M</var>. By default, when the set of flags is a set of positive integers, the base flag is the minimum of the set of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BaseFlag(Cube(3));</span>
+1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Maniplex(Group((3,4)(5,6)(7,8)(9,10), (3,6)(4,5)(7,10)(8,9), (3,7)(4,8)(5,9)(6,10)));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BaseFlag(M);</span>
+3
+</pre></div>
+
+<p><a id="X87D5AE5F845BD88C" name="X87D5AE5F845BD88C"></a></p>
+
+<h5>7.4-3 SymmetryTypeGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SymmetryTypeGraph</code>( <var class="Arg">M</var>[, <var class="Arg">A</var>] )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsPremaniplex</p>
+
+<p>Returns the Symmetry Type Graph of the premaniplex <var class="Arg">M</var> with respect to the subgroup <var class="Arg">A</var> of the automorphism group; that is, the quotient of the flag graph of <var class="Arg">M</var> by <var class="Arg">A</var>. If <var class="Arg">A</var> is not included, then returns the Symmetry Type Graph relative to the whole automorphism group of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SymmetryTypeGraph(Prism(Simplex(3)));</span>
+Edge labeled graph with 4 vertices, and edge labels [ 0, 1, 2, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=Cube(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A:=AutomorphismGroupOnFlags(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">B:=Group(A.1,A.2*A.3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SymmetryTypeGraph(M,B);</span>
+Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
+</pre></div>
+
+<p><a id="X7C14C6417F42D94D" name="X7C14C6417F42D94D"></a></p>
+
+<h5>7.4-4 NumberOfFlagOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of orbits of the automorphism group of <var class="Arg">M</var> on its flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(Prism(Simplex(3)));</span>
+4
+</pre></div>
+
+<p><a id="X82AFA2FE809AC358" name="X82AFA2FE809AC358"></a></p>
+
+<h5>7.4-5 FlagOrbitRepresentatives</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitRepresentatives</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns one flag from each orbit under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagOrbitRepresentatives(Prism(Simplex(3)));</span>
+[ 1, 49, 97, 145 ]
+</pre></div>
+
+<p><a id="X7FC9977380733F65" name="X7FC9977380733F65"></a></p>
+
+<h5>7.4-6 FlagOrbitsStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbitsStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: g</p>
+
+<p>Returns the subgroup of the connection group that preserves the flag orbits under the action of the automorphism group.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Prism(Dodecahedron());</span>
+Prism(Dodecahedron())
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s:=FlagOrbitsStabilizer(m);</span>
+&lt;permutation group of size 207360000 with 12 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSubgroup(ConnectionGroup(m),s);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AsSet(Orbit(AutomorphismGroupOnFlags(m),1))=AsSet(Orbit(s,1));</span>
 true
 </pre></div>
 
-<p><a id="X85BE14877927DB85" name="X85BE14877927DB85"></a></p>
+<p><a id="X839E8D4783F91690" name="X839E8D4783F91690"></a></p>
 
-<h5>7.1-12 QuotientManiplex</h5>
+<h5>7.4-7 IsReflexible</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientManiplex</code>( <var class="Arg">M</var>, <var class="Arg">relStr</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given a reflexible maniplex <var class="Arg">M</var>, generates the subgroup S of AutomorphismGroup(<var class="Arg">M</var>) given by relStr, and returns the quotient maniplex M / S. For example, QuotientManiplex(CubicTiling(2), "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2") returns the toroidal map {4,4}_{(5,0),(0,2)}. You can also input this as CubicTiling(2) / "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2".</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=QuotientManiplex(CubicTiling(2),"(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2");</span>
-3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(q);</span>
-[ 4, 4 ]
-</pre></div>
-
-<p><a id="X87DCBB9E78E383BB" name="X87DCBB9E78E383BB"></a></p>
-
-<h5>7.1-13 ReflexibleQuotientManiplex</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleQuotientManiplex</code>( <var class="Arg">M</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given a reflexible maniplex <var class="Arg">M</var>, generates the normal closure N of the subgroup S of AutomorphismGroup(<var class="Arg">M</var>) given by relStr, and returns the quotient maniplex M / N, which will be reflexible. For example, QuotientManiplex(CubicTiling(2), "(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2") returns the toroidal map {4,4}_{(1,0)}, because the normal closure of the group generated by (r0 r1 r2 r1)^5 and (r1 r0 r1 r2)^2 is the group generated by r0 r1 r2 r1 and r1 r0 r1 r2.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsReflexible</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the premaniplex <var class="Arg">M</var> is reflexible (has one flag orbit).</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=ReflexibleQuotientManiplex(CubicTiling(2),"(r0 r1 r2 r1)^5, (r1 r0 r1 r2)^2");</span>
-reflexible 3-maniplex with 8 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=ToroidalMap44([1,0]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsReflexible(Epsilonk(6));</span>
 true
 </pre></div>
 
-<p><a id="X83D969847E68299D" name="X83D969847E68299D"></a></p>
+<p><a id="X7F0108D17B523A0C" name="X7F0108D17B523A0C"></a></p>
 
-<h5>7.1-14 QuotientSggi</h5>
+<h5>7.4-8 IsChiral</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggi</code>( <var class="Arg">g</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: the quotient of <var class="Arg">g</var> by <var class="Arg">rels</var>, which is either a list of Tietze words or a string of relations that is parsed by ParseStringCRels.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := UniversalSggi(3);</span>
-&lt;fp group of size infinity on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := QuotientSggi(g, "(r0 r1)^5, (r1 r2)^3, (r0 r1 r2)^5");</span>
-&lt;fp group on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(h);</span>
-60
-</pre></div>
-
-<p><a id="X819D85E57B505196" name="X819D85E57B505196"></a></p>
-
-<h5>7.1-15 QuotientSggiByNormalSubgroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggiByNormalSubgroup</code>( <var class="Arg">g</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: g/n</p>
-
-<p>Given an sggi <var class="Arg">g</var> and a normal subgroup <var class="Arg">n</var> in <var class="Arg">g</var>, this function will give you the quotient in a way that respects the generators (i.e., the generators of the quotient will be the images of the generators of the original group).</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the premaniplex <var class="Arg">M</var> is chiral.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AutomorphismGroup(Cube(3));</span>
-&lt;fp group of size 48 on the generators [ r0, r1, r2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=QuotientSggiByNormalSubgroup(g,Group([(g.1*g.2*g.3)^3]));</span>
-Group([ (1,2)(3,7)(4,6)(5,10)(8,14)(9,16)(11,18)(12,20)(13,17)(15,23)(19,22)(21,24), (1,3)(2,5)(4,9)(6,12)(7,13)(8,15)(10,17)(11,19)(14,22)(16,24)(18,23)(20,21), (1,4)(2,6)(3,8)(5,11)(7,14)(9,15)(10,18)(12,19)(13,21)(16,23)(17,24)(20,22) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(q)=HemiCube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsChiral(ToroidalMap44([2,3]));</span>
 true
 </pre></div>
 
-<p><a id="X86725DD8781BF181" name="X86725DD8781BF181"></a></p>
+<p><a id="X8718754784A4FCB2" name="X8718754784A4FCB2"></a></p>
 
-<h5>7.1-16 QuotientManiplexByAutomorphismSubgroup</h5>
+<h5>7.4-9 IsRotary</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientManiplexByAutomorphismSubgroup</code>( <var class="Arg">m</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: m/h</p>
-
-<p>Given a maniplex <var class="Arg">m</var>, and a subgroup <var class="Arg">h</var> of the automorphism group on the flags, this function will give you the maniplex in which the orbits of flags under the action of <var class="Arg">h</var> are identified. Note that this function doesn't do any prechecks, and may break easily when <code class="code">m/h</code> _isn't_ a maniplex or when <code class="code">m/h</code> is of lower rank (sorry!).</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cube(3);</span>
-Cube(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">a:=AutomorphismGroupOnFlags(m);</span>
-&lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h:=Group((a.3*a.1*a.2)^3);</span>
-Group([ (1,7)(2,3)(4,18)(5,19)(6,20)(8,11)(9,12)(10,13)(14,32)(15,33)(16,34)(17,35)(21,25)(22,26)  (23,27)(24,28)(29,43)(30,44)(31,45)(36,39)(37,40)(38,41)(42,48)(46,47) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=QuotientManiplexByAutomorphismSubgroup(m,h);</span>
-3-maniplex with 24 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=HemiCube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRotary(ToroidalMap44([3,5]));</span>
 true
+</pre></div>
+
+<p><a id="X84E84D0E84BC7F59" name="X84E84D0E84BC7F59"></a></p>
+
+<h5>7.4-10 FlagOrbits</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagOrbits(ToroidalMap44([3,2]));</span>
+[ [ 1, 9, 7, 33, 15, 63, 5, 65, 39, 23, 13, 71, 61, 101, 3, 89, 47, 37, 95, 21, 11, 79, 69, 29, 59, 77, 99, 51, 49, 55, 45, 35, 103, 93, 19, 83, 87, 67, 85, 27, 57, 75, 91, 97, 43, 81, 53, 31, 17, 25, 73, 41 ], 
+  [ 2, 10, 8, 34, 16, 64, 6, 66, 40, 24, 14, 72, 62, 102, 4, 90, 48, 38, 96, 22, 12, 80, 70, 30, 60, 78, 100, 52, 50, 56, 46, 36, 104, 94, 20, 84, 88, 68, 86, 28, 58, 76, 92, 98, 44, 82, 54, 32, 18, 26, 74, 42 ] ]
+</pre></div>
+
+<p><a id="X861E4BAD800B2785" name="X861E4BAD800B2785"></a></p>
+
+<h4>7.5 <span class="Heading">Orientability</span></h4>
+
+<p><a id="X7DCAF9D27F36EBD3" name="X7DCAF9D27F36EBD3"></a></p>
+
+<h5>7.5-1 IsOrientable</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsOrientable</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>A maniplex is orientable if its flag graph is bipartite.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOrientable(HemiCube(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOrientable(Cube(3));</span>
+true
+</pre></div>
+
+<p><a id="X79F849DD7F778616" name="X79F849DD7F778616"></a></p>
+
+<h5>7.5-2 IsIOrientable</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIOrientable</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>For a subset I of {0, ..., n-1}, a maniplex is I-orientable if every closed path in its flag graph contains an even number of edges with colors in I.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIOrientable(HemiCube(3),[1,2]);</span>
+true
+</pre></div>
+
+<p><a id="X877609AB7ABD24AC" name="X877609AB7ABD24AC"></a></p>
+
+<h5>7.5-3 IsVertexBipartite</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexBipartite</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>A maniplex is vertex-bipartite if its 1-skeleton is bipartite. This is equivalent to being I-orientable for I = {0}.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsVertexBipartite(HemiCube(4));</span>
+true
+</pre></div>
+
+<p><a id="X7BD9E8A87D6E8FAB" name="X7BD9E8A87D6E8FAB"></a></p>
+
+<h5>7.5-4 IsFacetBipartite</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetBipartite</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>A maniplex is facet-bipartite if the 1-skeleton of its dual is bipartite. This is equivalent to being I-orientable for I = {n-1}.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetBipartite(HemiCube(4));</span>
+false
+</pre></div>
+
+<p><a id="X7BAA22327D298902" name="X7BAA22327D298902"></a></p>
+
+<h5>7.5-5 OrientableCover</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OrientableCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the minimal <em>orientable cover</em> of the maniplex <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">OrientableCover(HemiCube(3))=Cube(3);</span>
+true
+</pre></div>
+
+<p><a id="X81EF6062840E85AF" name="X81EF6062840E85AF"></a></p>
+
+<h5>7.5-6 IOrientableCover</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IOrientableCover</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the minimal <em>I-orientable cover</em> of the maniplex <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(IOrientableCover(Cube(3), [2]));</span>
+[ 4, 6 ]
 </pre></div>
 
 

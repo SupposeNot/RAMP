@@ -333,3 +333,79 @@ InstallMethod(GrandAntiprism,
 	CloseStream(GA);
 	return Maniplex(Group(r0,r1,r2,r3));
 	end);
+
+
+InstallMethod(STG1,
+	[IsInt],
+	function(n)
+	local labedges, i;
+	labedges:=[];
+	for i in [0..n-1] do
+		Add(labedges,[[1],i]);
+	od;
+	return Premaniplex(EdgeLabeledGraphFromLabeledEdges(labedges));
+	end);
+
+
+InstallMethod(STG2,
+	[IsInt,IsList],
+	function(n,l)
+	local labedges, i;
+	labedges:=[];
+	for i in [0..n-1] do
+		if i in l then
+		Add(labedges,[[1],i]);
+		Add(labedges,[[2],i]);
+		else
+		Add(labedges,[[1,2],i]);
+		fi;
+	od;
+	return Premaniplex(EdgeLabeledGraphFromLabeledEdges(labedges));
+	end);
+
+
+InstallMethod(STG3,
+	[IsInt,IsInt],
+	function(n,i)
+	local labedges,l;
+	labedges:=[];
+	Add(labedges,[[1,2], i]);
+	Add(labedges,[[2,3], i+1]);
+	Add(labedges,[[2,3], i-1]);
+	Add(labedges,[[1], i-1]);
+	Add(labedges,[[1], i+1]);
+	Add(labedges,[[3], i]);
+	for l in [0..n-1] do
+		if (l <> i) and (l<> (i+1)) and (l<> (i-1)) then
+			Add(labedges,[[1],l]);
+			Add(labedges,[[2],l]);
+			Add(labedges,[[3],l]);
+		fi;
+	od;
+	return Premaniplex(EdgeLabeledGraphFromLabeledEdges(labedges));
+	end);
+
+
+InstallMethod(STG3,
+	[IsInt, IsInt, IsInt],
+	function(n,i,j)	
+	local labedges, l;
+	if j <> i+1 then
+	return fail;
+	fi;
+	labedges:=[];
+	Add(labedges,[[1,2], i]);
+	Add(labedges,[[2,3], i+1]);
+	Add(labedges,[[1], i+1]);
+	Add(labedges,[[3], i]);
+	for l in [0..n-1] do
+		if (l <> i) and (l<> (i+1)) then
+			Add(labedges,[[1],l]);
+			Add(labedges,[[2],l]);
+			Add(labedges,[[3],l]);
+		fi;
+	od;
+	return Premaniplex(EdgeLabeledGraphFromLabeledEdges(labedges));
+	end);
+
+

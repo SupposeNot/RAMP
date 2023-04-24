@@ -77,6 +77,7 @@
 #! If you have LaTeX set up properly, then it will also build a pdf manual.
 #!
 
+#! @Chapter Maniplex Constructors
 #! @Chapter Groups for Maps, Polytopes, and Maniplexes
 #! @Chapter Regular Maps
 #! @Chapter Families of Polytopes

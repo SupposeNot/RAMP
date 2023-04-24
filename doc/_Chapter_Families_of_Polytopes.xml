@@ -422,6 +422,72 @@ Returns the Grand Antiprism.
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="n" Name="STG1" Label="for IsInt"/>
+ <Returns>premaniplex
+</Returns>
+ <Description>
+Builds the 1 flag premaniplex of rank <A>n</A>.
+ See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> STG1(5);
+Premaniplex of rank 5 with 1 flag
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="n, I" Name="STG2" Label="for IsInt,IsList"/>
+ <Returns>premaniplex
+</Returns>
+ <Description>
+Builds the 2 flag premaniplex of rank <A>n</A> with semi-edges in <A>I</A>.
+ See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> STG2(5,[2,4]);
+Premaniplex of rank 5 with 2 flags
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="n, i" Name="STG3" Label="for IsInt,IsInt"/>
+ <Returns>premaniplex
+</Returns>
+ <Description>
+Builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). The edges of label i-1 and i+1 are parallel.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> STG3(5,2);
+Premaniplex of rank 5 with 3 flags
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="n, i, j" Name="STG3" Label="for IsInt,IsInt,IsInt"/>
+ <Returns>premaniplex
+</Returns>
+ <Description>
+Assumes <Code>j=i+1</Code> and builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). There are edges of label <A>i</A> and <A>j</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> STG3(6,2,3);
+Premaniplex of rank 6 with 3 flags
+]]></Example>
+
+
 </Section>
 
 

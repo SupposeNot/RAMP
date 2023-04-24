@@ -221,3 +221,45 @@ DeclareOperation("InternallySelfDualPolyhedron2",[IsInt, IsInt]);
 #! @Returns IsPolytope
 #! @Description Returns the Grand Antiprism.
 DeclareOperation("GrandAntiprism", []);
+
+
+#! @Arguments n
+#! @Returns premaniplex
+#! @Description Builds the 1 flag premaniplex of rank <A>n</A>.
+#! See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+DeclareOperation("STG1",[IsInt]);
+#! @BeginExampleSession
+#! gap> STG1(5);
+#! Premaniplex of rank 5 with 1 flag
+#! @EndExampleSession
+
+
+#! @Arguments n, I
+#! @Returns premaniplex
+#! @Description Builds the 2 flag premaniplex of rank <A>n</A> with semi-edges in <A>I</A>.
+#! See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+DeclareOperation("STG2",[IsInt,IsList]);
+#! @BeginExampleSession
+#! gap> STG2(5,[2,4]);
+#! Premaniplex of rank 5 with 2 flags
+#! @EndExampleSession
+
+
+#! @Arguments n, i
+#! @Returns premaniplex
+#! @Description Builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). The edges of label i-1 and i+1 are parallel.
+DeclareOperation("STG3",[IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> STG3(5,2);
+#! Premaniplex of rank 5 with 3 flags
+#! @EndExampleSession
+
+
+#! @Arguments n, i, j
+#! @Returns premaniplex
+#! @Description Assumes `j=i+1` and builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry Type Graphs of Polytopes and Maniplexes <Cite Key="CDHT15"/> (<URL>https://doi.org/10.1007/s00026-015-0263-z</URL>). There are edges of label <A>i</A> and <A>j</A>.
+DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> STG3(6,2,3);
+#! Premaniplex of rank 6 with 3 flags
+#! @EndExampleSession

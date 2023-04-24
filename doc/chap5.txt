@@ -1,414 +1,762 @@
   
-  [1X5 [33X[0;0YManiplexes[133X[101X
+  [1X5 [33X[0;0YFamilies of Polytopes[133X[101X
   
   
-  [1X5.1 [33X[0;0YConstructors[133X[101X
+  [1X5.1 [33X[0;0YClassical polytopes[133X[101X
   
+  [1X5.1-1 Vertex[101X
   
-  [1X5.1-1 [33X[0;0YReflexibleManiplex[133X[101X
+  [33X[1;0Y[29X[2XVertex[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
-  
-  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
-  maniplex  with  that automorphism group, where the privileged generators are
-  those returned by GeneratorsOfGroup(g).[133X
+  [33X[0;0YReturns the universal 0-polytope.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[25Xgap>[125X [27XVertex();[127X[104X
+    [4X[28XUniversalPolytope(0)[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-2 Edge[101X
+  
+  [33X[1;0Y[29X[2XEdge[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the universal 1-polytope.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XEdge();[127X[104X
+    [4X[28XUniversalPolytope(1)[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-3 Pgon[101X
+  
+  [33X[1;0Y[29X[2XPgon[102X( [3Xp[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the p-gon.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(Pgon(5));[127X[104X
+    [4X[28X[ UniversalPolytope(1) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-4 Cube[101X
+  
+  [33X[1;0Y[29X[2XCube[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-cube.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(Cube(4));[127X[104X
+    [4X[28X[ 16, 32, 24, 8 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-5 HemiCube[101X
+  
+  [33X[1;0Y[29X[2XHemiCube[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-hemi-cube.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(HemiCube(4));[127X[104X
+    [4X[28X[ 8, 16, 12, 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-6 CrossPolytope[101X
+  
+  [33X[1;0Y[29X[2XCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-cross-polytope.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfVertices(CrossPolytope(5));[127X[104X
+    [4X[28X10[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-7 Octahedron[101X
+  
+  [33X[1;0Y[29X[2XOctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the octahedron (3-cross-polytope).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOctahedron() = CrossPolytope(3)[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
-  bypass that check.[133X
+  [1X5.1-8 HemiCrossPolytope[101X
   
-  [33X[0;0YThe  second  form  returns  the  universal reflexible maniplex with Schlafli
-  symbol  [3Xsym[103X. If the optional argument [3Xrelations[103X is given, then we return the
-  reflexible  maniplex with the given defining relations. The relations can be
-  given by a list of Tietze words or as a string of relators or relations that
-  involve  r0  etc.  This method automatically calls [10XInterpolatedString[110X on the
-  relations,  so  you  may  use  $variable  in  the  relations, and it will be
-  replaced with the value of [10Xvariable[110X (but for global variables only).[133X
+  [33X[1;0Y[29X[2XHemiCrossPolytope[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-hemi-cross-polytope.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
-    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
-    [4X[25Xgap>[125X [27Xn := 3;;[127X[104X
-    [4X[25Xgap>[125X [27XSize(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));[127X[104X
-    [4X[28X72[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfVertices(HemiCrossPolytope(5));[127X[104X
+    [4X[28X5[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  third  form  takes  the  Schlafli  Symbol  [3Xsym[103X,  a list of [3Xwords[103X in the
-  generators  r0 etc, and a list of [3Xorders[103X. It returns the reflexible maniplex
-  that  is the quotient of the universal maniplex with that Schlalfi Symbol by
-  the  relations obtained by setting each [3Xword[i][103X to have order [3Xorder[i][103X. This
-  is primarily useful for quickly constructing a family of related maniplexes.[133X
+  [1X5.1-9 Simplex[101X
+  
+  [33X[1;0Y[29X[2XSimplex[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the n-simplex.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XL := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;[127X[104X
-    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
-    [4X[28X[ false, true, true, true, true ][128X[104X
+    [4X[25Xgap>[125X [27XPetrial(Simplex(3))=HemiCube(3);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  fourth  form  accepts  common  names  for  reflexible 3-maniplexes that
-  specify  the  lengths  of  holes  and zigzags. That is, "{p, q | h2, \ldots,
-  hk\}_z1,  ..., zL" is the quotient of [23X\{p,q\}[123X by the relations that make the
-  2-holes have length h2, ..., and the 1-zigzags have length z1, etc.[133X
+  [1X5.1-10 Tetrahedron[101X
+  
+  [33X[1;0Y[29X[2XTetrahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the tetrahedron (3-simplex).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);[127X[104X
+    [4X[25Xgap>[125X [27XTetrahedron() = Simplex(3)[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);[127X[104X
+  [4X[32X[104X
+  
+  [1X5.1-11 CubicTiling[101X
+  
+  [33X[1;0Y[29X[2XCubicTiling[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the rank [23Xn+1[123X polytope; the tiling of [23XE^n[123X by [23Xn[123X-cubes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(CubicTiling(3));[127X[104X
+    [4X[28X[ 4, 3, 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-12 Dodecahedron[101X
+  
+  [33X[1;0Y[29X[2XDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the dodecahedron, [10X{5, 3}[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(Dodecahedron());[127X[104X
+    [4X[28XIcosahedron()[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-13 HemiDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XHemiDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-dodecahedron, [10X{5, 3}_5[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(HemiDodecahedron());[127X[104X
+    [4X[28XReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-14 Icosahedron[101X
+  
+  [33X[1;0Y[29X[2XIcosahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the icosahedron, [10X{3, 5}[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(Icosahedron());[127X[104X
+    [4X[28XDodecahedron()[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-15 HemiIcosahedron[101X
+  
+  [33X[1;0Y[29X[2XHemiIcosahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-icosahedron, [10X{3, 5}_5[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(HemiIcosahedron());[127X[104X
+    [4X[28X[ 6, 15, 10 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-16 SmallStellatedDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XSmallStellatedDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YConstructs  the  small  stellated  dodecahedron combinatorially. This is the
+  same  combinatorial  object  as the great dodecahedron. You may also use the
+  command [10XGreatDodecahedron();[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSmallStellatedDodecahedron()=GreatDodecahedron();[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex("{6,6 | 6,2}_4");;[127X[104X
-    [4X[25Xgap>[125X [27XHoleLength(M,2);[127X[104X
-    [4X[28X6[128X[104X
-    [4X[25Xgap>[125X [27XHoleLength(M,3);[127X[104X
+    [4X[25Xgap>[125X [27XSize(GreatDodecahedron());[127X[104X
+    [4X[28X120[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-17 24Cell[101X
+  
+  [33X[1;0Y[29X[2X24Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the 24-cell, [10X{3, 4, 3}[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(24Cell());[127X[104X
+    [4X[28X[ 3, 4, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-18 Hemi24Cell[101X
+  
+  [33X[1;0Y[29X[2XHemi24Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-24-cell, [10X{3, 4, 3}_6[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Hemi24Cell());[127X[104X
+    [4X[28X[ 3, 4, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-19 120Cell[101X
+  
+  [33X[1;0Y[29X[2X120Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the 120-cell, {5, 3, 3}.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfIFaces(120Cell(),3);[127X[104X
+    [4X[28X120[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-20 Hemi120Cell[101X
+  
+  [33X[1;0Y[29X[2XHemi120Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-120-cell, [10X{5, 3, 3}_15[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNumberOfIFaces(Hemi120Cell(),3);[127X[104X
+    [4X[28X60[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-21 600Cell[101X
+  
+  [33X[1;0Y[29X[2X600Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the 600-cell, [10X{3, 3, 5}[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(600Cell());[127X[104X
+    [4X[28X120Cell()[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-22 Hemi600Cell[101X
+  
+  [33X[1;0Y[29X[2XHemi600Cell[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the hemi-600-cell, [10X{3, 3, 5}_15[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDual(Hemi600Cell())=Hemi120Cell();[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-23 BrucknerSphere[101X
+  
+  [33X[1;0Y[29X[2XBrucknerSphere[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPoset[133X
+  
+  [33X[0;0YReturns Bruckner's sphere.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsLattice(BrucknerSphere());[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-24 InternallySelfDualPolyhedron1[101X
+  
+  [33X[1;0Y[29X[2XInternallySelfDualPolyhedron1[102X( [3Xp[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YConstructs  the  internally self-dual polyhedron of type [10X{p, p}[110X described in
+  Theorem  5.3  of [CM17]. #([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X). p must
+  be at least 7.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(InternallySelfDualPolyhedron1(40));[127X[104X
+    [4X[28X[ 40, 40 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-25 InternallySelfDualPolyhedron2[101X
+  
+  [33X[1;0Y[29X[2XInternallySelfDualPolyhedron2[102X( [3Xp[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YConstructs  the  internally self-dual polyhedron of type [10X{p, p}[110X described in
+  Theorem  5.8  of [CM17].# ([7Xhttps://doi.org/10.11575/cdm.v12i2.62785[107X). [10Xp[110X must
+  be even and at least 6, and [10Xk[110X must be odd.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(InternallySelfDualPolyhedron2(40,7));[127X[104X
+    [4X[28X[ 40, 40 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-26 GrandAntiprism[101X
+  
+  [33X[1;0Y[29X[2XGrandAntiprism[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YReturns the Grand Antiprism.[133X
+  
+  [1X5.1-27 STG1[101X
+  
+  [33X[1;0Y[29X[2XSTG1[102X( [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YBuilds  the  1  flag  premaniplex  of  rank  [3Xn[103X.  See  VOLTAGE  OPERATIONS ON
+  MANIPLEXES (citation coming soon).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG1(5);[127X[104X
+    [4X[28XPremaniplex of rank 5 with 1 flag[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-28 STG2[101X
+  
+  [33X[1;0Y[29X[2XSTG2[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YBuilds  the  2  flag premaniplex of rank [3Xn[103X with semi-edges in [3XI[103X. See VOLTAGE
+  OPERATIONS ON MANIPLEXES (citation coming soon).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG2(5,[2,4]);[127X[104X
+    [4X[28XPremaniplex of rank 5 with 2 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-29 STG3[101X
+  
+  [33X[1;0Y[29X[2XSTG3[102X( [3Xn[103X, [3Xi[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YBuilds  the  3  flag  premaniplex of rank [3Xn[103X described on Page 11 of Symmetry
+  Type      Graphs      of      Polytopes      and     Maniplexes     [CRHT15]
+  ([7Xhttps://doi.org/10.1007/s00026-015-0263-z[107X).  The edges of label i-1 and i+1
+  are parallel.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG3(5,2);[127X[104X
+    [4X[28XPremaniplex of rank 5 with 3 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X5.1-30 STG3[101X
+  
+  [33X[1;0Y[29X[2XSTG3[102X( [3Xn[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
+  
+  [33X[0;0YAssumes  [10Xj=i+1[110X and builds the 3 flag premaniplex of rank [3Xn[103X described on Page
+  11   of   Symmetry   Type   Graphs  of  Polytopes  and  Maniplexes  [CRHT15]
+  ([7Xhttps://doi.org/10.1007/s00026-015-0263-z[107X).  There are edges of label [3Xi[103X and
+  [3Xj[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSTG3(6,2,3);[127X[104X
+    [4X[28XPremaniplex of rank 6 with 3 flags[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.2 [33X[0;0YFlat and tight polytopes[133X[101X
+  
+  [1X5.2-1 FlatOrientablyRegularPolyhedron[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedron[102X( [3Xp[103X, [3Xq[103X, [3Xi[103X, [3Xj[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ypolyhedron[133X
+  
+  [33X[0;0Y[10Xpolyhedron[110X is the flat orientably regular polyhedron with automorphism group
+  [p,  q]  /  (r2 r1 r0 r1 = (r0 r1)^i (r1 r2)^j). This function validates the
+  inputs   to   make   sure   that   the   polyhedron   is  well-defined.  Use
+  FlatOrientablyRegularPolyhedronNC if you do not want this validation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFlatOrientablyRegularPolyhedron(4,2,3,3);[127X[104X
+    [4X[28XFlatOrientablyRegularPolyhedron(4,2,-1,1)[128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-2 FlatOrientablyRegularPolyhedraOfType[101X
+  
+  [33X[1;0Y[29X[2XFlatOrientablyRegularPolyhedraOfType[102X( [3Xsym[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  a  list  of  all  flat,  orientably regular polyhedra with Schlafli
+  symbol [3Xsym[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28Xap> FlatOrientablyRegularPolyhedraOfType([6,6]);[128X[104X
+    [4X[28X[ FlatOrientablyRegularPolyhedron(6,6,3,1), FlatOrientablyRegularPolyhedron(6,6,-1,1), [128X[104X
+    [4X[28X  FlatOrientablyRegularPolyhedron(6,6,-1,3) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.2-3 TightOrientablyRegularPolytopesOfType[101X
+  
+  [33X[1;0Y[29X[2XTightOrientablyRegularPolytopesOfType[102X( [3Xsym[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  a  list  of  all  tight, orientably regular polytopes with Schlafli
+  symbol    [3Xsym[103X.    When    [3Xsym[103X    has    length    2,    this    just   calls
+  FlatOrientablyRegularPolyhedraOfType([3Xsym[103X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTightOrientablyRegularPolytopesOfType([6,6]);[127X[104X
+    [4X[28X[ FlatOrientablyRegularPolyhedron(6,6,3,1), FlatOrientablyRegularPolyhedron(6,6,-1,1), [128X[104X
+    [4X[28X  FlatOrientablyRegularPolyhedron(6,6,-1,3) ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.3 [33X[0;0YThe Tomotope[133X[101X
+  
+  [1X5.3-1 Tomotope[101X
+  
+  [33X[1;0Y[29X[2XTomotope[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the [13XTomotope[113X from [MPW12][133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Tomotope());[127X[104X
+    [4X[28X[ 3, [ 3, 4 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X5.4 [33X[0;0YToroids[133X[101X
+  
+  [1X5.4-1 ToroidalMap44[101X
+  
+  [33X[1;0Y[29X[2XToroidalMap44[102X( [3Xu[103X[, [3Xv[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YReturns  the toroidal map [23X\{4,4\}_{\vec u, \vec v}[123X. If only [3Xu[103X is given, then
+  [3Xv[103X  is  taken  to be [3Xu[103X rotated 90 degrees, in which case the resulting map is
+  either reflexible or chiral.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XToroidalMap44([3,0]) = ARP([4,4], "(r0 r1 r2 r1)^3");[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ToroidalMap44([1,2]);; IsChiral(M);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap44([5,0]) = SmallestReflexibleCover(M);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := ToroidalMap44([2,0],[0,3]);; NumberOfFlagOrbits(M);[127X[104X
     [4X[28X2[128X[104X
-    [4X[25Xgap>[125X [27XZigzagLength(M,1);[127X[104X
-    [4X[28X4[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YIn  the  second  and third forms, if the option set_schlafli is set, then we
-  set  the  Schlafli  symbol  to  the  one  given. This may not be the correct
-  Schlafli  symbol,  since  the relations may cause a collapse, so this should
-  only be used if you know that the Schlafli symbol is correct.[133X
-  
-  [33X[0;0YThe  abbreviations  [10XRefMan[110X  and [10XRefManNC[110X are also available for all of these
-  usages.[133X
-  
-  [1X5.1-2 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YGiven  a  permutation  group  [3XG[103X on the set [1..N], returns a maniplex with N
-  flags  with  connection  group [3XG[103X. This function first checks whether g is an
-  Sggi. Use [10XManiplexNC[110X to bypass that check.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
-    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
-    [4X[28XPgon(3)[128X[104X
-    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
+    [4X[25Xgap>[125X [27XM = ARP([4,4]) / "(r0 r1 r2 r1)^2, (r1 r0 r1 r2)^3";[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSmallestReflexibleCover(M) = ToroidalMap44([6,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap44([2,3],[4,1]) = ToroidalMap44([-3,2],[-1,4]);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X5.1-3 Maniplex[101X
+  [1X5.4-2 ToroidalMap36[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XH[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [33X[1;0Y[29X[2XToroidalMap36[102X( [3Xu[103X[, [3Xv[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YLet   [3XM[103X   be   a   reflexible   maniplex   and   let  [3XH[103X  be  a  subgroup  of
-  AutomorphismGroup([3XM[103X). This returns the maniplex [3XM/H[103X. This will be reflexible
-  if  and only if [3XH[103X is normal. For most purposes, it is probably easier to use
-  QuotientManiplex,  which  takes  a string of relations as input instead of a
-  subgroup. The example below builds the map [23X\{4, 4\}_{(1,0), (0,2)}[123X.[133X
+  [33X[0;0YReturns  the toroidal map [23X\{3,6\}_{\vec u, \vec v}[123X. If only [3Xu[103X is given, then
+  we  return  the  corresponding  reflexible map (if [3Xu[103X is [a, 0] or [a, a]) or
+  chiral map.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
-    [4X[28XCubicTiling(2)[128X[104X
-    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
-    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
-    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
+    [4X[25Xgap>[125X [27XSize(ToroidalMap36([3,0])) = 108;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSmallestReflexibleCover(ToroidalMap36([2,3])) = ToroidalMap36([19,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap36([3,0]) = ToroidalMap36([3,0],[0,3]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap36([2,3]) = ToroidalMap36([2,3],[-3,5]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfFlagOrbits(ToroidalMap36([3,0],[-2,4]));[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfFlagOrbits(ToroidalMap36([4,3],[5,0]));[127X[104X
+    [4X[28X6[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-3 ToroidalMap63[101X
+  
+  [33X[1;0Y[29X[2XToroidalMap63[102X( [3Xu[103X[, [3Xv[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YReturns  the toroidal map [23X\{6,3\}_{\vec u, \vec v}[123X. If only [3Xu[103X is given, then
+  we  return  the  corresponding  reflexible map (if [3Xu[103X is [a, 0] or [a, a]) or
+  chiral map.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSize(ToroidalMap63([3,0])) = 108;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSmallestReflexibleCover(ToroidalMap63([2,3])) = ToroidalMap63([19,0]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap63([3,0]) = ToroidalMap63([3,0],[0,3]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XToroidalMap63([2,3]) = ToroidalMap63([2,3],[-3,5]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));[127X[104X
+    [4X[28X6[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-4 CubicToroid[101X
+  
+  [33X[1;0Y[29X[2XCubicToroid[102X( [3Xs[103X, [3Xk[103X, [3Xn[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven   IsInt   triple  [3Xs,  k,  n[103X,  will  return  the  regular  toroid  [23X\{4,
+  3^{n-2},4\}_{\vec s}[123X where [23X\vec s=(s^k, 0^{n-k})[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm44:=CubicToroid(3,2,2);;[127X[104X
+    [4X[25Xgap>[125X [27Xm44=ToroidalMap44([3,3]);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X5.4-5 CubicToroid[101X
+  
+  [33X[1;0Y[29X[2XCubicToroid[102X( [3Xn[103X, [3Xvecs[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YGiven an integer n and a list of vectors [3Xvecs[103X, returns the cubic toroid that
+  is a quotient of CubicTiling(n) by the translation subgroup generated by the
+  given  vectors.  The results may be nonsensical if [3Xvecs[103X does not generate an
+  n-dimensional translation group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XCubicToroid(2,[[2,0],[0,2]]);[127X[104X
     [4X[28X3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
-    [4X[28X16[128X[104X
-  [4X[32X[104X
-  
-  [1X5.1-4 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YConstructs  a  formal  maniplex, represented by an operation [3XF[103X and a list of
-  arguments  [3Xinputs[103X.  By  itself,  this  does  not  really _do_ anything -- it
-  creates  a  maniplex  object that only knows the operation [3XF[103X and the [3Xinputs[103X.
-  However,  many  polytope operations (such as Pyramid(M), Medial(M), etc) use
-  this  construction  as  a base, and then add "attribute computers" that tell
-  the  formal maniplex how to compute certain things in terms of properties of
-  the base. See AddAttrComputer for more information.[133X
-  
-  [1X5.1-5 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YConstructs the maniplex from the given poset [3XP[103X. This assumes that P actually
-  defines a maniplex.[133X
-  
-  [1X5.1-6 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YConstructs  the maniplex from its flag graph [3XF[103X. This assumes that F actually
-  defines a maniplex.[133X
-  
-  
-  [1X5.2 [33X[0;0YMixing of Maniplexes functions[133X[101X
-  
-  
-  [1X5.2-1 [33X[0;0YMix of groups[133X[101X
-  
-  [33X[1;0Y[29X[2XMix[102X( [3Xg[103X, [3Xh[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsGroup [110X.[133X
-  
-  [33X[0;0YGiven  two groups (either both permutation groups or both FpGroups), returns
-  the  mix  of those groups. If g and h are permutation groups of degree m and
-  n, respectively, then the mix is a permutation group of degree m+n.[133X
-  
-  [33X[0;0YHere we build the mix of the connection groups of a 3-cube and an edge.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg1:=ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27Xg2:=ConnectionGroup(Edge());[127X[104X
-    [4X[28XGroup([ (1,2) ])[128X[104X
-    [4X[25Xgap>[125X [27XMix(g1,g2);[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-  [4X[32X[104X
-  
-  [1X5.2-2 Mix[101X
-  
-  [33X[1;0Y[29X[2XMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
-  
-  [33X[0;0YGiven two (pre-)maniplexes, returns their mix. For two reflexible maniplexes
-  returns the IsReflexibleManiplex from the mix of their connection groups. In
-  general, it returns the "flag mix" of the two maniplexes (see [10XFlagMix[110X).[133X
-  
-  [1X5.2-3 FlagMix[101X
-  
-  [33X[1;0Y[29X[2XFlagMix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex [110X.[133X
-  
-  [33X[0;0YGiven  two  (pre-)maniplexes  p,  q this returns the (pre-)maniplex of their
-  "flag" mix. That is, it constructs the mix of their connection groups, keeps
-  the  connected  component  with the base flags of p and q, and then builds a
-  maniplex from this.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ToroidalMap44([1,2]);;[127X[104X
-    [4X[25Xgap>[125X [27XFlagMix(M,M) = M;[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XR := FlagMix(M, EnantiomorphicForm(M));[127X[104X
-    [4X[28X3-maniplex with 200 flags[128X[104X
-    [4X[25Xgap>[125X [27XIsReflexible(R);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XR = ToroidalMap44([5,0]);[127X[104X
+    [4X[25Xgap>[125X [27Xlast=ToroidalMap44([2,0]);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
+  [1X5.4-6 3343Toroid[101X
   
-  [1X5.2-4 [33X[0;0YComix[133X[101X
+  [33X[1;0Y[29X[2X3343Toroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[1;0Y[29X[2XComix[102X( [3Xfpgroup[103X, [3Xfpgroup[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XComix[102X( [3Xmaniplex[103X, [3Xmaniplex[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex [110X.[133X
-  
-  [33X[0;0YReturns  the  comix  of  two  Finitely  Presented  groups  gp  and gq. Given
-  maniplexes   returns  the  IsReflexibleManiplex  from  the  comix  of  their
-  connection groups[133X
-  
-  
-  [1X5.2-5 [33X[0;0YIndexed array tools[133X[101X
-  
-  [33X[1;0Y[29X[2XCtoL[102X( [3Xint[103X, [3Xint[103X, [3Xint[103X, [3Xint[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsInteger [110X.[133X
-  
-  [33X[0;0YCtoL  Returns  an  integer between 1 and N*M associated with the pair [a,b].
-  LtoC Returns an ordered pair [a,b] associated with the integer between 1 and
-  N*M. a should range between 1 and N, and b should range between 1 and M N is
-  how  many  columns  (x coordinates), M is how many rows (y coordinates) in a
-  matrix Functions are inverses.[133X
+  [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,3,4,3\}_{\vec s}[123X
+  where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 1 or 2.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XLtoC(5,4,14);[127X[104X
-    [4X[28X[ 1, 2 ][128X[104X
-    [4X[25Xgap>[125X [27XCtoL(3,2,5,4);[127X[104X
-    [4X[28X8[128X[104X
-    [4X[25Xgap>[125X [27XLtoC(8,5,4);[127X[104X
-    [4X[28X[ 3, 2 ][128X[104X
-  [4X[32X[104X
-  
-  
-  [1X5.3 [33X[0;0YSubclasses of maniplex[133X[101X
-  
-  [1X5.3-1 IsPolytopal[101X
-  
-  [33X[1;0Y[29X[2XIsPolytopal[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
-  
-  [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
-  polytope.[133X
-  
-  [1X5.3-2 SatisfiesWeakPathIntersectionProperty[101X
-  
-  [33X[1;0Y[29X[2XSatisfiesWeakPathIntersectionProperty[102X( [3XM[103X ) [32X property[133X
-  [6XReturns:[106X  [33X[0;10YIsBool[133X
-  
-  [33X[0;0YTests for the weak path intersection property in a maniplex. Definitions and
-  description available in [GH18].[133X
-  
-  [1X5.3-3 IsFaithful[101X
-  
-  [33X[1;0Y[29X[2XIsFaithful[102X( [3Xm[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns  whether  the maniplex [3Xm[103X is faithful, as defined in "Polytopality of
-  Maniplexes"; i.e., whether for each flag the intersection of all the i-faces
-  containing that flag is just the flag itself.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIsFaithful(Cube(3));[127X[104X
+    [4X[25Xgap>[125X [27XM := 3343Toroid(3,1);[127X[104X
+    [4X[28XReflexibleManiplex([ 3, 3, 4, 3 ], "(r0 r1 r2 r3 r2 r1 r4 r3 r2 r3 r4 r1 r2 r3 r2 r1)^3")[128X[104X
+    [4X[25Xgap>[125X [27XIsPolytopal(M);[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XIsFaithful(ToroidalMap44([1,0]));[127X[104X
+    [4X[25Xgap>[125X [27XIsPolytopal(3343Toroid(1,1));[127X[104X
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X5.3-4 IsRegularPolytope[101X
+  [1X5.4-7 24CellToroid[101X
   
-  [33X[1;0Y[29X[2XIsRegularPolytope[102X( [3Xmaniplex[103X ) [32X attribute[133X
+  [33X[1;0Y[29X[2X24CellToroid[102X( [3Xs[103X, [3Xk[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YReturns whether a maniplex is a regular polytope.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xp:=24Cell();[127X[104X
-    [4X[28X24Cell[128X[104X
-    [4X[25Xgap>[125X [27XIsRegularPolytope(p);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xq:=CartesianProduct(Simplex(2),Cube(2));[127X[104X
-    [4X[28XCartesianProduct(Pgon(3), Pgon(4))[128X[104X
-    [4X[25Xgap>[125X [27XIsRegularPolytope(q);[127X[104X
-    [4X[28Xfalse[128X[104X
-  [4X[32X[104X
-  
-  
-  [1X5.4 [33X[0;0YRotary maniplexes and rotation groups[133X[101X
-  
-  [1X5.4-1 UniversalRotationGroup[101X
-  
-  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xn[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the rotation subgroup of the universal Coxeter Group of rank n.[133X
+  [33X[0;0YGiven  IsInt  pair [3Xs, k[103X, will return the regular toroid [23X\{3,4,3,3\}_{\vec s}[123X
+  where [23X\vec s=(s^k, 0^{n-k})[123X. Note that [23Xk[123X must be 1 or 2.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XUniversalRotationGroup(3);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
-  [4X[32X[104X
-  
-  [1X5.4-2 UniversalRotationGroup[101X
-  
-  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xsym[103X ) [32X operation[133X
-  
-  [33X[0;0YReturns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XUniversalRotationGroup([4,4]);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XUniversalRotationGroup([3,3,3]);[127X[104X
-    [4X[28X<fp group of size 60 on the generators [ s1, s2, s3 ]>[128X[104X
-  [4X[32X[104X
-  
-  
-  [1X5.4-3 [33X[0;0YRotaryManiplex[133X[101X
-  
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xg[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X, [3Xrelations[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XRotaryManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
-  
-  [33X[0;0YIn  the  first  form,  given  a  group  g (which should be a string rotation
-  group),  returns  the  rotary  maniplex  with that rotation group, where the
-  privileged  generators  are  those  returned  by  GeneratorsOfGroup(g). This
-  function   first   checks   whether   g   is   a   StringRotationGroup.  Use
-  [10XRotaryManiplexNC[110X to bypass that check.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex(UniversalRotationGroup([3,3]));;[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[25Xgap>[125X [27XM := 24CellToroid(3,1);;[127X[104X
+    [4X[25Xgap>[125X [27XDual(M) = 3343Toroid(3,1);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  second  form  returns  the  universal rotary maniplex (in fact, regular
-  polytope) with Schlafli symbol [3Xsym[103X.[133X
+  
+  [1X5.5 [33X[0;0YUniform and Archimedean polyhedra[133X[101X
+  
+  [33X[0;0YRepresentations  of  the  uniform  and  Archimedean  polyhedra here are from
+  [HW10].[133X
+  
+  [1X5.5-1 Cuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XCuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the cuboctahedron.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex([4,3]);;[127X[104X
-    [4X[25Xgap>[125X [27XM = Cube(3);[127X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(Cuboctahedron());[127X[104X
+    [4X[28X[ [ 3, 4 ], 4 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-2 TruncatedTetrahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedTetrahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated tetrahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TruncatedTetrahedron());[127X[104X
+    [4X[28X[ [ 3, 6 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-3 TruncatedOctahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedOctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated octahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(TruncatedOctahedron());[127X[104X
+    [4X[28X[ 24, 36, 14 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-4 TruncatedCube[101X
+  
+  [33X[1;0Y[29X[2XTruncatedCube[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated octahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFvector(TruncatedCube());[127X[104X
+    [4X[28X[ 24, 36, 14 ][128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(TruncatedCube());[127X[104X
+    [4X[28X[ [ 3, 8 ], 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-5 Icosadodecahedron[101X
+  
+  [33X[1;0Y[29X[2XIcosadodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the icosadodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XVertexFigure(Icosadodecahedron());[127X[104X
+    [4X[28XPgon(4)[128X[104X
+    [4X[25Xgap>[125X [27XFacets(Icosadodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(3) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-6 TruncatedIcosahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedIcosahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated icosahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(TruncatedIcosahedron());[127X[104X
+    [4X[28X[ Pgon(6), Pgon(5) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-7 SmallRhombicuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XSmallRhombicuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the small rhombicuboctahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XZigzagVector(SmallRhombicuboctahedron());[127X[104X
+    [4X[28X[ 12, 8 ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-8 Pseudorhombicuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XPseudorhombicuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the pseudorhombicuboctahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(Pseudorhombicuboctahedron()));[127X[104X
+    [4X[28X16072626615091200[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-9 SnubCube[101X
+  
+  [33X[1;0Y[29X[2XSnubCube[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the snub cube.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(PetrieDual(SnubCube()));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(PetrieDual(SnubCube()));[127X[104X
+    [4X[28X[ 30, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(PetrieDual(SnubCube())));[127X[104X
+    [4X[28X3804202857922560[128X[104X
+    [4X[25Xgap>[125X [27XSize(AutomorphismGroup(PetrieDual(SnubCube())));[127X[104X
+    [4X[28X24[128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-10 SmallRhombicosidodecahedron[101X
+  
+  [33X[1;0Y[29X[2XSmallRhombicosidodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the small rhombicosidodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(SmallRhombicosidodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(4), Pgon(3) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-11 GreatRhombicosidodecahedron[101X
+  
+  [33X[1;0Y[29X[2XGreatRhombicosidodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the great rhombicosidodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(GreatRhombicosidodecahedron());[127X[104X
+    [4X[28X[ Pgon(10), Pgon(4), Pgon(6) ][128X[104X
+  [4X[32X[104X
+  
+  [1X5.5-12 SnubDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XSnubDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the small snub dodecahedron.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFacets(SnubDodecahedron());[127X[104X
+    [4X[28X[ Pgon(5), Pgon(3) ][128X[104X
+    [4X[25Xgap>[125X [27XIsEquivelar(PetrieDual(SnubDodecahedron()));[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  third  form  returns the rotary maniplex with the given Schlafli symbol
-  and  with  the  given  relations.  The  relations are given by a string that
-  refers  to  the  generators  s1,  s2,  etc.  This method automatically calls
-  [10XInterpolatedString[110X  on  the  relations,  so  you  may  use  $variable in the
-  relations,  and  it  will  be  replaced  with the value of [10Xvariable[110X (but for
-  global variables only).[133X
+  [1X5.5-13 TruncatedDodecahedron[101X
+  
+  [33X[1;0Y[29X[2XTruncatedDodecahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the truncated dodecahedron.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex([4,4], "(s2^-1 s1)^6");;[127X[104X
-    [4X[25Xgap>[125X [27XM = ToroidalMap44([6,0]);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XFacets(TruncatedDodecahedron());[127X[104X
+    [4X[28X[ Pgon(10), Pgon(3) ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  fourth  form  takes  the  Schlafli  Symbol  [3Xsym[103X, a list of [3Xwords[103X in the
-  generators r0 etc, and a list of [3Xorders[103X. It returns the rotary maniplex that
-  is  the  quotient of the universal maniplex with that Schlalfi Symbol by the
-  relations  obtained  by setting each [3Xword[i][103X to have order [3Xorder[i][103X. This is
-  primarily useful for quickly constructing a family of related maniplexes.[133X
+  [1X5.5-14 GreatRhombicuboctahedron[101X
+  
+  [33X[1;0Y[29X[2XGreatRhombicuboctahedron[102X(  ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ymaniplex[133X
+  
+  [33X[0;0YConstructs the great rhombicuboctahedron.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XL := List([1..5], k -> RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;[127X[104X
-    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
-    [4X[28X[ false, true, true, true, true ][128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YIn  the  last  two forms, if the option set_schlafli is set, then we set the
-  Schlafli  symbol  to  the  one  given.  This may not be the correct Schlafli
-  symbol,  since  the  relations  may cause a collapse, so this should only be
-  used if you know that the Schlafli symbol is correct.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;[127X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(M);[127X[104X
-    [4X[28X#I  Coset table calculation failed -- trying with bigger table limit[128X[104X
-    [4X[28X... eventually give up with CTRL-C[128X[104X
-    [4X[25Xgap>[125X [27XM := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;[127X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(M);[127X[104X
-    [4X[28X[6, 6][128X[104X
-  [4X[32X[104X
-  
-  [1X5.4-4 EnantiomorphicForm[101X
-  
-  [33X[1;0Y[29X[2XEnantiomorphicForm[102X( [3XM[103X ) [32X operation[133X
-  
-  [33X[0;0YThe [13Xenantiomorphic form[113X of a rotary maniplex is the same maniplex, but where
-  we  choose  the new base flag to be one of the flags that is adjacent to the
-  original  base  flag.  If  M  is reflexible, then this choice has no effect.
-  Otherwise, if M is chiral, then the enantiomorphic form gives us a different
-  presentation for the rotation group.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ToroidalMap44([1,2]);;[127X[104X
-    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(M);[127X[104X
-    [4X[28X<fp group of size 20 on the generators [ s1, s2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XRelatorsOfFpGroup(g);[127X[104X
-    [4X[28X[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ][128X[104X
-    [4X[25Xgap>[125X [27Xh := AutomorphismGroup(EnantiomorphicForm(M));[127X[104X
-    [4X[28X<fp group of size 20 on the generators [ s1, s2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XRelatorsOfFpGroup(h);[127X[104X
-    [4X[28X[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ][128X[104X
+    [4X[25Xgap>[125X [27XSize(ConnectionGroup(GreatRhombicuboctahedron()));[127X[104X
+    [4X[28X5308416[128X[104X
   [4X[32X[104X
   

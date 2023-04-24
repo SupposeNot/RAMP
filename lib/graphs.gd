@@ -435,3 +435,29 @@ DeclareOperation("ViewGraph",[IsObject, IsString]);
 #! Loops, semi-edges, and non-edges give fixed points.
 #! Graph is assumed to be coming from a maniplex.  Some weird things could happen if it is not
 DeclareAttribute("ConnectionGroup", IsEdgeLabeledGraph);
+
+# #! @Arguments M
+# #! @Returns edgelabeledgraph
+# #! @Description Returns the flag graph of a premaniplex <A>M</A>.
+# DeclareOperation("FlagGraph",[IsPremaniplex]);
+# #! @BeginExampleSession
+# #! gap> STG3(4,1);;
+# #!  gap> FlagGraph(last);
+# #! Edge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ]
+# #! @EndExampleSession
+
+
+
+#! @Arguments M
+#! @Returns list
+#! @Description Given a Premaniplex <A>M</A>, returns the list of labeled darts from its flag graph.
+DeclareAttribute("LabeledDarts",IsPremaniplex);
+#! @BeginExampleSession
+#! gap> P:=STG2(5,[2,4]);;
+#! gap> LabeledDarts(P);
+#! [ [ [ 1, 2 ], 0 ], [ [ 2, 1 ], 0 ], [ [ 1, 2 ], 1 ], [ [ 2, 1 ], 1 ], [ [ 1 ], 2 ], [ [ 1, 2 ], 3 ], [ [ 2, 1 ], 3 ], [ [ 1 ], 4 ], [ [ 2 ], 2 ], [ [ 2 ], 4 ] ]
+#! @EndExampleSession
+
+
+DeclareOperation("LabeledDart",[IsPremaniplex, IsInt,IsInt]);
+

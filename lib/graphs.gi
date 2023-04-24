@@ -879,3 +879,26 @@ InstallMethod(ConnectionGroup,
 
 
 
+InstallMethod(LabeledDarts,
+	[IsPremaniplex],
+	function(p)
+	return LabeledDarts(FlagGraph(p));
+	end);
+
+
+
+
+InstallMethod(LabeledDart,
+	[IsPremaniplex, IsInt,IsInt],
+	function(P, lab, startvert)
+	local LD, ans;
+	LD:=LabeledDarts(P);
+	ans:=Filtered(LD, i-> ( i[2] = lab and i[1][1] = startvert)); 
+	if Size(ans) = 0 then
+	return fail;
+	else 
+	return ans[1];
+	fi;
+	end);
+
+
