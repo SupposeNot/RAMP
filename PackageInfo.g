@@ -153,13 +153,15 @@ Persons := [
     IsMaintainer  := true,
     Email         := "gabriel.cunningham@gmail.com",
     WWWHome       := "http://www.gabrielcunningham.com",
+    Institution   := "Wentworth Institute of Technology"
   ),
   rec( 
     LastName      := "Mixer",
     FirstNames    := "Mark",
     IsAuthor      := true,
     IsMaintainer  := true,
-    Email         := "mixerm@wit.edu"
+    Email         := "mixerm@wit.edu",
+    Institution   := "Wentworth Institute of Technology"
   ),
   rec( 
     LastName      := "Williams",
