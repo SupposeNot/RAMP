@@ -4,123 +4,6 @@
 <Chapter Label="Chapter_Maniplex_Constructors">
 <Heading>Maniplex Constructors</Heading>
 
-<Section Label="Chapter_Maniplex_Constructors_Section_Reflexible_Maniplexes">
-<Heading>Reflexible Maniplexes</Heading>
-
-<ManSection Label="ReflexibleManiplex">
-<Heading>ReflexibleManiplex</Heading>
-  <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
-  <Oper Arg="sym[, relations]" Name="ReflexibleManiplex" Label="for IsList"/>
-  <Oper Arg="sym, words, orders" Name="ReflexibleManiplex" Label="for IsList, IsList, IsList"/>
-  <Oper Arg="name" Name="ReflexibleManiplex" Label="for IsString"/>
- <Returns><Code>IsReflexibleManiplex</Code>
-</Returns>
- <Description>
-In the first form, we are given an Sggi <A>g</A>
- and we return the reflexible maniplex with that automorphism group,
- where the privileged generators are those returned by GeneratorsOfGroup(g).
-<Example><![CDATA[
-gap> g := Group([(1,2), (2,3), (3,4)]);
-gap> M := ReflexibleManiplex(g);
-gap> M = Simplex(3);
-true
-]]></Example>
-
-
- This function first checks whether g is an Sggi. Use <Code>ReflexibleManiplexNC</Code> to
- bypass that check. Note, however, that this function does not check
- whether the generators are all nontrivial and pairwise distinct, and so the
- output could be a pre-maniplex that is incorrectly labeled as a maniplex.
- For most purposes, this is relatively harmless, since most functions treat
- maniplexes and pre-maniplexes in roughly the same way.
-The second form returns the universal reflexible maniplex
- with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
- then we return the reflexible maniplex with the given defining relations.
- The relations can be given by a list of Tietze words or as a string of relators 
- or relations that involve r0 etc.
- This method automatically calls <Code>InterpolatedString</Code> on the relations, so
- you may use &#36;variable in the relations, and it will be replaced with
- the value of <Code>variable</Code> (but for global variables only).
-<Example><![CDATA[
-gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
-gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
-true
-gap> p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;
-gap> n := 3;;
-gap> Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));
-72
-]]></Example>
-
-
-The third form takes the Schlafli Symbol <A>sym</A>, a list
- of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
- It returns the reflexible maniplex that is the quotient of the universal
- maniplex with that Schlalfi Symbol by the relations obtained by setting each
- <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
- quickly constructing a family of related maniplexes.
-<Example><![CDATA[
-gap> L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;
-gap> List(L, IsPolytopal);
-[ false, true, true, true, true ]
-]]></Example>
-
-
-<P/>
-The fourth form accepts common names for reflexible 3-maniplexes that
- specify the lengths of holes and zigzags. That is, "{p, q | h2, \ldots, hk\}_z1, ..., zL"
- is the quotient of <Math>\{p,q\}</Math> by the relations that make the 2-holes have length h2, ...,
- and the 1-zigzags have length z1, etc.
-<Example><![CDATA[
-gap> ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);
-true
-gap> ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);
-true
-gap> M := ReflexibleManiplex("{6,6 | 6,2}_4");;
-gap> HoleLength(M,2);
-6
-gap> HoleLength(M,3);
-2
-gap> ZigzagLength(M,1);
-4
-]]></Example>
-
-
- </Description>
-</ManSection>
-
-
- In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol
- to the one given. This may not be the correct Schlafli symbol, since
- the relations may cause a collapse, so this should only be used if
- you know that the Schlafli symbol is correct.
-<P/>
- The abbreviations <Code>RefMan</Code> and <Code>RefManNC</Code> are also available for all of these usages.
-<ManSection>
-  <Oper Arg="g" Name="ReflexiblePremaniplex" Label="for IsGroup"/>
- <Returns><Code>IsPremaniplex</Code>
-</Returns>
- <Description>
-In the first form, we are given an Sggi <A>g</A>
- and we return the reflexible premaniplex with that automorphism group,
- where the privileged generators are those returned by GeneratorsOfGroup(g).
-<Example><![CDATA[
-gap> g := Group([(1,2), (2,3), (3,4)]);
-gap> M := ReflexiblePremaniplex(g);
-gap> M = Simplex(3);
-true
-]]></Example>
-
-
- This function first checks whether g is an Sggi. Use <Code>ReflexiblePremaniplexNC</Code> to
- bypass that check.
-<P/>
- </Description>
-</ManSection>
-
-
-</Section>
-
-
 <Section Label="Chapter_Maniplex_Constructors_Section_Maniplexes">
 <Heading>Maniplexes</Heading>
 
@@ -252,6 +135,296 @@ gap> gap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;
 gap> F:=EdgeLabeledGraphFromLabeledEdges(L);;
 gap> Premaniplex(F);
 Premaniplex of rank 3 with 2 flags
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplex_Constructors_Section_Reflexible_Maniplexes">
+<Heading>Reflexible Maniplexes</Heading>
+
+<ManSection Label="ReflexibleManiplex">
+<Heading>ReflexibleManiplex</Heading>
+  <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
+  <Oper Arg="sym[, relations]" Name="ReflexibleManiplex" Label="for IsList"/>
+  <Oper Arg="sym, words, orders" Name="ReflexibleManiplex" Label="for IsList, IsList, IsList"/>
+  <Oper Arg="name" Name="ReflexibleManiplex" Label="for IsString"/>
+ <Returns><Code>IsReflexibleManiplex</Code>
+</Returns>
+ <Description>
+In the first form, we are given an Sggi <A>g</A>
+ and we return the reflexible maniplex with that automorphism group,
+ where the privileged generators are those returned by GeneratorsOfGroup(g).
+<Example><![CDATA[
+gap> g := Group([(1,2), (2,3), (3,4)]);
+gap> M := ReflexibleManiplex(g);
+gap> M = Simplex(3);
+true
+]]></Example>
+
+
+ This function first checks whether g is an Sggi. Use <Code>ReflexibleManiplexNC</Code> to
+ bypass that check. Note, however, that this function does not check
+ whether the generators are all nontrivial and pairwise distinct, and so the
+ output could be a pre-maniplex that is incorrectly labeled as a maniplex.
+ For most purposes, this is relatively harmless, since most functions treat
+ maniplexes and pre-maniplexes in roughly the same way.
+The second form returns the universal reflexible maniplex
+ with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
+ then we return the reflexible maniplex with the given defining relations.
+ The relations can be given by a list of Tietze words or as a string of relators 
+ or relations that involve r0 etc.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+<Example><![CDATA[
+gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
+gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
+true
+gap> p := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;
+gap> n := 3;;
+gap> Size(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));
+72
+]]></Example>
+
+
+The third form takes the Schlafli Symbol <A>sym</A>, a list
+ of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+ It returns the reflexible maniplex that is the quotient of the universal
+ maniplex with that Schlalfi Symbol by the relations obtained by setting each
+ <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+ quickly constructing a family of related maniplexes.
+<Example><![CDATA[
+gap> L := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;
+gap> List(L, IsPolytopal);
+[ false, true, true, true, true ]
+]]></Example>
+
+
+<P/>
+The fourth form accepts common names for reflexible 3-maniplexes that
+ specify the lengths of holes and zigzags. That is, "{p, q | h2, \ldots, hk\}_z1, ..., zL"
+ is the quotient of <Math>\{p,q\}</Math> by the relations that make the 2-holes have length h2, ...,
+ and the 1-zigzags have length z1, etc.
+<Example><![CDATA[
+gap> ReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);
+true
+gap> ReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);
+true
+gap> M := ReflexibleManiplex("{6,6 | 6,2}_4");;
+gap> HoleLength(M,2);
+6
+gap> HoleLength(M,3);
+2
+gap> ZigzagLength(M,1);
+4
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+ In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
+<P/>
+ The abbreviations <Code>RefMan</Code> and <Code>RefManNC</Code> are also available for all of these usages.
+<ManSection>
+  <Oper Arg="g" Name="ReflexiblePremaniplex" Label="for IsGroup"/>
+ <Returns><Code>IsPremaniplex</Code>
+</Returns>
+ <Description>
+In the first form, we are given an Sggi <A>g</A>
+ and we return the reflexible premaniplex with that automorphism group,
+ where the privileged generators are those returned by GeneratorsOfGroup(g).
+<Example><![CDATA[
+gap> g := Group([(1,2), (2,3), (3,4)]);
+gap> M := ReflexiblePremaniplex(g);
+gap> M = Simplex(3);
+true
+]]></Example>
+
+
+ This function first checks whether g is an Sggi. Use <Code>ReflexiblePremaniplexNC</Code> to
+ bypass that check.
+<P/>
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplex_Constructors_Section_Rotary_Maniplexes">
+<Heading>Rotary Maniplexes</Heading>
+
+<ManSection Label="RotaryManiplex">
+<Heading>RotaryManiplex</Heading>
+  <Oper Arg="g" Name="RotaryManiplex" Label="for IsGroup"/>
+  <Oper Arg="sym" Name="RotaryManiplex" Label="for IsList"/>
+  <Oper Arg="sym, relations" Name="RotaryManiplex" Label="for IsList, IsList"/>
+  <Oper Arg="sym, words, orders" Name="RotaryManiplex" Label="for IsList, IsList, IsList"/>
+ <Description>
+In the first form, given a group g (which should be a string rotation group),
+ returns the rotary maniplex with that rotation group,
+ where the privileged generators are those returned by GeneratorsOfGroup(g).
+ This function first checks whether g is a StringRotationGroup. Use <Code>RotaryManiplexNC</Code> to
+ bypass that check.
+<Example><![CDATA[
+gap> M := RotaryManiplex(UniversalRotationGroup([3,3]));;
+gap> M = Simplex(3);
+true
+]]></Example>
+
+
+<P/>
+The second form returns the universal rotary maniplex (in fact, regular polytope)
+ with Schlafli symbol <A>sym</A>.
+<Example><![CDATA[
+gap> M := RotaryManiplex([4,3]);;
+gap> M = Cube(3);
+true
+]]></Example>
+
+
+<P/>
+The third form returns the rotary maniplex with the given Schlafli
+ symbol and with the given relations.
+ The relations are given by a string that refers to the generators
+ s1, s2, etc. This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+<Example><![CDATA[
+gap> M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;
+gap> M = ToroidalMap44([6,0]);
+true
+]]></Example>
+
+
+<P/>
+The fourth form takes the Schlafli Symbol <A>sym</A>, a list
+ of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+ It returns the rotary maniplex that is the quotient of the universal
+ maniplex with that Schlalfi Symbol by the relations obtained by setting each
+ <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+ quickly constructing a family of related maniplexes.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> L := List([1..5], k -> RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;
+gap> List(L, IsPolytopal);
+[ false, true, true, true, true ]
+]]></Example>
+
+
+<P/>
+ In the last two forms, if the option set_schlafli is set, then we set the Schlafli symbol
+ to the one given. This may not be the correct Schlafli symbol, since
+ the relations may cause a collapse, so this should only be used if
+ you know that the Schlafli symbol is correct.
+<Example><![CDATA[
+gap> M := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;
+gap> SchlafliSymbol(M);
+#I  Coset table calculation failed -- trying with bigger table limit
+... eventually give up with CTRL-C
+gap> M := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;
+gap> SchlafliSymbol(M);
+[6, 6]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M" Name="EnantiomorphicForm" Label="for IsManiplex"/>
+ <Description>
+The <Emph>enantiomorphic form</Emph> of a rotary maniplex is
+ the same maniplex, but where we choose the new base flag to be
+ one of the flags that is adjacent to the original base flag.
+ If M is reflexible, then this choice has no effect.
+ Otherwise, if M is chiral, then the enantiomorphic form
+ gives us a different presentation for the rotation group.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> M := ToroidalMap44([1,2]);;
+gap> g := AutomorphismGroup(M);
+<fp group of size 20 on the generators [ s1, s2 ]>
+gap> RelatorsOfFpGroup(g);
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
+gap> h := AutomorphismGroup(EnantiomorphicForm(M));
+<fp group of size 20 on the generators [ s1, s2 ]>
+gap> RelatorsOfFpGroup(h);
+[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ]
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Maniplex_Constructors_Section_Subclasses_of_maniplex">
+<Heading>Subclasses of maniplex</Heading>
+
+<ManSection>
+  <Prop Arg="M" Name="IsPolytopal" Label="for IsManiplex"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+Returns whether the maniplex <A>M</A> is polytopal;
+ i.e., the flag graph of a polytope.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="SatisfiesWeakPathIntersectionProperty" Label="for IsManiplex"/>
+ <Returns>IsBool
+</Returns>
+ <Description>
+Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GleHub18"/>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="m" Name="IsFaithful" Label="for IsManiplex"/>
+ <Description>
+Returns whether the maniplex <A>m</A> is
+ faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsFaithful(Cube(3));
+true
+gap> IsFaithful(ToroidalMap44([1,0]));
+false
+]]></Example>
+
+
+<ManSection>
+  <Attr Arg="maniplex" Name="IsRegularPolytope" Label="for IsManiplex"/>
+ <Description>
+Returns whether a maniplex is a regular polytope.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=24Cell();
+24Cell
+gap> IsRegularPolytope(p);
+true
+gap> q:=CartesianProduct(Simplex(2),Cube(2));
+CartesianProduct(Pgon(3), Pgon(4))
+gap> IsRegularPolytope(q);
+false
 ]]></Example>
 
 

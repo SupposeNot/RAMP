@@ -1,5 +1,5 @@
 
-#! @Chapter Maniplexes
+#! @Chapter Maniplex Constructors
 #! @Section Subclasses of maniplex
 
 #! @Arguments M
@@ -43,7 +43,7 @@ DeclareAttribute("IsRegularPolytope",IsManiplex);
 #! @Section Basics
 
 #! @Arguments M
-#! @Returns The number of flags of the maniplex <A>M</A>.
+#! @Returns The number of flags of the premaniplex <A>M</A>.
 #! @Description Synonym: `NumberOfFlags`.
 DeclareAttribute("Size", IsPremaniplex);
 

@@ -431,3 +431,55 @@ InstallMethod(FacetSubgroup,
 	n := Size(GeneratorsOfGroup(g));
 	return SectionSubgroup(g, [0..n-2]);
 	end);
+
+# For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
+# free group. So the first time we create one in a given rank, we save it and use it again later.
+InstallValue(UNIVERSAL_ROT_FREE_GROUPS, []);
+
+# Returns the rotation subgroup of the universal string Coxeter Group of rank n.
+InstallMethod(UniversalRotationGroup,
+	[IsInt],
+	function(n)
+	local i, j, f, rels, gens, g, tau;
+	if not(IsBound(UNIVERSAL_ROT_FREE_GROUPS[n])) then
+		UNIVERSAL_ROT_FREE_GROUPS[n] := FreeGroup(List([1..n-1], i -> Concatenation("s", String(i))));	
+	fi;
+	f := UNIVERSAL_ROT_FREE_GROUPS[n];
+	gens := GeneratorsOfGroup(f);
+	rels := [];
+	
+	tau := function(i,j)
+		return Product(List([i..j], k -> gens[k]));
+		end;
+		
+	for i in [1..n-2] do
+		for j in [i+1..n-1] do
+			Add(rels, tau(i,j)^2);
+		od;
+	od;
+	
+	g := FactorGroupFpGroupByRels(f, rels);
+	if (n >= 2) then SetSize(g, infinity); fi;
+	return g;
+	end);
+
+# Returns the universal rotation group given by sym.
+# For example, UniversalRotationGroup([4,4]) is the group denoted [4, 4]^+.
+InstallOtherMethod(UniversalRotationGroup,
+	[IsList],
+	function(sym)
+	local i, j, f, g, rels, gens, n, h;
+	n := Size(sym)+1;
+	g := UniversalRotationGroup(n);
+	gens := FreeGeneratorsOfFpGroup(g);
+	rels := [];
+	for i in [1..n-1] do
+		if sym[i] <> infinity then
+			Add(rels, gens[i]^sym[i]);
+		fi;
+	od;
+	h := FactorGroupFpGroupByRels(g, rels);
+	SetSize(h, COXETER_GROUP_SIZES(sym) / 2);
+	return h;
+	end);
+	

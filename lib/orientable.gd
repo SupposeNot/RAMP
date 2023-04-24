@@ -1,4 +1,4 @@
-#! @Chapter Maniplex Properties
+#! @Chapter Combinatorics and Structure
 #! @Section Orientability
 
 

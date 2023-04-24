@@ -359,3 +359,207 @@ InstallMethod(ReflexiblePremaniplex,
 	fi;
 	end);
 	
+	
+
+# Given an abstract rotation group, builds the rotary (regular or chiral)
+# polytope with that group as its rotation group.
+InstallMethod(RotaryManiplexNC,
+	[IsGroup],
+	function(rotgp)
+	local n, p;
+	n := 1 + Size(GeneratorsOfGroup(rotgp));
+
+	p := Objectify( NewType( ManiplexFamily, IsManiplex and IsPremaniplex and IsRotaryManiplexRotGpRep), rec( rot_gp := rotgp, fvec := List([1..n], i -> fail), attr_computers := NewDictionary(Size, true) ));
+	
+	if HasSize(rotgp) then SetSize(p, 2*Size(rotgp)); fi;
+	SetRankManiplex(p, n);
+	SetRotationGroup(p, rotgp);
+	SetIsOrientable(p, true);
+	SetIsRotary(p, true);
+
+	return p;
+	end);
+
+InstallMethod(RotaryManiplex,
+	[IsGroup],
+	function(rotgp)
+	if ValueOption("no_check") = true or IsStringRotationGroup(rotgp) then
+		return RotaryManiplexNC(rotgp);
+	else
+		Error("The given group is not a String Rotation Group.");
+	fi;
+	end);
+	
+
+# A rotary maniplex defined by a Schlafli Symbol is in fact reflexible.
+InstallMethod(RotaryManiplex,
+	[IsList],
+	function(sym)
+	return ReflexibleManiplex(sym);
+	end);
+
+# Usage: RotaryManiplex([4,6], "s2^-1 s1^2 = s1^5 s2^2");
+InstallMethod(RotaryManiplex,
+	[IsList, IsList],
+	function(sym, rels)
+	local n, w, rotgp, fam, p, desc;
+	n := Size(sym)+1;
+	w := UniversalRotationGroup(sym);
+	
+	if ValueOption("polytopal") = true then
+		desc := "AbstractRotaryPolytope(";
+	else
+		desc := "RotaryManiplex(";
+	fi;
+	
+	if IsString(rels) then
+		rels := InterpolatedString(rels);
+		desc := Concatenation(desc, String(sym), ", \"", String(rels), "\")");
+		rels := ParseRotGpRels(rels, w);
+	else # it's a "Tietze word" like [1, 2, -1, 2, 2]
+		desc := Concatenation(desc, String(sym), ", ", String(rels), ")");
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+	fi;
+	rotgp := FactorGroupFpGroupByRels(w, rels);
+	p := RotaryManiplexNC(rotgp);
+	if ValueOption("set_schlafli") = true then
+		SetSchlafliSymbol(p, sym);
+	else
+		SetPseudoSchlafliSymbol(p, sym);
+	fi;
+	SetString(p, desc);
+	if ValueOption("polytopal") = true then
+		SetIsPolytopal(p, true);
+	fi;
+
+	SetRotationGroupFpGroup(p, rotgp);
+	
+	return p;
+	end);
+
+InstallMethod(RotaryManiplex,
+	[IsList, IsList, IsList],
+	function(sym, words, orders)
+	local new_words, relstr;
+	new_words := List([1..Size(words)], i -> Concatenation("(", words[i], ")^", String(orders[i])));
+	relstr := JoinStringsWithSeparator(new_words, ",");
+	return RotaryManiplex(sym, relstr);
+	end);
+
+
+InstallMethod(EnantiomorphicForm,
+	[IsManiplex],
+	function(M)
+	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2, relstr, polytopal;
+	
+	if IsReflexible(M) then 
+		return M; 
+	elif IsChiral(M) then
+		rotgp := RotationGroupFpGroup(M);
+		n := Rank(M);
+		standardRels := List(RelatorsOfFpGroup(UniversalRotationGroup(SchlafliSymbol(M))), TietzeWordAbstractWord);
+		rels := List(RelatorsOfFpGroup(rotgp), TietzeWordAbstractWord);
+		extraRels := Difference(rels, standardRels);
+		newrels := [];
+		
+		# Now we change the relators by conjugating by r0.
+		# This changes s1 to s1^-1 and s2 to s1^2 s2, while fixing the other si.
+		for rel in extraRels do
+			newrel := [];
+			for i in rel do
+				if AbsoluteValue(i) = 1 then
+					Add(newrel, -i);
+				elif i = 2 then
+					Append(newrel, [1, 1, 2]);
+				elif i = -2 then
+					Append(newrel, [-2, -1, -1]);
+				else
+					Add(newrel, i);
+				fi;
+			od;
+			newrel := AbstractWordTietzeWord(newrel, FreeGeneratorsOfFpGroup(rotgp));
+			Add(newrels, newrel);
+		od;
+
+		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
+		
+		M2 := RotaryManiplex(SchlafliSymbol(M), relstr);
+		return M2;
+	else
+		Error("EnantiomorphicForm is only defined for rotary maniplexes.");
+	fi;
+	
+	end);
+	
+	
+TwoOrbit3ManiplexClass2_02 := function(sym, rels)
+	local f, w, v, old_names, new_names, i, parsed_rels, trans_rels, autgp, M, standard_rels, f2, wp, hom, ker, connectionGroup;
+	
+	old_names := ["r0", "r2", "a101", "a121"];
+	f := FreeGroup(old_names);
+	
+	new_names := ["a","b","c","d"];
+	for i in [1..4] do
+		rels := ReplacedString(rels, old_names[i], new_names[i]);
+	od;
+	f2 := FreeGroup(new_names);
+	parsed_rels := ParseRelators(GeneratorsOfGroup(f2), rels);
+	trans_rels := List(parsed_rels, r -> TranslateWord(r, f));
+	
+	standard_rels := ParseRelators(GeneratorsOfGroup(f2), Concatenation("a^2, b^2, c^2, d^2, (ab)^2, (cd)^2, (ac)^", String(sym[1]/2), ", (bd)^", String(sym[2]/2)));
+	
+	Append(trans_rels, List(standard_rels, r -> TranslateWord(r, f)));
+	
+	autgp := FactorGroupFpGroupByRels(f, trans_rels);
+	
+	w := UniversalSggi(3);
+	wp := Subgroup(w, [w.1, w.3, w.2*w.1*w.2, w.2*w.3*w.2]);
+	hom := GroupHomomorphismByImagesNC(wp, autgp, GeneratorsOfGroup(wp), GeneratorsOfGroup(autgp));
+	ker := Kernel(hom);
+	connectionGroup := Image(FactorCosetAction(w, ker));
+	
+	M := Maniplex(connectionGroup);
+	SetAutomorphismGroup(M, autgp);
+	
+	return M;
+	end;
+	
+	
+	
+	
+TwoOrbit3ManiplexClass2_0 := function(sym, rels)
+	local f, w, v, old_names, new_names, i, parsed_rels, trans_rels, autgp, M, standard_rels, f2, wp, hom, ker, connectionGroup, new_rels;
+	
+	old_names := ["r0", "a21", "a101"];
+	f := FreeGroup(old_names);
+	
+	new_names := ["a","b","c"];
+	new_rels := rels;
+	for i in [1..3] do
+		new_rels := ReplacedString(new_rels, old_names[i], new_names[i]);
+	od;
+	
+	f2 := FreeGroup(new_names);
+	parsed_rels := ParseRelators(GeneratorsOfGroup(f2), new_rels);
+	trans_rels := List(parsed_rels, r -> TranslateWord(r, f));
+	
+	standard_rels := ParseRelators(GeneratorsOfGroup(f2), Concatenation("a^2, c^2, ab = bc, (ac)^", String(sym[1]/2), ", b^", String(sym[2])));
+	
+	Append(trans_rels, List(standard_rels, r -> TranslateWord(r, f)));
+	
+	autgp := FactorGroupFpGroupByRels(f, trans_rels);
+	
+	w := UniversalSggi(3);
+	wp := Subgroup(w, [w.1, w.3*w.2, w.2*w.1*w.2]);
+	hom := GroupHomomorphismByImagesNC(wp, autgp, GeneratorsOfGroup(wp), GeneratorsOfGroup(autgp));
+	ker := Kernel(hom);
+	connectionGroup := Image(FactorCosetAction(w, ker));
+	
+	M := Maniplex(connectionGroup);
+	SetAutomorphismGroup(M, autgp);
+	
+	SetString(M, Concatenation("TwoOrbit3ManiplexClass2_0(", String(sym), ", \" ", rels, "\")"));
+	
+	return M;
+	end;
+	

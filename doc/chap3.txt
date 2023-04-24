@@ -1,219 +1,334 @@
   
-  [1X3 [33X[0;0YManiplex Constructors[133X[101X
+  [1X3 [33X[0;0YGroup Constructors[133X[101X
   
   
-  [1X3.1 [33X[0;0YReflexible Maniplexes[133X[101X
+  [1X3.1 [33X[0;0YSggis[133X[101X
   
   
-  [1X3.1-1 [33X[0;0YReflexibleManiplex[133X[101X
+  [1X3.1-1 [33X[0;0YUniversalSggi[133X[101X
   
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsReflexibleManiplex[110X[133X
+  [33X[1;0Y[29X[2XUniversalSggi[102X( [3Xn[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XUniversalSggi[102X( [3Xsym[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsFpGroup[110X[133X
   
-  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
-  maniplex  with  that automorphism group, where the privileged generators are
-  those returned by GeneratorsOfGroup(g).[133X
+  [33X[0;0YIn  the  first  form,  returns the universal Coxeter Group of rank n. In the
+  second form, returns the Coxeter Group with Schlafli symbol sym.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
+    [4X[25Xgap>[125X [27Xg:=UniversalSggi(3);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27Xq:=UniversalSggi([3,4]);[127X[104X
+    [4X[28X<fp group of size 48 on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XIsQuotient(g,q);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexibleManiplexNC[110X to
-  bypass  that check. Note, however, that this function does not check whether
-  the  generators  are all nontrivial and pairwise distinct, and so the output
-  could  be a pre-maniplex that is incorrectly labeled as a maniplex. For most
-  purposes, this is relatively harmless, since most functions treat maniplexes
-  and  pre-maniplexes  in  roughly  the  same way. The second form returns the
-  universal  reflexible  maniplex  with  Schlafli  symbol [3Xsym[103X. If the optional
-  argument [3Xrelations[103X is given, then we return the reflexible maniplex with the
-  given  defining  relations.  The  relations can be given by a list of Tietze
-  words  or  as  a  string  of relators or relations that involve r0 etc. This
+  
+  [1X3.1-2 [33X[0;0YSggi[133X[101X
+  
+  [33X[1;0Y[29X[2XSggi[102X( [3Xsymbol[103X[, [3Xrelations[103X] ) [32X operation[133X
+  [33X[1;0Y[29X[2XSggi[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsFpGroup[110X[133X
+  
+  [33X[0;0YReturns  the  sggi  defined  by the given Schlafli symbol and with the given
+  relations.  The  relations  can  be  given by a list of Tietze words or as a
+  string  of  relators  or  relations that involve r0 etc. If no relations are
+  given,  then returns the universal sggi with the given Schlafli symbol. This
   method  automatically  calls [10XInterpolatedString[110X on the relations, so you may
   use  $variable  in  the relations, and it will be replaced with the value of
   [10Xvariable[110X (but for global variables only).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
-    [4X[25Xgap>[125X [27Xq = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");[127X[104X
+    [4X[25Xgap>[125X [27Xg := Sggi([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
+    [4X[25Xgap>[125X [27Xh := Sggi([4,4], "r0 = r2");;[127X[104X
+    [4X[25Xgap>[125X [27Xk := Sggi([infinity, infinity], [[1,2,1,2,1,2], [2,3,2,3,2,3]]);;[127X[104X
+    [4X[25Xgap>[125X [27Xk = Sggi([3,3]);[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xp := ReflexibleManiplex([infinity], "r0 r1 r0 = r1 r0 r1");;[127X[104X
     [4X[25Xgap>[125X [27Xn := 3;;[127X[104X
-    [4X[25Xgap>[125X [27XSize(ReflexibleManiplex([4,4], "(r0 r1 r2 r1)^$n"));[127X[104X
+    [4X[25Xgap>[125X [27XSize(Sggi([4,4], "(r0 r1 r2 r1)^$n"));[127X[104X
     [4X[28X72[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  third  form  takes  the  Schlafli  Symbol  [3Xsym[103X,  a list of [3Xwords[103X in the
+  [33X[0;0YThe  second  form  takes  the  Schlafli  Symbol  [3Xsym[103X, a list of [3Xwords[103X in the
   generators  r0 etc, and a list of [3Xorders[103X. It returns the reflexible maniplex
   that  is the quotient of the universal maniplex with that Schlalfi Symbol by
   the  relations obtained by setting each [3Xword[i][103X to have order [3Xorder[i][103X. This
-  is primarily useful for quickly constructing a family of related maniplexes.[133X
+  is primarily useful for quickly constructing a family of related Sggis.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XL := List([1..5], k -> ReflexibleManiplex([4,4], ["r0 r1 r2 r1"], [k]));;[127X[104X
-    [4X[25Xgap>[125X [27XList(L, IsPolytopal);[127X[104X
-    [4X[28X[ false, true, true, true, true ][128X[104X
+    [4X[25Xgap>[125X [27XL := List([1..5], k -> Sggi([4,4], ["r0 r1 r2"], [2*k]));;[127X[104X
+    [4X[25Xgap>[125X [27XList(L, Size);[127X[104X
+    [4X[28X[ 16, 64, 144, 256, 400 ][128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThe  fourth  form  accepts  common  names  for  reflexible 3-maniplexes that
-  specify  the  lengths  of  holes  and zigzags. That is, "{p, q | h2, \ldots,
-  hk\}_z1,  ..., zL" is the quotient of [23X\{p,q\}[123X by the relations that make the
-  2-holes have length h2, ..., and the 1-zigzags have length z1, etc.[133X
+  [1X3.1-3 IsGgi[101X
+  
+  [33X[1;0Y[29X[2XIsGgi[102X( [3Xg[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ywhether  [3Xg[103X  is  generated  by  involutions.  Or more specifically,
+            whether GeneratorsOfGroup([3Xg[103X) all have order 2 or less.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XReflexibleManiplex("{4,4 | 6}") = ToroidalMap44([6,0]);[127X[104X
+    [4X[25Xgap>[125X [27XIsGgi(SymmetricGroup(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsGgi(Group([(1,2),(2,3)]));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XReflexibleManiplex("{4,4}_4") = ToroidalMap44([2,2]);[127X[104X
+  [4X[32X[104X
+  
+  [1X3.1-4 IsStringy[101X
+  
+  [33X[1;0Y[29X[2XIsStringy[102X( [3Xg[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ywhether every pair of non-adjacent generators of [3Xg[103X commute.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsStringy(Group((1,2),(2,3),(3,4)));[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex("{6,6 | 6,2}_4");;[127X[104X
-    [4X[25Xgap>[125X [27XHoleLength(M,2);[127X[104X
+    [4X[25Xgap>[125X [27XIsStringy(Group((1,2),(3,4),(2,3)));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-5 IsSggi[101X
+  
+  [33X[1;0Y[29X[2XIsSggi[102X( [3Xg[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ywhether  [3Xg[103X  is a string group generated by involutions. Equivalent
+            to [10XIsGgi(g) and IsStringy(g)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsSggi(SymmetricGroup(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSggi(Group((1,2),(3,4),(2,3)));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsSggi(Group((1,2),(2,3),(3,4)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-6 IsFixedPointFreeSggi[101X
+  
+  [33X[1;0Y[29X[2XIsFixedPointFreeSggi[102X( [3Xg[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Ywhether  [3Xg[103X is a string group generated by involutions such that no
+            generator and no product of two generators has any fixed points. A
+            premaniplex    M    is    a    maniplex    if    and    only    if
+            IsFixedPointFreeSggi(ConnectionGroup(M)).  Equivalent  to [10XIsGgi(g)
+            and IsStringy(g)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsFixedPointFreeSggi(Group((1,2)(3,4), (1,3)(2,4) ,(1,4)(2,3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsFixedPointFreeSggi(Group((1,2)(3,4), (1,2)(3,4), (1,4)(2,3)));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-7 IsStringRotationGroup[101X
+  
+  [33X[1;0Y[29X[2XIsStringRotationGroup[102X( [3Xg[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  [3Xg[103X is a string rotation group, i.e. the even word subgroup
+            of  an  Sggi.  This  means that the product of adjacent generators
+            should be an involution.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsStringRotationGroup(Group((1,2)(3,4), (2,3,4)));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsStringRotationGroup(Group((1,3,2), (2,4,3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-8 IsStringC[101X
+  
+  [33X[1;0Y[29X[2XIsStringC[102X( [3XG[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  [3XG[103X  is  a  string C group. Currently only works for finite
+            groups.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsStringC(Sggi([4,4], "r0 r1 r2"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsStringC(Sggi([4,4], "(r0 r1 r2)^4"));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-9 IsStringCPlus[101X
+  
+  [33X[1;0Y[29X[2XIsStringCPlus[102X( [3XG[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YWhether  [3XG[103X  is  a string C+ group. Currently only works for finite
+            groups.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsStringCPlus(Group((1,2)(3,4), (2,3,4)));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsStringCPlus(Group((1,3,2), (2,4,3)));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsStringCPlus(RotationGroup(ToroidalMap44([1,0])));[127X[104X
+    [4X[28Xfalse[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-10 SggiElement[101X
+  
+  [33X[1;0Y[29X[2XSggiElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ythe element of [3Xg[103X with underlying word [3Xstr[103X.[133X
+  
+  [33X[0;0YThis  method automatically calls [10XInterpolatedString[110X on the relations, so you
+  may  use  $variable in the relations, and it will be replaced with the value
+  of [10Xvariable[110X (but for global variables only).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := Group((1,2),(2,3),(3,4));;[127X[104X
+    [4X[25Xgap>[125X [27XSggiElement(g, "r0 r1");[127X[104X
+    [4X[28X(1,3,2)[128X[104X
+    [4X[25Xgap>[125X [27Xn := 2;;[127X[104X
+    [4X[25Xgap>[125X [27XSggiElement(g, "(r0 r1)^$n");[127X[104X
+    [4X[28X(1,2,3)[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YFor  convenience, you can also use a reflexible maniplex M in place of g, in
+  which case [10XAutomorphismGroup(M)[110X is used for g.[133X
+  
+  [1X3.1-11 SimplifiedSggiElement[101X
+  
+  [33X[1;0Y[29X[2XSimplifiedSggiElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ythe element of [3Xg[103X with underlying word [3Xstr[103X, in a reduced form.[133X
+  
+  [33X[0;0YThis  acts  like  SggiElement, except that the word is in reduced form. Note
+  that  this  is  accomplished  by calling SetReducedMultiplication on g. As a
+  result, further computations with g may be substantially slower. This method
+  automatically  calls  [10XInterpolatedString[110X  on  the  relations, so you may use
+  $variable  in  the  relations,  and  it  will  be replaced with the value of
+  [10Xvariable[110X  (but for global variables only). For convenience, you can also use
+  a reflexible maniplex M in place of g, in which case [10XAutomorphismGroup(M)[110X is
+  used for g.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(Cube(3));;[127X[104X
+    [4X[25Xgap>[125X [27XSimiplifiedSggiElement(g, "(r0 r1)^5");[127X[104X
+    [4X[28Xr0*r1[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-12 IsRelationOfReflexibleManiplex[101X
+  
+  [33X[1;0Y[29X[2XIsRelationOfReflexibleManiplex[102X( [3XM[103X, [3Xrel[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines   whether   the  relation  given  by  the  string  [3Xrel[103X  holds  in
+  [10XAutomorphismGroup(M)[110X.  This method automatically calls [10XInterpolatedString[110X on
+  the  relations,  so  you  may use $variable in the relations, and it will be
+  replaced with the value of [10Xvariable[110X (but for global variables only).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([8,6],"(r0 r1)^4 (r1 r2)^3");;[127X[104X
+    [4X[25Xgap>[125X [27XIsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^3");[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^12");[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-13 SggiFamily[101X
+  
+  [33X[1;0Y[29X[2XSggiFamily[102X( [3Xparent[103X, [3Xwords[103X ) [32X operation[133X
+  
+  [33X[0;0YGiven  a  [3Xparent[103X group and a list of strings that represent words in r0, r1,
+  etc,  returns  a function. That function accepts a list of positive integers
+  L, and returns the quotient of [3Xparent[103X by the relations that set the order of
+  each [3Xwords[i][103X to L[i].[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xf := SggiFamily(Sggi([4,4]), ["r0 r1 r2 r1"]);[127X[104X
+    [4X[28Xfunction( orders ) ... end[128X[104X
+    [4X[25Xgap>[125X [27Xg := f([3]);[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XSize(g);[127X[104X
+    [4X[28X72[128X[104X
+    [4X[25Xgap>[125X [27Xh := f([6]);[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XIsQuotient(h,g);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YOne  of the advantages of building an SggiFamily is that testing whether one
+  member  of  the  family  is  a  quotient of another member can be done quite
+  quickly.[133X
+  
+  [1X3.1-14 IsCConnected[101X
+  
+  [33X[1;0Y[29X[2XIsCConnected[102X( [3Xm[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10YIsBool[133X
+  
+  [33X[0;0YDetermines  whether a given maniplex is C-connected (i.e., is the connection
+  group a string C-group).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsCConnected(ToroidalMap44([1,0]));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsCConnected(Prism(ToroidalMap44([1,0])));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-15 SectionSubgroup[101X
+  
+  [33X[1;0Y[29X[2XSectionSubgroup[102X( [3Xg[103X, [3XI[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsSggi[133X
+  
+  [33X[0;0YGiven  an  Sggi  [3Xg[103X,  returns the subgroup generated by those generators with
+  indices in [3XI[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := AutomorphismGroup(Cube(5));;[127X[104X
+    [4X[25Xgap>[125X [27XSectionSubgroup(g, [0, 2, 3]);[127X[104X
+    [4X[28XGroup([ r0, r2, r3 ])[128X[104X
+    [4X[25Xgap>[125X [27XSize(last);[127X[104X
+    [4X[28X12[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-16 VertexFigureSubgroup[101X
+  
+  [33X[1;0Y[29X[2XVertexFigureSubgroup[102X( [3Xg[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsSggi[133X
+  
+  [33X[0;0YGiven  an  Sggi [3Xg[103X, returns the vertex-figure subgroup; that is, the subgroup
+  generated by all generators except for the first one.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XVertexFigureSubgroup(AutomorphismGroup(Cube(3)));[127X[104X
+    [4X[28XGroup([ r1, r2 ])[128X[104X
+    [4X[25Xgap>[125X [27XSize(last);[127X[104X
     [4X[28X6[128X[104X
-    [4X[25Xgap>[125X [27XHoleLength(M,3);[127X[104X
-    [4X[28X2[128X[104X
-    [4X[25Xgap>[125X [27XZigzagLength(M,1);[127X[104X
-    [4X[28X4[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YIn  the  second  and third forms, if the option set_schlafli is set, then we
-  set  the  Schlafli  symbol  to  the  one  given. This may not be the correct
-  Schlafli  symbol,  since  the relations may cause a collapse, so this should
-  only be used if you know that the Schlafli symbol is correct.[133X
+  [1X3.1-17 FacetSubgroup[101X
   
-  [33X[0;0YThe  abbreviations  [10XRefMan[110X  and [10XRefManNC[110X are also available for all of these
-  usages.[133X
+  [33X[1;0Y[29X[2XFacetSubgroup[102X( [3Xg[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsSggi[133X
   
-  [1X3.1-2 ReflexiblePremaniplex[101X
-  
-  [33X[1;0Y[29X[2XReflexiblePremaniplex[102X( [3Xg[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPremaniplex[110X[133X
-  
-  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
-  premaniplex  with  that  automorphism group, where the privileged generators
-  are those returned by GeneratorsOfGroup(g).[133X
+  [33X[0;0YGiven an Sggi [3Xg[103X, returns the facet subgroup; that is, the subgroup generated
+  by all generators except for the last one.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexiblePremaniplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XFacetSubgroup(AutomorphismGroup(Cube(3)));[127X[104X
+    [4X[28XGroup([ r0, r1 ])[128X[104X
+    [4X[25Xgap>[125X [27XSize(last);[127X[104X
+    [4X[28X8[128X[104X
   [4X[32X[104X
   
-  [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexiblePremaniplexNC[110X
-  to bypass that check.[133X
   
+  [1X3.2 [33X[0;0YString rotation groups[133X[101X
   
-  [1X3.2 [33X[0;0YManiplexes[133X[101X
+  [1X3.2-1 UniversalRotationGroup[101X
   
-  [1X3.2-1 Maniplex[101X
+  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xn[103X ) [32X operation[133X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XG[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YGiven  a  permutation  group  [3XG[103X on the set [1..N], returns a maniplex with N
-  flags  with  connection  group [3XG[103X. This function first checks whether g is an
-  Sggi. Use [10XManiplexNC[110X to bypass that check.[133X
+  [33X[0;0YReturns the rotation subgroup of the universal Coxeter Group of rank n.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG := Group([(1,2)(3,4)(5,6), (2,3)(4,5)(1,6)]);;[127X[104X
-    [4X[25Xgap>[125X [27XM := Maniplex(G);[127X[104X
-    [4X[28XPgon(3)[128X[104X
-    [4X[25Xgap>[125X [27Xc := ConnectionGroup(Cube(3));[127X[104X
-    [4X[28X<permutation group with 3 generators>[128X[104X
-    [4X[25Xgap>[125X [27XManiplex(c) = Cube(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XUniversalRotationGroup(3);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
   [4X[32X[104X
   
-  [1X3.2-2 Maniplex[101X
+  [1X3.2-2 UniversalRotationGroup[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XM[103X, [3XH[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
+  [33X[1;0Y[29X[2XUniversalRotationGroup[102X( [3Xsym[103X ) [32X operation[133X
   
-  [33X[0;0YLet   [3XM[103X   be   a   reflexible   maniplex   and   let  [3XH[103X  be  a  subgroup  of
-  AutomorphismGroup([3XM[103X). This returns the maniplex [3XM/H[103X. This will be reflexible
-  if  and only if [3XH[103X is normal. For most purposes, it is probably easier to use
-  QuotientManiplex,  which  takes  a string of relations as input instead of a
-  subgroup. The example below builds the map [23X\{4, 4\}_{(1,0), (0,2)}[123X.[133X
+  [33X[0;0YReturns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4]);[127X[104X
-    [4X[28XCubicTiling(2)[128X[104X
-    [4X[25Xgap>[125X [27XG := AutomorphismGroup(M);[127X[104X
-    [4X[28X<fp group of size infinity on the generators [ r0, r1, r2 ]>[128X[104X
-    [4X[25Xgap>[125X [27XH := Subgroup(G, [G.1*G.2*G.3*G.2, (G.2*G.1*G.2*G.3)^2]);[127X[104X
-    [4X[28XGroup([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])[128X[104X
-    [4X[25Xgap>[125X [27XM2 := Maniplex(M, H);[127X[104X
-    [4X[28X3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSize(M2);[127X[104X
-    [4X[28X16[128X[104X
-  [4X[32X[104X
-  
-  [1X3.2-3 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X, [3Xinputs[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YConstructs  a  formal  maniplex, represented by an operation [3XF[103X and a list of
-  arguments  [3Xinputs[103X.  By  itself,  this  does  not  really _do_ anything -- it
-  creates  a  maniplex  object that only knows the operation [3XF[103X and the [3Xinputs[103X.
-  However,  many  polytope operations (such as Pyramid(M), Medial(M), etc) use
-  this  construction  as  a base, and then add "attribute computers" that tell
-  the  formal maniplex how to compute certain things in terms of properties of
-  the base. See AddAttrComputer for more information.[133X
-  
-  [1X3.2-4 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YConstructs the maniplex from the given poset [3XP[103X. This assumes that P actually
-  defines a maniplex.[133X
-  
-  [1X3.2-5 Maniplex[101X
-  
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
-  
-  [33X[0;0YConstructs  the maniplex from its flag graph [3XF[103X. This assumes that F actually
-  defines a maniplex.[133X
-  
-  [1X3.2-6 Premaniplex[101X
-  
-  [33X[1;0Y[29X[2XPremaniplex[102X( [3Xg[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPremaniplex[110X.[133X
-  
-  [33X[0;0YGiven  a  group  [3Xg[103X  we  return the premaniplex with connection group [3Xg[103X. This
-  function  first checks whether [3Xgroup[103X is an Sggi. Use [10XPremaniplexNC[110X to bypass
-  that check.[133X
-  
-  [33X[0;0YHere we build a premaniplex with 3 flags.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xg:=Group((1,2),(2,3),(1,2));;[127X[104X
-    [4X[25Xgap>[125X [27XPremaniplex(g);[127X[104X
-    [4X[28XPremaniplex of rank 3 with 3 flags[128X[104X
-  [4X[32X[104X
-  
-  [1X3.2-7 Premaniplex[101X
-  
-  [33X[1;0Y[29X[2XPremaniplex[102X( [3XG[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10Y[10XIsPremaniplex[110X.[133X
-  
-  [33X[0;0YGiven  an  edge  labeled  graph [3XG[103X we return the premaniplex with that graph.
-  Note:  We  will assume (but not check) that the graph is a premaniplex, that
-  is  to  say,  we are assumging each vertex is incident with one edge of each
-  label.[133X
-  
-  [33X[0;0YHere we have a premaniplex with 2 flags.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xgap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;[127X[104X
-    [4X[25Xgap>[125X [27XF:=EdgeLabeledGraphFromLabeledEdges(L);;[127X[104X
-    [4X[25Xgap>[125X [27XPremaniplex(F);[127X[104X
-    [4X[28XPremaniplex of rank 3 with 2 flags[128X[104X
+    [4X[25Xgap>[125X [27XUniversalRotationGroup([4,4]);[127X[104X
+    [4X[28X<fp group of size infinity on the generators [ s1, s2 ]>[128X[104X
+    [4X[25Xgap>[125X [27XUniversalRotationGroup([3,3,3]);[127X[104X
+    [4X[28X<fp group of size 60 on the generators [ s1, s2, s3 ]>[128X[104X
   [4X[32X[104X
   

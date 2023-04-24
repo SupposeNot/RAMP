@@ -2,7 +2,7 @@
 # Basic constructors
 DeclareGlobalVariable("UNIVERSAL_SGGI_FREE_GROUPS");
 
-#! @Chapter Groups for Maps, Polytopes, and Maniplexes
+#! @Chapter Group Constructors
 #! @Section Sggis
 
 DeclareGlobalFunction("COXETER_GROUP_SIZES");
@@ -283,4 +283,28 @@ DeclareOperation("FacetSubgroup", [IsGroup]);
 #! Group([ r0, r1 ])
 #! gap> Size(last);
 #! 8
+#! @EndExampleSession
+
+#! @Chapter Group Constructors
+#! @Section String rotation groups
+
+DeclareGlobalVariable("UNIVERSAL_ROT_FREE_GROUPS");
+
+
+#! @Arguments n
+#! Returns the rotation subgroup of the universal Coxeter Group of rank n.
+DeclareOperation("UniversalRotationGroup", [IsInt]);
+#! @BeginExampleSession
+#! gap> UniversalRotationGroup(3);
+#! <fp group of size infinity on the generators [ s1, s2 ]>
+#! @EndExampleSession
+
+#! @Arguments sym
+#! Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.
+DeclareOperation("UniversalRotationGroup", [IsList]);
+#! @BeginExampleSession
+#! gap> UniversalRotationGroup([4,4]);
+#! <fp group of size infinity on the generators [ s1, s2 ]>
+#! gap> UniversalRotationGroup([3,3,3]);
+#! <fp group of size 60 on the generators [ s1, s2, s3 ]>
 #! @EndExampleSession

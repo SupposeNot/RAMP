@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 10: Polytope Constructions and Operations</title>
+<title>GAP (RAMP) - Chapter 10: Stratified Operations</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,485 +15,151 @@
 <body class="chap10"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chap18.html">18</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap10_mj.html">[MathJax on]</a></p>
-<p><a id="X823655C77BD84AB5" name="X823655C77BD84AB5"></a></p>
-<div class="ChapSects"><a href="chap10.html#X823655C77BD84AB5">10 <span class="Heading">Polytope Constructions and Operations</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X871C2D73829F1FC1">10.1 <span class="Heading">Extensions, amalgamations, and quotients</span></a>
+<p><a id="X7B9A7024825B378C" name="X7B9A7024825B378C"></a></p>
+<div class="ChapSects"><a href="chap10.html#X7B9A7024825B378C">10 <span class="Heading">Stratified Operations</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X871D56AE7EFE6B58">10.1 <span class="Heading">Computational tools</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X808AEA5281D52911">10.1-1 UniversalPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8582D0CF7EA1CB34">10.1-2 UniversalExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X78B4610E7DE67E32">10.1-3 UniversalExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X84BB6B21853173FD">10.1-4 TrivialExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A5853E278A83D74">10.1-5 FlatExtension</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X790F22D47CD222EB">10.1-6 Amalgamate</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X840BC19484E0E9CC">10.1-7 Medial</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X87FD993F7F6F2FAB">10.2 <span class="Heading">Duality</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7D62BD3E7F941F5B">10.2-1 Dual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FF8B96C83DA60CB">10.2-2 IsSelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X79287DCF7835E0F4">10.2-3 IsInternallySelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X871BE6737FF36FE6">10.2-4 IsExternallySelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X879D377778BF2175">10.2-5 IsProperlySelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X86E347E67EE31555">10.2-6 <span class="Heading">Petrie Dual</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X78FDB0047E3388A5">10.2-7 IsSelfPetrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7F8BED777CD6B80F">10.2-8 DirectDerivates</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X814A6AB1824DBB9B">10.2-9 IsKaleidoscopic</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X879B118D7CBFF49E">10.2-10 ExponentGroup</a></span>
-</div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X86CE352C7851221F">10.3 <span class="Heading">Products</span></a>
-</span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7CBB470F7D3135BC">10.3-1 <span class="Heading">Pyramids</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7B13F48A7AF5DF42">10.3-2 <span class="Heading">Prisms</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X808566B57F296C93">10.3-3 <span class="Heading">Antiprisms</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7FA28B5C7AC1C32E">10.3-4 JoinProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C116F2C83963ADC">10.3-5 CartesianProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8022B9AC85D38D7D">10.3-6 DirectSumOfManiplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X833534418543FB94">10.3-7 TopologicalProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X794A197182124FB1">10.1-1 ChunkMultiply</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X858FD5C2809828C3">10.1-2 ChunkPower</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X81AD40D884608C3B">10.1-3 ChunkGeneratedGroupElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E759EE8836E55E0">10.1-4 ChunkGeneratedGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7C67C6B77C6C2114">10.1-5 FullyStratifiedGroup</a></span>
 </div></div>
 </div>
 
-<h3>10 <span class="Heading">Polytope Constructions and Operations</span></h3>
+<h3>10 <span class="Heading">Stratified Operations</span></h3>
 
-<p><a id="X871C2D73829F1FC1" name="X871C2D73829F1FC1"></a></p>
+<p><a id="X871D56AE7EFE6B58" name="X871D56AE7EFE6B58"></a></p>
 
-<h4>10.1 <span class="Heading">Extensions, amalgamations, and quotients</span></h4>
+<h4>10.1 <span class="Heading">Computational tools</span></h4>
 
-<p><a id="X808AEA5281D52911" name="X808AEA5281D52911"></a></p>
+<p>I should say something more here.</p>
 
-<h5>10.1-1 UniversalPolytope</h5>
+<p><a id="X794A197182124FB1" name="X794A197182124FB1"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalPolytope</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<h5>10.1-1 ChunkMultiply</h5>
 
-<p>Constructs the universal polytope of rank <var class="Arg">n</var>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkMultiply</code>( <var class="Arg">element1</var>, <var class="Arg">element2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: element</p>
+
+<p>Elements are ordered pairs of the form [perm, list], where the elements of list are members of a group. Operation performed is consistent with that in defined in <a href="chapBib.html#biBPelWil18">[PW18]</a>.</p>
+
+<p><a id="X858FD5C2809828C3" name="X858FD5C2809828C3"></a></p>
+
+<h5>10.1-2 ChunkPower</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkPower</code>( <var class="Arg">element</var>, <var class="Arg">integer</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: element</p>
+
+<p>Given an element compatible with the ChunkMultiply operation, this function will compute the product of element with itself integer times.</p>
+
+<p><a id="X81AD40D884608C3B" name="X81AD40D884608C3B"></a></p>
+
+<h5>10.1-3 ChunkGeneratedGroupElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroupElements</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: newList</p>
+
+<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct the associated list of group elements in a form suitable for taking ChunkMultiply and ChunkPower.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalPolytope(3);</span>
-UniversalPolytope(3)
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(last);</span>
-3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=AutomorphismGroup(Simplex(2));</span>
+&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(g);</span>
+#I  Assigned the global variables [ r0, r1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r0);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(1,2),[r0,r0,r1]];;s1:=[(2,3),[r0,r1,r1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroupElements([s0,s1],g);</span>
+[ [ (1,2), [ r0, r0, r1 ] ], [ (2,3), [ r0, r1, r1 ] ], 
+  [ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt; ] ], 
+  [ (1,3,2), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r0*r1 ] ], 
+  [ (1,2,3), [ r1*r0, &lt;identity ...&gt;, &lt;identity ...&gt; ] ], [ (1,3), [ r0, r0, r0 ] ], 
+  [ (1,3), [ r1, r1, r1 ] ], [ (1,2,3), [ &lt;identity ...&gt;, r0*r1, r0*r1 ] ], 
+  [ (1,3,2), [ r1*r0, r1*r0, &lt;identity ...&gt; ] ], [ (2,3), [ r0*r1*r0, r0, r0 ] ], 
+  [ (1,2), [ r1, r1, r0*r1*r0 ] ], [ (), [ r0*r1, r0*r1, r0*r1 ] ], 
+  [ (), [ r1*r0, r1*r0, r1*r0 ] ], [ (1,2), [ r0*r1*r0, r0*r1*r0, r0 ] ], 
+  [ (2,3), [ r1, r0*r1*r0, r0*r1*r0 ] ], [ (1,3,2), [ r0*r1, r0*r1, r1*r0 ] ], 
+  [ (1,2,3), [ r0*r1, r1*r0, r1*r0 ] ], [ (1,3), [ r0*r1*r0, r0*r1*r0, r0*r1*r0 ] ] ]
 </pre></div>
 
-<p><a id="X8582D0CF7EA1CB34" name="X8582D0CF7EA1CB34"></a></p>
+<p><a id="X7E759EE8836E55E0" name="X7E759EE8836E55E0"></a></p>
 
-<h5>10.1-2 UniversalExtension</h5>
+<h5>10.1-4 ChunkGeneratedGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChunkGeneratedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: permGroup</p>
 
-<p>Constructs the universal extension of <var class="Arg">M</var>, i.e. the maniplex with facets isomorphic to <var class="Arg">M</var> that covers all other maniplexes with facets isomorphic to <var class="Arg">M</var>. Currently only defined for reflexible maniplexes.</p>
+<p>Given a list of generators compatible with the ChunkMultiply operation, this function will construct a representation of the group as a permutation group. Note that generators are of the form [perm, list], and each list is a list of elements from group.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3));</span>
-regular 4-polytope of type [ 4, 3, infinity ] with infinity flags
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2); a:=AutomorphismGroup(p);</span>
+Pgon(3)
+&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);; AssignGeneratorVariables(a);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
+[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
+[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
+[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"> gens:=[s0,s1,s2];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s1);</span>
+[ (2,3,5,4), [ r0*r1, &lt;identity ...&gt;, r0, r0, &lt;identity ...&gt;, r0*r1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
+[ (), [ r0^2, r0^2, &lt;identity ...&gt;, &lt;identity ...&gt;, r0^2, r0^2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetReducedMultiplication(r1);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkMultiply(s0,s0);</span>
+[ (), [ &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;,  &lt;identity ...&gt; ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChunkGeneratedGroup(gens,a);</span>
+&lt;permutation group with 3 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(last);</span>
+1296
 </pre></div>
 
-<p><a id="X78B4610E7DE67E32" name="X78B4610E7DE67E32"></a></p>
+<p><a id="X7C67C6B77C6C2114" name="X7C67C6B77C6C2114"></a></p>
 
-<h5>10.1-3 UniversalExtension</h5>
+<h5>10.1-5 FullyStratifiedGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FullyStratifiedGroup</code>( <var class="Arg">list</var>, <var class="Arg">group</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPermGroup</p>
 
-<p>Constructs the universal extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. Currently only defined for reflexible maniplexes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalExtension(Cube(3),2);</span>
-regular 4-polytope of type [ 4, 3, 2 ] with 96 flags
-</pre></div>
-
-<p><a id="X84BB6B21853173FD" name="X84BB6B21853173FD"></a></p>
-
-<h5>10.1-4 TrivialExtension</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TrivialExtension</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Constructs the trivial extension of <var class="Arg">M</var>, also known as {<var class="Arg">M</var>, 2}.</p>
+<p>Implements fully stratified operations on maniplexes from <a href="chapBib.html#biBCunPelWil22">[CPW22]</a>. Given <var class="Arg">list</var> of generators compatible with the <code class="code">ChunkMultiply</code> operation, <var class="Arg">group</var> is the underlying group in the representation (usually the connection group of the base), this will calculate the connection group of the resulting maniplex acting on the implicit flags of the construction. Function assumes that <var class="Arg">list</var> are the generators of the connection group of the resulting maniplex in the order <span class="Math">\langle r_0, r_1, \ldots, r_{d-1}\rangle</span>. It is possible that for some groups this function will behave poorly because GAP won't recognize equivalent representations of a group element. If so, try again with a permutation representation and let us know so we can modify the code to handle this problem better (didn't show up in our testing, but is a theoretical possibility).</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TrivialExtension(Dodecahedron());</span>
-regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
-</pre></div>
-
-<p><a id="X7A5853E278A83D74" name="X7A5853E278A83D74"></a></p>
-
-<h5>10.1-5 FlatExtension</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlatExtension</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex#! @Description Constructs the flat extension of <var class="Arg">M</var> with last entry of Schlafli symbol <var class="Arg">k</var>. (As defined in <em>Flat Extensions of Abstract Polytopes</em> <a href="chapBib.html#biBCun21">[Cun21]</a>.)</p>
-
-<p>Currently only defined for reflexible maniplexes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlatExtension(Simplex(3),4);</span>
-reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
-</pre></div>
-
-<p><a id="X790F22D47CD222EB" name="X790F22D47CD222EB"></a></p>
-
-<h5>10.1-6 Amalgamate</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Constructs the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3),CrossPolytope(3));</span>
-reflexible 4-maniplex of type [ 4, 3, 4 ]
-</pre></div>
-
-<p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
-
-<h5>10.1-7 Medial</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
-
-<p>Given a 3-maniplex <var class="Arg">M</var>, returns its medial.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Medial(Dodecahedron()));</span>
-[ [ 3, 5 ], 4 ]
-</pre></div>
-
-<p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
-
-<h4>10.2 <span class="Heading">Duality</span></h4>
-
-<p><a id="X7D62BD3E7F941F5B" name="X7D62BD3E7F941F5B"></a></p>
-
-<h5>10.2-1 Dual</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(CrossPolytope(3));</span>
-Cube(3)
-</pre></div>
-
-<p><a id="X7FF8B96C83DA60CB" name="X7FF8B96C83DA60CB"></a></p>
-
-<h5>10.2-2 IsSelfDual</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether this maniplex is isomorphic to its dual.</p>
-
-<p>Also works for IsPoset objects.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(Cube(3));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(Simplex(5));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Simplex(2);; a:=AutomorphismGroup(p);</span>
+&lt;fp group of size 6 on the generators [ r0, r1 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">e:=One(a);</span>
+&lt;identity ...&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssignGeneratorVariables(a);</span>
+#I  Assigned the global variables [ r0, r1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0:=[(3,4),[r0,r0,e,e,r0,r0]];</span>
+[ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1:=[(2,3)(4,5),[r1,e,e,e,e,r1]];</span>
+[ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2:=[(1,2)(5,6),[e,e,r1,r1,e,e]];</span>
+[ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gens:=[s0,s1,s2];</span>
+[ [ (3,4), [ r0, r0, &lt;identity ...&gt;, &lt;identity ...&gt;, r0, r0 ] ], 
+  [ (2,3)(4,5), [ r1, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, &lt;identity ...&gt;, r1 ] ], 
+  [ (1,2)(5,6), [ &lt;identity ...&gt;, &lt;identity ...&gt;, r1, r1, &lt;identity ...&gt;, &lt;identity ...&gt; ] ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Maniplex(FullyStratifiedGroup(gens,a))=Prism(Simplex(2));</span>
 true
-</pre></div>
-
-<p><a id="X79287DCF7835E0F4" name="X79287DCF7835E0F4"></a></p>
-
-<h5>10.2-3 IsInternallySelfDual</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInternallySelfDual</code>( <var class="Arg">M</var>[, <var class="Arg">x</var>] )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
-
-<p>Returns whether this maniplex is "internally self-dual", as defined by Cunningham and Mixer in <a href="chapBib.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an inner automorphism. If the optional group element <var class="Arg">x</var> is given, then we first check whether <var class="Arg">x</var> is a dualizing automorphism of <var class="Arg">M</var>, and if not, then we search the whole automorphism group of <var class="Arg">M</var>. You can also input a string for <var class="Arg">x</var>, in which case it is converted to <code class="code">SggiElement(M, x)</code>. This property is only defined for rotary (chiral or reflexible) maniplexes.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(4));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(3), "r0")</span>
-#I  The given automorphism is not dualizing; searching for another...
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Simplex(3), "r0 r1 r2 r0 r1 r0");</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ToroidalMap44([6,0]));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ToroidalMap44([5,0]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(ToroidalMap44([1,2]));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(Cube(3));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron2(10,1);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(M);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsInternallySelfDual(M, (g.1*g.3*g.2)^6);</span>
-true
-</pre></div>
-
-<p><a id="X871BE6737FF36FE6" name="X871BE6737FF36FE6"></a></p>
-
-<h5>10.2-4 IsExternallySelfDual</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExternallySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
-
-<p>Returns whether this maniplex is "externally self-dual", as defined by Cunningham and Mixer in <a href="chapBib.html#biBCunMix17">[CM17]</a> (<span class="URL"><a href=" https://doi.org/10.11575/cdm.v12i2.62785"> https://doi.org/10.11575/cdm.v12i2.62785</a></span>). That is, if <var class="Arg">M</var> is self-dual, and the automorphism of AutomorphismGroup(M) that induces the isomorphism between <var class="Arg">M</var> and its dual is an outer automorphism.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Simplex(4));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ToroidalMap44([6,0]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(ToroidalMap44([5,0]));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsExternallySelfDual(Cube(3));</span>
-false
-</pre></div>
-
-<p><a id="X879D377778BF2175" name="X879D377778BF2175"></a></p>
-
-<h5>10.2-5 IsProperlySelfDual</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsProperlySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
-
-<p>Returns whether this rooted maniplex is "properly self-dual", meaning that there is an isomorphism of <var class="Arg">M</var> to its dual that preserves the flag-orbits. Note that all reflexible self-dual maniplexes are properly self-dual.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(Cube(4));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(Simplex(4));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(ARP([4,5,4]));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(ToroidalMap44([1,2]));</span>
-false
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));</span>
-false
-</pre></div>
-
-<p><a id="X86E347E67EE31555" name="X86E347E67EE31555"></a></p>
-
-<h5>10.2-6 <span class="Heading">Petrie Dual</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>.</p>
-
-<p>Note that this is not necessarily a polytope, even if <var class="Arg">M</var> is. When Rank(M) &gt; 3, this is the "generalized Petrial" which essentially replaces <span class="Math">r_{n-3}</span> with <span class="Math">r_{n-3} r_{n-1}</span> in the set of generators.</p>
-
-<p>Synonym for the command is <code class="code">PetrieDual</code>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(HemiCube(3));</span>
-ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
-</pre></div>
-
-<p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
-
-<h5>10.2-7 IsSelfPetrial</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := ( 2, 3)( 4, 6)( 7,10)( 9,12)(11,14)(13,15);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s1 := ( 1, 2)( 3, 5)( 4, 7)( 6, 9)( 8,11)(10,13)(12,15)(14,16);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s2 := ( 2, 4)( 3, 6)( 5, 8)( 9,12)(11,15)(13,14);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := Group([s0,s1,s2]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=ARP(poly);</span>
-regular 3-polytope
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfPetrial(p);</span>
-true
-</pre></div>
-
-<p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
-
-<h5>10.2-8 DirectDerivates</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="Math">n \geq 4</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DirectDerivates(Cube(3));</span>
-[ Cube(3), CrossPolytope(3), ReflexibleManiplex([ 6, 3 ], "z1^4"), 
-  ReflexibleManiplex([ 6, 4 ], "z1^3"), ReflexibleManiplex([ 3, 6 ], "(r2*r1*r0)^4"), 
-  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ]
-</pre></div>
-
-<p><a id="X814A6AB1824DBB9B" name="X814A6AB1824DBB9B"></a></p>
-
-<h5>10.2-9 IsKaleidoscopic</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsKaleidoscopic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
-
-<p>Returns whether the map <var class="Arg">M</var> with <span class="Math">q</span>-valent vertices is <em>kaleidoscopic</em>, meaning that for each integer e in [2..q-1] that is coprime to q, the map Hole(M, e) is isomorphic to M as a rooted map.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := AbstractRegularPolytope([4,5], "(r0 r1 r2)^5");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll([2,3,4], e -&gt; IsIsomorphicRootedManiplex(Hole(M,e), M));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsKaleidoscopic(M);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Filtered(SmallChiralPolyhedra(200), IsKaleidoscopic);</span>
-[ ]
-</pre></div>
-
-<p><a id="X879B118D7CBFF49E" name="X879B118D7CBFF49E"></a></p>
-
-<h5>10.2-10 ExponentGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExponentGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Given a map <var class="Arg">M</var> with constant valency q, returns a list of those integers <span class="Math">e</span> in <span class="Math">\{1, ..., q-1\}</span> such that <span class="Math">M^e</span> is isomorphic to <span class="Math">M</span>. That is, such that Hole(M,e) is isomorphic to <var class="Arg">M</var> as a rooted map. Note that despite the name, this is simply a list and not a group.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentGroup(ToroidalMap44([3,0]));</span>
-[ 1, 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentGroup(ToroidalMap44([1,2]));</span>
-[ 1 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));</span>
-[ 1, 3, 7, 9 ]
-</pre></div>
-
-<p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
-
-<h4>10.3 <span class="Heading">Products</span></h4>
-
-<p><a id="X7CBB470F7D3135BC" name="X7CBB470F7D3135BC"></a></p>
-
-<h5>10.3-1 <span class="Heading">Pyramids</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>In the first form, returns the pyramid over <var class="Arg">M</var>. In the second form, returns the pyramid over a <var class="Arg">k</var>-gon.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(Cube(3)));</span>
-[ [ 3, 4 ], [ 3, 4 ], 3 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Pyramid(4));</span>
-[ [ 3, 4 ], [ 3, 4 ] ]
-</pre></div>
-
-<p><a id="X7B13F48A7AF5DF42" name="X7B13F48A7AF5DF42"></a></p>
-
-<h5>10.3-2 <span class="Heading">Prisms</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>In the first form, returns the prism over <var class="Arg">M</var>. In the second form, returns the prism over a <var class="Arg">k</var>-gon.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Cube(3)=Prism(Cube(2));</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Prism(4)=Cube(3);</span>
-true
-</pre></div>
-
-<p><a id="X808566B57F296C93" name="X808566B57F296C93"></a></p>
-
-<h5>10.3-3 <span class="Heading">Antiprisms</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>In the first form, returns the antiprism over <var class="Arg">M</var>. In the second form, returns the antiprism over a <var class="Arg">k</var>-gon.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(Dodecahedron()));</span>
-[ [ 3, 5 ], [ 3, 5 ], 4 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Antiprism(5));</span>
-[ [ 3, 5 ], 4 ]
-</pre></div>
-
-<p><a id="X7FA28B5C7AC1C32E" name="X7FA28B5C7AC1C32E"></a></p>
-
-<h5>10.3-4 JoinProduct</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: Maniplex</p>
-
-<p>Given two maniplexes, this forms the join product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
-[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
-</pre></div>
-
-<p><a id="X7C116F2C83963ADC" name="X7C116F2C83963ADC"></a></p>
-
-<h5>10.3-5 CartesianProduct</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: Maniplex</p>
-
-<p>Given two maniplexes, this forms the cartesian product. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(CartesianProduct(HemiCube(3),Simplex(2)));</span>
-[ [ 3, 4 ], 3, 3, 3 ]
-</pre></div>
-
-<p><a id="X8022B9AC85D38D7D" name="X8022B9AC85D38D7D"></a></p>
-
-<h5>10.3-6 DirectSumOfManiplexes</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfManiplexes</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: Maniplex</p>
-
-<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(DirectSumOfManiplexes(HemiCube(3),Simplex(2)));</span>
-[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
-</pre></div>
-
-<p><a id="X833534418543FB94" name="X833534418543FB94"></a></p>
-
-<h5>10.3-7 TopologicalProduct</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: Maniplex</p>
-
-<p>Given two maniplexes, this forms the direct sum. May give weird results if the maniplexes aren't faithfully represented by their posets.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(TopologicalProduct(HemiCube(3),Simplex(2)));</span>
-[ 4, 3, [ 3, 4 ] ]
 </pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap9.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap11.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chap18.html">18</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

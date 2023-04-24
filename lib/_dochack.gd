@@ -77,27 +77,42 @@
 #! If you have LaTeX set up properly, then it will also build a pdf manual.
 #!
 
+#! @Chapter Group Constructors
+
 #! @Chapter Maniplex Constructors
-#! @Chapter Groups for Maps, Polytopes, and Maniplexes
-#! @Chapter Regular Maps
+#! @Section Maniplexes
+#! @Section Reflexible Maniplexes
+#! @Section Rotary Maniplexes
+#! @Section Subclasses of maniplex
+
 #! @Chapter Families of Polytopes
-#! @Chapter Maniplexes
-#! @Section Constructors
+
+#! @Chapter Combinatorics and Structure
+#! @ChapterTitle Combinatorial Structure of Maniplexes
+#! @Section Basics
+
 #! @Chapter Maniplex Properties
+#! @ChapterTitle Algebraic Structure of Maniplexes
+#! @Section Groups of Maps, Polytopes, and Maniplexes
+
 #! @Chapter Comparing maniplexes
+
+#! @Chapter Polytope Constructions and Operations
+#! @Chapter Stratified Operations
+
+#! @Chapter Maps On Surfaces
+
 #! @Chapter Posets
 #! @Section Poset constructors
 #! @Section Poset attributes
 #! @Section Working with posets
 #! @Section Element constructors
 #! @Section Element operations
-#! @Chapter Polytope Constructions and Operations
-#! @Chapter Regular Maps
-#! @Chapter Combinatorics and Structure
+
 #! @Chapter Graphs for Maniplexes
+#! @Chapter Voltage Graphs and Operations
+
 #! @Chapter Databases
-#! @Chapter Stratified Operations
-#! @Chapter Maps On Surfaces
 #! @Chapter Utility Functions
 
 

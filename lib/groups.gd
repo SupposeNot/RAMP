@@ -1,5 +1,5 @@
 
-#! @Chapter Groups for Maps, Polytopes, and Maniplexes
+#! @Chapter Maniplex Properties
 #! @Section Groups of Maps, Polytopes, and Maniplexes
 
 #! @BeginGroup Automorphism Group

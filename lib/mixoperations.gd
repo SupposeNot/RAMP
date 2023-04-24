@@ -1,6 +1,6 @@
 
 # Dealing with mixes of maniplexes
-#! @Chapter Maniplexes
+#! @Chapter Polytope Constructions and Operations
 #! @Section Mixing of Maniplexes functions
 
 #! @BeginGroup Mix

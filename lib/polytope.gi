@@ -117,3 +117,4 @@ InstallMethod(IsRegularPolytope,
 	function(m)
 	return IsPolytopal(m) and IsReflexible(m);
 	end);
+	

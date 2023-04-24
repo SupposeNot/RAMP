@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (RAMP) - Chapter 6: Maniplexes</title>
+<title>GAP (RAMP) - Chapter 6: Combinatorial Structure of Maniplexes</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -15,301 +15,755 @@
 <body class="chap6"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chap18.html">18</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap5.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap7.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap6_mj.html">[MathJax on]</a></p>
-<p><a id="X871229A5875C708A" name="X871229A5875C708A"></a></p>
-<div class="ChapSects"><a href="chap6.html#X871229A5875C708A">6 <span class="Heading">Maniplexes</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X7EE6BE9E7BB852DC">6.1 <span class="Heading">Mixing of Maniplexes functions</span></a>
+<p><a id="X7C99831885386FA5" name="X7C99831885386FA5"></a></p>
+<div class="ChapSects"><a href="chap6.html#X7C99831885386FA5">6 <span class="Heading">Combinatorial Structure of Maniplexes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X868F7BAB7AC2EEBC">6.1 <span class="Heading">Basics</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8648D2398775125D">6.1-1 <span class="Heading">Mix of groups</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X83FFD6E286EEAE3A">6.1-1 Size</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7D63F98D7B6EBAC9">6.1-2 RankManiplex</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X872AD1E785C7EB03">6.2 <span class="Heading">Faces</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X848CD6837BE77B6E">6.1-2 Mix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X80CE0BA87B6CBDC2">6.1-3 FlagMix</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X86B6B5DB7850FCA9">6.1-4 <span class="Heading">Comix</span></a>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X86085A967E396035">6.2-1 NumberOfIFaces</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7C126944873D2461">6.2-2 NumberOfVertices</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X86CDC9B38792B038">6.2-3 NumberOfEdges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7DE9F1057B309554">6.2-4 NumberOfFacets</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7C5446247FD63F28">6.2-5 NumberOfRidges</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X816A47B879737629">6.2-6 Fvector</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8586EE158331B46C">6.2-7 <span class="Heading">Section(s)</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X82C3A3447A93CDD6">6.1-5 <span class="Heading">Indexed array tools</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X85D359FD7E3C191B">6.2-8 <span class="Heading">Facet(s)</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X859E4169801C72D9">6.2-9 <span class="Heading">Vertex Figure(s)</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8588E0127D2A8CD5">6.2-10 VertDegrees</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X783AE9C2807D0309">6.2-11 FaceSizes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7D5D9E0786DBEAE0">6.2-12 FacetList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X78189CDD7DF292E2">6.2-13 VertexList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X843C38EC7A43292A">6.2-14 NFacesList</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X877E841E7FBCEAAE">6.3 <span class="Heading">Flatness</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X877E841E7FBCEAAE">6.3-1 <span class="Heading">Flatness</span></a>
 </span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X85A22C257D9ECAB2">6.2 <span class="Heading">Subclasses of maniplex</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X8052D0A68676A82C">6.4 <span class="Heading">Schlafli symbol</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X79DD94037E0FACD4">6.2-1 IsPolytopal</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7F788D2E7F41CD69">6.2-2 SatisfiesWeakPathIntersectionProperty</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7DEE9BDE7EA6F995">6.2-3 IsFaithful</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7E098F677FC33B8F">6.2-4 IsRegularPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7FA0B161838A442A">6.4-1 SchlafliSymbol</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X78447BE8877668EA">6.4-2 PseudoSchlafliSymbol</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7E9CCE9D794DC285">6.4-3 IsEquivelar</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8483BE798579B521">6.4-4 IsDegenerate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8088FFB2851334AB">6.4-5 IsTight</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7CEC34DF795B8DDF">6.4-6 EulerCharacteristic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7FA861D87C58E1EF">6.4-7 Genus</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X84F212F485BA012F">6.4-8 IsSpherical</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X85B48E0678A65F40">6.4-9 IsLocallySpherical</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7886C68887E4DD20">6.4-10 IsToroidal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7E0FF0C982FC49D2">6.4-11 IsLocallyToroidal</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X8064E656804172CF">6.3 <span class="Heading">Rotary maniplexes and rotation groups</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X861E4BAD800B2785">6.5 <span class="Heading">Orientability</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8056E3557E06EFF6">6.3-1 UniversalRotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7D6042317A76FDC3">6.3-2 UniversalRotationGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X80791E367E43CA25">6.3-3 <span class="Heading">RotaryManiplex</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7DCAF9D27F36EBD3">6.5-1 IsOrientable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X79F849DD7F778616">6.5-2 IsIOrientable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X877609AB7ABD24AC">6.5-3 IsVertexBipartite</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7BD9E8A87D6E8FAB">6.5-4 IsFacetBipartite</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7BAA22327D298902">6.5-5 OrientableCover</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X81EF6062840E85AF">6.5-6 IOrientableCover</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X780FC00678185849">6.6 <span class="Heading">Zigzags and holes</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X8745361B80626A39">6.3-4 EnantiomorphicForm</a></span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7D0AAD597CDE5697">6.6-1 ZigzagLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7FC09F34870E6CDE">6.6-2 ZigzagVector</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7C4A38D780F6AECD">6.6-3 PetrieLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7C93C4708678EB87">6.6-4 PetrieRelation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X80FF41567B259CC1">6.6-5 HoleLength</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7EE84DCF7EFC02C6">6.6-6 HoleVector</a></span>
 </div></div>
 </div>
 
-<h3>6 <span class="Heading">Maniplexes</span></h3>
+<h3>6 <span class="Heading">Combinatorial Structure of Maniplexes</span></h3>
 
-<p><a id="X7EE6BE9E7BB852DC" name="X7EE6BE9E7BB852DC"></a></p>
+<p><a id="X868F7BAB7AC2EEBC" name="X868F7BAB7AC2EEBC"></a></p>
 
-<h4>6.1 <span class="Heading">Mixing of Maniplexes functions</span></h4>
+<h4>6.1 <span class="Heading">Basics</span></h4>
 
-<p><a id="X8648D2398775125D" name="X8648D2398775125D"></a></p>
+<p><a id="X83FFD6E286EEAE3A" name="X83FFD6E286EEAE3A"></a></p>
 
-<h5>6.1-1 <span class="Heading">Mix of groups</span></h5>
+<h5>6.1-1 Size</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">g</var>, <var class="Arg">h</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsGroup </code>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Size</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The number of flags of the premaniplex <var class="Arg">M</var>.</p>
 
-<p>Given two groups (either both permutation groups or both FpGroups), returns the mix of those groups. If g and h are permutation groups of degree m and n, respectively, then the mix is a permutation group of degree m+n.</p>
+<p>Synonym: <code class="code">NumberOfFlags</code>.</p>
 
-<p>Here we build the mix of the connection groups of a 3-cube and an edge.</p>
+<p><a id="X7D63F98D7B6EBAC9" name="X7D63F98D7B6EBAC9"></a></p>
 
+<h5>6.1-2 RankManiplex</h5>
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g1:=ConnectionGroup(Cube(3));</span>
-&lt;permutation group with 3 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2:=ConnectionGroup(Edge());</span>
-Group([ (1,2) ])
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Mix(g1,g2);</span>
-&lt;permutation group with 3 generators&gt;
-</pre></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankManiplex</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The rank of the premaniplex <var class="Arg">M</var>.</p>
 
-<p><a id="X848CD6837BE77B6E" name="X848CD6837BE77B6E"></a></p>
+<p><a id="X872AD1E785C7EB03" name="X872AD1E785C7EB03"></a></p>
 
-<h5>6.1-2 Mix</h5>
+<h4>6.2 <span class="Heading">Faces</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Mix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsReflexibleManiplex </code>.</p>
+<p><a id="X86085A967E396035" name="X86085A967E396035"></a></p>
 
-<p>Given two (pre-)maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups. In general, it returns the "flag mix" of the two maniplexes (see <code class="code">FlagMix</code>).</p>
+<h5>6.2-1 NumberOfIFaces</h5>
 
-<p><a id="X80CE0BA87B6CBDC2" name="X80CE0BA87B6CBDC2"></a></p>
-
-<h5>6.1-3 FlagMix</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagMix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsManiplex </code>.</p>
-
-<p>Given two (pre-)maniplexes p, q this returns the (pre-)maniplex of their "flag" mix. That is, it constructs the mix of their connection groups, keeps the connected component with the base flags of p and q, and then builds a maniplex from this.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfIFaces</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns The number of <var class="Arg">i</var>-faces of <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ToroidalMap44([1,2]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FlagMix(M,M) = M;</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R := FlagMix(M, EnantiomorphicForm(M));</span>
-3-maniplex with 200 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsReflexible(R);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">R = ToroidalMap44([5,0]);</span>
-true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(Dodecahedron(),1);</span>
+30
 </pre></div>
 
-<p><a id="X86B6B5DB7850FCA9" name="X86B6B5DB7850FCA9"></a></p>
+<p><a id="X7C126944873D2461" name="X7C126944873D2461"></a></p>
 
-<h5>6.1-4 <span class="Heading">Comix</span></h5>
+<h5>6.2-2 NumberOfVertices</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Comix</code>( <var class="Arg">fpgroup</var>, <var class="Arg">fpgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Comix</code>( <var class="Arg">maniplex</var>, <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsReflexibleManiplex </code>.</p>
-
-<p>Returns the comix of two Finitely Presented groups gp and gq. Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups</p>
-
-<p><a id="X82C3A3447A93CDD6" name="X82C3A3447A93CDD6"></a></p>
-
-<h5>6.1-5 <span class="Heading">Indexed array tools</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CtoL</code>( <var class="Arg">int</var>, <var class="Arg">int</var>, <var class="Arg">int</var>, <var class="Arg">int</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">IsInteger </code>.</p>
-
-<p>CtoL Returns an integer between 1 and N*M associated with the pair [a,b]. LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M. a should range between 1 and N, and b should range between 1 and M N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix Functions are inverses.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfVertices</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of vertices of <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LtoC(5,4,14);</span>
-[ 1, 2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">CtoL(3,2,5,4);</span>
-8
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LtoC(8,5,4);</span>
-[ 3, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfVertices(HemiDodecahedron());</span>
+10
 </pre></div>
 
-<p><a id="X85A22C257D9ECAB2" name="X85A22C257D9ECAB2"></a></p>
+<p><a id="X86CDC9B38792B038" name="X86CDC9B38792B038"></a></p>
 
-<h4>6.2 <span class="Heading">Subclasses of maniplex</span></h4>
+<h5>6.2-3 NumberOfEdges</h5>
 
-<p><a id="X79DD94037E0FACD4" name="X79DD94037E0FACD4"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfEdges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of edges of <var class="Arg">M</var>.</p>
 
-<h5>6.2-1 IsPolytopal</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytopal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfEdges(HemiIcosahedron());</span>
+15
+</pre></div>
+
+<p><a id="X7DE9F1057B309554" name="X7DE9F1057B309554"></a></p>
+
+<h5>6.2-4 NumberOfFacets</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfFacets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of facets of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFacets(Bk2l(4,6));</span>
+4
+</pre></div>
+
+<p><a id="X7C5446247FD63F28" name="X7C5446247FD63F28"></a></p>
+
+<h5>6.2-5 NumberOfRidges</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfRidges</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the number of ridges ((n-2)-faces) of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfRidges(CrossPolytope(5));</span>
+80
+</pre></div>
+
+<p><a id="X816A47B879737629" name="X816A47B879737629"></a></p>
+
+<h5>6.2-6 Fvector</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Fvector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the f-vector of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(HemiIcosahedron());</span>
+[ 6, 15, 10 ]
+</pre></div>
+
+<p><a id="X8586EE158331B46C" name="X8586EE158331B46C"></a></p>
+
+<h5>6.2-7 <span class="Heading">Section(s)</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Sections</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p><code class="code">Section(M,j,i)</code> returns the section <code class="code">F_j / F_i</code>, where <code class="code">F_j</code> is the <span class="Math">j</span>-face of the base flag of <var class="Arg">M</var> and <code class="code">F_i</code> is the <span class="Math">i</span>-face of the base flag. <code class="code">Section(M,j,i,k)</code> returns the section <code class="code">F_j / F_i</code>, where <code class="code">F_j</code> is the <span class="Math">j</span>-face of flag number <var class="Arg">k</var> of <var class="Arg">M</var> and <code class="code">F_i</code> is the <span class="Math">i</span>-face of the same flag. <code class="code">Sections(M,j,i)</code> returns all sections of type <code class="code">F_j / F_i</code>, where <code class="code">F_j</code> is a <span class="Math">j</span>-face and <code class="code">F_i</code> is an incident <span class="Math">i</span>-face.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Section(ToroidalMap44([2,2]),3,0);</span>
+Pgon(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Section(Cuboctahedron(),2,-1,1);</span>
+Pgon(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Section(Cuboctahedron(),2,-1,4);</span>
+Pgon(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Sections(Cuboctahedron(),2,-1);</span>
+[ Pgon(4), Pgon(3) ]
+</pre></div>
+
+<p><a id="X85D359FD7E3C191B" name="X85D359FD7E3C191B"></a></p>
+
+<h5>6.2-8 <span class="Heading">Facet(s)</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the facet-types of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the facets). Returns the facet of <var class="Arg">M</var> that contains the flag number <var class="Arg">k</var> (that is, the maniplex corresponding to the facet). Returns the facet of <var class="Arg">M</var> that contains flag number 1 (that is, the maniplex corresponding to the facet).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(Cuboctahedron());</span>
+[ Pgon(4), Pgon(3) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facet(Cuboctahedron(),4);</span>
+Pgon(3)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facet(Cuboctahedron());</span>
+Pgon(4)
+</pre></div>
+
+<p><a id="X859E4169801C72D9" name="X859E4169801C72D9"></a></p>
+
+<h5>6.2-9 <span class="Heading">Vertex Figure(s)</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigures</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the types of vertex-figures of <var class="Arg">M</var> (i.e. the maniplexes corresponding to the vertex-figures). Returns the vertex-figure of <var class="Arg">M</var> that contains flag number <var class="Arg">k</var>. Returns the vertex-figure of <var class="Arg">M</var> that contains the base flag.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=Dual(SmallRhombicosidodecahedron());</span>
+Dual(3-maniplex)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigures(p);</span>
+[ Pgon(5), Pgon(4), Pgon(3) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(p,4);</span>
+Pgon(4)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(p);</span>
+Pgon(5)
+</pre></div>
+
+<p><a id="X8588E0127D2A8CD5" name="X8588E0127D2A8CD5"></a></p>
+
+<h5>6.2-10 VertDegrees</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertDegrees</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list that describes how many vertices <var class="Arg">M</var> has of each valency. This list has the form [ [v1, n1], [v2, n2], ...] to indicate that there are n1 vertices of valcency v1, etc.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Pyramid(5));</span>
+[ [3, 5], [5, 1] ];
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Kis(Cube(3)));</span>
+[ [4, 6], [6, 8] ];
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Prism(5));</span>
+[ [3, 10] ]
+</pre></div>
+
+<p><a id="X783AE9C2807D0309" name="X783AE9C2807D0309"></a></p>
+
+<h5>6.2-11 FaceSizes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceSizes</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Returns a list that describes how many 2-faces <var class="Arg">M</var> has of each size. This list has the form [ [f1, n1], [f2, n2], ...] to indicate that there are n1 f1-gonal faces, etc.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Cube(3));</span>
+[ [ 4, 6 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Cube(4));</span>
+[ [ 4, 24 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FaceSizes(Prism(Dodecahedron()));</span>
+[ [ 4, 30 ], [ 5, 24 ] ]
+</pre></div>
+
+<p><a id="X7D5D9E0786DBEAE0" name="X7D5D9E0786DBEAE0"></a></p>
+
+<h5>6.2-12 FacetList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacetList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Lists the facets of the maniplex <var class="Arg">M</var> as lists of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FacetList(m);</span>
+[ [ 1, 2, 3, 5, 7, 10, 13, 18 ], [ 4, 6, 9, 12, 16, 21 ], [ 8, 14, 15, 24, 25, 34 ], 
+[ 11, 19, 20, 29, 30, 39 ], [ 17, 26, 27, 36, 37, 46, 47, 57 ], [ 22, 31, 32, 41, 42, 52, 53, 62 ],
+[ 23, 28, 33, 38, 43, 49 ], [ 35, 44, 45, 55, 56, 65, 66, 75 ], 
+[ 40, 50, 51, 60, 61, 70, 71, 80 ], [ 48, 54, 59, 64, 69, 74 ], [ 58, 67, 68, 77, 78, 86 ], 
+[ 63, 72, 73, 82, 83, 89 ], [ 76, 81, 85, 88, 91, 93 ], [ 79, 84, 87, 90, 92, 94, 95, 96 ] ]
+</pre></div>
+
+<p><a id="X78189CDD7DF292E2" name="X78189CDD7DF292E2"></a></p>
+
+<h5>6.2-13 VertexList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Lists the vertices of the maniplex <var class="Arg">M</var> as lists of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexList(m);</span>
+[ [ 1, 3, 4, 8, 9, 15, 17, 26 ], [ 2, 5, 6, 11, 12, 20, 22, 31 ], [ 7, 13, 14, 23, 24, 33, 35, 44 ],
+  [ 10, 18, 19, 28, 29, 38, 40, 50 ], [ 16, 21, 27, 32, 37, 42, 48, 54 ], 
+  [ 25, 34, 36, 45, 46, 56, 58, 67 ], [ 30, 39, 41, 51, 52, 61, 63, 72 ], 
+  [ 43, 49, 55, 60, 65, 70, 76, 81 ], [ 47, 57, 59, 68, 69, 78, 79, 87 ], 
+  [ 53, 62, 64, 73, 74, 83, 84, 90 ], [ 66, 75, 77, 85, 86, 91, 92, 95 ], 
+  [ 71, 80, 82, 88, 89, 93, 94, 96 ] ]
+</pre></div>
+
+<p><a id="X843C38EC7A43292A" name="X843C38EC7A43292A"></a></p>
+
+<h5>6.2-14 NFacesList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NFacesList</code>( <var class="Arg">M</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: list</p>
+
+<p>Lists the <var class="Arg">n</var>-faces of the maniplex <var class="Arg">M</var> as lists of flags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m,2)=FacetList(m);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m,1);</span>
+[ [ 1, 2, 4, 6 ], [ 3, 7, 8, 14 ], [ 5, 10, 11, 19 ], [ 9, 16, 17, 27 ], [ 12, 21, 22, 32 ], 
+  [ 13, 18, 23, 28 ], [ 15, 25, 26, 36 ], [ 20, 30, 31, 41 ], [ 24, 34, 35, 45 ], 
+  [ 29, 39, 40, 51 ], [ 33, 43, 44, 55 ], [ 37, 47, 48, 59 ], [ 38, 49, 50, 60 ], 
+  [ 42, 53, 54, 64 ], [ 46, 57, 58, 68 ], [ 52, 62, 63, 73 ], [ 56, 66, 67, 77 ], 
+  [ 61, 71, 72, 82 ], [ 65, 75, 76, 85 ], [ 69, 74, 79, 84 ], [ 70, 80, 81, 88 ], 
+  [ 78, 86, 87, 92 ], [ 83, 89, 90, 94 ], [ 91, 93, 95, 96 ] ]
+</pre></div>
+
+<p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
+
+<h4>6.3 <span class="Heading">Flatness</span></h4>
+
+<p><a id="X877E841E7FBCEAAE" name="X877E841E7FBCEAAE"></a></p>
+
+<h5>6.3-1 <span class="Heading">Flatness</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlat</code>( <var class="Arg">M</var>, <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
-<p>Returns whether the maniplex <var class="Arg">M</var> is polytopal; i.e., the flag graph of a polytope.</p>
-
-<p><a id="X7F788D2E7F41CD69" name="X7F788D2E7F41CD69"></a></p>
-
-<h5>6.2-2 SatisfiesWeakPathIntersectionProperty</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesWeakPathIntersectionProperty</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
-<p>Returns: IsBool</p>
-
-<p>Tests for the weak path intersection property in a maniplex. Definitions and description available in <a href="chapBib.html#biBGleHub18">[GH18]</a>.</p>
-
-<p><a id="X7DEE9BDE7EA6F995" name="X7DEE9BDE7EA6F995"></a></p>
-
-<h5>6.2-3 IsFaithful</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFaithful</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns whether the maniplex <var class="Arg">m</var> is faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.</p>
+<p>In the first form, returns true if every vertex of the maniplex <var class="Arg">M</var> is incident to every facet. In the second form, returns true if every i-face of the maniplex <var class="Arg">M</var> is incident to every j-face.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(Cube(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFlat(HemiCube(3));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFaithful(ToroidalMap44([1,0]));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFlat(Simplex(3),0,2);</span>
 false
 </pre></div>
 
-<p><a id="X7E098F677FC33B8F" name="X7E098F677FC33B8F"></a></p>
+<p><a id="X8052D0A68676A82C" name="X8052D0A68676A82C"></a></p>
 
-<h5>6.2-4 IsRegularPolytope</h5>
+<h4>6.4 <span class="Heading">Schlafli symbol</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRegularPolytope</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns whether a maniplex is a regular polytope.</p>
+<p><a id="X7FA0B161838A442A" name="X7FA0B161838A442A"></a></p>
+
+<h5>6.4-1 SchlafliSymbol</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the Schlafli symbol of the maniplex <var class="Arg">M</var>. Each entry is either an integer or a set of integers, where entry number i shows the polygons that we obtain as sections of (i+1)-faces over (i-2)-faces.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=24Cell();</span>
-24Cell
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRegularPolytope(p);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(SmallRhombicosidodecahedron());</span>
+[ [ 3, 4, 5 ], 4 ]
+</pre></div>
+
+<p><a id="X78447BE8877668EA" name="X78447BE8877668EA"></a></p>
+
+<h5>6.4-2 PseudoSchlafliSymbol</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PseudoSchlafliSymbol</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Sometimes when we make a maniplex, we know that the Schlafli symbol must be a quotient of some symbol. This most frequently happens because we start with a maniplex with a given Schlafli symbol and then take a quotient of it. In this case, we store the given Schlafli symbol and call it a <em>pseudo-Schlafli symbol</em> of <var class="Arg">M</var>. Note that whenever we compute the actual Schlafli symbol of <var class="Arg">M</var>, we update the pseudo-Schlafli symbol to match.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4], "(r0 r1)^2");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PseudoSchlafliSymbol(M);</span>
+[4, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(M);</span>
+[2, 4]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PseudoSchlafliSymbol(M);</span>
+[2, 4]
+</pre></div>
+
+<p><a id="X7E9CCE9D794DC285" name="X7E9CCE9D794DC285"></a></p>
+
+<h5>6.4-3 IsEquivelar</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsEquivelar</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: the the maniplex <var class="Arg">M</var> is equivelar; i.e., whether its Schlafli Symbol consists of integers at each position (no lists).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEquivelar(Bk2l(6,18));</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=CartesianProduct(Simplex(2),Cube(2));</span>
-CartesianProduct(Pgon(3), Pgon(4))
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsRegularPolytope(q);</span>
+</pre></div>
+
+<p><a id="X8483BE798579B521" name="X8483BE798579B521"></a></p>
+
+<h5>6.4-4 IsDegenerate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsDegenerate</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>Returns whether the maniplex <var class="Arg">M</var> has any sections that are digons. We may eventually want to include maniplexes with even smaller sections.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := FreeGroup("s0","s1","s2","s3");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := F.1;;  s1 := F.2;;  s2 := F.3;;  s3 := F.4;;  </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := [ s0*s0, s1*s1, s2*s2, s3*s3, s0*s2*s0*s2, </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">s1*s2*s1*s2, s0*s3*s0*s3, s1*s3*s1*s3, </span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">s2*s3*s2*s3*s2*s3*s2*s3, s0*s1*s0*s1*s0*s1*s0*s1*s0*s1 ];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := F / rels;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDegenerate(ARP(poly));</span>
+true
+</pre></div>
+
+<p><a id="X8088FFB2851334AB" name="X8088FFB2851334AB"></a></p>
+
+<h5>6.4-5 IsTight</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTight</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>Returns whether the polytope <var class="Arg">P</var> is tight, meaning that it has a Schlafli symbol {k_1, ..., k_{n-1}} and has 2 k_1 ... k_{n-1} flags, which is the minimum possible. This property doesn't make any sense for non-polytopal maniplexes, which aren't constrained by this lower bound.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTight(ToroidalMap44([2,0]));</span>
+true
+</pre></div>
+
+<p><a id="X7CEC34DF795B8DDF" name="X7CEC34DF795B8DDF"></a></p>
+
+<h5>6.4-6 EulerCharacteristic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EulerCharacteristic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The Euler characteristic of the maniplex, given by <span class="Math">f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EulerCharacteristic(Bk2lStar(3,5));</span>
+-10
+</pre></div>
+
+<p><a id="X7FA861D87C58E1EF" name="X7FA861D87C58E1EF"></a></p>
+
+<h5>6.4-7 Genus</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Genus</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The genus of the given 3-maniplex.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Genus(Bk2lStar(3,5));</span>
+6
+</pre></div>
+
+<p><a id="X84F212F485BA012F" name="X84F212F485BA012F"></a></p>
+
+<h5>6.4-8 IsSpherical</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSpherical</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 3-maniplex <var class="Arg">M</var> is spherical, which is to say, whether the Euler characteristic is equal to 2.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(Simplex(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(AbstractRegularPolytope([4,4],"h2^3"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(Pyramid(5));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSpherical(CubicTiling(2));</span>
 false
 </pre></div>
 
-<p><a id="X8064E656804172CF" name="X8064E656804172CF"></a></p>
+<p><a id="X85B48E0678A65F40" name="X85B48E0678A65F40"></a></p>
 
-<h4>6.3 <span class="Heading">Rotary maniplexes and rotation groups</span></h4>
+<h5>6.4-9 IsLocallySpherical</h5>
 
-<p><a id="X8056E3557E06EFF6" name="X8056E3557E06EFF6"></a></p>
-
-<h5>6.3-1 UniversalRotationGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the rotation subgroup of the universal Coxeter Group of rank n.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocallySpherical</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 4-maniplex <var class="Arg">M</var> is locally spherical, which is to say, whether its facets and vertex-figures are both spherical.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalRotationGroup(3);</span>
-&lt;fp group of size infinity on the generators [ s1, s2 ]&gt;
-</pre></div>
-
-<p><a id="X7D6042317A76FDC3" name="X7D6042317A76FDC3"></a></p>
-
-<h5>6.3-2 UniversalRotationGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UniversalRotationGroup</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns the rotation subgroup of the Coxeter Group with Schlafli symbol sym.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalRotationGroup([4,4]);</span>
-&lt;fp group of size infinity on the generators [ s1, s2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">UniversalRotationGroup([3,3,3]);</span>
-&lt;fp group of size 60 on the generators [ s1, s2, s3 ]&gt;
-</pre></div>
-
-<p><a id="X80791E367E43CA25" name="X80791E367E43CA25"></a></p>
-
-<h5>6.3-3 <span class="Heading">RotaryManiplex</span></h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">relations</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotaryManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>In the first form, given a group g (which should be a string rotation group), returns the rotary maniplex with that rotation group, where the privileged generators are those returned by GeneratorsOfGroup(g). This function first checks whether g is a StringRotationGroup. Use <code class="code">RotaryManiplexNC</code> to bypass that check.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex(UniversalRotationGroup([3,3]));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(Simplex(4));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(AbstractRegularPolytope([4,4,4]));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(CubicTiling(3));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallySpherical(Pyramid(Cube(3)));</span>
 true
 </pre></div>
 
-<p>The second form returns the universal rotary maniplex (in fact, regular polytope) with Schlafli symbol <var class="Arg">sym</var>.</p>
+<p><a id="X7886C68887E4DD20" name="X7886C68887E4DD20"></a></p>
+
+<h5>6.4-10 IsToroidal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsToroidal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 3-maniplex <var class="Arg">M</var> is toroidal, which is to say, whether the Euler characteristic is equal to 0.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([4,3]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Cube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(Simplex(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(AbstractRegularPolytope([4,4],"h2^3"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsToroidal(Pyramid(5));</span>
+false
+</pre></div>
+
+<p><a id="X7E0FF0C982FC49D2" name="X7E0FF0C982FC49D2"></a></p>
+
+<h5>6.4-11 IsLocallyToroidal</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLocallyToroidal</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the 4-maniplex <var class="Arg">M</var> is locally toroidal, which is to say, whether it has at least one toroidal facet or vertex-figure, and all of its facets and vertex-figures are either spherical or toroidal.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(AbstractRegularPolytope([4,4,3],"(r0 r1 r2 r1)^2"));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));</span>
 true
 </pre></div>
 
-<p>The third form returns the rotary maniplex with the given Schlafli symbol and with the given relations. The relations are given by a string that refers to the generators s1, s2, etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only).</p>
+<p><a id="X861E4BAD800B2785" name="X861E4BAD800B2785"></a></p>
+
+<h4>6.5 <span class="Heading">Orientability</span></h4>
+
+<p><a id="X7DCAF9D27F36EBD3" name="X7DCAF9D27F36EBD3"></a></p>
+
+<h5>6.5-1 IsOrientable</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsOrientable</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>A maniplex is orientable if its flag graph is bipartite.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([4,4], "(s2^-1 s1)^6");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = ToroidalMap44([6,0]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOrientable(HemiCube(3));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOrientable(Cube(3));</span>
 true
 </pre></div>
 
-<p>The fourth form takes the Schlafli Symbol <var class="Arg">sym</var>, a list of <var class="Arg">words</var> in the generators r0 etc, and a list of <var class="Arg">orders</var>. It returns the rotary maniplex that is the quotient of the universal maniplex with that Schlalfi Symbol by the relations obtained by setting each <var class="Arg">word[i]</var> to have order <var class="Arg">order[i]</var>. This is primarily useful for quickly constructing a family of related maniplexes.</p>
+<p><a id="X79F849DD7F778616" name="X79F849DD7F778616"></a></p>
+
+<h5>6.5-2 IsIOrientable</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsIOrientable</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>For a subset I of {0, ..., n-1}, a maniplex is I-orientable if every closed path in its flag graph contains an even number of edges with colors in I.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := List([1..5], k -&gt; RotaryManiplex([4,4], ["s1 s2^-1"], [k]));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(L, IsPolytopal);</span>
-[ false, true, true, true, true ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsIOrientable(HemiCube(3),[1,2]);</span>
+true
 </pre></div>
 
-<p>In the last two forms, if the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
+<p><a id="X877609AB7ABD24AC" name="X877609AB7ABD24AC"></a></p>
+
+<h5>6.5-3 IsVertexBipartite</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsVertexBipartite</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>A maniplex is vertex-bipartite if its 1-skeleton is bipartite. This is equivalent to being I-orientable for I = {0}.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([6,6], "(s1^2 s2^2)^8");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(M);</span>
-#I  Coset table calculation failed -- trying with bigger table limit
-... eventually give up with CTRL-C
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := RotaryManiplex([6,6], "(s1^2 s2^2)^8" : set_schlafli);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(M);</span>
-[6, 6]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsVertexBipartite(HemiCube(4));</span>
+true
 </pre></div>
 
-<p><a id="X8745361B80626A39" name="X8745361B80626A39"></a></p>
+<p><a id="X7BD9E8A87D6E8FAB" name="X7BD9E8A87D6E8FAB"></a></p>
 
-<h5>6.3-4 EnantiomorphicForm</h5>
+<h5>6.5-4 IsFacetBipartite</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EnantiomorphicForm</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>The <em>enantiomorphic form</em> of a rotary maniplex is the same maniplex, but where we choose the new base flag to be one of the flags that is adjacent to the original base flag. If M is reflexible, then this choice has no effect. Otherwise, if M is chiral, then the enantiomorphic form gives us a different presentation for the rotation group.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFacetBipartite</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>A maniplex is facet-bipartite if the 1-skeleton of its dual is bipartite. This is equivalent to being I-orientable for I = {n-1}.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ToroidalMap44([1,2]);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(M);</span>
-&lt;fp group of size 20 on the generators [ s1, s2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RelatorsOfFpGroup(g);</span>
-[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">h := AutomorphismGroup(EnantiomorphicForm(M));</span>
-&lt;fp group of size 20 on the generators [ s1, s2 ]&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RelatorsOfFpGroup(h);</span>
-[ (s1*s2)^2, s1^4, s2^4, s2^-1*s1^-1*s2*s1^3*s2*s1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFacetBipartite(HemiCube(4));</span>
+false
+</pre></div>
+
+<p><a id="X7BAA22327D298902" name="X7BAA22327D298902"></a></p>
+
+<h5>6.5-5 OrientableCover</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OrientableCover</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the minimal <em>orientable cover</em> of the maniplex <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">OrientableCover(HemiCube(3))=Cube(3);</span>
+true
+</pre></div>
+
+<p><a id="X81EF6062840E85AF" name="X81EF6062840E85AF"></a></p>
+
+<h5>6.5-6 IOrientableCover</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IOrientableCover</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the minimal <em>I-orientable cover</em> of the maniplex <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(IOrientableCover(Cube(3), [2]));</span>
+[ 4, 6 ]
+</pre></div>
+
+<p><a id="X780FC00678185849" name="X780FC00678185849"></a></p>
+
+<h4>6.6 <span class="Heading">Zigzags and holes</span></h4>
+
+<p><a id="X7D0AAD597CDE5697" name="X7D0AAD597CDE5697"></a></p>
+
+<h5>6.6-1 ZigzagLength</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of <var class="Arg">j</var>-zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
+
+<p>This corresponds to the lengths of orbits under r0 (r1 r2)^j.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),1);</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),2);</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),3);</span>
+2
+</pre></div>
+
+<p><a id="X7FC09F34870E6CDE" name="X7FC09F34870E6CDE"></a></p>
+
+<h5>6.6-2 ZigzagVector</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
+
+<p>A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagVector(Pseudorhombicuboctahedron());</span>
+[ [ 40, 56 ], [ 8, 32 ] ]
+</pre></div>
+
+<p><a id="X7C4A38D780F6AECD" name="X7C4A38D780F6AECD"></a></p>
+
+<h5>6.6-3 PetrieLength</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The length of the petrie polygons of the maniplex <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PetrieLength(Cube(3));</span>
+6
+</pre></div>
+
+<p><a id="X7C93C4708678EB87" name="X7C93C4708678EB87"></a></p>
+
+<h5>6.6-4 PetrieRelation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieRelation</code>( <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: relation</p>
+
+<p>Returns the Petrie relation for a rank <var class="Arg">i</var> maniplex of length <var class="Arg">j</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PetrieRelation(3,3);</span>
+"(r0r1r2)^3"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=Cube(3)/p;</span>
+3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(q);</span>
+24
+</pre></div>
+
+<p><a id="X80FF41567B259CC1" name="X80FF41567B259CC1"></a></p>
+
+<h5>6.6-5 HoleLength</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of <var class="Arg">j</var>-holes of the 3-maniplex <var class="Arg">M</var>.</p>
+
+<p>This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(ToroidalMap44([3,0]),2);</span>
+3
+</pre></div>
+
+<p><a id="X7EE84DCF7EFC02C6" name="X7EE84DCF7EFC02C6"></a></p>
+
+<h5>6.6-6 HoleVector</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
+
+<p>A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleVector(ToroidalMap44([3,0],[0,5]));</span>
+[ [ 3, 5 ] ]
 </pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap5.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap7.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chap18.html">18</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
