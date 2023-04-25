@@ -56,3 +56,15 @@ gap> ExponentGroup(ToroidalMap44([1,2]));
 [ 1 ]
 gap> ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));
 [ 1, 3, 7, 9 ]
+gap> UpToDuality([Cube(3), Simplex(3), CrossPolytope(3)]);
+[ Cube(3), Simplex(3) ]
+gap> UpToDuality([CrossPolytope(3), Simplex(3), Cube(3)]);
+[ CrossPolytope(3), Simplex(3) ]
+gap> L := SmallReflexibleManiplexes(3, [1..100]);;
+gap> Size(L);
+250
+gap> L2 := UpToDuality(L);;
+gap> Size(L2);
+147
+gap> Number(L, IsSelfDual);
+44

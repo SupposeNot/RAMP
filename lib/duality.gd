@@ -168,3 +168,23 @@ DeclareAttribute("ExponentGroup", IsMapOnSurface);
 #! gap> ExponentGroup(ReflexibleManiplex([10,10], "(r0 r1 r2)^2"));
 #! [ 1, 3, 7, 9 ]
 #! @EndExampleSession
+
+#! @Arguments L
+#! @Description Given a list of maniplexes <A>L</A>, returns a sublist such that every maniplex in the list is unique
+#! and if a non-self-dual maniplex is in the list, then its dual is not in the list.
+#! In the case where two or more elements of L are duals of each other, we keep the earliest one.
+DeclareOperation("UpToDuality", [IsList]);
+#! @BeginExampleSession
+#! gap> UpToDuality([Cube(3), Simplex(3), CrossPolytope(3)]);
+#! [ Cube(3), Simplex(3) ]
+#! gap> UpToDuality([CrossPolytope(3), Simplex(3), Cube(3)]);
+#! [ CrossPolytope(3), Simplex(3) ]
+#! gap> L := SmallReflexibleManiplexes(3, [1..100]);;
+#! gap> Size(L);
+#! 250
+#! gap> L2 := UpToDuality(L);;
+#! gap> Size(L2);
+#! 147
+#! gap> Number(L, IsSelfDual);
+#! 44
+#! @EndExampleSession

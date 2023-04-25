@@ -42,7 +42,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X85ED37A97CE7F77C">15.1-12 SmallChiral4Polytopes</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X7ED0E4347B0192A6">15.1-13 SmallReflexible3Maniplexes</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X8082983086E31719">15.1-14 SmallReflexibleManiplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X7D30D2C37BD1B341">15.1-15 SmallTwoOrbit3Maniplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15_mj.html#X78C635AE789E66E6">15.1-15 SmallTwoOrbitPolyhedra</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap15_mj.html#X84020A6879FBFF00">15.2 <span class="Heading">System internal representations</span></a>
 </span>
@@ -292,18 +292,18 @@ true
 [ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ]
 </pre></div>
 
-<p><a id="X7D30D2C37BD1B341" name="X7D30D2C37BD1B341"></a></p>
+<p><a id="X78C635AE789E66E6" name="X78C635AE789E66E6"></a></p>
 
-<h5>15.1-15 SmallTwoOrbit3Maniplexes</h5>
+<h5>15.1-15 SmallTwoOrbitPolyhedra</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallTwoOrbit3Maniplexes</code>( <var class="Arg">I</var>, <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallTwoOrbitPolyhedra</code>( <var class="Arg">I</var>, <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
 
-<p>Gives all two-orbit 3-maniplexes in class <span class="SimpleMath">\(2_I\)</span> with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 1000 or less.</p>
+<p>Gives all two-orbit polyhedra in class <span class="SimpleMath">\(2_I\)</span> with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 1000 or less.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := SmallTwoOrbit3Maniplexes([0], 100);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := SmallTwoOrbitPolyhedra([0], 100);</span>
 [ TwoOrbit3ManiplexClass2_0([ 10, 4 ], "  r0*a21*a101*a21^-1, r0*a21^-1*a101*r0*a101*a21 "),
  TwoOrbit3ManiplexClass2_0([ 14, 3 ], "  r0*a21*a101*a21^-1, r0*a101*a21*(a101*r0)^2*a21^-1 ") ]
 </pre></div>

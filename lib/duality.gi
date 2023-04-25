@@ -247,3 +247,16 @@ InstallMethod(ExponentGroup,
 	exps := Filtered(PrimeResidues(q), i -> IsIsomorphicRootedManiplex(M, Hole(M,i)));
 	return exps;
 	end);
+	
+InstallMethod(UpToDuality,
+	[IsList],
+	function(Ms)
+	local L, M;
+	L := [];
+	for M in Ms do
+		if not(M in L or Dual(M) in L) then
+			Add(L, M);
+		fi;
+	od;
+	return L;
+	end);

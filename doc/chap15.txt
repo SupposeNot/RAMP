@@ -234,16 +234,16 @@
     [4X[28X[ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ][128X[104X
   [4X[32X[104X
   
-  [1X15.1-15 SmallTwoOrbit3Maniplexes[101X
+  [1X15.1-15 SmallTwoOrbitPolyhedra[101X
   
-  [33X[1;0Y[29X[2XSmallTwoOrbit3Maniplexes[102X( [3XI[103X, [3Xsizerange[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XSmallTwoOrbitPolyhedra[102X( [3XI[103X, [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YGives all two-orbit 3-maniplexes in class [23X2_I[123X with sizes in [3Xsizerange[103X flags.
+  [33X[0;0YGives  all  two-orbit  polyhedra in class [23X2_I[123X with sizes in [3Xsizerange[103X flags.
   Currently supports a [10Xmaxsize[110X of 1000 or less.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XL := SmallTwoOrbit3Maniplexes([0], 100);[127X[104X
+    [4X[25Xgap>[125X [27XL := SmallTwoOrbitPolyhedra([0], 100);[127X[104X
     [4X[28X[ TwoOrbit3ManiplexClass2_0([ 10, 4 ], "  r0*a21*a101*a21^-1, r0*a21^-1*a101*r0*a101*a21 "),[128X[104X
     [4X[28X TwoOrbit3ManiplexClass2_0([ 14, 3 ], "  r0*a21*a101*a21^-1, r0*a101*a21*(a101*r0)^2*a21^-1 ") ][128X[104X
   [4X[32X[104X
