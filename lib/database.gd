@@ -206,11 +206,12 @@ DeclareGlobalFunction("SmallReflexibleManiplexes");
 
 #! @Arguments I, sizerange
 #! @Returns IsList
-#! @Description Gives all two-orbit 3-maniplexes in class $2_I$ with sizes in <A>sizerange</A> flags.
-#! Currently supports a `maxsize` of 1000 or less.
-DeclareGlobalFunction("SmallTwoOrbit3Maniplexes");
+#! @Description Gives all two-orbit polyhedra in class $2_I$ with sizes in <A>sizerange</A> flags.
+#! Currently supports a `maxsize` of 1000 or less. 
+DeclareGlobalFunction("SmallTwoOrbitPolyhedra");
 #! @BeginExampleSession
-#! gap> L := SmallTwoOrbit3Maniplexes([0], 100);
+#! gap> L := SmallTwoOrbitPolyhedra([0], 100);
 #! [ TwoOrbit3ManiplexClass2_0([ 10, 4 ], "  r0*a21*a101*a21^-1, r0*a21^-1*a101*r0*a101*a21 "),
 #!  TwoOrbit3ManiplexClass2_0([ 14, 3 ], "  r0*a21*a101*a21^-1, r0*a101*a21*(a101*r0)^2*a21^-1 ") ]
 #! @EndExampleSession
+

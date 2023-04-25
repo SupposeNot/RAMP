@@ -648,12 +648,14 @@ InstallGlobalFunction(SmallReflexibleManiplexes,
 #! @Returns IsList
 #! @Description Gives all two-orbit 3-maniplexes in class $2_I$ with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 1000 or less.
-InstallGlobalFunction(SmallTwoOrbit3Maniplexes,
+InstallGlobalFunction(SmallTwoOrbitPolyhedra,
 	function(class, sizerange)
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex, filename, attributeNames, attributes;
 
 	if class = [0] then
 		filename := "Rank3AG_2_0.txt";
+	elif class = [1] then
+		filename := "Rank3AG_2_1.txt";
 	else
 		Error("No data available for that class");
 	fi;

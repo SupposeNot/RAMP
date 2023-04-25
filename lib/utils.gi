@@ -10,8 +10,8 @@ TEST_RAMP := function()
 	od;
 	end;
 
-BindGlobal("RampPath", DirectoriesPackageLibrary("ramp"));
-BindGlobal("RampDataPath", DirectoriesPackageLibrary("ramp", "data"));
+BindGlobal("RampPath", DirectoriesPackageLibrary("ramp")[1]);
+BindGlobal("RampDataPath", DirectoriesPackageLibrary("ramp", "data")[1]);
 
 BindGlobal("TestRamp", 
 	function(filename)
