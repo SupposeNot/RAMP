@@ -187,6 +187,11 @@ InstallMethod(RotationGroupFpGroup,
 		Error("RotationGroupFpGroup is only defined for rotary maniplexes.");
 	fi;
 
+	# If the stored rotation group already looks like the right form, just send it back
+	if IsFpGroup(RotationGroup(M)) and String(GeneratorsOfGroup(RotationGroup(M))[1]) = "s1" then
+		return RotationGroup(M);
+	fi;
+
 	n := Rank(M);
 	w := UniversalRotationGroup(n);
 
