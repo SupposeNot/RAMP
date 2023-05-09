@@ -616,6 +616,46 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 	return manis;
 	end);
 
+InstallGlobalFunction(SmallChiral3Maniplexes,
+	function(sizerange)
+	local manis, minsize, maxsize, L, wilsons, k, l, M, BMaps;
+	
+	manis := [];
+
+	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
+	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
+
+	if maxsize > 5000 then
+		Info(InfoRamp, 1, "The list of chiral maniplexes with more than 5000 flags is incomplete.");
+	fi;
+	
+	# Right now these are split across multiple files
+	# 1-2000, 2004-4000, 4004-5000
+	
+	if minsize <= 2000 then
+		L := ManiplexesFromFile("ChiralMaps1-2000.txt", sizerange);
+		Append(manis, L);
+		minsize := 2001;
+	fi;
+	
+	if minsize <= 4000 then
+		L := ManiplexesFromFile("ChiralMaps2001-4000.txt", sizerange);
+		Append(manis, L);
+		minsize := 4001;
+	fi;
+
+	L := ManiplexesFromFile("ChiralMaps4001-5000.txt", sizerange);
+	Append(manis, L);
+
+	for M in manis do
+		SetSchlafliSymbol(M, PseudoSchlafliSymbol(M));
+		SetIsChiral(M, true);
+	od;
+
+	return manis;
+	end);
+
+
 InstallGlobalFunction(SmallReflexibleManiplexes,
 	function(n, sizes, arg...)
 	local L, i, filter, filter_fn, filter_result;

@@ -179,11 +179,17 @@ DeclareGlobalFunction("SmallChiral4Polytopes");
 
 #! @Arguments sizerange
 #! @Returns IsList
-#! @Description Gives all regular 3-polytopes with sizes in <A>sizerange</A> flags.
+#! @Description Gives all regular 3-maniplexes with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 2000 or less.
 #! If the option `nonpolytopal` is set, only returns maniplexes that
 #! are not polyhedra.
 DeclareGlobalFunction("SmallReflexible3Maniplexes");
+
+#! @Arguments sizerange
+#! @Returns IsList
+#! @Description Gives all chiral 3-maniplexes with sizes in <A>sizerange</A> flags.
+#! Currently supports a `maxsize` of 5000 or less.
+DeclareGlobalFunction("SmallChiral3Maniplexes");
 
 #! @Arguments n, sizerange[, filt1, filt2, ...]
 #! @Returns IsList
