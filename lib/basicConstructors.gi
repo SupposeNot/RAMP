@@ -462,17 +462,17 @@ InstallMethod(EnantiomorphicForm,
 		extraRels := Difference(rels, standardRels);
 		newrels := [];
 		
-		# Now we change the relators by conjugating by r0.
-		# This changes s1 to s1^-1 and s2 to s1^2 s2, while fixing the other si.
+		# Now we change the relators by conjugating by r1.
+		# This changes s1 to s1^-1, s2 to s2^-1, and s3 to s2^2 s3, while fixing the other si.
 		for rel in extraRels do
 			newrel := [];
 			for i in rel do
-				if AbsoluteValue(i) = 1 then
+				if AbsoluteValue(i) = 1 or AbsoluteValue(i) = 2 then
 					Add(newrel, -i);
-				elif i = 2 then
-					Append(newrel, [1, 1, 2]);
-				elif i = -2 then
-					Append(newrel, [-2, -1, -1]);
+				elif i = 3 then
+					Append(newrel, [2, 2, 3]);
+				elif i = -3 then
+					Append(newrel, [-3, -2, -2]);
 				else
 					Add(newrel, i);
 				fi;
