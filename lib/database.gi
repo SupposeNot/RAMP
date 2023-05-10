@@ -618,22 +618,20 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 
 InstallGlobalFunction(SmallChiral3Maniplexes,
 	function(sizerange)
-	local manis, minsize, maxsize, L, wilsons, k, l, M, lower_bounds, upper_bounds, filename;
+	local manis, minsize, maxsize, L, wilsons, i, k, l, M, lower_bounds, upper_bounds, filename;
 	
 	manis := [];
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
-	lower_bounds := [1, 2001, 4001, 5001];
-	upper_bounds := [2000, 4000, 5000, 6000];
+	lower_bounds := [1, 2001, 4001, 5001, 6001];
+	upper_bounds := [2000, 4000, 5000, 6000, 7000];
 	
 	if maxsize > Maximum(upper_bounds) then
 		Info(InfoRamp, 1, Concatenation("The list of chiral maniplexes with more than ", String(Maximum(upper_bounds)), " flags is incomplete."));
 	fi;
 	
-	lower_bounds := [1, 2001, 4001, 5001];
-	upper_bounds := [2000, 4000, 5000, 6000];
 	for i in [1..Size(lower_bounds)] do
 		if minsize <= upper_bounds[i] then
 			filename := Concatenation("ChiralMaps", String(lower_bounds[i]), "-", String(upper_bounds[i]), ".txt");
