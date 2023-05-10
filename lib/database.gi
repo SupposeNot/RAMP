@@ -618,35 +618,31 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 
 InstallGlobalFunction(SmallChiral3Maniplexes,
 	function(sizerange)
-	local manis, minsize, maxsize, L, wilsons, k, l, M, BMaps;
+	local manis, minsize, maxsize, L, wilsons, k, l, M, lower_bounds, upper_bounds, filename;
 	
 	manis := [];
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
-	if maxsize > 5000 then
-		Info(InfoRamp, 1, "The list of chiral maniplexes with more than 5000 flags is incomplete.");
+	lower_bounds := [1, 2001, 4001, 5001];
+	upper_bounds := [2000, 4000, 5000, 6000];
+	
+	if maxsize > Maximum(upper_bounds) then
+		Info(InfoRamp, 1, Concatenation("The list of chiral maniplexes with more than ", String(Maximum(upper_bounds)), " flags is incomplete."));
 	fi;
 	
-	# Right now these are split across multiple files
-	# 1-2000, 2004-4000, 4004-5000
+	lower_bounds := [1, 2001, 4001, 5001];
+	upper_bounds := [2000, 4000, 5000, 6000];
+	for i in [1..Size(lower_bounds)] do
+		if minsize <= upper_bounds[i] then
+			filename := Concatenation("ChiralMaps", String(lower_bounds[i]), "-", String(upper_bounds[i]), ".txt");
+			L := ManiplexesFromFile(filename, sizerange);
+			Append(manis, L);
+			minsize := upper_bounds[i] + 1;
+		fi;
+	od;
 	
-	if minsize <= 2000 then
-		L := ManiplexesFromFile("ChiralMaps1-2000.txt", sizerange);
-		Append(manis, L);
-		minsize := 2001;
-	fi;
-	
-	if minsize <= 4000 then
-		L := ManiplexesFromFile("ChiralMaps2001-4000.txt", sizerange);
-		Append(manis, L);
-		minsize := 4001;
-	fi;
-
-	L := ManiplexesFromFile("ChiralMaps4001-5000.txt", sizerange);
-	Append(manis, L);
-
 	for M in manis do
 		SetSchlafliSymbol(M, PseudoSchlafliSymbol(M));
 		SetIsChiral(M, true);
