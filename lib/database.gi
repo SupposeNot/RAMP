@@ -625,8 +625,8 @@ InstallGlobalFunction(SmallChiral3Maniplexes,
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
-	lower_bounds := [1, 2001, 4001, 5001, 6001];
-	upper_bounds := [2000, 4000, 5000, 6000, 7000];
+	lower_bounds := [1, 2001, 4001, 5001, 6001, 7001];
+	upper_bounds := [2000, 4000, 5000, 6000, 7000, 8000];
 	
 	if maxsize > Maximum(upper_bounds) then
 		Info(InfoRamp, 1, Concatenation("The list of chiral maniplexes with more than ", String(Maximum(upper_bounds)), " flags is incomplete."));
