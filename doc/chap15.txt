@@ -12,6 +12,10 @@
   
   [33X[0;0Yhttps://www.math.auckland.ac.nz/~conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt[133X
   
+  [33X[0;0YData on small chiral maps is from Primoz Potocnik:[133X
+  
+  [33X[0;0Yhttps://users.fmf.uni-lj.si/potocnik/work.htm[133X
+  
   [33X[0;0YData  on  small 2-orbit polyhedra in class 2_0 (available in Rank3AG_2_0.txt
   in the data folder) was produced for RAMP by Mark Mixer.[133X
   
@@ -208,11 +212,19 @@
   [33X[1;0Y[29X[2XSmallReflexible3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YGives  all  regular  3-polytopes  with  sizes  in [3Xsizerange[103X flags. Currently
+  [33X[0;0YGives  all  regular  3-maniplexes  with  sizes in [3Xsizerange[103X flags. Currently
   supports  a [10Xmaxsize[110X of 2000 or less. If the option [10Xnonpolytopal[110X is set, only
   returns maniplexes that are not polyhedra.[133X
   
-  [1X15.1-14 SmallReflexibleManiplexes[101X
+  [1X15.1-14 SmallChiral3Maniplexes[101X
+  
+  [33X[1;0Y[29X[2XSmallChiral3Maniplexes[102X( [3Xsizerange[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsList[133X
+  
+  [33X[0;0YGives  all  chiral  3-maniplexes  with  sizes  in [3Xsizerange[103X flags. Currently
+  supports a [10Xmaxsize[110X of 12000 or less.[133X
+  
+  [1X15.1-15 SmallReflexibleManiplexes[101X
   
   [33X[1;0Y[29X[2XSmallReflexibleManiplexes[102X( [3Xn[103X, [3Xsizerange[103X[, [3Xfilt1[103X, [3Xfilt2[103X, [3X...[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
@@ -234,7 +246,7 @@
     [4X[28X[ 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 ][128X[104X
   [4X[32X[104X
   
-  [1X15.1-15 SmallTwoOrbitPolyhedra[101X
+  [1X15.1-16 SmallTwoOrbitPolyhedra[101X
   
   [33X[1;0Y[29X[2XSmallTwoOrbitPolyhedra[102X( [3XI[103X, [3Xsizerange[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X

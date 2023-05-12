@@ -9043,6 +9043,10 @@ available. Data on small regular polytopes is from Marston Conder:
 
  https://www.math.auckland.ac.nz/\texttt{\symbol{126}}conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt 
 
+ Data on small chiral maps is from Primoz Potocnik: 
+
+ https://users.fmf.uni-lj.si/potocnik/work.htm 
+
  Data on small 2-orbit polyhedra in class 2{\textunderscore}0 (available in
 Rank3AG{\textunderscore}2{\textunderscore}0.txt in the data folder) was
 produced for RAMP by Mark Mixer. 
@@ -9323,12 +9327,27 @@ IsList
 
 
 
- Gives all regular 3-polytopes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a \texttt{maxsize} of 2000 or less. If the option \texttt{nonpolytopal} is set, only returns maniplexes that are not polyhedra. }
+ Gives all regular 3-maniplexes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a \texttt{maxsize} of 2000 or less. If the option \texttt{nonpolytopal} is set, only returns maniplexes that are not polyhedra. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SmallChiral3Maniplexes}}
+\logpage{[ 15, 1, 14 ]}\nobreak
+\hyperdef{L}{X7952969F822271AF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallChiral3Maniplexes({\mdseries\slshape sizerange})\index{SmallChiral3Maniplexes@\texttt{SmallChiral3Maniplexes}}
+\label{SmallChiral3Maniplexes}
+}\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+IsList 
+
+
+
+ Gives all chiral 3-maniplexes with sizes in \mbox{\texttt{\mdseries\slshape sizerange}} flags. Currently supports a \texttt{maxsize} of 12000 or less. }
 
  
 
 \subsection{\textcolor{Chapter }{SmallReflexibleManiplexes}}
-\logpage{[ 15, 1, 14 ]}\nobreak
+\logpage{[ 15, 1, 15 ]}\nobreak
 \hyperdef{L}{X8082983086E31719}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallReflexibleManiplexes({\mdseries\slshape n, sizerange[, filt1, filt2, ...]})\index{SmallReflexibleManiplexes@\texttt{SmallReflexibleManiplexes}}
 \label{SmallReflexibleManiplexes}
@@ -9357,7 +9376,7 @@ boolean function returns \texttt{true}. }
  
 
 \subsection{\textcolor{Chapter }{SmallTwoOrbitPolyhedra}}
-\logpage{[ 15, 1, 15 ]}\nobreak
+\logpage{[ 15, 1, 16 ]}\nobreak
 \hyperdef{L}{X78C635AE789E66E6}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SmallTwoOrbitPolyhedra({\mdseries\slshape I, sizerange})\index{SmallTwoOrbitPolyhedra@\texttt{SmallTwoOrbitPolyhedra}}
 \label{SmallTwoOrbitPolyhedra}
@@ -9941,12 +9960,6 @@ intended.
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

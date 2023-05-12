@@ -1,0 +1,577 @@
+Size,IsPolytopal
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^-2*s2^-1*s1*s2")#40#true
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2*(s2*s1^-1)^2*s2*s1")#80#true
+AbstractRotaryPolytope([ 3, 6 ], "s2^-2*s1*(s2^2*s1^-1)^2")#84#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^-1*s2*s1^-3*s2^-1*s1^2*s2")#84#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-2*s1^2*s2")#104#true
+AbstractRotaryPolytope([ 6, 9 ], "s2*s1^-3*s2^-1*s1*s2")#108#true
+AbstractRotaryPolytope([ 9, 6 ], "(s1*s2^-1*s1)^2, s2*s1^2*s2*s1^-1*s2^2, s1^9")#108#true
+AbstractRotaryPolytope([ 7, 7 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2")#112#true
+RotaryManiplex([ 12, 12 ], "s2*s1^-2*s2^2*s1^-1")#120#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2*(s2*s1^-1)^3*s2")#136#true
+AbstractRotaryPolytope([ 8, 8 ], "s1*s2^-1*s1^-2*(s1^-1*s2)^2")#144#true
+AbstractRotaryPolytope([ 3, 6 ], "s2^-2*s1*s2^-2*(s1^-1*s2)^2*s2*s1^-1*s2^-1")#156#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*s2*s1^-1*s2*s1*(s1^2*s2^-1)^2")#156#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-1*(s2^-1*s1)^2*s1*s2")#160#true
+RotaryManiplex([ 8, 8 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^8")#160#false
+RotaryManiplex([ 8, 8 ], "s1*s2^2*s1*(s1*s2^-1)^2, (s1^-1*s2)^2*s1^2*s2^2, s1^8")#160#false
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^2*s2^-1*s1^-1*s2*s1")#168#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s1^2*s2^-3*s1*s2^-2*s1^-1*s2")#168#true
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2^2*s1*s2^-1*s1^-1*s2*(s1*s2^-1)^2*s1^-1*s2*s1")#200#true
+RotaryManiplex([ 20, 20 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, (s1^-1*s2)^5")#200#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*(s2*s1^-1)^4*s2")#208#true
+AbstractRotaryPolytope([ 6, 18 ], "(s1*s2^-2)^2,s2^-1*s1^-1*s2^2*s1^2*s2^2*s1*s2^-1, (s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2")#216#true
+AbstractRotaryPolytope([ 18, 6 ], "(s1*s2^-1*s1)^2, s1^2*s2^2*s1^2*s2^-1*s1^-2*s2")#216#true
+AbstractRotaryPolytope([ 5, 10 ], "s1*(s2*s1^-1)^2*s1^-1*s2^2*s1")#220#true
+AbstractRotaryPolytope([ 5, 10 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2")#220#true
+AbstractRotaryPolytope([ 10, 5 ], "s1^5*s2^2*s1*s2^-1, s1^10")#220#true
+AbstractRotaryPolytope([ 10, 5 ], "s2*s1^4*s2^-1*s1^2*s2, s1^10")#220#true
+AbstractRotaryPolytope([ 7, 14 ], "s2^2*s1^-1*(s1^-1*s2)^2, (s1^-1*s2*s1*s2^-1)^2")#224#true
+AbstractRotaryPolytope([ 14, 7 ], "s2^-1*s1^2*(s1*s2^-1)^2, s1^2*s2^2*s1*s2^-1*s1^-1*s2")#224#true
+RotaryManiplex([ 14, 14 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2, (s2^-1*s1*s2^-2)^3*s1^2")#224#false
+AbstractRotaryPolytope([ 3, 6 ], "s2^-3*s1*s2^-2*(s1^-1*s2^2)^2*s1^-1*s2*s1^-1")#228#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^-2*s2^-1*s1^2*(s2*s1^-2)^2*s2^-1*s1^2*s2")#228#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-1*(s2^-1*s1)^3*s1*s2")#232#true
+AbstractRotaryPolytope([ 4, 12 ], "s1^2*s2^3*s1*s2^-1*s1*s2^2")#240#true
+AbstractRotaryPolytope([ 12, 4 ], "(s1*s2^-1*s1^2)^2, s1*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1")#240#true
+RotaryManiplex([ 12, 12 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^12")#240#false
+AbstractRotaryPolytope([ 3, 6 ], "s2^-3*s1*s2^-2*s1^-1*(s2*s1^-1*s2)^2*s2*s1^-1")#252#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*s2*s1^-1*s2*s1*(s1^2*s2^-1)^3")#252#true
+RotaryManiplex([ 9, 18 ], "s2*s1^4*s2*s1^-2, (s2^-1*s1^2*s2^-1)^2*s1, s1^-2*s2^3*s1*s2^-2*s1*s2^-1")#252#false
+RotaryManiplex([ 18, 9 ], "s1^6*s2^-3, s1*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1")#252#false
+RotaryManiplex([ 16, 16 ], "s1^3*s2^2*s1*s2^-2, s1*s2*s1^-1*s2^-3*s1^2")#256#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2^2*s1^-2*s2*(s2*s1^-1)^3*s1^-1*s2^2")#272#true
+AbstractRotaryPolytope([ 8, 8 ], "s1^2*s2^2*s1*s2^-3, s1^8")#272#true
+AbstractRotaryPolytope([ 8, 8 ], "s2*s1^4*s2^-1*s1*s2")#272#true
+RotaryManiplex([ 28, 28 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, (s1*s2^-3)^2*s2^-2*s1^2*s2^-1*s1")#280#false
+AbstractRotaryPolytope([ 4, 8 ], "s2*s1^2*s2^2*(s2*s1^-1)^2*s2")#288#true
+AbstractRotaryPolytope([ 8, 4 ], "s1*s2^-1*s1^3*s2^2*s1^2*s2^-1")#288#true
+AbstractRotaryPolytope([ 8, 8 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, (s1^-1*s2)^4, s1^8")#288#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*(s2*s1^-1)^5*s2")#296#true
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s1*(s1*s2^-1)^2*s1^-3*s2^-1*s1^2*s2^-1")#312#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s2*s1^2*s2^2*s1^-1*s2^-2*s1*s2*s1^-1*s2^-1*s1*s2")#312#true
+AbstractRotaryPolytope([ 12, 12 ], "(s1^-1*s2)^3, s1^-4*s2^-1*s1*s2^-2*s1*s2")#312#true
+AbstractRotaryPolytope([ 12, 12 ], "(s1^-1*s2)^3, s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2")#312#true
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, (s2*s1^-1)^2*s2*s1*s2^-1*s1^-2*s2, s2^12")#312#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2^2*s1^-2*s2*(s2*s1^-1)^4*s2")#320#true
+AbstractRotaryPolytope([ 4, 8 ], "(s2*s1^-1*s2^2)^2, s1^2*s2^2*s1^-2*s2*(s2*s1^-1)^2*s2")#320#true
+AbstractRotaryPolytope([ 4, 8 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2")#320#true
+AbstractRotaryPolytope([ 8, 4 ], "(s2*s1^-3)^2, s1^8, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1")#320#true
+AbstractRotaryPolytope([ 8, 4 ], "(s2*s1^-3)^2, s1^8, s2*(s1*s2^-1)^2*s1^2*s2*s1^-1*s2^-1*s1*s2")#320#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s2*(s1*s2^-1)^2*s1^2*s2^2*s1^2*s2")#320#false
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s2^-1*s1^-1*s2*s1^-2*s2^-1*s1*s2^-2*s1^-2*s2^-1")#320#false
+RotaryManiplex([ 16, 16 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^16")#320#false
+RotaryManiplex([ 16, 16 ], "s2^2*s1^4*s2^2, s1*s2^-2*s1*(s1*s2^-1)^2")#320#false
+AbstractRotaryPolytope([ 6, 27 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2^-6*s1^2*s2^-1*s1^-1*s2*s1*s2^-1")#324#true
+AbstractRotaryPolytope([ 27, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^4*s2^-2*s1^3*s2^-1*s1^-1*s2*s1")#324#true
+AbstractRotaryPolytope([ 9, 18 ], "s1^-1*s2*s1^-4*s2^3, s1^9, s1^2*s2^2*s1^2*s2^-1*s1^-2*s2")#324#true
+AbstractRotaryPolytope([ 18, 9 ], "(s2*s1^-1)^2*s1^-1*s2^3*s1^-1, s2^-1*s1^2*(s1^2*s2^-1)^2")#324#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-1*s1*s2^2*s1^-1*(s1^-1*s2^-1*s1*s2)^2")#328#true
+AbstractRotaryPolytope([ 3, 6 ], "s2*s1^-1*s2^-3*s1*s2^-2*s1^-1*s2*s1^-1*s2^-3*(s1^-1*s2)^2")#336#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*(s2*s1^-1)^2*s1^-1*s2*s1^2*(s1*s2^-1)^2*s1^-2*s2*s1")#336#true
+AbstractRotaryPolytope([ 6, 12 ], "(s1*s2^-2)^2,(s1*s2^-1*s1)^2*s1^2*s2^2")#336#true
+AbstractRotaryPolytope([ 6, 12 ], "s1^-1*s2^-1*s1^2*s2^-2*s1^-3*s2, s2^2*s1^-1*s2*s1^2*s2^-2*s1*s2")#336#true
+AbstractRotaryPolytope([ 12, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^-1*(s2^-1*s1*s2^-1)^2*s2^-1*s1*s2, s1^12")#336#true
+AbstractRotaryPolytope([ 12, 6 ], "(s1^2*s2^-1*s1)^2*s2^2, s2^2*s1^5*s2^2*s1^-1, (s2^-2*s1*s2^-2)^2*s1^2")#336#true
+RotaryManiplex([ 12, 12 ], "s2*s1^4*s2*s1^-2, s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^3")#336#false
+RotaryManiplex([ 12, 12 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2*s1^2*s2^-1*s1^2*s2^2*s1^-1, s1^12")#336#false
+RotaryManiplex([ 21, 21 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2, (s2^-1*s1*s2^-2)^5*s1")#336#false
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2^2*s1*s2^-1*(s1^-1*s2)^4*s1*s2^-1*s1^-1*s2*s1")#360#true
+RotaryManiplex([ 36, 36 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^5*s1^-7*s2^2*(s2*s1^-1)^2")#360#false
+AbstractRotaryPolytope([ 3, 6 ], "s2*s1^-1*s2^-3*s1*s2^-2*s1^-1*(s2*s1^-1*s2)^3")#372#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*(s2*s1^-1)^2*s1^-1*s2*s1*(s1^2*s2^-1)^3")#372#true
+AbstractRotaryPolytope([ 6, 6 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1*s2^-1*s1^-1*s2^2*s1^2*s2^-2*s1^-2*s2, s1^-1*s2^-1*s1*s2^-2*s1^3*s2^-2*s1^-2*s2^-1*s1^-1")#384#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*(s2*s1^-1)^6*s2")#400#true
+AbstractRotaryPolytope([ 4, 20 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2, s1^-1*s2^-3*s1^-1*s2^4*s1^-1*s2^-1*s1*s2^2")#400#true
+AbstractRotaryPolytope([ 20, 4 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^-1*s1^-2*s2^-1*s1^2*s2*s1^-2*s2^-1*s1^2")#400#true
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, s1^8, s1^-1*s2^-1*s1^3*s2^-1*s1^2*s2*s1^-1")#400#true
+RotaryManiplex([ 20, 20 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^20")#400#false
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, (s2*s1^-1)^3*s1^-1*s2^-2*s1^-1, s2^12")#408#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-1*s1*s2*(s2*s1^-1)^2*(s1^-1*s2^-1*s1*s2)^2")#416#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s2^-1*s1^-2*s2*s1^-2*(s2^-1*s1)^2*s2^-1*s1^-2*s2^-1")#416#false
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s1^-1*s2)^3*s1^2*s2^-1*s1^-2*s2^-2*s1^-1")#416#false
+AbstractRotaryPolytope([ 6, 15 ], "(s1*s2^-2)^2,s1*s2^-1*s1*(s1*s2^-1*s1^-1*s2)^2")#420#true
+AbstractRotaryPolytope([ 15, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1*s2^-2*(s2^-1*s1^-1*s2*s1)^2")#420#true
+RotaryManiplex([ 15, 30 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^3*s1^3")#420#false
+RotaryManiplex([ 30, 15 ], "s1*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1, s2^2*s1^5*s2^2*s1^-1, (s2^-1*s1)^5*s2^-4*s1")#420#false
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2^2*s1*s2^-1*(s1^-1*s2)^6*s1")#424#true
+AbstractRotaryPolytope([ 6, 9 ], "(s1*s2^-2)^2,s1*s2^-1*s1^2*s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2")#432#true
+AbstractRotaryPolytope([ 9, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^9, s1*s2^-3*s1^-1*s2*s1*s2^-1*s1^-1*s2^2*s1*s2^-1")#432#true
+AbstractRotaryPolytope([ 8, 8 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1^8, s2*s1^-1*s2^-1*s1^3*s2^-2*s1*s2, s1^2*s2^3*s1^-1*s2^-4*s1^-1*s2")#432#true
+AbstractRotaryPolytope([ 6, 36 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2*s1^-1*s2^-2*s1*s2^8*s1^2*s2")#432#true
+AbstractRotaryPolytope([ 9, 12 ], "(s1*s2^-1*s1)^2, s1^9, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s2^2*s1^-1*s2^-1*s1*s2^-4*s1*s2")#432#true
+AbstractRotaryPolytope([ 12, 9 ], "(s1*s2^-2)^2, s1*s2^-1*s1^5*s2*s1^-2*s2, s1^12")#432#true
+AbstractRotaryPolytope([ 36, 6 ], "(s1*s2^-1*s1)^2, s2^6, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s1^-6*s2*s1^3*s2*s1^-1*s2^-1*s1*s2*s1^-1")#432#true
+AbstractRotaryPolytope([ 12, 18 ], "s1*s2^2*s1*s2^-1*s1^2*s2^-3, s2^-4*s1^2*s2^-1*s1^-1*s2*s1, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, s1^12")#432#true
+AbstractRotaryPolytope([ 18, 12 ], "s2*s1^5*s2^-2*s1*s2, s2^-1*s1^3*s2^2*s1^-2*s2*s1")#432#true
+RotaryManiplex([ 12, 36 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, (s2^-2*s1*s2^-2)^2*s1^2")#432#false
+RotaryManiplex([ 36, 12 ], "s1^2*s2^2*s1^2*s2^-1*s1^-2*s2, s1^-2*s2^-2*s1^3*s2^2*s1^-1, (s2^-1*s1^2*s2^-2*s1)^2")#432#false
+RotaryManiplex([ 24, 24 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1^-1*s2*s1^5*s2^3, s2*s1^-1*(s1^-1*s2)^2*s2^2*(s2*s1^-1)^2")#432#false
+AbstractRotaryPolytope([ 10, 10 ], "(s2*s1^-4)^2, s1*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1, s1^10")#440#true
+AbstractRotaryPolytope([ 10, 10 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s2*s1^-1*(s1^-1*s2)^2*s2*s1^-3, s1^10")#440#true
+AbstractRotaryPolytope([ 10, 10 ], "s2*s1^-1*s2^-1*s1^4*s2*s1^-1*s2")#440#true
+AbstractRotaryPolytope([ 10, 10 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2*s1*s2^-1*s1^3*s2*s1^-2*s2, s1^10")#440#true
+RotaryManiplex([ 44, 44 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-2*s1^2*(s2^-1*s1*s2^-1)^5*s2^-3")#440#false
+AbstractRotaryPolytope([ 3, 6 ], "s2^2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2^2)^3*s1^-1*s2*s1^-1")#444#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*s2^-1*s1^-2*s2*s1^2*s2^-1*s1^3*s2*s1^-1*s2*s1^2*s2^-1*s1^-2*s2")#444#true
+AbstractRotaryPolytope([ 14, 14 ], "(s1^-1*s2*s1*s2^-1)^2, s1^-1*s2*s1*s2^-1*s1^3*s2*s1^-1*s2, s1^14")#448#true
+RotaryManiplex([ 28, 28 ], "(s1^-1*s2*s1*s2^-1)^2, s1^-1*s2*s1*s2^-1*s1^3*s2*s1^-1*s2, s1^-10*s2^2*s1^-1*s2")#448#false
+RotaryManiplex([ 28, 28 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2, (s2^-1*s1*s2^-2)^7")#448#false
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s2*s1^-3*s2*s1^-2*s2^-1*s1^2*s2*s1^-1*s2^-1*s1*s2*s1^-1")#456#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, (s1^-1*s2^2*s1*s2^-1)^2*s2^-1*s1^-1*s2^2*s1^-1*s2")#456#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^2*(s2^-1*s1)^4*s1*s2")#464#true
+AbstractRotaryPolytope([ 3, 6 ], "s2^2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2)^2*s2*s1^-1*s2^-3*s1^-1*s2*s1^-1")#468#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*s2*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1*(s1^2*s2^-1)^3")#468#true
+RotaryManiplex([ 9, 18 ], "s2*s1^4*s2*s1^-2, (s2^-1*s1^2*s2^-1)^2*s1, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-1*(s1^-1*s2)^2*s2*s1*s2^-1*s1^-1*s2*s1*s2^-2*s1")#468#false
+RotaryManiplex([ 18, 9 ], "s2^3*(s2^2*s1^-1)^2, s1^6*s2^-3, s1*s2*s1^-2*s2*s1^3*s2^-1*s1^-2*s2*s1^2")#468#false
+AbstractRotaryPolytope([ 4, 12 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*s2^-1*s1*s2^2*s1^-2*s2^-1*s1*s2, s1^2*s2^2*s1*s2^-6*s1*s2*s1^-1*s2^-2*s1*s2")#480#true
+AbstractRotaryPolytope([ 12, 4 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2, s1^12")#480#true
+RotaryManiplex([ 8, 24 ], "(s2*s1^-3)^2, s1^8, s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2^-2*s1*s2")#480#false
+RotaryManiplex([ 8, 24 ], "(s2*s1^-3)^2, s1^8, s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1")#480#false
+AbstractRotaryPolytope([ 12, 12 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s2^3*s1*s2^-1*(s1^-1*s2)^2*s2")#480#true
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s2^12")#480#false
+RotaryManiplex([ 24, 8 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*s1^2*s2^-1*s1^-2*s2")#480#false
+RotaryManiplex([ 24, 8 ], "(s1*s2^-1*s1^2)^2, s1*s2*s1^-1*s2*s1^3*s2^-2*s1")#480#false
+AbstractRotaryPolytope([ 15, 15 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, s1*s2*s1^-2*s2*s1^-1*s2^-2*s1*s2^-1, s1^15")#480#true
+RotaryManiplex([ 24, 24 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^24")#480#false
+RotaryManiplex([ 24, 24 ], "s2^2*s1^4*s2^2, s2^-1*s1^-1*s2*s1^-2*s2^-1*s1*s2^-2*s1^-2*s2^-1, s1^2*s2^-2*s1^4*(s1*s2^-1)^2")#480#false
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2^2*s1*s2^-1*s1^-1*s2*(s1*s2^-1*s1^-1*s2*s1*s2^-1)^2*s1^-1*s2*s1")#488#true
+AbstractRotaryPolytope([ 10, 25 ], "s2*s1*s2^-1*s1^2*s2^-2*s1*s2, s1^10, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1")#500#true
+AbstractRotaryPolytope([ 10, 25 ], "s1*s2^2*s1^3*s2^-3, s1^10")#500#true
+AbstractRotaryPolytope([ 25, 10 ], "s1^-1*s2^-1*s1*s2*s1^-2*s2^2*s1^-1")#500#true
+AbstractRotaryPolytope([ 25, 10 ], "s1*s2^-1*s1^-4*s2^3")#500#true
+AbstractRotaryPolytope([ 6, 6 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2")#504#true
+AbstractRotaryPolytope([ 6, 6 ], "s1*s2^-3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s1^-1*s2^-1*s1*(s1*s2^-1)^2*s1^-3*s2*s1^-1")#504#true
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s2*s1*(s1^2*s2^-1)^2*s1^2*s2*s1^-1*s2^-1*s1*s2*s1^-1")#504#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s1^2*s2^2*s1*s2^-1*s1^-1*s2^2*s1*s2^-2*s1^-1*s2*s1*s2^-1*s1^-1*s2")#504#true
+RotaryManiplex([ 18, 18 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s2*s1^-1*s2^-1*s1^4*s2^2*s1^-1, s1^18")#504#false
+RotaryManiplex([ 18, 18 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^4*s1^2")#504#false
+AbstractRotaryPolytope([ 4, 16 ], "s1*s2^-1*s1*s2^2*(s2*s1^-1)^2*s2")#512#true
+AbstractRotaryPolytope([ 16, 4 ], "s1*s2^-1*s1^3*s2*s1^-1*s2*s1*s2^-1, s1^2*s2^2*s1^3*s2^-1*s1^-1*s2*s1^2")#512#true
+RotaryManiplex([ 8, 16 ], "(s2*s1^-3)^2, s1^8, s2^2*s1^-1*s2*s1^2*s2^-2*s1*s2, s1*s2^-2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1*s2^-1")#512#false
+RotaryManiplex([ 16, 8 ], "s2*s1*s2^-1*s1^3*s2*s1^-2*s2, s1*s2*s1^-1*s2*s1^2*(s1*s2^-1)^2")#512#false
+AbstractRotaryPolytope([ 8, 32 ], "s1^2*s2^4*s1*s2^-3*s1^-1*s2, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1")#512#true
+AbstractRotaryPolytope([ 32, 8 ], "(s1*s2^-1*s1)^2*s2^-2, s2^-2*s1^5*s2*s1^-1*s2^-1*s1^2")#512#true
+RotaryManiplex([ 16, 32 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^4*s1*s2^-3*s1^-1*s2, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1")#512#false
+RotaryManiplex([ 32, 16 ], "(s1*s2^-1*s1^2)^2, s1^-3*s2^-1*s1^3*s2^2*s1^2*s2")#512#false
+AbstractRotaryPolytope([ 3, 6 ], "s2^2*s1^-1*s2^-3*s1*s2^-2*s1^-1*(s2*s1^-1*s2)^3*s2*s1^-1")#516#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^2*s2*(s1^-1*s2*s1^-1)^2*s1^-1*s2*s1*(s1^2*s2^-1)^3")#516#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*(s2*s1^-1)^7*s2")#520#true
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2*(s2*s1*s2^-1*s1^-1)^2*s2*(s1*s2^-1)^4*s1^-1*s2*s1")#520#true
+RotaryManiplex([ 20, 20 ], "s2^2*s1^4*s2^2, s2*(s1^-1*s2*s1^-1)^2*s2^2*s1^-1")#520#false
+RotaryManiplex([ 52, 52 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-17*s1*(s2^-1*s1*s2^-1)^2*s2^-2")#520#false
+AbstractRotaryPolytope([ 6, 45 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2^-6*s1*s2^2*s1*s2^-2*s1^-1*s2^2*s1*s2^-3")#540#true
+AbstractRotaryPolytope([ 45, 6 ], "(s1*s2^-1*s1)^2, s2^6, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s2*s1^4*s2^-1*s1^-1*s2*s1^9*s2*s1^-1")#540#true
+RotaryManiplex([ 30, 45 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, (s2^-1*s1)^3*s2^-1*(s2^-1*s1^2)^2*s2^-1*s1")#540#false
+RotaryManiplex([ 45, 30 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2*s1*s2^-1*s1^3*s2^2*s1^-1, s1^-8*s2^2*s1^-1*(s1^-1*s2)^2")#540#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2*(s2*s1^-1)^7*s1^-1*s2^2")#544#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s2*s1^-2*s2^-2*s1^-2*(s2^-1*s1)^2*s2^-2*s1^-2*s2")#544#false
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, (s1*s2^-1)^4, s1^8, s1^2*s2^3*s1*s2^-2*s1^-1*s2")#544#true
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, s1^8, s1*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1")#544#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s2^-1*s1*s2^-1*s1^-1*s2*s1)^2*s2^-1*s1^-1*s2*s1")#544#false
+AbstractRotaryPolytope([ 16, 16 ], "s2*s1^-4*s2^2*s1^-1")#544#true
+AbstractRotaryPolytope([ 16, 16 ], "s2*s1*s2^-1*s1^3*(s2*s1^-1)^2, s1^-1*s2*s1^-3*s2*s1^2*s2^2*s1^-1*s2")#544#true
+AbstractRotaryPolytope([ 16, 16 ], "s2^-1*s1^-4*(s1^-2*s2)^2*s1")#544#true
+AbstractRotaryPolytope([ 16, 16 ], "s2*s1^-3*s2^2*s1^-2")#544#true
+AbstractRotaryPolytope([ 4, 28 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2, s2*s1^2*s2^3*s1*s2^-9*s1*s2")#560#true
+AbstractRotaryPolytope([ 28, 4 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2, s1^-4*s2*s1^2*s2*s1^-5*s2^-1*s1^2*s2*s1^-1")#560#true
+RotaryManiplex([ 28, 28 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^28")#560#false
+RotaryManiplex([ 35, 35 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2, (s2^-1*s1*s2^-2)^8*s1^3")#560#false
+AbstractRotaryPolytope([ 4, 8 ], "s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2, s1^2*s2^4*s1*s2^-2*s1*s2^2, (s2*s1^-1)^6")#576#true
+AbstractRotaryPolytope([ 8, 4 ], "s1*s2^-1*s1^-1*s2*s1^3*s2^-1*s1^-3*s2")#576#true
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, s1^8, s1^2*s2^2*s1^3*s2^-1*s1^-3*s2")#576#true
+RotaryManiplex([ 16, 16 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1^-1*s2*s1^5*s2^3, (s2^-1*s1*s2^-3)^3*s1")#576#false
+RotaryManiplex([ 16, 16 ], "s1^2*(s1*s2^-1)^2*s2^-2")#576#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-1*s1*s2*(s2*s1^-1)^5*s1^-1*s2^-1*s1*s2")#584#true
+AbstractRotaryPolytope([ 3, 6 ], "s2*(s2*s1^-1)^2*s2^2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2^2)^3*s1^-1")#588#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^-1*(s1^-1*s2)^2*s1^2*s2^-1*s1^-2*s2*(s1^2*s2^-1)^3*s1^-2*s2*s1^-1")#588#true
+AbstractRotaryPolytope([ 6, 21 ], "(s1*s2^-2)^2,s1*s2^2*s1*s2^-1*s1^-1*s2*s1^-2*s2^2*s1*s2^-1")#588#true
+AbstractRotaryPolytope([ 21, 6 ], "(s1*s2^-1*s1)^2, s2^6, (s2^-2*s1)^2*s1^3*s2^-1*s1^-1*s2*s1")#588#true
+RotaryManiplex([ 21, 42 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^5*s1")#588#false
+RotaryManiplex([ 42, 21 ], "s1*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2*s1, s2^2*s1^5*s2^2*s1^-1, s1^3*s2^-1*s1^2*(s1*s2^-1)^6*s2^-1*s1*s2^-1")#588#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*(s2^2*s1^-2)^2*s2^2*(s1*s2^-1)^2*(s1^-2*s2^2)^2")#592#true
+AbstractRotaryPolytope([ 12, 12 ], "(s1^-1*s2)^3, s2^2*s1^-4*s2^-1*s1*s2^2, s1^12")#600#true
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, s2^-1*s1^-2*s2^2*s1^-2*s2*s1^-1*s2^-2*s1^-2*s2^-1")#600#false
+RotaryManiplex([ 60, 60 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-16*s1^3*s2^-1*s1*(s2^-1*s1*s2^-1)^2*s2^-2*s1")#600#false
+AbstractRotaryPolytope([ 5, 10 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1")#620#true
+AbstractRotaryPolytope([ 5, 10 ], "s1*s2*s1^-1*s2^2*s1^-2*s2*s1*s2^-1*s1^-1*s2*s1")#620#true
+AbstractRotaryPolytope([ 10, 5 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2")#620#true
+AbstractRotaryPolytope([ 10, 5 ], "s1*s2^-1*s1^-4*(s1^-1*s2)^2*s1")#620#true
+AbstractRotaryPolytope([ 3, 6 ], "(s2^2*s1^-1)^2*s2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2^2)^3*s1^-1")#624#true
+AbstractRotaryPolytope([ 6, 3 ], "s2*s1^-3*s2*s1^-2*s2^-1*(s1*s2^-1*s1)^3*s1*s2^-1*s1^-3*s2*s1^-1")#624#true
+AbstractRotaryPolytope([ 4, 12 ], "(s2*s1^-1*s2^2)^2, s2*s1*(s1*s2^-1)^2*s2^-1*s1^-1*s2^2*s1*s2^-1*s1*s2")#624#true
+AbstractRotaryPolytope([ 12, 4 ], "(s1*s2^-1*s1^2)^2,s1^-1*s2^-1*s1*s2^-1*s1^-1*(s1^-1*s2)^2*s1^-2*s2^-1*s1*s2")#624#true
+AbstractRotaryPolytope([ 6, 12 ], "(s1*s2^-2)^2,s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2*s1^-2*s2^-1*s1*s2")#624#true
+AbstractRotaryPolytope([ 6, 12 ], "s1^-1*s2^-1*s1^2*s2^-2*s1^-3*s2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-1*(s1^-1*s2)^2*s2*s1*s2^-1*s1^-1*s2*s1*s2^-2*s1")#624#true
+AbstractRotaryPolytope([ 12, 6 ], "(s1*s2^-1*s1)^2, s2^6,(s1^-1*s2)^2*s2*(s2*s1*s2^-1*s1^-1)^2*s2")#624#true
+AbstractRotaryPolytope([ 12, 6 ], "s2^2*s1^5*s2^2*s1^-1, s1^2*s2^-1*s1^3*s2*s1^-1*s2*s1^2*s2^-1, (s2^-2*s1*s2^-2)^2*s1^2")#624#true
+AbstractRotaryPolytope([ 12, 12 ], "s1^-2*s2*s1^3*s2^-1*s1*s2^2, s1^-2*s2^-1*s1^4*s2^3, s1^12")#624#true
+AbstractRotaryPolytope([ 12, 12 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2,s1^-1*s2*s1^2*s2^-1*s1^3*s2*s1^-2*s2")#624#true
+RotaryManiplex([ 12, 12 ], "s2^3*s1*s2^-2*s1*s2, s2^2*s1^5*s2^2*s1^-1, (s2^-2*s1*s2^-2)^2*s1^2, s2^2*s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1^2")#624#false
+RotaryManiplex([ 12, 12 ], "s2*s1^4*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, (s2^-1*s1^2*s2^-1)^3, s2^-1*(s1^-1*s2)^2*s2*s1*s2^-1*s1^-1*s2*s1*s2^-2*s1")#624#false
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, s2^-1*s1^-2*s2*s1^-2*(s2^-1*s1)^2*s2^-1*s1^-2*s2^-1")#624#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*(s2^2*s1^-2)^2*s2^2*(s1*s2^-1)^4*s1^-2*s2^2")#640#true
+AbstractRotaryPolytope([ 4, 8 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*(s2*s1^-1)^2*s1^-1*s2^-1*s1*s2^-2*(s1^-1*s2)^2")#640#true
+AbstractRotaryPolytope([ 4, 8 ], "(s1^-1*s2)^5, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2")#640#true
+AbstractRotaryPolytope([ 4, 8 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*s2*(s2*s1^-1)^4*s1^-1*s2^-1*s1*s2")#640#true
+AbstractRotaryPolytope([ 8, 4 ], "s1*s2^-1*s1^3*s2^-1*s1*s2^2*s1^-2*s2, s1*s2*s1^-2*s2*s1^3*s2^-1*s1^-2*s2*s1^2")#640#true
+AbstractRotaryPolytope([ 8, 4 ], "(s2*s1^-3)^2, s1^8, s1*s2^2*(s1*s2^-1)^2*s1^-1*(s1^-1*s2)^3*s2*s1")#640#true
+AbstractRotaryPolytope([ 8, 4 ], "(s2*s1^-3)^2, s1^8, s1*s2^2*(s1*s2^-1)^5*s1^-1*s2*s1")#640#true
+AbstractRotaryPolytope([ 4, 16 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*s2^-1*s1*s2^2*s1^-2*s2^-1*s1*s2, s2^2*s1^2*s2^3*s1*s2^-5*s1*s2^2*s1^-1*s2^-3*s1*s2")#640#true
+AbstractRotaryPolytope([ 4, 16 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*s2^2*s1^-1*s2^-2*s1*s2*s1^-1*s2^-1*s1*s2")#640#true
+AbstractRotaryPolytope([ 16, 4 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2, s1^16")#640#true
+AbstractRotaryPolytope([ 16, 4 ], "(s1*s2^-1*s1^2)^2, s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2*s1^-2*s2^-1*s1*s2")#640#true
+AbstractRotaryPolytope([ 8, 8 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s1^8, s1*(s1^2*s2^-2)^2*s2^-1")#640#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s2*s1^-1)^4*(s2*s1^2*s2)^2")#640#false
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s1^2*(s2*s1^-1)^3*s2^2*s1*s2^-1*s1^-2*s2^-2")#640#false
+AbstractRotaryPolytope([ 8, 8 ], "(s2*s1^-3)^2, s1^8, s2*s1^2*s2*s1^-1*(s2^-1*s1)^3*s2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1")#640#true
+AbstractRotaryPolytope([ 8, 8 ], "(s2*s1^-3)^2, s1^8, s2^4*s1*s2^-3*s1*s2, s2*s1^-1*s2^2*(s1*s2^-1)^2*s1^-1*s2*s1^-2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1")#640#true
+AbstractRotaryPolytope([ 8, 8 ], "(s2*s1^-3)^2, s1^8, s2^4*s1*s2^-3*s1*s2, s2*s1^2*s2*s1^-1*(s2^-1*s1)^2*s2^2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1")#640#true
+AbstractRotaryPolytope([ 8, 8 ], "(s2*s1^-3)^2, s1^8, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1")#640#true
+RotaryManiplex([ 8, 16 ], "(s2*s1^-3)^2, s1^8, s2*s1^-1*s2^2*(s1*s2^-1)^2*s1^-1*s2*s1^-2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s1^2*s2^4*s1*s2^-1*s1^-1*s2^3")#640#false
+RotaryManiplex([ 8, 16 ], "(s2*s1^-3)^2, s1^8, s2^2*s1^-1*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s1^2*s2^4*s1*s2^-1*s1^-1*s2^3")#640#false
+RotaryManiplex([ 16, 8 ], "(s1*s2^-1*s1^2)^2, (s1*s2^-1*(s2^-1*s1)^2)^2, s1^2*s2^2*s1^3*s2^-1*s1^-1*s2*s1^2")#640#false
+RotaryManiplex([ 16, 8 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2, s1^2*s2^2*s1^3*s2^-1*s1^-1*s2*s1^2")#640#false
+RotaryManiplex([ 16, 16 ], "s2^-1*s1^4*s2^-3, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, s1*(s2^-1*s1*s2^-1)^2*s1^-1*s2*s1^2*s2^-1")#640#false
+RotaryManiplex([ 16, 16 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s2^16")#640#false
+RotaryManiplex([ 16, 16 ], "s2^2*s1^4*s2^2, (s1*s2^-1)^2*s1^2*s2^-2*s1*s2^-1*s1^-1*s2, s2^16")#640#false
+RotaryManiplex([ 16, 16 ], "s2^-1*s1^4*s2^-3, s2*s1^-1*s2^-2*s1^2*s2^2*s1^2*s2*s1^-1, s1*s2^2*(s1*s2^-1)^3*s1^2*s2^-1")#640#false
+RotaryManiplex([ 32, 32 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^32")#640#false
+RotaryManiplex([ 32, 32 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s2^7*s1^-3*s2*(s2*s1^-1)^2*s1^-1")#640#false
+AbstractRotaryPolytope([ 6, 18 ], "s2*s1^-1*s2*s1^2*s2^-1*s1^2*s2*s1^-1, s1^2*s2^4*s1^-2*s2^2")#648#true
+AbstractRotaryPolytope([ 18, 6 ], "s1^4*s2^2*s1^2*s2^-2")#648#true
+AbstractRotaryPolytope([ 6, 54 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2^2*s1^-1*s2^-2*s1^-1*s2^4*s1^-1*s2^-9*s1^-1*s2")#648#true
+AbstractRotaryPolytope([ 54, 6 ], "(s1*s2^-1*s1)^2, s2^6, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s1^-6*s2*s1^9*s2*s1^-1*s2^-1*s1*s2*s1^-1")#648#true
+AbstractRotaryPolytope([ 18, 18 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, (s2^-2*s1*s2^-2)^3*s1^3")#648#true
+AbstractRotaryPolytope([ 18, 18 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2*s1*s2^-1*s1^3*s2^2*s1^-1, s1^18")#648#true
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2*(s2*s1^-1)^8*s2*s1")#656#true
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, (s1*s2^-1)^4, s1^8, s1^-1*(s2^-1*s1^3)^2*s2^-1*s1*s2, s1*(s2*s1^-2)^2*s2*s1^2*s2^-1*s1^-1*s2*s1")#656#true
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, (s1*s2^-1)^4, s1^8, s2^-3*s1*(s1^3*s2^-1)^2")#656#true
+AbstractRotaryPolytope([ 10, 15 ], "s1*s2^2*s1*(s1*s2^-1)^2*s2^-1, s1^10")#660#true
+AbstractRotaryPolytope([ 10, 15 ], "s2*s1^5*s2^-1*s1*s2, s1^10")#660#true
+AbstractRotaryPolytope([ 15, 10 ], "s1^-1*s2^-1*s1*s2*s1^-1*(s1^-1*s2)^2")#660#true
+AbstractRotaryPolytope([ 15, 10 ], "s2^2*s1^2*s2*s1^-1*s2^3, (s1*s2^-1*s1^3)^2")#660#true
+RotaryManiplex([ 15, 30 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s2*s1^5*s2^-1*s1^-5, s1^15")#660#false
+RotaryManiplex([ 15, 30 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2^-1*s1^3*s2*s1*s2^-1*s1^-1*s2*s1^-2, s1^15")#660#false
+RotaryManiplex([ 30, 15 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2*s1*s2^-1*s1^3*s2*s1^-2*s2, s2^-1*(s2^-1*s1*s2^-2*s1)^2*s1^4")#660#false
+RotaryManiplex([ 30, 15 ], "s1^-1*s2^-3*s1^-1*s2*s1^-1*s2^-1*s1*s2, s1^-1*s2*s1^5*s2^3, (s2^-1*s1*s2^-3)^2*s2^-5")#660#false
+AbstractRotaryPolytope([ 3, 12 ], "(s2^5*s1^-1)^2, s2^-1*s1*s2^-2*(s2^-1*s1)^2*s2^-3*s1^-1*s2*(s2*s1^-1)^2*s2^-1")#672#true
+AbstractRotaryPolytope([ 12, 3 ], "(s2*s1^-5)^2,s1^2*s2*(s1^-1*s2*s1^-1)^2*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1")#672#true
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s1*(s1*s2^-1)^2*s1^-2*s2*s1^-3*s2^-1*s1*s2^-1*s1^-2*s2*s1")#672#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s1^2*s2^2*s1*s2^-1*(s2^-1*s1)^2*s2*s1^-1*s2^-1*s1*s2^-2*s1^-1*s2*s1*s2^-1*s1^-1*s2")#672#true
+RotaryManiplex([ 6, 12 ], "(s2*s1^-2)^2,s2^-1*s1^-2*s2*s1*s2^-4, s1^2*s2^2*s1*s2^-2*(s1^-1*s2)^2*s2*(s2*s1*s2^-1*s1^-1)^2*s2")#672#false
+RotaryManiplex([ 12, 6 ], "(s1*s2^-2)^2, s1^-1*s2^2*s1^5*s2^-1, s1^-1*s2*s1^-2*(s1^-1*s2)^2*s1^-3*(s2^-1*s1^2)^2*s2")#672#false
+AbstractRotaryPolytope([ 6, 24 ], "(s1*s2^-2)^2,s1*s2^-2*s1^-1*s2*(s1^-1*s2^-2*s1^-1)^2*s2, s1^-1*s2*s1*(s1*s2^-1)^2*s1^-1*s2*s1^2*s2^-1*s1^3*s2")#672#true
+AbstractRotaryPolytope([ 6, 24 ], "s1*s2^-1*s1*s2^2*s1^2*s2^-3, s1^-1*s2^-1*s1*(s1*s2^-1)^2*s1^-3*s2*s1^-1, s1*s2^4*s1*s2^-1*s1^-1*s2*s1*s2^-2, s1^-2*s2*s1^-1*(s2*s1^-1*s2)^2*s2*s1^-1")#672#true
+AbstractRotaryPolytope([ 24, 6 ], "(s1*s2^-1*s1)^2, s2^6, s2*s1^2*s2*s1^-2*s2^-1*s1^2*s2*s1^-1*s2^-1*s1*s2")#672#true
+AbstractRotaryPolytope([ 24, 6 ], "(s1^2*s2^-1*s1)^2*s2^2, s1^-2*s2*s1^4*s2*s1^-1*s2^-1*s1*s2")#672#true
+AbstractRotaryPolytope([ 12, 12 ], "s2*s1^-1*s2^-1*s1^2*s2^-1*s1*s2*s1^-2, s2*s1^-1*s2^3*s1*s2^-2*s1^2, s2*s1^-1*(s1^-2*s2)^2*s1^-1*s2*s1^-2, s1^12")#672#true
+AbstractRotaryPolytope([ 12, 12 ], "s1^-2*s2*s1^-1*s2^-2*s1^3*s2, s2^2*s1^5*s2^2*s1^-1, (s2^-2*s1*s2^-2)^2*s1^2")#672#true
+RotaryManiplex([ 12, 24 ], "s1*s2^2*s1*(s1^2*s2^-1)^2, s1^-1*s2*s1^-2*s2*s1^2*s2^2*s1^-1, s1^12")#672#false
+RotaryManiplex([ 12, 24 ], "s1^2*s2^2*s1^3*s2^-2*s1, s2*(s1*s2^-1)^3*s2^-1*s1*s2, s2^-1*(s2^-1*s1)^2*s2^2*s1^-3*s2*s1, s1^12")#672#false
+RotaryManiplex([ 24, 12 ], "s1*s2^-1*s1^3*s2^2*s1^2*s2^-1, (s2*s1^-2*s2^-2*s1)^2")#672#false
+RotaryManiplex([ 24, 12 ], "s2^2*s1^3*s2^-1*s1*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s1^9*s2*s1^-3*s2^-1, s2*s1^2*s2^2*s1^3*s2*s1^-2*s2^-1*s1*s2")#672#false
+AbstractRotaryPolytope([ 14, 21 ], "s2*s1^5*s2^-1*s1^3*s2")#672#true
+AbstractRotaryPolytope([ 21, 14 ], "s1^-2*s2^-1*s1^4*s2^3, s2*s1^-1*s2^3*s1^-3*s2^-1*s1*s2")#672#true
+RotaryManiplex([ 24, 24 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2*s1^2*s2^-1*s1^2*s2^2*s1^-1, s1^24")#672#false
+RotaryManiplex([ 24, 24 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^6")#672#false
+RotaryManiplex([ 24, 24 ], "s1^-2*s2*s1^-1*s2^-2*s1^3*s2, s2^2*s1^5*s2^2*s1^-1, s2^-2*s1^2*s2^-3*s1^4*s2^-1")#672#false
+RotaryManiplex([ 24, 24 ], "s2^2*s1^3*s2^-1*s1*s2*s1^-2, s2^2*s1^-1*s2*s1^2*s2^-2*s1*s2, s1^4*s2^-2*s1*(s1*s2^-1)^2*s1")#672#false
+RotaryManiplex([ 21, 42 ], "(s1^-1*s2*s1*s2^-1)^2, s1^-2*s2^-1*s1^4*s2^3, s1^21")#672#false
+RotaryManiplex([ 42, 21 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, s1^-2*s2^-2*s1^3*s2*s1^-1*s2, s1^2*(s1*s2^-2)^4*(s1*s2^-1)^2*s1^2*s2^-1")#672#false
+RotaryManiplex([ 42, 42 ], "s1*s2^-1*s1^-3*s2*s1*s2^-1, s1^42")#672#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*s2^2*s1^-1*(s1^-1*s2^-1*s1*s2)^3")#680#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*(s2*s1^-1)^7*s1^-1*s2^-1*s1*s2")#680#true
+RotaryManiplex([ 20, 20 ], "s2^2*s1^4*s2^2, s1^-1*s2^2*s1^-1*(s1^-1*s2)^3")#680#false
+RotaryManiplex([ 68, 68 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-20*s1*s2^-1*s1*(s2^-1*s1*s2^-1)^3*s2^-2")#680#false
+AbstractRotaryPolytope([ 3, 6 ], "(s2^2*s1^-1)^3*s2^2*s1*s2^-2*(s1^-1*s2^2)^3*s1^-1")#684#true
+AbstractRotaryPolytope([ 6, 3 ], "s2*s1^-1*(s1^-2*s2)^2*s1^-3*(s2^-1*s1^2)^3*s2^-1*s1^-3*s2*s1^-1")#684#true
+AbstractRotaryPolytope([ 9, 18 ], "s2^2*s1^-1*(s1^-2*s2)^2, s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1")#684#true
+AbstractRotaryPolytope([ 9, 18 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, (s2*s1^-1*s2)^3, s1^9")#684#true
+AbstractRotaryPolytope([ 9, 18 ], "s2*s1^-1*s2*s1^3*s2^-1*s1*s2*s1^-1")#684#true
+RotaryManiplex([ 9, 18 ], "s2*s1^4*s2*s1^-2, (s2^-1*s1^2*s2^-1)^2*s1, s2^3*s1^2*s2^-1*s1^2*s2^2, s1*s2^2*s1*(s2^-1*s1^-1*s2^2*s1*s2^-1)^2")#684#false
+AbstractRotaryPolytope([ 18, 9 ], "(s1^2*s2^-1)^3, s1^2*s2^3*s1*s2^-2*s1^-1*s2, s2^2*s1^6*(s2*s1^-1)^2")#684#true
+AbstractRotaryPolytope([ 18, 9 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, (s2^-1*s1*s2^-1)^2*s1^2*s2^-1")#684#true
+AbstractRotaryPolytope([ 18, 9 ], "s1^4*(s1*s2^-1)^2*s2^-1")#684#true
+RotaryManiplex([ 18, 9 ], "s2^3*(s2^2*s1^-1)^2, s1^6*s2^-3, s2*s1^3*s2*s1^-2*s2^-1*s1^2*s2*s1^-1*s2^-1*s1*s2*s1^-1")#684#false
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, (s2*s1^-1)^3*(s2*s1^2*s2)^2")#696#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^3*(s2^-1*s1)^3*s1*s2*s1^-1*s2^-1*s1*s2")#712#true
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2^2*s1^-2*s2*(s2*s1^-1)^7*s1^-1*s2^2")#720#true
+AbstractRotaryPolytope([ 4, 36 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2, s2*s1^2*s2^5*s1*s2^-8*s1*s2*s1^-1*s2^-1*s1*s2^2")#720#true
+AbstractRotaryPolytope([ 36, 4 ], "(s1*s2^-1*s1^2)^2, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, s1^5*s2^-1*s1^-6*s2^-1*s1^5*s2*s1^-2*s2^-1")#720#true
+AbstractRotaryPolytope([ 12, 12 ], "s1^2*s2^3*s1*s2^-2*s1^-1*s2, s2*s1^5*s2*s1^-3, (s2^-1*s1^3*s2^-1)^2*s1^2")#720#true
+AbstractRotaryPolytope([ 12, 12 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2,s1^-1*s2*s1*s2^-1*s1^4*s2^2*s1^-2")#720#true
+AbstractRotaryPolytope([ 12, 12 ], "(s1*s2^-1*s1^2)^2, s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2^-2*s1*s2, s1^12")#720#true
+RotaryManiplex([ 36, 36 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^36")#720#false
+RotaryManiplex([ 40, 40 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1^-1*s2*s1^5*s2^3, s1^-3*s2^4*(s2*s1^-1)^2*s1^-3*s2^3*s1^-3")#720#false
+RotaryManiplex([ 28, 28 ], "s2^2*s1^4*s2^2, s2^-1*s1^-2*s2*s1^-2*(s2^-1*s1)^2*s2^-1*s1^-2*s2^-1, s1^-1*s2*s1^-3*s2^3*s1^-2*s2^2*s1^-1*s2")#728#false
+AbstractRotaryPolytope([ 3, 6 ], "s2*(s2*s1^-1)^2*s2^2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2^2)^3*(s1^-1*s2)^2")#732#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^-2*s2^-1*s1^2*(s2*s1^-2*s2^-1*s1^2*s2*s1^-2)^2*s2^-1*s1^2*s2")#732#true
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s1*(s1*s2^-1)^2*s1^-2*s2*s1^-3*(s2^-1*s1^2)^2*s2^-1")#744#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s2*(s2*s1^-1)^3*s2^-2*s1*s2^-2*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2")#744#true
+AbstractRotaryPolytope([ 3, 6 ], "s2*(s2*s1^-1)^2*s2^2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2^2)^4*s1^-1")#756#true
+AbstractRotaryPolytope([ 6, 3 ], "(s1^-1*s2*s1^-2)^2*s2^-1*(s1*s2^-1*s1)^2*s1*s2^-1*s1^-3*s2*s1^-2*s2^-1*s1^2*s2")#756#true
+AbstractRotaryPolytope([ 6, 9 ], "(s1*s2^-2)^2,s2^9, s2*s1*(s1^2*s2^-1)^2*s1^2*s2*s1^-1*s2^-1*s1*s2*s1^-1")#756#true
+AbstractRotaryPolytope([ 6, 9 ], "(s1*s2^-2)^2,s1*(s1*s2^-1)^2*s1^-3*(s2^-1*s1^2)^2*s2^-1")#756#true
+AbstractRotaryPolytope([ 6, 9 ], "(s1*s2^-2)^2,s2*s1^-1*(s1^-2*s2)^2*s1^-1*(s1^-1*s2^-1*s1*s2)^2, (s1*s2^-1*s1)^2*s1^2*s2*s1*(s1^2*s2^-1)^2*s1^-1*s2")#756#true
+AbstractRotaryPolytope([ 9, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^9, s1^2*s2*(s2*s1*s2^-1*s1^-1)^2*s2*s1^2*s2^-3*s1^-1*s2")#756#true
+AbstractRotaryPolytope([ 9, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^9, s1^2*s2^2*s1*s2^-1*s1^-1*s2^2*s1*s2^-2*s1^-1*s2*s1*s2^-1*s1^-1*s2")#756#true
+AbstractRotaryPolytope([ 9, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^9, (s2*s1^-1)^2*s2^2*s1^-1*s2^-2*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2")#756#true
+AbstractRotaryPolytope([ 6, 63 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2*s1^2*s2^8*s1^-1*s2^-8*s1*s2^4")#756#true
+AbstractRotaryPolytope([ 63, 6 ], "(s1*s2^-1*s1)^2, s2^6, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s1^4*s2^-1*s1^-12*s2^-1*s1^4*s2^-1*s1^-1*s2")#756#true
+RotaryManiplex([ 9, 18 ], "s2*s1^4*s2*s1^-2, (s2^-1*s1^2*s2^-1)^2*s1, s2^3*s1^2*s2^-1*s1^2*s2^2, s1^-1*(s1^-1*s2^2*s1*s2^-1)^2*s2^-1*s1^-1*s2*(s1*s2^-1)^2")#756#false
+RotaryManiplex([ 18, 9 ], "s2^3*(s2^2*s1^-1)^2, s1^6*s2^-3, s1^-1*s2*s1^-2*s2*s1^3*s2^-1*s1^2*s2*s1^-1*s2^-1*s1*s2")#756#false
+RotaryManiplex([ 27, 54 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^6*s1^3")#756#false
+RotaryManiplex([ 54, 27 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s2*s1^-1*s2^-1*s1^4*s2^2*s1^-1, s1^-14*s2*(s2*s1^-1)^2*s2^2*s1^-6")#756#false
+RotaryManiplex([ 42, 63 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, s1*s2^-2*(s2^-1*s1)^5*s2^-2*s1^2*s2^-4")#756#false
+RotaryManiplex([ 63, 42 ], "s1^2*s2^2*s1^2*s2^-1*s1^-2*s2, s1^-2*s2^-2*s1^3*s2^2*s1^-1, s1^13*(s2^-1*s1^2*s2^-1)^2")#756#false
+RotaryManiplex([ 76, 76 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-20*s1^3*s2^-1*s1*(s2^-1*s1*s2^-1)^3*s2^-2*s1^2")#760#false
+AbstractRotaryPolytope([ 4, 6 ], "(s2*s1^-1*s2)^4, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2")#768#true
+AbstractRotaryPolytope([ 6, 4 ], "s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, s1^-1*(s2^-1*s1^2)^2*s2^-1*s1^-3*s2*s1^-2")#768#true
+AbstractRotaryPolytope([ 6, 6 ], "s1^6, s2*s1*s2^-1*(s2^-1*s1)^2*s1^2*s2")#768#true
+AbstractRotaryPolytope([ 6, 6 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1^-1*(s2^-1*s1*s2^-1)^2*s2^-1*s1*s2*s1^-1*s2^-2*s1^-1")#768#true
+AbstractRotaryPolytope([ 6, 8 ], "(s1*s2^-1)^4, s2^-2*s1*s2^-1*s1^-3*s2^-1*s1*s2^2*s1, s1^-1*(s2^-1*s1^2)^2*s2^-1*s1^-3*s2*s1^-2")#768#true
+AbstractRotaryPolytope([ 8, 6 ], "(s1*s2^-1)^4, s1^8, s2^-1*s1^2*s2*s1^-1*s2^-1*s1*(s2*s1^-1)^2*s2^-1, s1^2*s2*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1")#768#true
+AbstractRotaryPolytope([ 6, 12 ], "s1*s2^-1*s1^2*s2^2*s1*s2^-3, s1^-2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1^-1, s1^-1*(s2^-1*s1^2)^2*s2^-1*s1^-3*s2*s1^-2")#768#true
+AbstractRotaryPolytope([ 6, 12 ], "s1*s2*s1^-1*s2^2*s1^2*s2^-1*s1^-1*s2*s1*s2^-1, s1^-1*(s2^-1*s1^2)^2*s2^-1*s1^-3*s2*s1^-2")#768#true
+AbstractRotaryPolytope([ 12, 6 ], "s1*s2^2*s1^3*(s1*s2^-1)^2, s2*s1^-1*s2^3*s1^2*s2^-1*s1^-2*s2*s1^-1, s1^12")#768#true
+AbstractRotaryPolytope([ 12, 6 ], "s1*s2^-1*s1^4*s2^2*s1*s2^-1, s1^2*s2^3*s1^2*s2^-2*s1^-2*s2, s1^12")#768#true
+RotaryManiplex([ 12, 12 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1*s2^-1*s1^-1*s2^2*s1^2*s2^-2*s1^-2*s2, s2*s1^-2*(s1^-1*s2)^2*s2*s1^-4, s1^12")#768#false
+RotaryManiplex([ 12, 12 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s2*s1^-2*(s1^-1*s2)^2*s2*s1^-4,s1^3*s2^3*s1^-3*s2*s1^-1*s2^-1*s1^-1*s2")#768#false
+RotaryManiplex([ 12, 12 ], "s1*s2^2*s1^-2*s2*s1^2*s2^-2, s2*s1^2*s2*s1^-1*(s1^-1*s2)^2*s2, s1^12")#768#false
+RotaryManiplex([ 16, 48 ], "(s1*s2^-1*s1^2)^2, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, s2^2*s1*s2^-1*s1*(s2^2*s1^-1*s2^-1*s1*s2)^2*s2")#768#false
+RotaryManiplex([ 48, 16 ], "(s2*s1^-1)^4, (s1*s2^-1*s1^2)^2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s1^-8*s2^2*s1^-3*s2^-1*s1*s2")#768#false
+RotaryManiplex([ 48, 48 ], "s2^2*s1^4*s2^-1*s1*s2*s1^-3, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, s2^-1*s1^2*s2^-2*s1^2*(s1*s2^-1)^2*s2^-1")#768#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^3*(s2^-1*s1)^5*s1*s2")#776#true
+AbstractRotaryPolytope([ 6, 15 ], "(s1*s2^-2)^2,s1^-1*(s2^-1*s1^2)^3*s2^-1*s1*s2")#780#true
+AbstractRotaryPolytope([ 15, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^15, s1^2*s2^2*s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1*s2^-1*s1^-1*s2")#780#true
+RotaryManiplex([ 15, 30 ], "s2*s1^4*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2*s1^2*s2^2*s1^-1*s2^-2*s1*s2*s1^-1*s2^-1*s1*s2, (s2^-1*s1^2*s2^-1)^2*s2^-6*s1")#780#false
+RotaryManiplex([ 30, 15 ], "s2^3*s1*s2^-2*s1*s2, s2^2*s1^5*s2^2*s1^-1, s2*s1^-2*s2*s1^3*s2^-1*s1^2*s2*s1^-1, s1^2*(s1*s2^-1)^2*(s1*s2^-1*s1)^2*s1^2*s2^-1")#780#false
+RotaryManiplex([ 49, 49 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2, (s2^-1*s1*s2^-2)^12*s1")#784#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*s2*(s2*s1^-1)^2*(s1^-1*s2^-1*s1*s2)^3")#800#true
+AbstractRotaryPolytope([ 4, 20 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2, s2*s1^2*s2^12*s1*s2^-4*s1*s2^3")#800#true
+AbstractRotaryPolytope([ 20, 4 ], "(s1*s2^-1*s1^2)^2, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, s1^20")#800#true
+AbstractRotaryPolytope([ 8, 8 ], "(s1*s2^-2*s1)^2, (s1*s2^-1)^4, s1^8, s2^3*s1^-4*s2*s1^-1*s2^-1*s1*s2")#800#true
+AbstractRotaryPolytope([ 8, 8 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, (s1*s2^-1)^4, s1^8, s2^-1*s1^2*s2^3*s1^-1*s2^-1*s1^3*s2^-1, (s1^2*s2^-1*s1)^2*s1^3*s2*s1^-1*s2")#800#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s1^-1*s2)^3*s2*s1*s2^-2*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2")#800#false
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s1^-1*s2)^4*s1^2*s2^-1*s1^2*s2^2*s1^2*s2")#800#false
+RotaryManiplex([ 8, 40 ], "(s2*s1^-3)^2, s1^8, s2^2*s1^-1*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s2^3*s1*s2^-2*s1*s2^3*s1^-1*s2^-2*s1")#800#false
+RotaryManiplex([ 8, 40 ], "(s2*s1^-3)^2, s1^8, s2^2*s1^-1*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s2^3*s1^-1*s2^-2*s1^-1*s2*s1^-1*s2^-2*s1*s2^2")#800#false
+RotaryManiplex([ 40, 8 ], "(s1*s2^-1*s1^2)^2, s1^2*s2*s1^-1*s2*s1^3*s2^-1*s1^-3*s2*s1")#800#false
+RotaryManiplex([ 40, 8 ], "(s1*s2^-1*s1^2)^2, s1*s2^-1*s1^-3*s2^-1*s1^2*s2*s1^-1*s2^-1*s1^3")#800#false
+RotaryManiplex([ 20, 20 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s2^20")#800#false
+RotaryManiplex([ 40, 40 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^40")#800#false
+RotaryManiplex([ 40, 40 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s1*(s1*s2^-2)^4*(s2^-1*s1)^2*s2^-2*s1")#800#false
+AbstractRotaryPolytope([ 3, 6 ], "(s2^2*s1^-1)^2*s2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2^2)^4*s1^-1")#804#true
+AbstractRotaryPolytope([ 6, 3 ], "s1^-2*(s1^-1*s2)^2*s1^2*s2^-1*s1^-1*(s1^-2*s2)^2*s1^-3*(s2^-1*s1^2)^2*s2^-1*s1^-2*s2")#804#true
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2*(s2*s1^-1)^9*s2")#808#true
+AbstractRotaryPolytope([ 7, 14 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2")#812#true
+AbstractRotaryPolytope([ 7, 14 ], "s1^-2*s2*s1^-3*s2^2*s1^2*s2")#812#true
+AbstractRotaryPolytope([ 7, 14 ], "s1*s2*(s1^-2*s2*s1^-1)^2*s2*s1^2")#812#true
+AbstractRotaryPolytope([ 14, 7 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s2^-1*(s2^-1*s1)^2*s1*s2^2*s1*s2^-2")#812#true
+AbstractRotaryPolytope([ 14, 7 ], "s1*s2^-1*s1^3*s2^-1*s1*s2^2*s1*s2^-1, s1^-1*s2*s1^6*s2^2*s1^-1*s2, ((s2^-1*s1)^2*s2^-2)^2*s1^2")#812#true
+AbstractRotaryPolytope([ 14, 7 ], "s1^-2*s2*s1^3*s2^-1*s1*s2^2, s1*s2^-1*(s1*s2^-1*s1)^2*s2^-1*s1^-1*s2, s1^14")#812#true
+AbstractRotaryPolytope([ 4, 12 ], "(s2*s1^-1*s2^2)^2, s1^2*s2^2*s1^-2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2")#816#true
+AbstractRotaryPolytope([ 12, 4 ], "(s1*s2^-1*s1^2)^2,s1*s2^2*(s1*s2^-1)^2*(s1*s2^-1*s1^-1*s2)^2*s1")#816#true
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, s2*s1^-2*s2^-2*s1^-2*(s2^-1*s1)^2*s2^-2*s1^-2*s2")#816#false
+RotaryManiplex([ 24, 24 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2*s1^2*s2^-1*s1^3*s2^2*s1^-2, (s1^-1*s2)^2*s2*s1^-2*(s1^-1*s2)^2*s1^-1")#816#false
+RotaryManiplex([ 24, 24 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2^2*s1^6*s2^2*s1^-2, s2*s1^-1*s2^2*s1^-1*(s1^-1*s2)^2*s1^-3")#816#false
+AbstractRotaryPolytope([ 5, 10 ], "(s2^3*s1^-2)^2, s1*(s2*s1^-1)^3*s1^-1*s2^2*s1*s2^-1*s1")#820#true
+AbstractRotaryPolytope([ 5, 10 ], "(s2^3*s1^-2)^2, (s1*s2^-1)^2*s1^2*s2^-2*s1^-1*s2^2")#820#true
+AbstractRotaryPolytope([ 10, 5 ], "s1^2*s2^2*s1^4*s2^-1*s1^-1*s2*s1*s2^-1")#820#true
+AbstractRotaryPolytope([ 10, 5 ], "s1*s2^-1*s1^-1*s2*s1^4*s2^-1*s1^-4*s2")#820#true
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*s2*(s2*s1^-1)^9*s1^-1*s2^2")#832#true
+AbstractRotaryPolytope([ 4, 8 ], "(s2*s1^-1*s2^2)^2, s1^2*s2^2*s1^-2*s2^2*s1*s2^-1*(s1^-1*s2)^2*s1^-2*s2^2*s1^-1*s2")#832#true
+AbstractRotaryPolytope([ 4, 8 ], "(s2*s1^-1*s2^2)^2, s2*s1*(s1*s2*s1^-1*s2^-1)^2*(s2^-1*s1)^2*s1*s2*s1^-1*s2^-1*s1*s2")#832#true
+AbstractRotaryPolytope([ 8, 4 ], "(s2*s1^-3)^2, s1^8, s1*s2^2*s1*s2^-1*s1^-1*s2*(s1*s2^-1)^2*(s1*s2^-1*s1^-1*s2)^2*s1")#832#true
+AbstractRotaryPolytope([ 8, 4 ], "(s2*s1^-3)^2, s1^8, s1*s2*(s2*s1*s2^-1*s1^-1)^2*s1^-1*s2*s1*(s1*s2^-1*s1^-1*s2)^2*s1")#832#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s2^-1*s1*s2^-1*(s1^-1*s2*s1^-1)^2*s2*(s2*s1*s2^-1*s1^-1)^2*s2*s1")#832#false
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, s2^-1*s1*s2^-1*s1^-1*s2*s1*s2^-1*s1^-2*s2*(s2*s1*s2^-1*s1^-1)^2*s2*s1")#832#false
+RotaryManiplex([ 16, 16 ], "s2^2*s1^4*s2^2, (s2*s1^-1)^2*s2*s1*(s1*s2^-1)^2*s1*s2, s2^16")#832#false
+RotaryManiplex([ 16, 16 ], "s2^2*s1^4*s2^2, (s1*s2^-1)^2*s2^-1*s1^-2*(s2^-1*s1)^2*s2^-1, s2^16")#832#false
+AbstractRotaryPolytope([ 6, 30 ], "(s1*s2^-2)^2,s1^-1*s2*s1*(s1*s2^-1)^2*s1^-1*s2*s1^2*s2^-1*s1^3*s2, s2^-4*s1^-1*s2*s1^-3*s2^-2*s1^-1*s2^2*s1*s2^-1")#840#true
+AbstractRotaryPolytope([ 6, 30 ], "s1*s2^-1*s1*s2^2*s1^2*s2^-3, s1^-1*s2^-1*s1*(s1*s2^-1)^2*s1^-3*s2*s1^-1, s1^-2*s2*s1^-1*(s2*s1^-1*s2)^2*s2*s1^-1, s1*s2^5*s1*s2^-2*s1*s2^2*s1*s2^-1")#840#true
+AbstractRotaryPolytope([ 30, 6 ], "s2*(s1*s2^-1*s1^2)^2*s2, s1^-2*s2*s1^5*s2*s1^-2*s2^-1*s1*s2")#840#true
+AbstractRotaryPolytope([ 30, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^-1*s2^-1*s1^2*s2*s1^-4*s2^3*s1^2*s2*s1^-1")#840#true
+RotaryManiplex([ 30, 30 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s2*s1^-1*s2^-1*s1^4*s2^2*s1^-1, s1^30")#840#false
+RotaryManiplex([ 30, 30 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^7*s1^2")#840#false
+RotaryManiplex([ 84, 84 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-24*s1*s2^-1*s1*(s2^-1*s1*s2^-1)^4*s2^-2*s1")#840#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*s2*(s2*s1^-1)^4*(s1^-1*s2^-1*s1*s2)^2")#848#true
+AbstractRotaryPolytope([ 3, 8 ], "s2^3*s1^-1*s2^2*(s2*s1^-1*s2^2*s1^-1)^2*s2*s1^-1")#864#true
+AbstractRotaryPolytope([ 8, 3 ], "s1^8, s1^3*s2*(s1^-2*s2*s1^-1)^2*s2*s1^3*s2^-1")#864#true
+AbstractRotaryPolytope([ 4, 8 ], "s2*s1^2*s2^-1*s1*s2^2*s1^-2*s2^-1*s1*s2, s2*s1^-1*s2^-2*(s2^-2*s1)^2*s1*s2, (s2*s1^-1)^6")#864#true
+AbstractRotaryPolytope([ 8, 4 ], "s1^2*s2^2*s1^-2*s2*s1^4*s2^-1")#864#true
+AbstractRotaryPolytope([ 4, 24 ], "s2*s1^2*s2^-1*s1*s2^2*s1^-2*s2^-1*s1*s2, s2*s1^-1*s2^3*s1*s2^-1*s1^2*s2^3, (s2*s1^-1)^6, s2^6*s1*s2^-2*s1*s2*s1^-1*s2^-2*s1*s2")#864#true
+AbstractRotaryPolytope([ 6, 8 ], "s1*s2^2*s1^-2*s2*s1^2*s2^-3, s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2*s1^-1*s2^2")#864#true
+AbstractRotaryPolytope([ 8, 6 ], "s1^8, (s1^2*s2^-1)^3, s1*s2^-3*s1^-1*s2*s1^4*s2^-1")#864#true
+AbstractRotaryPolytope([ 24, 4 ], "s1^2*s2^-1*s1^4*s2^2*s1^-1*s2*s1, s1^-2*s2^-1*s1^6*s2*s1^-2*s2^-1*s1*s2*s1^-1")#864#true
+AbstractRotaryPolytope([ 8, 8 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s1^8, s1^2*s2^3*s1^-1*s2^-4*s1^-1*s2")#864#true
+AbstractRotaryPolytope([ 6, 18 ], "(s1*s2^-2)^2,s1^2*s2^2*(s1*s2^-1*s1)^2*s1*s2^-1*s1^-1*s2")#864#true
+AbstractRotaryPolytope([ 18, 6 ], "(s1*s2^-1*s1)^2, s2^6, s2^-1*s1*s2^-1*s1^-2*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s1^18")#864#true
+AbstractRotaryPolytope([ 8, 12 ], "s1*s2^-1*s1^3*s2^2*s1^2*s2^-1")#864#true
+AbstractRotaryPolytope([ 8, 12 ], "s2*s1^-2*(s1^-1*s2)^2*s1^-2*s2")#864#true
+AbstractRotaryPolytope([ 8, 12 ], "s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2^-1*s1*s2^2, s1^2*s2*s1^-2*s2*s1^4*s2^-2, s1^2*s2*s1^-1*s2^2*s1^4*s2^-1*s1")#864#true
+AbstractRotaryPolytope([ 12, 8 ], "(s1*s2^-1*s1^2)^2, s2*s1^2*s2*(s2*s1^-1)^2*s2^2, s1^12")#864#true
+AbstractRotaryPolytope([ 12, 8 ], "(s1*s2^-1*s1^2)^2, s2^2*s1^-1*s2*s1^3*s2*s1^-1*s2^-1*s1*s2, s1^12")#864#true
+AbstractRotaryPolytope([ 12, 8 ], "(s1*s2^-1*s1^2)^2, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2^2*s1, s1^12")#864#true
+AbstractRotaryPolytope([ 9, 12 ], "(s1*s2^-1*s1)^2, s1^9, s2*s1^-1*(s2*s1^-1*s2)^2*s2*s1^-1*s2^-1*s1*s2")#864#true
+AbstractRotaryPolytope([ 12, 9 ], "(s1*s2^-2)^2, (s2*s1^-5)^2,s2^-1*s1^2*s2*s1^-1*(s2^-1*s1^2)^2*s2^-1*s1")#864#true
+AbstractRotaryPolytope([ 6, 72 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2^6*s1*s2^-9*s1*s2^2*s1^-1*s2^-2*s1*s2^5")#864#true
+AbstractRotaryPolytope([ 72, 6 ], "(s1*s2^-1*s1)^2, s2^6, s2^-1*s1*s2^-2*(s1^-1*s2)^2*s2*s1, s1^4*s2^-1*s1^-15*s2^-1*s1^3*s2^-1*s1^-1*s2*s1")#864#true
+AbstractRotaryPolytope([ 8, 24 ], "(s1*s2^-1)^4, s1^8, s1*(s1*s2^-1)^2*s1^-1*s2*s1^-4*s2^-1, s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*s2")#864#true
+AbstractRotaryPolytope([ 24, 8 ], "(s1*s2^-1)^4, s1^-1*s2*s1^5*s2^3")#864#true
+AbstractRotaryPolytope([ 9, 24 ], "(s1*s2^-1*s1)^2, s1^9, s2^2*s1^-1*s2^-1*s1*s2^-4*s1*s2")#864#true
+AbstractRotaryPolytope([ 24, 9 ], "(s1*s2^-2)^2, s1*s2^-1*s1^5*s2*s1^-2*s2")#864#true
+RotaryManiplex([ 12, 18 ], "(s1*s2^-2)^2, (s2*s1^-5)^2,s1*s2^2*s1*s2^-1*s1^2*s2^-1*s1^-2*s2*s1^2")#864#false
+AbstractRotaryPolytope([ 12, 18 ], "(s1*s2^-2)^2, (s1^-1*s2*s1^-1)^2*s2*s1^2*s2,s2^-1*s1^-2*s2^-2*s1^3*s2*s1^-1*s2^-2*s1^2")#864#true
+AbstractRotaryPolytope([ 18, 12 ], "(s1*s2^-1*s1)^2, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s2^2*s1^2*s2*s1^-2*s2^-1*s1*s2*s1^-1*s2^3, s1^18")#864#true
+RotaryManiplex([ 18, 12 ], "(s1*s2^-1*s1)^2, s1*s2^3*s1*s2^-1*s1^-2*s2^3*s1*s2^-1, s2^-1*s1^-2*s2*s1^2*s2*s1^-1*s2*s1*s2^-1*s1^-2*s2*s1")#864#false
+RotaryManiplex([ 12, 24 ], "s2*(s1*s2^-1)^3*s2^-1*s1*s2, s2*s1^5*s2*s1^-3, (s2^-2*s1*s2^2*s1^-1)^2, (s2^-1*s1^3*s2^-1)^2*s1^2")#864#false
+RotaryManiplex([ 24, 12 ], "s1^2*s2^2*s1^2*(s1*s2^-1)^2, s1^2*s2*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1")#864#false
+AbstractRotaryPolytope([ 12, 36 ], "s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, (s2^-2*s1*s2^-2)^2*s1^2, s2^2*s1*s2^-1*s1*s2^2*s1^-1*s2^-3*s1*s2^2*s1^-1*s2^-1*s1*s2")#864#true
+AbstractRotaryPolytope([ 36, 12 ], "s2^2*s1^3*s2^-1*s1*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-2*s1^-1*s2^3*s1*s2^-2*s1^-1*s2*s1, s1*(s2^-1*s1^2*s2^-1)^2*s1^3, s1*s2*s1^-4*s2^-1*s1^4*s2^-1*s1^-2*s2*s1")#864#true
+RotaryManiplex([ 12, 72 ], "s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, (s2^-2*s1*s2^-2)^2*s1^2, s1*s2^2*s1*s2^-2*s1^-1*s2^2*s1*s2^-6")#864#false
+RotaryManiplex([ 18, 24 ], "(s1*s2^-1*s1)^2, s1*s2^3*s1*s2^-1*s1^-2*s2^3*s1*s2^-1, s2*s1^2*s2*s1^-3*(s1^-1*s2^-1*s1*s2)^2, (s1*s2^-2)^2*s1^4*s2^-1*s1^-2*s2*s1")#864#false
+AbstractRotaryPolytope([ 18, 24 ], "s1*s2^2*s1^4*s2^-2*s1, s1*s2^4*s1*s2^-2*s1^-1*s2*s1*s2^-1")#864#true
+RotaryManiplex([ 24, 18 ], "(s1*s2^-2)^2, s2*s1^7*s2^-1*s1^3*s2")#864#false
+AbstractRotaryPolytope([ 24, 18 ], "s1*s2^2*s1*s2^-1*s1^2*s2^-3, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, (s1*s2^-1*s1^4)^2")#864#true
+RotaryManiplex([ 72, 12 ], "s2^2*s1^3*s2^-1*s1*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-2*s1^-1*s2^3*s1*s2^-2*s1^-1*s2*s1, s1*(s2^-1*s1^2*s2^-1)^2*s1^3, s1^4*s2^-1*s1^-1*s2*s1^3*s2*s1^-2*s2^-1*s1^2")#864#false
+RotaryManiplex([ 24, 24 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^5*s2*s1^-1*s2, (s2^-3*s1*s2^-1)^4*s1^4")#864#false
+RotaryManiplex([ 24, 36 ], "s1^3*s2^2*s1*s2^-4, s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, (s1*s2^-1*s1^4)^2")#864#false
+RotaryManiplex([ 36, 24 ], "s2^-1*s1^5*s2^2*s1*s2^-1")#864#false
+RotaryManiplex([ 24, 72 ], "s1^2*s2^3*s1*s2^-2*s1^-1*s2, s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, (s2^-2*s1*s2^-2)^4*s1^4")#864#false
+RotaryManiplex([ 24, 72 ], "s2^2*s1^5*s2^2*s1^-1, s1^2*(s1*s2^-1)^2*s2^-6, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2")#864#false
+RotaryManiplex([ 72, 24 ], "s2^2*s1^3*s2^-1*s1*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-2*s1^-1*s2^3*s1*s2^-2*s1^-1*s2*s1, s1^2*(s1^2*s2^-2)^2*s2^-2")#864#false
+RotaryManiplex([ 72, 24 ], "s1^2*s2^2*s1^2*s2^-1*s1^-2*s2, s1^-2*s2^-2*s1^3*s2^2*s1^-1, s2^-1*s1^17*s2^-2*s1^2*s2^-1*s1")#864#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*(s2*s1^-1)^7*s2")#872#true
+AbstractRotaryPolytope([ 3, 6 ], "(s2^2*s1^-1)^3*s2^2*s1*s2^-2*(s1^-1*s2^2)^4*s1^-1")#876#true
+AbstractRotaryPolytope([ 6, 3 ], "(s1^2*s2^-1)^2*s1^3*(s2*s1^-2)^2*s2*s1*(s1^2*s2^-1)^3*s1^-2*s2")#876#true
+AbstractRotaryPolytope([ 4, 44 ], "(s2*s1^-1*s2^2)^2, s1^2*s2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2^2, s2^2*s1^2*s2^6*s1*s2^-8*s1*s2^2*s1^-1*s2^-1*s1*s2^3")#880#true
+AbstractRotaryPolytope([ 44, 4 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2, s1^3*s2*s1^-17*s2*s1^2*s2^2")#880#true
+AbstractRotaryPolytope([ 10, 20 ], "s1*s2^-2*s1*(s1^2*s2^-1)^2, s1^10, s1^2*s2^2*s1^3*s2^-1*s1^-3*s2")#880#true
+AbstractRotaryPolytope([ 10, 20 ], "s1^-2*s2*s1^3*s2^-1*s1*s2^2, s1^10, s2*s1*s2^-1*s1^4*s2*s1^-2*s2*s1^-1")#880#true
+AbstractRotaryPolytope([ 10, 20 ], "s1^-2*s2*s1^3*s2^-1*s1*s2^2, (s1^-1*s2*s1^-2*s2)^2, s1^10")#880#true
+AbstractRotaryPolytope([ 10, 20 ], "(s1*s2^-2*s1^2)^2, s1^10, s1^-2*s2*s1^4*s2*s1^-1*s2^-1*s1*s2")#880#true
+AbstractRotaryPolytope([ 20, 10 ], "s1^-2*(s2*s1^-1*s2)^2*s2^2, s1*s2^-2*s1^-1*s2*s1^-3*s2^-1*s1")#880#true
+AbstractRotaryPolytope([ 20, 10 ], "s1^2*s2*s1^-1*s2^3*s1*s2^-2, s2^-1*s1^4*(s1*s2^-1)^2*s2^-1, s1^-2*s2*s1^4*s2*s1^-1*s2^-1*s1*s2")#880#true
+AbstractRotaryPolytope([ 20, 10 ], "s2*s1*s2^-2*s1^2*s2*s1^-1*s2^2, (s1*s2^-1*s1^3)^2, s1^2*s2^2*s1^3*s2^-1*s1^-3*s2")#880#true
+AbstractRotaryPolytope([ 20, 10 ], "s1^-2*s2*s1^3*s2^-1*s1*s2^2, (s1*s2^-1)^2*s1^2*s2^-2*s1^2")#880#true
+RotaryManiplex([ 20, 20 ], "s2*s1^-1*s2*s1^3*s2^-1*s1*s2*s1^-1, s2^2*s1^5*s2*s1^-1*s2, (s2^-3*s1*s2^-1)^4")#880#false
+RotaryManiplex([ 20, 20 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2*s1*s2^-1*s1^3*s2*s1^-2*s2, s1^20")#880#false
+RotaryManiplex([ 20, 20 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s1^-1*s2*s1*s2^-1*s1^3*s2*s1^-3*s2^-1, s1^20")#880#false
+RotaryManiplex([ 20, 20 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, s2*s1^5*s2^-1*s1^-5, s1^20")#880#false
+RotaryManiplex([ 44, 44 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^44")#880#false
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s1^-3*s2^2*s1*s2^-1*s1^-1*(s1^-2*s2)^2*s1^-1*s2*s1^2*s2^-1*s1^-2*s2")#888#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s1*s2^-3*s1*s2^-2*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2^-1*(s2^-1*s1^-1*s2*s1)^2*s2^-1")#888#true
+AbstractRotaryPolytope([ 12, 12 ], "(s1^-1*s2)^3,s1*s2^-1*s1^-1*s2*s1^3*s2^-1*s1^-3*s2")#888#true
+AbstractRotaryPolytope([ 12, 12 ], "(s1^-1*s2)^3, s1^-1*s2^-2*s1^3*s2^-1*s1^-4*s2, s1^12")#888#true
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, (s2*s1^-1)^3*s2*s1^2*s2^-1*s1*s2^2*s1^-1")#888#false
+AbstractRotaryPolytope([ 14, 28 ], "(s1^-1*s2*s1*s2^-1)^2, (s1*s2^-1*s1^-2*s2*s1)^2, s1^-2*s2^-1*s1^5*s2^3*s1^-1, s1^14")#896#true
+AbstractRotaryPolytope([ 28, 14 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, s1^2*s2^2*s1^-1*s2^-3*s1^-2*s2*s1, s2*s1^-1*s2^-2*s1^4*s2^3*s1^-1, s1^3*(s1*s2^-1)^3*s2^-5")#896#true
+RotaryManiplex([ 28, 28 ], "(s1^-1*s2*s1*s2^-1)^2, s1^-1*s2*s1*s2^-1*s1^3*s2*s1^-1*s2, s1^28")#896#false
+RotaryManiplex([ 56, 56 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, s1^-2*s2^-2*s1^3*s2*s1^-1*s2, s1^17*s2^-1*(s2^-1*s1^3)^2*s1^2")#896#false
+RotaryManiplex([ 56, 56 ], "s1*s2*s1^-2*s2*s1^2*s2^-1, s1^2*s2^2*s1^-1*s2*s1^2, (s2^-1*s1*s2^-2)^14")#896#false
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2^2*s1*s2^-1*((s1^-1*s2*s1*s2^-1)^2*s1^-1*s2)^2*s1*s2^-1*s1^-1*s2*s1")#904#true
+AbstractRotaryPolytope([ 3, 6 ], "(s2*s1^-1*s2)^2*s2*s1^-1*s2^-3*s1*s2^-2*s1^-1*s2*s1^-1*s2^-3*(s1^-1*s2^2)^2*(s1^-1*s2)^2")#912#true
+AbstractRotaryPolytope([ 6, 3 ], "s2*s1^-3*(s2*s1^-2*s2^-1*s1^2)^2*(s2^-1*s1^2)^2*s2*s1^-2*s2^-1*s1^2*s2*s1^-1")#912#true
+AbstractRotaryPolytope([ 6, 12 ], "(s1*s2^-2)^2,s1^3*s2^-2*s1^-1*s2*s1^-3*s2^-1*s1*s2^-1*s1^-2*s2")#912#true
+AbstractRotaryPolytope([ 6, 12 ], "s1^-1*s2^-1*s1^2*s2^-2*s1^-3*s2, s2^3*s1^2*s2^-1*s1^2*s2^2, (s2*s1^-1*s2^2)^2*s1*s2^-1*s1*s2*s1^-1*s2^-1*s1*s2")#912#true
+AbstractRotaryPolytope([ 12, 6 ], "(s1*s2^-1*s1)^2, s2^6,(s2^-1*s1*s2^-1)^2*s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1")#912#true
+AbstractRotaryPolytope([ 12, 6 ], "s2^2*s1^5*s2^2*s1^-1, (s2^-2*s1*s2^-2)^2*s1^2, s1^-1*s2*(s1^2*s2^-1*s1)^2*s1*s2*s1^-1*s2^-1*s1*s2")#912#true
+RotaryManiplex([ 12, 12 ], "s2*s1^4*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, (s2^-1*s1^2*s2^-1)^3, s1^2*s2^2*(s2*s1^-1)^2*s2^-2*s1^-2*s2^-3*s1^2*s2")#912#false
+RotaryManiplex([ 12, 12 ], "s2^3*s1*s2^-2*s1*s2, s2^2*s1^5*s2^2*s1^-1, (s2^-2*s1*s2^-2)^2*s1^2, s2^-1*s1*s2*s1^-1*(s2*s1^-2*s2^-1*s1^2)^2")#912#false
+RotaryManiplex([ 92, 92 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-24*s1^3*s2^-1*s1*(s2^-1*s1*s2^-1)^5*s2^-2")#920#false
+AbstractRotaryPolytope([ 6, 33 ], "(s1*s2^-2)^2,s1^-1*s2*s1*(s1*s2^-1)^2*s1^-1*s2*s1^2*s2^-1*s1^3*s2, s2*s1^2*s2^4*s1^-1*s2^-2*s1*s2^2*s1^-1*s2^-1*s1*s2")#924#true
+AbstractRotaryPolytope([ 33, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^-1*s2^-1*s1^2*s2*s1^-4*s2*s1^2*s2*s1^-1*s2^-1*s1*s2")#924#true
+RotaryManiplex([ 33, 66 ], "s2*s1^4*s2*s1^-2, s1^-2*s2^3*s1*s2^-2*s1*s2^-1, (s2^-1*s1^2*s2^-1)^8*s1")#924#false
+RotaryManiplex([ 66, 33 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s2*s1^-1*s2^-1*s1^4*s2^2*s1^-1, s1^-17*s2*(s2*s1^-1)^2*s2^2*s1^-9")#924#false
+AbstractRotaryPolytope([ 4, 4 ], "s1^2*(s2^2*s1^-2)^2*s2*(s2*s1^-1)^7*s1^-1*s2^2")#928#true
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s2*s1^2*s2)^2*s1^-2*(s2^-1*s1)^2*s1*s2*s1^-1*s2^-2*s1^-2*s2")#928#false
+RotaryManiplex([ 8, 8 ], "s2^2*s1^4*s2^2, s2^8, (s2*s1^2*s2)^2*s1^-2*(s2^-1*s1)^3*s1*s2^-2*s1^-2*s2")#928#false
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2*(s2*s1*s2^-1*s1^-1)^3*s2*(s1*s2^-1)^4*s1^-1*s2*s1*s2^-1*s1^-1*s2*s1")#936#true
+AbstractRotaryPolytope([ 6, 6 ], "s1^2*s2^-3*s1^2*s2^-1*s1^-1*s2^2*s1, s2*s1^2*(s2*s1^-1)^2*s1^-1*s2^-1*s1^2*s2^-1*s1*s2")#936#true
+AbstractRotaryPolytope([ 6, 6 ], "s1^-1*s2^-1*s1*(s1*s2^-1)^2*s1^-3*s2*s1^-1, s1^2*s2^-3*s1^2*s2^-1*s1^-1*s2^2*s1, s1*s2^-3*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1*s2^-1")#936#true
+AbstractRotaryPolytope([ 6, 6 ], "(s1*s2^-2)^2,s1^2*s2^2*s1*s2^-1*s1^-2*(s1^-1*s2)^2*s1^-3*(s2^-1*s1^2)^2*s2^-1")#936#true
+AbstractRotaryPolytope([ 6, 6 ], "(s2*s1^-2)^2,s2^6, s1*s2^-3*s1*s2^-2*(s1^-1*s2)^2*s1^-1*s2^-2*s1*s2^-2*s1^-1*s2^2*s1*s2^-1")#936#true
+RotaryManiplex([ 18, 18 ], "s2^3*s1*s2^-2*s1*s2, s2^2*s1^5*s2^2*s1^-1, s2^2*s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2*s1^2, (s2^-2*s1*s2^-2)^3*s1^3")#936#false
+RotaryManiplex([ 18, 18 ], "s2*s1^4*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-1*(s1^-1*s2)^2*s2*s1*s2^-1*s1^-1*s2*s1*s2^-2*s1, (s2^-1*s1^2*s2^-1)^3*s2^-6")#936#false
+RotaryManiplex([ 36, 36 ], "s1^-2*s2*s1^3*s2^-1*s1*s2^2, s1^-2*s2^-1*s1^4*s2^3, s1^2*s2^-6*s1^4*s2^-3*s1^3")#936#false
+RotaryManiplex([ 36, 36 ], "s1*s2^-1*s1^-1*s2*s1^2*s2^-1*s1^-2*s2, s1^-1*s2*s1^2*s2^-1*s1^3*s2*s1^-2*s2, s1^-13*(s2*s1^-1)^2*s2")#936#false
+RotaryManiplex([ 36, 36 ], "s2^2*s1^4*s2^2, s2^-1*s1^-2*s2*s1^-2*(s2^-1*s1)^2*s2^-1*s1^-2*s2^-1, s1^-1*s2^6*s1^-3*s2^2*(s2*s1^-1)^3")#936#false
+AbstractRotaryPolytope([ 3, 6 ], "(s2*s1^-1*s2)^2*s2*s1^-1*s2^-3*s1*s2^-2*(s1^-1*s2)^2*s2*s1^-1*s2^-3*s1^-1*s2*(s2*s1^-1)^2*s2")#948#true
+AbstractRotaryPolytope([ 6, 3 ], "s2*s1^-3*(s2*s1^-2*s2^-1*s1^2)^2*(s2^-1*s1^2)^4*s2*s1^-1")#948#true
+RotaryManiplex([ 28, 28 ], "s2^2*s1^4*s2^2, s2^2*s1^-3*s2^3*s1^-1*(s1^-1*s2)^2*s1^-1, s2*s1^-2*s2^-2*s1^-2*(s2^-1*s1)^2*s2^-2*s1^-2*s2")#952#false
+AbstractRotaryPolytope([ 4, 12 ], "s2*s1^2*s2^-1*s1*s2^2*s1^-2*s2^-1*s1*s2, s1^2*s2^4*(s2*s1^-1)^2*s2^2")#960#true
+AbstractRotaryPolytope([ 4, 12 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*(s2*s1^-1)^2*s2^-1*(s2^-1*s1)^3*s1*s2")#960#true
+AbstractRotaryPolytope([ 12, 4 ], "s1*s2^2*s1^4*(s1*s2^-1)^2*s1, s1^12")#960#true
+AbstractRotaryPolytope([ 12, 4 ], "(s1*s2^-1*s1^2)^2,s2*s1^2*(s2*s1^-1)^4*s2^-1*s1*s2*s1^-1*s2")#960#true
+AbstractRotaryPolytope([ 4, 24 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*(s2*s1^-1)^2*s2^-1*(s2^-1*s1)^3*s1*s2, s2*s1^-1*s2^-3*s1^-1*s2^3*(s2*s1^-1*s2^-1*s1)^2*s2")#960#true
+AbstractRotaryPolytope([ 4, 24 ], "(s2*s1^-1*s2^2)^2, s2*s1^2*s2^-1*s1*s2^2*s1^-2*s2^-1*s1*s2, s2^4*s1*s2^-19*s1*s2")#960#true
+AbstractRotaryPolytope([ 24, 4 ], "(s1*s2^-1*s1^2)^2, s1*s2*s1^-1*s2*s1^5*(s1*s2^-1*s1^-1*s2)^2*s1")#960#true
+AbstractRotaryPolytope([ 24, 4 ], "(s1*s2^-1*s1^2)^2, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, s1^24")#960#true
+AbstractRotaryPolytope([ 6, 15 ], "s1*s2^3*s1^3*s2^-2, s1^-1*(s1^-1*s2)^2*s1^2*s2^-1*s1^-2*s2*s1^-1")#960#true
+AbstractRotaryPolytope([ 15, 6 ], "s1^3*s2*s1^-2*s2^3, (s1^2*s2^-1)^4")#960#true
+AbstractRotaryPolytope([ 8, 12 ], "(s2*s1^-3)^2, s1^8, s2*s1^-1*s2^2*(s1*s2^-1)^2*s1^-1*s2*s1^-2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s2*s1^2*s2^2*s1*s2^-1*s1^-1*s2*s1*s2^-2*s1*s2^3*s1^-1*s2^-1*s1*s2")#960#true
+AbstractRotaryPolytope([ 8, 12 ], "(s2*s1^-3)^2, s1^8, s2*s1^2*s2*s1^-1*(s2^-1*s1)^2*s2^2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, (s2^2*s1^-1*s2^-3*s1^-1*s2)^2")#960#true
+AbstractRotaryPolytope([ 12, 8 ], "(s1*s2^-1*s1^2)^2, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, s1^12")#960#true
+AbstractRotaryPolytope([ 12, 8 ], "(s1*s2^-1*s1^2)^2, s2^4*s1*s2^-3*s1*s2, s2*s1^-1*s2^2*(s1*s2^-1)^2*s1^-1*s2*s1^-2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s1^12")#960#true
+RotaryManiplex([ 8, 24 ], "(s2*s1^-3)^2, s1^8, s2^2*s1^-1*(s1^-1*s2)^2*s1^-1*s2^-1*s1*s2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s2^-1*s1*s2^3*s1^-2*s2^2*s1*s2^-5*s1^-2*s2^-1")#960#false
+RotaryManiplex([ 8, 24 ], "(s2*s1^-3)^2, s1^8, s2*s1^-2*s2^2*s1^2*s2^-2*s1^-1*s2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s2^-1*s1*s2^4*s1^-1*s2^-1*s1*s2*s1^-1*s2^-4*s1^-2*s2^-1")#960#false
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, s2*s1^2*s2^-1*s1^2*(s2*s1^-1)^2*s1^-1*s2^-1*s1*s2^2*s1^2*s2")#960#false
+AbstractRotaryPolytope([ 12, 12 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, (s1*s2^-1*s1^-1*s2*s1^-1*s2^-1)^2, s1^-1*s2^2*(s2*s1^-1)^4*s1^-1, s1^12")#960#true
+RotaryManiplex([ 24, 8 ], "(s1*s2^-1*s1^2)^2, s1^2*s2^2*(s1*s2^-1)^2*s1^-2*s2^2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s1^-4*(s1^-4*s2^2)^2")#960#false
+RotaryManiplex([ 24, 8 ], "(s1*s2^-1*s1^2)^2, s2*s1^-2*s2^2*s1^2*s2^-2*s1^-1*s2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, s1^-4*(s1^-4*s2^2)^2")#960#false
+RotaryManiplex([ 12, 24 ], "s2^4*s1*s2^-3*s1*s2, s2*s1^5*s2*s1^-3, s2*s1^2*s2*s1^-1*(s2^-1*s1)^2*s2^2*s1^-1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, (s2^-1*s1^3*s2^-1)^2*s1^2")#960#false
+RotaryManiplex([ 12, 24 ], "s2*s1^5*s2*s1^-3, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, (s2^-1*s1^3*s2^-1)^2*s1^2")#960#false
+RotaryManiplex([ 24, 12 ], "s2*s1^5*s2*s1^-3, s2^2*s1*s2^-1*s1^2*s2*s1^-1*s2^-1*s1*s2*s1^-1, (s1^4*s2^-1)^2*s2^-2, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1")#960#false
+RotaryManiplex([ 24, 12 ], "s2*s1^5*s2*s1^-3, s1*s2^2*s1^-1*s2*s1^2*s2^-2*s1^-1*s2*s1, (s1^4*s2^-1)^2*s2^-2")#960#false
+AbstractRotaryPolytope([ 15, 30 ], "(s1^-1*s2*s1*s2^-1)^2, (s1*s2^-1*s1^-2*s2*s1)^2, s1^-1*s2*s1^2*s2^-1*s1^3*s2^2*s1^-2, s1^15")#960#true
+AbstractRotaryPolytope([ 30, 15 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, s1^2*s2^2*s1^-1*s2^-3*s1^-2*s2*s1, s2^2*s1*s2^-3*s1^2*s2^3*s1^-1, s1*s2^-2*s1^5*(s1*s2^-2)^2*s2^-1")#960#true
+RotaryManiplex([ 16, 48 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2*s1^5*s2*s1^-3, (s2^-1*s1^3*s2^-1)^3*s1")#960#false
+RotaryManiplex([ 16, 48 ], "s2*s1^5*s2*s1^-3, s2^2*s1*s2^-1*s1^2*s2*s1^-1*s2^-1*s1*s2*s1^-1, s1*s2^-2*s1^-1*s2*s1^3*s2^-3*s1, s1^2*s2^3*s1^2*s2^-1*s1^-1*s2^2*s1, (s2^-1*s1^3*s2^-1)^3*s1")#960#false
+RotaryManiplex([ 24, 24 ], "s2*s1^-5*s2^-1*s1*s2*s1^-1")#960#false
+RotaryManiplex([ 24, 24 ], "s1^-7*s2^-1*s1^2*s2^2")#960#false
+RotaryManiplex([ 24, 24 ], "s2^2*s1^4*s2^2, s1*s2^-1*(s1*s2^-1*s1)^2*s2^-2*s1*s2^-1")#960#false
+RotaryManiplex([ 24, 24 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s2^24")#960#false
+RotaryManiplex([ 48, 16 ], "s1^2*s2^2*s1^2*s2^-1*s1^-2*s2, s1^-2*s2^-2*s1^4*s2^2*s1^-2, (s2^-1*s1^3*s2^-2*s1^2)^2")#960#false
+RotaryManiplex([ 48, 16 ], "s2*s1^5*(s1*s2^-1)^2*s1*s2, s1*s2^-2*s1^3*s2^-2*s1*s2^2*s1")#960#false
+RotaryManiplex([ 30, 30 ], "s1^2*s2^2*s1*s2^-1*s1^-1*s2, s1*s2*s1^-2*s2*s1^-1*s2^-2*s1*s2^-1, s1^30")#960#false
+RotaryManiplex([ 48, 48 ], "s2*s1^-1*s2*s1^2*s2^-1*s1*s2, s2^2*s1^4*s2^2, s2^48")#960#false
+RotaryManiplex([ 48, 48 ], "s2^2*s1^4*s2^2, s1*(s2*s1^-1)^3*s2^-2*s1^2*s2^-1, s2*s1^-1*s2^4*s1^-10*s2^2*(s2*s1^-1)^3")#960#false
+AbstractRotaryPolytope([ 3, 18 ], "s2*s1^-1*s2^4*(s2*s1^-1)^4*s2^3*s1^-1")#972#true
+AbstractRotaryPolytope([ 18, 3 ], "s1^-4*s2^-1*s1^4*s2*s1^-2*s2^-1*s1^2*s2")#972#true
+AbstractRotaryPolytope([ 6, 9 ], "(s1*s2^-2)^2,s2^9, s1^2*s2^-1*(s1*s2^-1*s1)^2*s1^2*s2*s1^-1*s2*s1^2*s2^-1*s1^-1*s2")#972#true
+AbstractRotaryPolytope([ 9, 6 ], "(s1*s2^-1*s1)^2, s2^6, s1^9, s2^2*s1^-1*(s2*s1^-1*s2)^2*s2*s1^-1*s2^-1*s1*s2*s1^-1*s2^-2*s1*s2")#972#true
+AbstractRotaryPolytope([ 6, 81 ], "(s1*s2^-2)^2,(s1*s2^-1)^2*s1^-2*(s2^-1*s1)^2, s2*s1*s2^-3*s1*s2^9*s1^-1*s2^-8*s1^-1*s2^4*s1^-1*s2^-1*s1*s2")#972#true
+AbstractRotaryPolytope([ 81, 6 ], "(s1*s2^-1*s1)^2, s2^6, s2^-1*s1*s2^-2*(s1^-1*s2)^2*s2*s1, s2^-1*s1^-21*s2^-1*s1^2*s2*s1^-3*s2*s1")#972#true
+AbstractRotaryPolytope([ 9, 18 ], "(s1*s2^-1*s1)^2, s1^9, (s2^-1*s1*s2^-1)^2*s1*s2^2*s1, s2^6*s1*s2^-2*s1^-2*s2*s1*s2^-2*s1*s2")#972#true
+AbstractRotaryPolytope([ 9, 18 ], "(s1*s2^-1*s1)^2, s1^9, s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*s2, s2^6*s1*s2^-4*s1*s2*s1^-1*s2")#972#true
+AbstractRotaryPolytope([ 9, 18 ], "(s1*s2^-1*s1)^2, s1^9, s2*s1^2*s2*(s2*s1^-1)^2*s2^-1*s1*s2, s2^6*s1*s2^-2*s1^-2*s2*s1*s2^-2*s1*s2")#972#true
+AbstractRotaryPolytope([ 18, 9 ], "(s1*s2^-2)^2, (s1^2*s2^-1)^3, s2*s1*(s1*s2*s1^-1*s2^-1)^2*s1*s2, s1*s2^-1*s1^7*s2*s1^-4*s2")#972#true
+AbstractRotaryPolytope([ 18, 9 ], "(s1*s2^-2)^2, s2*s1*(s1*s2^-1)^2*s1^-1*s2*s1^2*s2, s2*s1^7*s2^-1*s1*s2*s1^-4")#972#true
+AbstractRotaryPolytope([ 18, 9 ], "(s1*s2^-2)^2, (s1^-1*s2*s1^-1)^2*s2*s1^2*s2, s2*s1^7*s2^-1*s1*s2*s1^-4")#972#true
+AbstractRotaryPolytope([ 18, 27 ], "s1*s2^-1*s1^2*s2^-3*s1*s2^-1, s1^-1*s2*s1^6*s2*s1^-1*s2^2")#972#true
+AbstractRotaryPolytope([ 18, 27 ], "s2*s1^-1*s2^-1*s1^4*s2^2*s1^-1, s1^-3*s2*s1^3*s2^-1*s1^2*s2^2, s2^2*s1^-1*s2^-1*s1*s2*s1^-2*s2^5, s1^18")#972#true
+AbstractRotaryPolytope([ 18, 27 ], "s1*s2^-1*s1^4*s2^-2*s1")#972#true
+AbstractRotaryPolytope([ 18, 27 ], "s1^3*s2^-4*s1*s2^-1, s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s1^-1*s2*s1^6*s2*s1^-1*s2^2")#972#true
+AbstractRotaryPolytope([ 27, 18 ], "s2*s1^-3*(s1^-1*s2)^2*s2, s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1")#972#true
+AbstractRotaryPolytope([ 27, 18 ], "s2^2*s1^3*s2^-1*s1*s2*s1^-2, s2^3*s1^2*s2^-1*s1^2*s2^2, s2^-2*s1^-1*s2^3*s1*s2^-2*s1^-1*s2*s1, s1^-6*s2*s1*s2^-1*s1^-2*s2^2")#972#true
+AbstractRotaryPolytope([ 27, 18 ], "s2^2*s1^-2*(s1^-1*s2)^2*s1^-1, s1^-2*s2^-1*s1^4*s2^3")#972#true
+AbstractRotaryPolytope([ 27, 18 ], "s2*s1*s2^-1*s1^4*s2*s1^-3*s2, s2^2*s1^5*s2^-1*s1^-2*s2*s1^-1, s1^-2*(s2*s1^-1*s2)^2*s1^-1*s2*s1^2*s2")#972#true
+RotaryManiplex([ 27, 54 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s2*s1^-1*s2^-1*s1^4*s2*s1^-1*s2, s1^27")#972#false
+RotaryManiplex([ 54, 27 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2^2*s1^5*s2^2*s1^-1, s1*s2^2*s1^-1*s2*s1^2*s2^-1*s1^2*s2^2, s1^-3*s2^3*s1^-1*s2^2*s1^-10*s2*(s2*s1^-1)^2*s2^3")#972#false
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*(s2*s1^-1)^10*s2")#976#true
+RotaryManiplex([ 12, 12 ], "s2^2*s1^4*s2^2, s2*s1^2*s2*s1^-1*s2^2*s1^-2*s2^-1*s1*s2*s1^-1*s2^2*s1^2*s2")#984#false
+AbstractRotaryPolytope([ 4, 4 ], "s1*s2*(s2*s1*s2^-1*s1^-1)^2*s2*s1*s2^-1*(s1^-1*s2)^6*s1*s2^-1*s1^-1*s2*s1")#1000#true
+AbstractRotaryPolytope([ 4, 4 ], "s2*s1^2*s2*s1^-1*s2^-1*s1*(s2*s1^-1)^9*s2")#1000#true
+AbstractRotaryPolytope([ 10, 50 ], "s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, s2^5*s1^4*s2*s1^-1*s2^-3*s1*s2")#1000#true
+AbstractRotaryPolytope([ 10, 50 ], "s1*s2*s1^-1*s2*s1^3*s2^-1*s1^-2*s2*s1, s1*s2^5*s1*s2^-3*s1^-1*s2*s1*s2^-1")#1000#true
+AbstractRotaryPolytope([ 50, 10 ], "(s1*s2^-1*s1^3)^2, s1^2*s2^2*s1^4*s2^-1*s1^-4*s2")#1000#true
+AbstractRotaryPolytope([ 50, 10 ], "(s1*s2^-1*s1^3)^2, s1^-3*s2^-1*s1^4*s2*s1^-1*s2*s1^2*s2")#1000#true
+AbstractRotaryPolytope([ 20, 20 ], "s2*s1*s2^-1*s1^2*s2*s1^-1*s2, (s1^-2*s2^2)^2*s2*s1^-1, s1*s2^-1*s1^-1*s2^2*s1^2*s2^-2*s1^-2*s2, s1^-5*(s1^-1*s2)^2*s2^2*s1^2*s2")#1000#true
+RotaryManiplex([ 20, 20 ], "s2^2*s1^4*s2^2, s2*(s2*s1^-1)^2*s1^-1*s2^2*s1*s2^-1*s1^-2*s2*s1^-1")#1000#false
+AbstractRotaryPolytope([ 20, 20 ], "s1*s2^3*s1*s2^-1*s1^-1*s2*s1*s2^-1, s2*s1^-3*(s1^-1*s2)^2*s1^-2")#1000#true
+AbstractRotaryPolytope([ 20, 20 ], "s1^-6*s2^2*s1^-1*s2")#1000#true
+AbstractRotaryPolytope([ 20, 20 ], "s2*s1^-1*s2*s1^3*s2^-1*s1*s2*s1^-1, s2*s1^2*s2*s1^-1*s2^-1*s1^2*s2*s1^-1*s2*s1^2*s2, (s1^-1*s2)^2*s1^-2*s2*s1^2*s2*s1^-3*s2")#1000#true
+AbstractRotaryPolytope([ 20, 20 ], "s2^-1*s1^-2*s2*s1^2*s2^-1*s1^-1*s2*s1, s2*s1^-3*(s1^-2*s2)^2")#1000#true
+RotaryManiplex([ 100, 100 ], "s1*(s2*s1^-1)^2*s2^-2*s1, s2^2*s1^4*s2^2, s2^-28*s1*s2^-1*s1*(s2^-1*s1*s2^-1)^5*s2^-2*s1^2")#1000#false

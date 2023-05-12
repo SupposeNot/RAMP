@@ -11,6 +11,10 @@
 #!
 #! https://www.math.auckland.ac.nz/~conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt
 #!
+#! Data on small chiral maps is from Primoz Potocnik:
+#!
+#! https://users.fmf.uni-lj.si/potocnik/work.htm
+#!
 #! Data on small 2-orbit polyhedra in class 2_0 (available in Rank3AG_2_0.txt in the data folder)
 #! was produced for RAMP by Mark Mixer.
 
@@ -188,7 +192,7 @@ DeclareGlobalFunction("SmallReflexible3Maniplexes");
 #! @Arguments sizerange
 #! @Returns IsList
 #! @Description Gives all chiral 3-maniplexes with sizes in <A>sizerange</A> flags.
-#! Currently supports a `maxsize` of 5000 or less.
+#! Currently supports a `maxsize` of 12000 or less.
 DeclareGlobalFunction("SmallChiral3Maniplexes");
 
 #! @Arguments n, sizerange[, filt1, filt2, ...]

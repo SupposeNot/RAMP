@@ -38,8 +38,9 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7C5BEAD87A858EE7">15.1-11 SmallChiralPolyhedra</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X85ED37A97CE7F77C">15.1-12 SmallChiral4Polytopes</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7ED0E4347B0192A6">15.1-13 SmallReflexible3Maniplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X8082983086E31719">15.1-14 SmallReflexibleManiplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X78C635AE789E66E6">15.1-15 SmallTwoOrbitPolyhedra</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X7952969F822271AF">15.1-14 SmallChiral3Maniplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X8082983086E31719">15.1-15 SmallReflexibleManiplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap15.html#X78C635AE789E66E6">15.1-16 SmallTwoOrbitPolyhedra</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap15.html#X84020A6879FBFF00">15.2 <span class="Heading">System internal representations</span></a>
 </span>
@@ -61,6 +62,10 @@
 <p>Data on small chiral polytopes is from Marston Conder:</p>
 
 <p>https://www.math.auckland.ac.nz/~conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt</p>
+
+<p>Data on small chiral maps is from Primoz Potocnik:</p>
+
+<p>https://users.fmf.uni-lj.si/potocnik/work.htm</p>
 
 <p>Data on small 2-orbit polyhedra in class 2_0 (available in Rank3AG_2_0.txt in the data folder) was produced for RAMP by Mark Mixer.</p>
 
@@ -267,11 +272,20 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallReflexible3Maniplexes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
 
-<p>Gives all regular 3-polytopes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 2000 or less. If the option <code class="code">nonpolytopal</code> is set, only returns maniplexes that are not polyhedra.</p>
+<p>Gives all regular 3-maniplexes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 2000 or less. If the option <code class="code">nonpolytopal</code> is set, only returns maniplexes that are not polyhedra.</p>
+
+<p><a id="X7952969F822271AF" name="X7952969F822271AF"></a></p>
+
+<h5>15.1-14 SmallChiral3Maniplexes</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallChiral3Maniplexes</code>( <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsList</p>
+
+<p>Gives all chiral 3-maniplexes with sizes in <var class="Arg">sizerange</var> flags. Currently supports a <code class="code">maxsize</code> of 12000 or less.</p>
 
 <p><a id="X8082983086E31719" name="X8082983086E31719"></a></p>
 
-<h5>15.1-14 SmallReflexibleManiplexes</h5>
+<h5>15.1-15 SmallReflexibleManiplexes</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallReflexibleManiplexes</code>( <var class="Arg">n</var>, <var class="Arg">sizerange</var>[, <var class="Arg">filt1</var>, <var class="Arg">filt2</var>, <var class="Arg">...</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
@@ -291,7 +305,7 @@ true
 
 <p><a id="X78C635AE789E66E6" name="X78C635AE789E66E6"></a></p>
 
-<h5>15.1-15 SmallTwoOrbitPolyhedra</h5>
+<h5>15.1-16 SmallTwoOrbitPolyhedra</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SmallTwoOrbitPolyhedra</code>( <var class="Arg">I</var>, <var class="Arg">sizerange</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>

@@ -15,6 +15,10 @@
 <P/>
  https://www.math.auckland.ac.nz/~conder/ChiralPolytopesWithUpTo4000Flags-ByOrder.txt
 <P/>
+ Data on small chiral maps is from Primoz Potocnik:
+<P/>
+ https://users.fmf.uni-lj.si/potocnik/work.htm
+<P/>
  Data on small 2-orbit polyhedra in class 2_0 (available in Rank3AG_2_0.txt in the data folder)
  was produced for RAMP by Mark Mixer.
 <Section Label="Chapter_Databases_Section_Regular_polyhedra">
@@ -259,10 +263,21 @@ gap> SmallChiral4Polytopes([200..250]);
  <Returns>IsList
 </Returns>
  <Description>
-Gives all regular 3-polytopes with sizes in <A>sizerange</A> flags.
+Gives all regular 3-maniplexes with sizes in <A>sizerange</A> flags.
  Currently supports a <Code>maxsize</Code> of 2000 or less.
  If the option <Code>nonpolytopal</Code> is set, only returns maniplexes that
  are not polyhedra.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="sizerange" Name="SmallChiral3Maniplexes" />
+ <Returns>IsList
+</Returns>
+ <Description>
+Gives all chiral 3-maniplexes with sizes in <A>sizerange</A> flags.
+ Currently supports a <Code>maxsize</Code> of 12000 or less.
  </Description>
 </ManSection>
 

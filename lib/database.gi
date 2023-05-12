@@ -618,23 +618,27 @@ InstallGlobalFunction(SmallReflexible3Maniplexes,
 
 InstallGlobalFunction(SmallChiral3Maniplexes,
 	function(sizerange)
-	local manis, minsize, maxsize, L, wilsons, i, k, l, M, lower_bounds, upper_bounds, filename;
+	local manis, minsize, maxsize, L, wilsons, i, k, l, M, truemax, upper_bounds, filename;
 	
 	manis := [];
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
-	lower_bounds := [1, 2001, 4001, 5001, 6001, 7001];
-	upper_bounds := [2000, 4000, 5000, 6000, 7000, 8000];
-	
-	if maxsize > Maximum(upper_bounds) then
-		Info(InfoRamp, 1, Concatenation("The list of chiral maniplexes with more than ", String(Maximum(upper_bounds)), " flags is incomplete."));
+	# What's the largest chiral map currently stored in our data?
+	truemax := 12000;
+
+	if maxsize > truemax then
+		Info(InfoRamp, 1, Concatenation("The list of chiral maniplexes with more than ", String(truemax), " flags is incomplete."));
 	fi;
 	
-	for i in [1..Size(lower_bounds)] do
+	# The data on chiral maps is split across files 1-1000, 1001-2000, etc.
+	
+	upper_bounds := [1000, 2000..truemax];
+	
+	for i in [1..Size(upper_bounds)] do
 		if minsize <= upper_bounds[i] then
-			filename := Concatenation("ChiralMaps", String(lower_bounds[i]), "-", String(upper_bounds[i]), ".txt");
+			filename := Concatenation("ChiralMaps/ChiralMaps", String(upper_bounds[i]-999), "-", String(upper_bounds[i]), ".txt");
 			L := ManiplexesFromFile(filename, sizerange);
 			Append(manis, L);
 			minsize := upper_bounds[i] + 1;
