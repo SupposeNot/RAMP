@@ -381,7 +381,7 @@ InstallMethod(SectionSubgroup,
 	
 	# If g is already a subgroup of an sggi, we go back to that parent group and just take a more
 	# restricted subgroup of it.
-	if HasParent(g) then
+	if IsFpGroup(g) and HasParent(g) then
 		# First we need to grab the value of I from before
 		# We translate each generator ri to the integer i first
 		old_I := List(GeneratorsOfGroup(g), x -> Int([String(x)[2]]));
