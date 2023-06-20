@@ -281,7 +281,9 @@ InstallMethod(ConnectionGroup,
 		fi;
 	fi;
 	
-	SetIsSggi(connectionGroup, true);
+	if connectionGroup <> fail then
+		SetIsSggi(connectionGroup, true);
+	fi;
 	return connectionGroup;
 	end);
 
