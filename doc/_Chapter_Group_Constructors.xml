@@ -4,6 +4,121 @@
 <Chapter Label="Chapter_Group_Constructors">
 <Heading>Group Constructors</Heading>
 
+<Section Label="Chapter_Group_Constructors_Section_Ggis">
+<Heading>Ggis</Heading>
+
+<ManSection Label="UniversalGgi">
+<Heading>UniversalGgi</Heading>
+  <Oper Arg="n" Name="UniversalGgi" Label="for IsInt"/>
+  <Oper Arg="cox" Name="UniversalGgi" Label="for IsList"/>
+ <Returns><Code>IsFpGroup</Code>
+</Returns>
+ <Description>
+In the first form, returns the universal Coxeter Group of rank n.
+ In the second form, returns the Coxeter Group with the given Coxeter diagram.
+ The diagram is given as a list with the order of r0 r1, r0 r2, ..., r0 r_{n-1}, r_1 r_2, etc. 
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> g := UniversalGgi(3);
+<fp group of size infinity on the generators [ r0, r1, r2 ]>
+gap> RelatorsOfFpGroup(g);
+[ r0^2, r1^2, r2^2 ]
+gap> q := UniversalGgi([3,3,3]);
+<fp group on the generators [ r0, r1, r2 ]>
+gap> RelatorsOfFpGroup(q);
+[ r0^2, r1^2, r2^2, (r0*r1)^3, (r0*r2)^3, (r1*r2)^3 ]
+]]></Example>
+
+
+<ManSection Label="Ggi">
+<Heading>Ggi</Heading>
+  <Oper Arg="cox[, relations]" Name="Ggi" Label="for IsList, IsList"/>
+  <Oper Arg="cox, words, orders" Name="Ggi" Label="for IsList, IsList, IsList"/>
+ <Returns><Code>IsFpGroup</Code>
+</Returns>
+ <Description>
+Returns the ggi defined by the given Coxeter
+ diagram and with the given relations. The relations can be given
+ by a list of Tietze words or as a string of relators or relations
+ that involve r0 etc. If no relations are given, then returns
+ the universal ggi with the given Coxeter diagram.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+<Example><![CDATA[
+gap> g := Ggi([3,3,3], "(r0 r1 r2 r1)^3");;
+gap> Size(g);
+54
+gap> n := 5;;
+gap> Size(Ggi([3,3,3], "(r0 r1 r2 r1)^$n"));
+150
+]]></Example>
+
+
+The second form takes the Coxeter diagram <A>cox</A>, a list
+ of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
+ It returns the ggi that is the quotient of the universal
+ ggi with that Coxeter diagram by the relations obtained by setting each
+ <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
+ quickly constructing a family of related Ggis.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> L := List([1..5], k -> Ggi([3,3,3], ["r0 r1 r2 r1"], [k]));;
+gap> List(L, Size);
+[ 6, 24, 54, 96, 150 ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="g, str" Name="GgiElement" Label="for IsGroup, IsString"/>
+ <Returns>the element of <A>g</A> with underlying word <A>str</A>.
+</Returns>
+ <Description>
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+<Example><![CDATA[
+gap> gap> g := Group((1,2), (2,3), (3,4), (1,4));;
+gap> GgiElement(g, "r0 r3");
+(1,2,4)
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="g, str" Name="SimplifiedGgiElement" Label="for IsGroup, IsString"/>
+ <Returns>the element of <A>g</A> with underlying word <A>str</A>, in a reduced form.
+</Returns>
+ <Description>
+This acts like GgiElement, except that the word is in reduced form.
+ Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
+ further computations with g may be substantially slower.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> g := Ggi([3,3,3], "(r0 r1 r2 r1)^4");;
+gap> SimplifiedGgiElement(g, "(r0 r1)^4");
+r0*r1
+]]></Example>
+
+
+</Section>
+
+
 <Section Label="Chapter_Group_Constructors_Section_Sggis">
 <Heading>Sggis</Heading>
 
@@ -59,8 +174,8 @@ gap> Size(Sggi([4,4], "(r0 r1 r2 r1)^$n"));
 
 The second form takes the Schlafli Symbol <A>sym</A>, a list
  of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
- It returns the reflexible maniplex that is the quotient of the universal
- maniplex with that Schlalfi Symbol by the relations obtained by setting each
+ It returns the Sggi that is the quotient of the universal
+ Sggi with that Schlalfi Symbol by the relations obtained by setting each
  <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
  quickly constructing a family of related Sggis.
  </Description>
@@ -250,7 +365,7 @@ This acts like SggiElement, except that the word is in reduced form.
 
 <Example><![CDATA[
 gap> g := AutomorphismGroup(Cube(3));;
-gap> SimiplifiedSggiElement(g, "(r0 r1)^5");
+gap> SimplifiedSggiElement(g, "(r0 r1)^5");
 r0*r1
 ]]></Example>
 

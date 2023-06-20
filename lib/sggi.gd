@@ -58,8 +58,8 @@ DeclareOperation("Sggi", [IsList, IsList]);
 #! @Returns `IsFpGroup`
 #! @Description The second form takes the Schlafli Symbol <A>sym</A>, a list
 #! of <A>words</A> in the generators r0 etc, and a list of <A>orders</A>.
-#! It returns the reflexible maniplex that is the quotient of the universal
-#! maniplex with that Schlalfi Symbol by the relations obtained by setting each
+#! It returns the Sggi that is the quotient of the universal
+#! Sggi with that Schlalfi Symbol by the relations obtained by setting each
 #! <A>word[i]</A> to have order <A>order[i]</A>. This is primarily useful for
 #! quickly constructing a family of related Sggis.
 DeclareOperation("Sggi", [IsList, IsList, IsList]);
@@ -182,7 +182,7 @@ DeclareOperation("SggiElement", [IsGroup, IsString]);
 DeclareOperation("SimplifiedSggiElement", [IsGroup, IsString]);
 #! @BeginExampleSession
 #! gap> g := AutomorphismGroup(Cube(3));;
-#! gap> SimiplifiedSggiElement(g, "(r0 r1)^5");
+#! gap> SimplifiedSggiElement(g, "(r0 r1)^5");
 #! r0*r1
 #! @EndExampleSession
 
