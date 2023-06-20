@@ -9,6 +9,7 @@ ReadPackage( "ramp", "lib/_dochack.gd");
 
 ReadPackage( "ramp", "lib/types.gd" ); 
 ReadPackage( "ramp", "lib/sggi.gd" );
+ReadPackage( "ramp", "lib/ggi.gd" );
 
 ReadPackage( "ramp", "lib/actions.gd" ); 
 ReadPackage( "ramp", "lib/basicConstructors.gd");
