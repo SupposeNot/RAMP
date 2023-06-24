@@ -192,6 +192,54 @@ InstallMethod(IsRelationOfReflexibleManiplex,
 	
 	return SggiElement(M, rel) = SggiElement(M, "");
 	end);
+
+
+InstallMethod(RotGpElement,
+	[IsGroup, IsString],
+	function(g, str)
+	local w, x, hom;
+	
+	if str = "" or UppercaseString(str) = "ID" then
+		return Identity(g);
+	fi;
+
+	str := InterpolatedString(str);
+	
+	w := UniversalRotationGroup(1+Size(GeneratorsOfGroup(g)));
+	x := ParseRotGpRels(str, w)[1];
+	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
+	return Image(hom, x);
+	end);
+	
+InstallOtherMethod(RotGpElement,
+	[IsManiplex, IsString],
+	function(M, str)
+	
+	if not(IsRotary(M)) then
+		Error("RotGpElement is only defined for rotary maniplexes.\n");
+	fi;
+	
+	return RotGpElement(RotationGroup(M), str);
+	end);
+
+InstallMethod(SimplifiedRotGpElement,
+	[IsGroup, IsString],
+	function(g, str)
+	if IsFpGroup(g) then SetReducedMultiplication(g); fi;
+	return RotGpElement(g, str);
+	end);
+	
+InstallOtherMethod(SimplifiedRotGpElement,
+	[IsManiplex, IsString],
+	function(M, str)
+	
+	if not(IsRotary(M)) then
+		Error("SimplifiedRotGpElement is only defined for rotary maniplexes.\n");
+	fi;
+	
+	return SimplifiedRotGpElement(RotationGroup(M), str);
+	end);
+
 	
 	
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
