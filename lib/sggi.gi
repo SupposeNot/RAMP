@@ -374,7 +374,7 @@ InstallMethod(SectionSubgroup,
 	[IsGroup, IsList],
 	function(g, I)
 	local n, h, old_I, new_I;
-	if not IsSggi(g) then
+	if not(HasIsSggi(g) and IsSggi(g)) then
 		Error("SectionSubgroup is currently only implemented for sggis!");
 	fi;
 	n := Size(GeneratorsOfGroup(g));
