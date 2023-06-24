@@ -113,7 +113,7 @@ InstallMethod(NumberOfFlagOrbits,
 			h := M!.subgroup;
 			n := Normalizer(g, h);
 			numberOfFlagOrbits := Index(g, n);
-		elif Size(M) < infinity then
+		elif HasSize(M) and Size(M) < infinity then
 			numberOfFlagOrbits :=  Size(M) / Size(AutomorphismGroup(M));
 		else
 			numberOfFlagOrbits := Size(Vertices(SymmetryTypeGraph(M)));
