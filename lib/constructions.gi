@@ -55,7 +55,7 @@ InstallMethod(UniversalExtension,
 	end);
 
 InstallMethod(UniversalExtension,
-	[IsManiplex and IsManiplex, IsInt],
+	[IsManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
 	if not(IsReflexible(p)) then
@@ -67,6 +67,7 @@ InstallMethod(UniversalExtension,
 	Add(rels, List([0..2*k-1], i -> n+(i mod 2)));
 	f2 := UniversalSggi(n+1);
 	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
+	SetIsSggi(g2, true);
 	p2 := ReflexibleManiplexNC(g2);
 
 	# TODO: Handle other exceptional cases

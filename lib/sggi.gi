@@ -404,6 +404,8 @@ InstallMethod(SectionSubgroup,
 		fi;
 	fi;
 	
+	SetIsSggi(h, true);
+	
 	if HasIsStringC(g) and IsStringC(g) then
 		SetIsStringC(h, true);
 	fi;

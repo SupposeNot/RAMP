@@ -70,7 +70,7 @@ InstallMethod(ReflexibleManiplex,
 	fi;
 
 	w := UniversalSggi(sym);
-	p := ReflexibleManiplex(w);
+	p := ReflexibleManiplexNC(w);
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
@@ -115,6 +115,7 @@ InstallMethod(ReflexibleManiplex,
 		desc := Concatenation(desc, String(sym), ", ", String(rels), ")");
 	fi;
 	autgp := FactorGroupFpGroupByRels(w, newrels);
+	SetIsSggi(autgp, true);
 	p := ReflexibleManiplexNC(autgp);
 	SetExtraRelators(p, newrels);
 	if ValueOption("set_schlafli") = true then

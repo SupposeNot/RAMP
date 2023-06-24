@@ -326,6 +326,26 @@ InstallMethod(IsFlat,
 	fi;
 	end);
 
+InstallMethod(IsFlat,
+	[IsReflexibleManiplex],
+	function(M)
+	local g;
+	
+	if HasIsDegenerate(M) and IsDegenerate(M) then
+		return true;
+	elif HasIsPolytopal(M) and IsPolytopal(M) then
+		if Rank(M) = 3 then
+			return IsTight(M);
+		elif IsTight(M) then
+			return true;
+		else
+			g := AutomorphismGroup(M);
+			return Size(g) = Size(FacetSubgroup(g)) * Size(VertexFigureSubgroup(g)) / Size(SectionSubgroup(g, [1..Rank(M)-2]));
+		fi;
+	else
+		return IsFlat(M, 0, Rank(M)-1);
+	fi;
+	end);
 
 
 ##### SCHLAFLI SYMBOL #####
