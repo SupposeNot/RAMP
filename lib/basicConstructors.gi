@@ -453,9 +453,9 @@ InstallMethod(EnantiomorphicForm,
 	function(M)
 	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2, relstr, polytopal;
 	
-	if IsReflexible(M) then 
+	if HasIsReflexible(M) and IsReflexible(M) then 
 		return M; 
-	elif IsChiral(M) then
+	elif IsRotary(M) then
 		rotgp := RotationGroupFpGroup(M);
 		n := Rank(M);
 		standardRels := List(RelatorsOfFpGroup(UniversalRotationGroup(SchlafliSymbol(M))), TietzeWordAbstractWord);

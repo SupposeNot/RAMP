@@ -164,6 +164,9 @@ InstallMethod(Section,
 		if HasSchlafliSymbol(M) then
 			SetSchlafliSymbol(q, SchlafliSymbol(M){[i+2..j-1]});
 		fi;
+		if IsPolytopal(M) then
+			SetIsPolytopal(q, true);
+		fi;
 		return q;
 	else
 		g := ConnectionGroup(M);
@@ -185,6 +188,9 @@ InstallMethod(Section,
 			newconn := Action(newconn, MovedPoints(newconn));		
 		fi;
 		q := Maniplex(newconn);
+		if IsPolytopal(M) then
+			SetIsPolytopal(q, true);
+		fi;
 		return q;
 	fi;
 	end);
