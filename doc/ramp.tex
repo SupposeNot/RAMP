@@ -361,8 +361,37 @@ Coxeter diagram by the relations obtained by setting each \mbox{\texttt{\mdserie
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{GgiElement (for IsGroup, IsString)}}
+\subsection{\textcolor{Chapter }{CyclicGgi (for IsList, IsList)}}
 \logpage{[ 3, 1, 3 ]}\nobreak
+\hyperdef{L}{X879EB4FE80ACFDAE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CyclicGgi({\mdseries\slshape cox[, relations]})\index{CyclicGgi@\texttt{CyclicGgi}!for IsList, IsList}
+\label{CyclicGgi:for IsList, IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFpGroup} 
+
+
+
+ Returns the ggi with a cyclic diagram defined by the given orders, and subject
+to the given relations. \mbox{\texttt{\mdseries\slshape cox}} gives the orders of r0 r1, r1 r2, ...,
+r{\textunderscore}\texttt{\symbol{123}}n-1\texttt{\symbol{125}}
+r{\textunderscore}0. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := CyclicGgi([3,4,5,6]);|
+  <fp group on the generators [ r0, r1, r2, r3 ]>
+  !gapprompt@gap>| !gapinput@RelatorsOfFpGroup(g);|
+  [ r0^2, r1^2, r2^2, r3^2, (r0*r1)^3, (r0*r2)^2, (r0*r3)^6, (r1*r2)^4, (r1*r3)^2, (r2*r3)^5 ]
+  !gapprompt@gap>| !gapinput@g2 := CyclicGgi([3,4,3,4], "(r0 r1 r2 r3)^4");|
+  <fp group on the generators [ r0, r1, r2, r3 ]>
+  !gapprompt@gap>| !gapinput@Size(g2);|
+  1440
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{GgiElement (for IsGroup, IsString)}}
+\logpage{[ 3, 1, 4 ]}\nobreak
 \hyperdef{L}{X7B7284B28749998C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GgiElement({\mdseries\slshape g, str})\index{GgiElement@\texttt{GgiElement}!for IsGroup, IsString}
 \label{GgiElement:for IsGroup, IsString}
@@ -384,7 +413,7 @@ replaced with the value of \texttt{variable} (but for global variables only).
  
 
 \subsection{\textcolor{Chapter }{SimplifiedGgiElement (for IsGroup, IsString)}}
-\logpage{[ 3, 1, 4 ]}\nobreak
+\logpage{[ 3, 1, 5 ]}\nobreak
 \hyperdef{L}{X800BEE467F3D3EB2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SimplifiedGgiElement({\mdseries\slshape g, str})\index{SimplifiedGgiElement@\texttt{SimplifiedGgiElement}!for IsGroup, IsString}
 \label{SimplifiedGgiElement:for IsGroup, IsString}
@@ -735,8 +764,57 @@ replaced with the value of \texttt{variable} (but for global variables only). }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
+\subsection{\textcolor{Chapter }{RotGpElement (for IsGroup, IsString)}}
 \logpage{[ 3, 2, 13 ]}\nobreak
+\hyperdef{L}{X780C0332784531A8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotGpElement({\mdseries\slshape g, str})\index{RotGpElement@\texttt{RotGpElement}!for IsGroup, IsString}
+\label{RotGpElement:for IsGroup, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the element of the rotation group \mbox{\texttt{\mdseries\slshape g}} with underlying word \mbox{\texttt{\mdseries\slshape str}}. 
+
+
+
+ This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
+replaced with the value of \texttt{variable} (but for global variables only). 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Order(RotGpElement(Cube(3), "s1"));|
+  4
+  !gapprompt@gap>| !gapinput@Order(RotGpElement(ToroidalMap44([1,2]), "s2^-1 s1"));|
+  5
+\end{Verbatim}
+ For convenience, you can also use a rotary maniplex M in place of g, in which
+case \texttt{RotationGroup(M)} is used for g. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SimplifiedRotGpElement (for IsGroup, IsString)}}
+\logpage{[ 3, 2, 14 ]}\nobreak
+\hyperdef{L}{X804E6174841E51E6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SimplifiedRotGpElement({\mdseries\slshape g, str})\index{SimplifiedRotGpElement@\texttt{SimplifiedRotGpElement}!for IsGroup, IsString}
+\label{SimplifiedRotGpElement:for IsGroup, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the element of the rotation group \mbox{\texttt{\mdseries\slshape g}} with underlying word \mbox{\texttt{\mdseries\slshape str}}, in a reduced form. 
+
+
+
+ This acts like RotGpElement, except that the word is in reduced form. Note
+that this is accomplished by calling SetReducedMultiplication on g. As a
+result, further computations with g may be substantially slower. This method
+automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
+replaced with the value of \texttt{variable} (but for global variables only). For convenience, you can also use a rotary
+maniplex M in place of g, in which case \texttt{RotationGroup(M)} is used for g. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SimplifiedRotGpElement(ToroidalMap44([1,2]), "s1^6");|
+  s1^2
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
+\logpage{[ 3, 2, 15 ]}\nobreak
 \hyperdef{L}{X87C1FF7481A1D9B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SggiFamily({\mdseries\slshape parent, words})\index{SggiFamily@\texttt{SggiFamily}!for IsGroup, IsList}
 \label{SggiFamily:for IsGroup, IsList}
@@ -765,7 +843,7 @@ quickly. }
  
 
 \subsection{\textcolor{Chapter }{IsCConnected (for IsManiplex)}}
-\logpage{[ 3, 2, 14 ]}\nobreak
+\logpage{[ 3, 2, 16 ]}\nobreak
 \hyperdef{L}{X786B2C407A3E9EBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCConnected({\mdseries\slshape m})\index{IsCConnected@\texttt{IsCConnected}!for IsManiplex}
 \label{IsCConnected:for IsManiplex}
@@ -788,7 +866,7 @@ group a string C-group). }
  
 
 \subsection{\textcolor{Chapter }{SectionSubgroup (for IsGroup, IsList)}}
-\logpage{[ 3, 2, 15 ]}\nobreak
+\logpage{[ 3, 2, 17 ]}\nobreak
 \hyperdef{L}{X81E77DB67F3E39C1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SectionSubgroup({\mdseries\slshape g, I})\index{SectionSubgroup@\texttt{SectionSubgroup}!for IsGroup, IsList}
 \label{SectionSubgroup:for IsGroup, IsList}
@@ -811,7 +889,7 @@ IsSggi
  
 
 \subsection{\textcolor{Chapter }{VertexFigureSubgroup (for IsGroup)}}
-\logpage{[ 3, 2, 16 ]}\nobreak
+\logpage{[ 3, 2, 18 ]}\nobreak
 \hyperdef{L}{X81588D527DCC0257}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigureSubgroup({\mdseries\slshape g})\index{VertexFigureSubgroup@\texttt{VertexFigureSubgroup}!for IsGroup}
 \label{VertexFigureSubgroup:for IsGroup}
@@ -834,7 +912,7 @@ generators except for the first one. }
  
 
 \subsection{\textcolor{Chapter }{FacetSubgroup (for IsGroup)}}
-\logpage{[ 3, 2, 17 ]}\nobreak
+\logpage{[ 3, 2, 19 ]}\nobreak
 \hyperdef{L}{X7FB424557AEF256A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacetSubgroup({\mdseries\slshape g})\index{FacetSubgroup@\texttt{FacetSubgroup}!for IsGroup}
 \label{FacetSubgroup:for IsGroup}
