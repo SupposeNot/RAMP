@@ -131,7 +131,7 @@ DeclareGlobalFunction("TranslateWord");
 #! @BeginExampleSession
 #! gap> g := AutomorphismGroup(CubicTiling(2));;
 #! gap> rels := "(r0 r1 r2 r1)^6";;
-#! gap> newrels := ParseStringCRels(rels, g);
+#! gap> newrels := ParseGgiRels(rels, g);
 #! [ (r0*r1*r2*r1)^6 ]
 #! gap> newrels[1] in FreeGroupOfFpGroup(g);
 #! true
@@ -141,11 +141,11 @@ DeclareGlobalFunction("TranslateWord");
 #! For convenience, you may use z1, z2, etc and h1, h2, etc in relations,
 #! where zj means r0 (r1 r2)^j (the "j-zigzag" word) and hj means r0 (r1 r2)^j-1 r1
 #! (the "j-hole" word).
-DeclareGlobalFunction("ParseStringCRels");
+DeclareGlobalFunction("ParseGgiRels");
 
 #! @Arguments rels, g
 #! @Description This helper function is used in several maniplex constructors.
-#! It is analogous to ParseStringCRels, but for rotation groups instead.
+#! It is analogous to ParseGgiRels, but for rotation groups instead.
 DeclareGlobalFunction("ParseRotGpRels");
 #! @BeginExampleSession
 #! gap> g := UniversalRotationGroup([4,4]);

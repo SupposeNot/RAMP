@@ -147,7 +147,7 @@ InstallMethod(SggiElement,
 	str := InterpolatedString(str);
 	
 	w := UniversalSggi(Size(GeneratorsOfGroup(g)));
-	x := ParseStringCRels(str, w)[1];
+	x := ParseGgiRels(str, w)[1];
 	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
 	return Image(hom, x);
 	end);
@@ -356,7 +356,7 @@ InstallMethod(Sggi,
 	w := UniversalSggi(sym);
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
@@ -388,7 +388,7 @@ InstallMethod(SggiFamily,
 			rel := Concatenation("(", wordList[i], ")^", String(orders[i]));
 			Add(rels, rel);
 		od;
-		g := FactorGroupFpGroupByRels(parent, ParseStringCRels(JoinStringsWithSeparator(rels), parent));
+		g := FactorGroupFpGroupByRels(parent, ParseGgiRels(JoinStringsWithSeparator(rels), parent));
 		g!.parentGroup := parent;
 		g!.wordOrders := orders;
 		SetIsSggi(g, true);

@@ -64,7 +64,7 @@ InstallMethod(Ggi,
 	w := UniversalGgi(cox);
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
@@ -113,7 +113,7 @@ InstallMethod(CyclicGgi,
 	w := CyclicGgi(orders);
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
@@ -134,7 +134,7 @@ InstallMethod(GgiElement,
 	str := InterpolatedString(str);
 	
 	w := UniversalGgi(Size(GeneratorsOfGroup(g)));
-	x := ParseStringCRels(str, w)[1];
+	x := ParseGgiRels(str, w)[1];
 	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
 	return Image(hom, x);
 	end);

@@ -108,7 +108,7 @@ InstallMethod(ReflexibleManiplex,
 
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 		desc := Concatenation(desc, String(sym), ", \"", String(rels), "\")");
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
