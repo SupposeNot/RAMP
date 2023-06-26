@@ -264,7 +264,7 @@ InstallMethod(ConnectionGroup,
 			h := M!.subgroup;
 			connectionGroup := Image(FactorCosetAction(g, h));
 		elif IsRotaryManiplexRotGpRep(M) then
-			g := AutomorphismGroup(M);
+			g := RotationGroup(M);
 			if Size(g) = infinity then
 				connectionGroup := fail;
 			else
