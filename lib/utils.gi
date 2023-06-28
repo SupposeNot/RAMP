@@ -314,7 +314,7 @@ InstallMethod(ReallyNaturalHomomorphismByNormalSubgroup,
 	phi:=NaturalHomomorphismByNormalSubgroup(G,N);
 	gens:=GeneratorsOfGroup(G);
 	qgens:=List(gens,x->Image(phi,x));
-	return GroupHomomorphismByImages(G,FactorGroup(G,N),gens,qgens);
+	return GroupHomomorphismByImages(G,Image(phi),gens,qgens);
 	end);	
 
 InstallGlobalFunction(ActionByGenerators, function(G, S, act)
