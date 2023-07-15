@@ -24,3 +24,5 @@
 # #! @BeginExampleSession
 # #! @EndExampleSession
 DeclareOperation("ReflectionMatrix",[IsVector]);
+
+# DeclareOperation("RotationMatrix",[IsInt]);

@@ -156,6 +156,8 @@ DeclareSynonym("MapJoin", Angle);
 #! @Description Reverses the orientation of a maniplex.
 DeclareOperation("Reflection", [IsManiplex]);
 #! @BeginExampleSession
+#! gap> m:=Cube(3);
+#! Cube(3)
 #! gap> Gyro(Dual(m))=Reflection(Gyro(Reflection(m)));
 #! true
 #! gap> Reflection(m)=EnantiomorphicForm(m);

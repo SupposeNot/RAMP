@@ -54,7 +54,7 @@
 
 <h4>8.1 <span class="Heading">Quotients and covers</span></h4>
 
-<p>Many of the quotient operations let you describe some relations in terms of a string. We assume that Sggis have a generating set of <span class="SimpleMath">\(\{r0, r1, ..., r_{n-1}\}\)</span>, so these relation strings will look something like "(r0 r1 r2)^5, r2 = (r0 r1)^3". Notice that we can mix relations like "r2 = (r0 r1)^3" with relators like "(r0 r1 r2)^5"; the latter is treated as the relation "(r0 r1 r2)^5 = 1". For convenience, we also allow relations to contain the following strings: s1, s2, s3, etc, where si is expanded to r(i-1) ri. For example, s2 becomes r1 r2. z1, z2, z3, etc, where zi is expanded to r0 (r1 r2)^i (the "i-zigzag" word). h1, h2, h3, etc, where hi is expanded to r0 (r1 r2)^(j-1) r1 (the "i-hole" word). We note that these strings are all restricted to have <span class="SimpleMath">\(i \leq 9\)</span>, <em>including ri</em>. This restriction might be changed eventually, but it will require a rewrite of the method ParseStringCRels that underlies many quotient operations.</p>
+<p>Many of the quotient operations let you describe some relations in terms of a string. We assume that Sggis have a generating set of <span class="SimpleMath">\(\{r0, r1, ..., r_{n-1}\}\)</span>, so these relation strings will look something like "(r0 r1 r2)^5, r2 = (r0 r1)^3". Notice that we can mix relations like "r2 = (r0 r1)^3" with relators like "(r0 r1 r2)^5"; the latter is treated as the relation "(r0 r1 r2)^5 = 1". For convenience, we also allow relations to contain the following strings: s1, s2, s3, etc, where si is expanded to r(i-1) ri. For example, s2 becomes r1 r2. z1, z2, z3, etc, where zi is expanded to r0 (r1 r2)^i (the "i-zigzag" word). h1, h2, h3, etc, where hi is expanded to r0 (r1 r2)^(j-1) r1 (the "i-hole" word). We note that these strings are all restricted to have <span class="SimpleMath">\(i \leq 9\)</span>, <em>including ri</em>. This restriction might be changed eventually, but it will require a rewrite of the method ParseGgiRels that underlies many quotient operations.</p>
 
 <p><a id="X87EB22A184A49FB8" name="X87EB22A184A49FB8"></a></p>
 
@@ -281,7 +281,7 @@ true
 <h5>8.1-14 QuotientSggi</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QuotientSggi</code>( <var class="Arg">g</var>, <var class="Arg">rels</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: the quotient of <var class="Arg">g</var> by <var class="Arg">rels</var>, which is either a list of Tietze words or a string of relations that is parsed by ParseStringCRels.</p>
+<p>Returns: the quotient of <var class="Arg">g</var> by <var class="Arg">rels</var>, which is either a list of Tietze words or a string of relations that is parsed by ParseGgiRels.</p>
 
 
 <div class="example"><pre>

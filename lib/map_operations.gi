@@ -282,6 +282,7 @@ InstallMethod(Gyro,
 	return FinalizedOutputMap(m,m2,"Gyro");
 	end);
 	#Should be the case that gyro(dual(m))=EnantiomorphicForm(gyro(enantioMorphicform(m))). Is it?
+	#Well... following Hart... this isn't enantiomorphic form, it's Reflection we should be using in the last statement.  Which doesn't work... e.g., if m=SnubCube(). I wonder where this note came from and what was originally intended. EnantiomorphicForm definitely does not play nicely here, e.g., with m=Cube().
 
 InstallMethod(Meta,
 	[IsMapOnSurface],

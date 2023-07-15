@@ -34,6 +34,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X7DAE3F0686CA7AA5">11.1-4 MkPrime</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X7EB8C646795CB285">11.1-5 Bk2l</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X8592D83D87DFCF3F">11.1-6 Bk2lStar</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11_mj.html#X7DDD487B86630A36">11.1-7 Bk2lRhoSigma</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11_mj.html#X80E866D6862E1FD0">11.2 <span class="Heading">Operations on reflexible maps</span></a>
 </span>
@@ -166,14 +167,14 @@ ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
 
 <h5>11.1-5 Bk2l</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2l</code>( <var class="Arg">k</var>, <var class="Arg">l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2l</code>( <var class="Arg">k</var>, <var class="Arg">2l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
 
-<p>Given integers <var class="Arg">k,l</var>, gives the map <span class="SimpleMath">\(B(k,2l)\)</span>.</p>
+<p>Given integers <var class="Arg">k,2l</var>, gives the map <span class="SimpleMath">\(B(k,2l)\)</span>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2l(4,5);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2l(4,10);</span>
 3-maniplex with 80 flags
 </pre></div>
 
@@ -181,15 +182,40 @@ ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
 
 <h5>11.1-6 Bk2lStar</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2lStar</code>( <var class="Arg">k</var>, <var class="Arg">l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2lStar</code>( <var class="Arg">k</var>, <var class="Arg">2l</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
 
-<p>Given integers <var class="Arg">k,l</var>, gives the map <span class="SimpleMath">\(B^*(k,2l)\)</span>.</p>
+<p>Given integers <var class="Arg">k,2l</var>, gives the map <span class="SimpleMath">\(B^*(k,2l)\)</span>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2lStar(5,7);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2lStar(5,14);</span>
 3-maniplex with 140 flags
+</pre></div>
+
+<p><a id="X7DDD487B86630A36" name="X7DDD487B86630A36"></a></p>
+
+<h5>11.1-7 Bk2lRhoSigma</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Bk2lRhoSigma</code>( <var class="Arg">k</var>, <var class="Arg">2l</var>, <var class="Arg">rho</var>, <var class="Arg">sigma</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsPolytope</p>
+
+<p>Given integers satisfying the constraints in <a href="chapBib_mj.html#biBWil85">[Wil85]</a>, this function will create the map <span class="SimpleMath">\(B(k,2l,\rho,\sigma)\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Bk2lRhoSigma(4,16,3,0);</span>
+reflexible 3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfPetrial(last);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Bk2lRhoSigma(4,16,3,0);</span>
+reflexible 3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfPetrial(m);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Opp(m)=Bk2lRhoSigma(4,16,5,2);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(m);</span>
+[ 16, 4 ]
 </pre></div>
 
 <p><a id="X80E866D6862E1FD0" name="X80E866D6862E1FD0"></a></p>
@@ -455,6 +481,8 @@ true
 
 
 <div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cube(3);</span>
+Cube(3)
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Gyro(Dual(m))=Reflection(Gyro(Reflection(m)));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Reflection(m)=EnantiomorphicForm(m);</span>

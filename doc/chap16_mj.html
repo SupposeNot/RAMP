@@ -48,7 +48,7 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap16_mj.html#X8375E2157FA5BA5B">16.4 <span class="Heading">Words on relations</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7E84DB4E8746344A">16.4-1 ParseStringCRels</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X8074659F876684DF">16.4-1 ParseGgiRels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X79C6D76380B9F364">16.4-2 ParseRotGpRels</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X85C42B4986C205D0">16.4-3 StandardizeSggi</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X829B5DA779342A28">16.4-4 AddOrAppend</a></span>
@@ -201,11 +201,11 @@ Error, The given group is not a String Rotation Group...
 
 <h4>16.4 <span class="Heading">Words on relations</span></h4>
 
-<p><a id="X7E84DB4E8746344A" name="X7E84DB4E8746344A"></a></p>
+<p><a id="X8074659F876684DF" name="X8074659F876684DF"></a></p>
 
-<h5>16.4-1 ParseStringCRels</h5>
+<h5>16.4-1 ParseGgiRels</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseStringCRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseGgiRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: a list of relators</p>
 
 <p>This helper function is used in several maniplex constructors. Given a string <var class="Arg">rels</var> that represents relations in an sggi, and an sggi g, returns a list of elements in the free group of g represented by <var class="Arg">rels</var>. These can then be used to form a quotient of g.</p>
@@ -214,7 +214,7 @@ Error, The given group is not a String Rotation Group...
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := AutomorphismGroup(CubicTiling(2));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := "(r0 r1 r2 r1)^6";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseStringCRels(rels, g);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels := ParseGgiRels(rels, g);</span>
 [ (r0*r1*r2*r1)^6 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newrels[1] in FreeGroupOfFpGroup(g);</span>
 true
@@ -229,7 +229,7 @@ true
 <h5>16.4-2 ParseRotGpRels</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ParseRotGpRels</code>( <var class="Arg">rels</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>This helper function is used in several maniplex constructors. It is analogous to ParseStringCRels, but for rotation groups instead.</p>
+<p>This helper function is used in several maniplex constructors. It is analogous to ParseGgiRels, but for rotation groups instead.</p>
 
 
 <div class="example"><pre>

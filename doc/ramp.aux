@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -324,7 +327,7 @@
 \newlabel{VertexFigures:for IsManiplex}{{6.2.9}{39}{\textcolor {Chapter }{Vertex Figure(s)}}{subsection.6.2.9}{}}
 \newlabel{VertexFigure:for IsManiplex, IsInt}{{6.2.9}{39}{\textcolor {Chapter }{Vertex Figure(s)}}{subsection.6.2.9}{}}
 \newlabel{VertexFigure:for IsManiplex}{{6.2.9}{39}{\textcolor {Chapter }{Vertex Figure(s)}}{subsection.6.2.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.10}\textcolor {Chapter }{VertDegrees (for IsManiplex)}}{40}{subsection.6.2.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.10}\textcolor {Chapter }{VertDegrees (for IsManiplex)}}{39}{subsection.6.2.10}\protected@file@percent }
 \newlabel{VertDegrees:for IsManiplex}{{6.2.10}{40}{\textcolor {Chapter }{VertDegrees (for IsManiplex)}}{subsection.6.2.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.11}\textcolor {Chapter }{FaceSizes (for IsManiplex)}}{40}{subsection.6.2.11}\protected@file@percent }
 \newlabel{FaceSizes:for IsManiplex}{{6.2.11}{40}{\textcolor {Chapter }{FaceSizes (for IsManiplex)}}{subsection.6.2.11}{}}
@@ -423,15 +426,15 @@
 \@writefile{toc}{\contentsline {section}{\numberline {7.2}\textcolor {Chapter }{Automorphism group acting on faces and chains}}{50}{section.7.2}\protected@file@percent }
 \newlabel{Chapter_Maniplex_Properties_Section_Automorphism_group_acting_on_faces_and_chains}{{7.2}{50}{\textcolor {Chapter }{Automorphism group acting on faces and chains}}{section.7.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}\textcolor {Chapter }{AutomorphismGroupOnChains (for IsManiplex, IsCollection)}}{50}{subsection.7.2.1}\protected@file@percent }
-\newlabel{AutomorphismGroupOnChains:for IsManiplex, IsCollection}{{7.2.1}{50}{\textcolor {Chapter }{AutomorphismGroupOnChains (for IsManiplex, IsCollection)}}{subsection.7.2.1}{}}
+\newlabel{AutomorphismGroupOnChains:for IsManiplex, IsCollection}{{7.2.1}{51}{\textcolor {Chapter }{AutomorphismGroupOnChains (for IsManiplex, IsCollection)}}{subsection.7.2.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}\textcolor {Chapter }{AutomorphismGroupOnIFaces (for IsManiplex, IsInt)}}{51}{subsection.7.2.2}\protected@file@percent }
 \newlabel{AutomorphismGroupOnIFaces:for IsManiplex, IsInt}{{7.2.2}{51}{\textcolor {Chapter }{AutomorphismGroupOnIFaces (for IsManiplex, IsInt)}}{subsection.7.2.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2.3}\textcolor {Chapter }{AutomorphismGroupOnVertices (for IsManiplex)}}{51}{subsection.7.2.3}\protected@file@percent }
 \newlabel{AutomorphismGroupOnVertices:for IsManiplex}{{7.2.3}{51}{\textcolor {Chapter }{AutomorphismGroupOnVertices (for IsManiplex)}}{subsection.7.2.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2.4}\textcolor {Chapter }{AutomorphismGroupOnEdges (for IsManiplex)}}{51}{subsection.7.2.4}\protected@file@percent }
 \newlabel{AutomorphismGroupOnEdges:for IsManiplex}{{7.2.4}{51}{\textcolor {Chapter }{AutomorphismGroupOnEdges (for IsManiplex)}}{subsection.7.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.5}\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}{51}{subsection.7.2.5}\protected@file@percent }
-\newlabel{AutomorphismGroupOnFacets:for IsManiplex}{{7.2.5}{51}{\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}{subsection.7.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.5}\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}{52}{subsection.7.2.5}\protected@file@percent }
+\newlabel{AutomorphismGroupOnFacets:for IsManiplex}{{7.2.5}{52}{\textcolor {Chapter }{AutomorphismGroupOnFacets (for IsManiplex)}}{subsection.7.2.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {7.3}\textcolor {Chapter }{Number of orbits and transitivity}}{52}{section.7.3}\protected@file@percent }
 \newlabel{Chapter_Maniplex_Properties_Section_Number_of_orbits_and_transitivity}{{7.3}{52}{\textcolor {Chapter }{Number of orbits and transitivity}}{section.7.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}\textcolor {Chapter }{NumberOfChainOrbits (for IsManiplex, IsCollection)}}{52}{subsection.7.3.1}\protected@file@percent }
@@ -649,16 +652,20 @@
 \newlabel{Deltak:for IsInt}{{11.1.2}{75}{\textcolor {Chapter }{Deltak (for IsInt)}}{subsection.11.1.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.1.3}\textcolor {Chapter }{Mk (for IsInt)}}{75}{subsection.11.1.3}\protected@file@percent }
 \newlabel{Mk:for IsInt}{{11.1.3}{75}{\textcolor {Chapter }{Mk (for IsInt)}}{subsection.11.1.3}{}}
+\citation{Wil85}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.1.4}\textcolor {Chapter }{MkPrime (for IsInt)}}{76}{subsection.11.1.4}\protected@file@percent }
 \newlabel{MkPrime:for IsInt}{{11.1.4}{76}{\textcolor {Chapter }{MkPrime (for IsInt)}}{subsection.11.1.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.1.5}\textcolor {Chapter }{Bk2l (for IsInt,IsInt)}}{76}{subsection.11.1.5}\protected@file@percent }
 \newlabel{Bk2l:for IsInt,IsInt}{{11.1.5}{76}{\textcolor {Chapter }{Bk2l (for IsInt,IsInt)}}{subsection.11.1.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.1.6}\textcolor {Chapter }{Bk2lStar (for IsInt,IsInt)}}{76}{subsection.11.1.6}\protected@file@percent }
 \newlabel{Bk2lStar:for IsInt,IsInt}{{11.1.6}{76}{\textcolor {Chapter }{Bk2lStar (for IsInt,IsInt)}}{subsection.11.1.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {11.2}\textcolor {Chapter }{Operations on reflexible maps}}{76}{section.11.2}\protected@file@percent }
-\newlabel{Chapter_Maps_On_Surfaces_Section_Operations_on_reflexible_maps}{{11.2}{76}{\textcolor {Chapter }{Operations on reflexible maps}}{section.11.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.2.1}\textcolor {Chapter }{Opp (for IsMapOnSurface)}}{76}{subsection.11.2.1}\protected@file@percent }
-\newlabel{Opp:for IsMapOnSurface}{{11.2.1}{76}{\textcolor {Chapter }{Opp (for IsMapOnSurface)}}{subsection.11.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1.7}\textcolor {Chapter }{Bk2lRhoSigma (for IsInt,IsInt,IsInt,IsInt)}}{76}{subsection.11.1.7}\protected@file@percent }
+\newlabel{Bk2lRhoSigma:for IsInt,IsInt,IsInt,IsInt}{{11.1.7}{76}{\textcolor {Chapter }{Bk2lRhoSigma (for IsInt,IsInt,IsInt,IsInt)}}{subsection.11.1.7}{}}
+\@writefile{brf}{\backcite{Wil85}{{76}{11.1.7}{subsection.11.1.7}}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.2}\textcolor {Chapter }{Operations on reflexible maps}}{77}{section.11.2}\protected@file@percent }
+\newlabel{Chapter_Maps_On_Surfaces_Section_Operations_on_reflexible_maps}{{11.2}{77}{\textcolor {Chapter }{Operations on reflexible maps}}{section.11.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2.1}\textcolor {Chapter }{Opp (for IsMapOnSurface)}}{77}{subsection.11.2.1}\protected@file@percent }
+\newlabel{Opp:for IsMapOnSurface}{{11.2.1}{77}{\textcolor {Chapter }{Opp (for IsMapOnSurface)}}{subsection.11.2.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.2.2}\textcolor {Chapter }{Hole (for IsMapOnSurface,IsInt)}}{77}{subsection.11.2.2}\protected@file@percent }
 \newlabel{Hole:for IsMapOnSurface,IsInt}{{11.2.2}{77}{\textcolor {Chapter }{Hole (for IsMapOnSurface,IsInt)}}{subsection.11.2.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {11.3}\textcolor {Chapter }{Map properties}}{77}{section.11.3}\protected@file@percent }
@@ -667,34 +674,34 @@
 \newlabel{Chapter_Maps_On_Surfaces_Section_Operations_on_maps}{{11.4}{77}{\textcolor {Chapter }{Operations on maps}}{section.11.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.4.1}\textcolor {Chapter }{Truncation (for IsMapOnSurface)}}{77}{subsection.11.4.1}\protected@file@percent }
 \newlabel{Truncation:for IsMapOnSurface}{{11.4.1}{77}{\textcolor {Chapter }{Truncation (for IsMapOnSurface)}}{subsection.11.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.2}\textcolor {Chapter }{Snub (for IsMapOnSurface)}}{77}{subsection.11.4.2}\protected@file@percent }
-\newlabel{Snub:for IsMapOnSurface}{{11.4.2}{77}{\textcolor {Chapter }{Snub (for IsMapOnSurface)}}{subsection.11.4.2}{}}
 \citation{Rio14}
 \citation{BerPisWil17}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.2}\textcolor {Chapter }{Snub (for IsMapOnSurface)}}{78}{subsection.11.4.2}\protected@file@percent }
+\newlabel{Snub:for IsMapOnSurface}{{11.4.2}{78}{\textcolor {Chapter }{Snub (for IsMapOnSurface)}}{subsection.11.4.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.4.3}\textcolor {Chapter }{Chamfer (for IsMapOnSurface)}}{78}{subsection.11.4.3}\protected@file@percent }
 \newlabel{Chamfer:for IsMapOnSurface}{{11.4.3}{78}{\textcolor {Chapter }{Chamfer (for IsMapOnSurface)}}{subsection.11.4.3}{}}
 \@writefile{brf}{\backcite{Rio14}{{78}{11.4.3}{subsection.11.4.3}}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.4.4}\textcolor {Chapter }{Subdivision1 (for IsMapOnSurface)}}{78}{subsection.11.4.4}\protected@file@percent }
 \newlabel{Subdivision1:for IsMapOnSurface}{{11.4.4}{78}{\textcolor {Chapter }{Subdivision1 (for IsMapOnSurface)}}{subsection.11.4.4}{}}
 \@writefile{brf}{\backcite{BerPisWil17}{{78}{11.4.4}{subsection.11.4.4}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.5}\textcolor {Chapter }{Subdivision2 (for IsMapOnSurface)}}{78}{subsection.11.4.5}\protected@file@percent }
-\newlabel{Subdivision2:for IsMapOnSurface}{{11.4.5}{78}{\textcolor {Chapter }{Subdivision2 (for IsMapOnSurface)}}{subsection.11.4.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.6}\textcolor {Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}{78}{subsection.11.4.6}\protected@file@percent }
-\newlabel{BarycentricSubdivision:for IsMapOnSurface}{{11.4.6}{78}{\textcolor {Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}{subsection.11.4.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.5}\textcolor {Chapter }{Subdivision2 (for IsMapOnSurface)}}{79}{subsection.11.4.5}\protected@file@percent }
+\newlabel{Subdivision2:for IsMapOnSurface}{{11.4.5}{79}{\textcolor {Chapter }{Subdivision2 (for IsMapOnSurface)}}{subsection.11.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.6}\textcolor {Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}{79}{subsection.11.4.6}\protected@file@percent }
+\newlabel{BarycentricSubdivision:for IsMapOnSurface}{{11.4.6}{79}{\textcolor {Chapter }{BarycentricSubdivision (for IsMapOnSurface)}}{subsection.11.4.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.4.7}\textcolor {Chapter }{Leapfrog (for IsMapOnSurface)}}{79}{subsection.11.4.7}\protected@file@percent }
 \newlabel{Leapfrog:for IsMapOnSurface}{{11.4.7}{79}{\textcolor {Chapter }{Leapfrog (for IsMapOnSurface)}}{subsection.11.4.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.4.8}\textcolor {Chapter }{CombinatorialMap (for IsMapOnSurface)}}{79}{subsection.11.4.8}\protected@file@percent }
 \newlabel{CombinatorialMap:for IsMapOnSurface}{{11.4.8}{79}{\textcolor {Chapter }{CombinatorialMap (for IsMapOnSurface)}}{subsection.11.4.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.9}\textcolor {Chapter }{Angle (for IsMapOnSurface)}}{79}{subsection.11.4.9}\protected@file@percent }
-\newlabel{Angle:for IsMapOnSurface}{{11.4.9}{79}{\textcolor {Chapter }{Angle (for IsMapOnSurface)}}{subsection.11.4.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.10}\textcolor {Chapter }{Gothic (for IsMapOnSurface)}}{79}{subsection.11.4.10}\protected@file@percent }
-\newlabel{Gothic:for IsMapOnSurface}{{11.4.10}{79}{\textcolor {Chapter }{Gothic (for IsMapOnSurface)}}{subsection.11.4.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.9}\textcolor {Chapter }{Angle (for IsMapOnSurface)}}{80}{subsection.11.4.9}\protected@file@percent }
+\newlabel{Angle:for IsMapOnSurface}{{11.4.9}{80}{\textcolor {Chapter }{Angle (for IsMapOnSurface)}}{subsection.11.4.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4.10}\textcolor {Chapter }{Gothic (for IsMapOnSurface)}}{80}{subsection.11.4.10}\protected@file@percent }
+\newlabel{Gothic:for IsMapOnSurface}{{11.4.10}{80}{\textcolor {Chapter }{Gothic (for IsMapOnSurface)}}{subsection.11.4.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {11.5}\textcolor {Chapter }{Conway polyhedron operator notation}}{80}{section.11.5}\protected@file@percent }
 \newlabel{Chapter_Maps_On_Surfaces_Section_Conway_polyhedron_operator_notation}{{11.5}{80}{\textcolor {Chapter }{Conway polyhedron operator notation}}{section.11.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.5.1}\textcolor {Chapter }{Reflection (for IsManiplex)}}{80}{subsection.11.5.1}\protected@file@percent }
 \newlabel{Reflection:for IsManiplex}{{11.5.1}{80}{\textcolor {Chapter }{Reflection (for IsManiplex)}}{subsection.11.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.5.2}\textcolor {Chapter }{Kis (for IsMapOnSurface)}}{80}{subsection.11.5.2}\protected@file@percent }
-\newlabel{Kis:for IsMapOnSurface}{{11.5.2}{80}{\textcolor {Chapter }{Kis (for IsMapOnSurface)}}{subsection.11.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.5.2}\textcolor {Chapter }{Kis (for IsMapOnSurface)}}{81}{subsection.11.5.2}\protected@file@percent }
+\newlabel{Kis:for IsMapOnSurface}{{11.5.2}{81}{\textcolor {Chapter }{Kis (for IsMapOnSurface)}}{subsection.11.5.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.5.3}\textcolor {Chapter }{Needle (for IsMapOnSurface)}}{81}{subsection.11.5.3}\protected@file@percent }
 \newlabel{Needle:for IsMapOnSurface}{{11.5.3}{81}{\textcolor {Chapter }{Needle (for IsMapOnSurface)}}{subsection.11.5.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.5.4}\textcolor {Chapter }{Zip (for IsMapOnSurface)}}{81}{subsection.11.5.4}\protected@file@percent }
@@ -703,8 +710,8 @@
 \newlabel{Ortho:for IsMapOnSurface}{{11.5.5}{81}{\textcolor {Chapter }{Ortho (for IsMapOnSurface)}}{subsection.11.5.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.5.6}\textcolor {Chapter }{Expand (for IsMapOnSurface)}}{81}{subsection.11.5.6}\protected@file@percent }
 \newlabel{Expand:for IsMapOnSurface}{{11.5.6}{81}{\textcolor {Chapter }{Expand (for IsMapOnSurface)}}{subsection.11.5.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.5.7}\textcolor {Chapter }{Gyro (for IsMapOnSurface)}}{81}{subsection.11.5.7}\protected@file@percent }
-\newlabel{Gyro:for IsMapOnSurface}{{11.5.7}{81}{\textcolor {Chapter }{Gyro (for IsMapOnSurface)}}{subsection.11.5.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.5.7}\textcolor {Chapter }{Gyro (for IsMapOnSurface)}}{82}{subsection.11.5.7}\protected@file@percent }
+\newlabel{Gyro:for IsMapOnSurface}{{11.5.7}{82}{\textcolor {Chapter }{Gyro (for IsMapOnSurface)}}{subsection.11.5.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.5.8}\textcolor {Chapter }{Meta (for IsMapOnSurface)}}{82}{subsection.11.5.8}\protected@file@percent }
 \newlabel{Meta:for IsMapOnSurface}{{11.5.8}{82}{\textcolor {Chapter }{Meta (for IsMapOnSurface)}}{subsection.11.5.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.5.9}\textcolor {Chapter }{Bevel (for IsMapOnSurface)}}{82}{subsection.11.5.9}\protected@file@percent }
@@ -713,8 +720,8 @@
 \newlabel{Chapter_Maps_On_Surfaces_Section_Extended_operations}{{11.6}{82}{\textcolor {Chapter }{Extended operations}}{section.11.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.6.1}\textcolor {Chapter }{Subdivide (for IsMapOnSurface)}}{82}{subsection.11.6.1}\protected@file@percent }
 \newlabel{Subdivide:for IsMapOnSurface}{{11.6.1}{82}{\textcolor {Chapter }{Subdivide (for IsMapOnSurface)}}{subsection.11.6.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.6.2}\textcolor {Chapter }{Propeller (for IsMapOnSurface)}}{82}{subsection.11.6.2}\protected@file@percent }
-\newlabel{Propeller:for IsMapOnSurface}{{11.6.2}{82}{\textcolor {Chapter }{Propeller (for IsMapOnSurface)}}{subsection.11.6.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.6.2}\textcolor {Chapter }{Propeller (for IsMapOnSurface)}}{83}{subsection.11.6.2}\protected@file@percent }
+\newlabel{Propeller:for IsMapOnSurface}{{11.6.2}{83}{\textcolor {Chapter }{Propeller (for IsMapOnSurface)}}{subsection.11.6.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.6.3}\textcolor {Chapter }{Loft (for IsMapOnSurface)}}{83}{subsection.11.6.3}\protected@file@percent }
 \newlabel{Loft:for IsMapOnSurface}{{11.6.3}{83}{\textcolor {Chapter }{Loft (for IsMapOnSurface)}}{subsection.11.6.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.6.4}\textcolor {Chapter }{Quinto (for IsMapOnSurface)}}{83}{subsection.11.6.4}\protected@file@percent }
@@ -723,8 +730,8 @@
 \newlabel{JoinLace:for IsMapOnSurface}{{11.6.5}{83}{\textcolor {Chapter }{JoinLace (for IsMapOnSurface)}}{subsection.11.6.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.6.6}\textcolor {Chapter }{Lace (for IsMapOnSurface)}}{83}{subsection.11.6.6}\protected@file@percent }
 \newlabel{Lace:for IsMapOnSurface}{{11.6.6}{83}{\textcolor {Chapter }{Lace (for IsMapOnSurface)}}{subsection.11.6.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.6.7}\textcolor {Chapter }{Stake (for IsMapOnSurface)}}{83}{subsection.11.6.7}\protected@file@percent }
-\newlabel{Stake:for IsMapOnSurface}{{11.6.7}{83}{\textcolor {Chapter }{Stake (for IsMapOnSurface)}}{subsection.11.6.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.6.7}\textcolor {Chapter }{Stake (for IsMapOnSurface)}}{84}{subsection.11.6.7}\protected@file@percent }
+\newlabel{Stake:for IsMapOnSurface}{{11.6.7}{84}{\textcolor {Chapter }{Stake (for IsMapOnSurface)}}{subsection.11.6.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.6.8}\textcolor {Chapter }{Whirl (for IsMapOnSurface)}}{84}{subsection.11.6.8}\protected@file@percent }
 \newlabel{Whirl:for IsMapOnSurface}{{11.6.8}{84}{\textcolor {Chapter }{Whirl (for IsMapOnSurface)}}{subsection.11.6.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {11.6.9}\textcolor {Chapter }{Volute (for IsMapOnSurface)}}{84}{subsection.11.6.9}\protected@file@percent }
@@ -938,7 +945,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {13.2.5}\textcolor {Chapter }{LayerGraph (for IsGroup, IsInt, IsInt)}}{105}{subsection.13.2.5}\protected@file@percent }
 \newlabel{LayerGraph:for IsGroup, IsInt, IsInt}{{13.2.5}{105}{\textcolor {Chapter }{LayerGraph (for IsGroup, IsInt, IsInt)}}{subsection.13.2.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {13.2.6}\textcolor {Chapter }{Skeleton (for IsManiplex)}}{105}{subsection.13.2.6}\protected@file@percent }
-\newlabel{Skeleton:for IsManiplex}{{13.2.6}{105}{\textcolor {Chapter }{Skeleton (for IsManiplex)}}{subsection.13.2.6}{}}
+\newlabel{Skeleton:for IsManiplex}{{13.2.6}{106}{\textcolor {Chapter }{Skeleton (for IsManiplex)}}{subsection.13.2.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {13.2.7}\textcolor {Chapter }{CoSkeleton (for IsManiplex)}}{106}{subsection.13.2.7}\protected@file@percent }
 \newlabel{CoSkeleton:for IsManiplex}{{13.2.7}{106}{\textcolor {Chapter }{CoSkeleton (for IsManiplex)}}{subsection.13.2.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {13.2.8}\textcolor {Chapter }{Hasse (for IsManiplex)}}{106}{subsection.13.2.8}\protected@file@percent }
@@ -1006,7 +1013,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {14.1.8}\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex,IsList)}}{114}{subsection.14.1.8}\protected@file@percent }
 \newlabel{VoltageGraph:for IsGroup,IsPremaniplex,IsList}{{14.1.8}{114}{\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex,IsList)}}{subsection.14.1.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {14.1.9}\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex)}}{114}{subsection.14.1.9}\protected@file@percent }
-\newlabel{VoltageGraph:for IsGroup,IsPremaniplex}{{14.1.9}{114}{\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex)}}{subsection.14.1.9}{}}
+\newlabel{VoltageGraph:for IsGroup,IsPremaniplex}{{14.1.9}{115}{\textcolor {Chapter }{VoltageGraph (for IsGroup,IsPremaniplex)}}{subsection.14.1.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {14.1.10}\textcolor {Chapter }{ChangeVoltage (for IsVoltageGraph,IsList, IsObject)}}{115}{subsection.14.1.10}\protected@file@percent }
 \newlabel{ChangeVoltage:for IsVoltageGraph,IsList, IsObject}{{14.1.10}{115}{\textcolor {Chapter }{ChangeVoltage (for IsVoltageGraph,IsList, IsObject)}}{subsection.14.1.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {14.1.11}\textcolor {Chapter }{ChangeVoltage (for IsVoltageGraph,IsInt,IsInt, IsObject)}}{115}{subsection.14.1.11}\protected@file@percent }
@@ -1015,8 +1022,8 @@
 \newlabel{DerivedGraph:for IsVoltageGraph}{{14.1.12}{115}{\textcolor {Chapter }{DerivedGraph (for IsVoltageGraph)}}{subsection.14.1.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {14.1.13}\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph, IsManiplex)}}{115}{subsection.14.1.13}\protected@file@percent }
 \newlabel{VoltageOperator:for IsVoltageGraph, IsManiplex}{{14.1.13}{115}{\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph, IsManiplex)}}{subsection.14.1.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.1.14}\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph,IsEdgeLabeledGraph)}}{115}{subsection.14.1.14}\protected@file@percent }
-\newlabel{VoltageOperator:for IsVoltageGraph,IsEdgeLabeledGraph}{{14.1.14}{115}{\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph,IsEdgeLabeledGraph)}}{subsection.14.1.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.1.14}\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph,IsEdgeLabeledGraph)}}{116}{subsection.14.1.14}\protected@file@percent }
+\newlabel{VoltageOperator:for IsVoltageGraph,IsEdgeLabeledGraph}{{14.1.14}{116}{\textcolor {Chapter }{VoltageOperator (for IsVoltageGraph,IsEdgeLabeledGraph)}}{subsection.14.1.14}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {15}\textcolor {Chapter }{Databases}}{117}{chapter.15}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -1027,7 +1034,7 @@
 \newlabel{WriteManiplexesToFile}{{15.1.1}{117}{\textcolor {Chapter }{WriteManiplexesToFile}}{subsection.15.1.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {15.1.2}\textcolor {Chapter }{ManiplexesFromFile}}{117}{subsection.15.1.2}\protected@file@percent }
 \newlabel{ManiplexesFromFile}{{15.1.2}{117}{\textcolor {Chapter }{ManiplexesFromFile}}{subsection.15.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.3}\textcolor {Chapter }{DegeneratePolyhedra}}{118}{subsection.15.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.3}\textcolor {Chapter }{DegeneratePolyhedra}}{117}{subsection.15.1.3}\protected@file@percent }
 \newlabel{DegeneratePolyhedra}{{15.1.3}{118}{\textcolor {Chapter }{DegeneratePolyhedra}}{subsection.15.1.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {15.1.4}\textcolor {Chapter }{FlatRegularPolyhedra}}{118}{subsection.15.1.4}\protected@file@percent }
 \newlabel{FlatRegularPolyhedra}{{15.1.4}{118}{\textcolor {Chapter }{FlatRegularPolyhedra}}{subsection.15.1.4}{}}
@@ -1091,8 +1098,8 @@
 \newlabel{PermFromRange:for IsPerm, IsPerm, IsPerm}{{16.3.4}{125}{\textcolor {Chapter }{PermFromRange (for IsPerm, IsPerm, IsPerm)}}{subsection.16.3.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {16.4}\textcolor {Chapter }{Words on relations}}{125}{section.16.4}\protected@file@percent }
 \newlabel{Chapter_Utility_Functions_Section_Words_on_relations}{{16.4}{125}{\textcolor {Chapter }{Words on relations}}{section.16.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.4.1}\textcolor {Chapter }{ParseStringCRels}}{125}{subsection.16.4.1}\protected@file@percent }
-\newlabel{ParseStringCRels}{{16.4.1}{125}{\textcolor {Chapter }{ParseStringCRels}}{subsection.16.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.4.1}\textcolor {Chapter }{ParseGgiRels}}{125}{subsection.16.4.1}\protected@file@percent }
+\newlabel{ParseGgiRels}{{16.4.1}{125}{\textcolor {Chapter }{ParseGgiRels}}{subsection.16.4.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {16.4.2}\textcolor {Chapter }{ParseRotGpRels}}{125}{subsection.16.4.2}\protected@file@percent }
 \newlabel{ParseRotGpRels}{{16.4.2}{125}{\textcolor {Chapter }{ParseRotGpRels}}{subsection.16.4.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {16.4.3}\textcolor {Chapter }{StandardizeSggi}}{126}{subsection.16.4.3}\protected@file@percent }

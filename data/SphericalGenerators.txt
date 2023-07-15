@@ -19,3 +19,6 @@ dodecahedralRootVertex:=BaseFixedSpace(IhGens{[1,2]})[1];
  p:=PosetFromAtomicList(faces);;
  c:=ConnectionGroup(p);;
  IsIsomorphicManiplex(Maniplex(c),ARP([3,5]));
+ 
+ 
+ E()

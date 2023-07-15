@@ -47,23 +47,44 @@ DeclareOperation("MkPrime",[IsInt]);
 #! ReflexibleManiplex([ 6, 6 ], "(r2*r1*(r0 r2))^6,z1^2")
 #! @EndExampleSession
 
-#! @Arguments k, l
+#! @Arguments k, 2l
 #! @Returns IsManiplex
-#! @Description Given integers <A>k,l</A>, gives the map $B(k,2l)$. 
+#! @Description Given integers <A>k,2l</A>, gives the map $B(k,2l)$. 
 DeclareOperation("Bk2l",[IsInt,IsInt]);
 #! @BeginExampleSession
-#! gap> Bk2l(4,5);
+#! gap> Bk2l(4,10);
 #! 3-maniplex with 80 flags
 #! @EndExampleSession
 
-#! @Arguments k, l
+#! @Arguments k, 2l
 #! @Returns IsManiplex
-#! @Description Given integers <A>k,l</A>, gives the map $B^*(k,2l)$. 
+#! @Description Given integers <A>k,2l</A>, gives the map $B^*(k,2l)$. 
 DeclareOperation("Bk2lStar",[IsInt,IsInt]);
 #! @BeginExampleSession
-#! gap> Bk2lStar(5,7);
+#! gap> Bk2lStar(5,14);
 #! 3-maniplex with 140 flags
 #! @EndExampleSession
+
+#! @Arguments k, 2l, rho, sigma
+#! @Returns IsPolytope
+#! @Description Given integers satisfying the constraints in <Cite Key="Wil85"/>, this function will create the map $B(k,2l,\rho,\sigma)$.
+DeclareOperation("Bk2lRhoSigma",[IsInt,IsInt,IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> Bk2lRhoSigma(4,16,3,0);
+#! reflexible 3-maniplex
+#! gap> IsSelfPetrial(last);
+#! true
+#! gap> m:=Bk2lRhoSigma(4,16,3,0);
+#! reflexible 3-maniplex
+#! gap> IsSelfPetrial(m);
+#! true
+#! gap> Opp(m)=Bk2lRhoSigma(4,16,5,2);
+#! true
+#! gap> SchlafliSymbol(m);
+#! [ 16, 4 ]
+#! @EndExampleSession
+
+
 
 #! @Section Operations on reflexible maps
 

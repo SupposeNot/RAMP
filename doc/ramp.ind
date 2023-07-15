@@ -29,7 +29,7 @@
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{64}
   \item \texttt  {Angle}
-    \subitem for IsMapOnSurface, \hyperpage{79}
+    \subitem for IsMapOnSurface, \hyperpage{80}
   \item \texttt  {Antiprism}
     \subitem for IsInt, \hyperpage{70}
     \subitem for IsManiplex, \hyperpage{70}
@@ -46,7 +46,7 @@
   \item \texttt  {AutomorphismGroupFpGroup}
     \subitem for IsManiplex, \hyperpage{48}
   \item \texttt  {AutomorphismGroupOnChains}
-    \subitem for IsManiplex, IsCollection, \hyperpage{50}
+    \subitem for IsManiplex, IsCollection, \hyperpage{51}
     \subitem for IsPoset, IsCollection, \hyperpage{96}
   \item \texttt  {AutomorphismGroupOnEdges}
     \subitem for IsManiplex, \hyperpage{51}
@@ -54,7 +54,7 @@
   \item \texttt  {AutomorphismGroupOnElements}
     \subitem for IsPoset, \hyperpage{95}
   \item \texttt  {AutomorphismGroupOnFacets}
-    \subitem for IsManiplex, \hyperpage{51}
+    \subitem for IsManiplex, \hyperpage{52}
     \subitem for IsPoset, \hyperpage{96}
   \item \texttt  {AutomorphismGroupOnFlags}
     \subitem for IsManiplex, \hyperpage{48}
@@ -70,13 +70,15 @@
   \indexspace
 
   \item \texttt  {BarycentricSubdivision}
-    \subitem for IsMapOnSurface, \hyperpage{78}
+    \subitem for IsMapOnSurface, \hyperpage{79}
   \item \texttt  {BaseFlag}
     \subitem for IsPremaniplex, \hyperpage{55}
   \item \texttt  {Bevel}
     \subitem for IsMapOnSurface, \hyperpage{82}
   \item \texttt  {Bk2l}
     \subitem for IsInt,IsInt, \hyperpage{76}
+  \item \texttt  {Bk2lRhoSigma}
+    \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{76}
   \item \texttt  {Bk2lStar}
     \subitem for IsInt,IsInt, \hyperpage{76}
   \item \texttt  {BrucknerSphere}, \hyperpage{28}
@@ -254,14 +256,14 @@
   \item \texttt  {GgiElement}
     \subitem for IsGroup, IsString, \hyperpage{10}
   \item \texttt  {Gothic}
-    \subitem for IsMapOnSurface, \hyperpage{79}
+    \subitem for IsMapOnSurface, \hyperpage{80}
   \item \texttt  {GrandAntiprism}, \hyperpage{29}
   \item \texttt  {GraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{103}
   \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{35}
   \item \texttt  {GreatRhombicuboctahedron}, \hyperpage{36}
   \item \texttt  {Gyro}
-    \subitem for IsMapOnSurface, \hyperpage{81}
+    \subitem for IsMapOnSurface, \hyperpage{82}
 
   \indexspace
 
@@ -449,7 +451,7 @@
   \indexspace
 
   \item \texttt  {Kis}
-    \subitem for IsMapOnSurface, \hyperpage{80}
+    \subitem for IsMapOnSurface, \hyperpage{81}
 
   \indexspace
 
@@ -541,7 +543,7 @@
 
   \item \texttt  {Octahedron}, \hyperpage{25}
   \item \texttt  {Opp}
-    \subitem for IsMapOnSurface, \hyperpage{76}
+    \subitem for IsMapOnSurface, \hyperpage{77}
   \item \texttt  {OrderingFunction}
     \subitem for IsPoset, \hyperpage{90}
   \item \texttt  {OrientableCover}
@@ -555,8 +557,8 @@
     \subitem for IsList,IsList, \hyperpage{88}
   \item \texttt  {PairCompareFlagsList}
     \subitem for IsList,IsList, \hyperpage{88}
+  \item \texttt  {ParseGgiRels}, \hyperpage{125}
   \item \texttt  {ParseRotGpRels}, \hyperpage{125}
-  \item \texttt  {ParseStringCRels}, \hyperpage{125}
   \item \texttt  {PartiallyCleave}
     \subitem for IsPoset,IsInt, \hyperpage{89}
   \item \texttt  {PartialOrder}
@@ -607,7 +609,7 @@
     \subitem for IsInt, \hyperpage{70}
     \subitem for IsManiplex, \hyperpage{70}
   \item \texttt  {Propeller}
-    \subitem for IsMapOnSurface, \hyperpage{82}
+    \subitem for IsMapOnSurface, \hyperpage{83}
   \item \texttt  {Pseudorhombicuboctahedron}, \hyperpage{35}
   \item \texttt  {PseudoSchlafliSymbol}
     \subitem for IsManiplex, \hyperpage{42}
@@ -707,7 +709,7 @@
   \item \texttt  {Size}
     \subitem for IsPremaniplex, \hyperpage{37}
   \item \texttt  {Skeleton}
-    \subitem for IsManiplex, \hyperpage{105}
+    \subitem for IsManiplex, \hyperpage{106}
   \item \texttt  {SmallChiral3Maniplexes}, \hyperpage{120}
   \item \texttt  {SmallChiral4Polytopes}, \hyperpage{120}
   \item \texttt  {SmallChiralPolyhedra}, \hyperpage{120}
@@ -724,11 +726,11 @@
   \item \texttt  {SmallStellatedDodecahedron}, \hyperpage{27}
   \item \texttt  {SmallTwoOrbitPolyhedra}, \hyperpage{121}
   \item \texttt  {Snub}
-    \subitem for IsMapOnSurface, \hyperpage{77}
+    \subitem for IsMapOnSurface, \hyperpage{78}
   \item \texttt  {SnubCube}, \hyperpage{35}
   \item \texttt  {SnubDodecahedron}, \hyperpage{35}
   \item \texttt  {Stake}
-    \subitem for IsMapOnSurface, \hyperpage{83}
+    \subitem for IsMapOnSurface, \hyperpage{84}
   \item \texttt  {StandardizeSggi}, \hyperpage{126}
   \item \texttt  {STG1}
     \subitem for IsInt, \hyperpage{29}
@@ -742,7 +744,7 @@
   \item \texttt  {Subdivision1}
     \subitem for IsMapOnSurface, \hyperpage{78}
   \item \texttt  {Subdivision2}
-    \subitem for IsMapOnSurface, \hyperpage{78}
+    \subitem for IsMapOnSurface, \hyperpage{79}
   \item \texttt  {SymmetryTypeGraph}
     \subitem for IsPremaniplex, \hyperpage{55}
 
@@ -811,13 +813,13 @@
     \subitem for IsObject, IsString, \hyperpage{110}
   \item \texttt  {VoltageGraph}
     \subitem for IsGroup,IsList,IsList, \hyperpage{114}
-    \subitem for IsGroup,IsPremaniplex, \hyperpage{114}
+    \subitem for IsGroup,IsPremaniplex, \hyperpage{115}
     \subitem for IsGroup,IsPremaniplex,IsList, \hyperpage{114}
   \item \texttt  {VoltageOperator}
     \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{112}
     \subitem for IsList, IsString,IsManiplex, \hyperpage{112}
     \subitem for IsVoltageGraph, IsManiplex, \hyperpage{115}
-    \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{115}
+    \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{116}
   \item \texttt  {Volute}
     \subitem for IsMapOnSurface, \hyperpage{84}
 
