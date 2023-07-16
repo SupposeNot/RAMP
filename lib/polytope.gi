@@ -53,7 +53,16 @@ InstallMethod(IsPolytopal,
 	
 	return isPolytopal;
 	end);
-	
+
+InstallMethod(IsPolytopal,
+	[IsPremaniplex],
+	function(PM)
+	local isPolytopal, M,C;
+	C:=ConnectionGroup(PM);
+	if IsManiplexable(C) then return IsPolytopal(Maniplex(C));
+		else return false;
+		fi;
+	end);	
 	
 InstallMethod(SatisfiesWeakPathIntersectionProperty,
 	[IsManiplex],

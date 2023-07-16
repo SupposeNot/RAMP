@@ -3,6 +3,8 @@
 #! @Chapter Graphs for Maniplexes
 #! @Section Graph constructors for maniplexes
 
+#! Note that this functionality depends on the functionality of the GRAPE package.
+
 #! @Arguments list, list
 #! @Returns `IsGraph`. Note this returns a directed graph.
 #! @Description Given a list of vertices and a list of directed-edges (represented as ordered pairs), this outputs the directed graph with the appropriate vertex and directed-edge set.
@@ -424,7 +426,7 @@ DeclareOperation("DerivedGraph",[IsList,IsList,IsList]);
 #! @Arguments G, software_name
 #! @Returns `IsString`. 
 #! @Description Given a Graph or EdgeLabeledGraph <A>G</A>, outputs code to view the graph in other software.
-#! Currently mathematica and sage are supported.
+#! Currently Mathematica and Sage are supported. If the software is not specified it will return the code for Mathematica.
 DeclareOperation("ViewGraph",[IsObject, IsString]);
 
 
