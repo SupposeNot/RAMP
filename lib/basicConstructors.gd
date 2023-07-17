@@ -24,6 +24,9 @@
 #! output could be a pre-maniplex that is incorrectly labeled as a maniplex.
 #! For most purposes, this is relatively harmless, since most functions treat
 #! maniplexes and pre-maniplexes in roughly the same way.
+#!
+#! For more information on relators, see the documentation on ParseGgiRels.
+
 DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
 DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
