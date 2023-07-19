@@ -51,9 +51,10 @@
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X79DD94037E0FACD4">4.4-1 IsPolytopal</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7F788D2E7F41CD69">4.4-2 SatisfiesWeakPathIntersectionProperty</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7DEE9BDE7EA6F995">4.4-3 IsFaithful</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E098F677FC33B8F">4.4-4 IsRegularPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X8065FBD27DEAD443">4.4-2 IsPolytopal</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X79F106BA804AC4CE">4.4-3 SatisfiesPathIntersectionProperty</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7DEE9BDE7EA6F995">4.4-4 IsFaithful</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap4.html#X7E098F677FC33B8F">4.4-5 IsRegularPolytope</a></span>
 </div></div>
 </div>
 
@@ -178,7 +179,6 @@ Premaniplex of rank 3 with 2 flags
 
 <h5>4.2-1 <span class="Heading">ReflexibleManiplex</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">name</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -194,7 +194,9 @@ Premaniplex of rank 3 with 2 flags
 true
 </pre></div>
 
-<p>This function first checks whether g is an Sggi. Use <code class="code">ReflexibleManiplexNC</code> to bypass that check. Note, however, that this function does not check whether the generators are all nontrivial and pairwise distinct, and so the output could be a pre-maniplex that is incorrectly labeled as a maniplex. For most purposes, this is relatively harmless, since most functions treat maniplexes and pre-maniplexes in roughly the same way. The second form returns the universal reflexible maniplex with Schlafli symbol <var class="Arg">sym</var>. If the optional argument <var class="Arg">relations</var> is given, then we return the reflexible maniplex with the given defining relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only).</p>
+<p>This function first checks whether g is an Sggi. Use <code class="code">ReflexibleManiplexNC</code> to bypass that check. Note, however, that this function does not check whether the generators are all nontrivial and pairwise distinct, and so the output could be a pre-maniplex that is incorrectly labeled as a maniplex. For most purposes, this is relatively harmless, since most functions treat maniplexes and pre-maniplexes in roughly the same way.</p>
+
+<p>For more information on relators, see the documentation on ParseGgiRels. The second form returns the universal reflexible maniplex with Schlafli symbol <var class="Arg">sym</var>. If the optional argument <var class="Arg">relations</var> is given, then we return the reflexible maniplex with the given defining relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only).</p>
 
 
 <div class="example"><pre>
@@ -350,18 +352,25 @@ true
 
 <p>Returns whether the maniplex <var class="Arg">M</var> is polytopal; i.e., the flag graph of a polytope.</p>
 
-<p><a id="X7F788D2E7F41CD69" name="X7F788D2E7F41CD69"></a></p>
+<p><a id="X8065FBD27DEAD443" name="X8065FBD27DEAD443"></a></p>
 
-<h5>4.4-2 SatisfiesWeakPathIntersectionProperty</h5>
+<h5>4.4-2 IsPolytopal</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesWeakPathIntersectionProperty</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytopal</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p><a id="X79F106BA804AC4CE" name="X79F106BA804AC4CE"></a></p>
+
+<h5>4.4-3 SatisfiesPathIntersectionProperty</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SatisfiesPathIntersectionProperty</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>
 
-<p>Tests for the weak path intersection property in a maniplex. Definitions and description available in <a href="chapBib.html#biBGleHub18">[GH18]</a>.</p>
+<p>Tests for the weak path intersection property in a maniplex. Definitions and description available in <a href="chapBib.html#biBGarHub18">[GVH18]</a>.</p>
 
 <p><a id="X7DEE9BDE7EA6F995" name="X7DEE9BDE7EA6F995"></a></p>
 
-<h5>4.4-3 IsFaithful</h5>
+<h5>4.4-4 IsFaithful</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFaithful</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns whether the maniplex <var class="Arg">m</var> is faithful, as defined in "Polytopality of Maniplexes"; i.e., whether for each flag the intersection of all the i-faces containing that flag is just the flag itself.</p>
@@ -376,7 +385,7 @@ false
 
 <p><a id="X7E098F677FC33B8F" name="X7E098F677FC33B8F"></a></p>
 
-<h5>4.4-4 IsRegularPolytope</h5>
+<h5>4.4-5 IsRegularPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRegularPolytope</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns whether a maniplex is a regular polytope.</p>

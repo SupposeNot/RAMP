@@ -9,8 +9,8 @@
 DeclareProperty("IsPolytopal", IsPremaniplex);
 #! @Arguments M
 #! @Returns IsBool
-#! @Description Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GleHub18"/>.
-DeclareProperty("SatisfiesWeakPathIntersectionProperty", IsManiplex);
+#! @Description Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GarHub18"/>.
+DeclareProperty("SatisfiesPathIntersectionProperty", IsManiplex);
 
 
 #! @Arguments m

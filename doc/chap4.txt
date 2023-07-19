@@ -118,7 +118,6 @@
   
   [1X4.2-1 [33X[0;0YReflexibleManiplex[133X[101X
   
-  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
@@ -140,14 +139,16 @@
   the  generators  are all nontrivial and pairwise distinct, and so the output
   could  be a pre-maniplex that is incorrectly labeled as a maniplex. For most
   purposes, this is relatively harmless, since most functions treat maniplexes
-  and  pre-maniplexes  in  roughly  the  same way. The second form returns the
-  universal  reflexible  maniplex  with  Schlafli  symbol [3Xsym[103X. If the optional
-  argument [3Xrelations[103X is given, then we return the reflexible maniplex with the
-  given  defining  relations.  The  relations can be given by a list of Tietze
-  words  or  as  a  string  of relators or relations that involve r0 etc. This
-  method  automatically  calls [10XInterpolatedString[110X on the relations, so you may
-  use  $variable  in  the relations, and it will be replaced with the value of
-  [10Xvariable[110X (but for global variables only).[133X
+  and pre-maniplexes in roughly the same way.[133X
+  
+  [33X[0;0YFor more information on relators, see the documentation on ParseGgiRels. The
+  second  form  returns the universal reflexible maniplex with Schlafli symbol
+  [3Xsym[103X.  If  the  optional  argument  [3Xrelations[103X  is  given,  then we return the
+  reflexible  maniplex with the given defining relations. The relations can be
+  given by a list of Tietze words or as a string of relators or relations that
+  involve  r0  etc.  This method automatically calls [10XInterpolatedString[110X on the
+  relations,  so  you  may  use  $variable  in  the  relations, and it will be
+  replaced with the value of [10Xvariable[110X (but for global variables only).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
@@ -322,15 +323,20 @@
   [33X[0;0YReturns  whether  the  maniplex  [3XM[103X  is  polytopal; i.e., the flag graph of a
   polytope.[133X
   
-  [1X4.4-2 SatisfiesWeakPathIntersectionProperty[101X
+  [1X4.4-2 IsPolytopal[101X
   
-  [33X[1;0Y[29X[2XSatisfiesWeakPathIntersectionProperty[102X( [3XM[103X ) [32X property[133X
+  [33X[1;0Y[29X[2XIsPolytopal[102X( [3Xarg[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  
+  [1X4.4-3 SatisfiesPathIntersectionProperty[101X
+  
+  [33X[1;0Y[29X[2XSatisfiesPathIntersectionProperty[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YIsBool[133X
   
   [33X[0;0YTests for the weak path intersection property in a maniplex. Definitions and
-  description available in [GH18].[133X
+  description available in [GVH18].[133X
   
-  [1X4.4-3 IsFaithful[101X
+  [1X4.4-4 IsFaithful[101X
   
   [33X[1;0Y[29X[2XIsFaithful[102X( [3Xm[103X ) [32X operation[133X
   
@@ -345,7 +351,7 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
-  [1X4.4-4 IsRegularPolytope[101X
+  [1X4.4-5 IsRegularPolytope[101X
   
   [33X[1;0Y[29X[2XIsRegularPolytope[102X( [3Xmaniplex[103X ) [32X attribute[133X
   

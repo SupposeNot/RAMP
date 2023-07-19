@@ -39,6 +39,9 @@
   
   [1X13.2 [33X[0;0YGraph constructors for maniplexes[133X[101X
   
+  [33X[0;0YNote  that  this  functionality  depends  on  the functionality of the GRAPE
+  package.[133X
+  
   [1X13.2-1 DirectedGraphFromListOfEdges[101X
   
   [33X[1;0Y[29X[2XDirectedGraphFromListOfEdges[102X( [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
@@ -520,7 +523,8 @@
   [6XReturns:[106X  [33X[0;10Y[10XIsString[110X.[133X
   
   [33X[0;0YGiven a Graph or EdgeLabeledGraph [3XG[103X, outputs code to view the graph in other
-  software. Currently mathematica and sage are supported.[133X
+  software.  Currently  Mathematica and Sage are supported. If the software is
+  not specified it will return the code for Mathematica.[133X
   
   [1X13.2-26 ConnectionGroup[101X
   

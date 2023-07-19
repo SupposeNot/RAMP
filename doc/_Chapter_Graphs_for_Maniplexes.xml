@@ -54,6 +54,7 @@ Given two integers <A>n, m</A>, this returns the Complete Bipartite Graph <Code>
 <Section Label="Chapter_Graphs_for_Maniplexes_Section_Graph_constructors_for_maniplexes">
 <Heading>Graph constructors for maniplexes</Heading>
 
+ Note that this functionality depends on the functionality of the GRAPE package.
 <ManSection>
   <Oper Arg="list, list" Name="DirectedGraphFromListOfEdges" Label="for IsList,IsList"/>
  <Returns><Code>IsGraph</Code>. Note this returns a directed graph.
@@ -563,7 +564,7 @@ Edge labeled graph with 360 vertices, and edge labels [ 0, 1, 2 ]
 </Returns>
  <Description>
 Given a Graph or EdgeLabeledGraph <A>G</A>, outputs code to view the graph in other software.
- Currently mathematica and sage are supported.
+ Currently Mathematica and Sage are supported. If the software is not specified it will return the code for Mathematica.
  </Description>
 </ManSection>
 

@@ -1150,9 +1150,6 @@ vertex is incident with one edge of each label. }
 \logpage{[ 4, 2, 1 ]}
 \hyperdef{L}{X7F88B7097E9421AB}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape g})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsGroup}
-\label{ReflexibleManiplex:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape sym[, relations]})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList}
 \label{ReflexibleManiplex:for IsList}
 }\hfill{\scriptsize (operation)}}\\
@@ -1179,8 +1176,10 @@ privileged generators are those returned by GeneratorsOfGroup(g).
 the generators are all nontrivial and pairwise distinct, and so the output
 could be a pre-maniplex that is incorrectly labeled as a maniplex. For most
 purposes, this is relatively harmless, since most functions treat maniplexes
-and pre-maniplexes in roughly the same way. The second form returns the
-universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
+and pre-maniplexes in roughly the same way. 
+
+ For more information on relators, see the documentation on ParseGgiRels. The
+second form returns the universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
 replaced with the value of \texttt{variable} (but for global variables only). 
@@ -1388,11 +1387,28 @@ group. }
 
  
 
-\subsection{\textcolor{Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{IsPolytopal (for IsPremaniplex)}}
 \logpage{[ 4, 4, 2 ]}\nobreak
-\hyperdef{L}{X7F788D2E7F41CD69}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesWeakPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesWeakPathIntersectionProperty@\texttt{Satisfies}\-\texttt{Weak}\-\texttt{Path}\-\texttt{Intersection}\-\texttt{Property}!for IsManiplex}
-\label{SatisfiesWeakPathIntersectionProperty:for IsManiplex}
+\hyperdef{L}{X8065FBD27DEAD443}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape arg})\index{IsPolytopal@\texttt{IsPolytopal}!for IsPremaniplex}
+\label{IsPolytopal:for IsPremaniplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{SatisfiesPathIntersectionProperty (for IsManiplex)}}
+\logpage{[ 4, 4, 3 ]}\nobreak
+\hyperdef{L}{X79F106BA804AC4CE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesPathIntersectionProperty@\texttt{SatisfiesPathIntersectionProperty}!for IsManiplex}
+\label{SatisfiesPathIntersectionProperty:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 IsBool 
@@ -1400,12 +1416,12 @@ IsBool
 
 
  Tests for the weak path intersection property in a maniplex. Definitions and
-description available in \cite{GleHub18}. }
+description available in \cite{GarHub18}. }
 
  
 
 \subsection{\textcolor{Chapter }{IsFaithful (for IsManiplex)}}
-\logpage{[ 4, 4, 3 ]}\nobreak
+\logpage{[ 4, 4, 4 ]}\nobreak
 \hyperdef{L}{X7DEE9BDE7EA6F995}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFaithful({\mdseries\slshape m})\index{IsFaithful@\texttt{IsFaithful}!for IsManiplex}
 \label{IsFaithful:for IsManiplex}
@@ -1426,7 +1442,7 @@ flag itself. }
  
 
 \subsection{\textcolor{Chapter }{IsRegularPolytope (for IsManiplex)}}
-\logpage{[ 4, 4, 4 ]}\nobreak
+\logpage{[ 4, 4, 5 ]}\nobreak
 \hyperdef{L}{X7E098F677FC33B8F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRegularPolytope({\mdseries\slshape maniplex})\index{IsRegularPolytope@\texttt{IsRegularPolytope}!for IsManiplex}
 \label{IsRegularPolytope:for IsManiplex}
@@ -8239,7 +8255,8 @@ https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm }
 \logpage{[ 13, 2, 0 ]}
 \hyperdef{L}{X8142EE7180458E04}{}
 {
-  
+  Note that this functionality depends on the functionality of the GRAPE
+package. 
 
 \subsection{\textcolor{Chapter }{DirectedGraphFromListOfEdges (for IsList,IsList)}}
 \logpage{[ 13, 2, 1 ]}\nobreak
@@ -8878,8 +8895,9 @@ an input }
 
 
 
- Given a Graph or EdgeLabeledGraph \mbox{\texttt{\mdseries\slshape G}}, outputs code to view the graph in other software. Currently mathematica and
-sage are supported. }
+ Given a Graph or EdgeLabeledGraph \mbox{\texttt{\mdseries\slshape G}}, outputs code to view the graph in other software. Currently Mathematica and
+Sage are supported. If the software is not specified it will return the code
+for Mathematica. }
 
  
 
