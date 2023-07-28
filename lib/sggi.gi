@@ -510,6 +510,7 @@ InstallMethod(UniversalRotationGroup,
 	
 	g := FactorGroupFpGroupByRels(f, rels);
 	if (n >= 2) then SetSize(g, infinity); fi;
+	SetIsStringRotationGroup(g, true);
 	return g;
 	end);
 
