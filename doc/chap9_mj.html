@@ -44,13 +44,14 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X79287DCF7835E0F4">9.2-3 IsInternallySelfDual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X871BE6737FF36FE6">9.2-4 IsExternallySelfDual</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X879D377778BF2175">9.2-5 IsProperlySelfDual</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86E347E67EE31555">9.2-6 <span class="Heading">Petrie Dual</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X80B1CE628710B0A0">9.2-6 IsImproperlySelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X86E347E67EE31555">9.2-7 <span class="Heading">Petrie Dual</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-7 IsSelfPetrial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-8 DirectDerivates</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X814A6AB1824DBB9B">9.2-9 IsKaleidoscopic</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X879B118D7CBFF49E">9.2-10 ExponentGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E8EE8907BCDBD87">9.2-11 UpToDuality</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X78FDB0047E3388A5">9.2-8 IsSelfPetrial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7F8BED777CD6B80F">9.2-9 DirectDerivates</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X814A6AB1824DBB9B">9.2-10 IsKaleidoscopic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X879B118D7CBFF49E">9.2-11 ExponentGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7E8EE8907BCDBD87">9.2-12 UpToDuality</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X7EE6BE9E7BB852DC">9.3 <span class="Heading">Mixing of Maniplexes functions</span></a>
 </span>
@@ -170,12 +171,18 @@ reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Amalgamate</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
 
-<p>Constructs the amalgamation of <var class="Arg">M1</var> and <var class="Arg">M2</var>. Implicitly assumes that <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible. Currently only defined for reflexible maniplexes.</p>
+<p>Constructs the amalgamation of the n-maniplexes <var class="Arg">M1</var> and <var class="Arg">M2</var>. This does not check whether <var class="Arg">M1</var> and <var class="Arg">M2</var> are compatible, so the output may not have facets isomorphic to <var class="Arg">M1</var> or vertex-figures isomorphic to <var class="Arg">M2</var>. Currently only defined for rotary maniplexes. Note that if M1 and M2 are chiral, then the amalgamation depends on the choices of base flag for each.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3),CrossPolytope(3));</span>
-reflexible 4-maniplex of type [ 4, 3, 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Amalgamate(Cube(3), Simplex(3)) = Cube(4);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Amalgamate(ToroidalMap44([1,2]), Cube(3)));</span>
+240
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));</span>
+240
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));</span>
+4
 </pre></div>
 
 <p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
@@ -305,9 +312,32 @@ true
 false
 </pre></div>
 
+<p><a id="X80B1CE628710B0A0" name="X80B1CE628710B0A0"></a></p>
+
+<h5>9.2-6 IsImproperlySelfDual</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsImproperlySelfDual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>Returns whether this rooted maniplex is improperly self-dual, meaning that it is self-dual, but there is no isomorphism of <var class="Arg">M</var> to its dual that preserves the flag-orbits. Equivalent to IsSelfDual(M) and not(IsProperlySelfDual(M)).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsImproperlySelfDual(Cube(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsImproperlySelfDual(Simplex(4));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsImproperlySelfDual(ToroidalMap44([1,2]));</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));</span>
+true
+</pre></div>
+
 <p><a id="X86E347E67EE31555" name="X86E347E67EE31555"></a></p>
 
-<h5>9.2-6 <span class="Heading">Petrie Dual</span></h5>
+<h5>9.2-7 <span class="Heading">Petrie Dual</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Petrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The Petrial (Petrie dual) of <var class="Arg">M</var>.</p>
@@ -324,7 +354,7 @@ ReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")
 
 <p><a id="X78FDB0047E3388A5" name="X78FDB0047E3388A5"></a></p>
 
-<h5>9.2-7 IsSelfPetrial</h5>
+<h5>9.2-8 IsSelfPetrial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfPetrial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether this maniplex is isomorphic to its Petrial.</p>
@@ -343,7 +373,7 @@ true
 
 <p><a id="X7F8BED777CD6B80F" name="X7F8BED777CD6B80F"></a></p>
 
-<h5>9.2-8 DirectDerivates</h5>
+<h5>9.2-9 DirectDerivates</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectDerivates</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns a list of the <em>direct derivates</em> of <var class="Arg">M</var>, which are the images of M under duality and Petriality. A 3-maniplex has up to 6 direct derivates, and an n-maniplex with <span class="SimpleMath">\(n \geq 4\)</span> has up to 8. If the option 'polytopal' is set, then only returns those direct derivates that are polytopal.</p>
@@ -358,7 +388,7 @@ true
 
 <p><a id="X814A6AB1824DBB9B" name="X814A6AB1824DBB9B"></a></p>
 
-<h5>9.2-9 IsKaleidoscopic</h5>
+<h5>9.2-10 IsKaleidoscopic</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsKaleidoscopic</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -378,7 +408,7 @@ true
 
 <p><a id="X879B118D7CBFF49E" name="X879B118D7CBFF49E"></a></p>
 
-<h5>9.2-10 ExponentGroup</h5>
+<h5>9.2-11 ExponentGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExponentGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Given a map <var class="Arg">M</var> with constant valency q, returns a list of those integers <span class="SimpleMath">\(e\)</span> in <span class="SimpleMath">\(\{1, ..., q-1\}\)</span> such that <span class="SimpleMath">\(M^e\)</span> is isomorphic to <span class="SimpleMath">\(M\)</span>. That is, such that Hole(M,e) is isomorphic to <var class="Arg">M</var> as a rooted map. Note that despite the name, this is simply a list and not a group.</p>
@@ -395,7 +425,7 @@ true
 
 <p><a id="X7E8EE8907BCDBD87" name="X7E8EE8907BCDBD87"></a></p>
 
-<h5>9.2-11 UpToDuality</h5>
+<h5>9.2-12 UpToDuality</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UpToDuality</code>( <var class="Arg">L</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a list of maniplexes <var class="Arg">L</var>, returns a sublist such that every maniplex in the list is unique and if a non-self-dual maniplex is in the list, then its dual is not in the list. In the case where two or more elements of L are duals of each other, we keep the earliest one.</p>

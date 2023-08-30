@@ -76,12 +76,21 @@
   [33X[1;0Y[29X[2XAmalgamate[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YConstructs  the amalgamation of [3XM1[103X and [3XM2[103X. Implicitly assumes that [3XM1[103X and [3XM2[103X
-  are compatible. Currently only defined for reflexible maniplexes.[133X
+  [33X[0;0YConstructs  the  amalgamation  of  the n-maniplexes [3XM1[103X and [3XM2[103X. This does not
+  check  whether  [3XM1[103X  and [3XM2[103X are compatible, so the output may not have facets
+  isomorphic  to [3XM1[103X or vertex-figures isomorphic to [3XM2[103X. Currently only defined
+  for  rotary  maniplexes.  Note  that  if  M1  and  M2  are  chiral, then the
+  amalgamation depends on the choices of base flag for each.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XAmalgamate(Cube(3),CrossPolytope(3));[127X[104X
-    [4X[28Xreflexible 4-maniplex of type [ 4, 3, 4 ][128X[104X
+    [4X[25Xgap>[125X [27XAmalgamate(Cube(3), Simplex(3)) = Cube(4);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSize(Amalgamate(ToroidalMap44([1,2]), Cube(3)));[127X[104X
+    [4X[28X240[128X[104X
+    [4X[25Xgap>[125X [27XSize(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));[127X[104X
+    [4X[28X240[128X[104X
+    [4X[25Xgap>[125X [27XSize(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));[127X[104X
+    [4X[28X4[128X[104X
   [4X[32X[104X
   
   [1X9.1-7 Medial[101X
@@ -206,8 +215,30 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
+  [1X9.2-6 IsImproperlySelfDual[101X
   
-  [1X9.2-6 [33X[0;0YPetrie Dual[133X[101X
+  [33X[1;0Y[29X[2XIsImproperlySelfDual[102X( [3XM[103X ) [32X property[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
+  
+  [33X[0;0YReturns  whether  this rooted maniplex is improperly self-dual, meaning that
+  it is self-dual, but there is no isomorphism of [3XM[103X to its dual that preserves
+  the flag-orbits. Equivalent to IsSelfDual(M) and not(IsProperlySelfDual(M)).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsImproperlySelfDual(Cube(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsImproperlySelfDual(Simplex(4));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsImproperlySelfDual(ToroidalMap44([1,2]));[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.2-7 [33X[0;0YPetrie Dual[133X[101X
   
   [33X[1;0Y[29X[2XPetrial[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YThe Petrial (Petrie dual) of [3XM[103X.[133X
@@ -223,7 +254,7 @@
     [4X[28XReflexibleManiplex([ 3, 3 ], "((r0 r2)*r1*r2)^3,z1^4")[128X[104X
   [4X[32X[104X
   
-  [1X9.2-7 IsSelfPetrial[101X
+  [1X9.2-8 IsSelfPetrial[101X
   
   [33X[1;0Y[29X[2XIsSelfPetrial[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YWhether this maniplex is isomorphic to its Petrial.[133X
@@ -239,7 +270,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X9.2-8 DirectDerivates[101X
+  [1X9.2-9 DirectDerivates[101X
   
   [33X[1;0Y[29X[2XDirectDerivates[102X( [3XM[103X ) [32X operation[133X
   
@@ -255,7 +286,7 @@
     [4X[28X  ReflexibleManiplex([ 4, 6 ], "(r2*r1*r0)^3") ][128X[104X
   [4X[32X[104X
   
-  [1X9.2-9 IsKaleidoscopic[101X
+  [1X9.2-10 IsKaleidoscopic[101X
   
   [33X[1;0Y[29X[2XIsKaleidoscopic[102X( [3XM[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
@@ -274,7 +305,7 @@
     [4X[28X[ ][128X[104X
   [4X[32X[104X
   
-  [1X9.2-10 ExponentGroup[101X
+  [1X9.2-11 ExponentGroup[101X
   
   [33X[1;0Y[29X[2XExponentGroup[102X( [3XM[103X ) [32X attribute[133X
   
@@ -292,7 +323,7 @@
     [4X[28X[ 1, 3, 7, 9 ][128X[104X
   [4X[32X[104X
   
-  [1X9.2-11 UpToDuality[101X
+  [1X9.2-12 UpToDuality[101X
   
   [33X[1;0Y[29X[2XUpToDuality[102X( [3XL[103X ) [32X operation[133X
   

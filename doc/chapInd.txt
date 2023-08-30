@@ -86,7 +86,7 @@
   [2XDeltak[102X, for IsInt 11.1-2 
   [2XDerivedGraph[102X, for IsList,IsList,IsList 13.2-24 
       for IsVoltageGraph 14.1-12 
-  [2XDirectDerivates[102X, for IsManiplex 9.2-8 
+  [2XDirectDerivates[102X, for IsManiplex 9.2-9 
   [2XDirectedGraphFromListOfEdges[102X, for IsList,IsList 13.2-1 
   [2XDirectSumOfManiplexes[102X, for IsManiplex, IsManiplex 9.4-6 
   [2XDirectSumOfPosets[102X, for IsPoset,IsPoset 12.6-3 
@@ -104,7 +104,7 @@
   [2XEulerCharacteristic[102X, for IsManiplex 6.4-6 
   [2XEvenConnectionGroup[102X, for IsManiplex 7.1-3 
   [2XExpand[102X, for IsMapOnSurface 11.5-6 
-  [2XExponentGroup[102X, for IsMapOnSurface 9.2-10 
+  [2XExponentGroup[102X, for IsMapOnSurface 9.2-11 
   [2XExtraRelators[102X, for IsReflexibleManiplex 7.1-7 
   [2XExtraRotRelators[102X, for IsRotaryManiplex 7.1-8 
   [2XFaceListOfPoset[102X, for IsPoset 12.3-17 
@@ -187,13 +187,14 @@
   [2XIsFullyTransitive[102X, for IsManiplex 7.3-11 
   [2XIsGgi[102X, for IsGroup 3.2-3 
   [2XIsIFaceTransitive[102X, for IsManiplex, IsInt 7.3-7 
+  [2XIsImproperlySelfDual[102X, for IsManiplex 9.2-6 
   [2XIsInternallySelfDual[102X, for IsManiplex 9.2-3 
   [2XIsIOrientable[102X, for IsManiplex, IsList 6.5-2 
   [2XIsIsomorphicManiplex[102X, for IsManiplex, IsManiplex 8.1-8 
   [2XIsIsomorphicPoset[102X, for IsPoset,IsPoset 12.3-1 
   [2XIsIsomorphicRootedManiplex[102X, for IsManiplex, IsManiplex 8.1-10 
       for IsManiplex, IsManiplex, IsInt, IsInt 8.1-9 
-  [2XIsKaleidoscopic[102X, for IsMapOnSurface 9.2-9 
+  [2XIsKaleidoscopic[102X, for IsMapOnSurface 9.2-10 
   [2XIsLattice[102X, for IsPoset 12.2-8 
   [2XIsLocallySpherical[102X, for IsManiplex 6.4-9 
   [2XIsLocallyToroidal[102X, for IsManiplex 6.4-11 
@@ -220,7 +221,7 @@
   [2XIsRotary[102X, for IsPremaniplex 7.5-9 
   [2XIsSelfDual[102X, for IsManiplex 9.2-2 
       for IsPoset 12.2-17 
-  [2XIsSelfPetrial[102X, for IsManiplex 9.2-7 
+  [2XIsSelfPetrial[102X, for IsManiplex 9.2-8 
   [2XIsSggi[102X, for IsGroup 3.2-5 
   [2XIsSpherical[102X, for IsManiplex 6.4-8 
   [2XIsStringC[102X, for IsGroup 3.2-8 
@@ -295,7 +296,7 @@
   [2XPartialOrder[102X, for IsPoset 12.2-7 
   [2XPermFromRange[102X, for IsPerm, IsPerm, IsPerm 16.3-4 
   [2XPetersenGraph[102X 13.1-2 
-  [2XPetrial[102X, for IsManiplex 9.2-6 
+  [2XPetrial[102X, for IsManiplex 9.2-7 
   [2XPetrieLength[102X, for IsManiplex 6.6-3 
   [2XPetrieRelation[102X, for IsInt, IsInt 6.6-4 
   [2XPgon[102X, for IsInt 5.1-3 
@@ -423,7 +424,7 @@
       for IsList 3.2-1 
   [2XUnlabeledFlagGraph[102X, for IsGroup 13.2-3 
   [2XUnlabeledSimpleGraph[102X, for IsEdgeLabeledGraph 13.2-13 
-  [2XUpToDuality[102X, for IsList 9.2-11 
+  [2XUpToDuality[102X, for IsList 9.2-12 
   [2XVerifyProperties[102X 16.4-10 
   [2XVertDegrees[102X, for IsManiplex 6.2-10 
   [2XVertex[102X 5.1-1 
@@ -444,9 +445,9 @@
   [2XWhirl[102X, for IsMapOnSurface 11.6-8 
   [2XWrappedPosetOperation[102X 16.4-5 
   [2XWriteManiplexesToFile[102X 15.1-1 
+  [2XWythoffian[102X, for IsList, IsManiplex 14.1-6 
   [2XWythoffLabeledEdges[102X, for IsInt, IsList 14.1-5 
   [2XWythoffSTG[102X, for IsInt, IsList 14.1-4 
-  [2XWythoffVoltageOperator[102X, for IsInt, IsList, IsManiplex 14.1-6 
   [2XZigzagLength[102X, for IsManiplex, IsInt 6.6-1 
   [2XZigzagVector[102X, for IsManiplex 6.6-2 
   [2XZip[102X, for IsMapOnSurface 11.5-4 

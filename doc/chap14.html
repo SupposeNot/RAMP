@@ -30,7 +30,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X87B717357AD16360">14.1-3 AdmissiblePerms</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7B45168A7EB410C2">14.1-4 WythoffSTG</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X838E62987EA8CE63">14.1-5 WythoffLabeledEdges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X79B4314B7EAE8598">14.1-6 WythoffVoltageOperator</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7D0ACAEB81272E41">14.1-6 Wythoffian</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X80D0DC17799E3DBF">14.1-7 VoltageGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X83B940167FBDDB22">14.1-8 VoltageGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X81682EEF8674907A">14.1-9 VoltageGraph</a></span>
@@ -137,21 +137,27 @@ Labeled Edges of the Symmetry type graph of a medial operation
 [ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ]
 </pre></div>
 
-<p><a id="X79B4314B7EAE8598" name="X79B4314B7EAE8598"></a></p>
+<p><a id="X7D0ACAEB81272E41" name="X7D0ACAEB81272E41"></a></p>
 
-<h5>14.1-6 WythoffVoltageOperator</h5>
+<h5>14.1-6 Wythoffian</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WythoffVoltageOperator</code>( <var class="Arg">n</var>, <var class="Arg">I</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Wythoffian</code>( <var class="Arg">I</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
 
-<p>Returns the maniplex built from a voltage operation given a Wythoffian. That is, this computes the Wythoffian of the rank <var class="Arg">n</var> maniplex <var class="Arg">M</var> using the index set <var class="Arg">I</var>.</p>
+<p>Returns the Wythoffian of the maniplex <var class="Arg">M</var> with set of ringed nodes <var class="Arg">I</var>. For example, if I = [1] then this is the rectification of <var class="Arg">M</var> and if I = [0, 1] then this is truncation of <var class="Arg">M</var>. Behind the scenes, this is accomplished using VoltageOperator.</p>
 
 
 <div class="example"><pre>
-Truncation built using voltages 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W:=Wythoffian([0,1],Dodecahedron());</span>
 3-maniplex with 360 flags
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W=Truncation(Dodecahedron());</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Wythoffian([1], Simplex(4));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(M);</span>
+[10, 30, 30, 10]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(M) = Prism(3);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wythoffian([3], M) = Dual(M);</span>
 true
 </pre></div>
 
