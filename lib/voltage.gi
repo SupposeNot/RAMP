@@ -154,63 +154,71 @@ InstallMethod(WythoffLabeledEdges,
 
 
 
-InstallMethod(WythoffVoltageOperator, 
-	[IsInt, IsList, IsManiplex],
-	function(n,I,M)
-	local V1, V2 , LabEd1, LabEd2, k, v, i, p, W, etain1, etain2, etaout,s, ed,lab, moved;
+InstallMethod(Wythoffian, 
+	[IsList, IsManiplex],
+	function(I,M)
+	local n, V1, V2 , LabEd1, LabEd2, k, v, i, p, W, etain1, etain2, etaout,s, ed,lab, moved;
+
+	n := Rank(M);
+
 	if I = [] then
-	return M;
-	fi;	
+		return M;
+		fi;	
+
 	V1:=AdmissiblePerms(n,I);
 	V2:=[1..Size(V1)];
 	LabEd1:=[];
 	LabEd2:=[];
+
 	for k in V2 do
-	v:=V1[k];
-	Add(LabEd1,[[v],0]);
-	Add(LabEd2,[[k],0]);
-	for i in [1..n-1] do
-	moved:=ShallowCopy(v);
-	moved[i]:=v[i+1];
-	moved[i+1]:=v[i];
-	if (moved in V1) then
-	p:=Position(V1,moved);
-	if p > k then
-	Add(LabEd1, [[v, moved],i]);
-	Add(LabEd2, [[k, p],i]);
-	fi;
-	else
-	Add(LabEd1, [[v],i]);
-	Add(LabEd2, [[k],i]);
-	fi;
-	od;
+		v:=V1[k];
+		Add(LabEd1,[[v],0]);
+		Add(LabEd2,[[k],0]);
+		for i in [1..n-1] do
+			moved:=ShallowCopy(v);
+			moved[i]:=v[i+1];
+			moved[i+1]:=v[i];
+			if (moved in V1) then
+				p:=Position(V1,moved);
+				if p > k then
+					Add(LabEd1, [[v, moved],i]);
+					Add(LabEd2, [[k, p],i]);
+				fi;
+			else
+				Add(LabEd1, [[v],i]);
+				Add(LabEd2, [[k],i]);
+			fi;
+		od;
 	od;	
+
 	etain1:=LabEd1;
 	etain2:=LabEd2;
 	etaout:="";
 
 	for i in [1..Size(etain1)-1] do
-	ed:=etain1[i][1];
-	lab:=etain1[i][2];
-	if Size(ed) = 2 then
-	etaout:= Concatenation(etaout, "Id,");
-	elif Size(ed) =1 then
-	s:=String(ed[1][lab+1]);
-	etaout:= Concatenation(etaout, "r");
-	etaout:= Concatenation(etaout, s);
-	etaout:= Concatenation(etaout, ",");
-	fi;
+		ed := etain1[i][1];
+		lab := etain1[i][2];
+		if Size(ed) = 2 then
+			etaout := Concatenation(etaout, "Id,");
+		elif Size(ed) = 1 then
+			s:=String(ed[1][lab+1]);
+			etaout := Concatenation(etaout, "r");
+			etaout := Concatenation(etaout, s);
+			etaout := Concatenation(etaout, ",");
+		fi;
 	od;
+
 	i:=Size(etain1);
 	ed:=etain1[i][1];
 	lab:=etain1[i][2];
 	if Size(ed) = 2 then
-	etaout:= Concatenation(etaout, "Id]");
+		etaout:= Concatenation(etaout, "Id]");
 	elif Size(ed) =1 then
-	s:=String(ed[1][lab+1]);
-	etaout:= Concatenation(etaout, "r");
-	etaout:= Concatenation(etaout, s);
+		s:=String(ed[1][lab+1]);
+		etaout:= Concatenation(etaout, "r");
+		etaout:= Concatenation(etaout, s);
 	fi;
+
 	return VoltageOperator(etain2,etaout,M);
 	end);
 

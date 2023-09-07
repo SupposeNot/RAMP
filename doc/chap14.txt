@@ -91,20 +91,27 @@
     [4X[28X[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ][128X[104X
   [4X[32X[104X
   
-  [1X14.1-6 WythoffVoltageOperator[101X
+  [1X14.1-6 Wythoffian[101X
   
-  [33X[1;0Y[29X[2XWythoffVoltageOperator[102X( [3Xn[103X, [3XI[103X, [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XWythoffian[102X( [3XI[103X, [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsList[133X
   
-  [33X[0;0YReturns the maniplex built from a voltage operation given a Wythoffian. That
-  is,  this  computes  the Wythoffian of the rank [3Xn[103X maniplex [3XM[103X using the index
-  set [3XI[103X.[133X
+  [33X[0;0YReturns  the  Wythoffian  of  the maniplex [3XM[103X with set of ringed nodes [3XI[103X. For
+  example,  if  I  = [1] then this is the rectification of [3XM[103X and if I = [0, 1]
+  then  this is truncation of [3XM[103X. Behind the scenes, this is accomplished using
+  VoltageOperator.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XTruncation built using voltages [128X[104X
-    [4X[25Xgap>[125X [27XW:=WythoffVoltageOperator(3,[0,1],Dodecahedron());[127X[104X
+    [4X[25Xgap>[125X [27XW:=Wythoffian([0,1],Dodecahedron());[127X[104X
     [4X[28X3-maniplex with 360 flags[128X[104X
     [4X[25Xgap>[125X [27XW=Truncation(Dodecahedron());[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XM := Wythoffian([1], Simplex(4));;[127X[104X
+    [4X[25Xgap>[125X [27XFvector(M);[127X[104X
+    [4X[28X[10, 30, 30, 10][128X[104X
+    [4X[25Xgap>[125X [27XVertexFigure(M) = Prism(3);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XWythoffian([3], M) = Dual(M);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   

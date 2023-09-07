@@ -5002,12 +5002,19 @@ IsManiplex
 
 
 
- Constructs the amalgamation of \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. Implicitly assumes that \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible. Currently only defined for reflexible maniplexes. }
+ Constructs the amalgamation of the n-maniplexes \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. This does not check whether \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible, so the output may not have facets isomorphic to \mbox{\texttt{\mdseries\slshape M1}} or vertex-figures isomorphic to \mbox{\texttt{\mdseries\slshape M2}}. Currently only defined for rotary maniplexes. Note that if M1 and M2 are
+chiral, then the amalgamation depends on the choices of base flag for each. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@Amalgamate(Cube(3),CrossPolytope(3));|
-  reflexible 4-maniplex of type [ 4, 3, 4 ]
+  !gapprompt@gap>| !gapinput@Amalgamate(Cube(3), Simplex(3)) = Cube(4);|
+  true
+  !gapprompt@gap>| !gapinput@Size(Amalgamate(ToroidalMap44([1,2]), Cube(3)));|
+  240
+  !gapprompt@gap>| !gapinput@Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));|
+  240
+  !gapprompt@gap>| !gapinput@Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));|
+  4
 \end{Verbatim}
  
 
@@ -5180,8 +5187,38 @@ maniplexes are properly self-dual. }
   false
 \end{Verbatim}
  
+
+\subsection{\textcolor{Chapter }{IsImproperlySelfDual (for IsManiplex)}}
+\logpage{[ 9, 2, 6 ]}\nobreak
+\hyperdef{L}{X80B1CE628710B0A0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsImproperlySelfDual({\mdseries\slshape M})\index{IsImproperlySelfDual@\texttt{IsImproperlySelfDual}!for IsManiplex}
+\label{IsImproperlySelfDual:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether this rooted maniplex is improperly self-dual, meaning that it
+is self-dual, but there is no isomorphism of \mbox{\texttt{\mdseries\slshape M}} to its dual that preserves the flag-orbits. Equivalent to IsSelfDual(M) and
+not(IsProperlySelfDual(M)). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(Cube(4));|
+  false
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(Simplex(4));|
+  false
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(ToroidalMap44([1,2]));|
+  true
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));|
+  false
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));|
+  true
+\end{Verbatim}
+ 
 \subsection{\textcolor{Chapter }{Petrie Dual}}\label{AutoDoc_generated_group1}
-\logpage{[ 9, 2, 6 ]}
+\logpage{[ 9, 2, 7 ]}
 \hyperdef{L}{X86E347E67EE31555}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Petrial({\mdseries\slshape M})\index{Petrial@\texttt{Petrial}!for IsManiplex}
@@ -5205,7 +5242,7 @@ essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
  
 
 \subsection{\textcolor{Chapter }{IsSelfPetrial (for IsManiplex)}}
-\logpage{[ 9, 2, 7 ]}\nobreak
+\logpage{[ 9, 2, 8 ]}\nobreak
 \hyperdef{L}{X78FDB0047E3388A5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfPetrial({\mdseries\slshape M})\index{IsSelfPetrial@\texttt{IsSelfPetrial}!for IsManiplex}
 \label{IsSelfPetrial:for IsManiplex}
@@ -5233,7 +5270,7 @@ Whether this maniplex is isomorphic to its Petrial.
  
 
 \subsection{\textcolor{Chapter }{DirectDerivates (for IsManiplex)}}
-\logpage{[ 9, 2, 8 ]}\nobreak
+\logpage{[ 9, 2, 9 ]}\nobreak
 \hyperdef{L}{X7F8BED777CD6B80F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectDerivates({\mdseries\slshape M})\index{DirectDerivates@\texttt{DirectDerivates}!for IsManiplex}
 \label{DirectDerivates:for IsManiplex}
@@ -5254,7 +5291,7 @@ derivates that are polytopal. }
  
 
 \subsection{\textcolor{Chapter }{IsKaleidoscopic (for IsMapOnSurface)}}
-\logpage{[ 9, 2, 9 ]}\nobreak
+\logpage{[ 9, 2, 10 ]}\nobreak
 \hyperdef{L}{X814A6AB1824DBB9B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsKaleidoscopic({\mdseries\slshape M})\index{IsKaleidoscopic@\texttt{IsKaleidoscopic}!for IsMapOnSurface}
 \label{IsKaleidoscopic:for IsMapOnSurface}
@@ -5280,7 +5317,7 @@ Hole(M, e) is isomorphic to M as a rooted map. }
  
 
 \subsection{\textcolor{Chapter }{ExponentGroup (for IsMapOnSurface)}}
-\logpage{[ 9, 2, 10 ]}\nobreak
+\logpage{[ 9, 2, 11 ]}\nobreak
 \hyperdef{L}{X879B118D7CBFF49E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExponentGroup({\mdseries\slshape M})\index{ExponentGroup@\texttt{ExponentGroup}!for IsMapOnSurface}
 \label{ExponentGroup:for IsMapOnSurface}
@@ -5302,7 +5339,7 @@ group. }
  
 
 \subsection{\textcolor{Chapter }{UpToDuality (for IsList)}}
-\logpage{[ 9, 2, 11 ]}\nobreak
+\logpage{[ 9, 2, 12 ]}\nobreak
 \hyperdef{L}{X7E8EE8907BCDBD87}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UpToDuality({\mdseries\slshape L})\index{UpToDuality@\texttt{UpToDuality}!for IsList}
 \label{UpToDuality:for IsList}
@@ -9100,26 +9137,31 @@ integer vertices in order to calculate their connection groups. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{WythoffVoltageOperator (for IsInt, IsList, IsManiplex)}}
+\subsection{\textcolor{Chapter }{Wythoffian (for IsList, IsManiplex)}}
 \logpage{[ 14, 1, 6 ]}\nobreak
-\hyperdef{L}{X79B4314B7EAE8598}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffVoltageOperator({\mdseries\slshape n, I, M})\index{WythoffVoltageOperator@\texttt{WythoffVoltageOperator}!for IsInt, IsList, IsManiplex}
-\label{WythoffVoltageOperator:for IsInt, IsList, IsManiplex}
+\hyperdef{L}{X7D0ACAEB81272E41}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Wythoffian({\mdseries\slshape I, M})\index{Wythoffian@\texttt{Wythoffian}!for IsList, IsManiplex}
+\label{Wythoffian:for IsList, IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsList 
 
 
 
- Returns the maniplex built from a voltage operation given a Wythoffian. That
-is, this computes the Wythoffian of the rank \mbox{\texttt{\mdseries\slshape n}} maniplex \mbox{\texttt{\mdseries\slshape M}} using the index set \mbox{\texttt{\mdseries\slshape I}}. }
+ Returns the Wythoffian of the maniplex \mbox{\texttt{\mdseries\slshape M}} with set of ringed nodes \mbox{\texttt{\mdseries\slshape I}}. For example, if I = [1] then this is the rectification of \mbox{\texttt{\mdseries\slshape M}} and if I = [0, 1] then this is truncation of \mbox{\texttt{\mdseries\slshape M}}. Behind the scenes, this is accomplished using VoltageOperator. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  Truncation built using voltages 
-  !gapprompt@gap>| !gapinput@W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());|
+  !gapprompt@gap>| !gapinput@W:=Wythoffian([0,1],Dodecahedron());|
   3-maniplex with 360 flags
   !gapprompt@gap>| !gapinput@W=Truncation(Dodecahedron());|
+  true
+  !gapprompt@gap>| !gapinput@M := Wythoffian([1], Simplex(4));;|
+  !gapprompt@gap>| !gapinput@Fvector(M);|
+  [10, 30, 30, 10]
+  !gapprompt@gap>| !gapinput@VertexFigure(M) = Prism(3);|
+  true
+  !gapprompt@gap>| !gapinput@Wythoffian([3], M) = Dual(M);|
   true
 \end{Verbatim}
  

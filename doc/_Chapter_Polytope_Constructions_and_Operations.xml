@@ -98,16 +98,24 @@ reflexible 4-maniplex of type [ 3, 3, 4 ] with 48 flags
  <Returns>IsManiplex
 </Returns>
  <Description>
-Constructs the amalgamation of <A>M1</A> and <A>M2</A>.
- Implicitly assumes that <A>M1</A> and <A>M2</A> are compatible.
-Currently only defined for reflexible maniplexes.
+Constructs the amalgamation of the n-maniplexes <A>M1</A> and <A>M2</A>. This does not check
+ whether <A>M1</A> and <A>M2</A> are compatible, so the output may not have facets
+ isomorphic to <A>M1</A> or vertex-figures isomorphic to <A>M2</A>.
+ Currently only defined for rotary maniplexes. Note that if M1 and M2 are chiral, then the
+ amalgamation depends on the choices of base flag for each.
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
-gap> Amalgamate(Cube(3),CrossPolytope(3));
-reflexible 4-maniplex of type [ 4, 3, 4 ]
+gap> Amalgamate(Cube(3), Simplex(3)) = Cube(4);
+true
+gap> Size(Amalgamate(ToroidalMap44([1,2]), Cube(3)));
+240
+gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));
+240
+gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));
+4
 ]]></Example>
 
 
@@ -257,6 +265,32 @@ gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^
 true
 gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));
 false
+]]></Example>
+
+
+<ManSection>
+  <Prop Arg="M" Name="IsImproperlySelfDual" Label="for IsManiplex"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+Returns whether this rooted maniplex is improperly self-dual, meaning that
+ it is self-dual, but there is no isomorphism of <A>M</A> to its dual that preserves the flag-orbits.
+ Equivalent to IsSelfDual(M) and not(IsProperlySelfDual(M)).
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> IsImproperlySelfDual(Cube(4));
+false
+gap> IsImproperlySelfDual(Simplex(4));
+false
+gap> IsImproperlySelfDual(ToroidalMap44([1,2]));
+true
+gap> IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));
+false
+gap> IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));
+true
 ]]></Example>
 
 
