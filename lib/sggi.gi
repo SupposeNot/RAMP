@@ -150,7 +150,7 @@ InstallMethod(SggiElement,
 	str := InterpolatedString(str);
 	
 	w := UniversalSggi(Size(GeneratorsOfGroup(g)));
-	x := ParseStringCRels(str, w)[1];
+	x := ParseGgiRels(str, w)[1];
 	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
 	return Image(hom, x);
 	end);
@@ -195,6 +195,54 @@ InstallMethod(IsRelationOfReflexibleManiplex,
 	
 	return SggiElement(M, rel) = SggiElement(M, "");
 	end);
+
+
+InstallMethod(RotGpElement,
+	[IsGroup, IsString],
+	function(g, str)
+	local w, x, hom;
+	
+	if str = "" or UppercaseString(str) = "ID" then
+		return Identity(g);
+	fi;
+
+	str := InterpolatedString(str);
+	
+	w := UniversalRotationGroup(1+Size(GeneratorsOfGroup(g)));
+	x := ParseRotGpRels(str, w)[1];
+	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
+	return Image(hom, x);
+	end);
+	
+InstallOtherMethod(RotGpElement,
+	[IsManiplex, IsString],
+	function(M, str)
+	
+	if not(IsRotary(M)) then
+		Error("RotGpElement is only defined for rotary maniplexes.\n");
+	fi;
+	
+	return RotGpElement(RotationGroup(M), str);
+	end);
+
+InstallMethod(SimplifiedRotGpElement,
+	[IsGroup, IsString],
+	function(g, str)
+	if IsFpGroup(g) then SetReducedMultiplication(g); fi;
+	return RotGpElement(g, str);
+	end);
+	
+InstallOtherMethod(SimplifiedRotGpElement,
+	[IsManiplex, IsString],
+	function(M, str)
+	
+	if not(IsRotary(M)) then
+		Error("SimplifiedRotGpElement is only defined for rotary maniplexes.\n");
+	fi;
+	
+	return SimplifiedRotGpElement(RotationGroup(M), str);
+	end);
+
 	
 	
 # For many purposes, it is useful for sggis to have the same (not just isomorphic) underlying
@@ -311,7 +359,7 @@ InstallMethod(Sggi,
 	w := UniversalSggi(sym);
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
@@ -343,7 +391,7 @@ InstallMethod(SggiFamily,
 			rel := Concatenation("(", wordList[i], ")^", String(orders[i]));
 			Add(rels, rel);
 		od;
-		g := FactorGroupFpGroupByRels(parent, ParseStringCRels(JoinStringsWithSeparator(rels), parent));
+		g := FactorGroupFpGroupByRels(parent, ParseGgiRels(JoinStringsWithSeparator(rels), parent));
 		g!.parentGroup := parent;
 		g!.wordOrders := orders;
 		SetIsSggi(g, true);
@@ -377,7 +425,7 @@ InstallMethod(SectionSubgroup,
 	[IsGroup, IsList],
 	function(g, I)
 	local n, h, old_I, new_I;
-	if not IsSggi(g) then
+	if not(HasIsSggi(g) and IsSggi(g)) then
 		Error("SectionSubgroup is currently only implemented for sggis!");
 	fi;
 	n := Size(GeneratorsOfGroup(g));
@@ -406,6 +454,8 @@ InstallMethod(SectionSubgroup,
 			SetSize(h, 2*Order(h.1*h.2));
 		fi;
 	fi;
+	
+	SetIsSggi(h, true);
 	
 	if HasIsStringC(g) and IsStringC(g) then
 		SetIsStringC(h, true);
@@ -463,6 +513,7 @@ InstallMethod(UniversalRotationGroup,
 	
 	g := FactorGroupFpGroupByRels(f, rels);
 	if (n >= 2) then SetSize(g, infinity); fi;
+	SetIsStringRotationGroup(g, true);
 	return g;
 	end);
 

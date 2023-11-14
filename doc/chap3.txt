@@ -63,7 +63,27 @@
     [4X[28X[ 6, 24, 54, 96, 150 ][128X[104X
   [4X[32X[104X
   
-  [1X3.1-3 GgiElement[101X
+  [1X3.1-3 CyclicGgi[101X
+  
+  [33X[1;0Y[29X[2XCyclicGgi[102X( [3Xcox[103X[, [3Xrelations[103X] ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsFpGroup[110X[133X
+  
+  [33X[0;0YReturns  the  ggi  with  a  cyclic  diagram defined by the given orders, and
+  subject  to  the given relations. [3Xcox[103X gives the orders of r0 r1, r1 r2, ...,
+  r_{n-1} r_0.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xg := CyclicGgi([3,4,5,6]);[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2, r3 ]>[128X[104X
+    [4X[25Xgap>[125X [27XRelatorsOfFpGroup(g);[127X[104X
+    [4X[28X[ r0^2, r1^2, r2^2, r3^2, (r0*r1)^3, (r0*r2)^2, (r0*r3)^6, (r1*r2)^4, (r1*r3)^2, (r2*r3)^5 ][128X[104X
+    [4X[25Xgap>[125X [27Xg2 := CyclicGgi([3,4,3,4], "(r0 r1 r2 r3)^4");[127X[104X
+    [4X[28X<fp group on the generators [ r0, r1, r2, r3 ]>[128X[104X
+    [4X[25Xgap>[125X [27XSize(g2);[127X[104X
+    [4X[28X1440[128X[104X
+  [4X[32X[104X
+  
+  [1X3.1-4 GgiElement[101X
   
   [33X[1;0Y[29X[2XGgiElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe element of [3Xg[103X with underlying word [3Xstr[103X.[133X
@@ -78,7 +98,7 @@
     [4X[28X(1,2,4)[128X[104X
   [4X[32X[104X
   
-  [1X3.1-4 SimplifiedGgiElement[101X
+  [1X3.1-5 SimplifiedGgiElement[101X
   
   [33X[1;0Y[29X[2XSimplifiedGgiElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe element of [3Xg[103X with underlying word [3Xstr[103X, in a reduced form.[133X
@@ -313,7 +333,46 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.2-13 SggiFamily[101X
+  [1X3.2-13 RotGpElement[101X
+  
+  [33X[1;0Y[29X[2XRotGpElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ythe element of the rotation group [3Xg[103X with underlying word [3Xstr[103X.[133X
+  
+  [33X[0;0YThis  method automatically calls [10XInterpolatedString[110X on the relations, so you
+  may  use  $variable in the relations, and it will be replaced with the value
+  of [10Xvariable[110X (but for global variables only).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XOrder(RotGpElement(Cube(3), "s1"));[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XOrder(RotGpElement(ToroidalMap44([1,2]), "s2^-1 s1"));[127X[104X
+    [4X[28X5[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YFor  convenience,  you  can  also  use a rotary maniplex M in place of g, in
+  which case [10XRotationGroup(M)[110X is used for g.[133X
+  
+  [1X3.2-14 SimplifiedRotGpElement[101X
+  
+  [33X[1;0Y[29X[2XSimplifiedRotGpElement[102X( [3Xg[103X, [3Xstr[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ythe element of the rotation group [3Xg[103X with underlying word [3Xstr[103X, in a
+            reduced form.[133X
+  
+  [33X[0;0YThis  acts  like RotGpElement, except that the word is in reduced form. Note
+  that  this  is  accomplished  by calling SetReducedMultiplication on g. As a
+  result, further computations with g may be substantially slower. This method
+  automatically  calls  [10XInterpolatedString[110X  on  the  relations, so you may use
+  $variable  in  the  relations,  and  it  will  be replaced with the value of
+  [10Xvariable[110X  (but for global variables only). For convenience, you can also use
+  a  rotary  maniplex  M in place of g, in which case [10XRotationGroup(M)[110X is used
+  for g.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSimplifiedRotGpElement(ToroidalMap44([1,2]), "s1^6");[127X[104X
+    [4X[28Xs1^2[128X[104X
+  [4X[32X[104X
+  
+  [1X3.2-15 SggiFamily[101X
   
   [33X[1;0Y[29X[2XSggiFamily[102X( [3Xparent[103X, [3Xwords[103X ) [32X operation[133X
   
@@ -339,7 +398,7 @@
   member  of  the  family  is  a  quotient of another member can be done quite
   quickly.[133X
   
-  [1X3.2-14 IsCConnected[101X
+  [1X3.2-16 IsCConnected[101X
   
   [33X[1;0Y[29X[2XIsCConnected[102X( [3Xm[103X ) [32X property[133X
   [6XReturns:[106X  [33X[0;10YIsBool[133X
@@ -354,7 +413,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X3.2-15 SectionSubgroup[101X
+  [1X3.2-17 SectionSubgroup[101X
   
   [33X[1;0Y[29X[2XSectionSubgroup[102X( [3Xg[103X, [3XI[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsSggi[133X
@@ -370,7 +429,7 @@
     [4X[28X12[128X[104X
   [4X[32X[104X
   
-  [1X3.2-16 VertexFigureSubgroup[101X
+  [1X3.2-18 VertexFigureSubgroup[101X
   
   [33X[1;0Y[29X[2XVertexFigureSubgroup[102X( [3Xg[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsSggi[133X
@@ -385,7 +444,7 @@
     [4X[28X6[128X[104X
   [4X[32X[104X
   
-  [1X3.2-17 FacetSubgroup[101X
+  [1X3.2-19 FacetSubgroup[101X
   
   [33X[1;0Y[29X[2XFacetSubgroup[102X( [3Xg[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsSggi[133X

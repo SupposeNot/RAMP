@@ -13,7 +13,7 @@
 #! h1, h2, h3, etc, where hi is expanded to r0 (r1 r2)^(j-1) r1 (the "i-hole" word).
 #! We note that these strings are all restricted to have $i \leq 9$, **including ri**.
 #! This restriction might be changed eventually, but it will require a rewrite of the
-#! method ParseStringCRels that underlies many quotient operations.
+#! method ParseGgiRels that underlies many quotient operations.
 
 DeclareGlobalFunction("CouldBeQuotient");
 
@@ -199,7 +199,7 @@ DeclareOperation("ReflexibleQuotientManiplex", [IsManiplex, IsList]);
 
 #! @Arguments g, rels
 #! @Returns the quotient of <A>g</A> by <A>rels</A>, which is either a list
-#! of Tietze words or a string of relations that is parsed by ParseStringCRels.
+#! of Tietze words or a string of relations that is parsed by ParseGgiRels.
 #! @Description
 #! @BeginExampleSession
 #! gap> g := UniversalSggi(3);

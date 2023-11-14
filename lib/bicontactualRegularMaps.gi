@@ -134,8 +134,10 @@ InstallOtherMethod(MkPrime,
 	
 InstallMethod(Bk2l,
 	[IsInt,IsInt],
-	function(k,l)
-	local l0, l1, l2, r0, r1, r2, r0f, r1f, r2f, blocklength;
+	function(k,ll)
+	local l,l0, l1, l2, r0, r1, r2, r0f, r1f, r2f, blocklength;
+	if IsOddInt(ll) then Error("2l must be even."); fi;
+	l:=ll/2;
 	if k mod 2 <> 0  then Error("k must be even."); fi;
 	blocklength:=2*2*l;
 	r0f:=function(n,l) local temp,value;
@@ -180,8 +182,10 @@ InstallMethod(Bk2l,
 
 InstallMethod(Bk2lStar,
 	[IsInt,IsInt],
-	function(k,l)
-	local l0, l1, l2, r0, r1, r2, r0f, r1f, r2f, blocklength;
+	function(k,ll)
+	local l,l0, l1, l2, r0, r1, r2, r0f, r1f, r2f, blocklength;
+	if IsOddInt(ll) then Error("2l must be even."); fi;
+	l:=ll/2;
 	if (k mod 2) <> (l mod 2) then Error("k and l must have same parity."); fi;
 	blocklength:=2*2*l;
 	r0f:=function(n,l) local temp,value;
@@ -233,6 +237,24 @@ InstallMethod(Bk2lStar,
 	return Maniplex(Group([r0,r1,r0*r2]));
 	end);
 
+
+InstallMethod(Bk2lRhoSigma,
+	[IsInt,IsInt,IsInt,IsInt],
+	function(k,ll,rho,sigma)
+	local g,kappa,l,rrho,ssigma,k2;
+		if IsOddInt(ll) then Error("The value of 2l must be even."); fi;
+		l:=ll/2;
+		if k mod 2 <> 0 then Error("The value k must be even."); fi;
+		kappa:=k/2;
+		if rho*rho mod l <>1  then Error("Values of rho and l are incompatible."); fi;
+		if (2*sigma mod l) <> (kappa*(rho+1) mod l) then Error("Values of k, l, sigma, and rho are incompatible."); fi;
+		if (rho*sigma mod l) <>(sigma mod l) then Error("Values of k, l, sigma, and rho are incompatible."); fi;
+		rrho:=2*rho-1;
+		ssigma:=2*sigma-2;
+		k2:=k-2;
+		g:=Sggi([infinity,infinity],Concatenation("(r0 r1)^",String(ll),", (r2 r1)^",String(k2)," r0 r2 r1 (r0 r1)^",String(ssigma)," r0 r2 r1, r0 r2 r1 r0 r1 r0 r2 r1 (r0 r1)^",String(rrho)));
+	return ReflexibleManiplex(g);
+	end);
 	
 #Operations
 	

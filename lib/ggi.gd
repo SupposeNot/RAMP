@@ -66,6 +66,23 @@ DeclareOperation("Ggi", [IsList, IsList, IsList]);
 #! @EndExampleSession
 #! @EndGroup
 
+#! @Arguments cox[, relations]
+#! @Returns `IsFpGroup`
+#! @Description Returns the ggi with a cyclic diagram defined by the given orders,
+#! and subject to the given relations.
+#! <A>cox</A> gives the orders of r0 r1, r1 r2, ..., r_{n-1} r_0.
+DeclareOperation("CyclicGgi", [IsList, IsList]);
+#! @BeginExampleSession
+#! gap> g := CyclicGgi([3,4,5,6]);
+#! <fp group on the generators [ r0, r1, r2, r3 ]>
+#! gap> RelatorsOfFpGroup(g);
+#! [ r0^2, r1^2, r2^2, r3^2, (r0*r1)^3, (r0*r2)^2, (r0*r3)^6, (r1*r2)^4, (r1*r3)^2, (r2*r3)^5 ]
+#! gap> g2 := CyclicGgi([3,4,3,4], "(r0 r1 r2 r3)^4");
+#! <fp group on the generators [ r0, r1, r2, r3 ]>
+#! gap> Size(g2);
+#! 1440
+#! @EndExampleSession
+
 #! @Arguments g, str
 #! @Returns the element of <A>g</A> with underlying word <A>str</A>.
 #! @Description

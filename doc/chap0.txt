@@ -67,8 +67,9 @@
     3.1 [33X[0;0YGgis[133X
       3.1-1 [33X[0;0YUniversalGgi[133X
       3.1-2 [33X[0;0YGgi[133X
-      3.1-3 GgiElement
-      3.1-4 SimplifiedGgiElement
+      3.1-3 CyclicGgi
+      3.1-4 GgiElement
+      3.1-5 SimplifiedGgiElement
     3.2 [33X[0;0YSggis[133X
       3.2-1 [33X[0;0YUniversalSggi[133X
       3.2-2 [33X[0;0YSggi[133X
@@ -82,11 +83,13 @@
       3.2-10 SggiElement
       3.2-11 SimplifiedSggiElement
       3.2-12 IsRelationOfReflexibleManiplex
-      3.2-13 SggiFamily
-      3.2-14 IsCConnected
-      3.2-15 SectionSubgroup
-      3.2-16 VertexFigureSubgroup
-      3.2-17 FacetSubgroup
+      3.2-13 RotGpElement
+      3.2-14 SimplifiedRotGpElement
+      3.2-15 SggiFamily
+      3.2-16 IsCConnected
+      3.2-17 SectionSubgroup
+      3.2-18 VertexFigureSubgroup
+      3.2-19 FacetSubgroup
     3.3 [33X[0;0YString rotation groups[133X
       3.3-1 UniversalRotationGroup
       3.3-2 UniversalRotationGroup
@@ -107,9 +110,10 @@
       4.3-2 EnantiomorphicForm
     4.4 [33X[0;0YSubclasses of maniplex[133X
       4.4-1 IsPolytopal
-      4.4-2 SatisfiesWeakPathIntersectionProperty
-      4.4-3 IsFaithful
-      4.4-4 IsRegularPolytope
+      4.4-2 IsPolytopal
+      4.4-3 SatisfiesPathIntersectionProperty
+      4.4-4 IsFaithful
+      4.4-5 IsRegularPolytope
   5 [33X[0;0YFamilies of Polytopes[133X
     5.1 [33X[0;0YClassical polytopes[133X
       5.1-1 Vertex
@@ -295,12 +299,13 @@
       9.2-3 IsInternallySelfDual
       9.2-4 IsExternallySelfDual
       9.2-5 IsProperlySelfDual
-      9.2-6 [33X[0;0YPetrie Dual[133X
-      9.2-7 IsSelfPetrial
-      9.2-8 DirectDerivates
-      9.2-9 IsKaleidoscopic
-      9.2-10 ExponentGroup
-      9.2-11 UpToDuality
+      9.2-6 IsImproperlySelfDual
+      9.2-7 [33X[0;0YPetrie Dual[133X
+      9.2-8 IsSelfPetrial
+      9.2-9 DirectDerivates
+      9.2-10 IsKaleidoscopic
+      9.2-11 ExponentGroup
+      9.2-12 UpToDuality
     9.3 [33X[0;0YMixing of Maniplexes functions[133X
       9.3-1 [33X[0;0YMix of groups[133X
       9.3-2 Mix
@@ -330,6 +335,7 @@
       11.1-4 MkPrime
       11.1-5 Bk2l
       11.1-6 Bk2lStar
+      11.1-7 Bk2lRhoSigma
     11.2 [33X[0;0YOperations on reflexible maps[133X
       11.2-1 Opp
       11.2-2 Hole
@@ -486,7 +492,7 @@
       14.1-3 AdmissiblePerms
       14.1-4 WythoffSTG
       14.1-5 WythoffLabeledEdges
-      14.1-6 WythoffVoltageOperator
+      14.1-6 Wythoffian
       14.1-7 VoltageGraph
       14.1-8 VoltageGraph
       14.1-9 VoltageGraph
@@ -530,7 +536,7 @@
       16.3-3 InvolutionListList
       16.3-4 PermFromRange
     16.4 [33X[0;0YWords on relations[133X
-      16.4-1 ParseStringCRels
+      16.4-1 ParseGgiRels
       16.4-2 ParseRotGpRels
       16.4-3 StandardizeSggi
       16.4-4 AddOrAppend

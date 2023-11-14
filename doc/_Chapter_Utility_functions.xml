@@ -173,7 +173,7 @@ gap> PermFromRange((1,2), (101,102), (601,602));
 <Heading>Words on relations</Heading>
 
 <ManSection>
-  <Func Arg="rels, g" Name="ParseStringCRels" />
+  <Func Arg="rels, g" Name="ParseGgiRels" />
  <Returns>a list of relators
 </Returns>
  <Description>
@@ -184,7 +184,7 @@ This helper function is used in several maniplex constructors.
 <Example><![CDATA[
 gap> g := AutomorphismGroup(CubicTiling(2));;
 gap> rels := "(r0 r1 r2 r1)^6";;
-gap> newrels := ParseStringCRels(rels, g);
+gap> newrels := ParseGgiRels(rels, g);
 [ (r0*r1*r2*r1)^6 ]
 gap> newrels[1] in FreeGroupOfFpGroup(g);
 true
@@ -204,7 +204,7 @@ gap> g2 := FactorGroupFpGroupByRels(g, newrels);
   <Func Arg="rels, g" Name="ParseRotGpRels" />
  <Description>
 This helper function is used in several maniplex constructors.
- It is analogous to ParseStringCRels, but for rotation groups instead.
+ It is analogous to ParseGgiRels, but for rotation groups instead.
  </Description>
 </ManSection>
 

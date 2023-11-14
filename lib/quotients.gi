@@ -318,7 +318,7 @@ InstallMethod(QuotientManiplex,
 	function(M, relStr)
 	local g, h, rels;
 	g := AutomorphismGroupFpGroup(M);
-	rels := ParseStringCRels(relStr, g);
+	rels := ParseGgiRels(relStr, g);
 	rels := List(rels, r -> ElementOfFpGroup(FamilyObj(g.1), r));
 	h := Subgroup(g, rels);
 	return Maniplex(M, h);
@@ -338,7 +338,7 @@ InstallMethod(ReflexibleQuotientManiplex,
 	local g, w, h, q;
 	g := AutomorphismGroup(p);
 	if IsString(rels) then
-		rels := ParseStringCRels(rels, g);
+		rels := ParseGgiRels(rels, g);
 	else
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
 	fi;
@@ -353,7 +353,7 @@ InstallMethod(QuotientSggi,
 	local h;
 	if not(IsSggi(g)) then Error("g is not an Sggi"); fi;
 	if IsString(rels) then
-		rels := ParseStringCRels(rels, g);
+		rels := ParseGgiRels(rels, g);
 	else
 		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
 	fi;

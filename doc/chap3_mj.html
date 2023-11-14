@@ -32,8 +32,9 @@
 </span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C4FDCEA829DBCEA">3.1-2 <span class="Heading">Ggi</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B7284B28749998C">3.1-3 GgiElement</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X800BEE467F3D3EB2">3.1-4 SimplifiedGgiElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X879EB4FE80ACFDAE">3.1-3 CyclicGgi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B7284B28749998C">3.1-4 GgiElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X800BEE467F3D3EB2">3.1-5 SimplifiedGgiElement</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X8547ABE882A26E43">3.2 <span class="Heading">Sggis</span></a>
 </span>
@@ -52,11 +53,13 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X815ADF0A7B5A456A">3.2-10 SggiElement</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X78DC846B7C44FFE6">3.2-11 SimplifiedSggiElement</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X8390184C789CC336">3.2-12 IsRelationOfReflexibleManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87C1FF7481A1D9B2">3.2-13 SggiFamily</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X786B2C407A3E9EBB">3.2-14 IsCConnected</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X81E77DB67F3E39C1">3.2-15 SectionSubgroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X81588D527DCC0257">3.2-16 VertexFigureSubgroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7FB424557AEF256A">3.2-17 FacetSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X780C0332784531A8">3.2-13 RotGpElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X804E6174841E51E6">3.2-14 SimplifiedRotGpElement</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X87C1FF7481A1D9B2">3.2-15 SggiFamily</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X786B2C407A3E9EBB">3.2-16 IsCConnected</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X81E77DB67F3E39C1">3.2-17 SectionSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X81588D527DCC0257">3.2-18 VertexFigureSubgroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7FB424557AEF256A">3.2-19 FacetSubgroup</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X83CF21737C173419">3.3 <span class="Heading">String rotation groups</span></a>
 </span>
@@ -123,9 +126,30 @@
 [ 6, 24, 54, 96, 150 ]
 </pre></div>
 
+<p><a id="X879EB4FE80ACFDAE" name="X879EB4FE80ACFDAE"></a></p>
+
+<h5>3.1-3 CyclicGgi</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CyclicGgi</code>( <var class="Arg">cox</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsFpGroup</code></p>
+
+<p>Returns the ggi with a cyclic diagram defined by the given orders, and subject to the given relations. <var class="Arg">cox</var> gives the orders of r0 r1, r1 r2, ..., r_{n-1} r_0.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := CyclicGgi([3,4,5,6]);</span>
+&lt;fp group on the generators [ r0, r1, r2, r3 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RelatorsOfFpGroup(g);</span>
+[ r0^2, r1^2, r2^2, r3^2, (r0*r1)^3, (r0*r2)^2, (r0*r3)^6, (r1*r2)^4, (r1*r3)^2, (r2*r3)^5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g2 := CyclicGgi([3,4,3,4], "(r0 r1 r2 r3)^4");</span>
+&lt;fp group on the generators [ r0, r1, r2, r3 ]&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(g2);</span>
+1440
+</pre></div>
+
 <p><a id="X7B7284B28749998C" name="X7B7284B28749998C"></a></p>
 
-<h5>3.1-3 GgiElement</h5>
+<h5>3.1-4 GgiElement</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GgiElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: the element of <var class="Arg">g</var> with underlying word <var class="Arg">str</var>.</p>
@@ -141,7 +165,7 @@
 
 <p><a id="X800BEE467F3D3EB2" name="X800BEE467F3D3EB2"></a></p>
 
-<h5>3.1-4 SimplifiedGgiElement</h5>
+<h5>3.1-5 SimplifiedGgiElement</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SimplifiedGgiElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: the element of <var class="Arg">g</var> with underlying word <var class="Arg">str</var>, in a reduced form.</p>
@@ -374,9 +398,43 @@ false
 true
 </pre></div>
 
+<p><a id="X780C0332784531A8" name="X780C0332784531A8"></a></p>
+
+<h5>3.2-13 RotGpElement</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotGpElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: the element of the rotation group <var class="Arg">g</var> with underlying word <var class="Arg">str</var>.</p>
+
+<p>This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Order(RotGpElement(Cube(3), "s1"));</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Order(RotGpElement(ToroidalMap44([1,2]), "s2^-1 s1"));</span>
+5
+</pre></div>
+
+<p>For convenience, you can also use a rotary maniplex M in place of g, in which case <code class="code">RotationGroup(M)</code> is used for g.</p>
+
+<p><a id="X804E6174841E51E6" name="X804E6174841E51E6"></a></p>
+
+<h5>3.2-14 SimplifiedRotGpElement</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SimplifiedRotGpElement</code>( <var class="Arg">g</var>, <var class="Arg">str</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: the element of the rotation group <var class="Arg">g</var> with underlying word <var class="Arg">str</var>, in a reduced form.</p>
+
+<p>This acts like RotGpElement, except that the word is in reduced form. Note that this is accomplished by calling SetReducedMultiplication on g. As a result, further computations with g may be substantially slower. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only). For convenience, you can also use a rotary maniplex M in place of g, in which case <code class="code">RotationGroup(M)</code> is used for g.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SimplifiedRotGpElement(ToroidalMap44([1,2]), "s1^6");</span>
+s1^2
+</pre></div>
+
 <p><a id="X87C1FF7481A1D9B2" name="X87C1FF7481A1D9B2"></a></p>
 
-<h5>3.2-13 SggiFamily</h5>
+<h5>3.2-15 SggiFamily</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SggiFamily</code>( <var class="Arg">parent</var>, <var class="Arg">words</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Given a <var class="Arg">parent</var> group and a list of strings that represent words in r0, r1, etc, returns a function. That function accepts a list of positive integers L, and returns the quotient of <var class="Arg">parent</var> by the relations that set the order of each <var class="Arg">words[i]</var> to L[i].</p>
@@ -399,7 +457,7 @@ true
 
 <p><a id="X786B2C407A3E9EBB" name="X786B2C407A3E9EBB"></a></p>
 
-<h5>3.2-14 IsCConnected</h5>
+<h5>3.2-16 IsCConnected</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCConnected</code>( <var class="Arg">m</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>
@@ -416,7 +474,7 @@ true
 
 <p><a id="X81E77DB67F3E39C1" name="X81E77DB67F3E39C1"></a></p>
 
-<h5>3.2-15 SectionSubgroup</h5>
+<h5>3.2-17 SectionSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SectionSubgroup</code>( <var class="Arg">g</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsSggi</p>
@@ -434,7 +492,7 @@ Group([ r0, r2, r3 ])
 
 <p><a id="X81588D527DCC0257" name="X81588D527DCC0257"></a></p>
 
-<h5>3.2-16 VertexFigureSubgroup</h5>
+<h5>3.2-18 VertexFigureSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigureSubgroup</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsSggi</p>
@@ -451,7 +509,7 @@ Group([ r1, r2 ])
 
 <p><a id="X7FB424557AEF256A" name="X7FB424557AEF256A"></a></p>
 
-<h5>3.2-17 FacetSubgroup</h5>
+<h5>3.2-19 FacetSubgroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacetSubgroup</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsSggi</p>

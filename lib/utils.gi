@@ -150,7 +150,7 @@ InstallGlobalFunction(TranslateWord,
 # I want to use this to do something similar with sggis. But the built-in GAP method
 # only allows single-letter generators. So I translate r0 -> a, r1 -> b, etc, and
 # then back again.	
-InstallGlobalFunction(ParseStringCRels,
+InstallGlobalFunction(ParseGgiRels,
 	function(rels, w)
 	local n, f, old_names, new_names, i, parsed_rels, trans_rels, f2;
 	n := Size(GeneratorsOfGroup(w));
@@ -314,7 +314,7 @@ InstallMethod(ReallyNaturalHomomorphismByNormalSubgroup,
 	phi:=NaturalHomomorphismByNormalSubgroup(G,N);
 	gens:=GeneratorsOfGroup(G);
 	qgens:=List(gens,x->Image(phi,x));
-	return GroupHomomorphismByImages(G,FactorGroup(G,N),gens,qgens);
+	return GroupHomomorphismByImages(G,Image(phi),gens,qgens);
 	end);	
 
 InstallGlobalFunction(ActionByGenerators, function(G, S, act)

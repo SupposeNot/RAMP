@@ -47,15 +47,24 @@ InstallMethod(IsPolytopal,
 			isPolytopal := IsStringCPlus(RotationGroup(M));
 			if isPolytopal and IsBound(M!.String) then M!.String := ReplacedString(M!.String, "RotaryManiplex", "AbstractRotaryPolytope"); fi;
 		else
-			isPolytopal := SatisfiesWeakPathIntersectionProperty(M);
+			isPolytopal := SatisfiesPathIntersectionProperty(M);
 		fi;
 	fi;
 	
 	return isPolytopal;
 	end);
+
+InstallMethod(IsPolytopal,
+	[IsPremaniplex],
+	function(PM)
+	local isPolytopal, M,C;
+	C:=ConnectionGroup(PM);
+	if IsManiplexable(C) then return IsPolytopal(Maniplex(C));
+		else return false;
+		fi;
+	end);	
 	
-	
-InstallMethod(SatisfiesWeakPathIntersectionProperty,
+InstallMethod(SatisfiesPathIntersectionProperty,
 	[IsManiplex],
 	function(m)
 	local c, N, r, gens, v, u, i ,j, A, B, C, orbA, orbB, orbC;

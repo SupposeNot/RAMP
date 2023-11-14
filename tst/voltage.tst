@@ -16,6 +16,13 @@ gap> Leapfrog(Simplex(3)) =  VoltageOperator(etain3, etaoutLeapfrog, Simplex(3))
 true
 gap> Truncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));
 true
-gap> W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());;
+gap> W:=Wythoffian([0,1],Dodecahedron());;
 gap> W=Truncation(Dodecahedron());
+true
+gap> M := Wythoffian([1], Simplex(4));;
+gap> Fvector(M);
+[ 10, 30, 30, 10 ]
+gap> VertexFigure(M) = Prism(3);
+true
+gap> Wythoffian([3], M) = Dual(M);
 true

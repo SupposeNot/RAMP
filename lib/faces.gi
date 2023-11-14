@@ -164,6 +164,9 @@ InstallMethod(Section,
 		if HasSchlafliSymbol(M) then
 			SetSchlafliSymbol(q, SchlafliSymbol(M){[i+2..j-1]});
 		fi;
+		if IsPolytopal(M) then
+			SetIsPolytopal(q, true);
+		fi;
 		return q;
 	else
 		g := ConnectionGroup(M);
@@ -185,6 +188,9 @@ InstallMethod(Section,
 			newconn := Action(newconn, MovedPoints(newconn));		
 		fi;
 		q := Maniplex(newconn);
+		if IsPolytopal(M) then
+			SetIsPolytopal(q, true);
+		fi;
 		return q;
 	fi;
 	end);
@@ -326,6 +332,26 @@ InstallMethod(IsFlat,
 	fi;
 	end);
 
+InstallMethod(IsFlat,
+	[IsReflexibleManiplex],
+	function(M)
+	local g;
+	
+	if HasIsDegenerate(M) and IsDegenerate(M) then
+		return true;
+	elif HasIsPolytopal(M) and IsPolytopal(M) then
+		if Rank(M) = 3 then
+			return IsTight(M);
+		elif IsTight(M) then
+			return true;
+		else
+			g := AutomorphismGroup(M);
+			return Size(g) = Size(FacetSubgroup(g)) * Size(VertexFigureSubgroup(g)) / Size(SectionSubgroup(g, [1..Rank(M)-2]));
+		fi;
+	else
+		return IsFlat(M, 0, Rank(M)-1);
+	fi;
+	end);
 
 
 ##### SCHLAFLI SYMBOL #####
@@ -337,7 +363,7 @@ InstallMethod(SchlafliSymbol,
 	
 	schlafliSymbol := ComputeAttr(M, SchlafliSymbol);
 	if schlafliSymbol = fail then 
-		if IsReflexible(M) then
+		if HasIsReflexible(M) and IsReflexible(M) then
 			gens := GeneratorsOfGroup(AutomorphismGroup(M));
 			schlafliSymbol := List([1..Rank(M)-1], i -> Order(gens[i]*gens[i+1]));
 		elif IsRotaryManiplexRotGpRep(M) then

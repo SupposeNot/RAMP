@@ -153,6 +153,12 @@ InstallMethod(IsProperlySelfDual,
 	fi;
 	end);
 
+InstallMethod(IsImproperlySelfDual,
+	[IsManiplex],
+	function(M)
+	return IsSelfDual(M) and not(IsProperlySelfDual(M));
+	end);
+
 InstallMethod(Petrial,
 	[IsManiplex],
 	function(M)

@@ -20,3 +20,11 @@ gap> Opp(Bk2lStar(5,7)) = Petrial(Dual(Petrial(Bk2lStar(5,7))));
 true
 gap> Hole(Bk2lStar(5,7),2);
 3-maniplex with 140 flags
+gap> IsSelfPetrial(Bk2lRhoSigma(4,16,3,0));
+true
+gap> Opp(Bk2lRhoSigma(4,16,3,0))=Bk2lRhoSigma(4,16,5,2);
+true
+gap> Bk2l(4,16)=Bk2lRhoSigma(4,16,1,2);
+true
+gap> Bk2lStar(4,16)=Bk2lRhoSigma(4,16,1,6);
+true

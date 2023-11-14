@@ -15,8 +15,8 @@
   r2)^i (the "i-zigzag" word). h1, h2, h3, etc, where hi is expanded to r0 (r1
   r2)^(j-1)  r1  (the  "i-hole"  word).  We  note  that  these strings are all
   restricted to have [23Xi \leq 9[123X, [13Xincluding ri[113X. This restriction might be changed
-  eventually,  but  it  will  require a rewrite of the method ParseStringCRels
-  that underlies many quotient operations.[133X
+  eventually,  but  it  will require a rewrite of the method ParseGgiRels that
+  underlies many quotient operations.[133X
   
   
   [1X8.1-1 [33X[0;0YIsQuotient[133X[101X
@@ -227,7 +227,7 @@
   
   [33X[1;0Y[29X[2XQuotientSggi[102X( [3Xg[103X, [3Xrels[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ythe  quotient of [3Xg[103X by [3Xrels[103X, which is either a list of Tietze words
-            or a string of relations that is parsed by ParseStringCRels.[133X
+            or a string of relations that is parsed by ParseGgiRels.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg := UniversalSggi(3);[127X[104X

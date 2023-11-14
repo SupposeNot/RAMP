@@ -66,26 +66,49 @@
   
   [1X11.1-5 Bk2l[101X
   
-  [33X[1;0Y[29X[2XBk2l[102X( [3Xk[103X, [3Xl[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XBk2l[102X( [3Xk[103X, [3X2l[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YGiven integers [3Xk,l[103X, gives the map [23XB(k,2l)[123X.[133X
+  [33X[0;0YGiven integers [3Xk,2l[103X, gives the map [23XB(k,2l)[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XBk2l(4,5);[127X[104X
+    [4X[25Xgap>[125X [27XBk2l(4,10);[127X[104X
     [4X[28X3-maniplex with 80 flags[128X[104X
   [4X[32X[104X
   
   [1X11.1-6 Bk2lStar[101X
   
-  [33X[1;0Y[29X[2XBk2lStar[102X( [3Xk[103X, [3Xl[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XBk2lStar[102X( [3Xk[103X, [3X2l[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YGiven integers [3Xk,l[103X, gives the map [23XB^*(k,2l)[123X.[133X
+  [33X[0;0YGiven integers [3Xk,2l[103X, gives the map [23XB^*(k,2l)[123X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XBk2lStar(5,7);[127X[104X
+    [4X[25Xgap>[125X [27XBk2lStar(5,14);[127X[104X
     [4X[28X3-maniplex with 140 flags[128X[104X
+  [4X[32X[104X
+  
+  [1X11.1-7 Bk2lRhoSigma[101X
+  
+  [33X[1;0Y[29X[2XBk2lRhoSigma[102X( [3Xk[103X, [3X2l[103X, [3Xrho[103X, [3Xsigma[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YIsPolytope[133X
+  
+  [33X[0;0YGiven  integers  satisfying  the  constraints in [Wil85], this function will
+  create the map [23XB(k,2l,\rho,\sigma)[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XBk2lRhoSigma(4,16,3,0);[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfPetrial(last);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xm:=Bk2lRhoSigma(4,16,3,0);[127X[104X
+    [4X[28Xreflexible 3-maniplex[128X[104X
+    [4X[25Xgap>[125X [27XIsSelfPetrial(m);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XOpp(m)=Bk2lRhoSigma(4,16,5,2);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(m);[127X[104X
+    [4X[28X[ 16, 4 ][128X[104X
   [4X[32X[104X
   
   
@@ -314,6 +337,8 @@
   [33X[0;0YReverses the orientation of a maniplex.[133X
   
   [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm:=Cube(3);[127X[104X
+    [4X[28XCube(3)[128X[104X
     [4X[25Xgap>[125X [27XGyro(Dual(m))=Reflection(Gyro(Reflection(m)));[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XReflection(m)=EnantiomorphicForm(m);[127X[104X

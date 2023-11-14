@@ -70,7 +70,7 @@ InstallMethod(ReflexibleManiplex,
 	fi;
 
 	w := UniversalSggi(sym);
-	p := ReflexibleManiplex(w);
+	p := ReflexibleManiplexNC(w);
 	SetSchlafliSymbol(p, sym);
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
@@ -108,13 +108,14 @@ InstallMethod(ReflexibleManiplex,
 
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 		desc := Concatenation(desc, String(sym), ", \"", String(rels), "\")");
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 		desc := Concatenation(desc, String(sym), ", ", String(rels), ")");
 	fi;
 	autgp := FactorGroupFpGroupByRels(w, newrels);
+	SetIsSggi(autgp, true);
 	p := ReflexibleManiplexNC(autgp);
 	SetExtraRelators(p, newrels);
 	if ValueOption("set_schlafli") = true then
@@ -452,9 +453,9 @@ InstallMethod(EnantiomorphicForm,
 	function(M)
 	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2, relstr, polytopal;
 	
-	if IsReflexible(M) then 
+	if HasIsReflexible(M) and IsReflexible(M) then 
 		return M; 
-	elif IsChiral(M) then
+	elif IsRotary(M) then
 		rotgp := RotationGroupFpGroup(M);
 		n := Rank(M);
 		standardRels := List(RelatorsOfFpGroup(UniversalRotationGroup(SchlafliSymbol(M))), TietzeWordAbstractWord);

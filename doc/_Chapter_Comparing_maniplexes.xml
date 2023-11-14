@@ -18,7 +18,7 @@
  h1, h2, h3, etc, where hi is expanded to r0 (r1 r2)^(j-1) r1 (the "i-hole" word).
  We note that these strings are all restricted to have <Math>i \leq 9</Math>, <Emph>including ri</Emph>.
  This restriction might be changed eventually, but it will require a rewrite of the
- method ParseStringCRels that underlies many quotient operations.
+ method ParseGgiRels that underlies many quotient operations.
 <ManSection Label="AutoDoc_generated_group2">
 <Heading>IsQuotient</Heading>
   <Oper Arg="M1, M2" Name="IsQuotient" Label="for IsPremaniplex, IsPremaniplex"/>
@@ -279,7 +279,7 @@ true
 
 <ManSection>
   <Oper Arg="g, rels" Name="QuotientSggi" Label="for IsGroup, IsList"/>
- <Returns>the quotient of <A>g</A> by <A>rels</A>, which is either a list  of Tietze words or a string of relations that is parsed by ParseStringCRels.
+ <Returns>the quotient of <A>g</A> by <A>rels</A>, which is either a list  of Tietze words or a string of relations that is parsed by ParseGgiRels.
 </Returns>
  <Description>
 <Example><![CDATA[

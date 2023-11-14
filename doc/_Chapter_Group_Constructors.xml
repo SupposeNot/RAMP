@@ -76,6 +76,30 @@ gap> List(L, Size);
 
 
 <ManSection>
+  <Oper Arg="cox[, relations]" Name="CyclicGgi" Label="for IsList, IsList"/>
+ <Returns><Code>IsFpGroup</Code>
+</Returns>
+ <Description>
+Returns the ggi with a cyclic diagram defined by the given orders,
+ and subject to the given relations.
+ <A>cox</A> gives the orders of r0 r1, r1 r2, ..., r_{n-1} r_0.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> g := CyclicGgi([3,4,5,6]);
+<fp group on the generators [ r0, r1, r2, r3 ]>
+gap> RelatorsOfFpGroup(g);
+[ r0^2, r1^2, r2^2, r3^2, (r0*r1)^3, (r0*r2)^2, (r0*r3)^6, (r1*r2)^4, (r1*r3)^2, (r2*r3)^5 ]
+gap> g2 := CyclicGgi([3,4,3,4], "(r0 r1 r2 r3)^4");
+<fp group on the generators [ r0, r1, r2, r3 ]>
+gap> Size(g2);
+1440
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="g, str" Name="GgiElement" Label="for IsGroup, IsString"/>
  <Returns>the element of <A>g</A> with underlying word <A>str</A>.
 </Returns>
@@ -390,6 +414,51 @@ gap> IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^3");
 false
 gap> IsRelationOfReflexibleManiplex(M, "(r0 r1 r2)^12");
 true
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="g, str" Name="RotGpElement" Label="for IsGroup, IsString"/>
+ <Returns>the element of the rotation group <A>g</A> with underlying word <A>str</A>.
+</Returns>
+ <Description>
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+<Example><![CDATA[
+gap> Order(RotGpElement(Cube(3), "s1"));
+4
+gap> Order(RotGpElement(ToroidalMap44([1,2]), "s2^-1 s1"));
+5
+]]></Example>
+
+
+ For convenience, you can also use a rotary maniplex M in place
+ of g, in which case <Code>RotationGroup(M)</Code> is used for g.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="g, str" Name="SimplifiedRotGpElement" Label="for IsGroup, IsString"/>
+ <Returns>the element of the rotation group <A>g</A> with underlying word <A>str</A>, in a reduced form.
+</Returns>
+ <Description>
+This acts like RotGpElement, except that the word is in reduced form.
+ Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
+ further computations with g may be substantially slower.
+ This method automatically calls <Code>InterpolatedString</Code> on the relations, so
+ you may use &#36;variable in the relations, and it will be replaced with
+ the value of <Code>variable</Code> (but for global variables only).
+ For convenience, you can also use a rotary maniplex M in place
+ of g, in which case <Code>RotationGroup(M)</Code> is used for g.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SimplifiedRotGpElement(ToroidalMap44([1,2]), "s1^6");
+s1^2
 ]]></Example>
 
 

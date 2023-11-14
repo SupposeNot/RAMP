@@ -54,7 +54,7 @@ InstallOtherMethod(UniversalGgi,
 InstallOtherMethod(Ggi,
 	[IsList],
 	function(cox)
-	return UniversalSggi(cox);
+	return UniversalGgi(cox);
 	end);
 	
 InstallMethod(Ggi,
@@ -64,7 +64,7 @@ InstallMethod(Ggi,
 	w := UniversalGgi(cox);
 	if IsString(rels) then
 		rels := InterpolatedString(rels);
-		newrels := ParseStringCRels(rels, w);
+		newrels := ParseGgiRels(rels, w);
 	else
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 	fi;
@@ -82,7 +82,45 @@ InstallMethod(Ggi,
 	return Ggi(cox, relstr);
 	end);
 	
+InstallOtherMethod(CyclicGgi,
+	[IsList],
+	function(orders)
+	local n, cox, i, j;
+	
+	n := Size(orders);
+	cox := [];
+	
+	Add(cox, orders[1]);
+	for j in [3..n-1] do
+		Add(cox, 2);
+	od;
+	Add(cox, orders[n]);
 
+	for i in [2..n-1] do
+		Add(cox, orders[i]);
+		for j in [i+2..n] do
+			Add(cox, 2);
+		od;
+	od;
+
+	return Ggi(cox);
+	end);
+
+InstallMethod(CyclicGgi,
+	[IsList, IsList],
+	function(orders, rels)
+	local w, newrels, g;
+	w := CyclicGgi(orders);
+	if IsString(rels) then
+		rels := InterpolatedString(rels);
+		newrels := ParseGgiRels(rels, w);
+	else
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
+	fi;
+	g := FactorGroupFpGroupByRels(w, newrels);
+	SetIsGgi(g, true);
+	return g;
+	end);
 
 InstallMethod(GgiElement,
 	[IsGroup, IsString],
@@ -96,7 +134,7 @@ InstallMethod(GgiElement,
 	str := InterpolatedString(str);
 	
 	w := UniversalGgi(Size(GeneratorsOfGroup(g)));
-	x := ParseStringCRels(str, w)[1];
+	x := ParseGgiRels(str, w)[1];
 	hom := GroupHomomorphismByImagesNC(FreeGroupOfFpGroup(w), g);
 	return Image(hom, x);
 	end);

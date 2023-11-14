@@ -49,7 +49,7 @@ DeclareOperation("PetrieRelation", [IsInt, IsInt]);
 
 #! @Arguments M, j
 #! @Returns The lengths of <A>j</A>-holes of the 3-maniplex <A>M</A>.
-#! @Description This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r2.
+#! @Description This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r1.
 DeclareOperation("HoleLength", [IsManiplex, IsInt]);
 #! @BeginExampleSession
 #! gap> HoleLength(ToroidalMap44([3,0]),2);

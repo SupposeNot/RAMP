@@ -249,7 +249,7 @@ InstallMethod(ConnectionGroup,
 	
 	connectionGroup := ComputeAttr(M, ConnectionGroup);
 	if connectionGroup = fail then
-		if IsReflexibleManiplexAutGpRep(M) or IsRotaryManiplexRotGpRep(M) and IsReflexible(M) then
+		if IsReflexibleManiplexAutGpRep(M) or IsRotaryManiplexRotGpRep(M) and HasIsReflexible(M) and IsReflexible(M) then
 			if HasSize(M) and Size(M) = infinity then
 				connectionGroup := fail;
 			else
@@ -264,7 +264,7 @@ InstallMethod(ConnectionGroup,
 			h := M!.subgroup;
 			connectionGroup := Image(FactorCosetAction(g, h));
 		elif IsRotaryManiplexRotGpRep(M) then
-			g := AutomorphismGroup(M);
+			g := RotationGroup(M);
 			if Size(g) = infinity then
 				connectionGroup := fail;
 			else
@@ -301,11 +301,11 @@ InstallMethod(ChiralityGroup,
 	[IsRotaryManiplex],
 	function(M)
 	local g, M2, extra_rels, h;
-	if IsReflexible(M) then return TrivialGroup(IsFpGroup); fi;
+	if HasIsReflexible(M) and IsReflexible(M) then return TrivialGroup(IsFpGroup); fi;
 	g := RotationGroup(M);
 	M2 := EnantiomorphicForm(M);
 	extra_rels := ExtraRotRelators(M2);
-	extra_rels := List(extra_rels, r -> ElementOfFpGroup(FamilyObj(g.1), r));
+	extra_rels := List(extra_rels, r -> RotGpElement(g, String(r)));
 	h := NormalClosure(g, Subgroup(g, extra_rels));
 	return h;
 	end);

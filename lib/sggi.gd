@@ -203,6 +203,42 @@ DeclareOperation("IsRelationOfReflexibleManiplex", [IsManiplex, IsString]);
 #! true
 #! @EndExampleSession
 
+
+#! @Arguments g, str
+#! @Returns the element of the rotation group <A>g</A> with underlying word <A>str</A>.
+#! @Description
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable` (but for global variables only).
+#! @BeginExampleSession
+#! gap> Order(RotGpElement(Cube(3), "s1"));
+#! 4
+#! gap> Order(RotGpElement(ToroidalMap44([1,2]), "s2^-1 s1"));
+#! 5
+#! @EndExampleSession
+#! For convenience, you can also use a rotary maniplex M in place
+#! of g, in which case `RotationGroup(M)` is used for g.
+DeclareOperation("RotGpElement", [IsGroup, IsString]);
+
+#! @Arguments g, str
+#! @Returns the element of the rotation group <A>g</A> with underlying word <A>str</A>, in a reduced form.
+#! @Description This acts like RotGpElement, except that the word is in reduced form.
+#! Note that this is accomplished by calling SetReducedMultiplication on g. As a result,
+#! further computations with g may be substantially slower.
+#! This method automatically calls `InterpolatedString` on the relations, so
+#! you may use \$variable in the relations, and it will be replaced with
+#! the value of `variable` (but for global variables only).
+#! For convenience, you can also use a rotary maniplex M in place
+#! of g, in which case `RotationGroup(M)` is used for g.
+DeclareOperation("SimplifiedRotGpElement", [IsGroup, IsString]);
+#! @BeginExampleSession
+#! gap> SimplifiedRotGpElement(ToroidalMap44([1,2]), "s1^6");
+#! s1^2
+#! @EndExampleSession
+
+
+
+
 #! @Arguments parent, words
 #! @Description Given a <A>parent</A> group and a list of strings that
 #! represent words in r0, r1, etc, returns a function. That function

@@ -146,7 +146,6 @@ Premaniplex of rank 3 with 2 flags
 
 <ManSection Label="ReflexibleManiplex">
 <Heading>ReflexibleManiplex</Heading>
-  <Oper Arg="g" Name="ReflexibleManiplex" Label="for IsGroup"/>
   <Oper Arg="sym[, relations]" Name="ReflexibleManiplex" Label="for IsList"/>
   <Oper Arg="sym, words, orders" Name="ReflexibleManiplex" Label="for IsList, IsList, IsList"/>
   <Oper Arg="name" Name="ReflexibleManiplex" Label="for IsString"/>
@@ -170,6 +169,8 @@ true
  output could be a pre-maniplex that is incorrectly labeled as a maniplex.
  For most purposes, this is relatively harmless, since most functions treat
  maniplexes and pre-maniplexes in roughly the same way.
+<P/>
+ For more information on relators, see the documentation on ParseGgiRels.
 The second form returns the universal reflexible maniplex
  with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
  then we return the reflexible maniplex with the given defining relations.
@@ -382,11 +383,21 @@ Returns whether the maniplex <A>M</A> is polytopal;
 
 
 <ManSection>
-  <Prop Arg="M" Name="SatisfiesWeakPathIntersectionProperty" Label="for IsManiplex"/>
+  <Prop Arg="arg" Name="IsPolytopal" Label="for IsPremaniplex"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Prop Arg="M" Name="SatisfiesPathIntersectionProperty" Label="for IsManiplex"/>
  <Returns>IsBool
 </Returns>
  <Description>
-Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GleHub18"/>.
+Tests for the weak path intersection property in a maniplex. Definitions and description available in <Cite Key="GarHub18"/>.
  </Description>
 </ManSection>
 

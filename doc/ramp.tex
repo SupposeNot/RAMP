@@ -361,8 +361,37 @@ Coxeter diagram by the relations obtained by setting each \mbox{\texttt{\mdserie
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{GgiElement (for IsGroup, IsString)}}
+\subsection{\textcolor{Chapter }{CyclicGgi (for IsList, IsList)}}
 \logpage{[ 3, 1, 3 ]}\nobreak
+\hyperdef{L}{X879EB4FE80ACFDAE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CyclicGgi({\mdseries\slshape cox[, relations]})\index{CyclicGgi@\texttt{CyclicGgi}!for IsList, IsList}
+\label{CyclicGgi:for IsList, IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+\texttt{IsFpGroup} 
+
+
+
+ Returns the ggi with a cyclic diagram defined by the given orders, and subject
+to the given relations. \mbox{\texttt{\mdseries\slshape cox}} gives the orders of r0 r1, r1 r2, ...,
+r{\textunderscore}\texttt{\symbol{123}}n-1\texttt{\symbol{125}}
+r{\textunderscore}0. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@g := CyclicGgi([3,4,5,6]);|
+  <fp group on the generators [ r0, r1, r2, r3 ]>
+  !gapprompt@gap>| !gapinput@RelatorsOfFpGroup(g);|
+  [ r0^2, r1^2, r2^2, r3^2, (r0*r1)^3, (r0*r2)^2, (r0*r3)^6, (r1*r2)^4, (r1*r3)^2, (r2*r3)^5 ]
+  !gapprompt@gap>| !gapinput@g2 := CyclicGgi([3,4,3,4], "(r0 r1 r2 r3)^4");|
+  <fp group on the generators [ r0, r1, r2, r3 ]>
+  !gapprompt@gap>| !gapinput@Size(g2);|
+  1440
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{GgiElement (for IsGroup, IsString)}}
+\logpage{[ 3, 1, 4 ]}\nobreak
 \hyperdef{L}{X7B7284B28749998C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{GgiElement({\mdseries\slshape g, str})\index{GgiElement@\texttt{GgiElement}!for IsGroup, IsString}
 \label{GgiElement:for IsGroup, IsString}
@@ -384,7 +413,7 @@ replaced with the value of \texttt{variable} (but for global variables only).
  
 
 \subsection{\textcolor{Chapter }{SimplifiedGgiElement (for IsGroup, IsString)}}
-\logpage{[ 3, 1, 4 ]}\nobreak
+\logpage{[ 3, 1, 5 ]}\nobreak
 \hyperdef{L}{X800BEE467F3D3EB2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SimplifiedGgiElement({\mdseries\slshape g, str})\index{SimplifiedGgiElement@\texttt{SimplifiedGgiElement}!for IsGroup, IsString}
 \label{SimplifiedGgiElement:for IsGroup, IsString}
@@ -735,8 +764,57 @@ replaced with the value of \texttt{variable} (but for global variables only). }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
+\subsection{\textcolor{Chapter }{RotGpElement (for IsGroup, IsString)}}
 \logpage{[ 3, 2, 13 ]}\nobreak
+\hyperdef{L}{X780C0332784531A8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotGpElement({\mdseries\slshape g, str})\index{RotGpElement@\texttt{RotGpElement}!for IsGroup, IsString}
+\label{RotGpElement:for IsGroup, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the element of the rotation group \mbox{\texttt{\mdseries\slshape g}} with underlying word \mbox{\texttt{\mdseries\slshape str}}. 
+
+
+
+ This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
+replaced with the value of \texttt{variable} (but for global variables only). 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Order(RotGpElement(Cube(3), "s1"));|
+  4
+  !gapprompt@gap>| !gapinput@Order(RotGpElement(ToroidalMap44([1,2]), "s2^-1 s1"));|
+  5
+\end{Verbatim}
+ For convenience, you can also use a rotary maniplex M in place of g, in which
+case \texttt{RotationGroup(M)} is used for g. }
+
+ 
+
+\subsection{\textcolor{Chapter }{SimplifiedRotGpElement (for IsGroup, IsString)}}
+\logpage{[ 3, 2, 14 ]}\nobreak
+\hyperdef{L}{X804E6174841E51E6}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SimplifiedRotGpElement({\mdseries\slshape g, str})\index{SimplifiedRotGpElement@\texttt{SimplifiedRotGpElement}!for IsGroup, IsString}
+\label{SimplifiedRotGpElement:for IsGroup, IsString}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+the element of the rotation group \mbox{\texttt{\mdseries\slshape g}} with underlying word \mbox{\texttt{\mdseries\slshape str}}, in a reduced form. 
+
+
+
+ This acts like RotGpElement, except that the word is in reduced form. Note
+that this is accomplished by calling SetReducedMultiplication on g. As a
+result, further computations with g may be substantially slower. This method
+automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
+replaced with the value of \texttt{variable} (but for global variables only). For convenience, you can also use a rotary
+maniplex M in place of g, in which case \texttt{RotationGroup(M)} is used for g. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@SimplifiedRotGpElement(ToroidalMap44([1,2]), "s1^6");|
+  s1^2
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{SggiFamily (for IsGroup, IsList)}}
+\logpage{[ 3, 2, 15 ]}\nobreak
 \hyperdef{L}{X87C1FF7481A1D9B2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SggiFamily({\mdseries\slshape parent, words})\index{SggiFamily@\texttt{SggiFamily}!for IsGroup, IsList}
 \label{SggiFamily:for IsGroup, IsList}
@@ -765,7 +843,7 @@ quickly. }
  
 
 \subsection{\textcolor{Chapter }{IsCConnected (for IsManiplex)}}
-\logpage{[ 3, 2, 14 ]}\nobreak
+\logpage{[ 3, 2, 16 ]}\nobreak
 \hyperdef{L}{X786B2C407A3E9EBB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCConnected({\mdseries\slshape m})\index{IsCConnected@\texttt{IsCConnected}!for IsManiplex}
 \label{IsCConnected:for IsManiplex}
@@ -788,7 +866,7 @@ group a string C-group). }
  
 
 \subsection{\textcolor{Chapter }{SectionSubgroup (for IsGroup, IsList)}}
-\logpage{[ 3, 2, 15 ]}\nobreak
+\logpage{[ 3, 2, 17 ]}\nobreak
 \hyperdef{L}{X81E77DB67F3E39C1}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SectionSubgroup({\mdseries\slshape g, I})\index{SectionSubgroup@\texttt{SectionSubgroup}!for IsGroup, IsList}
 \label{SectionSubgroup:for IsGroup, IsList}
@@ -811,7 +889,7 @@ IsSggi
  
 
 \subsection{\textcolor{Chapter }{VertexFigureSubgroup (for IsGroup)}}
-\logpage{[ 3, 2, 16 ]}\nobreak
+\logpage{[ 3, 2, 18 ]}\nobreak
 \hyperdef{L}{X81588D527DCC0257}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{VertexFigureSubgroup({\mdseries\slshape g})\index{VertexFigureSubgroup@\texttt{VertexFigureSubgroup}!for IsGroup}
 \label{VertexFigureSubgroup:for IsGroup}
@@ -834,7 +912,7 @@ generators except for the first one. }
  
 
 \subsection{\textcolor{Chapter }{FacetSubgroup (for IsGroup)}}
-\logpage{[ 3, 2, 17 ]}\nobreak
+\logpage{[ 3, 2, 19 ]}\nobreak
 \hyperdef{L}{X7FB424557AEF256A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FacetSubgroup({\mdseries\slshape g})\index{FacetSubgroup@\texttt{FacetSubgroup}!for IsGroup}
 \label{FacetSubgroup:for IsGroup}
@@ -1072,9 +1150,6 @@ vertex is incident with one edge of each label. }
 \logpage{[ 4, 2, 1 ]}
 \hyperdef{L}{X7F88B7097E9421AB}{}
 {
-\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape g})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsGroup}
-\label{ReflexibleManiplex:for IsGroup}
-}\hfill{\scriptsize (operation)}}\\
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ReflexibleManiplex({\mdseries\slshape sym[, relations]})\index{ReflexibleManiplex@\texttt{ReflexibleManiplex}!for IsList}
 \label{ReflexibleManiplex:for IsList}
 }\hfill{\scriptsize (operation)}}\\
@@ -1101,8 +1176,10 @@ privileged generators are those returned by GeneratorsOfGroup(g).
 the generators are all nontrivial and pairwise distinct, and so the output
 could be a pre-maniplex that is incorrectly labeled as a maniplex. For most
 purposes, this is relatively harmless, since most functions treat maniplexes
-and pre-maniplexes in roughly the same way. The second form returns the
-universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
+and pre-maniplexes in roughly the same way. 
+
+ For more information on relators, see the documentation on ParseGgiRels. The
+second form returns the universal reflexible maniplex with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. If the optional argument \mbox{\texttt{\mdseries\slshape relations}} is given, then we return the reflexible maniplex with the given defining
 relations. The relations can be given by a list of Tietze words or as a string
 of relators or relations that involve r0 etc. This method automatically calls \texttt{InterpolatedString} on the relations, so you may use \$variable in the relations, and it will be
 replaced with the value of \texttt{variable} (but for global variables only). 
@@ -1310,11 +1387,28 @@ group. }
 
  
 
-\subsection{\textcolor{Chapter }{SatisfiesWeakPathIntersectionProperty (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{IsPolytopal (for IsPremaniplex)}}
 \logpage{[ 4, 4, 2 ]}\nobreak
-\hyperdef{L}{X7F788D2E7F41CD69}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesWeakPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesWeakPathIntersectionProperty@\texttt{Satisfies}\-\texttt{Weak}\-\texttt{Path}\-\texttt{Intersection}\-\texttt{Property}!for IsManiplex}
-\label{SatisfiesWeakPathIntersectionProperty:for IsManiplex}
+\hyperdef{L}{X8065FBD27DEAD443}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytopal({\mdseries\slshape arg})\index{IsPolytopal@\texttt{IsPolytopal}!for IsPremaniplex}
+\label{IsPolytopal:for IsPremaniplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ 
+
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{SatisfiesPathIntersectionProperty (for IsManiplex)}}
+\logpage{[ 4, 4, 3 ]}\nobreak
+\hyperdef{L}{X79F106BA804AC4CE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{SatisfiesPathIntersectionProperty({\mdseries\slshape M})\index{SatisfiesPathIntersectionProperty@\texttt{SatisfiesPathIntersectionProperty}!for IsManiplex}
+\label{SatisfiesPathIntersectionProperty:for IsManiplex}
 }\hfill{\scriptsize (property)}}\\
 \textbf{\indent Returns:\ }
 IsBool 
@@ -1322,12 +1416,12 @@ IsBool
 
 
  Tests for the weak path intersection property in a maniplex. Definitions and
-description available in \cite{GleHub18}. }
+description available in \cite{GarHub18}. }
 
  
 
 \subsection{\textcolor{Chapter }{IsFaithful (for IsManiplex)}}
-\logpage{[ 4, 4, 3 ]}\nobreak
+\logpage{[ 4, 4, 4 ]}\nobreak
 \hyperdef{L}{X7DEE9BDE7EA6F995}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFaithful({\mdseries\slshape m})\index{IsFaithful@\texttt{IsFaithful}!for IsManiplex}
 \label{IsFaithful:for IsManiplex}
@@ -1348,7 +1442,7 @@ flag itself. }
  
 
 \subsection{\textcolor{Chapter }{IsRegularPolytope (for IsManiplex)}}
-\logpage{[ 4, 4, 4 ]}\nobreak
+\logpage{[ 4, 4, 5 ]}\nobreak
 \hyperdef{L}{X7E098F677FC33B8F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRegularPolytope({\mdseries\slshape maniplex})\index{IsRegularPolytope@\texttt{IsRegularPolytope}!for IsManiplex}
 \label{IsRegularPolytope:for IsManiplex}
@@ -4399,7 +4493,7 @@ ri. For example, s2 becomes r1 r2. z1, z2, z3, etc, where zi is expanded to r0
 (r1 r2)\texttt{\symbol{94}}i (the "i-zigzag" word). h1, h2, h3, etc, where hi
 is expanded to r0 (r1 r2)\texttt{\symbol{94}}(j-1) r1 (the "i-hole" word). We
 note that these strings are all restricted to have $i \leq 9$, \emph{including ri}. This restriction might be changed eventually, but it will require a rewrite
-of the method ParseStringCRels that underlies many quotient operations. 
+of the method ParseGgiRels that underlies many quotient operations. 
 \subsection{\textcolor{Chapter }{IsQuotient}}\label{AutoDoc_generated_group2}
 \logpage{[ 8, 1, 1 ]}
 \hyperdef{L}{X87EB22A184A49FB8}{}
@@ -4708,7 +4802,7 @@ generated by r0 r1 r2 r1 and r1 r0 r1 r2. }
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 the quotient of \mbox{\texttt{\mdseries\slshape g}} by \mbox{\texttt{\mdseries\slshape rels}}, which is either a list of Tietze words or a string of relations that is
-parsed by ParseStringCRels. 
+parsed by ParseGgiRels. 
 
 
 
@@ -4908,12 +5002,19 @@ IsManiplex
 
 
 
- Constructs the amalgamation of \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. Implicitly assumes that \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible. Currently only defined for reflexible maniplexes. }
+ Constructs the amalgamation of the n-maniplexes \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}. This does not check whether \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}} are compatible, so the output may not have facets isomorphic to \mbox{\texttt{\mdseries\slshape M1}} or vertex-figures isomorphic to \mbox{\texttt{\mdseries\slshape M2}}. Currently only defined for rotary maniplexes. Note that if M1 and M2 are
+chiral, then the amalgamation depends on the choices of base flag for each. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@Amalgamate(Cube(3),CrossPolytope(3));|
-  reflexible 4-maniplex of type [ 4, 3, 4 ]
+  !gapprompt@gap>| !gapinput@Amalgamate(Cube(3), Simplex(3)) = Cube(4);|
+  true
+  !gapprompt@gap>| !gapinput@Size(Amalgamate(ToroidalMap44([1,2]), Cube(3)));|
+  240
+  !gapprompt@gap>| !gapinput@Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));|
+  240
+  !gapprompt@gap>| !gapinput@Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));|
+  4
 \end{Verbatim}
  
 
@@ -5086,8 +5187,38 @@ maniplexes are properly self-dual. }
   false
 \end{Verbatim}
  
+
+\subsection{\textcolor{Chapter }{IsImproperlySelfDual (for IsManiplex)}}
+\logpage{[ 9, 2, 6 ]}\nobreak
+\hyperdef{L}{X80B1CE628710B0A0}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsImproperlySelfDual({\mdseries\slshape M})\index{IsImproperlySelfDual@\texttt{IsImproperlySelfDual}!for IsManiplex}
+\label{IsImproperlySelfDual:for IsManiplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ Returns whether this rooted maniplex is improperly self-dual, meaning that it
+is self-dual, but there is no isomorphism of \mbox{\texttt{\mdseries\slshape M}} to its dual that preserves the flag-orbits. Equivalent to IsSelfDual(M) and
+not(IsProperlySelfDual(M)). }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(Cube(4));|
+  false
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(Simplex(4));|
+  false
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(ToroidalMap44([1,2]));|
+  true
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));|
+  false
+  !gapprompt@gap>| !gapinput@IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));|
+  true
+\end{Verbatim}
+ 
 \subsection{\textcolor{Chapter }{Petrie Dual}}\label{AutoDoc_generated_group1}
-\logpage{[ 9, 2, 6 ]}
+\logpage{[ 9, 2, 7 ]}
 \hyperdef{L}{X86E347E67EE31555}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Petrial({\mdseries\slshape M})\index{Petrial@\texttt{Petrial}!for IsManiplex}
@@ -5111,7 +5242,7 @@ essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators.
  
 
 \subsection{\textcolor{Chapter }{IsSelfPetrial (for IsManiplex)}}
-\logpage{[ 9, 2, 7 ]}\nobreak
+\logpage{[ 9, 2, 8 ]}\nobreak
 \hyperdef{L}{X78FDB0047E3388A5}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfPetrial({\mdseries\slshape M})\index{IsSelfPetrial@\texttt{IsSelfPetrial}!for IsManiplex}
 \label{IsSelfPetrial:for IsManiplex}
@@ -5139,7 +5270,7 @@ Whether this maniplex is isomorphic to its Petrial.
  
 
 \subsection{\textcolor{Chapter }{DirectDerivates (for IsManiplex)}}
-\logpage{[ 9, 2, 8 ]}\nobreak
+\logpage{[ 9, 2, 9 ]}\nobreak
 \hyperdef{L}{X7F8BED777CD6B80F}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectDerivates({\mdseries\slshape M})\index{DirectDerivates@\texttt{DirectDerivates}!for IsManiplex}
 \label{DirectDerivates:for IsManiplex}
@@ -5160,7 +5291,7 @@ derivates that are polytopal. }
  
 
 \subsection{\textcolor{Chapter }{IsKaleidoscopic (for IsMapOnSurface)}}
-\logpage{[ 9, 2, 9 ]}\nobreak
+\logpage{[ 9, 2, 10 ]}\nobreak
 \hyperdef{L}{X814A6AB1824DBB9B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsKaleidoscopic({\mdseries\slshape M})\index{IsKaleidoscopic@\texttt{IsKaleidoscopic}!for IsMapOnSurface}
 \label{IsKaleidoscopic:for IsMapOnSurface}
@@ -5186,7 +5317,7 @@ Hole(M, e) is isomorphic to M as a rooted map. }
  
 
 \subsection{\textcolor{Chapter }{ExponentGroup (for IsMapOnSurface)}}
-\logpage{[ 9, 2, 10 ]}\nobreak
+\logpage{[ 9, 2, 11 ]}\nobreak
 \hyperdef{L}{X879B118D7CBFF49E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExponentGroup({\mdseries\slshape M})\index{ExponentGroup@\texttt{ExponentGroup}!for IsMapOnSurface}
 \label{ExponentGroup:for IsMapOnSurface}
@@ -5208,7 +5339,7 @@ group. }
  
 
 \subsection{\textcolor{Chapter }{UpToDuality (for IsList)}}
-\logpage{[ 9, 2, 11 ]}\nobreak
+\logpage{[ 9, 2, 12 ]}\nobreak
 \hyperdef{L}{X7E8EE8907BCDBD87}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{UpToDuality({\mdseries\slshape L})\index{UpToDuality@\texttt{UpToDuality}!for IsList}
 \label{UpToDuality:for IsList}
@@ -5796,7 +5927,7 @@ IsManiplex
 \subsection{\textcolor{Chapter }{Bk2l (for IsInt,IsInt)}}
 \logpage{[ 11, 1, 5 ]}\nobreak
 \hyperdef{L}{X7EB8C646795CB285}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2l({\mdseries\slshape k, l})\index{Bk2l@\texttt{Bk2l}!for IsInt,IsInt}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2l({\mdseries\slshape k, 2l})\index{Bk2l@\texttt{Bk2l}!for IsInt,IsInt}
 \label{Bk2l:for IsInt,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -5804,11 +5935,11 @@ IsManiplex
 
 
 
- Given integers \mbox{\texttt{\mdseries\slshape k,l}}, gives the map $B(k,2l)$. }
+ Given integers \mbox{\texttt{\mdseries\slshape k,2l}}, gives the map $B(k,2l)$. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@Bk2l(4,5);|
+  !gapprompt@gap>| !gapinput@Bk2l(4,10);|
   3-maniplex with 80 flags
 \end{Verbatim}
  
@@ -5816,7 +5947,7 @@ IsManiplex
 \subsection{\textcolor{Chapter }{Bk2lStar (for IsInt,IsInt)}}
 \logpage{[ 11, 1, 6 ]}\nobreak
 \hyperdef{L}{X8592D83D87DFCF3F}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2lStar({\mdseries\slshape k, l})\index{Bk2lStar@\texttt{Bk2lStar}!for IsInt,IsInt}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2lStar({\mdseries\slshape k, 2l})\index{Bk2lStar@\texttt{Bk2lStar}!for IsInt,IsInt}
 \label{Bk2lStar:for IsInt,IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
@@ -5824,12 +5955,42 @@ IsManiplex
 
 
 
- Given integers \mbox{\texttt{\mdseries\slshape k,l}}, gives the map $B^*(k,2l)$. }
+ Given integers \mbox{\texttt{\mdseries\slshape k,2l}}, gives the map $B^*(k,2l)$. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@Bk2lStar(5,7);|
+  !gapprompt@gap>| !gapinput@Bk2lStar(5,14);|
   3-maniplex with 140 flags
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Bk2lRhoSigma (for IsInt,IsInt,IsInt,IsInt)}}
+\logpage{[ 11, 1, 7 ]}\nobreak
+\hyperdef{L}{X7DDD487B86630A36}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Bk2lRhoSigma({\mdseries\slshape k, 2l, rho, sigma})\index{Bk2lRhoSigma@\texttt{Bk2lRhoSigma}!for IsInt,IsInt,IsInt,IsInt}
+\label{Bk2lRhoSigma:for IsInt,IsInt,IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsPolytope 
+
+
+
+ Given integers satisfying the constraints in \cite{Wil85}, this function will create the map $B(k,2l,\rho,\sigma)$. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Bk2lRhoSigma(4,16,3,0);|
+  reflexible 3-maniplex
+  !gapprompt@gap>| !gapinput@IsSelfPetrial(last);|
+  true
+  !gapprompt@gap>| !gapinput@m:=Bk2lRhoSigma(4,16,3,0);|
+  reflexible 3-maniplex
+  !gapprompt@gap>| !gapinput@IsSelfPetrial(m);|
+  true
+  !gapprompt@gap>| !gapinput@Opp(m)=Bk2lRhoSigma(4,16,5,2);|
+  true
+  !gapprompt@gap>| !gapinput@SchlafliSymbol(m);|
+  [ 16, 4 ]
 \end{Verbatim}
  }
 
@@ -6169,6 +6330,8 @@ reflection
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@m:=Cube(3);|
+  Cube(3)
   !gapprompt@gap>| !gapinput@Gyro(Dual(m))=Reflection(Gyro(Reflection(m)));|
   true
   !gapprompt@gap>| !gapinput@Reflection(m)=EnantiomorphicForm(m);|
@@ -8129,7 +8292,8 @@ https://www.gap-system.org/Manuals/pkg/grape/htm/CHAP002.htm }
 \logpage{[ 13, 2, 0 ]}
 \hyperdef{L}{X8142EE7180458E04}{}
 {
-  
+  Note that this functionality depends on the functionality of the GRAPE
+package. 
 
 \subsection{\textcolor{Chapter }{DirectedGraphFromListOfEdges (for IsList,IsList)}}
 \logpage{[ 13, 2, 1 ]}\nobreak
@@ -8768,8 +8932,9 @@ an input }
 
 
 
- Given a Graph or EdgeLabeledGraph \mbox{\texttt{\mdseries\slshape G}}, outputs code to view the graph in other software. Currently mathematica and
-sage are supported. }
+ Given a Graph or EdgeLabeledGraph \mbox{\texttt{\mdseries\slshape G}}, outputs code to view the graph in other software. Currently Mathematica and
+Sage are supported. If the software is not specified it will return the code
+for Mathematica. }
 
  
 
@@ -8972,26 +9137,31 @@ integer vertices in order to calculate their connection groups. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{WythoffVoltageOperator (for IsInt, IsList, IsManiplex)}}
+\subsection{\textcolor{Chapter }{Wythoffian (for IsList, IsManiplex)}}
 \logpage{[ 14, 1, 6 ]}\nobreak
-\hyperdef{L}{X79B4314B7EAE8598}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{WythoffVoltageOperator({\mdseries\slshape n, I, M})\index{WythoffVoltageOperator@\texttt{WythoffVoltageOperator}!for IsInt, IsList, IsManiplex}
-\label{WythoffVoltageOperator:for IsInt, IsList, IsManiplex}
+\hyperdef{L}{X7D0ACAEB81272E41}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Wythoffian({\mdseries\slshape I, M})\index{Wythoffian@\texttt{Wythoffian}!for IsList, IsManiplex}
+\label{Wythoffian:for IsList, IsManiplex}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
 IsList 
 
 
 
- Returns the maniplex built from a voltage operation given a Wythoffian. That
-is, this computes the Wythoffian of the rank \mbox{\texttt{\mdseries\slshape n}} maniplex \mbox{\texttt{\mdseries\slshape M}} using the index set \mbox{\texttt{\mdseries\slshape I}}. }
+ Returns the Wythoffian of the maniplex \mbox{\texttt{\mdseries\slshape M}} with set of ringed nodes \mbox{\texttt{\mdseries\slshape I}}. For example, if I = [1] then this is the rectification of \mbox{\texttt{\mdseries\slshape M}} and if I = [0, 1] then this is truncation of \mbox{\texttt{\mdseries\slshape M}}. Behind the scenes, this is accomplished using VoltageOperator. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  Truncation built using voltages 
-  !gapprompt@gap>| !gapinput@W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());|
+  !gapprompt@gap>| !gapinput@W:=Wythoffian([0,1],Dodecahedron());|
   3-maniplex with 360 flags
   !gapprompt@gap>| !gapinput@W=Truncation(Dodecahedron());|
+  true
+  !gapprompt@gap>| !gapinput@M := Wythoffian([1], Simplex(4));;|
+  !gapprompt@gap>| !gapinput@Fvector(M);|
+  [10, 30, 30, 10]
+  !gapprompt@gap>| !gapinput@VertexFigure(M) = Prism(3);|
+  true
+  !gapprompt@gap>| !gapinput@Wythoffian([3], M) = Dual(M);|
   true
 \end{Verbatim}
  
@@ -9807,11 +9977,11 @@ Permutation
 {
   
 
-\subsection{\textcolor{Chapter }{ParseStringCRels}}
+\subsection{\textcolor{Chapter }{ParseGgiRels}}
 \logpage{[ 16, 4, 1 ]}\nobreak
-\hyperdef{L}{X7E84DB4E8746344A}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseStringCRels({\mdseries\slshape rels, g})\index{ParseStringCRels@\texttt{ParseStringCRels}}
-\label{ParseStringCRels}
+\hyperdef{L}{X8074659F876684DF}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ParseGgiRels({\mdseries\slshape rels, g})\index{ParseGgiRels@\texttt{ParseGgiRels}}
+\label{ParseGgiRels}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
 a list of relators 
@@ -9823,7 +9993,7 @@ elements in the free group of g represented by \mbox{\texttt{\mdseries\slshape r
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@g := AutomorphismGroup(CubicTiling(2));;|
   !gapprompt@gap>| !gapinput@rels := "(r0 r1 r2 r1)^6";;|
-  !gapprompt@gap>| !gapinput@newrels := ParseStringCRels(rels, g);|
+  !gapprompt@gap>| !gapinput@newrels := ParseGgiRels(rels, g);|
   [ (r0*r1*r2*r1)^6 ]
   !gapprompt@gap>| !gapinput@newrels[1] in FreeGroupOfFpGroup(g);|
   true
@@ -9845,7 +10015,7 @@ zj means r0 (r1 r2)\texttt{\symbol{94}}j (the "j-zigzag" word) and hj means r0
 
 
  This helper function is used in several maniplex constructors. It is analogous
-to ParseStringCRels, but for rotation groups instead. }
+to ParseGgiRels, but for rotation groups instead. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]

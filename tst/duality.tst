@@ -50,6 +50,16 @@ gap> IsProperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^
 false
 gap> IsProperlySelfDual(Pyramid(ToroidalMap44([2,0])));
 false
+gap> IsImproperlySelfDual(Cube(4));
+false
+gap> IsImproperlySelfDual(Simplex(4));
+false
+gap> IsImproperlySelfDual(ToroidalMap44([1,2]));
+true
+gap> IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));
+false
+gap> IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));
+true
 gap> ExponentGroup(ToroidalMap44([3,0]));
 [ 1, 3 ]
 gap> ExponentGroup(ToroidalMap44([1,2]));

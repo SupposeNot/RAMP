@@ -81,15 +81,21 @@ DeclareOperation("WythoffLabeledEdges", [IsInt, IsList]);
 #! @EndExampleSession
 
 
-#! @Arguments n, I, M
+#! @Arguments I, M
 #! @Returns IsList
-#! @Description Returns the maniplex built from a voltage operation given a Wythoffian. That is, this computes the Wythoffian of the rank <A>n</A> maniplex <A>M</A> using the index set <A>I</A>.
-DeclareOperation("WythoffVoltageOperator", [IsInt, IsList, IsManiplex]);
+#! @Description Returns the Wythoffian of the maniplex <A>M</A> with set of ringed nodes <A>I</A>. For example, if I = [1] then this is the rectification of <A>M</A> and if I = [0, 1] then this is truncation of <A>M</A>. Behind the scenes, this is accomplished using VoltageOperator. 
+DeclareOperation("Wythoffian", [IsList, IsManiplex]);
 #! @BeginExampleSession
-#! Truncation built using voltages 
-#! gap> W:=WythoffVoltageOperator(3,[0,1],Dodecahedron());
+#! gap> W:=Wythoffian([0,1],Dodecahedron());
 #! 3-maniplex with 360 flags
 #! gap> W=Truncation(Dodecahedron());
+#! true
+#! gap> M := Wythoffian([1], Simplex(4));;
+#! gap> Fvector(M);
+#! [10, 30, 30, 10]
+#! gap> VertexFigure(M) = Prism(3);
+#! true
+#! gap> Wythoffian([3], M) = Dual(M);
 #! true
 #! @EndExampleSession
 

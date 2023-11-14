@@ -92,6 +92,24 @@ DeclareProperty("IsProperlySelfDual", IsManiplex);
 #! false
 #! @EndExampleSession
 
+#! @Arguments M
+#! @Description Returns whether this rooted maniplex is improperly self-dual, meaning that 
+#! it is self-dual, but there is no isomorphism of <A>M</A> to its dual that preserves the flag-orbits.
+#! Equivalent to IsSelfDual(M) and not(IsProperlySelfDual(M)).
+DeclareProperty("IsImproperlySelfDual", IsManiplex);
+#! @BeginExampleSession
+#! gap> IsImproperlySelfDual(Cube(4));
+#! false
+#! gap> IsImproperlySelfDual(Simplex(4));
+#! false
+#! gap> IsImproperlySelfDual(ToroidalMap44([1,2]));
+#! true
+#! gap> IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1) (s2 s1^-1)^3, (s2 s3^-1) (s2^-1 s3)^3"));
+#! false
+#! gap> IsImproperlySelfDual(RotaryManiplex([4,4,4],"(s2^-1 s1)^3 (s2 s1^-1), (s2 s3^-1) (s2^-1 s3)^3"));
+#! true
+#! @EndExampleSession
+
 #! @BeginGroup
 #! @GroupTitle Petrie Dual
 #! @Arguments M

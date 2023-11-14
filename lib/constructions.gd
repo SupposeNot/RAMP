@@ -58,13 +58,21 @@ DeclareOperation("FlatExtension", [IsManiplex, IsInt]);
 
 #! @Arguments M1, M2
 #! @Returns IsManiplex
-#! @Description Constructs the amalgamation of <A>M1</A> and <A>M2</A>.
-#! Implicitly assumes that <A>M1</A> and <A>M2</A> are compatible.
-#! @Description Currently only defined for reflexible maniplexes.
+#! @Description Constructs the amalgamation of the n-maniplexes <A>M1</A> and <A>M2</A>. This does not check
+#! whether <A>M1</A> and <A>M2</A> are compatible, so the output may not have facets
+#! isomorphic to <A>M1</A> or vertex-figures isomorphic to <A>M2</A>.
+#! Currently only defined for rotary maniplexes. Note that if M1 and M2 are chiral, then the
+#! amalgamation depends on the choices of base flag for each.
 DeclareOperation("Amalgamate", [IsManiplex, IsManiplex]);
 #! @BeginExampleSession
-#! gap> Amalgamate(Cube(3),CrossPolytope(3));
-#! reflexible 4-maniplex of type [ 4, 3, 4 ]
+#! gap> Amalgamate(Cube(3), Simplex(3)) = Cube(4);
+#! true
+#! gap> Size(Amalgamate(ToroidalMap44([1,2]), Cube(3)));
+#! 240
+#! gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));
+#! 240
+#! gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));
+#! 4
 #! @EndExampleSession
 
 #! @Arguments M

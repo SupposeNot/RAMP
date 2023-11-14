@@ -55,7 +55,7 @@ InstallMethod(UniversalExtension,
 	end);
 
 InstallMethod(UniversalExtension,
-	[IsManiplex and IsManiplex, IsInt],
+	[IsManiplex, IsInt],
 	function(p, k)
 	local g, n, rels, f2, g2, p2, sym;
 	if not(IsReflexible(p)) then
@@ -67,6 +67,7 @@ InstallMethod(UniversalExtension,
 	Add(rels, List([0..2*k-1], i -> n+(i mod 2)));
 	f2 := UniversalSggi(n+1);
 	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
+	SetIsSggi(g2, true);
 	p2 := ReflexibleManiplexNC(g2);
 
 	# TODO: Handle other exceptional cases
@@ -159,28 +160,56 @@ InstallMethod(Amalgamate,
 	[IsManiplex, IsManiplex],
 	function(p,q)
 	local a, g, h, n, rels, q_rels, f2, g2, sym;
-	
-	if not(IsReflexible(p)) or not(IsReflexible(q)) then
-		Error("Amalgamate is not currently defined for non-reflexible maniplexes.\n");
-	fi;
-	
-	g := AutomorphismGroupFpGroup(p);
+
 	n := Rank(p);
 	if Rank(q) <> n then
 		Error("p and q must be the same rank.\n");
 	fi;
 	
+	
+	if HasIsReflexible(p) and IsReflexible(p) and HasIsReflexible(q) and IsReflexible(q) then
+		g := AutomorphismGroupFpGroup(p);
+		h := AutomorphismGroupFpGroup(q);
+		f2 := UniversalSggi(n+1);
+		
+	elif ForAll([p,q], x -> HasIsRotary(x) and IsRotary(x) and IsOrientable(x)) then
+		g := RotationGroupFpGroup(p);
+		h := RotationGroupFpGroup(q);
+		f2 := UniversalRotationGroup(n+1);
+		
+		rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
+		q_rels := List(RelatorsOfFpGroup(RotationGroupFpGroup(q)), r -> TietzeWordAbstractWord(r));
+		# shift the relations of q "right" by one
+		q_rels := List(q_rels, r -> List(r, i -> SignInt(i)*(AbsInt(i)+1)));
+		Append(rels, q_rels);
+		rels := Unique(rels);
+		f2 := UniversalRotationGroup(n+1);
+		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2)));
+		rels := Difference(rels, RelatorsOfFpGroup(f2));
+		g2 := FactorGroupFpGroupByRels(f2, rels);
+		a := RotaryManiplex(g2);
+			
+	else
+		Error("Amalgamate is not currently defined for non-rotary maniplexes.\n");
+	fi;
+	
 	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
-	q_rels := List(RelatorsOfFpGroup(AutomorphismGroup(q)), r -> TietzeWordAbstractWord(r));
+	q_rels := List(RelatorsOfFpGroup(h), r -> TietzeWordAbstractWord(r));
 	# shift the relations of q "right" by one
 	q_rels := List(q_rels, r -> List(r, i -> SignInt(i)*(AbsInt(i)+1)));
 	Append(rels, q_rels);
 	rels := Unique(rels);
-	f2 := UniversalSggi(n+1);
 	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2)));
 	rels := Difference(rels, RelatorsOfFpGroup(f2));
 	g2 := FactorGroupFpGroupByRels(f2, rels);
-	a := ReflexibleManiplex(g2);
+	
+	if HasIsSggi(f2) and IsSggi(f2) then
+		a := ReflexibleManiplexNC(g2);
+	elif HasIsStringRotationGroup(f2) and IsStringRotationGroup(f2) then
+		a := RotaryManiplexNC(g2);
+	else
+		Error("f2 was somehow neither an sggi nor a string rotation group!");
+	fi;
 	
 	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) then
 		sym := ShallowCopy(SchlafliSymbol(p));
