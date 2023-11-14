@@ -9,7 +9,6 @@ InstallMethod(IsStringy,
 	[IsGroup],
 	function(g)
 	local gens, i, j;
-	
 	gens := GeneratorsOfGroup(g);
 	for i in [1..Size(gens)-2] do
 		for j in [i+2..Size(gens)] do
@@ -75,7 +74,11 @@ InstallMethod(IsStringRotationGroup,
 InstallMethod(IsStringC,
 	[IsGroup],
 	function(g)
-	local d, vfig, facet, medial;
+	local d, vfig, facet, medial,gens;
+	#New code for repeated generators.
+	gens:=GeneratorsOfGroup(g);
+	#End of new code
+	if Set(gens)<>SortedList(gens) then return false;fi;
 	d := Size(GeneratorsOfGroup(g));
 	if d = 1 then
 		return (Order(g) = 2);
