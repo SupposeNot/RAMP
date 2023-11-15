@@ -4,7 +4,7 @@
 
 #! @Arguments M
 #! @Returns The maniplex that is dual to <A>M</A>.
-DeclareOperation("Dual", [IsManiplex]);
+DeclareAttribute("Dual", IsManiplex);
 #! @BeginExampleSession
 #! gap> Dual(CrossPolytope(3));
 #! Cube(3)
