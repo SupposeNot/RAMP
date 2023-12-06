@@ -260,3 +260,39 @@ DeclareGlobalFunction("ActionOnBlocks");
 #! false
 #! @EndExampleSession
 DeclareGlobalFunction("VerifyProperties");
+
+
+#! @Arguments list1, list2
+#! @Returns List
+#! @Description Given two binary lists of the same length of 0s and 1s
+#! returns the XOR of the two lists
+#!
+DeclareOperation("XORLists", [IsList,IsList]);
+#! @BeginExampleSession
+#! gap> XORLists([1,0,1,1,0,0,1], [0,1,1,1,0,0,1]);
+#! [ 1, 1, 0, 0, 0, 0, 0 ]
+#! @EndExampleSession
+
+
+#! @Arguments number, length
+#! @Returns List
+#! @Description Given a base 10 number, and a length of a list,
+#! returns binary representation of the number in a list of given length
+#!
+DeclareOperation("ConvertToBinaryList", [IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> ConvertToBinaryList(12,8);
+#! [ 0, 0, 0, 0, 1, 1, 0, 0 ]
+#! @EndExampleSession
+
+
+#! @Arguments binaryList
+#! @Returns List
+#! @Description Given a list of 0s and 1s,
+#! returns the decimal number associated to the binary representation from the list
+#!
+DeclareOperation("BinaryListToInteger", [IsList]);
+#! @BeginExampleSession
+#! gap> BinaryListToInteger([0,0,1,1,0,0,1]);
+#! 25
+#! @EndExampleSession
