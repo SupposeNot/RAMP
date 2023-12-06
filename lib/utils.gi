@@ -376,3 +376,57 @@ InstallGlobalFunction(VerifyProperties, function(M)
 	
 	return (Size(mismatches) = 0);
 	end);
+
+
+InstallMethod(XORLists,
+	[IsList, IsList],
+	function(list1, list2)
+	local xorList, i;
+    	# Ensure both lists are of the same length
+    	if Length(list1) <> Length(list2) then
+        	Error("Lists must be of the same length");
+    	fi;
+
+    	xorList := [];
+    	for i in [1..Length(list1)] do
+        	Add(xorList, (list1[i] + list2[i]) mod 2);
+    	od;
+    	return xorList;
+	end);
+
+
+
+InstallMethod(ConvertToBinaryList,
+	[IsInt,IsInt],
+	function(number, length)
+    local binaryList, index;
+    binaryList := [];
+    for index in [1..length] do
+        Add(binaryList, 0);
+    od;
+    index := length;
+    while number > 0 do
+        if index = 0 then
+            break;
+        fi;
+        binaryList[index] := number mod 2;
+        number := QuoInt(number, 2);
+        index := index - 1;
+    od;
+    return binaryList;
+end);
+
+
+InstallMethod(BinaryListToInteger,
+	[IsList],
+	function(binaryList)
+    local number, length, index;
+    number := 0;
+    length := Length(binaryList);
+    for index in [1..length] do
+        number := number + binaryList[index] * 2^(length - index);
+    od;
+    return number;
+end);
+
+
