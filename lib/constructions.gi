@@ -283,3 +283,67 @@ InstallMethod(Medial,
 
 	return Med;
 	end);
+
+
+InstallMethod(TwoToThe,
+    "for a maniplex",
+    [IsManiplex],
+    function(M)
+
+local C, F, gens, gens2, C2, V, l, N, N2, r0, newconnections, i, p, phi_v, phi, phi0, v, k, ek, vbin, v0bin, v0, p0, phi2, p2, gensnew, Mnew;
+
+C:=ConnectionGroup(M);
+F:=Flags(M);
+gens:=GeneratorsOfGroup(C);
+gens2 := gens{[2..Length(gens)]};
+C2:= Group(gens2);
+V:=Orbits(C2);
+l:=Size(V);
+N:=Size(M);
+N2:=N*2^l;
+
+r0:=(1,2)^2;   #Start out with identity for r0
+newconnections := [];
+    for i in [1..Rank(M)] do
+        Add(newconnections, ());
+    od;
+
+for p in [1..N2] do
+phi_v :=LtoC(p,N,2^l);
+phi:=phi_v[1];
+v:=phi_v[2]-1;
+
+# Create the connections for the new r0
+if p^r0 = p then
+phi0:=phi;
+
+#Find the 0-face associated with phi.
+for i in [1..Size(V)] do
+if phi in V[i] then
+k:=i;
+fi;
+od;
+
+ek := ListWithIdenticalEntries(l, 0);
+ek[k] := 1;
+vbin:=ConvertToBinaryList(v,l);
+v0bin:= XORLists(vbin,ek);
+v0:= BinaryListToInteger(v0bin);
+p0:= CtoL(phi0,v0+1,N,2^l);
+r0:=r0*(p,p0);
+fi;
+
+### Now deal with the other generators
+
+    for i in [1..Rank(M)] do
+	phi2:=phi^gens[i];
+	p2:= CtoL(phi2,v+1,N,2^l);
+	if p<p2 then
+	newconnections[i]:=newconnections[i]*(p,p2);
+	fi;
+    od;  
+od;
+gensnew:= Concatenation([r0], newconnections);
+Mnew:=Maniplex(Group(gensnew));
+    return Mnew;
+end);
