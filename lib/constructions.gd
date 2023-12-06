@@ -83,3 +83,16 @@ DeclareOperation("Medial", [IsManiplex]);
 #! gap> SchlafliSymbol(Medial(Dodecahedron()));
 #! [ [ 3, 5 ], 4 ]
 #! @EndExampleSession78
+
+
+
+#! @Arguments M
+#! @Returns List
+#! @Description Given a maniplex M,
+#! returns the maniplex defined by the operation 2^M from Section 8C of Abstract Regular Polytopes.
+#!
+DeclareAttribute("TwoToThe", IsManiplex);
+#! @BeginExampleSession
+#! gap> TwoToThe(Simplex(3))=Cube(4);
+#! true
+#! @EndExampleSession
