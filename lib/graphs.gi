@@ -868,7 +868,8 @@ InstallMethod(ConnectionGroup,
 	fi;
 	labed:=LabeledEdges(F);
 	for ed in labed do
-	if Size(ed[1]) = 2 and (ed[1][1] < ed[1][2]) then
+	# if Size(ed[1]) = 2 and (ed[1][1] < ed[1][2]) then
+	if Size(ed[1]) = 2 and ed[1][1]^gens[ed[2]+1] = ed[1][1] then 
 		gens[ed[2]+1]:=gens[ed[2]+1]*( ed[1][1] , ed[1][2]);
 	fi;
 	od;
