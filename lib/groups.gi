@@ -310,19 +310,14 @@ InstallMethod(ChiralityGroup,
 	return h;
 	end);
 
-	
-# Returns a list of relators that are necessary to
-# define the automorphism group of M as a quotient of the string
-# Coxeter group implied by its Schlafli Symbol.
 InstallMethod(ExtraRelators,
-	[IsReflexibleManiplex],
-	function(M)
-	local g, rels, type_rels, sym, i;
-	g := AutomorphismGroupFpGroup(M);
-	sym := SchlafliSymbol(M);
+	[IsFpGroup],
+	function(g)
+	local rels, type_rels, sym, i;
+	sym := SchlafliSymbol(g);
 	rels := List(RelatorsOfFpGroup(g));
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
-	type_rels := RelatorsOfFpGroup(UniversalSggi(SchlafliSymbol(M)));
+	type_rels := RelatorsOfFpGroup(UniversalSggi(sym));
 	type_rels := List(type_rels, r -> TietzeWordAbstractWord(r));
 	for i in [1..Size(sym)] do
 		if sym[i] <> infinity then
@@ -332,6 +327,16 @@ InstallMethod(ExtraRelators,
 	rels := Difference(rels, type_rels);
 	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
 	return rels;
+	end);
+	
+	
+# Returns a list of relators that are necessary to
+# define the automorphism group of M as a quotient of the string
+# Coxeter group implied by its Schlafli Symbol.
+InstallMethod(ExtraRelators,
+	[IsReflexibleManiplex],
+	function(M)
+	return ExtraRelators(AutomorphismGroupFpGroup(M));
 	end);
 	
 InstallMethod(ExtraRotRelators,
