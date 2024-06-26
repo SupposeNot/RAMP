@@ -105,12 +105,25 @@
     [4X[28X[ [ 3, 5 ], 4 ][128X[104X
   [4X[32X[104X
   
+  [1X9.1-8 TwoToThe[101X
+  
+  [33X[1;0Y[29X[2XTwoToThe[102X( [3XM[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10YList[133X
+  
+  [33X[0;0YGiven  a  maniplex M, returns the maniplex defined by the operation 2^M from
+  Section 8C of Abstract Regular Polytopes.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTwoToThe(Simplex(3))=Cube(4);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   
   [1X9.2 [33X[0;0YDuality[133X[101X
   
   [1X9.2-1 Dual[101X
   
-  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XDual[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10YThe maniplex that is dual to [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
@@ -435,10 +448,42 @@
   [4X[32X[104X
   
   
-  [1X9.4 [33X[0;0YProducts[133X[101X
+  [1X9.4 [33X[0;0YPolytopes Associated with a Group[133X[101X
+  
+  [33X[0;0YThe  tools  in this section exist primarily to enable the classification and
+  listing  of  regular polytopes associated with a given group, though it will
+  likely  be  expanded to cover maniplexes as well. The approach and treatment
+  here follows closely that in [Har06].[133X
+  
+  [1X9.4-1 ConjugacyClassesOfInvolutionsRepresentatives[101X
+  
+  [33X[1;0Y[29X[2XConjugacyClassesOfInvolutionsRepresentatives[102X( [3Xgamma[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yelements[133X
+  
+  [33X[0;0YGiven  a  group  [3Xgamma[103X,  gives  a  list  of representatives of the conjugacy
+  classes of involutions in the group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28Xgap>[128X[104X
+  [4X[32X[104X
+  
+  [1X9.4-2 AutomorphismClassRepresentativeInvolutions[101X
+  
+  [33X[1;0Y[29X[2XAutomorphismClassRepresentativeInvolutions[102X( [3Xgamma[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Yelements[133X
+  
+  [33X[0;0YGiven  a  group  [3Xgamma[103X,  gives a list of representatives of the automorphism
+  classes of involutions in the group.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X<##>[128X[104X
+  [4X[32X[104X
   
   
-  [1X9.4-1 [33X[0;0YPyramids[133X[101X
+  [1X9.5 [33X[0;0YProducts[133X[101X
+  
+  
+  [1X9.5-1 [33X[0;0YPyramids[133X[101X
   
   [33X[1;0Y[29X[2XPyramid[102X( [3XM[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPyramid[102X( [3Xk[103X ) [32X operation[133X
@@ -454,7 +499,7 @@
   [4X[32X[104X
   
   
-  [1X9.4-2 [33X[0;0YPrisms[133X[101X
+  [1X9.5-2 [33X[0;0YPrisms[133X[101X
   
   [33X[1;0Y[29X[2XPrism[102X( [3XM[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XPrism[102X( [3Xk[103X ) [32X operation[133X
@@ -470,7 +515,7 @@
   [4X[32X[104X
   
   
-  [1X9.4-3 [33X[0;0YAntiprisms[133X[101X
+  [1X9.5-3 [33X[0;0YAntiprisms[133X[101X
   
   [33X[1;0Y[29X[2XAntiprism[102X( [3XM[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XAntiprism[102X( [3Xk[103X ) [32X operation[133X
@@ -485,7 +530,7 @@
     [4X[28X[ [ 3, 5 ], 4 ][128X[104X
   [4X[32X[104X
   
-  [1X9.4-4 JoinProduct[101X
+  [1X9.5-4 JoinProduct[101X
   
   [33X[1;0Y[29X[2XJoinProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
@@ -498,7 +543,7 @@
     [4X[28X[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ][128X[104X
   [4X[32X[104X
   
-  [1X9.4-5 CartesianProduct[101X
+  [1X9.5-5 CartesianProduct[101X
   
   [33X[1;0Y[29X[2XCartesianProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
@@ -511,7 +556,7 @@
     [4X[28X[ [ 3, 4 ], 3, 3, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X9.4-6 DirectSumOfManiplexes[101X
+  [1X9.5-6 DirectSumOfManiplexes[101X
   
   [33X[1;0Y[29X[2XDirectSumOfManiplexes[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X
@@ -524,7 +569,7 @@
     [4X[28X[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ][128X[104X
   [4X[32X[104X
   
-  [1X9.4-7 TopologicalProduct[101X
+  [1X9.5-7 TopologicalProduct[101X
   
   [33X[1;0Y[29X[2XTopologicalProduct[102X( [3XM1[103X, [3XM2[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YManiplex[133X

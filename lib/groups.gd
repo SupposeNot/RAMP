@@ -106,19 +106,22 @@ DeclareAttribute("ChiralityGroup", IsRotaryManiplex);
 #! 5
 #! @EndExampleSession
 
-
-#! @Arguments g or M
+#! @BeginGroup ExtraRel
+#! @GroupTitle ExtraRelators
+#! @Arguments g
+DeclareAttribute("ExtraRelators", IsFpGroup);
+#! @Arguments M
+DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
 #! For an sggi <A>g</A> or reflexible maniplex <A>M</A>, returns the relators
 #! needed to define <A>g</A> (or the automorphism group of <A>M</A>) as a quotient of
 #! the string Coxeter group given by its Schlafli symbol.
 #! Not particularly robust at the moment; sometimes you may get relators that are
 #! conjugates of the standard relators and thus unneccessary.
-DeclareAttribute("ExtraRelators", IsFpGroup);
-DeclareAttribute("ExtraRelators", IsReflexibleManiplex);
 #! @BeginExampleSession
 #! gap> ExtraRelators(HemiCube(3));
 #! [ (r0*r1*r2)^3 ]
 #! @EndExampleSession
+#! @EndGroup
 
 #! @Arguments M
 #! For a reflexible maniplex <A>M</A>, returns the relators

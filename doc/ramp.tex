@@ -3580,7 +3580,7 @@ The lengths of \mbox{\texttt{\mdseries\slshape j}}-holes of the 3-maniplex \mbox
 
 
  This corresponds to the lengths of orbits under r0 (r1
-r2)\texttt{\symbol{94}}(j-1) r2. }
+r2)\texttt{\symbol{94}}(j-1) r1. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -3768,20 +3768,25 @@ chirality group is trivial if and only if \mbox{\texttt{\mdseries\slshape M}} is
   5
 \end{Verbatim}
  
-
-\subsection{\textcolor{Chapter }{ExtraRelators (for IsReflexibleManiplex)}}
-\logpage{[ 7, 1, 7 ]}\nobreak
-\hyperdef{L}{X7D2CE6707B452C0D}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRelators({\mdseries\slshape M})\index{ExtraRelators@\texttt{ExtraRelators}!for IsReflexibleManiplex}
+\subsection{\textcolor{Chapter }{ExtraRelators}}\label{ExtraRel}
+\logpage{[ 7, 1, 7 ]}
+\hyperdef{L}{X7D1D0A267C4020EA}{}
+{
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRelators({\mdseries\slshape g})\index{ExtraRelators@\texttt{ExtraRelators}!for IsFpGroup}
+\label{ExtraRelators:for IsFpGroup}
+}\hfill{\scriptsize (attribute)}}\\
+\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRelators({\mdseries\slshape M})\index{ExtraRelators@\texttt{ExtraRelators}!for IsReflexibleManiplex}
 \label{ExtraRelators:for IsReflexibleManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 
 
- For a reflexible maniplex \mbox{\texttt{\mdseries\slshape M}}, returns the relators needed to define its automorphism group as a quotient
-of the string Coxeter group given by its Schlafli symbol. Not particularly
-robust at the moment. }
-
  
+
+ }
+
+ For an sggi \mbox{\texttt{\mdseries\slshape g}} or reflexible maniplex \mbox{\texttt{\mdseries\slshape M}}, returns the relators needed to define \mbox{\texttt{\mdseries\slshape g}} (or the automorphism group of \mbox{\texttt{\mdseries\slshape M}}) as a quotient of the string Coxeter group given by its Schlafli symbol. Not
+particularly robust at the moment; sometimes you may get relators that are
+conjugates of the standard relators and thus unneccessary. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@ExtraRelators(HemiCube(3));|
   [ (r0*r1*r2)^3 ]
@@ -4405,7 +4410,7 @@ Whether the premaniplex \mbox{\texttt{\mdseries\slshape M}} is reflexible (has o
   !gapprompt@gap>| !gapinput@IsReflexible(Epsilonk(6));|
   true
 \end{Verbatim}
- 
+ Synonym: IsRegular 
 
 \subsection{\textcolor{Chapter }{IsChiral (for IsPremaniplex)}}
 \logpage{[ 7, 5, 8 ]}\nobreak
@@ -5036,6 +5041,29 @@ IsManiplex
   !gapprompt@gap>| !gapinput@SchlafliSymbol(Medial(Dodecahedron()));|
   [ [ 3, 5 ], 4 ]
 \end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{TwoToThe (for IsManiplex)}}
+\logpage{[ 9, 1, 8 ]}\nobreak
+\hyperdef{L}{X83A9F6228008EC90}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TwoToThe({\mdseries\slshape M})\index{TwoToThe@\texttt{TwoToThe}!for IsManiplex}
+\label{TwoToThe:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+\textbf{\indent Returns:\ }
+List 
+
+
+
+ Given a maniplex M, returns the maniplex defined by the operation
+2\texttt{\symbol{94}}M from Section 8C of Abstract Regular Polytopes. 
+
+ }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@TwoToThe(Simplex(3))=Cube(4);|
+  true
+\end{Verbatim}
  }
 
  
@@ -5050,7 +5078,7 @@ IsManiplex
 \hyperdef{L}{X7D62BD3E7F941F5B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Dual({\mdseries\slshape M})\index{Dual@\texttt{Dual}!for IsManiplex}
 \label{Dual:for IsManiplex}
-}\hfill{\scriptsize (operation)}}\\
+}\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
 The maniplex that is dual to \mbox{\texttt{\mdseries\slshape M}}. 
 
@@ -5496,13 +5524,63 @@ Functions are inverses. }
  }
 
  
-\section{\textcolor{Chapter }{Products}}\label{Chapter_Polytope_Constructions_and_Operations_Section_Products}
+\section{\textcolor{Chapter }{Polytopes Associated with a Group}}\label{Chapter_Polytope_Constructions_and_Operations_Section_Polytopes_Associated_with_a_Group}
 \logpage{[ 9, 4, 0 ]}
+\hyperdef{L}{X81D00E7185C90DD7}{}
+{
+  The tools in this section exist primarily to enable the classification and
+listing of regular polytopes associated with a given group, though it will
+likely be expanded to cover maniplexes as well. The approach and treatment
+here follows closely that in \cite{Har06}. 
+
+\subsection{\textcolor{Chapter }{ConjugacyClassesOfInvolutionsRepresentatives (for IsGroup)}}
+\logpage{[ 9, 4, 1 ]}\nobreak
+\hyperdef{L}{X7BC866FA7DE9C4D3}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConjugacyClassesOfInvolutionsRepresentatives({\mdseries\slshape gamma})\index{ConjugacyClassesOfInvolutionsRepresentatives@\texttt{Conjugacy}\-\texttt{Classes}\-\texttt{Of}\-\texttt{Involutions}\-\texttt{Representatives}!for IsGroup}
+\label{ConjugacyClassesOfInvolutionsRepresentatives:for IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+elements 
+
+
+
+ Given a group \mbox{\texttt{\mdseries\slshape gamma}}, gives a list of representatives of the conjugacy classes of involutions in
+the group. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  gap>
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{AutomorphismClassRepresentativeInvolutions (for IsGroup)}}
+\logpage{[ 9, 4, 2 ]}\nobreak
+\hyperdef{L}{X7D7832237C7E5763}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AutomorphismClassRepresentativeInvolutions({\mdseries\slshape gamma})\index{AutomorphismClassRepresentativeInvolutions@\texttt{Automorphism}\-\texttt{Class}\-\texttt{Representative}\-\texttt{Involutions}!for IsGroup}
+\label{AutomorphismClassRepresentativeInvolutions:for IsGroup}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+elements 
+
+
+
+ Given a group \mbox{\texttt{\mdseries\slshape gamma}}, gives a list of representatives of the automorphism classes of involutions
+in the group. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  <##>
+\end{Verbatim}
+ }
+
+ 
+\section{\textcolor{Chapter }{Products}}\label{Chapter_Polytope_Constructions_and_Operations_Section_Products}
+\logpage{[ 9, 5, 0 ]}
 \hyperdef{L}{X86CE352C7851221F}{}
 {
   
 \subsection{\textcolor{Chapter }{Pyramids}}\label{Pyramid}
-\logpage{[ 9, 4, 1 ]}
+\logpage{[ 9, 5, 1 ]}
 \hyperdef{L}{X7CBB470F7D3135BC}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Pyramid({\mdseries\slshape M})\index{Pyramid@\texttt{Pyramid}!for IsManiplex}
@@ -5524,7 +5602,7 @@ Functions are inverses. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Prisms}}\label{Prisms}
-\logpage{[ 9, 4, 2 ]}
+\logpage{[ 9, 5, 2 ]}
 \hyperdef{L}{X7B13F48A7AF5DF42}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Prism({\mdseries\slshape M})\index{Prism@\texttt{Prism}!for IsManiplex}
@@ -5546,7 +5624,7 @@ Functions are inverses. }
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{Antiprisms}}\label{Antiprisms}
-\logpage{[ 9, 4, 3 ]}
+\logpage{[ 9, 5, 3 ]}
 \hyperdef{L}{X808566B57F296C93}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Antiprism({\mdseries\slshape M})\index{Antiprism@\texttt{Antiprism}!for IsManiplex}
@@ -5569,7 +5647,7 @@ Functions are inverses. }
  
 
 \subsection{\textcolor{Chapter }{JoinProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 9, 4, 4 ]}\nobreak
+\logpage{[ 9, 5, 4 ]}\nobreak
 \hyperdef{L}{X7FA28B5C7AC1C32E}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{JoinProduct({\mdseries\slshape M1, M2})\index{JoinProduct@\texttt{JoinProduct}!for IsManiplex, IsManiplex}
 \label{JoinProduct:for IsManiplex, IsManiplex}
@@ -5590,7 +5668,7 @@ the maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{CartesianProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 9, 4, 5 ]}\nobreak
+\logpage{[ 9, 5, 5 ]}\nobreak
 \hyperdef{L}{X7C116F2C83963ADC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CartesianProduct({\mdseries\slshape M1, M2})\index{CartesianProduct@\texttt{CartesianProduct}!for IsManiplex, IsManiplex}
 \label{CartesianProduct:for IsManiplex, IsManiplex}
@@ -5611,7 +5689,7 @@ if the maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{DirectSumOfManiplexes (for IsManiplex, IsManiplex)}}
-\logpage{[ 9, 4, 6 ]}\nobreak
+\logpage{[ 9, 5, 6 ]}\nobreak
 \hyperdef{L}{X8022B9AC85D38D7D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DirectSumOfManiplexes({\mdseries\slshape M1, M2})\index{DirectSumOfManiplexes@\texttt{DirectSumOfManiplexes}!for IsManiplex, IsManiplex}
 \label{DirectSumOfManiplexes:for IsManiplex, IsManiplex}
@@ -5632,7 +5710,7 @@ maniplexes aren't faithfully represented by their posets. }
  
 
 \subsection{\textcolor{Chapter }{TopologicalProduct (for IsManiplex, IsManiplex)}}
-\logpage{[ 9, 4, 7 ]}\nobreak
+\logpage{[ 9, 5, 7 ]}\nobreak
 \hyperdef{L}{X833534418543FB94}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TopologicalProduct({\mdseries\slshape M1, M2})\index{TopologicalProduct@\texttt{TopologicalProduct}!for IsManiplex, IsManiplex}
 \label{TopologicalProduct:for IsManiplex, IsManiplex}
@@ -10207,6 +10285,75 @@ intended.
 \end{Verbatim}
  }
 
+ 
+
+\subsection{\textcolor{Chapter }{XORLists (for IsList,IsList)}}
+\logpage{[ 16, 4, 11 ]}\nobreak
+\hyperdef{L}{X7D3284FB85C1A31A}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{XORLists({\mdseries\slshape list1, list2})\index{XORLists@\texttt{XORLists}!for IsList,IsList}
+\label{XORLists:for IsList,IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+List 
+
+
+
+ Given two binary lists of the same length of 0s and 1s returns the XOR of the
+two lists 
+
+ }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@XORLists([1,0,1,1,0,0,1], [0,1,1,1,0,0,1]);|
+  [ 1, 1, 0, 0, 0, 0, 0 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ConvertToBinaryList (for IsInt,IsInt)}}
+\logpage{[ 16, 4, 12 ]}\nobreak
+\hyperdef{L}{X7DCB7C75846B6CAE}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ConvertToBinaryList({\mdseries\slshape number, length})\index{ConvertToBinaryList@\texttt{ConvertToBinaryList}!for IsInt,IsInt}
+\label{ConvertToBinaryList:for IsInt,IsInt}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+List 
+
+
+
+ Given a base 10 number, and a length of a list, returns binary representation
+of the number in a list of given length 
+
+ }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@ConvertToBinaryList(12,8);|
+  [ 0, 0, 0, 0, 1, 1, 0, 0 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{BinaryListToInteger (for IsList)}}
+\logpage{[ 16, 4, 13 ]}\nobreak
+\hyperdef{L}{X84E9E2FB8790B1E8}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{BinaryListToInteger({\mdseries\slshape binaryList})\index{BinaryListToInteger@\texttt{BinaryListToInteger}!for IsList}
+\label{BinaryListToInteger:for IsList}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+List 
+
+
+
+ Given a list of 0s and 1s, returns the decimal number associated to the binary
+representation from the list 
+
+ }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@BinaryListToInteger([0,0,1,1,0,0,1]);|
+  25
+\end{Verbatim}
  }
 
  }
@@ -10226,6 +10373,7 @@ intended.
 \item  \texttt{Flags} for \texttt{MaximalChains} (\textbf{RAMP: MaximalChains for IsPoset}) 
 \item  \texttt{FlagsList} for \texttt{MaximalChains} (\textbf{RAMP: MaximalChains for IsPoset}) 
 \item  \texttt{IsDiamondCondition} for \texttt{IsP4} (\textbf{RAMP: IsP4 for IsPoset}) 
+\item  \texttt{IsRegular} for \texttt{IsReflexible} (\textbf{RAMP: IsReflexible for IsPremaniplex}) 
 \item  \texttt{IsStronglyFlagConnected} for \texttt{IsP3} (\textbf{RAMP: IsP3 for IsPoset}) 
 \item  \texttt{MapJoin} for \texttt{Angle} (\textbf{RAMP: Angle for IsMapOnSurface}) 
 \item  \texttt{MonodromyGroup} for \texttt{ConnectionGroup} (\textbf{RAMP: ConnectionGroup for IsPremaniplex}) 
@@ -10256,6 +10404,12 @@ intended.
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}

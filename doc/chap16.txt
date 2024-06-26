@@ -311,3 +311,42 @@
     [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
+  [1X16.4-11 XORLists[101X
+  
+  [33X[1;0Y[29X[2XXORLists[102X( [3Xlist1[103X, [3Xlist2[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YList[133X
+  
+  [33X[0;0YGiven  two  binary  lists of the same length of 0s and 1s returns the XOR of
+  the two lists[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XXORLists([1,0,1,1,0,0,1], [0,1,1,1,0,0,1]);[127X[104X
+    [4X[28X[ 1, 1, 0, 0, 0, 0, 0 ][128X[104X
+  [4X[32X[104X
+  
+  [1X16.4-12 ConvertToBinaryList[101X
+  
+  [33X[1;0Y[29X[2XConvertToBinaryList[102X( [3Xnumber[103X, [3Xlength[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YList[133X
+  
+  [33X[0;0YGiven   a   base  10  number,  and  a  length  of  a  list,  returns  binary
+  representation of the number in a list of given length[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XConvertToBinaryList(12,8);[127X[104X
+    [4X[28X[ 0, 0, 0, 0, 1, 1, 0, 0 ][128X[104X
+  [4X[32X[104X
+  
+  [1X16.4-13 BinaryListToInteger[101X
+  
+  [33X[1;0Y[29X[2XBinaryListToInteger[102X( [3XbinaryList[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YList[133X
+  
+  [33X[0;0YGiven  a  list  of  0s  and 1s, returns the decimal number associated to the
+  binary representation from the list[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XBinaryListToInteger([0,0,1,1,0,0,1]);[127X[104X
+    [4X[28X25[128X[104X
+  [4X[32X[104X
+  

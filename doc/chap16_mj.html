@@ -58,6 +58,9 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X82A3B82B7C3C67E1">16.4-8 ActionByGenerators</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X826F24BE83BC6468">16.4-9 ActionOnBlocks</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X83F57BE47AD7267D">16.4-10 VerifyProperties</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7D3284FB85C1A31A">16.4-11 XORLists</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X7DCB7C75846B6CAE">16.4-12 ConvertToBinaryList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap16_mj.html#X84E9E2FB8790B1E8">16.4-13 BinaryListToInteger</a></span>
 </div></div>
 </div>
 
@@ -370,6 +373,51 @@ Group([ (1,2)(3,4), (2,3), (3,4) ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VerifyProperties(M);</span>
 Value mismatch in NumberOfFlagOrbits: stored value is 3 and real value is 1
 false
+</pre></div>
+
+<p><a id="X7D3284FB85C1A31A" name="X7D3284FB85C1A31A"></a></p>
+
+<h5>16.4-11 XORLists</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; XORLists</code>( <var class="Arg">list1</var>, <var class="Arg">list2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: List</p>
+
+<p>Given two binary lists of the same length of 0s and 1s returns the XOR of the two lists</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">XORLists([1,0,1,1,0,0,1], [0,1,1,1,0,0,1]);</span>
+[ 1, 1, 0, 0, 0, 0, 0 ]
+</pre></div>
+
+<p><a id="X7DCB7C75846B6CAE" name="X7DCB7C75846B6CAE"></a></p>
+
+<h5>16.4-12 ConvertToBinaryList</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConvertToBinaryList</code>( <var class="Arg">number</var>, <var class="Arg">length</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: List</p>
+
+<p>Given a base 10 number, and a length of a list, returns binary representation of the number in a list of given length</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ConvertToBinaryList(12,8);</span>
+[ 0, 0, 0, 0, 1, 1, 0, 0 ]
+</pre></div>
+
+<p><a id="X84E9E2FB8790B1E8" name="X84E9E2FB8790B1E8"></a></p>
+
+<h5>16.4-13 BinaryListToInteger</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BinaryListToInteger</code>( <var class="Arg">binaryList</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: List</p>
+
+<p>Given a list of 0s and 1s, returns the decimal number associated to the binary representation from the list</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">BinaryListToInteger([0,0,1,1,0,0,1]);</span>
+25
 </pre></div>
 
 

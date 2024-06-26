@@ -116,13 +116,17 @@
     [4X[28X5[128X[104X
   [4X[32X[104X
   
-  [1X7.1-7 ExtraRelators[101X
   
+  [1X7.1-7 [33X[0;0YExtraRelators[133X[101X
+  
+  [33X[1;0Y[29X[2XExtraRelators[102X( [3Xg[103X ) [32X attribute[133X
   [33X[1;0Y[29X[2XExtraRelators[102X( [3XM[103X ) [32X attribute[133X
   
-  [33X[0;0YFor  a  reflexible  maniplex  [3XM[103X,  returns  the relators needed to define its
-  automorphism  group  as  a quotient of the string Coxeter group given by its
-  Schlafli symbol. Not particularly robust at the moment.[133X
+  [33X[0;0YFor  an  sggi  [3Xg[103X  or  reflexible  maniplex [3XM[103X, returns the relators needed to
+  define  [3Xg[103X  (or  the  automorphism  group  of  [3XM[103X) as a quotient of the string
+  Coxeter  group  given by its Schlafli symbol. Not particularly robust at the
+  moment;  sometimes  you may get relators that are conjugates of the standard
+  relators and thus unneccessary.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XExtraRelators(HemiCube(3));[127X[104X
@@ -531,6 +535,8 @@
     [4X[25Xgap>[125X [27XIsReflexible(Epsilonk(6));[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
+  
+  [33X[0;0YSynonym: IsRegular[133X
   
   [1X7.5-8 IsChiral[101X
   

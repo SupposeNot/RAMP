@@ -32,7 +32,8 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D194510834667C8">7.1-4 RotationGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X831C36BB82F429C4">7.1-5 RotationGroupFpGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FDCA212782DC0E3">7.1-6 ChiralityGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D2CE6707B452C0D">7.1-7 ExtraRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D1D0A267C4020EA">7.1-7 <span class="Heading">ExtraRelators</span></a>
+</span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X797752A88078CF22">7.1-8 ExtraRotRelators</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85C1BC3D85D78ECC">7.1-9 IsManiplexable</a></span>
 </div></div>
@@ -195,12 +196,13 @@ Group([ s2^-1*s1^-1*s2*s1^3*s2*s1 ])
 5
 </pre></div>
 
-<p><a id="X7D2CE6707B452C0D" name="X7D2CE6707B452C0D"></a></p>
+<p><a id="X7D1D0A267C4020EA" name="X7D1D0A267C4020EA"></a></p>
 
-<h5>7.1-7 ExtraRelators</h5>
+<h5>7.1-7 <span class="Heading">ExtraRelators</span></h5>
 
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its automorphism group as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
+<p>For an sggi <var class="Arg">g</var> or reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define <var class="Arg">g</var> (or the automorphism group of <var class="Arg">M</var>) as a quotient of the string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment; sometimes you may get relators that are conjugates of the standard relators and thus unneccessary.</p>
 
 
 <div class="example"><pre>
@@ -657,6 +659,8 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsReflexible(Epsilonk(6));</span>
 true
 </pre></div>
+
+<p>Synonym: IsRegular</p>
 
 <p><a id="X7F0108D17B523A0C" name="X7F0108D17B523A0C"></a></p>
 

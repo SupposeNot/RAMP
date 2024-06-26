@@ -20,12 +20,13 @@
   [2XAdmissiblePerms[102X, for IsInt, IsList 14.1-3 
   [2XAmalgamate[102X, for IsManiplex, IsManiplex 9.1-6 
   [2XAngle[102X, for IsMapOnSurface 11.4-9 
-  [2XAntiprism[102X, for IsInt 9.4-3 
-      for IsManiplex 9.4-3 
+  [2XAntiprism[102X, for IsInt 9.5-3 
+      for IsManiplex 9.5-3 
       for IsPoset 12.6-5 
   [2XAreIncidentElements[102X, for IsObject,IsObject 12.5-4 
   [2XAsPosetOfAtoms[102X, for IsPoset 12.3-21 
   [2XAtomList[102X, for IsPosetElement 12.4-9 
+  [2XAutomorphismClassRepresentativeInvolutions[102X, for IsGroup 9.4-2 
   [2XAutomorphismGroup[102X, for IsPoset 12.3-10 
       for IsPremaniplex 7.1-1 
   [2XAutomorphismGroupFpGroup[102X, for IsManiplex 7.1-1 
@@ -45,11 +46,12 @@
   [2XBarycentricSubdivision[102X, for IsMapOnSurface 11.4-6 
   [2XBaseFlag[102X, for IsPremaniplex 7.5-2 
   [2XBevel[102X, for IsMapOnSurface 11.5-9 
+  [2XBinaryListToInteger[102X, for IsList 16.4-13 
   [2XBk2l[102X, for IsInt,IsInt 11.1-5 
   [2XBk2lRhoSigma[102X, for IsInt,IsInt,IsInt,IsInt 11.1-7 
   [2XBk2lStar[102X, for IsInt,IsInt 11.1-6 
   [2XBrucknerSphere[102X 5.1-23 
-  [2XCartesianProduct[102X, for IsManiplex, IsManiplex 9.4-5 
+  [2XCartesianProduct[102X, for IsManiplex, IsManiplex 9.5-5 
       for IsPoset,IsPoset 12.6-2 
   [2XChamfer[102X, for IsMapOnSurface 11.4-3 
   [2XChangeVoltage[102X, for IsVoltageGraph,IsInt,IsInt, IsObject 14.1-11 
@@ -65,11 +67,13 @@
   [2XComix[102X, for IsFpGroup, IsFpGroup 9.3-4 
       for IsReflexibleManiplex, IsReflexibleManiplex 9.3-4 
   [2XCompleteBipartiteGraph[102X, for IsInt,IsInt 13.1-4 
+  [2XConjugacyClassesOfInvolutionsRepresentatives[102X, for IsGroup 9.4-1 
   [2XConnectedComponents[102X, for IsEdgeLabeledGraph, IsList 13.2-16 
   [2XConnectionGeneratorOfPoset[102X, for IsPoset,IsInt 12.3-8 
   [2XConnectionGroup[102X, for IsEdgeLabeledGraph 13.2-26 
       for IsPoset 12.3-9 
       for IsPremaniplex 7.1-2 
+  [2XConvertToBinaryList[102X, for IsInt,IsInt 16.4-12 
   [2XCoSkeleton[102X, for IsManiplex 13.2-7 
   [2XCPRGraphFromGroups[102X, for IsGroup,IsGroup 13.2-18 
   [2XCross[102X, for IsMapOnSurface 11.6-11 
@@ -88,7 +92,7 @@
       for IsVoltageGraph 14.1-12 
   [2XDirectDerivates[102X, for IsManiplex 9.2-9 
   [2XDirectedGraphFromListOfEdges[102X, for IsList,IsList 13.2-1 
-  [2XDirectSumOfManiplexes[102X, for IsManiplex, IsManiplex 9.4-6 
+  [2XDirectSumOfManiplexes[102X, for IsManiplex, IsManiplex 9.5-6 
   [2XDirectSumOfPosets[102X, for IsPoset,IsPoset 12.6-3 
   [2XDodecahedron[102X 5.1-12 
   [2XDual[102X, for IsManiplex 9.2-1 
@@ -105,7 +109,8 @@
   [2XEvenConnectionGroup[102X, for IsManiplex 7.1-3 
   [2XExpand[102X, for IsMapOnSurface 11.5-6 
   [2XExponentGroup[102X, for IsMapOnSurface 9.2-11 
-  [2XExtraRelators[102X, for IsReflexibleManiplex 7.1-7 
+  [2XExtraRelators[102X, for IsFpGroup 7.1-7 
+      for IsReflexibleManiplex 7.1-7 
   [2XExtraRotRelators[102X, for IsRotaryManiplex 7.1-8 
   [2XFaceListOfPoset[102X, for IsPoset 12.3-17 
   [2XFacesByRankOfPoset[102X, for IsPoset 12.3-19 
@@ -237,7 +242,7 @@
   [2XJoin[102X, for IsFace, IsFace, IsPoset 12.5-6 
   [2XJoinKisKis[102X, for IsMapOnSurface 11.6-10 
   [2XJoinLace[102X, for IsMapOnSurface 11.6-5 
-  [2XJoinProduct[102X, for IsManiplex, IsManiplex 9.4-4 
+  [2XJoinProduct[102X, for IsManiplex, IsManiplex 9.5-4 
       for IsPoset,IsPoset 12.6-1 
   [2XKis[102X, for IsMapOnSurface 11.5-2 
   [2XLabeledAdjacentVertices[102X, for IsEdgeLabeledGraph, IsObject 13.2-20 
@@ -316,13 +321,13 @@
   [2XPremaniplex[102X, for IsEdgeLabeledGraph 4.1-7 
       for IsGroup 4.1-6 
   [2XPRGraph[102X, for IsGroup 13.2-17 
-  [2XPrism[102X, for IsInt 9.4-2 
-      for IsManiplex 9.4-2 
+  [2XPrism[102X, for IsInt 9.5-2 
+      for IsManiplex 9.5-2 
   [2XPropeller[102X, for IsMapOnSurface 11.6-2 
   [2XPseudorhombicuboctahedron[102X 5.5-8 
   [2XPseudoSchlafliSymbol[102X, for IsManiplex 6.4-2 
-  [2XPyramid[102X, for IsInt 9.4-1 
-      for IsManiplex 9.4-1 
+  [2XPyramid[102X, for IsInt 9.5-1 
+      for IsManiplex 9.5-1 
   [2XQuinto[102X, for IsMapOnSurface 11.6-4 
   [2XQuotientByLabel[102X, for IsObject,IsList, IsList, IsList 13.2-9 
   [2XQuotientManiplex[102X, for IsReflexibleManiplex, IsString 8.1-12 
@@ -400,7 +405,7 @@
   [2XTetrahedron[102X 5.1-10 
   [2XTightOrientablyRegularPolytopesOfType[102X, for IsList 5.2-3 
   [2XTomotope[102X 5.3-1 
-  [2XTopologicalProduct[102X, for IsManiplex, IsManiplex 9.4-7 
+  [2XTopologicalProduct[102X, for IsManiplex, IsManiplex 9.5-7 
       for IsPoset,IsPoset 12.6-4 
   [2XToroidalMap36[102X 5.4-2 
   [2XToroidalMap44[102X 5.4-1 
@@ -413,6 +418,7 @@
   [2XTruncatedOctahedron[102X 5.5-3 
   [2XTruncatedTetrahedron[102X 5.5-2 
   [2XTruncation[102X, for IsMapOnSurface 11.4-1 
+  [2XTwoToThe[102X, for IsManiplex 9.1-8 
   [2XUniversalExtension[102X, for IsManiplex 9.1-2 
       for IsManiplex, IsInt 9.1-3 
   [2XUniversalGgi[102X, for IsInt 3.1-1 
@@ -448,6 +454,7 @@
   [2XWythoffian[102X, for IsList, IsManiplex 14.1-6 
   [2XWythoffLabeledEdges[102X, for IsInt, IsList 14.1-5 
   [2XWythoffSTG[102X, for IsInt, IsList 14.1-4 
+  [2XXORLists[102X, for IsList,IsList 16.4-11 
   [2XZigzagLength[102X, for IsManiplex, IsInt 6.6-1 
   [2XZigzagVector[102X, for IsManiplex 6.6-2 
   [2XZip[102X, for IsMapOnSurface 11.5-4 

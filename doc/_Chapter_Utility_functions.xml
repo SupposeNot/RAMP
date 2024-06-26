@@ -371,6 +371,60 @@ false
 </ManSection>
 
 
+<ManSection>
+  <Oper Arg="list1, list2" Name="XORLists" Label="for IsList,IsList"/>
+ <Returns>List
+</Returns>
+ <Description>
+Given two binary lists of the same length of 0s and 1s
+ returns the XOR of the two lists
+<P/>
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> XORLists([1,0,1,1,0,0,1], [0,1,1,1,0,0,1]);
+[ 1, 1, 0, 0, 0, 0, 0 ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="number, length" Name="ConvertToBinaryList" Label="for IsInt,IsInt"/>
+ <Returns>List
+</Returns>
+ <Description>
+Given a base 10 number, and a length of a list,
+ returns binary representation of the number in a list of given length
+<P/>
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> ConvertToBinaryList(12,8);
+[ 0, 0, 0, 0, 1, 1, 0, 0 ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="binaryList" Name="BinaryListToInteger" Label="for IsList"/>
+ <Returns>List
+</Returns>
+ <Description>
+Given a list of 0s and 1s,
+ returns the decimal number associated to the binary representation from the list
+<P/>
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> BinaryListToInteger([0,0,1,1,0,0,1]);
+25
+]]></Example>
+
+
 </Section>
 
 

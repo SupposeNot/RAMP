@@ -32,6 +32,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7A5853E278A83D74">9.1-5 FlatExtension</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X790F22D47CD222EB">9.1-6 Amalgamate</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X840BC19484E0E9CC">9.1-7 Medial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X83A9F6228008EC90">9.1-8 TwoToThe</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9.html#X87FD993F7F6F2FAB">9.2 <span class="Heading">Duality</span></a>
 </span>
@@ -62,19 +63,25 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X82C3A3447A93CDD6">9.3-5 <span class="Heading">Indexed array tools</span></a>
 </span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9.html#X86CE352C7851221F">9.4 <span class="Heading">Products</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9.html#X81D00E7185C90DD7">9.4 <span class="Heading">Polytopes Associated with a Group</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7CBB470F7D3135BC">9.4-1 <span class="Heading">Pyramids</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7BC866FA7DE9C4D3">9.4-1 ConjugacyClassesOfInvolutionsRepresentatives</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7D7832237C7E5763">9.4-2 AutomorphismClassRepresentativeInvolutions</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9.html#X86CE352C7851221F">9.5 <span class="Heading">Products</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7B13F48A7AF5DF42">9.4-2 <span class="Heading">Prisms</span></a>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7CBB470F7D3135BC">9.5-1 <span class="Heading">Pyramids</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X808566B57F296C93">9.4-3 <span class="Heading">Antiprisms</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7B13F48A7AF5DF42">9.5-2 <span class="Heading">Prisms</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7FA28B5C7AC1C32E">9.4-4 JoinProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7C116F2C83963ADC">9.4-5 CartesianProduct</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X8022B9AC85D38D7D">9.4-6 DirectSumOfManiplexes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X833534418543FB94">9.4-7 TopologicalProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X808566B57F296C93">9.5-3 <span class="Heading">Antiprisms</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7FA28B5C7AC1C32E">9.5-4 JoinProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X7C116F2C83963ADC">9.5-5 CartesianProduct</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X8022B9AC85D38D7D">9.5-6 DirectSumOfManiplexes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9.html#X833534418543FB94">9.5-7 TopologicalProduct</a></span>
 </div></div>
 </div>
 
@@ -197,6 +204,21 @@ true
 [ [ 3, 5 ], 4 ]
 </pre></div>
 
+<p><a id="X83A9F6228008EC90" name="X83A9F6228008EC90"></a></p>
+
+<h5>9.1-8 TwoToThe</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TwoToThe</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: List</p>
+
+<p>Given a maniplex M, returns the maniplex defined by the operation 2^M from Section 8C of Abstract Regular Polytopes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TwoToThe(Simplex(3))=Cube(4);</span>
+true
+</pre></div>
+
 <p><a id="X87FD993F7F6F2FAB" name="X87FD993F7F6F2FAB"></a></p>
 
 <h4>9.2 <span class="Heading">Duality</span></h4>
@@ -205,7 +227,7 @@ true
 
 <h5>9.2-1 Dual</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Dual</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: The maniplex that is dual to <var class="Arg">M</var>.</p>
 
 
@@ -528,13 +550,47 @@ true
 [ 3, 2 ]
 </pre></div>
 
+<p><a id="X81D00E7185C90DD7" name="X81D00E7185C90DD7"></a></p>
+
+<h4>9.4 <span class="Heading">Polytopes Associated with a Group</span></h4>
+
+<p>The tools in this section exist primarily to enable the classification and listing of regular polytopes associated with a given group, though it will likely be expanded to cover maniplexes as well. The approach and treatment here follows closely that in <a href="chapBib.html#biBHar06">[Har06]</a>.</p>
+
+<p><a id="X7BC866FA7DE9C4D3" name="X7BC866FA7DE9C4D3"></a></p>
+
+<h5>9.4-1 ConjugacyClassesOfInvolutionsRepresentatives</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConjugacyClassesOfInvolutionsRepresentatives</code>( <var class="Arg">gamma</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: elements</p>
+
+<p>Given a group <var class="Arg">gamma</var>, gives a list of representatives of the conjugacy classes of involutions in the group.</p>
+
+
+<div class="example"><pre>
+gap&gt;
+</pre></div>
+
+<p><a id="X7D7832237C7E5763" name="X7D7832237C7E5763"></a></p>
+
+<h5>9.4-2 AutomorphismClassRepresentativeInvolutions</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutomorphismClassRepresentativeInvolutions</code>( <var class="Arg">gamma</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: elements</p>
+
+<p>Given a group <var class="Arg">gamma</var>, gives a list of representatives of the automorphism classes of involutions in the group.</p>
+
+
+<div class="example"><pre>
+&lt;##&gt;
+</pre></div>
+
 <p><a id="X86CE352C7851221F" name="X86CE352C7851221F"></a></p>
 
-<h4>9.4 <span class="Heading">Products</span></h4>
+<h4>9.5 <span class="Heading">Products</span></h4>
 
 <p><a id="X7CBB470F7D3135BC" name="X7CBB470F7D3135BC"></a></p>
 
-<h5>9.4-1 <span class="Heading">Pyramids</span></h5>
+<h5>9.5-1 <span class="Heading">Pyramids</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Pyramid</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -550,7 +606,7 @@ true
 
 <p><a id="X7B13F48A7AF5DF42" name="X7B13F48A7AF5DF42"></a></p>
 
-<h5>9.4-2 <span class="Heading">Prisms</span></h5>
+<h5>9.5-2 <span class="Heading">Prisms</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Prism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -566,7 +622,7 @@ true
 
 <p><a id="X808566B57F296C93" name="X808566B57F296C93"></a></p>
 
-<h5>9.4-3 <span class="Heading">Antiprisms</span></h5>
+<h5>9.5-3 <span class="Heading">Antiprisms</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Antiprism</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -582,7 +638,7 @@ true
 
 <p><a id="X7FA28B5C7AC1C32E" name="X7FA28B5C7AC1C32E"></a></p>
 
-<h5>9.4-4 JoinProduct</h5>
+<h5>9.5-4 JoinProduct</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; JoinProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
@@ -597,7 +653,7 @@ true
 
 <p><a id="X7C116F2C83963ADC" name="X7C116F2C83963ADC"></a></p>
 
-<h5>9.4-5 CartesianProduct</h5>
+<h5>9.5-5 CartesianProduct</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CartesianProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
@@ -612,7 +668,7 @@ true
 
 <p><a id="X8022B9AC85D38D7D" name="X8022B9AC85D38D7D"></a></p>
 
-<h5>9.4-6 DirectSumOfManiplexes</h5>
+<h5>9.5-6 DirectSumOfManiplexes</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DirectSumOfManiplexes</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>
@@ -627,7 +683,7 @@ true
 
 <p><a id="X833534418543FB94" name="X833534418543FB94"></a></p>
 
-<h5>9.4-7 TopologicalProduct</h5>
+<h5>9.5-7 TopologicalProduct</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TopologicalProduct</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Maniplex</p>

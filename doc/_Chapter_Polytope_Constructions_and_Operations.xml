@@ -135,6 +135,24 @@ gap> SchlafliSymbol(Medial(Dodecahedron()));
 ]]></Example>
 
 
+<ManSection>
+  <Attr Arg="M" Name="TwoToThe" Label="for IsManiplex"/>
+ <Returns>List
+</Returns>
+ <Description>
+Given a maniplex M,
+ returns the maniplex defined by the operation 2^M from Section 8C of Abstract Regular Polytopes.
+<P/>
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> TwoToThe(Simplex(3))=Cube(4);
+true
+]]></Example>
+
+
 </Section>
 
 
@@ -142,7 +160,7 @@ gap> SchlafliSymbol(Medial(Dodecahedron()));
 <Heading>Duality</Heading>
 
 <ManSection>
-  <Oper Arg="M" Name="Dual" Label="for IsManiplex"/>
+  <Attr Arg="M" Name="Dual" Label="for IsManiplex"/>
  <Returns>The maniplex that is dual to <A>M</A>.
 </Returns>
  <Description>
@@ -527,6 +545,45 @@ gap> CtoL(3,2,5,4);
 8
 gap> LtoC(8,5,4);
 [ 3, 2 ]
+]]></Example>
+
+
+</Section>
+
+
+<Section Label="Chapter_Polytope_Constructions_and_Operations_Section_Polytopes_Associated_with_a_Group">
+<Heading>Polytopes Associated with a Group</Heading>
+
+ The tools in this section exist primarily to enable the classification and listing of regular polytopes associated with a given group, though it will likely be expanded to cover maniplexes as well.
+ The approach and treatment here follows closely that in <Cite Key="Har06"/>.
+
+<ManSection>
+  <Oper Arg="gamma" Name="ConjugacyClassesOfInvolutionsRepresentatives" Label="for IsGroup"/>
+ <Returns>elements
+</Returns>
+ <Description>
+Given a group <A>gamma</A>, gives a list of representatives of the conjugacy classes of involutions in the group.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap>
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="gamma" Name="AutomorphismClassRepresentativeInvolutions" Label="for IsGroup"/>
+ <Returns>elements
+</Returns>
+ <Description>
+Given a group <A>gamma</A>, gives a list of representatives of the automorphism classes of involutions in the group.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+<##>
 ]]></Example>
 
 
