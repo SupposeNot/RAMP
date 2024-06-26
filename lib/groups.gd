@@ -91,6 +91,13 @@ DeclareAttribute("RotationGroupFpGroup", IsManiplex);
 #! @EndExampleSession
 
 #! @Arguments M
+#! Returns the rotation group of <A>M</A> as a
+#! permutation group. This group is not guaranteed to be in any particular form. 
+DeclareAttribute("RotationGroupPermGroup", IsManiplex);
+
+
+
+#! @Arguments M
 #! Returns the chirality group of the rotary maniplex <A>M</A>.
 #! This is the kernel of the group epimorphism from the
 #! rotation group of <A>M</A> to the rotation group of its maximal

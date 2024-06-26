@@ -242,6 +242,18 @@ InstallMethod(RotationGroupFpGroup,
 #	fi;
 #	end);
 
+InstallMethod(RotationGroupPermGroup, 
+	[IsManiplex],
+	function(M)
+	local g;
+	g := RotationGroup(M);
+	if IsPermGroup(g) then
+		return g;
+	else
+		return Image(IsomorphismPermGroup(g));
+	fi;
+	end);
+	
 InstallMethod(ConnectionGroup,
 	[IsPremaniplex],
 	function(M)
