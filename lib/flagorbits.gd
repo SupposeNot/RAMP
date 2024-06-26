@@ -84,6 +84,7 @@ DeclareProperty("IsReflexible", IsPremaniplex);
 #! gap> IsReflexible(Epsilonk(6));
 #! true
 #! @EndExampleSession
+#! Synonym: IsRegular
 
 #! @Arguments M
 #! @Returns Whether the premaniplex <A>M</A> is chiral.

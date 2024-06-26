@@ -126,6 +126,7 @@
 #! * `Flags` for <Ref Func='MaximalChains' BookName='ramp'/>
 #! * `FlagsList` for <Ref Func='MaximalChains' BookName='ramp'/>
 #! * `IsDiamondCondition` for <Ref Func='IsP4' BookName='ramp'/>
+#! * `IsRegular` for <Ref Func='IsReflexible' BookName=`ramp`/>
 #! * `IsStronglyFlagConnected` for <Ref Func='IsP3' BookName='ramp'/>
 #! * `MapJoin` for <Ref Func='Angle' BookName='ramp'/>
 #! * `MonodromyGroup` for <Ref Func='ConnectionGroup' BookName='ramp'/>

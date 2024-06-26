@@ -162,6 +162,12 @@ InstallMethod(IsReflexible,
 	return val;
 	end);
 
+InstallOtherMethod(IsRegular,
+	[IsPremaniplex],
+	function(M)
+	return IsReflexible(M);
+	end);
+
 InstallMethod(IsChiral,
 	[IsManiplex and IsRotaryManiplexRotGpRep],
 	function(M)
