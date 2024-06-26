@@ -50,6 +50,10 @@ InstallMethod(UniversalExtension,
 	if HasIsPolytopal(p) then
 		SetIsPolytopal(p2, IsPolytopal(p));
 	fi;
+	
+	if HasExtraRelators(p) then
+		SetExtraRelators(p2, ExtraRelators(p));
+	fi;
 
 	return p2;
 	end);
@@ -88,6 +92,10 @@ InstallMethod(UniversalExtension,
 		SetIsPolytopal(p2, IsPolytopal(p));
 	fi;
 	
+	if HasExtraRelators(p) then
+		SetExtraRelators(p2, ExtraRelators(p));
+	fi;
+
 	return p2;
 	end);
 	
