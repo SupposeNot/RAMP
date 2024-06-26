@@ -124,8 +124,16 @@ InstallMethod(FlagMix,
 InstallMethod(Mix,
 	[IsPremaniplex, IsPremaniplex],
 	function(p,q)
-	if IsReflexible(p) and IsReflexible(q) then
-	return ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
-	else return FlagMix(p,q);
+	local M;
+
+	if HasIsReflexible(p) and HasIsReflexible(q) and IsReflexible(p) and IsReflexible(q) then
+		M := ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
+		if Rank(p) = 3 and Rank(q) = 3 then
+			# The mix of two polyhedra is always a polyhedron
+			SetIsPolytopal(M, true);
+		fi;
+		return M;
+	else 
+		return FlagMix(p,q);
 	fi;
 	end);
