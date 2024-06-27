@@ -117,7 +117,10 @@ InstallMethod(IsStringCPlus,
 		return (Size(Intersection(facetGroup, vfigGroup)) = 1);
 	else
 		facetGroup := Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
+		vfigGroup := Subgroup(g, GeneratorsOfGroup(g){[2..n]});
 		if not(IsStringCPlus(facetGroup)) then
+			return false;
+		elif not(IsStringCPlus(vfigGroup)) then
 			return false;
 		else
 			for i in [2..n-1] do
