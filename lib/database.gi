@@ -410,9 +410,9 @@ InstallGlobalFunction(SmallDegenerateRegular4Polytopes,
 	fi;
 	
 	maniplexes := [];
-
+	
 	# First we add all polytopes of type [p, 2, r], with size 4pr
-	for p in [3..Int(maxsize/8)] do
+	for p in [2..Int(maxsize/8)] do
 		if 4*p^2 > maxsize then break; fi;
 		if 4*p^2 >= minsize then Add(maniplexes, ARP([p,2,p])); fi;
 		for r in [p+1..Int(maxsize/(4*p))] do
