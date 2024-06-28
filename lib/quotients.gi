@@ -146,17 +146,17 @@ InstallMethod(IsQuotient,
 	
 	if HasSize(p) and IsFinite(p) then
 		# add rels from q to p...
-		rels := RelatorsOfFpGroup(RotationGroup(q));
+		rels := RelatorsOfFpGroup(RotationGroupFpGroup(q));
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
-		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p))));
-		g := FactorGroupFpGroupByRels(RotationGroup(p), newrels);
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroupFpGroup(p))));
+		g := FactorGroupFpGroupByRels(RotationGroupFpGroup(p), newrels);
 		if Size(g) = Size(RotationGroup(p)) then
 			return true;
 		fi;
 		
 		# Now try the enantiomorphic form
-		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroup(p2))));
-		g := FactorGroupFpGroupByRels(RotationGroup(p2), newrels);
+		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroupFpGroup(p2))));
+		g := FactorGroupFpGroupByRels(RotationGroupFpGroup(p2), newrels);
 		return (Size(g) = Size(RotationGroup(p2)));
 	else
 		g1 := RotationGroup(q);
