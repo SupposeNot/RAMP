@@ -98,6 +98,12 @@ InstallMethod(SatisfiesPathIntersectionProperty,
 	end);
 
 InstallMethod(IsFaithful,
+	[IsReflexibleManiplex],
+	function(M)
+	return Size(MaxChainStabilizer(M)) > 1;
+	end);
+
+InstallMethod(IsFaithful,
 	[IsManiplex],
 	function(m)
 	#for each flag we will test if the intersection of all the i faces containing it 
