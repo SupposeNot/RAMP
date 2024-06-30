@@ -199,3 +199,33 @@ InstallMethod(IsFacetFaithful,
 	fi;	
 	end);
 
+InstallMethod(IFaceStabilizer,
+	[IsInt, IsReflexibleManiplex],
+	function(i, M)
+	local g, n, gens;
+	
+	g := AutomorphismGroup(M);
+	n := Rank(M);
+	gens := List([1..i], j -> g.(j));
+	Append(gens, List([i+2..n], j -> g.(j)));
+	return Subgroup(g, gens);
+	end);
+	
+InstallMethod(ChainStabilizer,
+	[IsList, IsReflexibleManiplex],
+	function(L, M)
+	local g, h, i;
+	
+	g := AutomorphismGroup(M);
+	h := g;
+	for i in L do
+		h := Intersection(h, IFaceStabilizer(i, M));
+	od;
+	return h;	
+	end);
+	
+InstallMethod(MaxChainStabilizer,
+	[IsReflexibleManiplex],
+	function(M)
+	return ChainStabilizer([0..Rank(M)-1], M);	
+	end);
