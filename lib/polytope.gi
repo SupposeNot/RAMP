@@ -100,7 +100,7 @@ InstallMethod(SatisfiesPathIntersectionProperty,
 InstallMethod(IsFaithful,
 	[IsReflexibleManiplex],
 	function(M)
-	return Size(MaxChainStabilizer(M)) > 1;
+	return Size(MaxChainStabilizer(M)) = 1;
 	end);
 
 InstallMethod(IsFaithful,
