@@ -1,4 +1,28 @@
 
+# A 1 in the Schlafli symbol of a reflexible or rotary maniplex causes a collapse
+# of the values of adjacent entries.
+REDUCED_SCHLAFLI_SYMBOL := function(sym)
+	local changed, i;
+	changed := true;
+	while changed do
+		changed := false;
+		for i in [1..Size(sym)] do
+			if sym[i] = 1 then
+				if i > 1 and sym[i-1] > 2 then
+					sym[i-1] := Gcd(2, sym[i-1]);
+					changed := true;
+				fi;
+				
+				if i < Size(sym) and sym[i+1] > 2 then
+					sym[i+1] := Gcd(2, sym[i+1]);
+					changed := true;
+				fi;
+			fi;
+		od;
+	od;
+	return sym;
+	end;
+	
 InstallMethod(IsGgi,
 	[IsGroup],
 	function(g)
@@ -345,6 +369,7 @@ InstallOtherMethod(UniversalSggi,
 	if ForAll(sym, x -> x <> 1) then
 		SetIsStringC(h, true);
 	fi;
+	if 1 in sym then sym := REDUCED_SCHLAFLI_SYMBOL(sym); fi;
 	SetSchlafliSymbol(h, sym);
 	return h;
 	end);

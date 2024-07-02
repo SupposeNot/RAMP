@@ -71,7 +71,9 @@ InstallMethod(ReflexibleManiplex,
 
 	w := UniversalSggi(sym);
 	p := ReflexibleManiplexNC(w);
-	SetSchlafliSymbol(p, sym);
+	if not(1 in sym) then
+		SetSchlafliSymbol(p, sym);
+	fi;
 	SetSize(p, Size(w));
 	SetExtraRelators(p, []);
 	

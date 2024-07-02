@@ -6,7 +6,7 @@ InstallMethod(Size,
 	size := ComputeAttr(M, Size);
 	if size <> fail then return size; fi;
 
-	if HasIsReflexible(M) and IsReflexible(M) then
+	if IsReflexibleManiplexAutGpRep(M) then
 		return Size(AutomorphismGroup(M));
 	elif IsRotaryManiplexRotGpRep(M) then
 		return 2*Size(RotationGroup(M));
