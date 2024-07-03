@@ -31,11 +31,12 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7CE8CFB183A4FFEE">7.1-3 EvenConnectionGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D194510834667C8">7.1-4 RotationGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X831C36BB82F429C4">7.1-5 RotationGroupFpGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FDCA212782DC0E3">7.1-6 ChiralityGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D1D0A267C4020EA">7.1-7 <span class="Heading">ExtraRelators</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X789772C97D785C79">7.1-6 RotationGroupPermGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FDCA212782DC0E3">7.1-7 ChiralityGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D1D0A267C4020EA">7.1-8 <span class="Heading">ExtraRelators</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X797752A88078CF22">7.1-8 ExtraRotRelators</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85C1BC3D85D78ECC">7.1-9 IsManiplexable</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X797752A88078CF22">7.1-9 ExtraRotRelators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85C1BC3D85D78ECC">7.1-10 IsManiplexable</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X84F0885E8664F785">7.2 <span class="Heading">Automorphism group acting on faces and chains</span></a>
 </span>
@@ -67,6 +68,9 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FFD0ADD7A2F6044">7.4-1 IsVertexFaithful</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7BB02182844EA5EB">7.4-2 IsFacetFaithful</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7F2F8EEE8663AB89">7.4-3 MaxVertexFaithfulQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7E56F5B882F56454">7.4-4 IFaceStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B28DAD57AC5AF75">7.4-5 ChainStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X78506AE88793C069">7.4-6 MaxChainStabilizer</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7BE5F0217862DBEF">7.5 <span class="Heading">Flag orbits</span></a>
 </span>
@@ -179,9 +183,16 @@ Group([ r0*r1, r1*r2 ])
 [ (s1*s2)^2, s1^4, s2^4, s2^-1*s1*(s2*s1^-1)^2 ]
 </pre></div>
 
+<p><a id="X789772C97D785C79" name="X789772C97D785C79"></a></p>
+
+<h5>7.1-6 RotationGroupPermGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RotationGroupPermGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns the rotation group of <var class="Arg">M</var> as a permutation group. This group is not guaranteed to be in any particular form.</p>
+
 <p><a id="X7FDCA212782DC0E3" name="X7FDCA212782DC0E3"></a></p>
 
-<h5>7.1-6 ChiralityGroup</h5>
+<h5>7.1-7 ChiralityGroup</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChiralityGroup</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the chirality group of the rotary maniplex <var class="Arg">M</var>. This is the kernel of the group epimorphism from the rotation group of <var class="Arg">M</var> to the rotation group of its maximal reflexible quotient. In particular, the chirality group is trivial if and only if <var class="Arg">M</var> is reflexible.</p>
@@ -198,7 +209,7 @@ Group([ s2^-1*s1^-1*s2*s1^3*s2*s1 ])
 
 <p><a id="X7D1D0A267C4020EA" name="X7D1D0A267C4020EA"></a></p>
 
-<h5>7.1-7 <span class="Heading">ExtraRelators</span></h5>
+<h5>7.1-8 <span class="Heading">ExtraRelators</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
@@ -212,7 +223,7 @@ Group([ s2^-1*s1^-1*s2*s1^3*s2*s1 ])
 
 <p><a id="X797752A88078CF22" name="X797752A88078CF22"></a></p>
 
-<h5>7.1-8 ExtraRotRelators</h5>
+<h5>7.1-9 ExtraRotRelators</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExtraRotRelators</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>For a reflexible maniplex <var class="Arg">M</var>, returns the relators needed to define its rotation group as a quotient of the rotation group of a string Coxeter group given by its Schlafli symbol. Not particularly robust at the moment.</p>
@@ -225,7 +236,7 @@ Group([ s2^-1*s1^-1*s2*s1^3*s2*s1 ])
 
 <p><a id="X85C1BC3D85D78ECC" name="X85C1BC3D85D78ECC"></a></p>
 
-<h5>7.1-9 IsManiplexable</h5>
+<h5>7.1-10 IsManiplexable</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsManiplexable</code>( <var class="Arg">permgroup</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">Boolean</code>.</p>
@@ -538,6 +549,56 @@ true
 reflexible 3-maniplex
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
 [ 3, 2 ]
+</pre></div>
+
+<p><a id="X7E56F5B882F56454" name="X7E56F5B882F56454"></a></p>
+
+<h5>7.4-4 IFaceStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IFaceStabilizer</code>( <var class="Arg">i</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base i-face. Currently only implemented for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IFaceStabilizer(1, Cube(4))</span>
+Group([ r0, r2, r3 ])
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(last)</span>
+12
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(IFaceStabilizer(0,Cube(4)));</span>
+reflexible 3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
+true
+</pre></div>
+
+<p><a id="X7B28DAD57AC5AF75" name="X7B28DAD57AC5AF75"></a></p>
+
+<h5>7.4-5 ChainStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChainStabilizer</code>( <var class="Arg">L</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base chain of the type given by <var class="Arg">L</var>. Currently only implemented for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">stab := ChainStabilizer([0,3], Cube(4));; Size(stab);</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(stab);; M = Pgon(3);</span>
+true
+</pre></div>
+
+<p><a id="X78506AE88793C069" name="X78506AE88793C069"></a></p>
+
+<h5>7.4-6 MaxChainStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxChainStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the entire base chain. Currently only implemented for reflexible maniplexes.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(MaxChainStabilizer(Cube(4)));</span>
+1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([6,3], "(r0 r1)^3 = r0 r2");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(MaxChainStabilizer(M));</span>
+2
 </pre></div>
 
 <p><a id="X7BE5F0217862DBEF" name="X7BE5F0217862DBEF"></a></p>

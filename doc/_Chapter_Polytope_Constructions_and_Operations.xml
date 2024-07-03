@@ -120,6 +120,31 @@ gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));
 
 
 <ManSection>
+  <Oper Arg="M1, M2" Name="AmalgamateNC" Label="for IsManiplex, IsManiplex"/>
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Constructs the amalgamation of the n-maniplexes <A>M1</A> and <A>M2</A>, and then
+ fills in some data, assuming that the universal amalgamation exists (i.e., that there is no
+ collapse of the facets or vertex-figures). You should only use this if you are certain
+ from theory that the universal amalgamation exists.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> A := Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;
+gap> HasSchlafliSymbol(A); HasFacet(A);
+false
+false
+gap> A2 := AmalgamateNC(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;
+gap> HasSchlafliSymbol(A2); HasFacet(A2);
+true
+true
+]]></Example>
+
+
+<ManSection>
   <Oper Arg="M" Name="Medial" Label="for IsManiplex"/>
  <Returns>IsManiplex
 </Returns>

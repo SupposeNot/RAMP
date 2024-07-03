@@ -229,10 +229,11 @@
       7.1-3 EvenConnectionGroup
       7.1-4 RotationGroup
       7.1-5 RotationGroupFpGroup
-      7.1-6 ChiralityGroup
-      7.1-7 [33X[0;0YExtraRelators[133X
-      7.1-8 ExtraRotRelators
-      7.1-9 IsManiplexable
+      7.1-6 RotationGroupPermGroup
+      7.1-7 ChiralityGroup
+      7.1-8 [33X[0;0YExtraRelators[133X
+      7.1-9 ExtraRotRelators
+      7.1-10 IsManiplexable
     7.2 [33X[0;0YAutomorphism group acting on faces and chains[133X
       7.2-1 AutomorphismGroupOnChains
       7.2-2 AutomorphismGroupOnIFaces
@@ -255,6 +256,9 @@
       7.4-1 IsVertexFaithful
       7.4-2 IsFacetFaithful
       7.4-3 MaxVertexFaithfulQuotient
+      7.4-4 IFaceStabilizer
+      7.4-5 ChainStabilizer
+      7.4-6 MaxChainStabilizer
     7.5 [33X[0;0YFlag orbits[133X
       7.5-1 Flags
       7.5-2 BaseFlag
@@ -292,8 +296,9 @@
       9.1-4 TrivialExtension
       9.1-5 FlatExtension
       9.1-6 Amalgamate
-      9.1-7 Medial
-      9.1-8 TwoToThe
+      9.1-7 AmalgamateNC
+      9.1-8 Medial
+      9.1-9 TwoToThe
     9.2 [33X[0;0YDuality[133X
       9.2-1 Dual
       9.2-2 IsSelfDual

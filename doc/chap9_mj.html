@@ -34,8 +34,9 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X84BB6B21853173FD">9.1-4 TrivialExtension</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7A5853E278A83D74">9.1-5 FlatExtension</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X790F22D47CD222EB">9.1-6 Amalgamate</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X840BC19484E0E9CC">9.1-7 Medial</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X83A9F6228008EC90">9.1-8 TwoToThe</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X7A40B6DA801513E5">9.1-7 AmalgamateNC</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X840BC19484E0E9CC">9.1-8 Medial</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap9_mj.html#X83A9F6228008EC90">9.1-9 TwoToThe</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap9_mj.html#X87FD993F7F6F2FAB">9.2 <span class="Heading">Duality</span></a>
 </span>
@@ -192,9 +193,30 @@ true
 4
 </pre></div>
 
+<p><a id="X7A40B6DA801513E5" name="X7A40B6DA801513E5"></a></p>
+
+<h5>9.1-7 AmalgamateNC</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AmalgamateNC</code>( <var class="Arg">M1</var>, <var class="Arg">M2</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Constructs the amalgamation of the n-maniplexes <var class="Arg">M1</var> and <var class="Arg">M2</var>, and then fills in some data, assuming that the universal amalgamation exists (i.e., that there is no collapse of the facets or vertex-figures). You should only use this if you are certain from theory that the universal amalgamation exists.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasSchlafliSymbol(A); HasFacet(A);</span>
+false
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A2 := AmalgamateNC(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasSchlafliSymbol(A2); HasFacet(A2);</span>
+true
+true
+</pre></div>
+
 <p><a id="X840BC19484E0E9CC" name="X840BC19484E0E9CC"></a></p>
 
-<h5>9.1-7 Medial</h5>
+<h5>9.1-8 Medial</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Medial</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
@@ -209,7 +231,7 @@ true
 
 <p><a id="X83A9F6228008EC90" name="X83A9F6228008EC90"></a></p>
 
-<h5>9.1-8 TwoToThe</h5>
+<h5>9.1-9 TwoToThe</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TwoToThe</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: List</p>

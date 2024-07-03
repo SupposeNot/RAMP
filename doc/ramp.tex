@@ -3747,8 +3747,21 @@ groups. Synonym: MonodromyGroup }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{ChiralityGroup (for IsRotaryManiplex)}}
+\subsection{\textcolor{Chapter }{RotationGroupPermGroup (for IsManiplex)}}
 \logpage{[ 7, 1, 6 ]}\nobreak
+\hyperdef{L}{X789772C97D785C79}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RotationGroupPermGroup({\mdseries\slshape M})\index{RotationGroupPermGroup@\texttt{RotationGroupPermGroup}!for IsManiplex}
+\label{RotationGroupPermGroup:for IsManiplex}
+}\hfill{\scriptsize (attribute)}}\\
+
+
+ Returns the rotation group of \mbox{\texttt{\mdseries\slshape M}} as a permutation group. This group is not guaranteed to be in any particular
+form. }
+
+ 
+
+\subsection{\textcolor{Chapter }{ChiralityGroup (for IsRotaryManiplex)}}
+\logpage{[ 7, 1, 7 ]}\nobreak
 \hyperdef{L}{X7FDCA212782DC0E3}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChiralityGroup({\mdseries\slshape M})\index{ChiralityGroup@\texttt{ChiralityGroup}!for IsRotaryManiplex}
 \label{ChiralityGroup:for IsRotaryManiplex}
@@ -3769,7 +3782,7 @@ chirality group is trivial if and only if \mbox{\texttt{\mdseries\slshape M}} is
 \end{Verbatim}
  
 \subsection{\textcolor{Chapter }{ExtraRelators}}\label{ExtraRel}
-\logpage{[ 7, 1, 7 ]}
+\logpage{[ 7, 1, 8 ]}
 \hyperdef{L}{X7D1D0A267C4020EA}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRelators({\mdseries\slshape g})\index{ExtraRelators@\texttt{ExtraRelators}!for IsFpGroup}
@@ -3794,7 +3807,7 @@ conjugates of the standard relators and thus unneccessary.
  
 
 \subsection{\textcolor{Chapter }{ExtraRotRelators (for IsRotaryManiplex)}}
-\logpage{[ 7, 1, 8 ]}\nobreak
+\logpage{[ 7, 1, 9 ]}\nobreak
 \hyperdef{L}{X797752A88078CF22}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ExtraRotRelators({\mdseries\slshape M})\index{ExtraRotRelators@\texttt{ExtraRotRelators}!for IsRotaryManiplex}
 \label{ExtraRotRelators:for IsRotaryManiplex}
@@ -3813,7 +3826,7 @@ particularly robust at the moment. }
  
 
 \subsection{\textcolor{Chapter }{IsManiplexable (for IsPermGroup)}}
-\logpage{[ 7, 1, 9 ]}\nobreak
+\logpage{[ 7, 1, 10 ]}\nobreak
 \hyperdef{L}{X85C1BC3D85D78ECC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsManiplexable({\mdseries\slshape permgroup})\index{IsManiplexable@\texttt{IsManiplexable}!for IsPermGroup}
 \label{IsManiplexable:for IsPermGroup}
@@ -4246,6 +4259,70 @@ Q
   reflexible 3-maniplex
   !gapprompt@gap>| !gapinput@SchlafliSymbol(last);|
   [ 3, 2 ]
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IFaceStabilizer (for IsInt, IsManiplex)}}
+\logpage{[ 7, 4, 4 ]}\nobreak
+\hyperdef{L}{X7E56F5B882F56454}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IFaceStabilizer({\mdseries\slshape i, M})\index{IFaceStabilizer@\texttt{IFaceStabilizer}!for IsInt, IsManiplex}
+\label{IFaceStabilizer:for IsInt, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the subgroup of the automorphism group of \mbox{\texttt{\mdseries\slshape M}} that fixes the base i-face. Currently only implemented for reflexible
+maniplexes. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@IFaceStabilizer(1, Cube(4))|
+  Group([ r0, r2, r3 ])
+  !gapprompt@gap>| !gapinput@Size(last)|
+  12
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(IFaceStabilizer(0,Cube(4)));|
+  reflexible 3-maniplex
+  !gapprompt@gap>| !gapinput@M = Simplex(3);|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{ChainStabilizer (for IsList, IsManiplex)}}
+\logpage{[ 7, 4, 5 ]}\nobreak
+\hyperdef{L}{X7B28DAD57AC5AF75}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ChainStabilizer({\mdseries\slshape L, M})\index{ChainStabilizer@\texttt{ChainStabilizer}!for IsList, IsManiplex}
+\label{ChainStabilizer:for IsList, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the subgroup of the automorphism group of \mbox{\texttt{\mdseries\slshape M}} that fixes the base chain of the type given by \mbox{\texttt{\mdseries\slshape L}}. Currently only implemented for reflexible maniplexes. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@stab := ChainStabilizer([0,3], Cube(4));; Size(stab);|
+  6
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex(stab);; M = Pgon(3);|
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{MaxChainStabilizer (for IsManiplex)}}
+\logpage{[ 7, 4, 6 ]}\nobreak
+\hyperdef{L}{X78506AE88793C069}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{MaxChainStabilizer({\mdseries\slshape M})\index{MaxChainStabilizer@\texttt{MaxChainStabilizer}!for IsManiplex}
+\label{MaxChainStabilizer:for IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+
+
+ Returns the subgroup of the automorphism group of \mbox{\texttt{\mdseries\slshape M}} that fixes the entire base chain. Currently only implemented for reflexible
+maniplexes. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@Size(MaxChainStabilizer(Cube(4)));|
+  1
+  !gapprompt@gap>| !gapinput@M := ReflexibleManiplex([6,3], "(r0 r1)^3 = r0 r2");;|
+  !gapprompt@gap>| !gapinput@Size(MaxChainStabilizer(M));|
+  2
 \end{Verbatim}
  }
 
@@ -5023,8 +5100,37 @@ chiral, then the amalgamation depends on the choices of base flag for each. }
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{Medial (for IsManiplex)}}
+\subsection{\textcolor{Chapter }{AmalgamateNC (for IsManiplex, IsManiplex)}}
 \logpage{[ 9, 1, 7 ]}\nobreak
+\hyperdef{L}{X7A40B6DA801513E5}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AmalgamateNC({\mdseries\slshape M1, M2})\index{AmalgamateNC@\texttt{AmalgamateNC}!for IsManiplex, IsManiplex}
+\label{AmalgamateNC:for IsManiplex, IsManiplex}
+}\hfill{\scriptsize (operation)}}\\
+\textbf{\indent Returns:\ }
+IsManiplex 
+
+
+
+ Constructs the amalgamation of the n-maniplexes \mbox{\texttt{\mdseries\slshape M1}} and \mbox{\texttt{\mdseries\slshape M2}}, and then fills in some data, assuming that the universal amalgamation exists
+(i.e., that there is no collapse of the facets or vertex-figures). You should
+only use this if you are certain from theory that the universal amalgamation
+exists. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@A := Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;|
+  !gapprompt@gap>| !gapinput@HasSchlafliSymbol(A); HasFacet(A);|
+  false
+  false
+  !gapprompt@gap>| !gapinput@A2 := AmalgamateNC(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;|
+  !gapprompt@gap>| !gapinput@HasSchlafliSymbol(A2); HasFacet(A2);|
+  true
+  true
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{Medial (for IsManiplex)}}
+\logpage{[ 9, 1, 8 ]}\nobreak
 \hyperdef{L}{X840BC19484E0E9CC}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{Medial({\mdseries\slshape M})\index{Medial@\texttt{Medial}!for IsManiplex}
 \label{Medial:for IsManiplex}
@@ -5044,7 +5150,7 @@ IsManiplex
  
 
 \subsection{\textcolor{Chapter }{TwoToThe (for IsManiplex)}}
-\logpage{[ 9, 1, 8 ]}\nobreak
+\logpage{[ 9, 1, 9 ]}\nobreak
 \hyperdef{L}{X83A9F6228008EC90}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TwoToThe({\mdseries\slshape M})\index{TwoToThe@\texttt{TwoToThe}!for IsManiplex}
 \label{TwoToThe:for IsManiplex}
@@ -10404,12 +10510,6 @@ representation from the list
 
 \printindex
 
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
-\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
