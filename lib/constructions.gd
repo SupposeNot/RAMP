@@ -75,6 +75,24 @@ DeclareOperation("Amalgamate", [IsManiplex, IsManiplex]);
 #! 4
 #! @EndExampleSession
 
+#! @Arguments M1, M2
+#! @Returns IsManiplex
+#! @Description Constructs the amalgamation of the n-maniplexes <A>M1</A> and <A>M2</A>, and then
+#! fills in some data, assuming that the universal amalgamation exists (i.e., that there is no
+#! collapse of the facets or vertex-figures). You should only use this if you are certain
+#! from theory that the universal amalgamation exists.
+DeclareOperation("AmalgamateNC", [IsManiplex, IsManiplex]);
+#! @BeginExampleSession
+#! gap> A := Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;
+#! gap> HasSchlafliSymbol(A); HasFacet(A);
+#! false
+#! false
+#! gap> A2 := AmalgamateNC(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;
+#! gap> HasSchlafliSymbol(A2); HasFacet(A2);
+#! true
+#! true
+#! @EndExampleSession
+
 #! @Arguments M
 #! @Returns IsManiplex
 #! @Description Given a 3-maniplex <A>M</A>, returns its medial.

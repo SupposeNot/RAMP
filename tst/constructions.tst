@@ -16,5 +16,13 @@ gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1])));
 240
 gap> Size(Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([1,2])));
 4
+gap> A := Amalgamate(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;
+gap> HasSchlafliSymbol(A); HasFacet(A);
+false
+false
+gap> A2 := AmalgamateNC(ToroidalMap44([1,2]), ToroidalMap44([2,1]));;
+gap> HasSchlafliSymbol(A2); HasFacet(A2);
+true
+true
 gap> Medial(Cube(3)) = Cuboctahedron();
 true

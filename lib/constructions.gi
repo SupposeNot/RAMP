@@ -161,73 +161,78 @@ InstallMethod(FlatExtension,
 	return p2;
 	end);
 
-# TODO: Check for compatibility.
-# Results not guaranteed to be correct for incompatible polytopes
 InstallMethod(Amalgamate, 
 	ReturnTrue,
 	[IsManiplex, IsManiplex],
 	function(p,q)
-	local a, g, h, n, rels, q_rels, f2, g2, sym;
+	local a, g, h, n, rels, q_rels, f2, g2, sym, i, relstr;
 
 	n := Rank(p);
 	if Rank(q) <> n then
 		Error("p and q must be the same rank.\n");
 	fi;
 	
+	# Find gcd of schlafli symbols...
+	sym := ShallowCopy(PseudoSchlafliSymbol(p));
+	Add(sym, 0);
+	for i in [2..n] do
+		sym[i] := Gcd(sym[i], PseudoSchlafliSymbol(q)[i-1]);
+	od;
 	
 	if HasIsReflexible(p) and IsReflexible(p) and HasIsReflexible(q) and IsReflexible(q) then
 		g := AutomorphismGroupFpGroup(p);
 		h := AutomorphismGroupFpGroup(q);
-		f2 := UniversalSggi(n+1);
-		
-	elif ForAll([p,q], x -> HasIsRotary(x) and IsRotary(x) and IsOrientable(x)) then
-		g := RotationGroupFpGroup(p);
-		h := RotationGroupFpGroup(q);
-		f2 := UniversalRotationGroup(n+1);
-		
-		rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
-		q_rels := List(RelatorsOfFpGroup(RotationGroupFpGroup(q)), r -> TietzeWordAbstractWord(r));
+		f2 := UniversalSggi(sym);
+
+		rels := List(ExtraRelators(p), r -> TietzeWordAbstractWord(r));
+		q_rels := List(ExtraRelators(q), r -> TietzeWordAbstractWord(r));
 		# shift the relations of q "right" by one
 		q_rels := List(q_rels, r -> List(r, i -> SignInt(i)*(AbsInt(i)+1)));
 		Append(rels, q_rels);
 		rels := Unique(rels);
-		f2 := UniversalRotationGroup(n+1);
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2)));
-		rels := Difference(rels, RelatorsOfFpGroup(f2));
-		g2 := FactorGroupFpGroupByRels(f2, rels);
-		a := RotaryManiplex(g2);
+		rels := List(rels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
+		relstr := JoinStringsWithSeparator(rels);
+		a := ReflexibleManiplex(sym, relstr);
+		
+		
+	elif ForAll([p,q], x -> HasIsRotary(x) and IsRotary(x) and IsOrientable(x)) then
+		g := RotationGroupFpGroup(p);
+		h := RotationGroupFpGroup(q);
+		f2 := UniversalRotationGroup(sym);
+		
+		rels := List(ExtraRotRelators(p), r -> TietzeWordAbstractWord(r));
+		q_rels := List(ExtraRotRelators(q), r -> TietzeWordAbstractWord(r));
+		# shift the relations of q "right" by one
+		q_rels := List(q_rels, r -> List(r, i -> SignInt(i)*(AbsInt(i)+1)));
+		Append(rels, q_rels);
+		rels := Unique(rels);
+		rels := List(rels, r -> String(AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
+		relstr := JoinStringsWithSeparator(rels);
+		a := RotaryManiplex(sym, relstr);
 			
 	else
 		Error("Amalgamate is not currently defined for non-rotary maniplexes.\n");
 	fi;
 	
-	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
-	q_rels := List(RelatorsOfFpGroup(h), r -> TietzeWordAbstractWord(r));
-	# shift the relations of q "right" by one
-	q_rels := List(q_rels, r -> List(r, i -> SignInt(i)*(AbsInt(i)+1)));
-	Append(rels, q_rels);
-	rels := Unique(rels);
-	rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2)));
-	rels := Difference(rels, RelatorsOfFpGroup(f2));
-	g2 := FactorGroupFpGroupByRels(f2, rels);
+	return a;
+	end);
 	
-	if HasIsSggi(f2) and IsSggi(f2) then
-		a := ReflexibleManiplexNC(g2);
-	elif HasIsStringRotationGroup(f2) and IsStringRotationGroup(f2) then
-		a := RotaryManiplexNC(g2);
-	else
-		Error("f2 was somehow neither an sggi nor a string rotation group!");
-	fi;
-	
-	if HasSchlafliSymbol(p) and HasSchlafliSymbol(q) then
-		sym := ShallowCopy(SchlafliSymbol(p));
-		Add(sym, SchlafliSymbol(q)[n-1]);
-		SetSchlafliSymbol(a, sym);
-	fi;
+InstallMethod(AmalgamateNC, 
+	ReturnTrue,
+	[IsManiplex, IsManiplex],
+	function(p,q)
+	local a, g, h, n, rels, q_rels, f2, g2, sym;
+
+	a := Amalgamate(p,q);
+	SetSchlafliSymbol(a, PseudoSchlafliSymbol(a));
+	SetFacets(a, [p]); SetFacet(a, p);
+	SetVertexFigures(a, [q]); SetVertexFigure(a, q);
 	
 	return a;
 	end);
 	
+
+
 # Currently only well-defined for rank 3
 InstallMethod(Medial,
 	[IsManiplex],
