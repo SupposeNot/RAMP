@@ -30,31 +30,29 @@ InstallMethod( UniversalPolytope,
 InstallMethod(UniversalExtension,
 	[IsManiplex],
 	function(p)
-	local g, n, rels, f2, g2, p2, sym;
+	local n, sym, rels, relstr, p2;
+	
 	if not(IsReflexible(p)) then
 		Error("UniversalExtension is only defined for reflexible maniplexes.\n");
 	fi;
-	g := AutomorphismGroupFpGroup(p);
+
 	n := Rank(p);
-	rels := List(RelatorsOfFpGroup(g), r -> TietzeWordAbstractWord(r));
-	f2 := UniversalSggi(n+1);
-	g2 := FactorGroupFpGroupByRels(f2, List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(f2))));
-	p2 := ReflexibleManiplexNC(g2);
-	
-	SetSize(p2, infinity);
 	sym := ShallowCopy(SchlafliSymbol(p));
 	Add(sym, infinity);
-	p2!.schlafli_symbol := sym;
-	SetSchlafliSymbol(p2, sym);
+
+	rels := List(ExtraRelators(p), String);
+	relstr := JoinStringsWithSeparator(rels);
+	p2 := ReflexibleManiplex(sym, relstr);
+
+	SetSize(p2, infinity);
+	SetExtraRelators(p2, ExtraRelators(p));
 
 	if HasIsPolytopal(p) then
 		SetIsPolytopal(p2, IsPolytopal(p));
 	fi;
 	
-	if HasExtraRelators(p) then
-		SetExtraRelators(p2, ExtraRelators(p));
-	fi;
-
+	SetFacets(p2, [p]);
+	
 	return p2;
 	end);
 
