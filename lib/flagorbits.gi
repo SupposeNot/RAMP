@@ -228,6 +228,22 @@ InstallMethod(IsChiral,
 	return val;
 	end);
 
+InstallMethod(IsTotallyChiral,
+	[IsPremaniplex],
+	function(M)
+	local g, g1, g2;
+	
+	if not(IsChiral(M)) then
+		return false;
+	else
+		g1 := RotationGroup(M);
+		g2 := RotationGroup(EnantiomorphicForm(M));
+		g := Comix(g1,g2);
+		return Size(g) = 1;
+	fi;
+	
+	end);
+
 InstallMethod(IsRotary,
 	[IsPremaniplex],
 	function(M)

@@ -95,6 +95,17 @@ DeclareProperty("IsChiral", IsPremaniplex);
 #! @EndExampleSession
 
 #! @Arguments M
+#! @Returns Whether the premaniplex <A>M</A> is totally chiral, meaning that the chirality
+#! group is the entire rotation group
+DeclareProperty("IsTotallyChiral", IsPremaniplex);
+#! @BeginExampleSession
+#! gap> M := ToroidalMap44([2,3]);; Size(ChiralityGroup(M));
+#! 13
+#! gap> IsTotallyChiral(M);
+#! false
+#! @EndExampleSession
+
+#! @Arguments M
 #! @Returns Whether the maniplex <A>M</A> is rotary; i.e., whether it is 
 #! either reflexible or chiral.
 DeclareProperty("IsRotary", IsPremaniplex);
