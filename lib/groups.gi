@@ -98,6 +98,10 @@ InstallMethod(AutomorphismGroupFpGroup,
 			
 			fp := FactorGroupFpGroupByRels(w, rels);
 			SetIsSggi(fp, true);
+			if HasSchlafliSymbol(M) then
+				SetSchlafliSymbol(fp, SchlafliSymbol(M));
+			fi;
+			SetSize(fp, Size(M));
 		fi;
 		
 		return fp;
