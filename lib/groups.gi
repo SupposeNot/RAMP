@@ -97,6 +97,7 @@ InstallMethod(AutomorphismGroupFpGroup,
 			rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(w)));
 			
 			fp := FactorGroupFpGroupByRels(w, rels);
+			SetIsSggi(fp, true);
 		fi;
 		
 		return fp;
