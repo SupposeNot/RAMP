@@ -767,6 +767,24 @@ true
 
 
 <ManSection>
+  <Prop Arg="M" Name="IsTotallyChiral" Label="for IsPremaniplex"/>
+ <Returns>Whether the premaniplex <A>M</A> is totally chiral, meaning that the chirality  group is the entire rotation group
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> M := ToroidalMap44([2,3]);; Size(ChiralityGroup(M));
+13
+gap> IsTotallyChiral(M);
+false
+]]></Example>
+
+
+<ManSection>
   <Prop Arg="M" Name="IsRotary" Label="for IsPremaniplex"/>
  <Returns>Whether the maniplex <A>M</A> is rotary; i.e., whether it is  either reflexible or chiral.
 </Returns>

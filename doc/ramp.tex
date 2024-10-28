@@ -4511,8 +4511,33 @@ Whether the premaniplex \mbox{\texttt{\mdseries\slshape M}} is chiral.
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{IsRotary (for IsPremaniplex)}}
+\subsection{\textcolor{Chapter }{IsTotallyChiral (for IsPremaniplex)}}
 \logpage{[ 7, 5, 9 ]}\nobreak
+\hyperdef{L}{X809960D187710F2C}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsTotallyChiral({\mdseries\slshape M})\index{IsTotallyChiral@\texttt{IsTotallyChiral}!for IsPremaniplex}
+\label{IsTotallyChiral:for IsPremaniplex}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+Whether the premaniplex \mbox{\texttt{\mdseries\slshape M}} is totally chiral, meaning that the chirality group is the entire rotation
+group 
+
+
+
+ 
+
+ }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@M := ToroidalMap44([2,3]);; Size(ChiralityGroup(M));|
+  13
+  !gapprompt@gap>| !gapinput@IsTotallyChiral(M);|
+  false
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{IsRotary (for IsPremaniplex)}}
+\logpage{[ 7, 5, 10 ]}\nobreak
 \hyperdef{L}{X8718754784A4FCB2}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsRotary({\mdseries\slshape M})\index{IsRotary@\texttt{IsRotary}!for IsPremaniplex}
 \label{IsRotary:for IsPremaniplex}
@@ -4534,7 +4559,7 @@ Whether the maniplex \mbox{\texttt{\mdseries\slshape M}} is rotary; i.e., whethe
  
 
 \subsection{\textcolor{Chapter }{FlagOrbits (for IsPremaniplex)}}
-\logpage{[ 7, 5, 10 ]}\nobreak
+\logpage{[ 7, 5, 11 ]}\nobreak
 \hyperdef{L}{X84E84D0E84BC7F59}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FlagOrbits({\mdseries\slshape M})\index{FlagOrbits@\texttt{FlagOrbits}!for IsPremaniplex}
 \label{FlagOrbits:for IsPremaniplex}
@@ -7371,9 +7396,10 @@ it yet.) Now also works with generic poset element types (not just \texttt{IsPos
 
 
  This checks whether or not the faces of an IsP1 poset may be described
-uniquely in terms of the posets atoms. 
+uniquely in terms of the poset's atoms. 
 
- The terminology as used here is approximately that of Ziegler's \emph{Lectures on Polytopes} where a lattice is atomic if every element is the join of atoms. }
+ The terminology as used here is approximately that of Ziegler's \emph{Lectures on Polytopes} where a lattice is atomic if every element is the join of atoms, however we
+drop the requirement that the poset be a lattice. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -7386,8 +7412,35 @@ uniquely in terms of the posets atoms.
 \end{Verbatim}
  
 
-\subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
+\subsection{\textcolor{Chapter }{IsCoatomic (for IsPoset)}}
 \logpage{[ 12, 2, 7 ]}\nobreak
+\hyperdef{L}{X7EF624007F908C4B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsCoatomic({\mdseries\slshape poset})\index{IsCoatomic@\texttt{IsCoatomic}!for IsPoset}
+\label{IsCoatomic:for IsPoset}
+}\hfill{\scriptsize (property)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
+
+
+
+ This checks whether or not the faces of an IsP1 poset may be described
+uniquely in terms of the joins of the poset's coatoms. }
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@p:=PetrieDual(Cube(3));|
+  ReflexibleManiplex([ 6, 3 ], "(r0 r1 r2)^4")
+  !gapprompt@gap>| !gapinput@ps:=PosetFromManiplex(p);|
+  A poset using the IsPosetOfFlags representation.
+  !gapprompt@gap>| !gapinput@IsAtomic(ps);|
+  true
+  !gapprompt@gap>| !gapinput@IsCoatomic(ps);|
+  false
+\end{Verbatim}
+ 
+
+\subsection{\textcolor{Chapter }{PartialOrder (for IsPoset)}}
+\logpage{[ 12, 2, 8 ]}\nobreak
 \hyperdef{L}{X85A9CAA682FE56EB}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{PartialOrder({\mdseries\slshape poset})\index{PartialOrder@\texttt{PartialOrder}!for IsPoset}
 \label{PartialOrder:for IsPoset}
@@ -7403,7 +7456,7 @@ information. }
 
  
 \subsection{\textcolor{Chapter }{Lattices}}\label{Lattices}
-\logpage{[ 12, 2, 8 ]}
+\logpage{[ 12, 2, 9 ]}
 \hyperdef{L}{X851265E17D42FCAD}{}
 {
 \noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsLattice({\mdseries\slshape poset})\index{IsLattice@\texttt{IsLattice}!for IsPoset}
@@ -7447,7 +7500,7 @@ whether all joins in a poset are unique. }
  
 
 \subsection{\textcolor{Chapter }{ListIsP1Poset (for IsList)}}
-\logpage{[ 12, 2, 9 ]}\nobreak
+\logpage{[ 12, 2, 10 ]}\nobreak
 \hyperdef{L}{X8455987F7E9A88FF}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{ListIsP1Poset({\mdseries\slshape list})\index{ListIsP1Poset@\texttt{ListIsP1Poset}!for IsList}
 \label{ListIsP1Poset:for IsList}
@@ -7464,7 +7517,7 @@ or not. }
  
 
 \subsection{\textcolor{Chapter }{IsP1 (for IsPoset)}}
-\logpage{[ 12, 2, 10 ]}\nobreak
+\logpage{[ 12, 2, 11 ]}\nobreak
 \hyperdef{L}{X81269ACB7EF202C4}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP1({\mdseries\slshape poset})\index{IsP1@\texttt{IsP1}!for IsPoset}
 \label{IsP1:for IsPoset}
@@ -7491,7 +7544,7 @@ if it has a unique least, and a unique maximal element/face. }
  
 
 \subsection{\textcolor{Chapter }{IsP2 (for IsPoset)}}
-\logpage{[ 12, 2, 11 ]}\nobreak
+\logpage{[ 12, 2, 12 ]}\nobreak
 \hyperdef{L}{X7AFA3C077FD9583A}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP2({\mdseries\slshape poset})\index{IsP2@\texttt{IsP2}!for IsPoset}
 \label{IsP2:for IsPoset}
@@ -7520,7 +7573,7 @@ if each maximal chain in the poset has the same length (for $n$-polytopes, this 
  
 
 \subsection{\textcolor{Chapter }{IsP3 (for IsPoset)}}
-\logpage{[ 12, 2, 12 ]}\nobreak
+\logpage{[ 12, 2, 13 ]}\nobreak
 \hyperdef{L}{X8723519F84529E4C}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP3({\mdseries\slshape poset})\index{IsP3@\texttt{IsP3}!for IsPoset}
 \label{IsP3:for IsPoset}
@@ -7537,7 +7590,7 @@ This means that given flags $\Phi$ and $\Psi$, not only is there a sequence of f
  Helper for IsP3 
 
 \subsection{\textcolor{Chapter }{IsFlagConnected (for IsPoset)}}
-\logpage{[ 12, 2, 13 ]}\nobreak
+\logpage{[ 12, 2, 14 ]}\nobreak
 \hyperdef{L}{X85F554347C5AEF30}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsFlagConnected({\mdseries\slshape poset})\index{IsFlagConnected@\texttt{IsFlagConnected}!for IsPoset}
 \label{IsFlagConnected:for IsPoset}
@@ -7552,7 +7605,7 @@ This means that given flags $\Phi$ and $\Psi$, not only is there a sequence of f
  
 
 \subsection{\textcolor{Chapter }{IsP4 (for IsPoset)}}
-\logpage{[ 12, 2, 14 ]}\nobreak
+\logpage{[ 12, 2, 15 ]}\nobreak
 \hyperdef{L}{X80F461FA7D8FEDC7}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsP4({\mdseries\slshape poset})\index{IsP4@\texttt{IsP4}!for IsPoset}
 \label{IsP4:for IsPoset}
@@ -7568,7 +7621,7 @@ invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ 
  
 
 \subsection{\textcolor{Chapter }{IsPolytope (for IsPoset)}}
-\logpage{[ 12, 2, 15 ]}\nobreak
+\logpage{[ 12, 2, 16 ]}\nobreak
 \hyperdef{L}{X83D63725789E745D}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPolytope({\mdseries\slshape poset})\index{IsPolytope@\texttt{IsPolytope}!for IsPoset}
 \label{IsPolytope:for IsPoset}
@@ -7598,7 +7651,7 @@ invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ 
  
 
 \subsection{\textcolor{Chapter }{IsPrePolytope (for IsPoset)}}
-\logpage{[ 12, 2, 16 ]}\nobreak
+\logpage{[ 12, 2, 17 ]}\nobreak
 \hyperdef{L}{X8085287683CCF81B}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsPrePolytope({\mdseries\slshape poset})\index{IsPrePolytope@\texttt{IsPrePolytope}!for IsPoset}
 \label{IsPrePolytope:for IsPoset}
@@ -7613,7 +7666,7 @@ invoked using \texttt{IsDiamondCondition}. Recall that this means that if $F,G$ 
  
 
 \subsection{\textcolor{Chapter }{IsSelfDual (for IsPoset)}}
-\logpage{[ 12, 2, 17 ]}\nobreak
+\logpage{[ 12, 2, 18 ]}\nobreak
 \hyperdef{L}{X7876E8577DB97677}{}
 {\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsSelfDual({\mdseries\slshape poset})\index{IsSelfDual@\texttt{IsSelfDual}!for IsPoset}
 \label{IsSelfDual:for IsPoset}

@@ -86,8 +86,9 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7FC9977380733F65">7.5-6 FlagOrbitsStabilizer</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X839E8D4783F91690">7.5-7 IsReflexible</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X7F0108D17B523A0C">7.5-8 IsChiral</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X8718754784A4FCB2">7.5-9 IsRotary</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X84E84D0E84BC7F59">7.5-10 FlagOrbits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X809960D187710F2C">7.5-9 IsTotallyChiral</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X8718754784A4FCB2">7.5-10 IsRotary</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7_mj.html#X84E84D0E84BC7F59">7.5-11 FlagOrbits</a></span>
 </div></div>
 </div>
 
@@ -739,9 +740,24 @@ true
 true
 </pre></div>
 
+<p><a id="X809960D187710F2C" name="X809960D187710F2C"></a></p>
+
+<h5>7.5-9 IsTotallyChiral</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsTotallyChiral</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: Whether the premaniplex <var class="Arg">M</var> is totally chiral, meaning that the chirality group is the entire rotation group</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ToroidalMap44([2,3]);; Size(ChiralityGroup(M));</span>
+13
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsTotallyChiral(M);</span>
+false
+</pre></div>
+
 <p><a id="X8718754784A4FCB2" name="X8718754784A4FCB2"></a></p>
 
-<h5>7.5-9 IsRotary</h5>
+<h5>7.5-10 IsRotary</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsRotary</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: Whether the maniplex <var class="Arg">M</var> is rotary; i.e., whether it is either reflexible or chiral.</p>
@@ -754,7 +770,7 @@ true
 
 <p><a id="X84E84D0E84BC7F59" name="X84E84D0E84BC7F59"></a></p>
 
-<h5>7.5-10 FlagOrbits</h5>
+<h5>7.5-11 FlagOrbits</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FlagOrbits</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns a list of lists of flags, representing the orbits of flags under the action of AutomorphismGroup(<var class="Arg">M</var>).</p>

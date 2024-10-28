@@ -348,9 +348,9 @@ Checks or creates the value of the attribute <Code>IsFlaggable</Code> for an <Co
  <Returns><K>true</K> or <K>false</K>
 </Returns>
  <Description>
-This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.
+This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the poset's atoms.
 <P/>
- The terminology as used here is approximately that of Ziegler's <Emph>Lectures on Polytopes</Emph> where a lattice is atomic if every element is the join of atoms.
+ The terminology as used here is approximately that of Ziegler's <Emph>Lectures on Polytopes</Emph> where a lattice is atomic if every element is the join of atoms, however we drop the requirement that the poset be a lattice.
  </Description>
 </ManSection>
 
@@ -362,6 +362,28 @@ gap> p:=PosetFromPartialOrder(po);; IsAtomic(p);
 false
 gap> p2:=PosetFromManiplex(Cube(3));; IsAtomic(p2);
 true
+]]></Example>
+
+
+<ManSection>
+  <Prop Arg="poset" Name="IsCoatomic" Label="for IsPoset"/>
+ <Returns><K>true</K> or <K>false</K>
+</Returns>
+ <Description>
+This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the joins of the poset's coatoms.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> p:=PetrieDual(Cube(3));
+ReflexibleManiplex([ 6, 3 ], "(r0 r1 r2)^4")
+gap> ps:=PosetFromManiplex(p);
+A poset using the IsPosetOfFlags representation.
+gap> IsAtomic(ps);
+true
+gap> IsCoatomic(ps);
+false
 ]]></Example>
 
 
