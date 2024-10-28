@@ -211,7 +211,7 @@ InstallMethod(IsAtomic,
 	[IsPoset],
 	function(poset)
 	local minFace, minFaces, po, hpo, succ, parents, domain, newFaces, fullSuccessors, atoms, i, j, nonReflSucc;
-	if IsLattice(poset)=false then return false; fi;
+#	if IsLattice(poset)=false then return false; fi;
 	po:=PartialOrder(poset);
 	hpo:=HasseDiagramBinaryRelation(po);
 	parents:=Successors(hpo);
