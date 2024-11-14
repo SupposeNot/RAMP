@@ -335,14 +335,24 @@ InstallOtherMethod(\/,
 InstallMethod(ReflexibleQuotientManiplex,
 	[IsReflexibleManiplex, IsList],
 	function(p, rels)
-	local g, w, h, q;
-	g := AutomorphismGroup(p);
+	local g, w, h, q, old_rels, new_rels;
+
+	g := AutomorphismGroupFpGroup(p);
+	
 	if IsString(rels) then
-		rels := ParseGgiRels(rels, g);
+		if HasExtraRelators(p) then
+			# It's much faster to just rebuild the quotient by passing all the relators to ReflexibleManiplex
+			old_rels := JoinStringsWithSeparator(List(ExtraRelators(p), String));
+			q := ReflexibleManiplex(SchlafliSymbol(p), Concatenation(old_rels, rels));
+			return q;
+		else
+			new_rels := ParseGgiRels(rels, g);		
+		fi;
 	else
-		rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));
+		new_rels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(g)));	
 	fi;
-	h := FactorGroupFpGroupByRels(g, rels);
+		
+	h := FactorGroupFpGroupByRels(g, new_rels);
 	q := ReflexibleManiplex(h);
 	return q;
 	end);
