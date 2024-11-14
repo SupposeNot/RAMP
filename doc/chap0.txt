@@ -268,8 +268,9 @@
       7.5-6 FlagOrbitsStabilizer
       7.5-7 IsReflexible
       7.5-8 IsChiral
-      7.5-9 IsRotary
-      7.5-10 FlagOrbits
+      7.5-9 IsTotallyChiral
+      7.5-10 IsRotary
+      7.5-11 FlagOrbits
   8 [33X[0;0YComparing maniplexes[133X
     8.1 [33X[0;0YQuotients and covers[133X
       8.1-1 [33X[0;0YIsQuotient[133X
@@ -402,17 +403,18 @@
       12.2-4 OrderingFunction
       12.2-5 IsFlaggable
       12.2-6 IsAtomic
-      12.2-7 PartialOrder
-      12.2-8 [33X[0;0YLattices[133X
-      12.2-9 ListIsP1Poset
-      12.2-10 IsP1
-      12.2-11 IsP2
-      12.2-12 IsP3
-      12.2-13 IsFlagConnected
-      12.2-14 IsP4
-      12.2-15 IsPolytope
-      12.2-16 IsPrePolytope
-      12.2-17 IsSelfDual
+      12.2-7 IsCoatomic
+      12.2-8 PartialOrder
+      12.2-9 [33X[0;0YLattices[133X
+      12.2-10 ListIsP1Poset
+      12.2-11 IsP1
+      12.2-12 IsP2
+      12.2-13 IsP3
+      12.2-14 IsFlagConnected
+      12.2-15 IsP4
+      12.2-16 IsPolytope
+      12.2-17 IsPrePolytope
+      12.2-18 IsSelfDual
     12.3 [33X[0;0YWorking with posets[133X
       12.3-1 IsIsomorphicPoset
       12.3-2 PosetIsomorphism

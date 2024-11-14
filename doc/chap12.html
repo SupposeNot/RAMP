@@ -48,18 +48,19 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7C5580EC83A4955B">12.2-4 OrderingFunction</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X842B0F7E81670077">12.2-5 IsFlaggable</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X816460188169E650">12.2-6 IsAtomic</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X85A9CAA682FE56EB">12.2-7 PartialOrder</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X851265E17D42FCAD">12.2-8 <span class="Heading">Lattices</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7EF624007F908C4B">12.2-7 IsCoatomic</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X85A9CAA682FE56EB">12.2-8 PartialOrder</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X851265E17D42FCAD">12.2-9 <span class="Heading">Lattices</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8455987F7E9A88FF">12.2-9 ListIsP1Poset</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X81269ACB7EF202C4">12.2-10 IsP1</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7AFA3C077FD9583A">12.2-11 IsP2</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8723519F84529E4C">12.2-12 IsP3</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X85F554347C5AEF30">12.2-13 IsFlagConnected</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X80F461FA7D8FEDC7">12.2-14 IsP4</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X83D63725789E745D">12.2-15 IsPolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8085287683CCF81B">12.2-16 IsPrePolytope</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7876E8577DB97677">12.2-17 IsSelfDual</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8455987F7E9A88FF">12.2-10 ListIsP1Poset</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X81269ACB7EF202C4">12.2-11 IsP1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7AFA3C077FD9583A">12.2-12 IsP2</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8723519F84529E4C">12.2-13 IsP3</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X85F554347C5AEF30">12.2-14 IsFlagConnected</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X80F461FA7D8FEDC7">12.2-15 IsP4</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X83D63725789E745D">12.2-16 IsPolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X8085287683CCF81B">12.2-17 IsPrePolytope</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap12.html#X7876E8577DB97677">12.2-18 IsSelfDual</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap12.html#X8163385F7B822934">12.3 <span class="Heading">Working with posets</span></a>
 </span>
@@ -450,9 +451,9 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAtomic</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
 
-<p>This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.</p>
+<p>This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the poset's atoms.</p>
 
-<p>The terminology as used here is approximately that of Ziegler's <em>Lectures on Polytopes</em> where a lattice is atomic if every element is the join of atoms.</p>
+<p>The terminology as used here is approximately that of Ziegler's <em>Lectures on Polytopes</em> where a lattice is atomic if every element is the join of atoms, however we drop the requirement that the poset be a lattice.</p>
 
 
 <div class="example"><pre>
@@ -464,9 +465,30 @@ false
 true
 </pre></div>
 
+<p><a id="X7EF624007F908C4B" name="X7EF624007F908C4B"></a></p>
+
+<h5>12.2-7 IsCoatomic</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCoatomic</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
+
+<p>This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the joins of the poset's coatoms.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PetrieDual(Cube(3));</span>
+ReflexibleManiplex([ 6, 3 ], "(r0 r1 r2)^4")
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ps:=PosetFromManiplex(p);</span>
+A poset using the IsPosetOfFlags representation.
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsAtomic(ps);</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsCoatomic(ps);</span>
+false
+</pre></div>
+
 <p><a id="X85A9CAA682FE56EB" name="X85A9CAA682FE56EB"></a></p>
 
-<h5>12.2-7 PartialOrder</h5>
+<h5>12.2-8 PartialOrder</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PartialOrder</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">partial order</code></p>
@@ -475,7 +497,7 @@ true
 
 <p><a id="X851265E17D42FCAD" name="X851265E17D42FCAD"></a></p>
 
-<h5>12.2-8 <span class="Heading">Lattices</span></h5>
+<h5>12.2-9 <span class="Heading">Lattices</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsLattice</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAllMeets</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
@@ -510,7 +532,7 @@ false
 
 <p><a id="X8455987F7E9A88FF" name="X8455987F7E9A88FF"></a></p>
 
-<h5>12.2-9 ListIsP1Poset</h5>
+<h5>12.2-10 ListIsP1Poset</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ListIsP1Poset</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
@@ -519,7 +541,7 @@ false
 
 <p><a id="X81269ACB7EF202C4" name="X81269ACB7EF202C4"></a></p>
 
-<h5>12.2-10 IsP1</h5>
+<h5>12.2-11 IsP1</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP1</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -540,7 +562,7 @@ false
 
 <p><a id="X7AFA3C077FD9583A" name="X7AFA3C077FD9583A"></a></p>
 
-<h5>12.2-11 IsP2</h5>
+<h5>12.2-12 IsP2</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP2</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -566,7 +588,7 @@ false
 
 <p><a id="X8723519F84529E4C" name="X8723519F84529E4C"></a></p>
 
-<h5>12.2-12 IsP3</h5>
+<h5>12.2-13 IsP3</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP3</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -577,7 +599,7 @@ false
 
 <p><a id="X85F554347C5AEF30" name="X85F554347C5AEF30"></a></p>
 
-<h5>12.2-13 IsFlagConnected</h5>
+<h5>12.2-14 IsFlagConnected</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsFlagConnected</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -586,7 +608,7 @@ false
 
 <p><a id="X80F461FA7D8FEDC7" name="X80F461FA7D8FEDC7"></a></p>
 
-<h5>12.2-14 IsP4</h5>
+<h5>12.2-15 IsP4</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsP4</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -595,7 +617,7 @@ false
 
 <p><a id="X83D63725789E745D" name="X83D63725789E745D"></a></p>
 
-<h5>12.2-15 IsPolytope</h5>
+<h5>12.2-16 IsPolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -620,7 +642,7 @@ false
 
 <p><a id="X8085287683CCF81B" name="X8085287683CCF81B"></a></p>
 
-<h5>12.2-16 IsPrePolytope</h5>
+<h5>12.2-17 IsPrePolytope</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPrePolytope</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> or <code class="keyw">false</code></p>
@@ -629,7 +651,7 @@ false
 
 <p><a id="X7876E8577DB97677" name="X7876E8577DB97677"></a></p>
 
-<h5>12.2-17 IsSelfDual</h5>
+<h5>12.2-18 IsSelfDual</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSelfDual</code>( <var class="Arg">poset</var> )</td><td class="tdright">(&nbsp;property&nbsp;)</td></tr></table></div>
 <p>Returns: IsBool</p>
@@ -1013,7 +1035,7 @@ true
 
 <h4>12.6 <span class="Heading">Product operations</span></h4>
 
-<p>The products documented in this section were defined by Gleason and Hubard in <a href="chapBib.html#biBGleHub18">[GH18b]</a> (<span class="URL"><a href="https://doi.org/10.1016/j.jcta.2018.02.002">https://doi.org/10.1016/j.jcta.2018.02.002</a></span>).</p>
+<p>The products documented in this section were defined by Gleason and Hubard in <a href="chapBib.html#biBGleHub18">[GH18]</a> (<span class="URL"><a href="https://doi.org/10.1016/j.jcta.2018.02.002">https://doi.org/10.1016/j.jcta.2018.02.002</a></span>).</p>
 
 <p><a id="X87B984FB860BDF3F" name="X87B984FB860BDF3F"></a></p>
 

@@ -67,9 +67,9 @@ DeclareProperty("IsFlaggable",IsPoset);
 
 
 #! @Arguments poset
-#! @Description This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the posets atoms.
+#! @Description This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the poset's atoms.
 #!
-#! The terminology as used here is approximately that of Ziegler's __Lectures on Polytopes__ where a lattice is atomic if every element is the join of atoms.
+#! The terminology as used here is approximately that of Ziegler's __Lectures on Polytopes__ where a lattice is atomic if every element is the join of atoms, however we drop the requirement that the poset be a lattice.
 DeclareProperty("IsAtomic", IsPoset);
 #! @BeginExampleSession
 #! gap> po:=BinaryRelationOnPoints([[2,3],[4,5],[4,5],[6],[6],[]]);;
@@ -80,6 +80,19 @@ DeclareProperty("IsAtomic", IsPoset);
 #! true
 #! @EndExampleSession
 
+#! @Arguments poset
+#! @Description This checks whether or not the faces of an IsP1 poset may be described uniquely in terms of the joins of the poset's coatoms.
+DeclareProperty("IsCoatomic", IsPoset);
+#! @BeginExampleSession
+#! gap> p:=PetrieDual(Cube(3));
+#! ReflexibleManiplex([ 6, 3 ], "(r0 r1 r2)^4")
+#! gap> ps:=PosetFromManiplex(p);
+#! A poset using the IsPosetOfFlags representation.
+#! gap> IsAtomic(ps);
+#! true
+#! gap> IsCoatomic(ps);
+#! false
+#! @EndExampleSession
 
 #! @Arguments poset
 #! @Returns `partial order`
