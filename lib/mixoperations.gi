@@ -128,7 +128,7 @@ InstallMethod(Mix,
 
 	if HasIsReflexible(p) and HasIsReflexible(q) and IsReflexible(p) and IsReflexible(q) then
 		M := ReflexibleManiplex(Mix(ConnectionGroup(p),ConnectionGroup(q)));
-		if Rank(p) = 3 and Rank(q) = 3 then
+		if Rank(p) = 3 and Rank(q) = 3 and HasIsPolytopal(p) and IsPolytopal(p) and HasIsPolytopal(q) and IsPolytopal(q) then
 			# The mix of two polyhedra is always a polyhedron
 			SetIsPolytopal(M, true);
 		fi;
