@@ -167,7 +167,7 @@ InstallOtherMethod(AdjacentFlag,
 InstallOtherMethod(AdjacentFlag,
 	[IsPoset and IsP2, IsInt, IsInt, IsBool],
 	function(poset,flag,i,bool)
-	local n, ranks, flags, found;
+	local n, ranks, flags, found, diff;
 	if bool <> true then return AdjacentFlag(poset,flag,i);fi;
 	n:=Rank(poset);
 	ranks:=[1..n];
@@ -176,7 +176,13 @@ InstallOtherMethod(AdjacentFlag,
 	flags:=List(MaximalChains(poset),x->x{[2..n+1]});
 	found:=PositionsProperty(flags,x->(flags[flag]{ranks}=x{ranks}));
 # 	found:=PositionsProperty(flags,x->(flags[flag]{ranks}=x{ranks} and flags[flag]<>x))[1];
-	return Difference(found,[flag])[1];
+	diff:=Difference(found,[flag]);
+	if Length(diff)<>1 then 
+		Setter( IsP3 )( poset, false );
+		Error("A flag has either has no neighbors, or more than one.");
+# 		return fail;
+	fi;
+	return diff[1];
 	end);
 
 
