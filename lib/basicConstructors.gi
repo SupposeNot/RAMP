@@ -491,8 +491,8 @@ InstallMethod(EnantiomorphicForm,
 		
 		# Sync some attributes
 		for prop in [Size, NumberOfFlagOrbits, IsPolytopal] do
-			if Tester(prop)(M1) then
-				Setter(prop)(M2, prop(M1));
+			if Tester(prop)(M) then
+				Setter(prop)(M2, prop(M));
 			fi;
 		od;
 
