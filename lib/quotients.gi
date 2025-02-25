@@ -157,7 +157,7 @@ InstallMethod(IsQuotient,
 		# Now try the enantiomorphic form
 		newrels := List(rels, r -> AbstractWordTietzeWord(r, FreeGeneratorsOfFpGroup(RotationGroupFpGroup(p2))));
 		g := FactorGroupFpGroupByRels(RotationGroupFpGroup(p2), newrels);
-		return (Size(g) = Size(RotationGroup(p2)));
+		return (Size(g) = Size(RotationGroup(p)));
 	else
 		g1 := RotationGroup(q);
 		g2 := RotationGroup(p);

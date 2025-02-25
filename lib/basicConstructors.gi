@@ -434,6 +434,7 @@ InstallMethod(RotaryManiplex,
 	if ValueOption("polytopal") = true then
 		SetIsPolytopal(p, true);
 	fi;
+	SetExtraRotRelators(p, rels);
 
 	SetRotationGroupFpGroup(p, rotgp);
 	
@@ -453,7 +454,7 @@ InstallMethod(RotaryManiplex,
 InstallMethod(EnantiomorphicForm,
 	[IsManiplex],
 	function(M)
-	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2, relstr, polytopal;
+	local rotgp, n, standardRels, rels, extraRels, newrels, rel, newrel, i, M2, relstr, polytopal, prop;
 	
 	if HasIsReflexible(M) and IsReflexible(M) then 
 		return M; 
@@ -487,6 +488,14 @@ InstallMethod(EnantiomorphicForm,
 		relstr := JoinStringsWithSeparator(List(newrels, r -> String(r)));
 		
 		M2 := RotaryManiplex(SchlafliSymbol(M), relstr);
+		
+		# Sync some attributes
+		for prop in [Size, NumberOfFlagOrbits, IsPolytopal] do
+			if Tester(prop)(M1) then
+				Setter(prop)(M2, prop(M1));
+			fi;
+		od;
+
 		return M2;
 	else
 		Error("EnantiomorphicForm is only defined for rotary maniplexes.");

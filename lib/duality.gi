@@ -6,7 +6,7 @@ InstallMethod(Dual,
 
 	# polytopal := (ValueOption("polytopal") = true);
 	
-	if IsReflexible(M) then
+	if IsReflexibleManiplexAutGpRep(M) then
 		rels := ExtraRelators(M);
 		rels := List(rels, r -> TietzeWordAbstractWord(r));
 		
@@ -257,12 +257,19 @@ InstallMethod(ExponentGroup,
 InstallMethod(UpToDuality,
 	[IsList],
 	function(Ms)
-	local L, M;
+	local L, M, Ms2;
 	L := [];
-	for M in Ms do
-		if not(M in L or Dual(M) in L) then
-			Add(L, M);
-		fi;
+	Ms2 := ShallowCopy(Ms);
+	while Size(Ms2) > 0 do
+		M := Remove(Ms2, 1);
+		Add(L, M);
+		Md := Dual(M);
+		for i in [1..Size(Ms2)] do
+			if Ms2[i] = Md then
+				Remove(Ms2,i);
+				break;
+			fi;
+		od;
 	od;
 	return L;
 	end);
