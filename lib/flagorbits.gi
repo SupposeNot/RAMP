@@ -223,6 +223,11 @@ InstallMethod(IsChiral,
 	[IsPremaniplex],
 	function(M)
 	local stg, val;
+
+	if HasIsReflexible(M) and IsReflexible(M) then
+		return false;
+	fi;
+	
 	stg := SymmetryTypeGraph(M);
 	val := Size(Vertices(stg)) = 2 and ForAll(Edges(stg), e -> Size(e) = 2);
 	return val;
