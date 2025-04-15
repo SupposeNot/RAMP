@@ -257,7 +257,7 @@ InstallMethod(ExponentGroup,
 InstallMethod(UpToDuality,
 	[IsList],
 	function(Ms)
-	local L, M, Ms2;
+	local L, M, Ms2,Md,i;
 	L := [];
 	Ms2 := ShallowCopy(Ms);
 	while Size(Ms2) > 0 do
