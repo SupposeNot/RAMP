@@ -60,11 +60,13 @@
   [1X9.1-5 FlatExtension[101X
   
   [33X[1;0Y[29X[2XFlatExtension[102X( [3XM[103X, [3Xk[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex#!  @Description Constructs the flat extension of [3XM[103X with
-            last entry of Schlafli symbol [3Xk[103X. (As defined in [13XFlat Extensions of
-            Abstract Polytopes[113X [Cun21].)[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
   
-  [33X[0;0YCurrently only defined for reflexible maniplexes.[133X
+  [33X[0;0YConstructs the flat extension of [3XM[103X with last entry of Schlafli symbol [3Xk[103X. (As
+  defined  in [13XFlat Extensions of Abstract Polytopes[113X [Cun21].) Specifically, it
+  adds  a new generator [23Xr_n[123X and, in addition to the usual sggi relations, adds
+  the  relation  [23Xr_{n-2}  (r_{n-1} r_n)^2 = (r_n r_{n-1})^2 r_{n-2}[123X. Currently
+  only defined for reflexible maniplexes [3XM[103X, and requires [3Xk[103X to be even.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XFlatExtension(Simplex(3),4);[127X[104X

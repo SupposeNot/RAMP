@@ -79,10 +79,14 @@ regular 4-polytope of type [ 5, 3, 2 ] with 240 flags
 
 <ManSection>
   <Oper Arg="M, k" Name="FlatExtension" Label="for IsManiplex, IsInt"/>
- <Returns>IsManiplex#! @Description Constructs the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.  (As defined in <Emph>Flat Extensions of Abstract Polytopes</Emph> <Cite Key="Cun21"/>.)
+ <Returns>IsManiplex
 </Returns>
  <Description>
-Currently only defined for reflexible maniplexes.
+Constructs the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
+ (As defined in <Emph>Flat Extensions of Abstract Polytopes</Emph> <Cite Key="Cun21"/>.) Specifically, it adds a
+ new generator <Math>r_n</Math> and, in addition to the usual sggi relations, adds the relation
+ <Math>r_{n-2} (r_{n-1} r_n)^2 = (r_n r_{n-1})^2 r_{n-2}</Math>.  
+ Currently only defined for reflexible maniplexes <A>M</A>, and requires <A>k</A> to be even.
  </Description>
 </ManSection>
 

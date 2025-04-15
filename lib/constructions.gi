@@ -142,6 +142,8 @@ InstallMethod(FlatExtension,
 	
 	if not(IsReflexible(p)) then
 		Error("FlatExtension is currently only defined for reflexible maniplexes.\n");
+	elif not(IsEvenInt(k)) then
+		Error("k must be even.\n");
 	fi;
 	
 	g := AutomorphismGroup(p);

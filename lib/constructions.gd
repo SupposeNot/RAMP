@@ -47,9 +47,12 @@ DeclareOperation("TrivialExtension", [IsManiplex]);
 #! @EndExampleSession
 
 #! @Arguments M, k
-#! @Returns IsManiplex#! @Description Constructs the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
-#! (As defined in **Flat Extensions of Abstract Polytopes** <Cite Key="Cun21"/>.)
-#! @Description Currently only defined for reflexible maniplexes.
+#! @Returns IsManiplex
+#! @Description Constructs the flat extension of <A>M</A> with last entry of Schlafli symbol <A>k</A>.
+#! (As defined in **Flat Extensions of Abstract Polytopes** <Cite Key="Cun21"/>.) Specifically, it adds a
+#! new generator $r_n$ and, in addition to the usual sggi relations, adds the relation
+#! $r_{n-2} (r_{n-1} r_n)^2 = (r_n r_{n-1})^2 r_{n-2}$.  
+#! Currently only defined for reflexible maniplexes <A>M</A>, and requires <A>k</A> to be even.
 DeclareOperation("FlatExtension", [IsManiplex, IsInt]);
 #! @BeginExampleSession
 #! gap> FlatExtension(Simplex(3),4);
