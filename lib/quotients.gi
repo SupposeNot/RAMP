@@ -343,7 +343,7 @@ InstallMethod(ReflexibleQuotientManiplex,
 		if HasExtraRelators(p) then
 			# It's much faster to just rebuild the quotient by passing all the relators to ReflexibleManiplex
 			old_rels := JoinStringsWithSeparator(List(ExtraRelators(p), String));
-			q := ReflexibleManiplex(SchlafliSymbol(p), Concatenation(old_rels, rels));
+			q := ReflexibleManiplex(SchlafliSymbol(p), Concatenation(old_rels, ",", rels));
 			return q;
 		else
 			new_rels := ParseGgiRels(rels, g);		
