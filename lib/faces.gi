@@ -140,7 +140,7 @@ InstallMethod(Section,
 		return UniversalPolytope(1);
 	fi;
 
-	if IsReflexible(M) and ValueOption("no_reindexing") <> true then
+	if HasIsReflexible(M) and IsReflexible(M) and ValueOption("no_reindexing") <> true then
 		sym := PseudoSchlafliSymbol(M){[i+2..j-1]};
 		
 		# Universal polytopes have universal sections
