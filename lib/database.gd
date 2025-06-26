@@ -189,11 +189,15 @@ DeclareGlobalFunction("SmallChiral4Polytopes");
 #! are not polyhedra.
 DeclareGlobalFunction("SmallReflexible3Maniplexes");
 
+DeclareSynonym("SmallRegularMaps", SmallReflexible3Maniplexes);
+
 #! @Arguments sizerange
 #! @Returns IsList
 #! @Description Gives all chiral 3-maniplexes with sizes in <A>sizerange</A> flags.
 #! Currently supports a `maxsize` of 12000 or less.
 DeclareGlobalFunction("SmallChiral3Maniplexes");
+
+DeclareSynonym("SmallChiralMaps", SmallChiral3Maniplexes);
 
 #! @Arguments n, sizerange[, filt1, filt2, ...]
 #! @Returns IsList
