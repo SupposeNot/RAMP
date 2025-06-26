@@ -55,10 +55,28 @@ InstallMethod(Dual,
 	
 	return Md;
 	end);
+
+InstallMethod(IsSelfDual,
+	[IsManiplex and IsReflexibleManiplexAutGpRep],
+	function(p)
+	local g, hom;
+	if HasSchlafliSymbol(p) and Reversed(SchlafliSymbol(p)) <> SchlafliSymbol(p) then
+		return false;
+	elif HasFvector(p) and Reversed(Fvector(p)) <> Fvector(p) then
+		return false;
+	else
+		g := AutomorphismGroup(p);
+		hom := GroupHomomorphismByImages(g, g, GeneratorsOfGroup(g), Reversed(GeneratorsOfGroup(g)));
+		return not(hom = fail);
+	fi;	
+	end);
 	
 InstallMethod(IsSelfDual,
 	[IsManiplex],
 	function(p)
+	if HasSchlafliSymbol(p) and Reversed(SchlafliSymbol(p)) <> SchlafliSymbol(p) then
+		return false;
+	fi;
 	return p = Dual(p);
 	end);
 
