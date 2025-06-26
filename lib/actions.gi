@@ -153,6 +153,9 @@ InstallMethod(IsVertexFaithful,
 	
 	if IsReflexible(p) then
 		g := AutomorphismGroup(p);
+		if Factorial(NumberOfVertices(p)) < Size(g) then
+			return false;
+		fi;
 		n := Rank(p);
 		gens := GeneratorsOfGroup(g){[2..n]};
 		h := Subgroup(g, gens);
@@ -189,6 +192,9 @@ InstallMethod(IsFacetFaithful,
 
 	if IsReflexible(p) then
 		g := AutomorphismGroup(p);
+		if Factorial(NumberOfFacets(p)) < Size(g) then
+			return false;
+		fi;
 		n := Rank(p);
 		gens := GeneratorsOfGroup(g){[1..n-1]};
 		h := Subgroup(g, gens);
