@@ -102,6 +102,42 @@ InstallMethod(NumberOfRidges,
 	return NumberOfIFaces(p,Rank(p)-2);
 	end);
 	
+InstallMethod(NumberOfChains,
+	[IsReflexibleManiplex, IsCollection],
+	function(M, I)
+	local g, h, gens, ranks, chains, n;
+	
+	n := Rank(M);
+
+	if not(IsSubset([0..n-1], I)) then
+		Error("I must be a subset of [0, ..., n-1]");
+	fi;
+	
+	g := AutomorphismGroup(M);
+	gens := GeneratorsOfGroup(g);
+	ranks := Difference([1..n], I+1);
+	h := Subgroup(g, gens{ranks});
+	return Index(g,h);
+	end);
+
+InstallMethod(NumberOfChains,
+	[IsManiplex, IsCollection],
+	function(M, I)
+	local g, h, gens, ranks, chains, n;
+	
+	n := Rank(M);
+
+	if not(IsSubset([0..n-1], I)) then
+		Error("I must be a subset of [0, ..., n-1]");
+	fi;
+	
+	g := ConnectionGroup(M);
+	gens := GeneratorsOfGroup(g);
+	ranks := Difference([1..n], I+1);
+	h := Subgroup(g, gens{ranks});
+	return Size(Orbits(h));
+	end);
+	
 InstallMethod(Fvector,
 	[IsManiplex],
 	function(M)

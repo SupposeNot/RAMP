@@ -16,8 +16,14 @@ BindGlobal("RampDataPath", DirectoriesPackageLibrary("ramp", "data")[1]);
 BindGlobal("TestRamp", 
 	function(filename)
 	local testFile;
-	testFile := Filename(DirectoriesPackageLibrary("ramp", "tst"), filename);
+	testFile := Filename(DirectoriesPackageLibrary("ramp", "tst"), Concatenation(filename, ".tst"));
 	Test(testFile);
+	end);
+
+BindGlobal("LoadRamp",
+	function(filename)
+	RereadPackage("ramp", Concatenation("lib/", filename, ".gd"));
+	RereadPackage("ramp", Concatenation("lib/", filename, ".gi"));
 	end);
 
 InstallGlobalFunction(AbstractPolytope,

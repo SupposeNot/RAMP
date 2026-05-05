@@ -2,10 +2,17 @@
 InstallMethod(AutomorphismGroupOnChains,
 	[IsReflexibleManiplex, IsCollection],
 	function(M, I)
-	local g, h, gens, ranks, chains;
+	local g, h, gens, ranks, chains, n;
+	
+	n := Rank(M);
+
+	if not(IsSubset([0..n-1], I)) then
+		Error("I must be a subset of [0, ..., n-1]");
+	fi;
+	
 	g := AutomorphismGroup(M);
 	gens := GeneratorsOfGroup(g);
-	ranks := Difference([1..Rank(M)], I+1);
+	ranks := Difference([1..n], I+1);
 	h := Subgroup(g, gens{ranks});
 	
 	return ActionByGenerators(g, RightCosets(g,h), OnRight);
@@ -14,10 +21,17 @@ InstallMethod(AutomorphismGroupOnChains,
 InstallMethod(AutomorphismGroupOnChains,
 	[IsManiplex, IsCollection],
 	function(M, I)
-	local g, h, gens, ranks, chains;
+	local g, h, gens, ranks, chains, n;
+	
+	n := Rank(M);
+
+	if not(IsSubset([0..n-1], I)) then
+		Error("I must be a subset of [0, ..., n-1]");
+	fi;
+	
 	g := ConnectionGroup(M);
 	gens := GeneratorsOfGroup(g);
-	ranks := Difference([1..Rank(M)], I+1);
+	ranks := Difference([1..n], I+1);
 	h := Subgroup(g, gens{ranks});
 	chains := List(Orbits(h), AsSet);
 	
@@ -48,45 +62,55 @@ InstallMethod(AutomorphismGroupOnFacets,
 	return AutomorphismGroupOnIFaces(M, Rank(M)-1);
 	end);
 	
-
+# We need to add NumberOfChains(M,I) - NrMovedPoints(g) because otherwise
+# singleton orbits are not counted (since the set a permutation acts on
+# is implicit).
 InstallMethod(NumberOfChainOrbits,
 	[IsManiplex, IsCollection],
 	function(M, I)
-	local g;
-	g := AutomorphismGroupOnChains(M, I);
-	return Size(Orbits(g)) + LargestMovedPoint(g) - NrMovedPoints(g);
+	local g, n;
+	n := Rank(M);
+
+	if not(IsSubset([0..n-1], I)) then
+		Error("I must be a subset of [0, ..., n-1]");
+	fi;
+	
+	if (HasIsReflexible(M) and IsReflexible(M)) then
+		return 1;
+	elif (HasIsChiral(M) and IsChiral(M)) then
+		if Size(M) < n then
+			return 1;
+		else
+			return 2;
+		fi;
+	else
+		g := AutomorphismGroupOnChains(M, I);
+		return Size(Orbits(g)) + NumberOfChains(M,I) - NrMovedPoints(g);
+	fi;
 	end);
 
 InstallMethod(NumberOfIFaceOrbits,
 	[IsManiplex, IsInt],
 	function(M, i)
-	local g;
-	g := AutomorphismGroupOnIFaces(M, i);
-	return Size(Orbits(g)) + LargestMovedPoint(g) - NrMovedPoints(g);
+	return NumberOfChainOrbits(M, [i]);
 	end);
 
 InstallMethod(NumberOfVertexOrbits,
 	[IsManiplex],
 	function(M)
-	local g;
-	g := AutomorphismGroupOnVertices(M);
-	return Size(Orbits(g)) + LargestMovedPoint(g) - NrMovedPoints(g);
+	return NumberOfIFaceOrbits(M,0);
 	end);
 	
 InstallMethod(NumberOfEdgeOrbits,
 	[IsManiplex],
 	function(M)
-	local g;
-	g := AutomorphismGroupOnEdges(M);
-	return Size(Orbits(g)) + LargestMovedPoint(g) - NrMovedPoints(g);
+	return NumberOfIFaceOrbits(M,1);
 	end);
 	
 InstallMethod(NumberOfFacetOrbits,
 	[IsManiplex],
 	function(M)
-	local g;
-	g := AutomorphismGroupOnFacets(M);
-	return Size(Orbits(g)) + LargestMovedPoint(g) - NrMovedPoints(g);
+	return NumberOfIFaceOrbits(M,Rank(M)-1);
 	end);
 
 
@@ -99,51 +123,31 @@ InstallMethod(IsChainTransitive,
 InstallMethod(IsIFaceTransitive,
 	[IsManiplex, IsInt],
 	function(M, i)
-	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
-		return true;
-	else
-		return (NumberOfIFaceOrbits(M, i) = 1);
-	fi;
+	return (NumberOfIFaceOrbits(M, i) = 1);
 	end);
 	
 InstallMethod(IsVertexTransitive,
 	[IsManiplex],
 	function(M)
-	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
-		return true;
-	else
-		return (NumberOfVertexOrbits(M) = 1);
-	fi;
+	return (NumberOfVertexOrbits(M) = 1);
 	end);
 	
 InstallMethod(IsEdgeTransitive,
 	[IsManiplex],
 	function(M)
-	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
-		return true;
-	else
-		return (NumberOfEdgeOrbits(M) = 1);
-	fi;
+	return (NumberOfEdgeOrbits(M) = 1);
 	end);
 	
 InstallMethod(IsFacetTransitive,
 	[IsManiplex],
 	function(M)
-	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
-		return true;
-	else
-		return (NumberOfFacetOrbits(M) = 1);
-	fi;
+	return (NumberOfFacetOrbits(M) = 1);
 	end);
 	
 InstallMethod(IsFullyTransitive,
 	[IsManiplex],
 	function(M)
-	if (HasIsReflexible(M) and IsReflexible(M)) or (HasIsChiral(M) and IsChiral(M)) then
-		return true;
-	else
-		return ForAll([0..Rank(M)-1], i -> IsIFaceTransitive(M, i));
-	fi;
+	return ForAll([0..Rank(M)-1], i -> IsIFaceTransitive(M, i));
 	end);
 	
 InstallMethod(IsVertexFaithful,
@@ -167,22 +171,9 @@ InstallMethod(IsVertexFaithful,
 	end);
 	
 InstallMethod(MaxVertexFaithfulQuotient,
-	[IsManiplex],
+	[IsReflexibleManiplex],
 	function(p)
-	local g, h, c, n, gens;
-
-	if not(IsReflexible(p)) then
-		Error("MaxVertexFaithfulQuotient is only defined for reflexible maniplexes");
-	else
 		return ReflexibleManiplex(AutomorphismGroupOnVertices(p));
-	fi;
-	
-	# g := AutomorphismGroup(p);
-	# n := Rank(p);
-	# gens := GeneratorsOfGroup(g){[2..n]};
-	# h := Subgroup(g, gens);
-	# c := Core(g,h);
-	# return ReflexibleManiplex(g/c);
 	end);
 	
 InstallMethod(IsFacetFaithful,
@@ -205,9 +196,17 @@ InstallMethod(IsFacetFaithful,
 	fi;	
 	end);
 
+InstallMethod(MaxFacetFaithfulQuotient,
+	[IsReflexibleManiplex],
+	function(p)
+		return ReflexibleManiplex(AutomorphismGroupOnFacets(p));
+	end);
+	
+
+
 InstallMethod(IFaceStabilizer,
-	[IsInt, IsReflexibleManiplex],
-	function(i, M)
+	[IsReflexibleManiplex, IsInt],
+	function(M, i)
 	local g, n, gens;
 	
 	g := AutomorphismGroup(M);
@@ -216,16 +215,34 @@ InstallMethod(IFaceStabilizer,
 	Append(gens, List([i+2..n], j -> g.(j)));
 	return Subgroup(g, gens);
 	end);
+
+InstallMethod(VertexStabilizer,
+	[IsReflexibleManiplex],
+	function(M)
+	return IFaceStabilizer(M,0);
+	end);
+	
+InstallMethod(EdgeStabilizer,
+	[IsReflexibleManiplex],
+	function(M)
+	return IFaceStabilizer(M,1);
+	end);
+	
+InstallMethod(FacetStabilizer,
+	[IsReflexibleManiplex],
+	function(M)
+	return IFaceStabilizer(M,Rank(M)-1);
+	end);
 	
 InstallMethod(ChainStabilizer,
-	[IsList, IsReflexibleManiplex],
-	function(L, M)
+	[IsReflexibleManiplex, IsCollection],
+	function(M, I)
 	local g, h, i;
 	
 	g := AutomorphismGroup(M);
 	h := g;
-	for i in L do
-		h := Intersection(h, IFaceStabilizer(i, M));
+	for i in I do
+		h := Intersection(h, IFaceStabilizer(M, i));
 	od;
 	return h;	
 	end);
@@ -233,5 +250,5 @@ InstallMethod(ChainStabilizer,
 InstallMethod(MaxChainStabilizer,
 	[IsReflexibleManiplex],
 	function(M)
-	return ChainStabilizer([0..Rank(M)-1], M);	
+	return ChainStabilizer(M, [0..Rank(M)-1]);	
 	end);

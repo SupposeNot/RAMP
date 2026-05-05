@@ -42,6 +42,14 @@ DeclareAttribute("NumberOfRidges", IsManiplex);
 #! 80
 #! @EndExampleSession
 
+#! @Arguments M, I
+#! Returns the number of chains of type I of <A>M</A>.
+DeclareOperation("NumberOfChains", [IsManiplex, IsCollection]);
+#! @BeginExampleSession
+#! gap> NumberOfChains(Pyramid(5), [0,2]);
+#! 20
+#! @EndExampleSession
+
 #! @Arguments M
 #! Returns the f-vector of <A>M</A>.
 DeclareAttribute("Fvector", IsManiplex);

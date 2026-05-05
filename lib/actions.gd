@@ -11,8 +11,7 @@
 DeclareOperation("AutomorphismGroupOnChains", [IsManiplex, IsCollection]);
 #! @BeginExampleSession
 #! gap> AutomorphismGroupOnChains(HemiCube(3),[0,2]);
-#! Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
-#!   (9,12) ])
+#! Group([ (1,2)(3,5)(4,7)(6,10)(8,11)(9,12), (2,4)(3,6)(5,9)(8,12)(10,11), (1,3)(2,5)(4,8)(7,11)(9,12) ])
 #! @EndExampleSession
 
 
@@ -220,35 +219,48 @@ DeclareProperty("IsFacetFaithful", IsManiplex);
 #! @Arguments M
 #! @Returns Q
 #! @Description Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
-DeclareOperation("MaxVertexFaithfulQuotient", [IsManiplex]);
+DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 #! @BeginExampleSession
-#! gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
-#! reflexible 3-maniplex
-#! gap> SchlafliSymbol(last);
+#! gap> SchlafliSymbol(MaxVertexFaithfulQuotient(HemiCrossPolytope(3)));
 #! [ 3, 2 ]
 #! @EndExampleSession
 
-#! @Arguments i, M
+#! @Arguments M
+#! @Returns Q
+#! @Description Returns the maximal facet-faithful reflexible maniplex covered by <A>M</A>.
+DeclareOperation("MaxFacetFaithfulQuotient", [IsReflexibleManiplex]);
+#! @BeginExampleSession
+#! gap> SchlafliSymbol(MaxFacetFaithfulQuotient(HemiCube(3)));
+#! [ 2, 3 ]
+#! @EndExampleSession
+
+
+
+#! @Arguments M, i
 #! @Description Returns the subgroup of the automorphism group of <A>M</A> that fixes the base i-face.
 #! Currently only implemented for reflexible maniplexes.
-DeclareOperation("IFaceStabilizer", [IsInt, IsManiplex]);
+DeclareOperation("IFaceStabilizer", [IsManiplex, IsInt]);
 #! @BeginExampleSession
-#! gap> IFaceStabilizer(1, Cube(4))
+#! gap> IFaceStabilizer(Cube(4), 1)
 #! Group([ r0, r2, r3 ])
 #! gap> Size(last)
 #! 12
-#! gap> M := ReflexibleManiplex(IFaceStabilizer(0,Cube(4)));
+#! gap> M := ReflexibleManiplex(IFaceStabilizer(Cube(4), 0));
 #! reflexible 3-maniplex
 #! gap> M = Simplex(3);
 #! true
 #! @EndExampleSession
 
-#! @Arguments L, M
+DeclareOperation("VertexStabilizer", [IsManiplex]);
+DeclareOperation("EdgeStabilizer", [IsManiplex]);
+DeclareOperation("FacetStabilizer", [IsManiplex]);
+
+#! @Arguments M, I
 #! @Description Returns the subgroup of the automorphism group of <A>M</A> that fixes the base chain
 #! of the type given by <A>L</A>. Currently only implemented for reflexible maniplexes.
-DeclareOperation("ChainStabilizer", [IsList, IsManiplex]);
+DeclareOperation("ChainStabilizer", [IsManiplex, IsCollection]);
 #! @BeginExampleSession
-#! gap> stab := ChainStabilizer([0,3], Cube(4));; Size(stab);
+#! gap> stab := ChainStabilizer(Cube(4), [0,3]);; Size(stab);
 #! 6
 #! gap> M := ReflexibleManiplex(stab);; M = Pgon(3);
 #! true
