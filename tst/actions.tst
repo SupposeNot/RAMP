@@ -75,6 +75,12 @@ gap> MaxVertexFaithfulQuotient(ARPNC([3,8], "(r0 s2^4)^2")) = ARPNC([3,4]);
 true
 gap> Size(IFaceStabilizer(Cube(4), 1));
 12
+gap> Size(EdgeStabilizer(Cube(4)));
+12
+gap> Size(VertexStabilizer(Cube(4)));
+24
+gap> Size(FacetStabilizer(Cube(4)));
+48
 gap> ReflexibleManiplex(IFaceStabilizer(Cube(4), 0)) = Simplex(3);
 true
 gap> Size(ChainStabilizer(Cube(4), [0,3]));

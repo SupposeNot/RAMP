@@ -219,6 +219,7 @@ DeclareProperty("IsFacetFaithful", IsManiplex);
 #! @Arguments M
 #! @Returns Q
 #! @Description Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+#! Currently assumes that the number of vertices is finite.
 DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(MaxVertexFaithfulQuotient(HemiCrossPolytope(3)));
@@ -228,6 +229,7 @@ DeclareOperation("MaxVertexFaithfulQuotient", [IsReflexibleManiplex]);
 #! @Arguments M
 #! @Returns Q
 #! @Description Returns the maximal facet-faithful reflexible maniplex covered by <A>M</A>.
+#! Currently assumes that the number of facets is finite.
 DeclareOperation("MaxFacetFaithfulQuotient", [IsReflexibleManiplex]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(MaxFacetFaithfulQuotient(HemiCube(3)));
