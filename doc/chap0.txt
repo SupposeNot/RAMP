@@ -185,15 +185,16 @@
       6.2-3 NumberOfEdges
       6.2-4 NumberOfFacets
       6.2-5 NumberOfRidges
-      6.2-6 Fvector
-      6.2-7 [33X[0;0YSection(s)[133X
-      6.2-8 [33X[0;0YFacet(s)[133X
-      6.2-9 [33X[0;0YVertex Figure(s)[133X
-      6.2-10 VertDegrees
-      6.2-11 FaceSizes
-      6.2-12 FacetList
-      6.2-13 VertexList
-      6.2-14 NFacesList
+      6.2-6 NumberOfChains
+      6.2-7 Fvector
+      6.2-8 [33X[0;0YSection(s)[133X
+      6.2-9 [33X[0;0YFacet(s)[133X
+      6.2-10 [33X[0;0YVertex Figure(s)[133X
+      6.2-11 VertDegrees
+      6.2-12 FaceSizes
+      6.2-13 FacetList
+      6.2-14 VertexList
+      6.2-15 NFacesList
     6.3 [33X[0;0YFlatness[133X
       6.3-1 [33X[0;0YFlatness[133X
     6.4 [33X[0;0YSchlafli symbol[133X
@@ -256,9 +257,13 @@
       7.4-1 IsVertexFaithful
       7.4-2 IsFacetFaithful
       7.4-3 MaxVertexFaithfulQuotient
-      7.4-4 IFaceStabilizer
-      7.4-5 ChainStabilizer
-      7.4-6 MaxChainStabilizer
+      7.4-4 MaxFacetFaithfulQuotient
+      7.4-5 IFaceStabilizer
+      7.4-6 VertexStabilizer
+      7.4-7 EdgeStabilizer
+      7.4-8 FacetStabilizer
+      7.4-9 ChainStabilizer
+      7.4-10 MaxChainStabilizer
     7.5 [33X[0;0YFlag orbits[133X
       7.5-1 Flags
       7.5-2 BaseFlag

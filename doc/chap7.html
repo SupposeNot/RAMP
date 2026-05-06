@@ -67,10 +67,14 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7FFD0ADD7A2F6044">7.4-1 IsVertexFaithful</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7BB02182844EA5EB">7.4-2 IsFacetFaithful</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7F2F8EEE8663AB89">7.4-3 MaxVertexFaithfulQuotient</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7E56F5B882F56454">7.4-4 IFaceStabilizer</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B28DAD57AC5AF75">7.4-5 ChainStabilizer</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X78506AE88793C069">7.4-6 MaxChainStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X856543F87E52DDC6">7.4-3 MaxVertexFaithfulQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7AAAEE1481CC3C34">7.4-4 MaxFacetFaithfulQuotient</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D2965587DEA3E73">7.4-5 IFaceStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X78747C7B7BC3D7D6">7.4-6 VertexStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85BC91B984834166">7.4-7 EdgeStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X8577F25987F81341">7.4-8 FacetStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D86CC73803BFBBB">7.4-9 ChainStabilizer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X78506AE88793C069">7.4-10 MaxChainStabilizer</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7BE5F0217862DBEF">7.5 <span class="Heading">Flag orbits</span></a>
 </span>
@@ -260,8 +264,7 @@ Group([ s2^-1*s1^-1*s2*s1^3*s2*s1 ])
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AutomorphismGroupOnChains(HemiCube(3),[0,2]);</span>
-Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
-  (9,12) ])
+Group([ (1,2)(3,5)(4,7)(6,10)(8,11)(9,12), (2,4)(3,6)(5,9)(8,12)(10,11), (1,3)(2,5)(4,8)(7,11)(9,12) ])
 </pre></div>
 
 <p><a id="X8549DB2585A989E4" name="X8549DB2585A989E4"></a></p>
@@ -535,52 +538,86 @@ false
 true
 </pre></div>
 
-<p><a id="X7F2F8EEE8663AB89" name="X7F2F8EEE8663AB89"></a></p>
+<p><a id="X856543F87E52DDC6" name="X856543F87E52DDC6"></a></p>
 
 <h5>7.4-3 MaxVertexFaithfulQuotient</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxVertexFaithfulQuotient</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: Q</p>
 
-<p>Returns the maximal vertex-faithful reflexible maniplex covered by <var class="Arg">M</var>.</p>
+<p>Returns the maximal vertex-faithful reflexible maniplex covered by <var class="Arg">M</var>. Currently assumes that the number of vertices is finite.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">MaxVertexFaithfulQuotient(HemiCrossPolytope(3));</span>
-reflexible 3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(last);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(MaxVertexFaithfulQuotient(HemiCrossPolytope(3)));</span>
 [ 3, 2 ]
 </pre></div>
 
-<p><a id="X7E56F5B882F56454" name="X7E56F5B882F56454"></a></p>
+<p><a id="X7AAAEE1481CC3C34" name="X7AAAEE1481CC3C34"></a></p>
 
-<h5>7.4-4 IFaceStabilizer</h5>
+<h5>7.4-4 MaxFacetFaithfulQuotient</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IFaceStabilizer</code>( <var class="Arg">i</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxFacetFaithfulQuotient</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: Q</p>
+
+<p>Returns the maximal facet-faithful reflexible maniplex covered by <var class="Arg">M</var>. Currently assumes that the number of facets is finite.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(MaxFacetFaithfulQuotient(HemiCube(3)));</span>
+[ 2, 3 ]
+</pre></div>
+
+<p><a id="X7D2965587DEA3E73" name="X7D2965587DEA3E73"></a></p>
+
+<h5>7.4-5 IFaceStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IFaceStabilizer</code>( <var class="Arg">M</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base i-face. Currently only implemented for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IFaceStabilizer(1, Cube(4))</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IFaceStabilizer(Cube(4), 1)</span>
 Group([ r0, r2, r3 ])
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(last)</span>
 12
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(IFaceStabilizer(0,Cube(4)));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(IFaceStabilizer(Cube(4), 0));</span>
 reflexible 3-maniplex
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
 true
 </pre></div>
 
-<p><a id="X7B28DAD57AC5AF75" name="X7B28DAD57AC5AF75"></a></p>
+<p><a id="X78747C7B7BC3D7D6" name="X78747C7B7BC3D7D6"></a></p>
 
-<h5>7.4-5 ChainStabilizer</h5>
+<h5>7.4-6 VertexStabilizer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChainStabilizer</code>( <var class="Arg">L</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base vertex. Currently only implemented for reflexible maniplexes.</p>
+
+<p><a id="X85BC91B984834166" name="X85BC91B984834166"></a></p>
+
+<h5>7.4-7 EdgeStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; EdgeStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base edge. Currently only implemented for reflexible maniplexes.</p>
+
+<p><a id="X8577F25987F81341" name="X8577F25987F81341"></a></p>
+
+<h5>7.4-8 FacetStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacetStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base facet. Currently only implemented for reflexible maniplexes.</p>
+
+<p><a id="X7D86CC73803BFBBB" name="X7D86CC73803BFBBB"></a></p>
+
+<h5>7.4-9 ChainStabilizer</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChainStabilizer</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the base chain of the type given by <var class="Arg">L</var>. Currently only implemented for reflexible maniplexes.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">stab := ChainStabilizer([0,3], Cube(4));; Size(stab);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">stab := ChainStabilizer(Cube(4), [0,3]);; Size(stab);</span>
 6
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex(stab);; M = Pgon(3);</span>
 true
@@ -588,7 +625,7 @@ true
 
 <p><a id="X78506AE88793C069" name="X78506AE88793C069"></a></p>
 
-<h5>7.4-6 MaxChainStabilizer</h5>
+<h5>7.4-10 MaxChainStabilizer</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MaxChainStabilizer</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns the subgroup of the automorphism group of <var class="Arg">M</var> that fixes the entire base chain. Currently only implemented for reflexible maniplexes.</p>

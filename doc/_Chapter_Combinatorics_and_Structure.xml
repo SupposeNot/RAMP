@@ -104,6 +104,20 @@ gap> NumberOfRidges(CrossPolytope(5));
 
 
 <ManSection>
+  <Oper Arg="M, I" Name="NumberOfChains" Label="for IsManiplex, IsCollection"/>
+ <Description>
+ Returns the number of chains of type I of <A>M</A>.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> NumberOfChains(Pyramid(5), [0,2]);
+20
+]]></Example>
+
+
+<ManSection>
   <Attr Arg="M" Name="Fvector" Label="for IsManiplex"/>
  <Description>
  Returns the f-vector of <A>M</A>.

@@ -54,7 +54,7 @@
   [2XBrucknerSphere[102X 5.1-23 
   [2XCartesianProduct[102X, for IsManiplex, IsManiplex 9.5-5 
       for IsPoset,IsPoset 12.6-2 
-  [2XChainStabilizer[102X, for IsList, IsManiplex 7.4-5 
+  [2XChainStabilizer[102X, for IsManiplex, IsCollection 7.4-9 
   [2XChamfer[102X, for IsMapOnSurface 11.4-3 
   [2XChangeVoltage[102X, for IsVoltageGraph,IsInt,IsInt, IsObject 14.1-11 
       for IsVoltageGraph,IsList, IsObject 14.1-10 
@@ -103,6 +103,7 @@
   [2XEdgeLabeledGraphFromEdges[102X, for IsList, IsList,IsList 13.2-10 
   [2XEdgeLabeledGraphFromLabeledEdges[102X, for IsList 13.2-11 
   [2XEdgeLabelPreservingAutomorphismGroup[102X, for IsEdgeLabeledGraph 13.2-14 
+  [2XEdgeStabilizer[102X, for IsManiplex 7.4-7 
   [2XElementsList[102X, for IsPoset 12.2-3 
   [2XEnantiomorphicForm[102X, for IsManiplex 4.3-2 
   [2XEpsilonk[102X, for IsInt 11.1-1 
@@ -116,11 +117,12 @@
   [2XExtraRotRelators[102X, for IsRotaryManiplex 7.1-9 
   [2XFaceListOfPoset[102X, for IsPoset 12.3-17 
   [2XFacesByRankOfPoset[102X, for IsPoset 12.3-19 
-  [2XFaceSizes[102X, for IsManiplex 6.2-11 
-  [2XFacet[102X, for IsManiplex 6.2-8 
-      for IsManiplex, IsInt 6.2-8 
-  [2XFacetList[102X, for IsManiplex 6.2-12 
-  [2XFacets[102X, for IsManiplex 6.2-8 
+  [2XFaceSizes[102X, for IsManiplex 6.2-12 
+  [2XFacet[102X, for IsManiplex 6.2-9 
+      for IsManiplex, IsInt 6.2-9 
+  [2XFacetList[102X, for IsManiplex 6.2-13 
+  [2XFacets[102X, for IsManiplex 6.2-9 
+  [2XFacetStabilizer[102X, for IsManiplex 7.4-8 
   [2XFacetSubgroup[102X, for IsGroup 3.2-19 
   [2XFlagGraph[102X, for IsGroup 13.2-12 
       for IsPremaniplex 13.2-27 
@@ -137,7 +139,7 @@
   [2XFlatOrientablyRegularPolyhedron[102X, for IsInt, IsInt, IsInt, IsInt 5.2-1 
   [2XFlatRegularPolyhedra[102X 15.1-4 
   [2XFullyStratifiedGroup[102X, for IsList, IsGroup 10.1-5 
-  [2XFvector[102X, for IsManiplex 6.2-6 
+  [2XFvector[102X, for IsManiplex 6.2-7 
   [2XGenus[102X, for IsManiplex 6.4-7 
   [2XGgi[102X, for IsList, IsList 3.1-2 
       for IsList, IsList, IsList 3.1-2 
@@ -163,7 +165,7 @@
   [2XHoleVector[102X, for IsManiplex 6.6-6 
   [2XIcosadodecahedron[102X 5.5-5 
   [2XIcosahedron[102X 5.1-14 
-  [2XIFaceStabilizer[102X, for IsInt, IsManiplex 7.4-4 
+  [2XIFaceStabilizer[102X, for IsManiplex, IsInt 7.4-5 
   [2XInfoRamp[102X 16.1-1 
   [2XInternallySelfDualPolyhedron1[102X, for IsInt 5.1-24 
   [2XInternallySelfDualPolyhedron2[102X, for IsInt, IsInt 5.1-25 
@@ -268,10 +270,11 @@
   [2XManiplexesFromFile[102X 15.1-2 
   [2XManiplexFromDatabaseString[102X, for IsString 15.2-2 
   [2XMarkAsPolytopal[102X, for IsManiplex 16.4-6 
-  [2XMaxChainStabilizer[102X, for IsManiplex 7.4-6 
+  [2XMaxChainStabilizer[102X, for IsManiplex 7.4-10 
   [2XMaxFace[102X, for IsPoset 12.3-22 
+  [2XMaxFacetFaithfulQuotient[102X, for IsReflexibleManiplex 7.4-4 
   [2XMaximalChains[102X, for IsPoset 12.2-1 
-  [2XMaxVertexFaithfulQuotient[102X, for IsManiplex 7.4-3 
+  [2XMaxVertexFaithfulQuotient[102X, for IsReflexibleManiplex 7.4-3 
   [2XMedial[102X, for IsManiplex 9.1-8 
   [2XMeet[102X, for IsFace, IsFace, IsPoset 12.5-5 
   [2XMeta[102X, for IsMapOnSurface 11.5-8 
@@ -282,8 +285,9 @@
   [2XMkPrime[102X, for IsInt 11.1-4 
   [2XMultPerm[102X 16.3-2 
   [2XNeedle[102X, for IsMapOnSurface 11.5-3 
-  [2XNFacesList[102X, for IsManiplex,IsInt 6.2-14 
+  [2XNFacesList[102X, for IsManiplex,IsInt 6.2-15 
   [2XNumberOfChainOrbits[102X, for IsManiplex, IsCollection 7.3-1 
+  [2XNumberOfChains[102X, for IsManiplex, IsCollection 6.2-6 
   [2XNumberOfEdgeOrbits[102X, for IsManiplex 7.3-4 
   [2XNumberOfEdges[102X, for IsManiplex 6.2-3 
   [2XNumberOfFacetOrbits[102X, for IsManiplex 7.3-5 
@@ -366,9 +370,9 @@
   [2XSatisfiesPathIntersectionProperty[102X, for IsManiplex 4.4-3 
   [2XSchlafliSymbol[102X, for IsManiplex 6.4-1 
   [2XSection[102X, for IsFace, IsFace, IsPoset 12.1-10 
-      for IsManiplex, IsInt, IsInt 6.2-7 
-      for IsManiplex, IsInt, IsInt, IsInt 6.2-7 
-  [2XSections[102X, for IsManiplex, IsInt, IsInt 6.2-7 
+      for IsManiplex, IsInt, IsInt 6.2-8 
+      for IsManiplex, IsInt, IsInt, IsInt 6.2-8 
+  [2XSections[102X, for IsManiplex, IsInt, IsInt 6.2-8 
   [2XSectionSubgroup[102X, for IsGroup, IsList 3.2-17 
   [2XSemiEdges[102X, for IsEdgeLabeledGraph 13.2-21 
   [2XSggi[102X, for IsList, IsList 3.2-2 
@@ -439,13 +443,14 @@
   [2XUnlabeledSimpleGraph[102X, for IsEdgeLabeledGraph 13.2-13 
   [2XUpToDuality[102X, for IsList 9.2-12 
   [2XVerifyProperties[102X 16.4-10 
-  [2XVertDegrees[102X, for IsManiplex 6.2-10 
+  [2XVertDegrees[102X, for IsManiplex 6.2-11 
   [2XVertex[102X 5.1-1 
-  [2XVertexFigure[102X, for IsManiplex 6.2-9 
-      for IsManiplex, IsInt 6.2-9 
-  [2XVertexFigures[102X, for IsManiplex 6.2-9 
+  [2XVertexFigure[102X, for IsManiplex 6.2-10 
+      for IsManiplex, IsInt 6.2-10 
+  [2XVertexFigures[102X, for IsManiplex 6.2-10 
   [2XVertexFigureSubgroup[102X, for IsGroup 3.2-18 
-  [2XVertexList[102X, for IsManiplex 6.2-13 
+  [2XVertexList[102X, for IsManiplex 6.2-14 
+  [2XVertexStabilizer[102X, for IsManiplex 7.4-6 
   [2XViewGraph[102X, for IsObject, IsString 13.2-25 
   [2XVoltageGraph[102X, for IsGroup,IsList,IsList 14.1-7 
       for IsGroup,IsPremaniplex 14.1-9 

@@ -32,9 +32,9 @@
 \makelabel{ramp:Combinatorial Structure of Maniplexes}{6}{X7C99831885386FA5}
 \makelabel{ramp:Basics}{6.1}{X868F7BAB7AC2EEBC}
 \makelabel{ramp:Faces}{6.2}{X872AD1E785C7EB03}
-\makelabel{ramp:Section(s)}{6.2.7}{X8586EE158331B46C}
-\makelabel{ramp:Facet(s)}{6.2.8}{X85D359FD7E3C191B}
-\makelabel{ramp:Vertex Figure(s)}{6.2.9}{X859E4169801C72D9}
+\makelabel{ramp:Section(s)}{6.2.8}{X8586EE158331B46C}
+\makelabel{ramp:Facet(s)}{6.2.9}{X85D359FD7E3C191B}
+\makelabel{ramp:Vertex Figure(s)}{6.2.10}{X859E4169801C72D9}
 \makelabel{ramp:Flatness}{6.3}{X877E841E7FBCEAAE}
 \makelabel{ramp:Flatness}{6.3.1}{X877E841E7FBCEAAE}
 \makelabel{ramp:Schlafli symbol}{6.4}{X8052D0A68676A82C}
@@ -214,21 +214,22 @@
 \makelabel{ramp:NumberOfEdges for IsManiplex}{6.2.3}{X86CDC9B38792B038}
 \makelabel{ramp:NumberOfFacets for IsManiplex}{6.2.4}{X7DE9F1057B309554}
 \makelabel{ramp:NumberOfRidges for IsManiplex}{6.2.5}{X7C5446247FD63F28}
-\makelabel{ramp:Fvector for IsManiplex}{6.2.6}{X816A47B879737629}
-\makelabel{ramp:Section for IsManiplex, IsInt, IsInt}{6.2.7}{X8586EE158331B46C}
-\makelabel{ramp:Section for IsManiplex, IsInt, IsInt, IsInt}{6.2.7}{X8586EE158331B46C}
-\makelabel{ramp:Sections for IsManiplex, IsInt, IsInt}{6.2.7}{X8586EE158331B46C}
-\makelabel{ramp:Facets for IsManiplex}{6.2.8}{X85D359FD7E3C191B}
-\makelabel{ramp:Facet for IsManiplex, IsInt}{6.2.8}{X85D359FD7E3C191B}
-\makelabel{ramp:Facet for IsManiplex}{6.2.8}{X85D359FD7E3C191B}
-\makelabel{ramp:VertexFigures for IsManiplex}{6.2.9}{X859E4169801C72D9}
-\makelabel{ramp:VertexFigure for IsManiplex, IsInt}{6.2.9}{X859E4169801C72D9}
-\makelabel{ramp:VertexFigure for IsManiplex}{6.2.9}{X859E4169801C72D9}
-\makelabel{ramp:VertDegrees for IsManiplex}{6.2.10}{X8588E0127D2A8CD5}
-\makelabel{ramp:FaceSizes for IsManiplex}{6.2.11}{X783AE9C2807D0309}
-\makelabel{ramp:FacetList for IsManiplex}{6.2.12}{X7D5D9E0786DBEAE0}
-\makelabel{ramp:VertexList for IsManiplex}{6.2.13}{X78189CDD7DF292E2}
-\makelabel{ramp:NFacesList for IsManiplex,IsInt}{6.2.14}{X843C38EC7A43292A}
+\makelabel{ramp:NumberOfChains for IsManiplex, IsCollection}{6.2.6}{X7A5F64A684981880}
+\makelabel{ramp:Fvector for IsManiplex}{6.2.7}{X816A47B879737629}
+\makelabel{ramp:Section for IsManiplex, IsInt, IsInt}{6.2.8}{X8586EE158331B46C}
+\makelabel{ramp:Section for IsManiplex, IsInt, IsInt, IsInt}{6.2.8}{X8586EE158331B46C}
+\makelabel{ramp:Sections for IsManiplex, IsInt, IsInt}{6.2.8}{X8586EE158331B46C}
+\makelabel{ramp:Facets for IsManiplex}{6.2.9}{X85D359FD7E3C191B}
+\makelabel{ramp:Facet for IsManiplex, IsInt}{6.2.9}{X85D359FD7E3C191B}
+\makelabel{ramp:Facet for IsManiplex}{6.2.9}{X85D359FD7E3C191B}
+\makelabel{ramp:VertexFigures for IsManiplex}{6.2.10}{X859E4169801C72D9}
+\makelabel{ramp:VertexFigure for IsManiplex, IsInt}{6.2.10}{X859E4169801C72D9}
+\makelabel{ramp:VertexFigure for IsManiplex}{6.2.10}{X859E4169801C72D9}
+\makelabel{ramp:VertDegrees for IsManiplex}{6.2.11}{X8588E0127D2A8CD5}
+\makelabel{ramp:FaceSizes for IsManiplex}{6.2.12}{X783AE9C2807D0309}
+\makelabel{ramp:FacetList for IsManiplex}{6.2.13}{X7D5D9E0786DBEAE0}
+\makelabel{ramp:VertexList for IsManiplex}{6.2.14}{X78189CDD7DF292E2}
+\makelabel{ramp:NFacesList for IsManiplex,IsInt}{6.2.15}{X843C38EC7A43292A}
 \makelabel{ramp:IsFlat for IsManiplex}{6.3.1}{X877E841E7FBCEAAE}
 \makelabel{ramp:IsFlat for IsManiplex, IsInt, IsInt}{6.3.1}{X877E841E7FBCEAAE}
 \makelabel{ramp:SchlafliSymbol for IsManiplex}{6.4.1}{X7FA0B161838A442A}
@@ -286,10 +287,14 @@
 \makelabel{ramp:IsFullyTransitive for IsManiplex}{7.3.11}{X7B898E19857B356F}
 \makelabel{ramp:IsVertexFaithful for IsManiplex}{7.4.1}{X7FFD0ADD7A2F6044}
 \makelabel{ramp:IsFacetFaithful for IsManiplex}{7.4.2}{X7BB02182844EA5EB}
-\makelabel{ramp:MaxVertexFaithfulQuotient for IsManiplex}{7.4.3}{X7F2F8EEE8663AB89}
-\makelabel{ramp:IFaceStabilizer for IsInt, IsManiplex}{7.4.4}{X7E56F5B882F56454}
-\makelabel{ramp:ChainStabilizer for IsList, IsManiplex}{7.4.5}{X7B28DAD57AC5AF75}
-\makelabel{ramp:MaxChainStabilizer for IsManiplex}{7.4.6}{X78506AE88793C069}
+\makelabel{ramp:MaxVertexFaithfulQuotient for IsReflexibleManiplex}{7.4.3}{X856543F87E52DDC6}
+\makelabel{ramp:MaxFacetFaithfulQuotient for IsReflexibleManiplex}{7.4.4}{X7AAAEE1481CC3C34}
+\makelabel{ramp:IFaceStabilizer for IsManiplex, IsInt}{7.4.5}{X7D2965587DEA3E73}
+\makelabel{ramp:VertexStabilizer for IsManiplex}{7.4.6}{X78747C7B7BC3D7D6}
+\makelabel{ramp:EdgeStabilizer for IsManiplex}{7.4.7}{X85BC91B984834166}
+\makelabel{ramp:FacetStabilizer for IsManiplex}{7.4.8}{X8577F25987F81341}
+\makelabel{ramp:ChainStabilizer for IsManiplex, IsCollection}{7.4.9}{X7D86CC73803BFBBB}
+\makelabel{ramp:MaxChainStabilizer for IsManiplex}{7.4.10}{X78506AE88793C069}
 \makelabel{ramp:Flags for IsPremaniplex}{7.5.1}{X8668368E81B4B122}
 \makelabel{ramp:BaseFlag for IsPremaniplex}{7.5.2}{X795A4A60852AF9A5}
 \makelabel{ramp:SymmetryTypeGraph for IsPremaniplex}{7.5.3}{X87D5AE5F845BD88C}

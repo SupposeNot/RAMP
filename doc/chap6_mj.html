@@ -39,18 +39,19 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X86CDC9B38792B038">6.2-3 NumberOfEdges</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7DE9F1057B309554">6.2-4 NumberOfFacets</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7C5446247FD63F28">6.2-5 NumberOfRidges</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X816A47B879737629">6.2-6 Fvector</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X8586EE158331B46C">6.2-7 <span class="Heading">Section(s)</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7A5F64A684981880">6.2-6 NumberOfChains</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X816A47B879737629">6.2-7 Fvector</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X8586EE158331B46C">6.2-8 <span class="Heading">Section(s)</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X85D359FD7E3C191B">6.2-8 <span class="Heading">Facet(s)</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X85D359FD7E3C191B">6.2-9 <span class="Heading">Facet(s)</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X859E4169801C72D9">6.2-9 <span class="Heading">Vertex Figure(s)</span></a>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X859E4169801C72D9">6.2-10 <span class="Heading">Vertex Figure(s)</span></a>
 </span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X8588E0127D2A8CD5">6.2-10 VertDegrees</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X783AE9C2807D0309">6.2-11 FaceSizes</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7D5D9E0786DBEAE0">6.2-12 FacetList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X78189CDD7DF292E2">6.2-13 VertexList</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X843C38EC7A43292A">6.2-14 NFacesList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X8588E0127D2A8CD5">6.2-11 VertDegrees</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X783AE9C2807D0309">6.2-12 FaceSizes</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X7D5D9E0786DBEAE0">6.2-13 FacetList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X78189CDD7DF292E2">6.2-14 VertexList</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X843C38EC7A43292A">6.2-15 NFacesList</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6_mj.html#X877E841E7FBCEAAE">6.3 <span class="Heading">Flatness</span></a>
 </span>
@@ -186,9 +187,22 @@
 80
 </pre></div>
 
+<p><a id="X7A5F64A684981880" name="X7A5F64A684981880"></a></p>
+
+<h5>6.2-6 NumberOfChains</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberOfChains</code>( <var class="Arg">M</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns the number of chains of type I of <var class="Arg">M</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfChains(Pyramid(5), [0,2]);</span>
+20
+</pre></div>
+
 <p><a id="X816A47B879737629" name="X816A47B879737629"></a></p>
 
-<h5>6.2-6 Fvector</h5>
+<h5>6.2-7 Fvector</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Fvector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns the f-vector of <var class="Arg">M</var>.</p>
@@ -201,7 +215,7 @@
 
 <p><a id="X8586EE158331B46C" name="X8586EE158331B46C"></a></p>
 
-<h5>6.2-7 <span class="Heading">Section(s)</span></h5>
+<h5>6.2-8 <span class="Heading">Section(s)</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Section</code>( <var class="Arg">M</var>, <var class="Arg">j</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -222,7 +236,7 @@ Pgon(3)
 
 <p><a id="X85D359FD7E3C191B" name="X85D359FD7E3C191B"></a></p>
 
-<h5>6.2-8 <span class="Heading">Facet(s)</span></h5>
+<h5>6.2-9 <span class="Heading">Facet(s)</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facets</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Facet</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -241,7 +255,7 @@ Pgon(4)
 
 <p><a id="X859E4169801C72D9" name="X859E4169801C72D9"></a></p>
 
-<h5>6.2-9 <span class="Heading">Vertex Figure(s)</span></h5>
+<h5>6.2-10 <span class="Heading">Vertex Figure(s)</span></h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigures</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexFigure</code>( <var class="Arg">M</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -262,7 +276,7 @@ Pgon(5)
 
 <p><a id="X8588E0127D2A8CD5" name="X8588E0127D2A8CD5"></a></p>
 
-<h5>6.2-10 VertDegrees</h5>
+<h5>6.2-11 VertDegrees</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertDegrees</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
@@ -281,7 +295,7 @@ Pgon(5)
 
 <p><a id="X783AE9C2807D0309" name="X783AE9C2807D0309"></a></p>
 
-<h5>6.2-11 FaceSizes</h5>
+<h5>6.2-12 FaceSizes</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FaceSizes</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: IsList</p>
@@ -300,7 +314,7 @@ Pgon(5)
 
 <p><a id="X7D5D9E0786DBEAE0" name="X7D5D9E0786DBEAE0"></a></p>
 
-<h5>6.2-12 FacetList</h5>
+<h5>6.2-13 FacetList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FacetList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: list</p>
@@ -321,7 +335,7 @@ Pgon(5)
 
 <p><a id="X78189CDD7DF292E2" name="X78189CDD7DF292E2"></a></p>
 
-<h5>6.2-13 VertexList</h5>
+<h5>6.2-14 VertexList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexList</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: list</p>
@@ -343,7 +357,7 @@ Pgon(5)
 
 <p><a id="X843C38EC7A43292A" name="X843C38EC7A43292A"></a></p>
 
-<h5>6.2-14 NFacesList</h5>
+<h5>6.2-15 NFacesList</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NFacesList</code>( <var class="Arg">M</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: list</p>

@@ -177,8 +177,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XAutomorphismGroupOnChains(HemiCube(3),[0,2]);[127X[104X
-    [4X[28XGroup([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)[128X[104X
-    [4X[28X  (9,12) ])[128X[104X
+    [4X[28XGroup([ (1,2)(3,5)(4,7)(6,10)(8,11)(9,12), (2,4)(3,6)(5,9)(8,12)(10,11), (1,3)(2,5)(4,8)(7,11)(9,12) ])[128X[104X
   [4X[32X[104X
   
   [1X7.2-2 AutomorphismGroupOnIFaces[101X
@@ -429,49 +428,82 @@
   [33X[1;0Y[29X[2XMaxVertexFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YQ[133X
   
-  [33X[0;0YReturns the maximal vertex-faithful reflexible maniplex covered by [3XM[103X.[133X
+  [33X[0;0YReturns  the  maximal  vertex-faithful  reflexible  maniplex  covered  by [3XM[103X.
+  Currently assumes that the number of vertices is finite.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XMaxVertexFaithfulQuotient(HemiCrossPolytope(3));[127X[104X
-    [4X[28Xreflexible 3-maniplex[128X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(last);[127X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(MaxVertexFaithfulQuotient(HemiCrossPolytope(3)));[127X[104X
     [4X[28X[ 3, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X7.4-4 IFaceStabilizer[101X
+  [1X7.4-4 MaxFacetFaithfulQuotient[101X
   
-  [33X[1;0Y[29X[2XIFaceStabilizer[102X( [3Xi[103X, [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XMaxFacetFaithfulQuotient[102X( [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10YQ[133X
+  
+  [33X[0;0YReturns  the  maximal  facet-faithful  reflexible  maniplex  covered  by  [3XM[103X.
+  Currently assumes that the number of facets is finite.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSchlafliSymbol(MaxFacetFaithfulQuotient(HemiCube(3)));[127X[104X
+    [4X[28X[ 2, 3 ][128X[104X
+  [4X[32X[104X
+  
+  [1X7.4-5 IFaceStabilizer[101X
+  
+  [33X[1;0Y[29X[2XIFaceStabilizer[102X( [3XM[103X, [3Xi[103X ) [32X operation[133X
   
   [33X[0;0YReturns  the  subgroup  of  the  automorphism group of [3XM[103X that fixes the base
   i-face. Currently only implemented for reflexible maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XIFaceStabilizer(1, Cube(4))[127X[104X
+    [4X[25Xgap>[125X [27XIFaceStabilizer(Cube(4), 1)[127X[104X
     [4X[28XGroup([ r0, r2, r3 ])[128X[104X
     [4X[25Xgap>[125X [27XSize(last)[127X[104X
     [4X[28X12[128X[104X
-    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(IFaceStabilizer(0,Cube(4)));[127X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex(IFaceStabilizer(Cube(4), 0));[127X[104X
     [4X[28Xreflexible 3-maniplex[128X[104X
     [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.4-5 ChainStabilizer[101X
+  [1X7.4-6 VertexStabilizer[101X
   
-  [33X[1;0Y[29X[2XChainStabilizer[102X( [3XL[103X, [3XM[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XVertexStabilizer[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  the  subgroup  of  the  automorphism group of [3XM[103X that fixes the base
+  vertex. Currently only implemented for reflexible maniplexes.[133X
+  
+  [1X7.4-7 EdgeStabilizer[101X
+  
+  [33X[1;0Y[29X[2XEdgeStabilizer[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  the  subgroup  of  the  automorphism group of [3XM[103X that fixes the base
+  edge. Currently only implemented for reflexible maniplexes.[133X
+  
+  [1X7.4-8 FacetStabilizer[101X
+  
+  [33X[1;0Y[29X[2XFacetStabilizer[102X( [3XM[103X ) [32X operation[133X
+  
+  [33X[0;0YReturns  the  subgroup  of  the  automorphism group of [3XM[103X that fixes the base
+  facet. Currently only implemented for reflexible maniplexes.[133X
+  
+  [1X7.4-9 ChainStabilizer[101X
+  
+  [33X[1;0Y[29X[2XChainStabilizer[102X( [3XM[103X, [3XI[103X ) [32X operation[133X
   
   [33X[0;0YReturns  the  subgroup  of  the  automorphism group of [3XM[103X that fixes the base
   chain  of  the  type  given  by [3XL[103X. Currently only implemented for reflexible
   maniplexes.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xstab := ChainStabilizer([0,3], Cube(4));; Size(stab);[127X[104X
+    [4X[25Xgap>[125X [27Xstab := ChainStabilizer(Cube(4), [0,3]);; Size(stab);[127X[104X
     [4X[28X6[128X[104X
     [4X[25Xgap>[125X [27XM := ReflexibleManiplex(stab);; M = Pgon(3);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X7.4-6 MaxChainStabilizer[101X
+  [1X7.4-10 MaxChainStabilizer[101X
   
   [33X[1;0Y[29X[2XMaxChainStabilizer[102X( [3XM[103X ) [32X operation[133X
   

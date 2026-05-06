@@ -216,8 +216,7 @@ Returns a permutation group, representing the action of
 
 <Example><![CDATA[
 gap> AutomorphismGroupOnChains(HemiCube(3),[0,2]);
-Group([ (1,2)(3,4)(5,10)(6,9)(7,8)(11,12), (2,6)(3,5)(4,7)(8,11)(10,12), (1,3)(2,4)(6,11)(7,8)
-  (9,12) ])
+Group([ (1,2)(3,5)(4,7)(6,10)(8,11)(9,12), (2,4)(3,6)(5,9)(8,12)(10,11), (1,3)(2,5)(4,8)(7,11)(9,12) ])
 ]]></Example>
 
 
@@ -541,25 +540,41 @@ true
 
 
 <ManSection>
-  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsManiplex"/>
+  <Oper Arg="M" Name="MaxVertexFaithfulQuotient" Label="for IsReflexibleManiplex"/>
  <Returns>Q
 </Returns>
  <Description>
 Returns the maximal vertex-faithful reflexible maniplex covered by <A>M</A>.
+ Currently assumes that the number of vertices is finite.
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
-gap> MaxVertexFaithfulQuotient(HemiCrossPolytope(3));
-reflexible 3-maniplex
-gap> SchlafliSymbol(last);
+gap> SchlafliSymbol(MaxVertexFaithfulQuotient(HemiCrossPolytope(3)));
 [ 3, 2 ]
 ]]></Example>
 
 
 <ManSection>
-  <Oper Arg="i, M" Name="IFaceStabilizer" Label="for IsInt, IsManiplex"/>
+  <Oper Arg="M" Name="MaxFacetFaithfulQuotient" Label="for IsReflexibleManiplex"/>
+ <Returns>Q
+</Returns>
+ <Description>
+Returns the maximal facet-faithful reflexible maniplex covered by <A>M</A>.
+ Currently assumes that the number of facets is finite.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> SchlafliSymbol(MaxFacetFaithfulQuotient(HemiCube(3)));
+[ 2, 3 ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="M, i" Name="IFaceStabilizer" Label="for IsManiplex, IsInt"/>
  <Description>
 Returns the subgroup of the automorphism group of <A>M</A> that fixes the base i-face.
  Currently only implemented for reflexible maniplexes.
@@ -568,11 +583,11 @@ Returns the subgroup of the automorphism group of <A>M</A> that fixes the base i
 
 
 <Example><![CDATA[
-gap> IFaceStabilizer(1, Cube(4))
+gap> IFaceStabilizer(Cube(4), 1)
 Group([ r0, r2, r3 ])
 gap> Size(last)
 12
-gap> M := ReflexibleManiplex(IFaceStabilizer(0,Cube(4)));
+gap> M := ReflexibleManiplex(IFaceStabilizer(Cube(4), 0));
 reflexible 3-maniplex
 gap> M = Simplex(3);
 true
@@ -580,7 +595,34 @@ true
 
 
 <ManSection>
-  <Oper Arg="L, M" Name="ChainStabilizer" Label="for IsList, IsManiplex"/>
+  <Oper Arg="M" Name="VertexStabilizer" Label="for IsManiplex"/>
+ <Description>
+Returns the subgroup of the automorphism group of <A>M</A> that fixes the base vertex.
+ Currently only implemented for reflexible maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="EdgeStabilizer" Label="for IsManiplex"/>
+ <Description>
+Returns the subgroup of the automorphism group of <A>M</A> that fixes the base edge.
+ Currently only implemented for reflexible maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M" Name="FacetStabilizer" Label="for IsManiplex"/>
+ <Description>
+Returns the subgroup of the automorphism group of <A>M</A> that fixes the base facet.
+ Currently only implemented for reflexible maniplexes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="M, I" Name="ChainStabilizer" Label="for IsManiplex, IsCollection"/>
  <Description>
 Returns the subgroup of the automorphism group of <A>M</A> that fixes the base chain
  of the type given by <A>L</A>. Currently only implemented for reflexible maniplexes.
@@ -589,7 +631,7 @@ Returns the subgroup of the automorphism group of <A>M</A> that fixes the base c
 
 
 <Example><![CDATA[
-gap> stab := ChainStabilizer([0,3], Cube(4));; Size(stab);
+gap> stab := ChainStabilizer(Cube(4), [0,3]);; Size(stab);
 6
 gap> M := ReflexibleManiplex(stab);; M = Pgon(3);
 true
