@@ -251,8 +251,19 @@ DeclareOperation("IFaceStabilizer", [IsManiplex, IsInt]);
 #! true
 #! @EndExampleSession
 
+#! @Arguments M
+#! @Description Returns the subgroup of the automorphism group of <A>M</A> that fixes the base vertex.
+#! Currently only implemented for reflexible maniplexes.
 DeclareOperation("VertexStabilizer", [IsManiplex]);
+
+#! @Arguments M
+#! @Description Returns the subgroup of the automorphism group of <A>M</A> that fixes the base edge.
+#! Currently only implemented for reflexible maniplexes.
 DeclareOperation("EdgeStabilizer", [IsManiplex]);
+
+#! @Arguments M
+#! @Description Returns the subgroup of the automorphism group of <A>M</A> that fixes the base facet.
+#! Currently only implemented for reflexible maniplexes.
 DeclareOperation("FacetStabilizer", [IsManiplex]);
 
 #! @Arguments M, I
