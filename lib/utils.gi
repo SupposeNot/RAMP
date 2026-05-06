@@ -25,6 +25,12 @@ BindGlobal("LoadRamp",
 	RereadPackage("ramp", Concatenation("lib/", filename, ".gd"));
 	RereadPackage("ramp", Concatenation("lib/", filename, ".gi"));
 	end);
+	
+BindGlobal("DocRamp",
+	function()
+	LoadPackage("autodoc");
+	AutoDoc("ramp", rec( scaffold := true, autodoc := true));
+	end);
 
 InstallGlobalFunction(AbstractPolytope,
 	function(args...)
