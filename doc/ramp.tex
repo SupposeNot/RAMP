@@ -2096,20 +2096,21 @@ premaniplex
 \label{FlatOrientablyRegularPolyhedron:for IsInt, IsInt, IsInt, IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-polyhedron 
+Polyhedron P 
 
 
 
- \texttt{polyhedron} is the flat orientably regular polyhedron with automorphism group [p, q] / (r2
-r1 r0 r1 = (r0 r1)\texttt{\symbol{94}}i (r1 r2)\texttt{\symbol{94}}j). This
-function validates the inputs to make sure that the polyhedron is
+ Returns the flat orientably regular polyhedron \texttt{P} of the form ARP([p,q], "r2 r1 r0 r1 = (r0 r1)\texttt{\symbol{94}}i (r1
+r2)\texttt{\symbol{94}}j"); every flat orientably regular polyhedron is of
+this type (see \cite{tight-polyhedra}). There are some restrictions on p, q, i, and j, and this function validates
+the inputs to make sure that the polyhedron is
 well\texttt{\symbol{45}}defined. Use FlatOrientablyRegularPolyhedronNC if you
 do not want this validation. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@FlatOrientablyRegularPolyhedron(4,2,3,3);|
-  FlatOrientablyRegularPolyhedron(4,2,-1,1)
+  !gapprompt@gap>| !gapinput@FlatOrientablyRegularPolyhedron(4,4,-1,1) = ToroidalMap44([2,0]);|
+  true
 \end{Verbatim}
  
 
@@ -2121,11 +2122,11 @@ do not want this validation. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns a list of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. }
+ Returns a list of all flat, orientably regular polyhedra with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. This is generated on the fly and may be slow. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  ap> FlatOrientablyRegularPolyhedraOfType([6,6]);
+  !gapprompt@gap>| !gapinput@FlatOrientablyRegularPolyhedraOfType([6,6]);|
   [ FlatOrientablyRegularPolyhedron(6,6,3,1), FlatOrientablyRegularPolyhedron(6,6,-1,1), 
     FlatOrientablyRegularPolyhedron(6,6,-1,3) ]
 \end{Verbatim}
@@ -2139,7 +2140,8 @@ do not want this validation. }
 }\hfill{\scriptsize (operation)}}\\
 
 
- Returns a list of all tight, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. When \mbox{\texttt{\mdseries\slshape sym}} has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(\mbox{\texttt{\mdseries\slshape sym}}). }
+ Returns a list of all tight, orientably regular polytopes with Schlafli symbol \mbox{\texttt{\mdseries\slshape sym}}. When \mbox{\texttt{\mdseries\slshape sym}} has length 2, this just calls FlatOrientablyRegularPolyhedraOfType(\mbox{\texttt{\mdseries\slshape sym}}). Otherwise, this attempts to find candidate facets and
+vertex\texttt{\symbol{45}}figures and amalgamate them. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -10670,6 +10672,7 @@ representation from the list
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
