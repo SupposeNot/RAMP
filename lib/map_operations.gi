@@ -5,6 +5,12 @@ InstallGlobalFunction(FinalizedOutputMap,
 	return m2;
 	end);
 
+# The following function gives us an easy way to build compound map
+# operations with their own names. For example, Gyro and Snub are related
+# by Snub(M) = Dual(Gyro(M)), so once we have the code for Gyro, we can just
+# compute Snub this way. But we want Snub(Cube(3)) to be "named" Snub(Cube(3))
+# and not Dual(Gyro(Cube(3))). So this function takes an operation and a final
+# name and wraps it up nicely for us to have this effect.
 InstallGlobalFunction(MapOperation,
 	function(op, op_name)
 	local wrapped_op;
@@ -254,7 +260,7 @@ InstallMethod(Gyro,
 	[IsMapOnSurface],
 	function(m)
 	local c, len, r01, r12, r10, r21, s0, s1, s2, s0List, s1List, s2List, points, k,x, m2;
-	if IsOrientable(m)<>true then Error("Not an orientable map."); fi;
+	#if IsOrientable(m)<>true then Error("Not an orientable map."); fi;
     c:=ConnectionGroup(m);
 	points:=Orbits(Group([c.1*c.2,c.2*c.3]))[1];
 	len:=Length(points);
