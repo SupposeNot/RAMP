@@ -107,7 +107,7 @@ InstallMethod(TightOrientablyRegularPolytopesOfType,
 			Append(polys, amalgs);
 		od;
 		for p in polys do
-			SetIsPolytopal(p, true);
+			MarkAsPolytopal(p);
 		od;
 		return polys;
 	fi;
