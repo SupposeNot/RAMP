@@ -682,18 +682,18 @@ true
 <h5>6.6-1 ZigzagLength</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of <var class="Arg">j</var>-zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
+<p>Returns: The length(s) of <var class="Arg">j</var>-zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
 
-<p>This corresponds to the lengths of orbits under r0 (r1 r2)^j.</p>
+<p>This corresponds to the lengths of orbits under r0 (r1 r2)^j. If all j-zigzags have the same length, then returns that length as an integer; otherwise, returns a list of all possible lengths.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),1);</span>
-6
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),2);</span>
-6
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Cube(3),3);</span>
-2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Pyramid(8),1);</span>
+32
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Pyramid(8),2);</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagLength(Pyramid(8),3);</span>
+[ 2, 16 ]
 </pre></div>
 
 <p><a id="X7FC09F34870E6CDE" name="X7FC09F34870E6CDE"></a></p>
@@ -701,14 +701,12 @@ true
 <h5>6.6-2 ZigzagVector</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZigzagVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
-
-<p>A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+<p>Returns: The list [ZigzagLength(M,1), ..., ZigzagLength(M,k)], where k = Floor(q/2), with q the maximum vertex degree.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagVector(Pseudorhombicuboctahedron());</span>
-[ [ 40, 56 ], [ 8, 32 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZigzagVector(Pyramid(8));</span>
+[ 32, 4, [ 2, 16 ], 16 ]
 </pre></div>
 
 <p><a id="X7C4A38D780F6AECD" name="X7C4A38D780F6AECD"></a></p>
@@ -716,12 +714,16 @@ true
 <h5>6.6-3 PetrieLength</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieLength</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The length of the petrie polygons of the maniplex <var class="Arg">M</var>.</p>
+<p>Returns: The length(s) of the Petrie polygons of the maniplex <var class="Arg">M</var>. When M has rank 3, this is the same as the length of the 1-zigzags. Returns a single integer if all Petrie polygons have the same length; otherwise returns a list of the lengths.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PetrieLength(Cube(3));</span>
 6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PetrieLength(Cube(4));</span>
+8
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := SmallChiralPolytopes([240..240])[1];; PetrieLength(M);</span>
+[ 4, 6 ]
 </pre></div>
 
 <p><a id="X7C93C4708678EB87" name="X7C93C4708678EB87"></a></p>
@@ -731,14 +733,14 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PetrieRelation</code>( <var class="Arg">i</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: relation</p>
 
-<p>Returns the Petrie relation for a rank <var class="Arg">i</var> maniplex of length <var class="Arg">j</var>.</p>
+<p>Returns the string "(r0 ... r(i-1))^j", which represents the j-th power of the Petrie word for a rank <var class="Arg">i</var> maniplex.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p:=PetrieRelation(3,3);</span>
-"(r0r1r2)^3"
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q:=Cube(3)/p;</span>
-3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">p := PetrieRelation(3,3);</span>
+"(r0 r1 r2)^3"
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">q := Cube(3)/p;; q = HemiCube(3);</span>
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(q);</span>
 24
 </pre></div>
@@ -750,12 +752,14 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleLength</code>( <var class="Arg">M</var>, <var class="Arg">j</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: The lengths of <var class="Arg">j</var>-holes of the 3-maniplex <var class="Arg">M</var>.</p>
 
-<p>This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r1.</p>
+<p>This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r1. Usually j is assumed to be at least 2. If all j-holes have the same length, then returns that length as an integer; otherwise, returns a list of all possible lengths.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(ToroidalMap44([3,0]),2);</span>
 3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleLength(ToroidalMap44([2,0],[0,3]),2);</span>
+[ 2, 3 ]
 </pre></div>
 
 <p><a id="X7EE84DCF7EFC02C6" name="X7EE84DCF7EFC02C6"></a></p>
@@ -763,14 +767,12 @@ true
 <h5>6.6-6 HoleVector</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HoleVector</code>( <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: The lengths of all zigzags of the 3-maniplex <var class="Arg">M</var>.</p>
-
-<p>A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths because the j-zigzags are the same as the (q-j)-zigzags.</p>
+<p>Returns: The list [HoleLength(M,2), ..., HoleLength(M,k)], where k = Floor((q+1)/2), with q the maximum vertex degree.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleVector(ToroidalMap44([3,0],[0,5]));</span>
-[ [ 3, 5 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HoleVector(Pyramid(6));</span>
+[ 6, [ 2, 4 ] ]
 </pre></div>
 
 

@@ -685,44 +685,47 @@ gap> SchlafliSymbol(IOrientableCover(Cube(3), [2]));
 
 <ManSection>
   <Oper Arg="M, j" Name="ZigzagLength" Label="for IsManiplex, IsInt"/>
- <Returns>The lengths of <A>j</A>-zigzags of the 3-maniplex <A>M</A>.
+ <Returns>The length(s) of <A>j</A>-zigzags of the 3-maniplex <A>M</A>.
 </Returns>
  <Description>
 This corresponds to the lengths of orbits under r0 (r1 r2)^j.
+ If all j-zigzags have the same length, then returns that length as an integer;
+ otherwise, returns a list of all possible lengths.
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
-gap> ZigzagLength(Cube(3),1);
-6
-gap> ZigzagLength(Cube(3),2);
-6
-gap> ZigzagLength(Cube(3),3);
-2
+gap> ZigzagLength(Pyramid(8),1);
+32
+gap> ZigzagLength(Pyramid(8),2);
+4
+gap> ZigzagLength(Pyramid(8),3);
+[ 2, 16 ]
 ]]></Example>
 
 
 <ManSection>
   <Attr Arg="M" Name="ZigzagVector" Label="for IsManiplex"/>
- <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.
+ <Returns>The list [ZigzagLength(M,1), ..., ZigzagLength(M,k)], where  k = Floor(q/2), with q the maximum vertex degree.
 </Returns>
  <Description>
-A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
- because the j-zigzags are the same as the (q-j)-zigzags.
+<P/>
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
-gap> ZigzagVector(Pseudorhombicuboctahedron());
-[ [ 40, 56 ], [ 8, 32 ] ]
+gap> ZigzagVector(Pyramid(8));
+[ 32, 4, [ 2, 16 ], 16 ]
 ]]></Example>
 
 
 <ManSection>
   <Attr Arg="M" Name="PetrieLength" Label="for IsManiplex"/>
- <Returns>The length of the petrie polygons of the maniplex <A>M</A>.
+ <Returns>The length(s) of the Petrie polygons of the maniplex <A>M</A>.  When M has rank 3, this is the same as the length of the 1-zigzags.
+  Returns a single integer if all Petrie polygons have the same length;
+  otherwise returns a list of the lengths.
 </Returns>
  <Description>
 <P/>
@@ -733,6 +736,10 @@ gap> ZigzagVector(Pseudorhombicuboctahedron());
 <Example><![CDATA[
 gap> PetrieLength(Cube(3));
 6
+gap> PetrieLength(Cube(4));
+8
+gap> M := SmallChiralPolytopes([240..240])[1];; PetrieLength(M);
+[ 4, 6 ]
 ]]></Example>
 
 
@@ -741,16 +748,17 @@ gap> PetrieLength(Cube(3));
  <Returns>relation
 </Returns>
  <Description>
-Returns the Petrie relation for a rank <A>i</A> maniplex of length <A>j</A>.
+Returns the string "(r0 ... r(i-1))^j", which represents the j-th power of the Petrie word
+ for a rank <A>i</A> maniplex.
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
-gap> p:=PetrieRelation(3,3);
-"(r0r1r2)^3"
-gap> q:=Cube(3)/p;
-3-maniplex
+gap> p := PetrieRelation(3,3);
+"(r0 r1 r2)^3"
+gap> q := Cube(3)/p;; q = HemiCube(3);
+true
 gap> Size(q);
 24
 ]]></Example>
@@ -762,6 +770,9 @@ gap> Size(q);
 </Returns>
  <Description>
 This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r1.
+ Usually j is assumed to be at least 2.
+ If all j-holes have the same length, then returns that length as an integer;
+ otherwise, returns a list of all possible lengths.
  </Description>
 </ManSection>
 
@@ -769,23 +780,24 @@ This corresponds to the lengths of orbits under r0 (r1 r2)^(j-1) r1.
 <Example><![CDATA[
 gap> HoleLength(ToroidalMap44([3,0]),2);
 3
+gap> HoleLength(ToroidalMap44([2,0],[0,3]),2);
+[ 2, 3 ]
 ]]></Example>
 
 
 <ManSection>
   <Attr Arg="M" Name="HoleVector" Label="for IsManiplex"/>
- <Returns>The lengths of all zigzags of the 3-maniplex <A>M</A>.
+ <Returns>The list [HoleLength(M,2), ..., HoleLength(M,k)], where  k = Floor((q+1)/2), with q the maximum vertex degree.
 </Returns>
  <Description>
-A rank 3 maniplex of type {p, q} has Floor(q/2) distinct zigzag lengths
- because the j-zigzags are the same as the (q-j)-zigzags.
+<P/>
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
-gap> HoleVector(ToroidalMap44([3,0],[0,5]));
-[ [ 3, 5 ] ]
+gap> HoleVector(Pyramid(6));
+[ 6, [ 2, 4 ] ]
 ]]></Example>
 
 

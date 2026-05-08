@@ -3514,21 +3514,23 @@ being I\texttt{\symbol{45}}orientable for I =
 \label{ZigzagLength:for IsManiplex, IsInt}
 }\hfill{\scriptsize (operation)}}\\
 \textbf{\indent Returns:\ }
-The lengths of \mbox{\texttt{\mdseries\slshape j}}\texttt{\symbol{45}}zigzags of the 3\texttt{\symbol{45}}maniplex \mbox{\texttt{\mdseries\slshape M}}. 
+The length(s) of \mbox{\texttt{\mdseries\slshape j}}\texttt{\symbol{45}}zigzags of the 3\texttt{\symbol{45}}maniplex \mbox{\texttt{\mdseries\slshape M}}. 
 
 
 
  This corresponds to the lengths of orbits under r0 (r1
-r2)\texttt{\symbol{94}}j. }
+r2)\texttt{\symbol{94}}j. If all j\texttt{\symbol{45}}zigzags have the same
+length, then returns that length as an integer; otherwise, returns a list of
+all possible lengths. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@ZigzagLength(Cube(3),1);|
-  6
-  !gapprompt@gap>| !gapinput@ZigzagLength(Cube(3),2);|
-  6
-  !gapprompt@gap>| !gapinput@ZigzagLength(Cube(3),3);|
-  2
+  !gapprompt@gap>| !gapinput@ZigzagLength(Pyramid(8),1);|
+  32
+  !gapprompt@gap>| !gapinput@ZigzagLength(Pyramid(8),2);|
+  4
+  !gapprompt@gap>| !gapinput@ZigzagLength(Pyramid(8),3);|
+  [ 2, 16 ]
 \end{Verbatim}
  
 
@@ -3539,18 +3541,19 @@ r2)\texttt{\symbol{94}}j. }
 \label{ZigzagVector:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
-The lengths of all zigzags of the 3\texttt{\symbol{45}}maniplex \mbox{\texttt{\mdseries\slshape M}}. 
+The list [ZigzagLength(M,1), ..., ZigzagLength(M,k)], where k = Floor(q/2),
+with q the maximum vertex degree. 
 
 
 
- A rank 3 maniplex of type \texttt{\symbol{123}}p, q\texttt{\symbol{125}} has
-Floor(q/2) distinct zigzag lengths because the j\texttt{\symbol{45}}zigzags
-are the same as the (q\texttt{\symbol{45}}j)\texttt{\symbol{45}}zigzags. }
+ 
+
+ }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@ZigzagVector(Pseudorhombicuboctahedron());|
-  [ [ 40, 56 ], [ 8, 32 ] ]
+  !gapprompt@gap>| !gapinput@ZigzagVector(Pyramid(8));|
+  [ 32, 4, [ 2, 16 ], 16 ]
 \end{Verbatim}
  
 
@@ -3561,7 +3564,9 @@ are the same as the (q\texttt{\symbol{45}}j)\texttt{\symbol{45}}zigzags. }
 \label{PetrieLength:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
-The length of the petrie polygons of the maniplex \mbox{\texttt{\mdseries\slshape M}}. 
+The length(s) of the Petrie polygons of the maniplex \mbox{\texttt{\mdseries\slshape M}}. When M has rank 3, this is the same as the length of the
+1\texttt{\symbol{45}}zigzags. Returns a single integer if all Petrie polygons
+have the same length; otherwise returns a list of the lengths. 
 
 
 
@@ -3573,6 +3578,10 @@ The length of the petrie polygons of the maniplex \mbox{\texttt{\mdseries\slshap
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@PetrieLength(Cube(3));|
   6
+  !gapprompt@gap>| !gapinput@PetrieLength(Cube(4));|
+  8
+  !gapprompt@gap>| !gapinput@M := SmallChiralPolytopes([240..240])[1];; PetrieLength(M);|
+  [ 4, 6 ]
 \end{Verbatim}
  
 
@@ -3587,14 +3596,16 @@ relation
 
 
 
- Returns the Petrie relation for a rank \mbox{\texttt{\mdseries\slshape i}} maniplex of length \mbox{\texttt{\mdseries\slshape j}}. }
+ Returns the string "(r0 ... r(i\texttt{\symbol{45}}1))\texttt{\symbol{94}}j",
+which represents the j\texttt{\symbol{45}}th power of the Petrie word for a
+rank \mbox{\texttt{\mdseries\slshape i}} maniplex. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@p:=PetrieRelation(3,3);|
-  "(r0r1r2)^3"
-  !gapprompt@gap>| !gapinput@q:=Cube(3)/p;|
-  3-maniplex
+  !gapprompt@gap>| !gapinput@p := PetrieRelation(3,3);|
+  "(r0 r1 r2)^3"
+  !gapprompt@gap>| !gapinput@q := Cube(3)/p;; q = HemiCube(3);|
+  true
   !gapprompt@gap>| !gapinput@Size(q);|
   24
 \end{Verbatim}
@@ -3612,12 +3623,17 @@ The lengths of \mbox{\texttt{\mdseries\slshape j}}\texttt{\symbol{45}}holes of t
 
 
  This corresponds to the lengths of orbits under r0 (r1
-r2)\texttt{\symbol{94}}(j\texttt{\symbol{45}}1) r1. }
+r2)\texttt{\symbol{94}}(j\texttt{\symbol{45}}1) r1. Usually j is assumed to be
+at least 2. If all j\texttt{\symbol{45}}holes have the same length, then
+returns that length as an integer; otherwise, returns a list of all possible
+lengths. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@HoleLength(ToroidalMap44([3,0]),2);|
   3
+  !gapprompt@gap>| !gapinput@HoleLength(ToroidalMap44([2,0],[0,3]),2);|
+  [ 2, 3 ]
 \end{Verbatim}
  
 
@@ -3628,18 +3644,19 @@ r2)\texttt{\symbol{94}}(j\texttt{\symbol{45}}1) r1. }
 \label{HoleVector:for IsManiplex}
 }\hfill{\scriptsize (attribute)}}\\
 \textbf{\indent Returns:\ }
-The lengths of all zigzags of the 3\texttt{\symbol{45}}maniplex \mbox{\texttt{\mdseries\slshape M}}. 
+The list [HoleLength(M,2), ..., HoleLength(M,k)], where k = Floor((q+1)/2),
+with q the maximum vertex degree. 
 
 
 
- A rank 3 maniplex of type \texttt{\symbol{123}}p, q\texttt{\symbol{125}} has
-Floor(q/2) distinct zigzag lengths because the j\texttt{\symbol{45}}zigzags
-are the same as the (q\texttt{\symbol{45}}j)\texttt{\symbol{45}}zigzags. }
+ 
+
+ }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@HoleVector(ToroidalMap44([3,0],[0,5]));|
-  [ [ 3, 5 ] ]
+  !gapprompt@gap>| !gapinput@HoleVector(Pyramid(6));|
+  [ 6, [ 2, 4 ] ]
 \end{Verbatim}
  }
 
@@ -10672,6 +10689,7 @@ representation from the list
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
