@@ -60,10 +60,10 @@ InstallMethod(PetrieRelation,
 	[IsInt, IsInt],
 	function(n, k)
 	local L, petrie_word;
-	L := [0..n-1];
-	L := List(L, i -> Concatenation("r", String(i)));
+	L := [1..n-1];
+	L := List(L, i -> Concatenation(" r", String(i)));
 	petrie_word := Concatenation(L);
-	return Concatenation("(", petrie_word, ")^", String(k));
+	return Concatenation("(r0", petrie_word, ")^", String(k));
 	end);
 	
 InstallMethod(PetrieLength,
