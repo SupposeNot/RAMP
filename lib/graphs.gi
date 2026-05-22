@@ -140,8 +140,9 @@ end);
 InstallMethod(CoSkeleton,
 	[IsManiplex],
 	function (m)
-	local p;
-	p:=PointGraph(LayerGraph(Dual(m),0,1));
+	local r, p;
+	r:=Rank(m);
+	p:=PointGraph(LayerGraph(m, r-1, r-2));
 	return p;
 	end);
 
