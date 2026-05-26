@@ -24,9 +24,6 @@
 #! output could be a pre-maniplex that is incorrectly labeled as a maniplex.
 #! For most purposes, this is relatively harmless, since most functions treat
 #! maniplexes and pre-maniplexes in roughly the same way.
-#!
-#! For more information on relators, see the documentation on ParseGgiRels.
-
 DeclareOperation("ReflexibleManiplex", [IsGroup]);
 
 DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
@@ -36,10 +33,10 @@ DeclareOperation("ReflexibleManiplexNC", [IsGroup]);
 #! with Schlafli symbol <A>sym</A>. If the optional argument <A>relations</A> is given,
 #! then we return the reflexible maniplex with the given defining relations.
 #! The relations can be given by a list of Tietze words or as a string of relators 
-#! or relations that involve r0 etc.
+#! or relations that involve r0 etc. (See the documentation on ParseGgiRels.)
 #! This method automatically calls `InterpolatedString` on the relations, so
 #! you may use \$variable in the relations, and it will be replaced with
-#! the value of `variable` (but for global variables only).
+#! the value of `variable` (but for global variables only) This is a limitation of GAP.
 #! @BeginExampleSession
 #! gap> q := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;
 #! gap> q = ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3 = (r1 r2 r3)^3 = 1");
@@ -71,7 +68,14 @@ DeclareOperation("ReflexibleManiplex", [IsList, IsList, IsList]);
 #! to the one given. This may not be the correct Schlafli symbol, since
 #! the relations may cause a collapse, so this should only be used if
 #! you know that the Schlafli symbol is correct.
-#! 
+#! @BeginExampleSession
+#! gap> M := ReflexibleManiplex([4,4], "r0 r1 r2");;
+#! gap> HasSchlafliSymbol(M);
+#! false
+#! gap> M := ReflexibleManiplex([4,4], "r0 r1 r2" : set_schlafli);;
+#! gap> HasSchlafliSymbol(M);
+#! true
+#! @EndExampleSession
 
 #! @Arguments name
 #! @Description The fourth form accepts common names for reflexible 3-maniplexes that
@@ -104,14 +108,14 @@ DeclareOperation("ReflexibleManiplexFromName", [IsString]);
 
 #! @Arguments g
 #! @Returns `IsPremaniplex`
-#! @Description In the first form, we are given an Sggi <A>g</A>
-#! and we return the reflexible premaniplex with that automorphism group,
+#! @Description Given an Sggi <A>g</A>,
+#! we return the reflexible premaniplex with that automorphism group,
 #! where the privileged generators are those returned by GeneratorsOfGroup(g).
+#! The functionality for premaniplexes is a work in progress.
 #! @BeginExampleSession
 #! gap> g := Group([(1,2), (2,3), (3,4)]);
-#! gap> M := ReflexiblePremaniplex(g);
-#! gap> M = Simplex(3);
-#! true
+#! gap> ReflexiblePremaniplex(g) = ReflexibleManiplex(g);
+#! false
 #! @EndExampleSession
 #! This function first checks whether g is an Sggi. Use `ReflexiblePremaniplexNC` to
 #! bypass that check.
@@ -184,12 +188,22 @@ DeclareOperation("Maniplex", [IsFunction, IsList]);
 #! @Description Constructs the maniplex from the given poset <A>P</A>.
 #! This assumes that P actually defines a maniplex.
 DeclareOperation("Maniplex", [IsPoset]);
+#! @BeginExampleSession
+#! gap> M := Cube(4);; P := PosetFromManiplex(M);;
+#! gap> M = Maniplex(P);
+#! true
+#! @EndExampleSession
 
-#! @Arguments P
+#! @Arguments F
 #! @Returns `IsManiplex`
 #! @Description Constructs the maniplex from its flag graph <A>F</A>.
 #! This assumes that F actually defines a maniplex.
 DeclareOperation("Maniplex", [IsEdgeLabeledGraph]);
+#! @BeginExampleSession
+#! gap> M := Cube(4);;
+#! gap> M = Maniplex(FlagGraph(M));
+#! true
+#! @EndExampleSession
 
 
 #! @Arguments g
@@ -212,11 +226,11 @@ DeclareOperation("PremaniplexNC",[IsGroup]);
 #! @Arguments G
 #! @Returns `IsPremaniplex`. 
 #! @Description Given an edge labeled graph <A>G</A> we return the premaniplex with that graph.  
-#! Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.
+#! Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assuming each vertex is incident with one edge of each label.
 DeclareOperation("Premaniplex",[IsEdgeLabeledGraph]);
 #! Here we have a premaniplex with 2 flags.
 #! @BeginExampleSession
-#! gap> gap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;
+#! gap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;
 #! gap> F:=EdgeLabeledGraphFromLabeledEdges(L);;
 #! gap> Premaniplex(F);
 #! Premaniplex of rank 3 with 2 flags
