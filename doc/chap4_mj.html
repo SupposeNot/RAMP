@@ -128,14 +128,28 @@ Group([ r0*r1*r2*r1, (r1*r0*r1*r2)^2 ])
 
 <p>Constructs the maniplex from the given poset <var class="Arg">P</var>. This assumes that P actually defines a maniplex.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Cube(4);; P := PosetFromManiplex(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Maniplex(P);</span>
+true
+</pre></div>
+
 <p><a id="X866AC7457DA8E2AC" name="X866AC7457DA8E2AC"></a></p>
 
 <h5>4.1-5 Maniplex</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Maniplex</code>( <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Maniplex</code>( <var class="Arg">F</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsManiplex</code></p>
 
 <p>Constructs the maniplex from its flag graph <var class="Arg">F</var>. This assumes that F actually defines a maniplex.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Cube(4);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Maniplex(FlagGraph(M));</span>
+true
+</pre></div>
 
 <p><a id="X7B81F23579DC1CC4" name="X7B81F23579DC1CC4"></a></p>
 
@@ -162,13 +176,13 @@ Premaniplex of rank 3 with 3 flags
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Premaniplex</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsPremaniplex</code>.</p>
 
-<p>Given an edge labeled graph <var class="Arg">G</var> we return the premaniplex with that graph. Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assumging each vertex is incident with one edge of each label.</p>
+<p>Given an edge labeled graph <var class="Arg">G</var> we return the premaniplex with that graph. Note: We will assume (but not check) that the graph is a premaniplex, that is to say, we are assuming each vertex is incident with one edge of each label.</p>
 
 <p>Here we have a premaniplex with 2 flags.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">gap&gt; L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F:=EdgeLabeledGraphFromLabeledEdges(L);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Premaniplex(F);</span>
 Premaniplex of rank 3 with 2 flags
@@ -182,6 +196,7 @@ Premaniplex of rank 3 with 2 flags
 
 <h5>4.2-1 <span class="Heading">ReflexibleManiplex</span></h5>
 
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>[, <var class="Arg">relations</var>] )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">sym</var>, <var class="Arg">words</var>, <var class="Arg">orders</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexibleManiplex</code>( <var class="Arg">name</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
@@ -197,9 +212,7 @@ Premaniplex of rank 3 with 2 flags
 true
 </pre></div>
 
-<p>This function first checks whether g is an Sggi. Use <code class="code">ReflexibleManiplexNC</code> to bypass that check. Note, however, that this function does not check whether the generators are all nontrivial and pairwise distinct, and so the output could be a pre-maniplex that is incorrectly labeled as a maniplex. For most purposes, this is relatively harmless, since most functions treat maniplexes and pre-maniplexes in roughly the same way.</p>
-
-<p>For more information on relators, see the documentation on ParseGgiRels. The second form returns the universal reflexible maniplex with Schlafli symbol <var class="Arg">sym</var>. If the optional argument <var class="Arg">relations</var> is given, then we return the reflexible maniplex with the given defining relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only).</p>
+<p>This function first checks whether g is an Sggi. Use <code class="code">ReflexibleManiplexNC</code> to bypass that check. Note, however, that this function does not check whether the generators are all nontrivial and pairwise distinct, and so the output could be a pre-maniplex that is incorrectly labeled as a maniplex. For most purposes, this is relatively harmless, since most functions treat maniplexes and pre-maniplexes in roughly the same way. The second form returns the universal reflexible maniplex with Schlafli symbol <var class="Arg">sym</var>. If the optional argument <var class="Arg">relations</var> is given, then we return the reflexible maniplex with the given defining relations. The relations can be given by a list of Tietze words or as a string of relators or relations that involve r0 etc. (See the documentation on ParseGgiRels.) This method automatically calls <code class="code">InterpolatedString</code> on the relations, so you may use $variable in the relations, and it will be replaced with the value of <code class="code">variable</code> (but for global variables only) This is a limitation of GAP.</p>
 
 
 <div class="example"><pre>
@@ -240,6 +253,16 @@ true
 
 <p>In the second and third forms, if the option set_schlafli is set, then we set the Schlafli symbol to the one given. This may not be the correct Schlafli symbol, since the relations may cause a collapse, so this should only be used if you know that the Schlafli symbol is correct.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4], "r0 r1 r2");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasSchlafliSymbol(M);</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexibleManiplex([4,4], "r0 r1 r2" : set_schlafli);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">HasSchlafliSymbol(M);</span>
+true
+</pre></div>
+
 <p>The abbreviations <code class="code">RefMan</code> and <code class="code">RefManNC</code> are also available for all of these usages.</p>
 
 <p><a id="X7B967ACE7DD4013E" name="X7B967ACE7DD4013E"></a></p>
@@ -249,14 +272,13 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ReflexiblePremaniplex</code>( <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">IsPremaniplex</code></p>
 
-<p>In the first form, we are given an Sggi <var class="Arg">g</var> and we return the reflexible premaniplex with that automorphism group, where the privileged generators are those returned by GeneratorsOfGroup(g).</p>
+<p>Given an Sggi <var class="Arg">g</var>, we return the reflexible premaniplex with that automorphism group, where the privileged generators are those returned by GeneratorsOfGroup(g). The functionality for premaniplexes is a work in progress.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g := Group([(1,2), (2,3), (3,4)]);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := ReflexiblePremaniplex(g);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M = Simplex(3);</span>
-true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ReflexiblePremaniplex(g) = ReflexibleManiplex(g);</span>
+false
 </pre></div>
 
 <p>This function first checks whether g is an Sggi. Use <code class="code">ReflexiblePremaniplexNC</code> to bypass that check.</p>

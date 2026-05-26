@@ -68,13 +68,25 @@
   [33X[0;0YConstructs the maniplex from the given poset [3XP[103X. This assumes that P actually
   defines a maniplex.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := Cube(4);; P := PosetFromManiplex(M);;[127X[104X
+    [4X[25Xgap>[125X [27XM = Maniplex(P);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [1X4.1-5 Maniplex[101X
   
-  [33X[1;0Y[29X[2XManiplex[102X( [3XP[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XManiplex[102X( [3XF[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
   [33X[0;0YConstructs  the maniplex from its flag graph [3XF[103X. This assumes that F actually
   defines a maniplex.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := Cube(4);;[127X[104X
+    [4X[25Xgap>[125X [27XM = Maniplex(FlagGraph(M));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
   
   [1X4.1-6 Premaniplex[101X
   
@@ -100,13 +112,13 @@
   
   [33X[0;0YGiven  an  edge  labeled  graph [3XG[103X we return the premaniplex with that graph.
   Note:  We  will assume (but not check) that the graph is a premaniplex, that
-  is  to  say,  we are assumging each vertex is incident with one edge of each
+  is  to  say,  we  are assuming each vertex is incident with one edge of each
   label.[133X
   
   [33X[0;0YHere we have a premaniplex with 2 flags.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xgap> L:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;[127X[104X
+    [4X[25Xgap>[125X [27XL:=[[[1,2],0], [[1,2],1], [[1],2], [[2],2]];;[127X[104X
     [4X[25Xgap>[125X [27XF:=EdgeLabeledGraphFromLabeledEdges(L);;[127X[104X
     [4X[25Xgap>[125X [27XPremaniplex(F);[127X[104X
     [4X[28XPremaniplex of rank 3 with 2 flags[128X[104X
@@ -118,6 +130,7 @@
   
   [1X4.2-1 [33X[0;0YReflexibleManiplex[133X[101X
   
+  [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xg[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X[, [3Xrelations[103X] ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xsym[103X, [3Xwords[103X, [3Xorders[103X ) [32X operation[133X
   [33X[1;0Y[29X[2XReflexibleManiplex[102X( [3Xname[103X ) [32X operation[133X
@@ -139,16 +152,15 @@
   the  generators  are all nontrivial and pairwise distinct, and so the output
   could  be a pre-maniplex that is incorrectly labeled as a maniplex. For most
   purposes, this is relatively harmless, since most functions treat maniplexes
-  and pre-maniplexes in roughly the same way.[133X
-  
-  [33X[0;0YFor more information on relators, see the documentation on ParseGgiRels. The
-  second  form  returns the universal reflexible maniplex with Schlafli symbol
-  [3Xsym[103X.  If  the  optional  argument  [3Xrelations[103X  is  given,  then we return the
-  reflexible  maniplex with the given defining relations. The relations can be
-  given by a list of Tietze words or as a string of relators or relations that
-  involve  r0  etc.  This method automatically calls [10XInterpolatedString[110X on the
-  relations,  so  you  may  use  $variable  in  the  relations, and it will be
-  replaced with the value of [10Xvariable[110X (but for global variables only).[133X
+  and  pre-maniplexes  in  roughly  the  same way. The second form returns the
+  universal  reflexible  maniplex  with  Schlafli  symbol [3Xsym[103X. If the optional
+  argument [3Xrelations[103X is given, then we return the reflexible maniplex with the
+  given  defining  relations.  The  relations can be given by a list of Tietze
+  words  or as a string of relators or relations that involve r0 etc. (See the
+  documentation    on   ParseGgiRels.)   This   method   automatically   calls
+  [10XInterpolatedString[110X  on  the  relations,  so  you  may  use  $variable in the
+  relations,  and  it  will  be  replaced  with the value of [10Xvariable[110X (but for
+  global variables only) This is a limitation of GAP.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xq := ReflexibleManiplex([4,3,4], "(r0 r1 r2)^3, (r1 r2 r3)^3");;[127X[104X
@@ -196,6 +208,15 @@
   Schlafli  symbol,  since  the relations may cause a collapse, so this should
   only be used if you know that the Schlafli symbol is correct.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4], "r0 r1 r2");;[127X[104X
+    [4X[25Xgap>[125X [27XHasSchlafliSymbol(M);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XM := ReflexibleManiplex([4,4], "r0 r1 r2" : set_schlafli);;[127X[104X
+    [4X[25Xgap>[125X [27XHasSchlafliSymbol(M);[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
   [33X[0;0YThe  abbreviations  [10XRefMan[110X  and [10XRefManNC[110X are also available for all of these
   usages.[133X
   
@@ -204,15 +225,15 @@
   [33X[1;0Y[29X[2XReflexiblePremaniplex[102X( [3Xg[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsPremaniplex[110X[133X
   
-  [33X[0;0YIn  the  first  form,  we  are  given an Sggi [3Xg[103X and we return the reflexible
-  premaniplex  with  that  automorphism group, where the privileged generators
-  are those returned by GeneratorsOfGroup(g).[133X
+  [33X[0;0YGiven an Sggi [3Xg[103X, we return the reflexible premaniplex with that automorphism
+  group,   where   the   privileged   generators   are   those   returned   by
+  GeneratorsOfGroup(g).  The  functionality  for  premaniplexes  is  a work in
+  progress.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xg := Group([(1,2), (2,3), (3,4)]);[127X[104X
-    [4X[25Xgap>[125X [27XM := ReflexiblePremaniplex(g);[127X[104X
-    [4X[25Xgap>[125X [27XM = Simplex(3);[127X[104X
-    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReflexiblePremaniplex(g) = ReflexibleManiplex(g);[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [33X[0;0YThis function first checks whether g is an Sggi. Use [10XReflexiblePremaniplexNC[110X
