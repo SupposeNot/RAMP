@@ -4,7 +4,8 @@
 
 #! @Arguments M
 #! @Returns IsList
-#! @Description The list of flags of the premaniplex <A>M</A>.
+#! @Description The list of flags of the premaniplex <A>M</A>. Usually this is the list [1..N] where N
+#! is the number of flags.
 DeclareAttribute("Flags", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> Flags(Pgon(5));
