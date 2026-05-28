@@ -371,6 +371,12 @@ false
 </ManSection>
 
 
+</Section>
+
+
+<Section Label="Chapter_Utility_Functions_Section_Miscellaneous">
+<Heading>Miscellaneous</Heading>
+
 <ManSection>
   <Oper Arg="list1, list2" Name="XORLists" Label="for IsList,IsList"/>
  <Returns>List
@@ -422,6 +428,40 @@ Given a list of 0s and 1s,
 <Example><![CDATA[
 gap> BinaryListToInteger([0,0,1,1,0,0,1]);
 25
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="a, b, N, M" Name="CtoL" Label="for IsInt,IsInt,IsInt,IsInt"/>
+ <Returns><Code>IsInteger </Code>.
+</Returns>
+ <Description>
+<P/>
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Oper Arg="k, N, M" Name="LtoC" Label="for IsInt,IsInt,IsInt"/>
+ <Returns><Code>IsInteger </Code>.
+</Returns>
+ <Description>
+CtoL Returns an integer between 1 and N*M associated with the pair [a,b].
+ LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M.
+ a should range between 1 and N, and b should range between 1 and M.
+ N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix.
+ Functions are inverses.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> LtoC(5,4,14);
+[ 1, 2 ]
+gap> CtoL(3,2,5,4);
+8
+gap> LtoC(8,5,4);
+[ 3, 2 ]
 ]]></Example>
 
 

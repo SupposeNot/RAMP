@@ -667,7 +667,8 @@ gap> Size(MaxChainStabilizer(M));
  <Returns>IsList
 </Returns>
  <Description>
-The list of flags of the premaniplex <A>M</A>.
+The list of flags of the premaniplex <A>M</A>. Usually this is the list [1..N] where N
+ is the number of flags.
  </Description>
 </ManSection>
 

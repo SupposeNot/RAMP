@@ -431,11 +431,14 @@
   [33X[1;0Y[29X[2XTomotope[102X(  ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymaniplex[133X
   
-  [33X[0;0YConstructs the [13XTomotope[113X from [MPW12][133X
+  [33X[0;0YConstructs  the  [13XTomotope[113X  from [MPW12]. This is the smallest known polytope
+  whose smallest reflexible cover is not a polytope.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Tomotope());[127X[104X
     [4X[28X[ 3, [ 3, 4 ], 4 ][128X[104X
+    [4X[25Xgap>[125X [27XIsPolytopal(SmallestReflexibleCover(Tomotope()));[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   

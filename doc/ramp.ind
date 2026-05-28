@@ -144,7 +144,7 @@
   \item \texttt  {CrossPolytope}
     \subitem for IsInt, \hyperpage{26}
   \item \texttt  {CtoL}
-    \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{73}
+    \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{135}
   \item \texttt  {Cube}
     \subitem for IsInt, \hyperpage{25}
   \item \texttt  {CubicTiling}
@@ -499,6 +499,8 @@
     \subitem for IsList, \hyperpage{97}
   \item \texttt  {Loft}
     \subitem for IsMapOnSurface, \hyperpage{88}
+  \item \texttt  {LtoC}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{135}
 
   \indexspace
 
@@ -532,7 +534,7 @@
   \item \texttt  {MinFace}
     \subitem for IsPoset, \hyperpage{102}
   \item \texttt  {Mix}
-    \subitem for IsPermGroup, IsPermGroup, \hyperpage{72}
+    \subitem for IsGroup, IsGroup, \hyperpage{72}
     \subitem for IsPremaniplex, IsPremaniplex, \hyperpage{73}
   \item \texttt  {Mk}
     \subitem for IsInt, \hyperpage{80}

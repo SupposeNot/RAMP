@@ -557,7 +557,8 @@ gap> TightOrientablyRegularPolytopesOfType([6,6]);
  <Returns>maniplex
 </Returns>
  <Description>
-Constructs the <Emph>Tomotope</Emph> from <Cite Key="MonPelWil12"/>
+Constructs the <Emph>Tomotope</Emph> from <Cite Key="MonPelWil12"/>. This is
+ the smallest known polytope whose smallest reflexible cover is not a polytope.
  </Description>
 </ManSection>
 
@@ -565,6 +566,8 @@ Constructs the <Emph>Tomotope</Emph> from <Cite Key="MonPelWil12"/>
 <Example><![CDATA[
 gap> SchlafliSymbol(Tomotope());
 [ 3, [ 3, 4 ], 4 ]
+gap> IsPolytopal(SmallestReflexibleCover(Tomotope()));
+false
 ]]></Example>
 
 

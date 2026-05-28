@@ -609,12 +609,14 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Tomotope</code>(  )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: maniplex</p>
 
-<p>Constructs the <em>Tomotope</em> from <a href="chapBib.html#biBMonPelWil12">[MPW12]</a></p>
+<p>Constructs the <em>Tomotope</em> from <a href="chapBib.html#biBMonPelWil12">[MPW12]</a>. This is the smallest known polytope whose smallest reflexible cover is not a polytope.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Tomotope());</span>
 [ 3, [ 3, 4 ], 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPolytopal(SmallestReflexibleCover(Tomotope()));</span>
+false
 </pre></div>
 
 <p><a id="X825A89737F01BFF1" name="X825A89737F01BFF1"></a></p>
