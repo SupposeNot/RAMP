@@ -261,6 +261,7 @@ DeclareGlobalFunction("ActionOnBlocks");
 #! @EndExampleSession
 DeclareGlobalFunction("VerifyProperties");
 
+#! @Section Miscellaneous
 
 #! @Arguments list1, list2
 #! @Returns List
@@ -295,4 +296,25 @@ DeclareOperation("BinaryListToInteger", [IsList]);
 #! @BeginExampleSession
 #! gap> BinaryListToInteger([0,0,1,1,0,0,1]);
 #! 25
+#! @EndExampleSession
+
+#! @Arguments a, b, N, M
+#! @Returns `IsInteger `. 
+DeclareOperation("CtoL",[IsInt,IsInt,IsInt,IsInt]);
+
+#! @Arguments k, N, M
+#! @Returns `IsInteger `. 
+#! @Description CtoL Returns an integer between 1 and N*M associated with the pair [a,b].  
+#! LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M.
+#! a should range between 1 and N, and b should range between 1 and M.
+#! N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix.
+#! Functions are inverses.
+DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
+#! @BeginExampleSession
+#! gap> LtoC(5,4,14);
+#! [ 1, 2 ]
+#! gap> CtoL(3,2,5,4);
+#! 8
+#! gap> LtoC(8,5,4);
+#! [ 3, 2 ]
 #! @EndExampleSession

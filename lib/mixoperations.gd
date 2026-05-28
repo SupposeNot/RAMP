@@ -7,13 +7,11 @@
 #! @GroupTitle Mix of groups
 
 #! @Arguments g, h
-#! @Returns `IsGroup `. 
-#! @Description Given two groups (either both permutation groups or both FpGroups), returns the mix of those groups.  
+#! @Returns `IsGroup`. 
+#! @Description Given two groups, returns the mix of those groups.  
 #! If g and h are permutation groups of degree m and n, respectively, then the mix is a permutation group of degree
 #! m+n.
-DeclareOperation("Mix", [IsPermGroup, IsPermGroup]);
-
-DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
+DeclareOperation("Mix", [IsGroup, IsGroup]);
 #! Here we build the mix of the connection groups of a 3-cube and an edge.
 #! @BeginExampleSession
 #! gap> g1:=ConnectionGroup(Cube(3));
@@ -25,15 +23,15 @@ DeclareOperation("Mix", [IsFpGroup, IsFpGroup]);
 #! @EndExampleSession
 #! @EndGroup
 
-#! @Arguments maniplex,  maniplex
-#! @Returns `IsReflexibleManiplex `. 
-#! @Description Given two (pre-)maniplexes, returns their mix. For two reflexible maniplexes returns the IsReflexibleManiplex from the mix of their connection groups.  In general, it returns the "flag mix" of the two maniplexes (see `FlagMix`).
+#! @Arguments M, N
+#! @Returns `IsPreManiplex`. 
+#! @Description Given two (pre-)maniplexes M and N, returns their mix. For two reflexible maniplexes returns the reflexible maniplex from the mix of their connection groups.  In general, it returns the "flag mix" of the two maniplexes (see `FlagMix`).
 DeclareOperation("Mix", [IsPremaniplex, IsPremaniplex]);
 
 
-#! @Arguments maniplex, maniplex
-#! @Returns `IsManiplex `. 
-#! @Description Given two (pre-)maniplexes p, q this returns the (pre-)maniplex of their  
+#! @Arguments M, N
+#! @Returns `IsPreManiplex`. 
+#! @Description Given two (pre-)maniplexes M and N, this returns the (pre-)maniplex of their  
 #! "flag" mix. That is, it constructs the mix of their connection groups, keeps
 #! the connected component with the base flags of p and q, and then builds a maniplex
 #! from this.
@@ -55,43 +53,22 @@ DeclareOperation("FlagMix", [IsPremaniplex, IsPremaniplex]);
 #! @BeginGroup Comix
 #! @GroupTitle Comix
 
-#! @Arguments fpgroup, fpgroup
-#! Returns the comix of two Finitely Presented groups gp and gq.
+#! @Arguments gp, gq
+#! Given two finitely presented groups gp and gq, returns their comix, their largest common
+#! quotient. 
 DeclareOperation("Comix", [IsFpGroup, IsFpGroup]);
 
 
-#! @Arguments maniplex, maniplex
+#! @Arguments M, N
 #! @Returns `IsReflexibleManiplex `. 
-#! @Description Given maniplexes returns the IsReflexibleManiplex from the comix of their connection groups
+#! @Description Given reflexible maniplexes M and N returns the reflexible maniplex from the comix 
+#! of their automorphism groups.
 DeclareOperation("Comix", [IsReflexibleManiplex, IsReflexibleManiplex]);
-
-#! @EndGroup
-
-#! @BeginGroup Tools
-#! @GroupTitle Indexed array tools
-#! @Arguments int, int, int, int
-#! @Returns `IsInteger `. 
-#! @Description CtoL Returns an integer between 1 and N*M associated with the pair [a,b].  
-#! LtoC Returns an ordered pair [a,b] associated with the integer between 1 and N*M.
-#! a should range between 1 and N, and b should range between 1 and M
-#! N is how many columns (x coordinates), M is how many rows (y coordinates) in a matrix
-#! Functions are inverses.
-DeclareOperation("CtoL",[IsInt,IsInt,IsInt,IsInt]);
-
-
-DeclareOperation("LtoC",[IsInt,IsInt,IsInt]);
 #! @BeginExampleSession
-#! gap> LtoC(5,4,14);
-#! [ 1, 2 ]
-#! gap> CtoL(3,2,5,4);
-#! 8
-#! gap> LtoC(8,5,4);
-#! [ 3, 2 ]
+#! gap> M := Comix(ToroidalMap44([2,0]), ToroidalMap44([3,0]));;
+#! gap> M = ToroidalMap44([1,0]);
+#! true
 #! @EndExampleSession
+
 #! @EndGroup
-
-
-
-
-
 

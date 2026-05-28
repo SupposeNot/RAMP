@@ -442,3 +442,15 @@ InstallMethod(BinaryListToInteger,
 end);
 
 
+InstallMethod(CtoL,
+	[IsInt,IsInt,IsInt,IsInt],
+	function(a,b,N,M)
+	return  a+(b-1)*N;
+	end);
+
+InstallMethod(LtoC,
+	[IsInt,IsInt,IsInt],
+	function(k,N,M)
+  	return [k-N*(Int((k-1)/N)),Int((k-1)/N)+1];
+	end);
+
