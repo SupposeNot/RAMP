@@ -192,6 +192,8 @@ InstallGlobalFunction(FlatRegularPolyhedra,
 	k := 1;
 	while 48*k <= maxsize do
 		r := Maximum(3, 1 + Int((minsize-1)/(48*k)));
+		# r must be odd!
+		if (r mod 2) = 0 then r := r + 1; fi;
 		# 48rk >= minsize
 		# r >= minsize/(48*k)
 		# r := 1 + Int((minsize-1)/(48*k));
@@ -350,6 +352,10 @@ InstallGlobalFunction(SmallRegularPolyhedra,
 	local polys, stream, desc, params, paramlist, sym, petrie, flagnum, rels, p, paramstr, toobig, minsize, maxsize, toruspolys;
 	stream := InputTextFile(Filename(RampDataPath, "regularPolyhedra.txt"));
 
+	if sizerange = [] then
+		return [];
+	fi;
+
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
@@ -402,6 +408,10 @@ InstallGlobalFunction(SmallDegenerateRegular4Polytopes,
 	function(sizerange)
 	local minsize, maxsize, maniplexes, p, q, r, polyhedra, extensions;
 
+	if sizerange = [] then
+		return [];
+	fi;
+
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
 
@@ -443,6 +453,10 @@ InstallGlobalFunction(SmallRegular4Polytopes,
 	local databaseFile, minsize, maxsize, maniplexes, maniplexString, maniplex, attributeNames, attributes;
 
 	databaseFile := InputTextFile(Filename(RampDataPath, "Regular4PolytopesUpTo4000.txt"));
+
+	if sizerange = [] then
+		return [];
+	fi;
 
 	minsize := MINSIZE_FROM_SIZERANGE(sizerange);
 	maxsize := MAXSIZE_FROM_SIZERANGE(sizerange);
