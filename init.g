@@ -24,6 +24,7 @@ ReadPackage( "ramp", "lib/flat.gd" );
 ReadPackage( "ramp", "lib/graphfamilies.gd" );
 ReadPackage( "ramp", "lib/graphs.gd" );
 ReadPackage( "ramp", "lib/groups.gd" );
+ReadPackage( "ramp", "lib/hartley.gd" );
 ReadPackage( "ramp", "lib/map_operations.gd" );
 ReadPackage( "ramp", "lib/mixoperations.gd" );
 ReadPackage( "ramp", "lib/orientable.gd" );
