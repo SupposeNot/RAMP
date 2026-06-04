@@ -4,8 +4,10 @@
 
 #! @Arguments
 #! @Returns IsRecord
-#! @Description Loads the Hartley atlas data from `HartleyInfo.txt` in the
-#! RAMP data directory. The data is cached after the first call.
+#! @Description Loads the Hartley atlas data from the RAMP data directory.
+#! RAMP first looks for the compact atlas file `HartleyInfoCompact.txt.gz`,
+#! and falls back to the original `HartleyInfo.txt` format. The data is
+#! cached after the first call.
 DeclareGlobalFunction("LoadHartleyAtlas");
 #! @BeginExampleSession
 #! gap> atlas := LoadHartleyAtlas();;
