@@ -25,6 +25,7 @@ ReadPackage( "ramp", "lib/ggi.gi" );
 ReadPackage( "ramp", "lib/graphfamilies.gi" ); 
 ReadPackage( "ramp", "lib/graphs.gi" ); 
 ReadPackage( "ramp", "lib/groups.gi" ); 
+ReadPackage( "ramp", "lib/hartley.gi" ); 
 ReadPackage( "ramp", "lib/map_operations.gi" );
 ReadPackage( "ramp", "lib/mixoperations.gi" );
 ReadPackage( "ramp", "lib/orientable.gi" ); 
