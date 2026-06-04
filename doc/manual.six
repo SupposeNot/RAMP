@@ -154,9 +154,11 @@ entries :=
   [ "\033[1X\033[33X\033[0;-2YMiscellaneous\033[133X\033[101X", "16.5", [ 16, 5, 0 ], 314, 134, "miscellaneous", 
       "X7C5563A37D566DA5" ], [ "\033[1X\033[33X\033[0;-2YSynonyms for Commands\033[133X\033[101X", "17", 
       [ 17, 0, 0 ], 1, 136, "synonyms for commands", "X8019D74C7EBB499C" ], 
-  [ "Bibliography", "bib", [ "Bib", 0, 0 ], 1, 137, "bibliography", "X7A6F98FD85F02BFE" ], 
-  [ "References", "bib", [ "Bib", 0, 0 ], 1, 137, "references", "X7A6F98FD85F02BFE" ], 
-  [ "Index", "ind", [ "Ind", 0, 0 ], 1, 139, "index", "X83A0356F839C696F" ], 
+  [ "\033[1X\033[33X\033[0;-2YHartley atlas\033[133X\033[101X", "18", [ 18, 0, 0 ], 1, 137, "hartley atlas", 
+      "X7DE9AB377DA3E76E" ], [ "\033[1X\033[33X\033[0;-2YHartley atlas\033[133X\033[101X", "18.1", [ 18, 1, 0 ], 4, 
+      137, "hartley atlas", "X7DE9AB377DA3E76E" ], [ "Bibliography", "bib", [ "Bib", 0, 0 ], 1, 139, "bibliography", 
+      "X7A6F98FD85F02BFE" ], [ "References", "bib", [ "Bib", 0, 0 ], 1, 139, "references", "X7A6F98FD85F02BFE" ], 
+  [ "Index", "ind", [ "Ind", 0, 0 ], 1, 141, "index", "X83A0356F839C696F" ], 
   [ "License", "0.0-1", [ 0, 0, 1 ], 39, 2, "license", "X81488B807F2A1CF1" ], 
   [ "\033[2XUniversalGgi\033[102X for IsInt", "3.1-1", [ 3, 1, 1 ], 7, 9, "universalggi for isint", 
       "X7A9C1892810A1E25" ], [ "\033[2XUniversalGgi\033[102X for IsList", "3.1-1", [ 3, 1, 1 ], 7, 9, 
@@ -922,5 +924,12 @@ entries :=
   [ "\033[2XCtoL\033[102X for IsInt,IsInt,IsInt,IsInt", "16.5-4", [ 16, 5, 4 ], 356, 135, 
       "ctol for isint isint isint isint", "X7CD7AB1C7DF21CFE" ], 
   [ "\033[2XLtoC\033[102X for IsInt,IsInt,IsInt", "16.5-5", [ 16, 5, 5 ], 361, 135, "ltoc for isint isint isint", 
-      "X81ED6C6A796B9E71" ] ]
+      "X81ED6C6A796B9E71" ], [ "\033[2XLoadHartleyAtlas\033[102X", "18.1-1", [ 18, 1, 1 ], 7, 137, "loadhartleyatlas",
+      "X81742FDD86E0F818" ], [ "\033[2XHartleyIds\033[102X", "18.1-2", [ 18, 1, 2 ], 22, 137, "hartleyids", 
+      "X7DD2238C837E9D17" ], [ "\033[2XHartleyGroup\033[102X", "18.1-3", [ 18, 1, 3 ], 35, 137, "hartleygroup", 
+      "X8689105C82F6763B" ], [ "\033[2XHartleyFpGroup\033[102X", "18.1-4", [ 18, 1, 4 ], 49, 138, "hartleyfpgroup", 
+      "X85D11F41804608DF" ], [ "\033[2XHartleyManiplex\033[102X", "18.1-5", [ 18, 1, 5 ], 63, 138, "hartleymaniplex", 
+      "X7CD2B35F855BA623" ], [ "\033[2XFindHartleyNames\033[102X", "18.1-6", [ 18, 1, 6 ], 80, 138, 
+      "findhartleynames", "X817A6B8B81F13868" ], [ "\033[2XFindHartleyName\033[102X", "18.1-7", [ 18, 1, 7 ], 95, 
+      138, "findhartleyname", "X81106F5E7BE75271" ] ]
 );
