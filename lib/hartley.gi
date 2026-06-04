@@ -259,31 +259,20 @@ InstallGlobalFunction(HartleyManiplex,
 	return M;
 	end);
 
-InstallGlobalFunction(FindHartleyNames,
+InstallGlobalFunction(FindHartleyName,
 	function(M)
-	local atlas, key, ans, hid, candidate;
+	local atlas, key, hid, candidate;
 	atlas := LoadHartleyAtlas();
 	key := HARTLEY_KEY_FOR_MANIPLEX(M);
-	ans := [];
 
 	for hid in atlas.ids do
 		if HARTLEY_ID_MATCHES_KEY(hid, key) then
 			candidate := HartleyManiplex(hid);
 			if candidate = M then
-				Add(ans, hid);
+				return hid;
 			fi;
 		fi;
 	od;
 
-	return ans;
-	end);
-
-InstallGlobalFunction(FindHartleyName,
-	function(M)
-	local names;
-	names := FindHartleyNames(M);
-	if IsEmpty(names) then
-		return fail;
-	fi;
-	return names[1];
+	return fail;
 	end);

@@ -64,21 +64,9 @@ DeclareGlobalFunction("HartleyManiplex");
 #! @EndExampleSession
 
 #! @Arguments maniplex
-#! @Returns IsList
-#! @Description Returns all Hartley IDs whose stored permutation group gives a
-#! maniplex isomorphic to <A>maniplex</A>.
-DeclareGlobalFunction("FindHartleyNames");
-#! @BeginExampleSession
-#! gap> FindHartleyNames(Simplex(3));
-#! [ "{3,3}*24" ]
-#! gap> FindHartleyNames(Cube(3));
-#! [ "{4,3}*48" ]
-#! @EndExampleSession
-
-#! @Arguments maniplex
 #! @Returns IsString
-#! @Description Returns the first Hartley ID whose stored permutation group
-#! gives a maniplex isomorphic to <A>maniplex</A>, or `fail` if none is found.
+#! @Description Returns the Hartley ID whose stored permutation group gives a
+#! maniplex isomorphic to <A>maniplex</A>, or `fail` if none is found.
 DeclareGlobalFunction("FindHartleyName");
 #! @BeginExampleSession
 #! gap> FindHartleyName(Simplex(3));
