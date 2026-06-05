@@ -7,7 +7,8 @@
 #! @Returns IsManiplex
 #! @Description Returns the toroidal map $\{4,4\}_{\vec u, \vec v}$.
 #! If only <A>u</A> is given, then <A>v</A> is taken to be <A>u</A> rotated 90 degrees,
-#! in which case the resulting map is either reflexible or chiral.
+#! in which case the resulting map is either reflexible 
+#! (if <A>u</A> is [a, 0] or [a, a]) or chiral.
 DeclareGlobalFunction("ToroidalMap44");
 #! @BeginExampleSession
 #! gap> ToroidalMap44([3,0]) = ARP([4,4], "(r0 r1 r2 r1)^3");
@@ -90,6 +91,8 @@ DeclareOperation("CubicToroid",[IsInt,IsList]);
 #! 3-maniplex
 #! gap> last=ToroidalMap44([2,0]);
 #! true
+#! gap> NumberOfFlagOrbits(CubicToroid(3, [[2,0,0], [0,3,0], [0,0,4]]));
+#! 6
 #! @EndExampleSession
 
 #! @Arguments s, k

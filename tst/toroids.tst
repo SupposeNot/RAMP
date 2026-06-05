@@ -60,3 +60,22 @@ gap> NumberOfFlagOrbits(ToroidalMap63([3,0],[-2,4]));
 3
 gap> NumberOfFlagOrbits(ToroidalMap63([4,3],[5,0]));
 6
+gap> m44:=CubicToroid(3,2,2);;
+gap> m44=ToroidalMap44([3,3]);
+true
+gap> Size(CubicToroid(2,1,3));
+384
+gap> CubicToroid(6,1,3) = Mix(CubicToroid(2,1,3), CubicToroid(3,1,3));
+true
+gap> CubicToroid(2,[[2,0],[0,2]]) = ToroidalMap44([2,0]);
+true
+gap> NumberOfFlagOrbits(CubicToroid(3, [[2,0,0], [0,3,0], [0,0,4]]));
+6
+gap> M := 3343Toroid(3,1);;
+gap> IsPolytopal(M);
+true
+gap> IsPolytopal(3343Toroid(1,1));
+false
+gap> M := 24CellToroid(3,1);;
+gap> Dual(M) = 3343Toroid(3,1);
+true
