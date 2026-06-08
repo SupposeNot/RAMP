@@ -318,7 +318,7 @@ InstallMethod(InternallySelfDualPolyhedron2,
 	# connect (p-2, j) to (p-3, j+1) --> p-2+(j-1)*N to p-3+j*N
 	# (p-2, p-3+N)
 
-	return ReflexibleManiplex(Group(r0,r1,r2));
+	return ReflexibleManiplexNC(Group(r0,r1,r2));
 	end);
 
 InstallMethod(GrandAntiprism,

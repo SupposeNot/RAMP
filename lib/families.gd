@@ -6,16 +6,16 @@
 #! @Description Returns the universal 0-polytope.
 DeclareOperation("Vertex", []);
 #! @BeginExampleSession
-#! gap> Vertex();
-#! UniversalPolytope(0)
+#! gap> Rank(Vertex());
+#! 0
 #! @EndExampleSession
 
 #! @Returns IsPolytope
 #! @Description Returns the universal 1-polytope.
 DeclareOperation("Edge", []);
 #! @BeginExampleSession
-#! gap> Edge();
-#! UniversalPolytope(1)
+#! gap> Rank(Edge());
+#! 1
 #! @EndExampleSession
 
 #! @Arguments p
@@ -23,8 +23,10 @@ DeclareOperation("Edge", []);
 #! @Description Returns the p-gon.
 DeclareOperation("Pgon", [IsInt]);
 #! @BeginExampleSession
-#! gap> Facets(Pgon(5));
-#! [ UniversalPolytope(1) ]
+#! gap> Rank(Pgon(5));
+#! 5
+#! gap> Facet(Pgon(5)) = Edge();
+#! true
 #! @EndExampleSession
 
 #! @Arguments n
@@ -34,15 +36,19 @@ DeclareOperation("Cube", [IsInt]);
 #! @BeginExampleSession
 #! gap> Fvector(Cube(4));
 #! [ 16, 32, 24, 8 ]
+#! gap> Facet(Cube(5)) = Cube(4);
+#! true
 #! @EndExampleSession
 
 #! @Arguments n
 #! @Returns IsPolytope
-#! @Description Returns the n-hemi-cube.
+#! @Description Returns the n-hemi-cube, the quotient of the n-cube by central inversion.
 DeclareOperation("HemiCube", [IsInt]);
 #! @BeginExampleSession
 #! gap> Fvector(HemiCube(4));
 #! [ 8, 16, 12, 4 ]
+#! gap> IsOrientable(HemiCube(3));
+#! false
 #! @EndExampleSession
 
 #! @Arguments n
@@ -52,13 +58,15 @@ DeclareOperation("CrossPolytope", [IsInt]);
 #! @BeginExampleSession
 #! gap> NumberOfVertices(CrossPolytope(5));
 #! 10
+#! gap> Dual(CrossPolytope(4)) = Cube(4);
+#! true
 #! @EndExampleSession
 
 #! @Returns IsPolytope
 #! @Description Returns the octahedron (3-cross-polytope).
 DeclareOperation("Octahedron", []);
 #! @BeginExampleSession
-#! gap> Octahedron() = CrossPolytope(3)
+#! gap> Octahedron() = CrossPolytope(3);
 #! true
 #! @EndExampleSession
 
@@ -76,7 +84,9 @@ DeclareOperation("HemiCrossPolytope", [IsInt]);
 #! @Description Returns the n-simplex.
 DeclareOperation("Simplex", [IsInt]);
 #! @BeginExampleSession
-#! gap> Petrial(Simplex(3))=HemiCube(3);
+#! gap> Fvector(Simplex(4));
+#! [ 5, 10, 10, 5 ]
+#! gap> Petrial(Simplex(3)) = HemiCube(3);
 #! true
 #! @EndExampleSession
 
@@ -84,7 +94,7 @@ DeclareOperation("Simplex", [IsInt]);
 #! @Description Returns the tetrahedron (3-simplex).
 DeclareOperation("Tetrahedron", []);
 #! @BeginExampleSession
-#! gap> Tetrahedron() = Simplex(3)
+#! gap> Tetrahedron() = Simplex(3);
 #! true
 #! @EndExampleSession
 
@@ -109,8 +119,8 @@ DeclareOperation("Dodecahedron", []);
 #! @Description Returns the hemi-dodecahedron, `{5, 3}_5`.
 DeclareOperation("HemiDodecahedron", []);
 #! @BeginExampleSession
-#! gap> Dual(HemiDodecahedron());
-#! ReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")
+#! gap> Dual(HemiDodecahedron()) = HemiIcosahedron();
+#! true
 #! @EndExampleSession
 
 #! @Returns IsPolytope
@@ -133,7 +143,7 @@ DeclareOperation("HemiIcosahedron", []);
 #! @Description Constructs the small stellated dodecahedron combinatorially. This is the same combinatorial object as the great dodecahedron. You may also use the command `GreatDodecahedron();`.
 DeclareOperation("SmallStellatedDodecahedron",[]);
 #! @BeginExampleSession
-#! gap> SmallStellatedDodecahedron()=GreatDodecahedron();
+#! gap> SmallStellatedDodecahedron() = GreatDodecahedron();
 #! true
 #! gap> Size(GreatDodecahedron());
 #! 120
@@ -155,13 +165,15 @@ DeclareOperation("Hemi24Cell", []);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(Hemi24Cell());
 #! [ 3, 4, 3 ]
+#! gap> Size(Hemi24Cell());
+#! 576
 #! @EndExampleSession
 
 #! @Returns IsPolytope
 #! @Description Returns the 120-cell, {5, 3, 3}.
 DeclareOperation("120Cell", []);
 #! @BeginExampleSession
-#! gap> NumberOfIFaces(120Cell(),3);
+#! gap> NumberOfIFaces(120Cell(), 3);
 #! 120
 #! @EndExampleSession
 
@@ -169,7 +181,7 @@ DeclareOperation("120Cell", []);
 #! @Description Returns the hemi-120-cell, `{5, 3, 3}_15`.
 DeclareOperation("Hemi120Cell", []);
 #! @BeginExampleSession
-#! gap> NumberOfIFaces(Hemi120Cell(),3);
+#! gap> NumberOfIFaces(Hemi120Cell(), 3);
 #! 60
 #! @EndExampleSession
 
@@ -185,7 +197,7 @@ DeclareOperation("600Cell", []);
 #! @Description Returns the hemi-600-cell, `{3, 3, 5}_15`.
 DeclareOperation("Hemi600Cell", []);
 #! @BeginExampleSession
-#! gap> Dual(Hemi600Cell())=Hemi120Cell();
+#! gap> Dual(Hemi600Cell()) = Hemi120Cell();
 #! true
 #! @EndExampleSession
 
@@ -204,8 +216,10 @@ DeclareOperation("BrucknerSphere",[]);
 #! p must be at least 7.
 DeclareOperation("InternallySelfDualPolyhedron1",[IsInt]);
 #! @BeginExampleSession
-#! gap> SchlafliSymbol(InternallySelfDualPolyhedron1(40));
+#! gap> M := InternallySelfDualPolyhedron1(40);; SchlafliSymbol(M);
 #! [ 40, 40 ]
+#! gap> IsSelfDual(M);
+#! true
 #! @EndExampleSession
 
 #! @Arguments p, k
@@ -214,34 +228,40 @@ DeclareOperation("InternallySelfDualPolyhedron1",[IsInt]);
 #! `p` must be even and at least 6, and `k` must be odd.
 DeclareOperation("InternallySelfDualPolyhedron2",[IsInt, IsInt]);
 #! @BeginExampleSession
-#! gap> SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));
-#! [ 40, 40 ]
+#! gap> M := InternallySelfDualPolyhedron2(8,7);; SchlafliSymbol(M);
+#! [ 8, 8 ]
+#! gap> Size(M);
+#! 116218388160
 #! @EndExampleSession
 
 #! @Returns IsPolytope
 #! @Description Returns the Grand Antiprism.
 DeclareOperation("GrandAntiprism", []);
+#! @BeginExampleSession
+#! gap> M := GrandAntiprism;; SchlafliSymbol(M);
+#! [ [ 3, 5 ], [ 3, 4 ], [ 4, 5 ] ]
+#! @EndExampleSession
 
 
 #! @Arguments n
 #! @Returns premaniplex
 #! @Description Builds the 1 flag premaniplex of rank <A>n</A>.
-#! See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+#! See Voltage operations on maniplexes (<Cite Key="VoltOps"/>).
 DeclareOperation("STG1",[IsInt]);
 #! @BeginExampleSession
 #! gap> STG1(5);
-#! Premaniplex of rank 5 with 1 flag
+#! 5-premaniplex with 1 flag
 #! @EndExampleSession
 
 
 #! @Arguments n, I
 #! @Returns premaniplex
 #! @Description Builds the 2 flag premaniplex of rank <A>n</A> with semi-edges in <A>I</A>.
-#! See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+#! See Voltage operations on maniplexes (<Cite Key="VoltOps"/>).
 DeclareOperation("STG2",[IsInt,IsList]);
 #! @BeginExampleSession
 #! gap> STG2(5,[2,4]);
-#! Premaniplex of rank 5 with 2 flags
+#! 5-premaniplex with 2 flags
 #! @EndExampleSession
 
 
@@ -251,7 +271,7 @@ DeclareOperation("STG2",[IsInt,IsList]);
 DeclareOperation("STG3",[IsInt,IsInt]);
 #! @BeginExampleSession
 #! gap> STG3(5,2);
-#! Premaniplex of rank 5 with 3 flags
+#! 5-premaniplex with 3 flags
 #! @EndExampleSession
 
 
@@ -261,5 +281,5 @@ DeclareOperation("STG3",[IsInt,IsInt]);
 DeclareOperation("STG3",[IsInt,IsInt,IsInt]);
 #! @BeginExampleSession
 #! gap> STG3(6,2,3);
-#! Premaniplex of rank 6 with 3 flags
+#! 6-premaniplex with 3 flags
 #! @EndExampleSession
