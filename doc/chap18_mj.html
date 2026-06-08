@@ -33,8 +33,7 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18_mj.html#X8689105C82F6763B">18.1-3 HartleyGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18_mj.html#X85D11F41804608DF">18.1-4 HartleyFpGroup</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18_mj.html#X7CD2B35F855BA623">18.1-5 HartleyManiplex</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18_mj.html#X817A6B8B81F13868">18.1-6 FindHartleyNames</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18_mj.html#X81106F5E7BE75271">18.1-7 FindHartleyName</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap18_mj.html#X81106F5E7BE75271">18.1-6 FindHartleyName</a></span>
 </div></div>
 </div>
 
@@ -129,31 +128,14 @@ HartleyManiplex("{3,3}*24")
 [ 3, 3 ]
 </pre></div>
 
-<p><a id="X817A6B8B81F13868" name="X817A6B8B81F13868"></a></p>
-
-<h5>18.1-6 FindHartleyNames</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindHartleyNames</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
-
-<p>Returns all Hartley IDs whose stored permutation group gives a maniplex isomorphic to <var class="Arg">maniplex</var>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FindHartleyNames(Simplex(3));</span>
-[ "{3,3}*24" ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FindHartleyNames(Cube(3));</span>
-[ "{4,3}*48" ]
-</pre></div>
-
 <p><a id="X81106F5E7BE75271" name="X81106F5E7BE75271"></a></p>
 
-<h5>18.1-7 FindHartleyName</h5>
+<h5>18.1-6 FindHartleyName</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindHartleyName</code>( <var class="Arg">maniplex</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsString</p>
 
-<p>Returns the first Hartley ID whose stored permutation group gives a maniplex isomorphic to <var class="Arg">maniplex</var>, or <code class="code">fail</code> if none is found.</p>
+<p>Returns the Hartley ID whose stored permutation group gives a maniplex isomorphic to <var class="Arg">maniplex</var>, or <code class="code">fail</code> if none is found.</p>
 
 
 <div class="example"><pre>

@@ -18,8 +18,8 @@ Returns the universal 0-polytope.
 
 
 <Example><![CDATA[
-gap> Vertex();
-UniversalPolytope(0)
+gap> Rank(Vertex());
+0
 ]]></Example>
 
 
@@ -34,8 +34,8 @@ Returns the universal 1-polytope.
 
 
 <Example><![CDATA[
-gap> Edge();
-UniversalPolytope(1)
+gap> Rank(Edge());
+1
 ]]></Example>
 
 
@@ -50,8 +50,10 @@ Returns the p-gon.
 
 
 <Example><![CDATA[
-gap> Facets(Pgon(5));
-[ UniversalPolytope(1) ]
+gap> Rank(Pgon(5));
+5
+gap> Facet(Pgon(5)) = Edge();
+true
 ]]></Example>
 
 
@@ -68,6 +70,8 @@ Returns the n-cube.
 <Example><![CDATA[
 gap> Fvector(Cube(4));
 [ 16, 32, 24, 8 ]
+gap> Facet(Cube(5)) = Cube(4);
+true
 ]]></Example>
 
 
@@ -76,7 +80,7 @@ gap> Fvector(Cube(4));
  <Returns>IsPolytope
 </Returns>
  <Description>
-Returns the n-hemi-cube.
+Returns the n-hemi-cube, the quotient of the n-cube by central inversion.
  </Description>
 </ManSection>
 
@@ -84,6 +88,8 @@ Returns the n-hemi-cube.
 <Example><![CDATA[
 gap> Fvector(HemiCube(4));
 [ 8, 16, 12, 4 ]
+gap> IsOrientable(HemiCube(3));
+false
 ]]></Example>
 
 
@@ -100,6 +106,8 @@ Returns the n-cross-polytope.
 <Example><![CDATA[
 gap> NumberOfVertices(CrossPolytope(5));
 10
+gap> Dual(CrossPolytope(4)) = Cube(4);
+true
 ]]></Example>
 
 
@@ -114,7 +122,7 @@ Returns the octahedron (3-cross-polytope).
 
 
 <Example><![CDATA[
-gap> Octahedron() = CrossPolytope(3)
+gap> Octahedron() = CrossPolytope(3);
 true
 ]]></Example>
 
@@ -146,7 +154,9 @@ Returns the n-simplex.
 
 
 <Example><![CDATA[
-gap> Petrial(Simplex(3))=HemiCube(3);
+gap> Fvector(Simplex(4));
+[ 5, 10, 10, 5 ]
+gap> Petrial(Simplex(3)) = HemiCube(3);
 true
 ]]></Example>
 
@@ -162,7 +172,7 @@ Returns the tetrahedron (3-simplex).
 
 
 <Example><![CDATA[
-gap> Tetrahedron() = Simplex(3)
+gap> Tetrahedron() = Simplex(3);
 true
 ]]></Example>
 
@@ -210,8 +220,8 @@ Returns the hemi-dodecahedron, <Code>{5, 3}_5</Code>.
 
 
 <Example><![CDATA[
-gap> Dual(HemiDodecahedron());
-ReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")
+gap> Dual(HemiDodecahedron()) = HemiIcosahedron();
+true
 ]]></Example>
 
 
@@ -258,7 +268,7 @@ Constructs the small stellated dodecahedron combinatorially. This is the same co
 
 
 <Example><![CDATA[
-gap> SmallStellatedDodecahedron()=GreatDodecahedron();
+gap> SmallStellatedDodecahedron() = GreatDodecahedron();
 true
 gap> Size(GreatDodecahedron());
 120
@@ -294,6 +304,8 @@ Returns the hemi-24-cell, <Code>{3, 4, 3}_6</Code>.
 <Example><![CDATA[
 gap> SchlafliSymbol(Hemi24Cell());
 [ 3, 4, 3 ]
+gap> Size(Hemi24Cell());
+576
 ]]></Example>
 
 
@@ -308,7 +320,7 @@ Returns the 120-cell, {5, 3, 3}.
 
 
 <Example><![CDATA[
-gap> NumberOfIFaces(120Cell(),3);
+gap> NumberOfIFaces(120Cell(), 3);
 120
 ]]></Example>
 
@@ -324,7 +336,7 @@ Returns the hemi-120-cell, <Code>{5, 3, 3}_15</Code>.
 
 
 <Example><![CDATA[
-gap> NumberOfIFaces(Hemi120Cell(),3);
+gap> NumberOfIFaces(Hemi120Cell(), 3);
 60
 ]]></Example>
 
@@ -356,7 +368,7 @@ Returns the hemi-600-cell, <Code>{3, 3, 5}_15</Code>.
 
 
 <Example><![CDATA[
-gap> Dual(Hemi600Cell())=Hemi120Cell();
+gap> Dual(Hemi600Cell()) = Hemi120Cell();
 true
 ]]></Example>
 
@@ -390,8 +402,10 @@ Constructs the internally self-dual polyhedron of type <Code>{p, p}</Code> descr
 
 
 <Example><![CDATA[
-gap> SchlafliSymbol(InternallySelfDualPolyhedron1(40));
+gap> M := InternallySelfDualPolyhedron1(40);; SchlafliSymbol(M);
 [ 40, 40 ]
+gap> IsSelfDual(M);
+true
 ]]></Example>
 
 
@@ -407,8 +421,10 @@ Constructs the internally self-dual polyhedron of type <Code>{p, p}</Code> descr
 
 
 <Example><![CDATA[
-gap> SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));
-[ 40, 40 ]
+gap> M := InternallySelfDualPolyhedron2(8,7);; SchlafliSymbol(M);
+[ 8, 8 ]
+gap> Size(M);
+116218388160
 ]]></Example>
 
 
@@ -422,20 +438,26 @@ Returns the Grand Antiprism.
 </ManSection>
 
 
+<Example><![CDATA[
+gap> M := GrandAntiprism;; SchlafliSymbol(M);
+[ [ 3, 5 ], [ 3, 4 ], [ 4, 5 ] ]
+]]></Example>
+
+
 <ManSection>
   <Oper Arg="n" Name="STG1" Label="for IsInt"/>
  <Returns>premaniplex
 </Returns>
  <Description>
 Builds the 1 flag premaniplex of rank <A>n</A>.
- See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+ See Voltage operations on maniplexes (<Cite Key="VoltOps"/>).
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
 gap> STG1(5);
-Premaniplex of rank 5 with 1 flag
+5-premaniplex with 1 flag
 ]]></Example>
 
 
@@ -445,14 +467,14 @@ Premaniplex of rank 5 with 1 flag
 </Returns>
  <Description>
 Builds the 2 flag premaniplex of rank <A>n</A> with semi-edges in <A>I</A>.
- See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).
+ See Voltage operations on maniplexes (<Cite Key="VoltOps"/>).
  </Description>
 </ManSection>
 
 
 <Example><![CDATA[
 gap> STG2(5,[2,4]);
-Premaniplex of rank 5 with 2 flags
+5-premaniplex with 2 flags
 ]]></Example>
 
 
@@ -468,7 +490,7 @@ Builds the 3 flag premaniplex of rank <A>n</A> described on Page 11 of Symmetry 
 
 <Example><![CDATA[
 gap> STG3(5,2);
-Premaniplex of rank 5 with 3 flags
+5-premaniplex with 3 flags
 ]]></Example>
 
 
@@ -484,7 +506,7 @@ Assumes <Code>j=i+1</Code> and builds the 3 flag premaniplex of rank <A>n</A> de
 
 <Example><![CDATA[
 gap> STG3(6,2,3);
-Premaniplex of rank 6 with 3 flags
+6-premaniplex with 3 flags
 ]]></Example>
 
 
@@ -584,7 +606,8 @@ false
  <Description>
 Returns the toroidal map <Math>\{4,4\}_{\vec u, \vec v}</Math>.
  If only <A>u</A> is given, then <A>v</A> is taken to be <A>u</A> rotated 90 degrees,
- in which case the resulting map is either reflexible or chiral.
+ in which case the resulting map is either reflexible 
+ (if <A>u</A> is [a, 0] or [a, a]) or chiral.
  </Description>
 </ManSection>
 
@@ -697,6 +720,8 @@ gap> CubicToroid(2,[[2,0],[0,2]]);
 3-maniplex
 gap> last=ToroidalMap44([2,0]);
 true
+gap> NumberOfFlagOrbits(CubicToroid(3, [[2,0,0], [0,3,0], [0,0,4]]));
+6
 ]]></Example>
 
 

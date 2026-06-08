@@ -12,8 +12,8 @@
   [33X[0;0YReturns the universal 0-polytope.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XVertex();[127X[104X
-    [4X[28XUniversalPolytope(0)[128X[104X
+    [4X[25Xgap>[125X [27XRank(Vertex());[127X[104X
+    [4X[28X0[128X[104X
   [4X[32X[104X
   
   [1X5.1-2 Edge[101X
@@ -24,8 +24,8 @@
   [33X[0;0YReturns the universal 1-polytope.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XEdge();[127X[104X
-    [4X[28XUniversalPolytope(1)[128X[104X
+    [4X[25Xgap>[125X [27XRank(Edge());[127X[104X
+    [4X[28X1[128X[104X
   [4X[32X[104X
   
   [1X5.1-3 Pgon[101X
@@ -36,8 +36,10 @@
   [33X[0;0YReturns the p-gon.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XFacets(Pgon(5));[127X[104X
-    [4X[28X[ UniversalPolytope(1) ][128X[104X
+    [4X[25Xgap>[125X [27XRank(Pgon(5));[127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XFacet(Pgon(5)) = Edge();[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.1-4 Cube[101X
@@ -50,6 +52,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XFvector(Cube(4));[127X[104X
     [4X[28X[ 16, 32, 24, 8 ][128X[104X
+    [4X[25Xgap>[125X [27XFacet(Cube(5)) = Cube(4);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.1-5 HemiCube[101X
@@ -57,11 +61,13 @@
   [33X[1;0Y[29X[2XHemiCube[102X( [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsPolytope[133X
   
-  [33X[0;0YReturns the n-hemi-cube.[133X
+  [33X[0;0YReturns the n-hemi-cube, the quotient of the n-cube by central inversion.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XFvector(HemiCube(4));[127X[104X
     [4X[28X[ 8, 16, 12, 4 ][128X[104X
+    [4X[25Xgap>[125X [27XIsOrientable(HemiCube(3));[127X[104X
+    [4X[28Xfalse[128X[104X
   [4X[32X[104X
   
   [1X5.1-6 CrossPolytope[101X
@@ -74,6 +80,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XNumberOfVertices(CrossPolytope(5));[127X[104X
     [4X[28X10[128X[104X
+    [4X[25Xgap>[125X [27XDual(CrossPolytope(4)) = Cube(4);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.1-7 Octahedron[101X
@@ -84,7 +92,7 @@
   [33X[0;0YReturns the octahedron (3-cross-polytope).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XOctahedron() = CrossPolytope(3)[127X[104X
+    [4X[25Xgap>[125X [27XOctahedron() = CrossPolytope(3);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -108,7 +116,9 @@
   [33X[0;0YReturns the n-simplex.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XPetrial(Simplex(3))=HemiCube(3);[127X[104X
+    [4X[25Xgap>[125X [27XFvector(Simplex(4));[127X[104X
+    [4X[28X[ 5, 10, 10, 5 ][128X[104X
+    [4X[25Xgap>[125X [27XPetrial(Simplex(3)) = HemiCube(3);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -120,7 +130,7 @@
   [33X[0;0YReturns the tetrahedron (3-simplex).[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XTetrahedron() = Simplex(3)[127X[104X
+    [4X[25Xgap>[125X [27XTetrahedron() = Simplex(3);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -156,8 +166,8 @@
   [33X[0;0YReturns the hemi-dodecahedron, [10X{5, 3}_5[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XDual(HemiDodecahedron());[127X[104X
-    [4X[28XReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")[128X[104X
+    [4X[25Xgap>[125X [27XDual(HemiDodecahedron()) = HemiIcosahedron();[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.1-14 Icosahedron[101X
@@ -194,7 +204,7 @@
   command [10XGreatDodecahedron();[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSmallStellatedDodecahedron()=GreatDodecahedron();[127X[104X
+    [4X[25Xgap>[125X [27XSmallStellatedDodecahedron() = GreatDodecahedron();[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XSize(GreatDodecahedron());[127X[104X
     [4X[28X120[128X[104X
@@ -222,6 +232,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Hemi24Cell());[127X[104X
     [4X[28X[ 3, 4, 3 ][128X[104X
+    [4X[25Xgap>[125X [27XSize(Hemi24Cell());[127X[104X
+    [4X[28X576[128X[104X
   [4X[32X[104X
   
   [1X5.1-19 120Cell[101X
@@ -232,7 +244,7 @@
   [33X[0;0YReturns the 120-cell, {5, 3, 3}.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XNumberOfIFaces(120Cell(),3);[127X[104X
+    [4X[25Xgap>[125X [27XNumberOfIFaces(120Cell(), 3);[127X[104X
     [4X[28X120[128X[104X
   [4X[32X[104X
   
@@ -244,7 +256,7 @@
   [33X[0;0YReturns the hemi-120-cell, [10X{5, 3, 3}_15[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XNumberOfIFaces(Hemi120Cell(),3);[127X[104X
+    [4X[25Xgap>[125X [27XNumberOfIFaces(Hemi120Cell(), 3);[127X[104X
     [4X[28X60[128X[104X
   [4X[32X[104X
   
@@ -268,7 +280,7 @@
   [33X[0;0YReturns the hemi-600-cell, [10X{3, 3, 5}_15[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XDual(Hemi600Cell())=Hemi120Cell();[127X[104X
+    [4X[25Xgap>[125X [27XDual(Hemi600Cell()) = Hemi120Cell();[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
@@ -294,8 +306,10 @@
   be at least 7.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(InternallySelfDualPolyhedron1(40));[127X[104X
+    [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron1(40);; SchlafliSymbol(M);[127X[104X
     [4X[28X[ 40, 40 ][128X[104X
+    [4X[25Xgap>[125X [27XIsSelfDual(M);[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X5.1-25 InternallySelfDualPolyhedron2[101X
@@ -308,8 +322,10 @@
   be even and at least 6, and [10Xk[110X must be odd.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XSchlafliSymbol(InternallySelfDualPolyhedron2(40,7));[127X[104X
-    [4X[28X[ 40, 40 ][128X[104X
+    [4X[25Xgap>[125X [27XM := InternallySelfDualPolyhedron2(8,7);; SchlafliSymbol(M);[127X[104X
+    [4X[28X[ 8, 8 ][128X[104X
+    [4X[25Xgap>[125X [27XSize(M);[127X[104X
+    [4X[28X116218388160[128X[104X
   [4X[32X[104X
   
   [1X5.1-26 GrandAntiprism[101X
@@ -319,17 +335,22 @@
   
   [33X[0;0YReturns the Grand Antiprism.[133X
   
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := GrandAntiprism;; SchlafliSymbol(M);[127X[104X
+    [4X[28X[ [ 3, 5 ], [ 3, 4 ], [ 4, 5 ] ][128X[104X
+  [4X[32X[104X
+  
   [1X5.1-27 STG1[101X
   
   [33X[1;0Y[29X[2XSTG1[102X( [3Xn[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
   
-  [33X[0;0YBuilds  the  1  flag  premaniplex  of  rank  [3Xn[103X.  See  VOLTAGE  OPERATIONS ON
-  MANIPLEXES (citation coming soon).[133X
+  [33X[0;0YBuilds  the  1  flag  premaniplex  of  rank  [3Xn[103X.  See  Voltage  operations on
+  maniplexes ([HMM23]).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSTG1(5);[127X[104X
-    [4X[28XPremaniplex of rank 5 with 1 flag[128X[104X
+    [4X[28X5-premaniplex with 1 flag[128X[104X
   [4X[32X[104X
   
   [1X5.1-28 STG2[101X
@@ -337,12 +358,12 @@
   [33X[1;0Y[29X[2XSTG2[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ypremaniplex[133X
   
-  [33X[0;0YBuilds  the  2  flag premaniplex of rank [3Xn[103X with semi-edges in [3XI[103X. See VOLTAGE
-  OPERATIONS ON MANIPLEXES (citation coming soon).[133X
+  [33X[0;0YBuilds  the  2  flag premaniplex of rank [3Xn[103X with semi-edges in [3XI[103X. See Voltage
+  operations on maniplexes ([HMM23]).[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSTG2(5,[2,4]);[127X[104X
-    [4X[28XPremaniplex of rank 5 with 2 flags[128X[104X
+    [4X[28X5-premaniplex with 2 flags[128X[104X
   [4X[32X[104X
   
   [1X5.1-29 STG3[101X
@@ -357,7 +378,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSTG3(5,2);[127X[104X
-    [4X[28XPremaniplex of rank 5 with 3 flags[128X[104X
+    [4X[28X5-premaniplex with 3 flags[128X[104X
   [4X[32X[104X
   
   [1X5.1-30 STG3[101X
@@ -372,7 +393,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSTG3(6,2,3);[127X[104X
-    [4X[28XPremaniplex of rank 6 with 3 flags[128X[104X
+    [4X[28X6-premaniplex with 3 flags[128X[104X
   [4X[32X[104X
   
   
@@ -451,7 +472,7 @@
   
   [33X[0;0YReturns  the toroidal map [23X\{4,4\}_{\vec u, \vec v}[123X. If only [3Xu[103X is given, then
   [3Xv[103X  is  taken  to be [3Xu[103X rotated 90 degrees, in which case the resulting map is
-  either reflexible or chiral.[133X
+  either reflexible (if [3Xu[103X is [a, 0] or [a, a]) or chiral.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XToroidalMap44([3,0]) = ARP([4,4], "(r0 r1 r2 r1)^3");[127X[104X
@@ -547,6 +568,8 @@
     [4X[28X3-maniplex[128X[104X
     [4X[25Xgap>[125X [27Xlast=ToroidalMap44([2,0]);[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XNumberOfFlagOrbits(CubicToroid(3, [[2,0,0], [0,3,0], [0,0,4]]));[127X[104X
+    [4X[28X6[128X[104X
   [4X[32X[104X
   
   [1X5.4-6 3343Toroid[101X

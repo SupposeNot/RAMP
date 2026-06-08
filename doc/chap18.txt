@@ -77,27 +77,12 @@
     [4X[28X[ 3, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X18.1-6 FindHartleyNames[101X
-  
-  [33X[1;0Y[29X[2XFindHartleyNames[102X( [3Xmaniplex[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
-  
-  [33X[0;0YReturns  all  Hartley  IDs  whose  stored permutation group gives a maniplex
-  isomorphic to [3Xmaniplex[103X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XFindHartleyNames(Simplex(3));[127X[104X
-    [4X[28X[ "{3,3}*24" ][128X[104X
-    [4X[25Xgap>[125X [27XFindHartleyNames(Cube(3));[127X[104X
-    [4X[28X[ "{4,3}*48" ][128X[104X
-  [4X[32X[104X
-  
-  [1X18.1-7 FindHartleyName[101X
+  [1X18.1-6 FindHartleyName[101X
   
   [33X[1;0Y[29X[2XFindHartleyName[102X( [3Xmaniplex[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YIsString[133X
   
-  [33X[0;0YReturns the first Hartley ID whose stored permutation group gives a maniplex
+  [33X[0;0YReturns  the  Hartley  ID  whose  stored  permutation group gives a maniplex
   isomorphic to [3Xmaniplex[103X, or [10Xfail[110X if none is found.[133X
   
   [4X[32X  Example  [32X[104X

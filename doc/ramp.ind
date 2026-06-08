@@ -1,6 +1,6 @@
 \begin{theindex}
 
-  \item \texttt  {120Cell}, \hyperpage{28}
+  \item \texttt  {120Cell}, \hyperpage{29}
   \item \texttt  {24Cell}, \hyperpage{28}
   \item \texttt  {24CellToroid}
     \subitem for IsInt,IsInt, \hyperpage{34}
@@ -10,12 +10,12 @@
 
   \indexspace
 
-  \item \texttt  {AbstractPolytope}, \hyperpage{129}
-  \item \texttt  {AbstractRegularPolytope}, \hyperpage{129}
-  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{130}
-  \item \texttt  {ActionByGenerators}, \hyperpage{133}
-  \item \texttt  {ActionOnBlocks}, \hyperpage{133}
-  \item \texttt  {AddOrAppend}, \hyperpage{132}
+  \item \texttt  {AbstractPolytope}, \hyperpage{131}
+  \item \texttt  {AbstractRegularPolytope}, \hyperpage{131}
+  \item \texttt  {AbstractRotaryPolytope}, \hyperpage{132}
+  \item \texttt  {ActionByGenerators}, \hyperpage{135}
+  \item \texttt  {ActionOnBlocks}, \hyperpage{135}
+  \item \texttt  {AddOrAppend}, \hyperpage{134}
   \item \texttt  {AddRanksInPosets}
     \subitem for IsPosetElement,IsPoset,IsInt, \hyperpage{104}
   \item \texttt  {AdjacentFlag}
@@ -23,9 +23,9 @@
   \item \texttt  {AdjacentFlags}
     \subitem for IsPoset,IsList,IsInt, \hyperpage{100}
   \item \texttt  {AdjacentVertices}
-    \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{115}
+    \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{116}
   \item \texttt  {AdmissiblePerms}
-    \subitem for IsInt, IsList, \hyperpage{119}
+    \subitem for IsInt, IsList, \hyperpage{121}
   \item \texttt  {Amalgamate}
     \subitem for IsManiplex, IsManiplex, \hyperpage{67}
   \item \texttt  {AmalgamateNC}
@@ -80,7 +80,7 @@
   \item \texttt  {Bevel}
     \subitem for IsMapOnSurface, \hyperpage{87}
   \item \texttt  {BinaryListToInteger}
-    \subitem for IsList, \hyperpage{134}
+    \subitem for IsList, \hyperpage{136}
   \item \texttt  {Bk2l}
     \subitem for IsInt,IsInt, \hyperpage{81}
   \item \texttt  {Bk2lRhoSigma}
@@ -99,8 +99,8 @@
   \item \texttt  {Chamfer}
     \subitem for IsMapOnSurface, \hyperpage{83}
   \item \texttt  {ChangeVoltage}
-    \subitem for IsVoltageGraph,IsInt,IsInt, IsObject, \hyperpage{121}
-    \subitem for IsVoltageGraph,IsList, IsObject, \hyperpage{121}
+    \subitem for IsVoltageGraph,IsInt,IsInt, IsObject, \hyperpage{123}
+    \subitem for IsVoltageGraph,IsList, IsObject, \hyperpage{123}
   \item \texttt  {ChiralityGroup}
     \subitem for IsRotaryManiplex, \hyperpage{51}
   \item \texttt  {ChunkGeneratedGroup}
@@ -122,50 +122,51 @@
     \subitem for IsReflexibleManiplex, IsReflexibleManiplex, 
 		\hyperpage{73}
   \item \texttt  {CompleteBipartiteGraph}
-    \subitem for IsInt,IsInt, \hyperpage{108}
+    \subitem for IsInt,IsInt, \hyperpage{109}
   \item \texttt  {Conjugacy}\-\texttt  {Classes}\-\texttt  {Of}\-\texttt  {Involutions}\-\texttt  {Representatives}
     \subitem for IsGroup, \hyperpage{74}
   \item \texttt  {ConnectedComponents}
-    \subitem for IsEdgeLabeledGraph, IsList, \hyperpage{114}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{115}
+    \subitem for IsEdgeLabeledGraph, IsList, \hyperpage{115}
   \item \texttt  {ConnectionGeneratorOfPoset}
     \subitem for IsPoset,IsInt, \hyperpage{100}
   \item \texttt  {ConnectionGroup}
-    \subitem for IsEdgeLabeledGraph, \hyperpage{116}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{118}
     \subitem for IsPoset, \hyperpage{101}
     \subitem for IsPremaniplex, \hyperpage{50}
   \item \texttt  {ConvertToBinaryList}
-    \subitem for IsInt,IsInt, \hyperpage{134}
+    \subitem for IsInt,IsInt, \hyperpage{136}
   \item \texttt  {CoSkeleton}
     \subitem for IsManiplex, \hyperpage{112}
   \item \texttt  {CPRGraphFromGroups}
-    \subitem for IsGroup,IsGroup, \hyperpage{115}
+    \subitem for IsGroup,IsGroup, \hyperpage{116}
   \item \texttt  {Cross}
     \subitem for IsMapOnSurface, \hyperpage{89}
   \item \texttt  {CrossPolytope}
     \subitem for IsInt, \hyperpage{26}
   \item \texttt  {CtoL}
-    \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{135}
+    \subitem for IsInt,IsInt,IsInt,IsInt, \hyperpage{137}
   \item \texttt  {Cube}
-    \subitem for IsInt, \hyperpage{25}
+    \subitem for IsInt, \hyperpage{26}
   \item \texttt  {CubicTiling}
     \subitem for IsInt, \hyperpage{27}
   \item \texttt  {CubicToroid}
-    \subitem for IsInt,IsInt,IsInt, \hyperpage{33}
-    \subitem for IsInt,IsList, \hyperpage{33}
-  \item \texttt  {Cuboctahedron}, \hyperpage{34}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{34}
+    \subitem for IsInt,IsList, \hyperpage{34}
+  \item \texttt  {Cuboctahedron}, \hyperpage{35}
   \item \texttt  {CyclicGgi}
     \subitem for IsList, IsList, \hyperpage{10}
 
   \indexspace
 
   \item \texttt  {DatabaseString}
-    \subitem for IsManiplex, \hyperpage{127}
-  \item \texttt  {DegeneratePolyhedra}, \hyperpage{124}
+    \subitem for IsManiplex, \hyperpage{129}
+  \item \texttt  {DegeneratePolyhedra}, \hyperpage{126}
   \item \texttt  {Deltak}
     \subitem for IsInt, \hyperpage{80}
   \item \texttt  {DerivedGraph}
-    \subitem for IsList,IsList,IsList, \hyperpage{116}
-    \subitem for IsVoltageGraph, \hyperpage{121}
+    \subitem for IsList,IsList,IsList, \hyperpage{117}
+    \subitem for IsVoltageGraph, \hyperpage{123}
   \item \texttt  {DirectDerivates}
     \subitem for IsManiplex, \hyperpage{71}
   \item \texttt  {DirectedGraphFromListOfEdges}
@@ -232,13 +233,13 @@
     \subitem for IsManiplex, \hyperpage{57}
   \item \texttt  {FacetSubgroup}
     \subitem for IsGroup, \hyperpage{16}
-  \item \texttt  {FindHartleyName}, \hyperpage{138}
-  \item \texttt  {FindHartleyNames}, \hyperpage{138}
+  \item \texttt  {FindHartleyName}, \hyperpage{140}
   \item \texttt  {FlagGraph}
     \subitem for IsGroup, \hyperpage{113}
-    \subitem for IsPremaniplex, \hyperpage{116}
+    \subitem for IsPremaniplex, \hyperpage{114}, \hyperpage{118}
   \item \texttt  {FlagGraphWithLabels}
     \subitem for IsGroup, \hyperpage{110}
+    \subitem for IsManiplex, \hyperpage{111}
   \item \texttt  {FlagList}
     \subitem for IsPosetElement, \hyperpage{104}
   \item \texttt  {FlagMix}
@@ -259,7 +260,7 @@
     \subitem for IsList, \hyperpage{31}
   \item \texttt  {FlatOrientablyRegularPolyhedron}
     \subitem for IsInt, IsInt, IsInt, IsInt, \hyperpage{31}
-  \item \texttt  {FlatRegularPolyhedra}, \hyperpage{124}
+  \item \texttt  {FlatRegularPolyhedra}, \hyperpage{126}
   \item \texttt  {FullyStratifiedGroup}
     \subitem for IsList, IsGroup, \hyperpage{78}
   \item \texttt  {Fvector}
@@ -279,17 +280,17 @@
   \item \texttt  {GrandAntiprism}, \hyperpage{30}
   \item \texttt  {GraphFromListOfEdges}
     \subitem for IsList,IsList, \hyperpage{109}
-  \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{36}
+  \item \texttt  {GreatRhombicosidodecahedron}, \hyperpage{37}
   \item \texttt  {GreatRhombicuboctahedron}, \hyperpage{37}
   \item \texttt  {Gyro}
     \subitem for IsMapOnSurface, \hyperpage{87}
 
   \indexspace
 
-  \item \texttt  {HartleyFpGroup}, \hyperpage{138}
-  \item \texttt  {HartleyGroup}, \hyperpage{137}
-  \item \texttt  {HartleyIds}, \hyperpage{137}
-  \item \texttt  {HartleyManiplex}, \hyperpage{138}
+  \item \texttt  {HartleyFpGroup}, \hyperpage{140}
+  \item \texttt  {HartleyGroup}, \hyperpage{139}
+  \item \texttt  {HartleyIds}, \hyperpage{139}
+  \item \texttt  {HartleyManiplex}, \hyperpage{140}
   \item \texttt  {Hasse}
     \subitem for IsManiplex, \hyperpage{112}
   \item \texttt  {HasseDiagramOfPoset}
@@ -314,17 +315,17 @@
   \indexspace
 
   \item \texttt  {Icosadodecahedron}, \hyperpage{35}
-  \item \texttt  {Icosahedron}, \hyperpage{27}
+  \item \texttt  {Icosahedron}, \hyperpage{28}
   \item \texttt  {IFaceStabilizer}
     \subitem for IsManiplex, IsInt, \hyperpage{56}
-  \item \texttt  {InfoRamp}, \hyperpage{129}
+  \item \texttt  {InfoRamp}, \hyperpage{131}
   \item \texttt  {InternallySelfDualPolyhedron1}
-    \subitem for IsInt, \hyperpage{29}
+    \subitem for IsInt, \hyperpage{30}
   \item \texttt  {InternallySelfDualPolyhedron2}
     \subitem for IsInt, IsInt, \hyperpage{30}
   \item \texttt  {InterpolatedString}
-    \subitem for IsString, \hyperpage{128}
-  \item \texttt  {InvolutionListList}, \hyperpage{130}
+    \subitem for IsString, \hyperpage{130}
+  \item \texttt  {InvolutionListList}, \hyperpage{132}
   \item \texttt  {IOrientableCover}
     \subitem for IsManiplex, IsList, \hyperpage{47}
   \item \texttt  {IsAllJoins}
@@ -488,26 +489,29 @@
   \indexspace
 
   \item \texttt  {LabeledAdjacentVertices}
-    \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{115}
+    \subitem for IsEdgeLabeledGraph, IsObject, \hyperpage{116}
+  \item \texttt  {LabeledDart}
+    \subitem for IsPremaniplex, IsInt,IsInt, \hyperpage{118}
   \item \texttt  {LabeledDarts}
-    \subitem for IsEdgeLabeledGraph, \hyperpage{116}
-    \subitem for IsPremaniplex, \hyperpage{117}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{117}
+    \subitem for IsPremaniplex, \hyperpage{118}
   \item \texttt  {LabeledSemiEdges}
-    \subitem for IsEdgeLabeledGraph, \hyperpage{115}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{117}
   \item \texttt  {Lace}
     \subitem for IsMapOnSurface, \hyperpage{88}
   \item \texttt  {LayerGraph}
     \subitem for IsGroup, IsInt, IsInt, \hyperpage{111}
+    \subitem for IsManiplex, IsInt, IsInt, \hyperpage{111}
   \item \texttt  {Leapfrog}
     \subitem for IsMapOnSurface, \hyperpage{84}
   \item License, \hyperpage{2}
   \item \texttt  {ListIsP1Poset}
     \subitem for IsList, \hyperpage{97}
-  \item \texttt  {LoadHartleyAtlas}, \hyperpage{137}
+  \item \texttt  {LoadHartleyAtlas}, \hyperpage{139}
   \item \texttt  {Loft}
     \subitem for IsMapOnSurface, \hyperpage{88}
   \item \texttt  {LtoC}
-    \subitem for IsInt,IsInt,IsInt, \hyperpage{135}
+    \subitem for IsInt,IsInt,IsInt, \hyperpage{137}
 
   \indexspace
 
@@ -517,11 +521,11 @@
     \subitem for IsPermGroup, \hyperpage{18}
     \subitem for IsPoset, \hyperpage{19}
     \subitem for IsReflexibleManiplex, IsGroup, \hyperpage{18}
-  \item \texttt  {ManiplexesFromFile}, \hyperpage{123}
+  \item \texttt  {ManiplexesFromFile}, \hyperpage{125}
   \item \texttt  {ManiplexFromDatabaseString}
-    \subitem for IsString, \hyperpage{128}
+    \subitem for IsString, \hyperpage{130}
   \item \texttt  {MarkAsPolytopal}
-    \subitem for IsManiplex, \hyperpage{133}
+    \subitem for IsManiplex, \hyperpage{135}
   \item \texttt  {MaxChainStabilizer}
     \subitem for IsManiplex, \hyperpage{57}
   \item \texttt  {MaxFace}
@@ -547,7 +551,7 @@
     \subitem for IsInt, \hyperpage{80}
   \item \texttt  {MkPrime}
     \subitem for IsInt, \hyperpage{81}
-  \item \texttt  {MultPerm}, \hyperpage{130}
+  \item \texttt  {MultPerm}, \hyperpage{132}
 
   \indexspace
 
@@ -598,14 +602,14 @@
     \subitem for IsList,IsList, \hyperpage{93}
   \item \texttt  {PairCompareFlagsList}
     \subitem for IsList,IsList, \hyperpage{93}
-  \item \texttt  {ParseGgiRels}, \hyperpage{131}
-  \item \texttt  {ParseRotGpRels}, \hyperpage{131}
+  \item \texttt  {ParseGgiRels}, \hyperpage{133}
+  \item \texttt  {ParseRotGpRels}, \hyperpage{133}
   \item \texttt  {PartiallyCleave}
     \subitem for IsPoset,IsInt, \hyperpage{94}
   \item \texttt  {PartialOrder}
     \subitem for IsPoset, \hyperpage{96}
   \item \texttt  {PermFromRange}
-    \subitem for IsPerm, IsPerm, IsPerm, \hyperpage{131}
+    \subitem for IsPerm, IsPerm, IsPerm, \hyperpage{133}
   \item \texttt  {PetersenGraph}, \hyperpage{108}
   \item \texttt  {Petrial}
     \subitem for IsManiplex, \hyperpage{70}
@@ -688,7 +692,7 @@
   \item \texttt  {RanksInPosets}
     \subitem for IsPosetElement, \hyperpage{103}
   \item \texttt  {Really}\-\texttt  {Natural}\-\texttt  {Homomorphism}\-\texttt  {By}\-\texttt  {Normal}\-\texttt  {Subgroup}
-    \subitem for IsGroup,IsGroup, \hyperpage{133}
+    \subitem for IsGroup,IsGroup, \hyperpage{135}
   \item \texttt  {Reflection}
     \subitem for IsManiplex, \hyperpage{85}
   \item \texttt  {ReflexibleManiplex}
@@ -700,8 +704,8 @@
     \subitem for IsGroup, \hyperpage{21}
   \item \texttt  {ReflexibleQuotientManiplex}
     \subitem for IsManiplex, IsList, \hyperpage{64}
-  \item \texttt  {RegularToroidalPolyhedra36}, \hyperpage{124}
-  \item \texttt  {RegularToroidalPolyhedra44}, \hyperpage{124}
+  \item \texttt  {RegularToroidalPolyhedra36}, \hyperpage{126}
+  \item \texttt  {RegularToroidalPolyhedra44}, \hyperpage{126}
   \item \texttt  {RotaryManiplex}
     \subitem for IsGroup, \hyperpage{22}
     \subitem for IsList, \hyperpage{22}
@@ -731,7 +735,7 @@
   \item \texttt  {SectionSubgroup}
     \subitem for IsGroup, IsList, \hyperpage{16}
   \item \texttt  {SemiEdges}
-    \subitem for IsEdgeLabeledGraph, \hyperpage{115}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{117}
   \item \texttt  {Sggi}
     \subitem for IsList, IsList, \hyperpage{11}
     \subitem for IsList, IsList, IsList, \hyperpage{11}
@@ -740,9 +744,9 @@
   \item \texttt  {SggiFamily}
     \subitem for IsGroup, IsList, \hyperpage{15}
   \item \texttt  {Simple}
-    \subitem for IsEdgeLabeledGraph, \hyperpage{114}
+    \subitem for IsEdgeLabeledGraph, \hyperpage{115}
   \item \texttt  {Simplex}
-    \subitem for IsInt, \hyperpage{26}
+    \subitem for IsInt, \hyperpage{27}
   \item \texttt  {SimplifiedGgiElement}
     \subitem for IsGroup, IsString, \hyperpage{10}
   \item \texttt  {SimplifiedRotGpElement}
@@ -753,34 +757,34 @@
     \subitem for IsPremaniplex, \hyperpage{38}
   \item \texttt  {Skeleton}
     \subitem for IsManiplex, \hyperpage{112}
-  \item \texttt  {SmallChiral3Maniplexes}, \hyperpage{126}
-  \item \texttt  {SmallChiral4Polytopes}, \hyperpage{126}
-  \item \texttt  {SmallChiralPolyhedra}, \hyperpage{126}
-  \item \texttt  {SmallDegenerateRegular4Polytopes}, \hyperpage{125}
+  \item \texttt  {SmallChiral3Maniplexes}, \hyperpage{128}
+  \item \texttt  {SmallChiral4Polytopes}, \hyperpage{128}
+  \item \texttt  {SmallChiralPolyhedra}, \hyperpage{128}
+  \item \texttt  {SmallDegenerateRegular4Polytopes}, \hyperpage{127}
   \item \texttt  {SmallestReflexibleCover}
     \subitem for IsManiplex, \hyperpage{64}
-  \item \texttt  {SmallReflexible3Maniplexes}, \hyperpage{126}
-  \item \texttt  {SmallReflexibleManiplexes}, \hyperpage{127}
-  \item \texttt  {SmallRegular4Polytopes}, \hyperpage{126}
-  \item \texttt  {SmallRegularPolyhedra}, \hyperpage{125}
-  \item \texttt  {SmallRegularPolyhedraFromFile}, \hyperpage{125}
-  \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{36}
-  \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{35}
+  \item \texttt  {SmallReflexible3Maniplexes}, \hyperpage{128}
+  \item \texttt  {SmallReflexibleManiplexes}, \hyperpage{129}
+  \item \texttt  {SmallRegular4Polytopes}, \hyperpage{128}
+  \item \texttt  {SmallRegularPolyhedra}, \hyperpage{127}
+  \item \texttt  {SmallRegularPolyhedraFromFile}, \hyperpage{127}
+  \item \texttt  {SmallRhombicosidodecahedron}, \hyperpage{37}
+  \item \texttt  {SmallRhombicuboctahedron}, \hyperpage{36}
   \item \texttt  {SmallStellatedDodecahedron}, \hyperpage{28}
-  \item \texttt  {SmallTwoOrbitPolyhedra}, \hyperpage{127}
+  \item \texttt  {SmallTwoOrbitPolyhedra}, \hyperpage{129}
   \item \texttt  {Snub}
     \subitem for IsMapOnSurface, \hyperpage{83}
   \item \texttt  {SnubCube}, \hyperpage{36}
-  \item \texttt  {SnubDodecahedron}, \hyperpage{36}
+  \item \texttt  {SnubDodecahedron}, \hyperpage{37}
   \item \texttt  {Stake}
     \subitem for IsMapOnSurface, \hyperpage{89}
-  \item \texttt  {StandardizeSggi}, \hyperpage{132}
+  \item \texttt  {StandardizeSggi}, \hyperpage{134}
   \item \texttt  {STG1}
     \subitem for IsInt, \hyperpage{30}
   \item \texttt  {STG2}
     \subitem for IsInt,IsList, \hyperpage{30}
   \item \texttt  {STG3}
-    \subitem for IsInt,IsInt, \hyperpage{30}
+    \subitem for IsInt,IsInt, \hyperpage{31}
     \subitem for IsInt,IsInt,IsInt, \hyperpage{31}
   \item \texttt  {Subdivide}
     \subitem for IsMapOnSurface, \hyperpage{87}
@@ -795,22 +799,22 @@
 
   \item \texttt  {Tetrahedron}, \hyperpage{27}
   \item \texttt  {Tight}\-\texttt  {Orientably}\-\texttt  {Regular}\-\texttt  {Polytopes}\-\texttt  {Of}\-\texttt  {Type}
-    \subitem for IsList, \hyperpage{31}
+    \subitem for IsList, \hyperpage{32}
   \item \texttt  {Tomotope}, \hyperpage{32}
   \item \texttt  {TopologicalProduct}
     \subitem for IsManiplex, IsManiplex, \hyperpage{76}
     \subitem for IsPoset,IsPoset, \hyperpage{106}
-  \item \texttt  {ToroidalMap36}, \hyperpage{32}
+  \item \texttt  {ToroidalMap36}, \hyperpage{33}
   \item \texttt  {ToroidalMap44}, \hyperpage{32}
   \item \texttt  {ToroidalMap63}, \hyperpage{33}
-  \item \texttt  {TranslatePerm}, \hyperpage{130}
+  \item \texttt  {TranslatePerm}, \hyperpage{132}
   \item \texttt  {TrivialExtension}
     \subitem for IsManiplex, \hyperpage{67}
   \item \texttt  {TruncatedCube}, \hyperpage{35}
   \item \texttt  {TruncatedDodecahedron}, \hyperpage{37}
-  \item \texttt  {TruncatedIcosahedron}, \hyperpage{35}
+  \item \texttt  {TruncatedIcosahedron}, \hyperpage{36}
   \item \texttt  {TruncatedOctahedron}, \hyperpage{35}
-  \item \texttt  {TruncatedTetrahedron}, \hyperpage{34}
+  \item \texttt  {TruncatedTetrahedron}, \hyperpage{35}
   \item \texttt  {Truncation}
     \subitem for IsMapOnSurface, \hyperpage{82}
   \item \texttt  {TwoToThe}
@@ -833,7 +837,8 @@
     \subitem for IsInt, \hyperpage{11}
     \subitem for IsList, \hyperpage{11}
   \item \texttt  {UnlabeledFlagGraph}
-    \subitem for IsGroup, \hyperpage{109}
+    \subitem for IsGroup, \hyperpage{110}
+    \subitem for IsManiplex, \hyperpage{110}
   \item \texttt  {UnlabeledSimpleGraph}
     \subitem for IsEdgeLabeledGraph, \hyperpage{114}
   \item \texttt  {UpToDuality}
@@ -841,7 +846,7 @@
 
   \indexspace
 
-  \item \texttt  {VerifyProperties}, \hyperpage{134}
+  \item \texttt  {VerifyProperties}, \hyperpage{136}
   \item \texttt  {VertDegrees}
     \subitem for IsManiplex, \hyperpage{41}
   \item \texttt  {Vertex}, \hyperpage{25}
@@ -857,16 +862,16 @@
   \item \texttt  {VertexStabilizer}
     \subitem for IsManiplex, \hyperpage{56}
   \item \texttt  {ViewGraph}
-    \subitem for IsObject, IsString, \hyperpage{116}
+    \subitem for IsObject, IsString, \hyperpage{118}
   \item \texttt  {VoltageGraph}
-    \subitem for IsGroup,IsList,IsList, \hyperpage{120}
-    \subitem for IsGroup,IsPremaniplex, \hyperpage{121}
-    \subitem for IsGroup,IsPremaniplex,IsList, \hyperpage{120}
+    \subitem for IsGroup,IsList,IsList, \hyperpage{122}
+    \subitem for IsGroup,IsPremaniplex, \hyperpage{123}
+    \subitem for IsGroup,IsPremaniplex,IsList, \hyperpage{122}
   \item \texttt  {VoltageOperator}
-    \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{118}
-    \subitem for IsList, IsString,IsManiplex, \hyperpage{118}
-    \subitem for IsVoltageGraph, IsManiplex, \hyperpage{121}
-    \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{122}
+    \subitem for IsList, IsString,IsEdgeLabeledGraph, \hyperpage{120}
+    \subitem for IsList, IsString,IsManiplex, \hyperpage{120}
+    \subitem for IsVoltageGraph, IsManiplex, \hyperpage{123}
+    \subitem for IsVoltageGraph,IsEdgeLabeledGraph, \hyperpage{124}
   \item \texttt  {Volute}
     \subitem for IsMapOnSurface, \hyperpage{89}
 
@@ -874,19 +879,19 @@
 
   \item \texttt  {Whirl}
     \subitem for IsMapOnSurface, \hyperpage{89}
-  \item \texttt  {WrappedPosetOperation}, \hyperpage{133}
-  \item \texttt  {WriteManiplexesToFile}, \hyperpage{123}
+  \item \texttt  {WrappedPosetOperation}, \hyperpage{135}
+  \item \texttt  {WriteManiplexesToFile}, \hyperpage{125}
   \item \texttt  {Wythoffian}
-    \subitem for IsList, IsManiplex, \hyperpage{119}
+    \subitem for IsList, IsManiplex, \hyperpage{121}
   \item \texttt  {WythoffLabeledEdges}
-    \subitem for IsInt, IsList, \hyperpage{119}
+    \subitem for IsInt, IsList, \hyperpage{121}
   \item \texttt  {WythoffSTG}
-    \subitem for IsInt, IsList, \hyperpage{119}
+    \subitem for IsInt, IsList, \hyperpage{121}
 
   \indexspace
 
   \item \texttt  {XORLists}
-    \subitem for IsList,IsList, \hyperpage{134}
+    \subitem for IsList,IsList, \hyperpage{136}
 
   \indexspace
 

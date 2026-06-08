@@ -116,8 +116,8 @@
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Vertex();</span>
-UniversalPolytope(0)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(Vertex());</span>
+0
 </pre></div>
 
 <p><a id="X7DA6B54B7F300B92" name="X7DA6B54B7F300B92"></a></p>
@@ -131,8 +131,8 @@ UniversalPolytope(0)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Edge();</span>
-UniversalPolytope(1)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(Edge());</span>
+1
 </pre></div>
 
 <p><a id="X8436B8097852EF9B" name="X8436B8097852EF9B"></a></p>
@@ -146,8 +146,10 @@ UniversalPolytope(1)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facets(Pgon(5));</span>
-[ UniversalPolytope(1) ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(Pgon(5));</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facet(Pgon(5)) = Edge();</span>
+true
 </pre></div>
 
 <p><a id="X8306D0C17A6BDDCE" name="X8306D0C17A6BDDCE"></a></p>
@@ -163,6 +165,8 @@ UniversalPolytope(1)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(Cube(4));</span>
 [ 16, 32, 24, 8 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Facet(Cube(5)) = Cube(4);</span>
+true
 </pre></div>
 
 <p><a id="X828C02F4861F0CD3" name="X828C02F4861F0CD3"></a></p>
@@ -172,12 +176,14 @@ UniversalPolytope(1)
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; HemiCube</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: IsPolytope</p>
 
-<p>Returns the n-hemi-cube.</p>
+<p>Returns the n-hemi-cube, the quotient of the n-cube by central inversion.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(HemiCube(4));</span>
 [ 8, 16, 12, 4 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsOrientable(HemiCube(3));</span>
+false
 </pre></div>
 
 <p><a id="X78DC5BA486C3288C" name="X78DC5BA486C3288C"></a></p>
@@ -193,6 +199,8 @@ UniversalPolytope(1)
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfVertices(CrossPolytope(5));</span>
 10
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(CrossPolytope(4)) = Cube(4);</span>
+true
 </pre></div>
 
 <p><a id="X84BE285087AAC1F7" name="X84BE285087AAC1F7"></a></p>
@@ -206,7 +214,7 @@ UniversalPolytope(1)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Octahedron() = CrossPolytope(3)</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Octahedron() = CrossPolytope(3);</span>
 true
 </pre></div>
 
@@ -236,7 +244,9 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(Simplex(3))=HemiCube(3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(Simplex(4));</span>
+[ 5, 10, 10, 5 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(Simplex(3)) = HemiCube(3);</span>
 true
 </pre></div>
 
@@ -251,7 +261,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Tetrahedron() = Simplex(3)</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Tetrahedron() = Simplex(3);</span>
 true
 </pre></div>
 
@@ -296,8 +306,8 @@ Icosahedron()
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(HemiDodecahedron());</span>
-ReflexibleManiplex([ 3, 5 ], "(r2*r1*r0)^5")
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(HemiDodecahedron()) = HemiIcosahedron();</span>
+true
 </pre></div>
 
 <p><a id="X83E0EF8F7CCD6979" name="X83E0EF8F7CCD6979"></a></p>
@@ -341,7 +351,7 @@ Dodecahedron()
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallStellatedDodecahedron()=GreatDodecahedron();</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallStellatedDodecahedron() = GreatDodecahedron();</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(GreatDodecahedron());</span>
 120
@@ -375,6 +385,8 @@ true
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Hemi24Cell());</span>
 [ 3, 4, 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(Hemi24Cell());</span>
+576
 </pre></div>
 
 <p><a id="X7A7A51CC878450C4" name="X7A7A51CC878450C4"></a></p>
@@ -388,7 +400,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(120Cell(),3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(120Cell(), 3);</span>
 120
 </pre></div>
 
@@ -403,7 +415,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(Hemi120Cell(),3);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfIFaces(Hemi120Cell(), 3);</span>
 60
 </pre></div>
 
@@ -433,7 +445,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Hemi600Cell())=Hemi120Cell();</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Hemi600Cell()) = Hemi120Cell();</span>
 true
 </pre></div>
 
@@ -463,8 +475,10 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(InternallySelfDualPolyhedron1(40));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron1(40);; SchlafliSymbol(M);</span>
 [ 40, 40 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsSelfDual(M);</span>
+true
 </pre></div>
 
 <p><a id="X8724E56280B600E1" name="X8724E56280B600E1"></a></p>
@@ -478,8 +492,10 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(InternallySelfDualPolyhedron2(40,7));</span>
-[ 40, 40 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := InternallySelfDualPolyhedron2(8,7);; SchlafliSymbol(M);</span>
+[ 8, 8 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(M);</span>
+116218388160
 </pre></div>
 
 <p><a id="X83A5B22B7B873BE5" name="X83A5B22B7B873BE5"></a></p>
@@ -491,6 +507,12 @@ true
 
 <p>Returns the Grand Antiprism.</p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := GrandAntiprism;; SchlafliSymbol(M);</span>
+[ [ 3, 5 ], [ 3, 4 ], [ 4, 5 ] ]
+</pre></div>
+
 <p><a id="X7DB8D3047E0B5A7D" name="X7DB8D3047E0B5A7D"></a></p>
 
 <h5>5.1-27 STG1</h5>
@@ -498,12 +520,12 @@ true
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; STG1</code>( <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: premaniplex</p>
 
-<p>Builds the 1 flag premaniplex of rank <var class="Arg">n</var>. See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).</p>
+<p>Builds the 1 flag premaniplex of rank <var class="Arg">n</var>. See Voltage operations on maniplexes (<a href="chapBib.html#biBVoltOps">[HMM23]</a>).</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG1(5);</span>
-Premaniplex of rank 5 with 1 flag
+5-premaniplex with 1 flag
 </pre></div>
 
 <p><a id="X7BCF47AC7876459A" name="X7BCF47AC7876459A"></a></p>
@@ -513,12 +535,12 @@ Premaniplex of rank 5 with 1 flag
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; STG2</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: premaniplex</p>
 
-<p>Builds the 2 flag premaniplex of rank <var class="Arg">n</var> with semi-edges in <var class="Arg">I</var>. See VOLTAGE OPERATIONS ON MANIPLEXES (citation coming soon).</p>
+<p>Builds the 2 flag premaniplex of rank <var class="Arg">n</var> with semi-edges in <var class="Arg">I</var>. See Voltage operations on maniplexes (<a href="chapBib.html#biBVoltOps">[HMM23]</a>).</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG2(5,[2,4]);</span>
-Premaniplex of rank 5 with 2 flags
+5-premaniplex with 2 flags
 </pre></div>
 
 <p><a id="X7C2B1DB07CB38F59" name="X7C2B1DB07CB38F59"></a></p>
@@ -533,7 +555,7 @@ Premaniplex of rank 5 with 2 flags
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(5,2);</span>
-Premaniplex of rank 5 with 3 flags
+5-premaniplex with 3 flags
 </pre></div>
 
 <p><a id="X7EFDB6887DEAFB4F" name="X7EFDB6887DEAFB4F"></a></p>
@@ -548,7 +570,7 @@ Premaniplex of rank 5 with 3 flags
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">STG3(6,2,3);</span>
-Premaniplex of rank 6 with 3 flags
+6-premaniplex with 3 flags
 </pre></div>
 
 <p><a id="X7808135A8376515A" name="X7808135A8376515A"></a></p>
@@ -630,7 +652,7 @@ false
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ToroidalMap44</code>( <var class="Arg">u</var>[, <var class="Arg">v</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: IsManiplex</p>
 
-<p>Returns the toroidal map <span class="Math">\{4,4\}_{\vec u, \vec v}</span>. If only <var class="Arg">u</var> is given, then <var class="Arg">v</var> is taken to be <var class="Arg">u</var> rotated 90 degrees, in which case the resulting map is either reflexible or chiral.</p>
+<p>Returns the toroidal map <span class="Math">\{4,4\}_{\vec u, \vec v}</span>. If only <var class="Arg">u</var> is given, then <var class="Arg">v</var> is taken to be <var class="Arg">u</var> rotated 90 degrees, in which case the resulting map is either reflexible (if <var class="Arg">u</var> is [a, 0] or [a, a]) or chiral.</p>
 
 
 <div class="example"><pre>
@@ -731,6 +753,8 @@ true
 3-maniplex
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">last=ToroidalMap44([2,0]);</span>
 true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NumberOfFlagOrbits(CubicToroid(3, [[2,0,0], [0,3,0], [0,0,4]]));</span>
+6
 </pre></div>
 
 <p><a id="X870D878B843C9D5F" name="X870D878B843C9D5F"></a></p>
