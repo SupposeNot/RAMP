@@ -97,10 +97,30 @@ InstallMethod(SatisfiesPathIntersectionProperty,
 	return true;
 	end);
 
+FAST_FAITHFUL_TEST := function(M)
+	if HasIsPolytopal(M) and IsPolytopal(M) then
+		return true;
+	elif HasFvector(M) and 1 in Fvector(M) then
+		return false;
+	elif HasNumberOfVertices(M) and NumberOfVertices(M) = 1 then
+		return false;
+	elif HasNumberOfFacets(M) and NumberOfFacets(M) = 1 then
+		return false;
+	else
+		return fail;
+	fi;
+	end;
+
 InstallMethod(IsFaithful,
 	[IsReflexibleManiplex],
 	function(M)
-	return Size(MaxChainStabilizer(M)) = 1;
+	local fast;
+	fast := FAST_FAITHFUL_TEST(M);
+	if fast <> fail then
+		return fast;
+	else
+		return Size(MaxChainStabilizer(M)) = 1;
+	fi;
 	end);
 
 InstallMethod(IsFaithful,
@@ -108,23 +128,27 @@ InstallMethod(IsFaithful,
 	function(m)
 	#for each flag we will test if the intersection of all the i faces containing it 
 	# is just the flag itself.  If not, it isn't faithful.
-	local c, gens, M, f, i, ind, Ci, test;
-	c:=ConnectionGroup(m);
-	gens:=GeneratorsOfGroup(c);	
-	M:=MovedPoints(c);
-	for f in M do 
-	test:=ShallowCopy(M);
-	for i in [1..Size(gens)] do
-	ind:=[1..Size(gens)];
-	Remove(ind,i);
-	Ci:=Group(List(ind, j-> gens[j]));	
-	test:=Intersection(Orbit(Ci,f),test);
-	od;
-	if Size(test) <> 1 then 
-	return false;
+	local c, gens, M, f, i, ind, Ci, test, fast;
+
+	fast := FAST_FAITHFUL_TEST(m);
+	if fast <> fail then
+		return fast;
+	else
+		c := ConnectionGroup(m);
+		gens := GeneratorsOfGroup(c);	
+		M := MovedPoints(c);
+		for f in M do 
+			test := ShallowCopy(M);
+			for i in [1..Size(gens)] do
+				ind := [1..Size(gens)];
+				Remove(ind,i);
+				Ci := Group(List(ind, j-> gens[j]));	
+				test := Intersection(Orbit(Ci,f),test);
+			od;
+			if Size(test) <> 1 then return false; fi;
+		od;
+		return true;
 	fi;
-	od;
-	return true;
 	end);
 	
 InstallMethod(IsRegularPolytope,
