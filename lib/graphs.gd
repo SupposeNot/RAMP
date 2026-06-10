@@ -10,7 +10,10 @@
 DeclareOperation("DirectedGraphFromListOfEdges",[IsList,IsList]);
 #! Here we build a directed cycle on 3 vertices.
 #! @BeginExampleSession
-#! gap> g := DirectedGraphFromListOfEdges([1,2,3],[[1,2],[2,3],[3,1]]);;
+#! gap> g := DirectedGraphFromListOfEdges([1,2,3],[[1,2],[2,3],[3,1]]);
+#! rec( adjacencies := [ [ 2 ], [ 3 ], [ 1 ] ], group := Group(()), 
+#!   isGraph := true, names := [ 1, 2, 3 ], order := 3, 
+#!   representatives := [ 1, 2, 3 ], schreierVector := [ -1, -2, -3 ] )
 #! gap> Length(Vertices(g));
 #! 3
 #! gap> Length(DirectedEdges(g));
@@ -23,7 +26,11 @@ DeclareOperation("DirectedGraphFromListOfEdges",[IsList,IsList]);
 DeclareOperation("GraphFromListOfEdges",[IsList,IsList]);
 #! Here we build a complete graph on 4 vertices.
 #! @BeginExampleSession
-#! gap> g := GraphFromListOfEdges([1,2,3,4],[[1,2],[2,3],[3,1],[1,4],[2,4],[3,4]]);;
+#! gap> g := GraphFromListOfEdges([1,2,3,4],[[1,2],[2,3],[3,1],[1,4],[2,4],[3,4]]);
+#! rec( adjacencies := [ [ 2, 3, 4 ], [ 1, 3, 4 ], [ 1, 2, 4 ], [ 1, 2, 3 ] ], 
+#!   group := Group(()), isGraph := true, isSimple := true, 
+#!   names := [ 1, 2, 3, 4 ], order := 4, representatives := [ 1, 2, 3, 4 ], 
+#!   schreierVector := [ -1, -2, -3, -4 ] )
 #! gap> Length(Vertices(g));
 #! 4
 #! gap> Length(UndirectedEdges(g));
@@ -112,7 +119,16 @@ DeclareOperation("LayerGraph",[IsGroup, IsInt, IsInt]);
 DeclareOperation("LayerGraph",[IsManiplex, IsInt, IsInt]);
 #! Here we build the incidence graph of the 6 faces and 12 edges of a cube.
 #! @BeginExampleSession
-#! gap> g := LayerGraph(Cube(3),2,1);;
+#! gap> g := LayerGraph(Cube(3),2,1);
+#! rec( adjacencies := [ [ 7, 9, 10, 14 ], [ 8, 10, 16, 17 ], [ 7, 12, 13, 18 ], 
+#!       [ 9, 13, 15, 17 ], [ 8, 11, 12, 15 ], [ 11, 14, 16, 18 ], [ 1, 3 ], 
+#!       [ 2, 5 ], [ 1, 4 ], [ 1, 2 ], [ 5, 6 ], [ 3, 5 ], [ 3, 4 ], [ 1, 6 ], 
+#!       [ 4, 5 ], [ 2, 6 ], [ 2, 4 ], [ 3, 6 ] ], group := Group(()), 
+#!   isGraph := true, isSimple := true, names := [ 1 .. 18 ], order := 18, 
+#!   representatives := [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
+#!       17, 18 ], 
+#!   schreierVector := [ -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, 
+#!       -14, -15, -16, -17, -18 ] )
 #! gap> Length(Vertices(g));
 #! 18
 #! gap> Length(UndirectedEdges(g));
