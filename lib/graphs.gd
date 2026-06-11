@@ -164,6 +164,68 @@ DeclareOperation("CoSkeleton",[IsManiplex]);
 #! @EndExampleSession
 
 #! @Arguments maniplex
+#! @Returns a record `rec(order, edges)`.
+#! @Description Given a maniplex, this outputs the skeleton as an edge multiset. The record's `order` is the number of 0-faces (the vertices), and `edges` is a list of unordered pairs `[u,v]` of vertex numbers, one per 1-face. Unlike `Skeleton`, which returns the underlying simple graph, this preserves multiple edges (distinct 1-faces sharing the same pair of vertices) and loops (a 1-face whose two ends are the same vertex). The vertex numbering agrees with that of `Skeleton`.
+DeclareOperation("SkeletonEdges",[IsManiplex]);
+#! For the dodecahedron the skeleton is simple, so the multiset has no repeats and matches `Skeleton`.
+#! @BeginExampleSession
+#! gap> s := SkeletonEdges(Dodecahedron());;
+#! gap> s.order;
+#! 20
+#! gap> Length(s.edges);
+#! 30
+#! gap> Length(Set(List(s.edges, Set)));
+#! 30
+#! gap> IsIsomorphicGraph(GraphFromListOfEdges([1..s.order], s.edges), Skeleton(Dodecahedron()));
+#! true
+#! @EndExampleSession
+#! The hosohedron `{2,3}` has a skeleton with three parallel edges, which `Skeleton` collapses to one.
+#! @BeginExampleSession
+#! gap> s := SkeletonEdges(ReflexibleManiplex([2,3]));;
+#! gap> s.order;
+#! 2
+#! gap> Length(s.edges);
+#! 3
+#! gap> Collected(List(s.edges, Set));
+#! [ [ [ 1, 2 ], 3 ] ]
+#! gap> Length(UndirectedEdges(Skeleton(ReflexibleManiplex([2,3]))));
+#! 1
+#! @EndExampleSession
+
+#! @Arguments group
+#! @Returns a record `rec(order, edges)`.
+#! @Description Given a group, assumed to be the connection group of a maniplex, this outputs the skeleton edge multiset, as for the maniplex method above.
+DeclareOperation("SkeletonEdges",[IsGroup]);
+
+#! @Arguments maniplex
+#! @Returns a record `rec(order, edges)`.
+#! @Description Given a maniplex, this outputs the co-skeleton as an edge multiset, i.e. the skeleton edge multiset of the dual. The record's `order` is the number of `(n-1)`-faces, and `edges` is a list of unordered pairs of these, one per `(n-2)`-face. Like `SkeletonEdges`, this preserves multiple edges and loops, where `CoSkeleton` returns only the underlying simple graph.
+DeclareOperation("CoSkeletonEdges",[IsManiplex]);
+#! For the dodecahedron the co-skeleton is simple, so the multiset has no repeats and matches `CoSkeleton`.
+#! @BeginExampleSession
+#! gap> s := CoSkeletonEdges(Dodecahedron());;
+#! gap> s.order;
+#! 12
+#! gap> Length(s.edges);
+#! 30
+#! gap> Length(Set(List(s.edges, Set)));
+#! 30
+#! @EndExampleSession
+#! The co-skeleton of the dihedron `{3,2}` has three parallel edges, which `CoSkeleton` collapses to one.
+#! @BeginExampleSession
+#! gap> s := CoSkeletonEdges(ReflexibleManiplex([3,2]));;
+#! gap> s.order;
+#! 2
+#! gap> Collected(List(s.edges, Set));
+#! [ [ [ 1, 2 ], 3 ] ]
+#! @EndExampleSession
+
+#! @Arguments group
+#! @Returns a record `rec(order, edges)`.
+#! @Description Given a group, assumed to be the connection group of a maniplex, this outputs the co-skeleton edge multiset, as for the maniplex method above.
+DeclareOperation("CoSkeletonEdges",[IsGroup]);
+
+#! @Arguments maniplex
 #! @Returns `IsGraph`. Note this returns a directed graph.
 #! @Description Given a maniplex, this outputs its Hasse diagram as a directed graph.
 #! Note: The unique minimal and maximal faces are assumed.
