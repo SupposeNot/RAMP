@@ -17,6 +17,7 @@ InstallMethod(ReflexibleManiplexNC,
 	fi;
 	SetIsReflexible(p, true);
 	if HasSchlafliSymbol(autgp) then SetSchlafliSymbol(p, SchlafliSymbol(autgp)); fi;
+	SetIsSggi(autgp, true);
 
 	return p;
 	end);
@@ -310,6 +311,7 @@ InstallMethod(PremaniplexNC,
 	SetConnectionGroup(pm,g);
 	SetRankManiplex(pm, pm!.rank);	
 	SetSize(pm, NrMovedPoints(g));
+	SetIsSggi(g, true);
 	return(pm);
 	end);
 
@@ -348,6 +350,7 @@ InstallMethod(ReflexiblePremaniplexNC,
 	fi;
 	SetIsReflexible(p, true);
 	if HasSchlafliSymbol(autgp) then SetSchlafliSymbol(p, SchlafliSymbol(autgp)); fi;
+	SetIsSggi(autgp, true);
 
 	return p;
 	end);
@@ -379,6 +382,7 @@ InstallMethod(RotaryManiplexNC,
 	SetRotationGroup(p, rotgp);
 	SetIsOrientable(p, true);
 	SetIsRotary(p, true);
+	SetIsStringRotationGroup(rotgp, true);
 
 	return p;
 	end);
