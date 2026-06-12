@@ -202,7 +202,7 @@ DeclareOperation("Hemi600Cell", []);
 #! @EndExampleSession
 
 #! @Returns IsPoset
-#! @Description Returns Bruckner's sphere.
+#! @Description Returns Bruckner's sphere. This is non-convex simple 4-sphere. It was originally part of an enumeration of simple 4-polytopes by Brückner <Cite Key="Bru09"/> with eight facets, however, as discovered by Grünbaum and Sreedharan <Cite Key="GruSre67"/>, this example is not realizable as a convex polytope. 
 DeclareOperation("BrucknerSphere",[]);
 #! @BeginExampleSession
 #! gap> IsLattice(BrucknerSphere());
