@@ -67,6 +67,12 @@ gap> s.order;
 2
 gap> Collected(List(s.edges, Set));
 [ [ [ 1, 2 ], 3 ] ]
+gap> s := SkeletonEdges(Vertex());;
+gap> [s.order, Length(s.edges)];
+[ 0, 0 ]
+gap> s := CoSkeletonEdges(Vertex());;
+gap> [s.order, Length(s.edges)];
+[ 0, 0 ]
 gap> g := Hasse(Simplex(3));;
 gap> Length(Vertices(g));
 16

@@ -156,6 +156,8 @@ InstallMethod(SkeletonEdges,
 	local gens, n, pts, r0, verts, vertexId, i, f, oneFaces, edges;
 	gens:=GeneratorsOfGroup(c);
 	n:=Size(gens);
+	# A rank-0 maniplex (no generators) has an empty skeleton, matching Skeleton.
+	if n = 0 then return rec( order:=0, edges:=[] ); fi;
 	pts:=MovedPoints(c);
 	r0:=gens[1];
 	# The 0-faces (vertices) are the orbits of <r_1,...,r_{n-1}>.
@@ -189,7 +191,10 @@ end);
 InstallMethod(CoSkeletonEdges,
 	[IsGroup],
 	function(c)
-	return SkeletonEdges(Group(Reversed(GeneratorsOfGroup(c))));
+	local gens;
+	gens:=GeneratorsOfGroup(c);
+	if IsEmpty(gens) then return rec( order:=0, edges:=[] ); fi;
+	return SkeletonEdges(Group(Reversed(gens)));
 end);
 
 
