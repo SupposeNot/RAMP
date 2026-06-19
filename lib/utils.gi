@@ -372,9 +372,7 @@ InstallGlobalFunction(VerifyProperties, function(M)
 		fi;
 	od;
 	
-	if Size(mismatches) = 0 then
-		Print("All properties and basic numeric attributes verified.\n");
-	else
+	if Size(mismatches) > 0 then
 		for mismatch in mismatches do
 			Print("Value mismatch in ");
 			Print(mismatch[1]);
