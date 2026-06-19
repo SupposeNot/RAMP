@@ -256,22 +256,3 @@ InstallMethod(Bk2lRhoSigma,
 	return ReflexibleManiplex(g);
 	end);
 	
-#Operations
-	
-InstallMethod(Opp,
-	[IsMapOnSurface],
-	map->Petrial(Dual(Petrial(map))));
-	
-InstallMethod(Hole,
-	[IsMapOnSurface,IsInt],
-	function(m,j)
-	local g, hole, hgp, orbs, act;
-	if Rank(m)<>3 then Error("Not a map.");fi;
-	g:=ConnectionGroup(m);
-	hole:=(g.2 *g.3)^(j-1) *g.2;
-	hgp:=Group([g.1,hole,g.3]);
-	orbs:=Orbits(hgp);
-	act:=Action(hgp,orbs[1]);
-	return Maniplex(act);
-	end);	
-	

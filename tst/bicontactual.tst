@@ -30,3 +30,7 @@ gap> Bk2l(4,16)=Bk2lRhoSigma(4,16,1,2);
 true
 gap> Bk2lStar(4,16)=Bk2lRhoSigma(4,16,1,6);
 true
+gap> ForAll([Epsilonk(5), Epsilonk(6), Deltak(5), Deltak(6), Mk(5), Mk(6)], VerifyProperties);
+true
+gap> ForAll([MkPrime(5), MkPrime(6), Bk2l(4,10), Bk2l(6,10), Bk2lStar(5,10), Bk2lStar(6,8)], VerifyProperties);
+true

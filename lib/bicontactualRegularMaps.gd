@@ -84,25 +84,3 @@ DeclareOperation("Bk2lRhoSigma",[IsInt,IsInt,IsInt,IsInt]);
 #! [ 16, 4 ]
 #! @EndExampleSession
 
-
-
-#! @Section Operations on reflexible maps
-
-#! @Arguments map
-#! @Returns IsManiplex
-#! @Description Forms the opposite map of the maniplex <A>map</A>.
-DeclareOperation("Opp", [IsMapOnSurface]);
-#! @BeginExampleSession
-#! gap> Opp(Bk2lStar(5,7));
-#! Petrial(Dual(Petrial(3-maniplex with 140 flags)))
-#! @EndExampleSession
-
-#! @Arguments map, j
-#! @Returns IsManiplex
-#! @Description Given <A>map</A> and integer $j$, will form the map $H_j(map)$. Note that if the action of $[r_0,(r_1 r_2)^{j-1} r_1, r_2]$ on the flags forms multiple orbits, then the resulting map will be on just one of those orbits.
-DeclareOperation("Hole", [IsMapOnSurface,IsInt]);
-#! @BeginExampleSession
-#! gap> Hole(Bk2lStar(5,7),2);
-#! 3-maniplex with 140 flags
-#! @EndExampleSession
-
