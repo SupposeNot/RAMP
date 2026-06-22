@@ -11,7 +11,7 @@ InstallMethod(IsOrientable,
 			else
 				g := AutomorphismGroup(M);
 				h := RotationGroup(M);
-				isOrientable := (Index(g,h) = 2);
+				isOrientable := (IndexNC(g,h) = 2);
 			fi;
 		else
 			isOrientable := IsBipartite(UnlabeledFlagGraph(M));
