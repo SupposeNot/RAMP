@@ -12,6 +12,7 @@ ReadPackage( "ramp", "lib/sggi.gd" );
 ReadPackage( "ramp", "lib/ggi.gd" );
 
 ReadPackage( "ramp", "lib/actions.gd" ); 
+ReadPackage( "ramp", "lib/arpsfromgroup.gd" ); 
 ReadPackage( "ramp", "lib/basicConstructors.gd");
 ReadPackage( "ramp", "lib/bicontactualRegularMaps.gd");
 ReadPackage( "ramp", "lib/constructions.gd" ); 
