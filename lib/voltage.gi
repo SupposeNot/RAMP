@@ -276,6 +276,8 @@ InstallMethod(ChangeVoltage,
 	local pos;
 	pos:=Position(VG!.labeled_darts,labdart);
 	VG!.voltages[pos]:=g;
+	ResetFilterObj(VG, HasVoltages);
+	ResetFilterObj(VG, HasDerivedGraph);
 	return;
 	end);
 
@@ -289,6 +291,8 @@ InstallMethod(ChangeVoltage,
 	dart:=LabeledDart(P,lab,startvert);
 	pos:=Position(VG!.labeled_darts,dart);
 	VG!.voltages[pos]:=g;
+	ResetFilterObj(VG, HasVoltages);
+	ResetFilterObj(VG, HasDerivedGraph);
 	return;
 	end);
 
@@ -371,4 +375,3 @@ InstallMethod(Premaniplex,
 	function(vg)
 	return vg!.premaniplex;
 	end);
-
