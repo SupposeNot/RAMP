@@ -452,9 +452,9 @@ DeclareAttribute("LabeledDarts",IsPremaniplex);
 #! [ 0, 1, 2, 3, 4 ]
 #! @EndExampleSession
 
-#! @Arguments M, vertex, label
+#! @Arguments M, label, startvert
 #! @Returns list or `fail`
-#! @Description Given a premaniplex <A>M</A>, a vertex, and a label, returns the labeled dart with that initial vertex and label when it exists, and `fail` otherwise.
+#! @Description Given a premaniplex <A>M</A>, a label, and a start vertex, returns the labeled dart with that label and initial vertex when it exists, and `fail` otherwise.
 DeclareOperation("LabeledDart",[IsPremaniplex, IsInt,IsInt]);
 #! @BeginExampleSession
 #! gap> P := STG2(5,[2,4]);;
