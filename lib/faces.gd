@@ -259,6 +259,8 @@ DeclareOperation("IsFlat", [IsManiplex, IsInt, IsInt]);
 #! Each entry is either an integer or a set of integers,
 #! where entry number i shows the polygons that we obtain
 #! as sections of (i+1)-faces over (i-2)-faces.
+#! Also accepts an sggi g as input, in which case it uses
+#! M = Maniplex(g).
 DeclareAttribute("SchlafliSymbol", IsManiplex);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(SmallRhombicosidodecahedron());
