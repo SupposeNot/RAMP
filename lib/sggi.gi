@@ -137,6 +137,10 @@ InstallMethod(IsStringCPlus,
 		return true;
 	elif n = 1 then
 		return Size(g) > 1;
+	elif n = 2 then
+		facetGroup := Subgroup(g, [g.1]);
+		vfigGroup := Subgroup(g, [g.2]);
+		return Size(Intersection(facetGroup, vfigGroup)) = 1;
 	else
 		facetGroup := Subgroup(g, GeneratorsOfGroup(g){[1..n-1]});
 		vfigGroup := Subgroup(g, GeneratorsOfGroup(g){[2..n]});
