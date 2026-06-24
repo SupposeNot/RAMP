@@ -687,11 +687,11 @@
   
   [1X13.2-34 LabeledDart[101X
   
-  [33X[1;0Y[29X[2XLabeledDart[102X( [3XM[103X, [3Xvertex[103X, [3Xlabel[103X ) [32X operation[133X
+  [33X[1;0Y[29X[2XLabeledDart[102X( [3XM[103X, [3Xlabel[103X, [3Xstartvert[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ylist or [10Xfail[110X[133X
   
-  [33X[0;0YGiven  a premaniplex [3XM[103X, a vertex, and a label, returns the labeled dart with
-  that initial vertex and label when it exists, and [10Xfail[110X otherwise.[133X
+  [33X[0;0YGiven a premaniplex [3XM[103X, a label, and a start vertex, returns the labeled dart
+  with that label and initial vertex when it exists, and [10Xfail[110X otherwise.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XP := STG2(5,[2,4]);;[127X[104X

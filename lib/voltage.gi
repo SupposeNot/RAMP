@@ -1,3 +1,4 @@
+
 InstallMethod(VoltageOperator,
 	[IsList, IsString,IsEdgeLabeledGraph],
 	function(etain,etaout,Xa)

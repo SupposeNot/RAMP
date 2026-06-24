@@ -39,6 +39,10 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7BC3B94379122B29">14.1-12 DerivedGraph</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X87B722CB84C389BB">14.1-13 VoltageOperator</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7C446B798146B031">14.1-14 VoltageOperator</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7A0360878704ACCB">14.1-15 VoltageGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7899241E79D3D158">14.1-16 LabeledDarts</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X85F783BA787FEDB3">14.1-17 Voltages</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap14.html#X7CCB91E887D3E5F8">14.1-18 Premaniplex</a></span>
 </div></div>
 </div>
 
@@ -53,35 +57,34 @@
 <h5>14.1-1 VoltageOperator</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">etain</var>, <var class="Arg">etaout</var>, <var class="Arg">Xa</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsManiplex</p>
+<p>Returns: <code class="code">IsManiplex</code></p>
 
-<p>Returns the output of the voltage operator acting on Xa. Xa is a n-premaniplex as an edge labeled graph, Y is a m-premaniplex. eta is a voltage assignment on the darts of Y. etain is a list of all darts of Y. etaout is a string giving words in the universal sggi of rank n, and the order of the words corresponds to the order of the darts in etain. If Xa is given as a maniplex, the operation is done to its flag graph.</p>
+<p>Returns the output of the voltage operator acting on <var class="Arg">Xa</var>. The list <var class="Arg">etain</var> gives the labeled darts of the auxiliary premaniplex. The string <var class="Arg">etaout</var> gives a comma-separated list of words in the universal sggi of the same rank as <var class="Arg">Xa</var>, with one word for each dart in <var class="Arg">etain</var>. If <var class="Arg">Xa</var> is a maniplex, the operation is applied to its flag graph.</p>
 
 <p><a id="X7817A3787920523B" name="X7817A3787920523B"></a></p>
 
 <h5>14.1-2 VoltageOperator</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">arg1</var>, <var class="Arg">arg2</var>, <var class="Arg">arg3</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>The Petrial and the dual can be built using voltage operations. Similarly, other rank 3 operations can be built this way. See "Voltage operations on maniplexes" by Hubard, Mochan, and Montero.</p>
+
 
 <div class="example"><pre>
-The Petrial and the dual can be built using voltage operations
-Similarly for rank 3 other operations can be built this way.
-See VOLTAGE OPERATIONS ON MANIPLEXES by HUBARD, MOCHÁN, MONTERO
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutPetrial:="r0, r1 r3, r2, r3";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutDual:="r3, r2, r1, r0";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutMedial:="r1, r1, r0, r2, Id";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutLeapfrog:="r1,r1,r2,r0,r0, , ";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutTruncation:="r1, r1, r0, r2, r2,Id, Id";;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain1 := [[[1],0],[[1],1],[[1],2],[[1],3]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain2 := [[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etain3 := [[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutPetrial := "r0, r1 r3, r2, r3";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutDual := "r3, r2, r1, r0";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutMedial := "r1, r1, r0, r2, Id";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutLeapfrog := "r1,r1,r2,r0,r0, , ";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">etaoutTruncation := "r1, r1, r0, r2, r2,Id, Id";;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Petrial(Cube(4)) = VoltageOperator(etain1, etaoutPetrial, Cube(4));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Dual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Medial(Dodecahedron()) = VoltageOperator(etain2, etaoutMedial, Dodecahedron());</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Leapfrog(Simplex(3)) =  VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Leapfrog(Simplex(3)) = VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));</span>
 true
@@ -92,15 +95,16 @@ true
 <h5>14.1-3 AdmissiblePerms</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AdmissiblePerms</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<p>Returns: <code class="code">IsList</code></p>
 
-<p>Returns a list of the admissible sequences that correspond to the flag orbits for a Wythoffian of a rank <var class="Arg">n</var> maniplex. The vertex in the fundamental region is moved by ri for i in <var class="Arg">I</var>.</p>
+<p>Returns the admissible sequences corresponding to the flag orbits for a Wythoffian of a rank <var class="Arg">n</var> maniplex. The vertex in the fundamental region is moved by <code class="code">r_i</code> for <code class="code">i</code> in <var class="Arg">I</var>.</p>
+
+<p>There are three flag orbits in the truncation of a rank 3 maniplex, where truncation is the Wythoffian defined by <code class="code">I = [0,1]</code>.</p>
 
 
 <div class="example"><pre>
-There will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AdmissiblePerms(3,[0,1]);</span>
- [ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ]
+[ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ]
 </pre></div>
 
 <p><a id="X7B45168A7EB410C2" name="X7B45168A7EB410C2"></a></p>
@@ -108,14 +112,15 @@ There will be three flag orbits in the truncation of a rank 3 maniplex, where tr
 <h5>14.1-4 WythoffSTG</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WythoffSTG</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<p>Returns: <code class="code">IsEdgeLabeledGraph</code></p>
 
-<p>Returns the symmetry type graph for a Wythoffian of rank <var class="Arg">n</var> defined by a list of indices <var class="Arg">I</var>. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.</p>
+<p>Returns the symmetry type graph for a Wythoffian of rank <var class="Arg">n</var> defined by a list of indices <var class="Arg">I</var>. See, for instance, "Voltage operations on maniplexes".</p>
+
+<p>Here is the symmetry type graph of a medial operation.</p>
 
 
 <div class="example"><pre>
-Symmetry type graph of a medial operation
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W:=WythoffSTG(3,[1]);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W := WythoffSTG(3,[1]);</span>
 Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LabeledEdges(W);</span>
 [ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
@@ -126,15 +131,17 @@ Edge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ]
 <h5>14.1-5 WythoffLabeledEdges</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; WythoffLabeledEdges</code>( <var class="Arg">n</var>, <var class="Arg">I</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<p>Returns: <code class="code">IsList</code></p>
 
-<p>Returns the labeled edges of a possible symmetry type graph for a Wythoffian of rank <var class="Arg">n</var> defined by a list of indices <var class="Arg">I</var>. The actual graph is not returned, as we require edge labeled graphs to have integer vertices in order to calculate their connection groups.</p>
+<p>Returns the labeled edges of a possible symmetry type graph for a Wythoffian of rank <var class="Arg">n</var> defined by a list of indices <var class="Arg">I</var>. This returns a list rather than an edge-labeled graph, since edge-labeled graphs are expected to have integer vertices when calculating their connection groups.</p>
+
+<p>Here are the labeled edges of the symmetry type graph of a medial operation.</p>
 
 
 <div class="example"><pre>
-Labeled Edges of the Symmetry type graph of a medial operation
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">WythoffLabeledEdges(3,[1]);</span>
-[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ]
+[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], 
+  [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ]
 </pre></div>
 
 <p><a id="X7D0ACAEB81272E41" name="X7D0ACAEB81272E41"></a></p>
@@ -142,22 +149,22 @@ Labeled Edges of the Symmetry type graph of a medial operation
 <h5>14.1-6 Wythoffian</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Wythoffian</code>( <var class="Arg">I</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsList</p>
+<p>Returns: <code class="code">IsManiplex</code></p>
 
-<p>Returns the Wythoffian of the maniplex <var class="Arg">M</var> with set of ringed nodes <var class="Arg">I</var>. For example, if I = [1] then this is the rectification of <var class="Arg">M</var> and if I = [0, 1] then this is truncation of <var class="Arg">M</var>. Behind the scenes, this is accomplished using VoltageOperator.</p>
+<p>Returns the Wythoffian of the maniplex <var class="Arg">M</var> with set of ringed nodes <var class="Arg">I</var>. For example, if <code class="code">I = [1]</code> then this is the rectification of <var class="Arg">M</var>, and if <code class="code">I = [0,1]</code> then this is the truncation of <var class="Arg">M</var>. Behind the scenes, this is accomplished using <code class="code">VoltageOperator</code>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W:=Wythoffian([0,1],Dodecahedron());</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W := Wythoffian([0,1],Dodecahedron());</span>
 3-maniplex with 360 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W=Truncation(Dodecahedron());</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(W);</span>
+[ 60, 90, 32 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">W = Truncation(Dodecahedron());</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Wythoffian([1], Simplex(4));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Fvector(M);</span>
-[10, 30, 30, 10]
+[ 10, 30, 30, 10 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexFigure(M) = Prism(3);</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Wythoffian([3], M) = Dual(M);</span>
 true
 </pre></div>
 
@@ -166,22 +173,22 @@ true
 <h5>14.1-7 VoltageGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGraph</code>( <var class="Arg">G</var>, <var class="Arg">L</var>, <var class="Arg">V</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsVoltageGraph</p>
+<p>Returns: <code class="code">IsVoltageGraph</code></p>
 
-<p>Given an IsGroup <var class="Arg">G</var>, an IsList <var class="Arg">L</var>, and an IsList <var class="Arg">V</var>, <code class="code">VoltageGraph(G,L,V)</code> will construct the voltage graph with voltages from G, labeled darts from L, and voltages from V.</p>
+<p>Given a group <var class="Arg">G</var>, a list <var class="Arg">L</var> of labeled darts, and a list <var class="Arg">V</var> of group elements, constructs the voltage graph with voltage group <var class="Arg">G</var>, labeled darts <var class="Arg">L</var>, and voltages <var class="Arg">V</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=ConnectionGroup(Cube(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=[ [[1],0], [[1],1], [[1,2],2], [[2],0], [[2],1]];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=[G.2, G.1, Identity(G), G.2, G.1];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG:=VoltageGraph(G,L,V);</span>
-Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)
-(12,24)(14,43)(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)
-(40,46)(42,44), (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)
-(17,41)(18,21)(19,22)(20,23)(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), (1,3)(2,7)
-(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)
-(29,39)(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L := LabeledDarts(P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V := List(L, i -&gt; Identity(G));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,L,V);</span>
+Voltage Graph with 2 vertices, and voltages from Sym( [ 1 .. 3 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(LabeledDarts(VG));</span>
+6
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(Voltages(VG));</span>
+[ () ]
 </pre></div>
 
 <p><a id="X83B940167FBDDB22" name="X83B940167FBDDB22"></a></p>
@@ -189,25 +196,21 @@ Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,
 <h5>14.1-8 VoltageGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGraph</code>( <var class="Arg">G</var>, <var class="Arg">P</var>, <var class="Arg">V</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsVoltageGraph</p>
+<p>Returns: <code class="code">IsVoltageGraph</code></p>
 
-<p>Given an IsGroup <var class="Arg">G</var>, an IsPremaniplex <var class="Arg">P</var>, and an IsList <var class="Arg">V</var>, <code class="code">VoltageGraph(G,P,V)</code> will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and voltages from V.</p>
+<p>Given a group <var class="Arg">G</var>, a premaniplex <var class="Arg">P</var>, and a list <var class="Arg">V</var> of group elements, constructs the voltage graph with voltage group <var class="Arg">G</var>, labeled darts from <var class="Arg">P</var>, and voltages <var class="Arg">V</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=ConnectionGroup(Cube(3));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P:=STG2(3,[0,1]);</span>
-Premaniplex of rank 3 with 2 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">L:=LabeledDarts(P);</span>
-[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2, 1 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=[G.2, G.1, Identity(G), Identity(G), G.2, G.1];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG:=VoltageGraph(G,P,V);</span>
-Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)(12,24)(14,43)
-(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)(40,46)(42,44), 
-(1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)(17,41)(18,21)(19,22)(20,23)
-(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), 
-(1,3)(2,7)(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)(29,39)
-(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V := List(LabeledDarts(P), i -&gt; Identity(G));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P,V);</span>
+Voltage Graph with 2 vertices, and voltages from Sym( [ 1 .. 3 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(Premaniplex(VG));</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Voltages(VG) = V;</span>
+true
 </pre></div>
 
 <p><a id="X81682EEF8674907A" name="X81682EEF8674907A"></a></p>
@@ -215,47 +218,92 @@ Voltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,
 <h5>14.1-9 VoltageGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGraph</code>( <var class="Arg">G</var>, <var class="Arg">P</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: IsVoltageGraph</p>
+<p>Returns: <code class="code">IsVoltageGraph</code></p>
 
-<p>Given an IsGroup <var class="Arg">G</var>, and an IsPremaniplex <var class="Arg">P</var>, <code class="code">VoltageGraph(G,P)</code> will construct the voltage graph with voltages from G, labeled darts from the premaniplex P, and trivial voltages.</p>
+<p>Given a group <var class="Arg">G</var> and a premaniplex <var class="Arg">P</var>, constructs the voltage graph with voltage group <var class="Arg">G</var>, labeled darts from <var class="Arg">P</var>, and trivial voltages.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);</span>
+Voltage Graph with 2 vertices, and voltages from Sym( [ 1 .. 3 ] )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(Voltages(VG));</span>
+[ () ]
+</pre></div>
 
 <p><a id="X7FFBBED6838B11AD" name="X7FFBBED6838B11AD"></a></p>
 
 <h5>14.1-10 ChangeVoltage</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChangeVoltage</code>( <var class="Arg">VG</var>, <var class="Arg">ld</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given an IsVoltageGraph <var class="Arg">VG</var>, an IsList <var class="Arg">ld</var>, and an IsObject <var class="Arg">g</var>, <code class="code">ChangeVoltage(VG,ld,g)</code> will change the voltage for the one labeled dart ld to the group element g.</p>
+<p>Given a voltage graph <var class="Arg">VG</var>, a labeled dart <var class="Arg">ld</var>, and a group element <var class="Arg">g</var>, changes the voltage for the labeled dart <var class="Arg">ld</var> to <var class="Arg">g</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(VG,[[1],0],(1,2));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Voltages(VG)[1];</span>
+(1,2)
+</pre></div>
 
 <p><a id="X78C2B4FE8389CF98" name="X78C2B4FE8389CF98"></a></p>
 
 <h5>14.1-11 ChangeVoltage</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ChangeVoltage</code>( <var class="Arg">VG</var>, <var class="Arg">lab</var>, <var class="Arg">startvert</var>, <var class="Arg">g</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given an IsVoltageGraph <var class="Arg">VG</var>, an IsInt <var class="Arg">lab</var>, an IsInt <var class="Arg">startvert</var>, and an IsObject <var class="Arg">g</var>, <code class="code">ChangeVoltage(VG,lab, startvert,g)</code> will change the voltage for the one labeled dart of label lab and start vertex startvert to the group element g.</p>
+<p>Given a voltage graph <var class="Arg">VG</var>, a label <var class="Arg">lab</var>, a start vertex <var class="Arg">startvert</var>, and a group element <var class="Arg">g</var>, changes the voltage for the labeled dart of label <var class="Arg">lab</var> with initial vertex <var class="Arg">startvert</var> to <var class="Arg">g</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(VG,1,1,(1,2,3));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Voltages(VG)[2];</span>
+(1,2,3)
+</pre></div>
 
 <p><a id="X7BC3B94379122B29" name="X7BC3B94379122B29"></a></p>
 
 <h5>14.1-12 DerivedGraph</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DerivedGraph</code>( <var class="Arg">VG</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: IsVoltageGraph</p>
+<p>Returns: <code class="code">IsEdgeLabeledGraph</code></p>
 
-<p>Given an IsVoltageGraph <var class="Arg">VG</var>, a <code class="code">DerivedGraph(VG)</code> will construct the derived graph of the voltage graph VG.</p>
+<p>Given a voltage graph <var class="Arg">VG</var>, <code class="code">DerivedGraph(VG)</code> constructs the derived graph of <var class="Arg">VG</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">D := DerivedGraph(VG);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(Verts(D));</span>
+12
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(Edges(D));</span>
+36
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(Labels(D));</span>
+[ 0, 1, 2 ]
+</pre></div>
 
 <p><a id="X87B722CB84C389BB" name="X87B722CB84C389BB"></a></p>
 
 <h5>14.1-13 VoltageOperator</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">VG</var>, <var class="Arg">M</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given an IsVoltageGraph <var class="Arg">VG</var>, and an IsManiplex <var class="Arg">M</var>, <code class="code">VoltageOperator(VG,M)</code> will return the voltage operator VG acting on M.</p>
+<p>Returns: <code class="code">IsManiplex</code></p>
+
+<p>Given a voltage graph <var class="Arg">VG</var> and a maniplex <var class="Arg">M</var>, <code class="code">VoltageOperator(VG,M)</code> returns the voltage operator <var class="Arg">VG</var> acting on <var class="Arg">M</var>.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M:=Dodecahedron();;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S:=STG2(3,[0,1]);</span>
-Premaniplex of rank 3 with 2 flags
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C:=ConnectionGroup(M);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V:=VoltageGraph(C,S);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Dodecahedron();;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ConnectionGroup(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V := VoltageGraph(C,S);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,0,1,C.2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,0,2,C.2);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,1,1,C.1);;</span>
@@ -269,7 +317,95 @@ true
 <h5>14.1-14 VoltageOperator</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageOperator</code>( <var class="Arg">VG</var>, <var class="Arg">ELG</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Given an IsVoltageGraph <var class="Arg">VG</var>, and an IsEdgeLabeledGraph <var class="Arg">ELM</var>, <code class="code">VoltageOperator(VG,M)</code> will return the voltage operator VG acting on ELM.</p>
+<p>Returns: <code class="code">IsManiplex</code></p>
+
+<p>Given a voltage graph <var class="Arg">VG</var> and an edge-labeled graph <var class="Arg">ELG</var>, <code class="code">VoltageOperator(VG,ELG)</code> returns the voltage operator <var class="Arg">VG</var> acting on <var class="Arg">ELG</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">M := Simplex(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := ConnectionGroup(M);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">V := VoltageGraph(C,S);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,0,1,C.2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,0,2,C.2);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,1,1,C.1);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ChangeVoltage(V,1,2,C.3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Medial(M) = VoltageOperator(V,FlagGraph(M));</span>
+true
+</pre></div>
+
+<p><a id="X7A0360878704ACCB" name="X7A0360878704ACCB"></a></p>
+
+<h5>14.1-15 VoltageGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VoltageGroup</code>( <var class="Arg">VG</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsGroup</code></p>
+
+<p>Returns the voltage group of the voltage graph <var class="Arg">VG</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VoltageGroup(VG) = G;</span>
+true
+</pre></div>
+
+<p><a id="X7899241E79D3D158" name="X7899241E79D3D158"></a></p>
+
+<h5>14.1-16 LabeledDarts</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LabeledDarts</code>( <var class="Arg">VG</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code></p>
+
+<p>Returns the labeled darts of the voltage graph <var class="Arg">VG</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length(LabeledDarts(VG));</span>
+6
+</pre></div>
+
+<p><a id="X85F783BA787FEDB3" name="X85F783BA787FEDB3"></a></p>
+
+<h5>14.1-17 Voltages</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Voltages</code>( <var class="Arg">VG</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsList</code></p>
+
+<p>Returns the voltages of the voltage graph <var class="Arg">VG</var>, in the same order as <code class="code">LabeledDarts(VG)</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Set(Voltages(VG));</span>
+[ () ]
+</pre></div>
+
+<p><a id="X7CCB91E887D3E5F8" name="X7CCB91E887D3E5F8"></a></p>
+
+<h5>14.1-18 Premaniplex</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Premaniplex</code>( <var class="Arg">VG</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">IsPremaniplex</code></p>
+
+<p>Returns the premaniplex underlying the voltage graph <var class="Arg">VG</var>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup(3);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := STG2(3,[0,1]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VG := VoltageGraph(G,P);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(Premaniplex(VG));</span>
+3
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap13.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap15.html">[Next Chapter]</a>&nbsp;  </div>
@@ -278,6 +414,6 @@ true
 <div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chap8.html">8</a>  <a href="chap9.html">9</a>  <a href="chap10.html">10</a>  <a href="chap11.html">11</a>  <a href="chap12.html">12</a>  <a href="chap13.html">13</a>  <a href="chap14.html">14</a>  <a href="chap15.html">15</a>  <a href="chap16.html">16</a>  <a href="chap17.html">17</a>  <a href="chap18.html">18</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
-<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
 </body>
 </html>

@@ -764,11 +764,11 @@ gap> Set(List(LabeledDarts(P),x -> x[2]));
 
 
 <ManSection>
-  <Oper Arg="M, vertex, label" Name="LabeledDart" Label="for IsPremaniplex, IsInt,IsInt"/>
+  <Oper Arg="M, label, startvert" Name="LabeledDart" Label="for IsPremaniplex, IsInt,IsInt"/>
  <Returns>list or <Code>fail</Code>
 </Returns>
  <Description>
-Given a premaniplex <A>M</A>, a vertex, and a label, returns the labeled dart with that initial vertex and label when it exists, and <Code>fail</Code> otherwise.
+Given a premaniplex <A>M</A>, a label, and a start vertex, returns the labeled dart with that label and initial vertex when it exists, and <Code>fail</Code> otherwise.
  </Description>
 </ManSection>
 

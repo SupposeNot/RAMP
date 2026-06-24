@@ -7,38 +7,38 @@
   [1X14.1-1 VoltageOperator[101X
   
   [33X[1;0Y[29X[2XVoltageOperator[102X( [3Xetain[103X, [3Xetaout[103X, [3XXa[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[0;0YReturns  the  output  of  the  voltage  operator  acting  on  Xa.  Xa  is  a
-  n-premaniplex  as  an  edge  labeled  graph,  Y is a m-premaniplex. eta is a
-  voltage  assignment  on  the  darts of Y. etain is a list of all darts of Y.
-  etaout  is  a  string  giving words in the universal sggi of rank n, and the
-  order  of the words corresponds to the order of the darts in etain. If Xa is
-  given as a maniplex, the operation is done to its flag graph.[133X
+  [33X[0;0YReturns  the  output  of  the  voltage operator acting on [3XXa[103X. The list [3Xetain[103X
+  gives  the  labeled  darts  of  the auxiliary premaniplex. The string [3Xetaout[103X
+  gives a comma-separated list of words in the universal sggi of the same rank
+  as  [3XXa[103X,  with  one  word  for  each  dart in [3Xetain[103X. If [3XXa[103X is a maniplex, the
+  operation is applied to its flag graph.[133X
   
   [1X14.1-2 VoltageOperator[101X
   
   [33X[1;0Y[29X[2XVoltageOperator[102X( [3Xarg1[103X, [3Xarg2[103X, [3Xarg3[103X ) [32X operation[133X
   
+  [33X[0;0YThe  Petrial  and the dual can be built using voltage operations. Similarly,
+  other  rank  3  operations can be built this way. See "Voltage operations on
+  maniplexes" by Hubard, Mochan, and Montero.[133X
+  
   [4X[32X  Example  [32X[104X
-    [4X[28XThe Petrial and the dual can be built using voltage operations[128X[104X
-    [4X[28XSimilarly for rank 3 other operations can be built this way.[128X[104X
-    [4X[28XSee VOLTAGE OPERATIONS ON MANIPLEXES by HUBARD, MOCHÁN, MONTERO[128X[104X
-    [4X[25Xgap>[125X [27Xetain1:=[[[1],0],[[1],1],[[1],2],[[1],3]];;[127X[104X
-    [4X[25Xgap>[125X [27Xetain2:=[[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;[127X[104X
-    [4X[25Xgap>[125X [27Xetain3:=[[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutPetrial:="r0, r1 r3, r2, r3";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutDual:="r3, r2, r1, r0";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutMedial:="r1, r1, r0, r2, Id";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutLeapfrog:="r1,r1,r2,r0,r0, , ";;[127X[104X
-    [4X[25Xgap>[125X [27XetaoutTruncation:="r1, r1, r0, r2, r2,Id, Id";;[127X[104X
-    [4X[25Xgap>[125X [27XPetrial(Cube(4)) =VoltageOperator(etain1, etaoutPetrial, Cube(4));[127X[104X
+    [4X[25Xgap>[125X [27Xetain1 := [[[1],0],[[1],1],[[1],2],[[1],3]];;[127X[104X
+    [4X[25Xgap>[125X [27Xetain2 := [[[1],0],[[2],0],[[1],1],[[2],1],[[1,2],2]];;[127X[104X
+    [4X[25Xgap>[125X [27Xetain3 := [[[1],0],[[2],0],[[3],0],[[1],1],[[3],2],[[1,2],2],[[2,3],1]];;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutPetrial := "r0, r1 r3, r2, r3";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutDual := "r3, r2, r1, r0";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutMedial := "r1, r1, r0, r2, Id";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutLeapfrog := "r1,r1,r2,r0,r0, , ";;[127X[104X
+    [4X[25Xgap>[125X [27XetaoutTruncation := "r1, r1, r0, r2, r2,Id, Id";;[127X[104X
+    [4X[25Xgap>[125X [27XPetrial(Cube(4)) = VoltageOperator(etain1, etaoutPetrial, Cube(4));[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XDual(Cube(4)) = VoltageOperator(etain1, etaoutDual, Cube(4));[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XMedial(Dodecahedron()) = VoltageOperator(etain2, etaoutMedial, Dodecahedron());[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XLeapfrog(Simplex(3)) =  VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));[127X[104X
+    [4X[25Xgap>[125X [27XLeapfrog(Simplex(3)) = VoltageOperator(etain3, etaoutLeapfrog, Simplex(3));[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XTruncation(Prism(7)) = VoltageOperator(etain3, etaoutTruncation, Prism(7));[127X[104X
     [4X[28Xtrue[128X[104X
@@ -47,29 +47,32 @@
   [1X14.1-3 AdmissiblePerms[101X
   
   [33X[1;0Y[29X[2XAdmissiblePerms[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X[133X
   
-  [33X[0;0YReturns  a  list  of  the  admissible  sequences that correspond to the flag
-  orbits  for a Wythoffian of a rank [3Xn[103X maniplex. The vertex in the fundamental
-  region is moved by ri for i in [3XI[103X.[133X
+  [33X[0;0YReturns  the  admissible  sequences  corresponding  to the flag orbits for a
+  Wythoffian  of  a  rank  [3Xn[103X maniplex. The vertex in the fundamental region is
+  moved by [10Xr_i[110X for [10Xi[110X in [3XI[103X.[133X
+  
+  [33X[0;0YThere  are  three  flag orbits in the truncation of a rank 3 maniplex, where
+  truncation is the Wythoffian defined by [10XI = [0,1][110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XThere will be three flag orbits in the truncation of a rank 3 maniplex, where truncation is a Wythoffican defined by I = [0,1][128X[104X
     [4X[25Xgap>[125X [27XAdmissiblePerms(3,[0,1]);[127X[104X
-    [4X[28X [ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ][128X[104X
+    [4X[28X[ [ 0, 1, 2 ], [ 1, 0, 2 ], [ 1, 2, 0 ] ][128X[104X
   [4X[32X[104X
   
   [1X14.1-4 WythoffSTG[101X
   
   [33X[1;0Y[29X[2XWythoffSTG[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X[133X
   
   [33X[0;0YReturns the symmetry type graph for a Wythoffian of rank [3Xn[103X defined by a list
-  of indices [3XI[103X. See, for instance, VOLTAGE OPERATIONS ON MANIPLEXES.[133X
+  of indices [3XI[103X. See, for instance, "Voltage operations on maniplexes".[133X
+  
+  [33X[0;0YHere is the symmetry type graph of a medial operation.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XSymmetry type graph of a medial operation[128X[104X
-    [4X[25Xgap>[125X [27XW:=WythoffSTG(3,[1]);[127X[104X
+    [4X[25Xgap>[125X [27XW := WythoffSTG(3,[1]);[127X[104X
     [4X[28XEdge labeled graph with 2 vertices, and edge labels [ 0, 1, 2 ][128X[104X
     [4X[25Xgap>[125X [27XLabeledEdges(W);[127X[104X
     [4X[28X[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ][128X[104X
@@ -78,137 +81,172 @@
   [1X14.1-5 WythoffLabeledEdges[101X
   
   [33X[1;0Y[29X[2XWythoffLabeledEdges[102X( [3Xn[103X, [3XI[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X[133X
   
   [33X[0;0YReturns the labeled edges of a possible symmetry type graph for a Wythoffian
-  of  rank [3Xn[103X defined by a list of indices [3XI[103X. The actual graph is not returned,
-  as  we  require  edge  labeled  graphs  to have integer vertices in order to
-  calculate their connection groups.[133X
+  of rank [3Xn[103X defined by a list of indices [3XI[103X. This returns a list rather than an
+  edge-labeled  graph,  since edge-labeled graphs are expected to have integer
+  vertices when calculating their connection groups.[133X
+  
+  [33X[0;0YHere are the labeled edges of the symmetry type graph of a medial operation.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28XLabeled Edges of the Symmetry type graph of a medial operation[128X[104X
     [4X[25Xgap>[125X [27XWythoffLabeledEdges(3,[1]);[127X[104X
-    [4X[28X[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ][128X[104X
+    [4X[28X[ [ [ [ 1, 0, 2 ] ], 0 ], [ [ [ 1, 0, 2 ] ], 1 ], [ [ [ 1, 2, 0 ] ], 0 ], [128X[104X
+    [4X[28X  [ [ [ 1, 2, 0 ] ], 1 ], [ [ [ 1, 2, 0 ], [ 1, 0, 2 ] ], 2 ] ][128X[104X
   [4X[32X[104X
   
   [1X14.1-6 Wythoffian[101X
   
   [33X[1;0Y[29X[2XWythoffian[102X( [3XI[103X, [3XM[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsList[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
   [33X[0;0YReturns  the  Wythoffian  of  the maniplex [3XM[103X with set of ringed nodes [3XI[103X. For
-  example,  if  I  = [1] then this is the rectification of [3XM[103X and if I = [0, 1]
-  then  this is truncation of [3XM[103X. Behind the scenes, this is accomplished using
-  VoltageOperator.[133X
+  example,  if  [10XI  = [1][110X then this is the rectification of [3XM[103X, and if [10XI = [0,1][110X
+  then  this  is  the truncation of [3XM[103X. Behind the scenes, this is accomplished
+  using [10XVoltageOperator[110X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XW:=Wythoffian([0,1],Dodecahedron());[127X[104X
+    [4X[25Xgap>[125X [27XW := Wythoffian([0,1],Dodecahedron());[127X[104X
     [4X[28X3-maniplex with 360 flags[128X[104X
-    [4X[25Xgap>[125X [27XW=Truncation(Dodecahedron());[127X[104X
+    [4X[25Xgap>[125X [27XFvector(W);[127X[104X
+    [4X[28X[ 60, 90, 32 ][128X[104X
+    [4X[25Xgap>[125X [27XW = Truncation(Dodecahedron());[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XM := Wythoffian([1], Simplex(4));;[127X[104X
     [4X[25Xgap>[125X [27XFvector(M);[127X[104X
-    [4X[28X[10, 30, 30, 10][128X[104X
+    [4X[28X[ 10, 30, 30, 10 ][128X[104X
     [4X[25Xgap>[125X [27XVertexFigure(M) = Prism(3);[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XWythoffian([3], M) = Dual(M);[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X14.1-7 VoltageGraph[101X
   
   [33X[1;0Y[29X[2XVoltageGraph[102X( [3XG[103X, [3XL[103X, [3XV[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsVoltageGraph[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsVoltageGraph[110X[133X
   
-  [33X[0;0YGiven  an  IsGroup [3XG[103X, an IsList [3XL[103X, and an IsList [3XV[103X, [10XVoltageGraph(G,L,V)[110X will
-  construct  the voltage graph with voltages from G, labeled darts from L, and
-  voltages from V.[133X
+  [33X[0;0YGiven  a group [3XG[103X, a list [3XL[103X of labeled darts, and a list [3XV[103X of group elements,
+  constructs  the  voltage  graph  with  voltage group [3XG[103X, labeled darts [3XL[103X, and
+  voltages [3XV[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG:=ConnectionGroup(Cube(3));;[127X[104X
-    [4X[25Xgap>[125X [27XL:=[ [[1],0], [[1],1], [[1,2],2], [[2],0], [[2],1]];;[127X[104X
-    [4X[25Xgap>[125X [27XV:=[G.2, G.1, Identity(G), G.2, G.1];;[127X[104X
-    [4X[25Xgap>[125X [27XVG:=VoltageGraph(G,L,V);[127X[104X
-    [4X[28XVoltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)[128X[104X
-    [4X[28X(12,24)(14,43)(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)[128X[104X
-    [4X[28X(40,46)(42,44), (1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)[128X[104X
-    [4X[28X(17,41)(18,21)(19,22)(20,23)(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), (1,3)(2,7)[128X[104X
-    [4X[28X(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)[128X[104X
-    [4X[28X(29,39)(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )[128X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XL := LabeledDarts(P);;[127X[104X
+    [4X[25Xgap>[125X [27XV := List(L, i -> Identity(G));;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,L,V);[127X[104X
+    [4X[28XVoltage Graph with 2 vertices, and voltages from Sym( [ 1 .. 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XLength(LabeledDarts(VG));[127X[104X
+    [4X[28X6[128X[104X
+    [4X[25Xgap>[125X [27XSet(Voltages(VG));[127X[104X
+    [4X[28X[ () ][128X[104X
   [4X[32X[104X
   
   [1X14.1-8 VoltageGraph[101X
   
   [33X[1;0Y[29X[2XVoltageGraph[102X( [3XG[103X, [3XP[103X, [3XV[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsVoltageGraph[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsVoltageGraph[110X[133X
   
-  [33X[0;0YGiven an IsGroup [3XG[103X, an IsPremaniplex [3XP[103X, and an IsList [3XV[103X, [10XVoltageGraph(G,P,V)[110X
-  will  construct  the  voltage graph with voltages from G, labeled darts from
-  the premaniplex P, and voltages from V.[133X
+  [33X[0;0YGiven a group [3XG[103X, a premaniplex [3XP[103X, and a list [3XV[103X of group elements, constructs
+  the  voltage  graph with voltage group [3XG[103X, labeled darts from [3XP[103X, and voltages
+  [3XV[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG:=ConnectionGroup(Cube(3));;[127X[104X
-    [4X[25Xgap>[125X [27XP:=STG2(3,[0,1]);[127X[104X
-    [4X[28XPremaniplex of rank 3 with 2 flags[128X[104X
-    [4X[25Xgap>[125X [27XL:=LabeledDarts(P);[127X[104X
-    [4X[28X[ [ [ 1 ], 0 ], [ [ 1 ], 1 ], [ [ 1, 2 ], 2 ], [ [ 2, 1 ], 2 ], [ [ 2 ], 0 ], [ [ 2 ], 1 ] ][128X[104X
-    [4X[25Xgap>[125X [27XV:=[G.2, G.1, Identity(G), Identity(G), G.2, G.1];;[127X[104X
-    [4X[25Xgap>[125X [27XVG:=VoltageGraph(G,P,V);[127X[104X
-    [4X[28XVoltage Graph with voltages from Group( [ (1,20)(2,13)(3,10)(4,45)(5,35)(6,7)(8,41)(9,28)(11,38)(12,24)(14,43)[128X[104X
-    [4X[28X(15,34)(16,33)(17,19)(18,31)(21,39)(22,27)(23,26)(25,36)(29,32)(30,48)(37,47)(40,46)(42,44), [128X[104X
-    [4X[28X(1,11)(2,32)(3,14)(4,25)(5,26)(6,27)(7,8)(9,43)(10,44)(12,29)(13,30)(15,39)(16,40)(17,41)(18,21)(19,22)(20,23)[128X[104X
-    [4X[28X(24,48)(28,42)(31,47)(33,36)(34,37)(35,38)(45,46), [128X[104X
-    [4X[28X(1,3)(2,7)(4,11)(5,12)(6,13)(8,18)(9,19)(10,20)(14,25)(15,26)(16,27)(17,28)(21,32)(22,33)(23,34)(24,35)(29,39)[128X[104X
-    [4X[28X(30,40)(31,41)(36,43)(37,44)(38,45)(42,47)(46,48) ] )[128X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XV := List(LabeledDarts(P), i -> Identity(G));;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P,V);[127X[104X
+    [4X[28XVoltage Graph with 2 vertices, and voltages from Sym( [ 1 .. 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XRank(Premaniplex(VG));[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XVoltages(VG) = V;[127X[104X
+    [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
   [1X14.1-9 VoltageGraph[101X
   
   [33X[1;0Y[29X[2XVoltageGraph[102X( [3XG[103X, [3XP[103X ) [32X operation[133X
-  [6XReturns:[106X  [33X[0;10YIsVoltageGraph[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsVoltageGraph[110X[133X
   
-  [33X[0;0YGiven an IsGroup [3XG[103X, and an IsPremaniplex [3XP[103X, [10XVoltageGraph(G,P)[110X will construct
-  the  voltage  graph with voltages from G, labeled darts from the premaniplex
-  P, and trivial voltages.[133X
+  [33X[0;0YGiven  a  group  [3XG[103X  and  a  premaniplex [3XP[103X, constructs the voltage graph with
+  voltage group [3XG[103X, labeled darts from [3XP[103X, and trivial voltages.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);[127X[104X
+    [4X[28XVoltage Graph with 2 vertices, and voltages from Sym( [ 1 .. 3 ] )[128X[104X
+    [4X[25Xgap>[125X [27XSet(Voltages(VG));[127X[104X
+    [4X[28X[ () ][128X[104X
+  [4X[32X[104X
   
   [1X14.1-10 ChangeVoltage[101X
   
   [33X[1;0Y[29X[2XChangeVoltage[102X( [3XVG[103X, [3Xld[103X, [3Xg[103X ) [32X operation[133X
   
-  [33X[0;0YGiven   an   IsVoltageGraph   [3XVG[103X,   an   IsList   [3Xld[103X,  and  an  IsObject  [3Xg[103X,
-  [10XChangeVoltage(VG,ld,g)[110X  will  change the voltage for the one labeled dart ld
-  to the group element g.[133X
+  [33X[0;0YGiven  a voltage graph [3XVG[103X, a labeled dart [3Xld[103X, and a group element [3Xg[103X, changes
+  the voltage for the labeled dart [3Xld[103X to [3Xg[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XChangeVoltage(VG,[[1],0],(1,2));;[127X[104X
+    [4X[25Xgap>[125X [27XVoltages(VG)[1];[127X[104X
+    [4X[28X(1,2)[128X[104X
+  [4X[32X[104X
   
   [1X14.1-11 ChangeVoltage[101X
   
   [33X[1;0Y[29X[2XChangeVoltage[102X( [3XVG[103X, [3Xlab[103X, [3Xstartvert[103X, [3Xg[103X ) [32X operation[133X
   
-  [33X[0;0YGiven  an  IsVoltageGraph  [3XVG[103X,  an  IsInt  [3Xlab[103X,  an  IsInt [3Xstartvert[103X, and an
-  IsObject  [3Xg[103X,  [10XChangeVoltage(VG,lab, startvert,g)[110X will change the voltage for
-  the  one  labeled  dart of label lab and start vertex startvert to the group
-  element g.[133X
+  [33X[0;0YGiven a voltage graph [3XVG[103X, a label [3Xlab[103X, a start vertex [3Xstartvert[103X, and a group
+  element  [3Xg[103X,  changes  the  voltage  for  the  labeled dart of label [3Xlab[103X with
+  initial vertex [3Xstartvert[103X to [3Xg[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XChangeVoltage(VG,1,1,(1,2,3));;[127X[104X
+    [4X[25Xgap>[125X [27XVoltages(VG)[2];[127X[104X
+    [4X[28X(1,2,3)[128X[104X
+  [4X[32X[104X
   
   [1X14.1-12 DerivedGraph[101X
   
   [33X[1;0Y[29X[2XDerivedGraph[102X( [3XVG[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10YIsVoltageGraph[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X[133X
   
-  [33X[0;0YGiven  an  IsVoltageGraph  [3XVG[103X, a [10XDerivedGraph(VG)[110X will construct the derived
-  graph of the voltage graph VG.[133X
+  [33X[0;0YGiven  a  voltage graph [3XVG[103X, [10XDerivedGraph(VG)[110X constructs the derived graph of
+  [3XVG[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XD := DerivedGraph(VG);;[127X[104X
+    [4X[25Xgap>[125X [27XLength(Verts(D));[127X[104X
+    [4X[28X12[128X[104X
+    [4X[25Xgap>[125X [27XLength(Edges(D));[127X[104X
+    [4X[28X36[128X[104X
+    [4X[25Xgap>[125X [27XSet(Labels(D));[127X[104X
+    [4X[28X[ 0, 1, 2 ][128X[104X
+  [4X[32X[104X
   
   [1X14.1-13 VoltageOperator[101X
   
   [33X[1;0Y[29X[2XVoltageOperator[102X( [3XVG[103X, [3XM[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[0;0YGiven  an IsVoltageGraph [3XVG[103X, and an IsManiplex [3XM[103X, [10XVoltageOperator(VG,M)[110X will
-  return the voltage operator VG acting on M.[133X
+  [33X[0;0YGiven a voltage graph [3XVG[103X and a maniplex [3XM[103X, [10XVoltageOperator(VG,M)[110X returns the
+  voltage operator [3XVG[103X acting on [3XM[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XM:=Dodecahedron();;[127X[104X
-    [4X[25Xgap>[125X [27XS:=STG2(3,[0,1]);[127X[104X
-    [4X[28XPremaniplex of rank 3 with 2 flags[128X[104X
-    [4X[25Xgap>[125X [27XC:=ConnectionGroup(M);;[127X[104X
-    [4X[25Xgap>[125X [27XV:=VoltageGraph(C,S);;[127X[104X
+    [4X[25Xgap>[125X [27XM := Dodecahedron();;[127X[104X
+    [4X[25Xgap>[125X [27XS := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XC := ConnectionGroup(M);;[127X[104X
+    [4X[25Xgap>[125X [27XV := VoltageGraph(C,S);;[127X[104X
     [4X[25Xgap>[125X [27XChangeVoltage(V,0,1,C.2);;[127X[104X
     [4X[25Xgap>[125X [27XChangeVoltage(V,0,2,C.2);;[127X[104X
     [4X[25Xgap>[125X [27XChangeVoltage(V,1,1,C.1);;[127X[104X
@@ -220,7 +258,82 @@
   [1X14.1-14 VoltageOperator[101X
   
   [33X[1;0Y[29X[2XVoltageOperator[102X( [3XVG[103X, [3XELG[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsManiplex[110X[133X
   
-  [33X[0;0YGiven    an    IsVoltageGraph    [3XVG[103X,    and   an   IsEdgeLabeledGraph   [3XELM[103X,
-  [10XVoltageOperator(VG,M)[110X will return the voltage operator VG acting on ELM.[133X
+  [33X[0;0YGiven    a    voltage    graph   [3XVG[103X   and   an   edge-labeled   graph   [3XELG[103X,
+  [10XVoltageOperator(VG,ELG)[110X returns the voltage operator [3XVG[103X acting on [3XELG[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XM := Simplex(3);;[127X[104X
+    [4X[25Xgap>[125X [27XS := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XC := ConnectionGroup(M);;[127X[104X
+    [4X[25Xgap>[125X [27XV := VoltageGraph(C,S);;[127X[104X
+    [4X[25Xgap>[125X [27XChangeVoltage(V,0,1,C.2);;[127X[104X
+    [4X[25Xgap>[125X [27XChangeVoltage(V,0,2,C.2);;[127X[104X
+    [4X[25Xgap>[125X [27XChangeVoltage(V,1,1,C.1);;[127X[104X
+    [4X[25Xgap>[125X [27XChangeVoltage(V,1,2,C.3);;[127X[104X
+    [4X[25Xgap>[125X [27XMedial(M) = VoltageOperator(V,FlagGraph(M));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-15 VoltageGroup[101X
+  
+  [33X[1;0Y[29X[2XVoltageGroup[102X( [3XVG[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsGroup[110X[133X
+  
+  [33X[0;0YReturns the voltage group of the voltage graph [3XVG[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XVoltageGroup(VG) = G;[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-16 LabeledDarts[101X
+  
+  [33X[1;0Y[29X[2XLabeledDarts[102X( [3XVG[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X[133X
+  
+  [33X[0;0YReturns the labeled darts of the voltage graph [3XVG[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XLength(LabeledDarts(VG));[127X[104X
+    [4X[28X6[128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-17 Voltages[101X
+  
+  [33X[1;0Y[29X[2XVoltages[102X( [3XVG[103X ) [32X attribute[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsList[110X[133X
+  
+  [33X[0;0YReturns  the  voltages  of  the  voltage  graph  [3XVG[103X,  in  the  same order as
+  [10XLabeledDarts(VG)[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XSet(Voltages(VG));[127X[104X
+    [4X[28X[ () ][128X[104X
+  [4X[32X[104X
+  
+  [1X14.1-18 Premaniplex[101X
+  
+  [33X[1;0Y[29X[2XPremaniplex[102X( [3XVG[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Y[10XIsPremaniplex[110X[133X
+  
+  [33X[0;0YReturns the premaniplex underlying the voltage graph [3XVG[103X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup(3);;[127X[104X
+    [4X[25Xgap>[125X [27XP := STG2(3,[0,1]);;[127X[104X
+    [4X[25Xgap>[125X [27XVG := VoltageGraph(G,P);;[127X[104X
+    [4X[25Xgap>[125X [27XRank(Premaniplex(VG));[127X[104X
+    [4X[28X3[128X[104X
+  [4X[32X[104X
   

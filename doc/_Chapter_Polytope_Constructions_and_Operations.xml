@@ -4,6 +4,132 @@
 <Chapter Label="Chapter_Polytope_Constructions_and_Operations">
 <Heading>Polytope Constructions and Operations</Heading>
 
+<Section Label="Chapter_Polytope_Constructions_and_Operations_Section_Abstract_Regular_Polytopes_from_Groups">
+<Heading>Abstract Regular Polytopes from Groups</Heading>
+
+<ManSection>
+  <Oper Arg="gamma, rank" Name="ARPsFromGroupSearch" Label="for IsGroup, IsPosInt"/>
+ <Returns>record
+</Returns>
+ <Description>
+ Searches for rank <A>rank</A> string C-group representations of
+ <A>gamma</A>. The returned record contains the involutions of
+ <A>gamma</A>, the induced automorphism action on those involutions,
+ representatives up to automorphism, representatives up to automorphism
+ and duality, and search statistics. These representations encode the
+ abstract regular polytopes whose automorphism group is <A>gamma</A>.
+ </Description>
+</ManSection>
+
+
+ The component <C>reps</C> gives representatives up to isomorphism as
+ string C-groups, while <C>repsModDuality</C> also identifies dual pairs.
+<Example><![CDATA[
+gap> search := ARPsFromGroupSearch(AlternatingGroup(5), 3);;
+gap> Length(search.reps);
+3
+gap> Length(search.repsModDuality);
+2
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="gamma, rank" Name="ARPsFromGroup" Label="for IsGroup, IsPosInt"/>
+ <Returns>list
+</Returns>
+ <Description>
+ Returns representatives of the rank <A>rank</A> string C-group
+ representations of <A>gamma</A>, up to automorphisms of <A>gamma</A>.
+ </Description>
+</ManSection>
+
+
+ This two-argument form does not identify dual representations.
+<Example><![CDATA[
+gap> Length(ARPsFromGroup(AlternatingGroup(5), 3));
+3
+gap> ARPsFromGroup(PSL(3,2), 3);
+[  ]
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="gamma, rank, identifyDuals" Name="ARPsFromGroup" Label="for IsGroup, IsPosInt, IsBool"/>
+ <Returns>list
+</Returns>
+ <Description>
+ Returns representatives of the rank <A>rank</A> string C-group
+ representations of <A>gamma</A>. If <A>identifyDuals</A> is true, dual
+ representations are identified.
+ </Description>
+</ManSection>
+
+
+ Passing <K>false</K> gives representatives up to isomorphism as string
+ C-groups; passing <K>true</K> also collapses dual pairs.
+<Example><![CDATA[
+gap> Length(ARPsFromGroup(AlternatingGroup(5), 3, false));
+3
+gap> Length(ARPsFromGroup(AlternatingGroup(5), 3, true));
+2
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="gamma, rank" Name="StringCGroupRepresentationSearch" Label="for IsGroup, IsPosInt"/>
+ <Returns>record
+</Returns>
+ <Description>
+ Synonym for <Ref Func="ARPsFromGroupSearch"/> using string C-group
+ terminology.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> search := StringCGroupRepresentationSearch(PSL(2,11), 4);;
+gap> Length(search.reps);
+1
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="gamma, rank" Name="StringCGroupRepresentations" Label="for IsGroup, IsPosInt"/>
+ <Returns>list
+</Returns>
+ <Description>
+ Synonym for <Ref Func="ARPsFromGroup"/> using string C-group terminology.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> Length(StringCGroupRepresentations(PSL(2,11), 3));
+4
+]]></Example>
+
+
+<ManSection>
+  <Oper Arg="gamma, rank, identifyDuals" Name="StringCGroupRepresentations" Label="for IsGroup, IsPosInt, IsBool"/>
+ <Returns>list
+</Returns>
+ <Description>
+ Synonym for <Ref Func="ARPsFromGroup"/> using string C-group terminology.
+ </Description>
+</ManSection>
+
+
+ As for <Ref Func="ARPsFromGroup"/>, the third argument controls whether
+ dual representations are identified.
+<Example><![CDATA[
+gap> Length(StringCGroupRepresentations(PSL(2,11), 3, true));
+3
+]]></Example>
+
+
+</Section>
+
+
 <Section Label="Chapter_Polytope_Constructions_and_Operations_Section_Extensions_amalgamations_and_quotients">
 <Heading>Extensions, amalgamations, and quotients</Heading>
 

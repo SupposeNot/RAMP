@@ -112,9 +112,19 @@
   [4X[32X[104X
   
   
-  [1X11.2 [33X[0;0YOperations on reflexible maps[133X[101X
+  [1X11.2 [33X[0;0YMap properties[133X[101X
   
-  [1X11.2-1 Opp[101X
+  [33X[0;0Y[10XIsMapOnSurface[110X will test to see if you have rank 3 maniplex.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XFiltered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);[127X[104X
+    [4X[28X[ HemiCube(3), Icosahedron() ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X11.3 [33X[0;0YOperations on maps[133X[101X
+  
+  [1X11.3-1 Opp[101X
   
   [33X[1;0Y[29X[2XOpp[102X( [3Xmap[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
@@ -126,7 +136,7 @@
     [4X[28XPetrial(Dual(Petrial(3-maniplex with 140 flags)))[128X[104X
   [4X[32X[104X
   
-  [1X11.2-2 Hole[101X
+  [1X11.3-2 Hole[101X
   
   [33X[1;0Y[29X[2XHole[102X( [3Xmap[103X, [3Xj[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YIsManiplex[133X
@@ -140,20 +150,7 @@
     [4X[28X3-maniplex with 140 flags[128X[104X
   [4X[32X[104X
   
-  
-  [1X11.3 [33X[0;0YMap properties[133X[101X
-  
-  [33X[0;0Y[10XIsMapOnSurface[110X will test to see if you have rank 3 maniplex.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XFiltered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);[127X[104X
-    [4X[28X[ HemiCube(3), Icosahedron() ][128X[104X
-  [4X[32X[104X
-  
-  
-  [1X11.4 [33X[0;0YOperations on maps[133X[101X
-  
-  [1X11.4-1 Truncation[101X
+  [1X11.3-3 Truncation[101X
   
   [33X[1;0Y[29X[2XTruncation[102X( [3Xmap[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ytrunc_map[133X
@@ -171,7 +168,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.4-2 Snub[101X
+  [1X11.3-4 Snub[101X
   
   [33X[1;0Y[29X[2XSnub[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ysnub_map[133X
@@ -192,7 +189,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.4-3 Chamfer[101X
+  [1X11.3-5 Chamfer[101X
   
   [33X[1;0Y[29X[2XChamfer[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ychamfered_map[133X
@@ -213,7 +210,7 @@
     [4X[28X[ 6, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X11.4-4 Subdivision1[101X
+  [1X11.3-6 Subdivision1[101X
   
   [33X[1;0Y[29X[2XSubdivision1[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YSu1[133X
@@ -229,7 +226,7 @@
     [4X[28X[ 6, [ 2, 3 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.4-5 Subdivision2[101X
+  [1X11.3-7 Subdivision2[101X
   
   [33X[1;0Y[29X[2XSubdivision2[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10YSu2[133X
@@ -241,7 +238,7 @@
     [4X[28X[ 3, [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.4-6 BarycentricSubdivision[101X
+  [1X11.3-8 BarycentricSubdivision[101X
   
   [33X[1;0Y[29X[2XBarycentricSubdivision[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ybarycentric_subdivision[133X
@@ -255,7 +252,7 @@
     [4X[28X48[128X[104X
   [4X[32X[104X
   
-  [1X11.4-7 Leapfrog[101X
+  [1X11.3-9 Leapfrog[101X
   
   [33X[1;0Y[29X[2XLeapfrog[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yleapfrog[133X
@@ -269,7 +266,7 @@
     [4X[28X[ [ 5, 6 ], 3 ][128X[104X
   [4X[32X[104X
   
-  [1X11.4-8 CombinatorialMap[101X
+  [1X11.3-10 CombinatorialMap[101X
   
   [33X[1;0Y[29X[2XCombinatorialMap[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ycombinatorial_map[133X
@@ -284,7 +281,7 @@
     [4X[28X72[128X[104X
   [4X[32X[104X
   
-  [1X11.4-9 Angle[101X
+  [1X11.3-11 Angle[101X
   
   [33X[1;0Y[29X[2XAngle[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yangle_map[133X
@@ -299,7 +296,7 @@
     [4X[28X36[128X[104X
   [4X[32X[104X
   
-  [1X11.4-10 Gothic[101X
+  [1X11.3-12 Gothic[101X
   
   [33X[1;0Y[29X[2XGothic[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ygothic[133X
@@ -315,7 +312,7 @@
   [4X[32X[104X
   
   
-  [1X11.5 [33X[0;0YConway polyhedron operator notation[133X[101X
+  [1X11.4 [33X[0;0YConway polyhedron operator notation[133X[101X
   
   [33X[0;0YWe include here operators from Wikipedia that are not included above.[133X
   
@@ -329,7 +326,7 @@
   [10Xhttps://antitile.readthedocs.io/en/latest/conway.html[110X.  Additional functions
   are described below.[133X
   
-  [1X11.5-1 Reflection[101X
+  [1X11.4-1 Reflection[101X
   
   [33X[1;0Y[29X[2XReflection[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yreflection[133X
@@ -347,7 +344,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.5-2 Kis[101X
+  [1X11.4-2 Kis[101X
   
   [33X[1;0Y[29X[2XKis[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ykis[133X
@@ -361,7 +358,7 @@
     [4X[28X[ 3, [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.5-3 Needle[101X
+  [1X11.4-3 Needle[101X
   
   [33X[1;0Y[29X[2XNeedle[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yneedle[133X
@@ -374,7 +371,7 @@
     [4X[28X[ 3, [ 3, 8 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.5-4 Zip[101X
+  [1X11.4-4 Zip[101X
   
   [33X[1;0Y[29X[2XZip[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yzip[133X
@@ -386,7 +383,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.5-5 Ortho[101X
+  [1X11.4-5 Ortho[101X
   
   [33X[1;0Y[29X[2XOrtho[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yortho[133X
@@ -398,7 +395,7 @@
     [4X[28X[ 4, [ 3, 4 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.5-6 Expand[101X
+  [1X11.4-6 Expand[101X
   
   [33X[1;0Y[29X[2XExpand[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yexpand[133X
@@ -411,7 +408,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.5-7 Gyro[101X
+  [1X11.4-7 Gyro[101X
   
   [33X[1;0Y[29X[2XGyro[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ygyro[133X
@@ -423,7 +420,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.5-8 Meta[101X
+  [1X11.4-8 Meta[101X
   
   [33X[1;0Y[29X[2XMeta[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ymeta[133X
@@ -436,7 +433,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.5-9 Bevel[101X
+  [1X11.4-9 Bevel[101X
   
   [33X[1;0Y[29X[2XBevel[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ybevel[133X
@@ -450,11 +447,11 @@
   [4X[32X[104X
   
   
-  [1X11.6 [33X[0;0YExtended operations[133X[101X
+  [1X11.5 [33X[0;0YExtended operations[133X[101X
   
   [33X[0;0YA number of these were introduced by George Hart.[133X
   
-  [1X11.6-1 Subdivide[101X
+  [1X11.5-1 Subdivide[101X
   
   [33X[1;0Y[29X[2XSubdivide[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yu[133X
@@ -468,7 +465,7 @@
     [4X[28X[ [ 3, 4 ], [ 3, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-2 Propeller[101X
+  [1X11.5-2 Propeller[101X
   
   [33X[1;0Y[29X[2XPropeller[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ypropeller[133X
@@ -482,7 +479,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X11.6-3 Loft[101X
+  [1X11.5-3 Loft[101X
   
   [33X[1;0Y[29X[2XLoft[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yloft[133X
@@ -496,7 +493,7 @@
     [4X[28X[ 4, [ 3, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-4 Quinto[101X
+  [1X11.5-4 Quinto[101X
   
   [33X[1;0Y[29X[2XQuinto[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yquinto[133X
@@ -508,7 +505,7 @@
     [4X[28X[ [ 4, 5 ], [ 3, 4 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-5 JoinLace[101X
+  [1X11.5-5 JoinLace[101X
   
   [33X[1;0Y[29X[2XJoinLace[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yjoin-lace[133X
@@ -520,7 +517,7 @@
     [4X[28X[ [ 3, 4 ], [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-6 Lace[101X
+  [1X11.5-6 Lace[101X
   
   [33X[1;0Y[29X[2XLace[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ylace[133X
@@ -532,7 +529,7 @@
     [4X[28X[ [ 3, 4 ], [ 4, 9 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-7 Stake[101X
+  [1X11.5-7 Stake[101X
   
   [33X[1;0Y[29X[2XStake[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ystake[133X
@@ -544,7 +541,7 @@
     [4X[28X[ [ 3, 4 ], [ 3, 4, 9 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-8 Whirl[101X
+  [1X11.5-8 Whirl[101X
   
   [33X[1;0Y[29X[2XWhirl[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ywhirl[133X
@@ -558,7 +555,7 @@
     [4X[28X[ [ 3, 6 ], [ 3, 5 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-9 Volute[101X
+  [1X11.5-9 Volute[101X
   
   [33X[1;0Y[29X[2XVolute[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yvolute[133X
@@ -573,7 +570,7 @@
     [4X[28X[ 3, [ 4, 6 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-10 JoinKisKis[101X
+  [1X11.5-10 JoinKisKis[101X
   
   [33X[1;0Y[29X[2XJoinKisKis[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yjoinkiskis[133X
@@ -585,7 +582,7 @@
     [4X[28X[ [ 3, 4 ], [ 3, 8, 9 ] ][128X[104X
   [4X[32X[104X
   
-  [1X11.6-11 Cross[101X
+  [1X11.5-11 Cross[101X
   
   [33X[1;0Y[29X[2XCross[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ycross[133X
