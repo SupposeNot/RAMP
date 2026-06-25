@@ -1,32 +1,34 @@
 
 SetInfoLevel(InfoRamp, 1);
 
-TEST_RAMP := function()
+BindGlobal("RampPath", DirectoriesPackageLibrary("ramp")[1]);
+BindGlobal("RampDataPath", DirectoriesPackageLibrary("ramp", "data")[1]);
+
+
+InstallGlobalFunction(TEST_RAMP,
+	function()
 	local test_files, filename;
 	test_files := DirectoryContents(DirectoriesPackageLibrary("ramp", "tst")[1]);
 	test_files := Filtered(test_files, w -> "tst" in SplitString(w,"."));
 	for filename in test_files do
 		Test(Filename(DirectoriesPackageLibrary("ramp", "tst"), filename));
 	od;
-	end;
+	end);
 
-BindGlobal("RampPath", DirectoriesPackageLibrary("ramp")[1]);
-BindGlobal("RampDataPath", DirectoriesPackageLibrary("ramp", "data")[1]);
-
-BindGlobal("TestRamp", 
+InstallGlobalFunction(TestRamp,
 	function(filename)
 	local testFile;
 	testFile := Filename(DirectoriesPackageLibrary("ramp", "tst"), Concatenation(filename, ".tst"));
 	Test(testFile);
 	end);
 
-BindGlobal("LoadRamp",
+InstallGlobalFunction(LoadRamp,
 	function(filename)
 	RereadPackage("ramp", Concatenation("lib/", filename, ".gd"));
 	RereadPackage("ramp", Concatenation("lib/", filename, ".gi"));
 	end);
 	
-BindGlobal("DocRamp",
+InstallGlobalFunction(DocRamp,
 	function()
 	LoadPackage("autodoc");
 	AutoDoc("ramp", rec( scaffold := true, autodoc := true));

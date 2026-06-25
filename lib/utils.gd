@@ -17,6 +17,48 @@
 #! To turn off messages from this class, use `SetInfoLevel(InfoRamp, 0)`.
 DeclareInfoClass("InfoRamp");
 
+#! @Description 
+#! The directory object that represents the location of RAMP code
+#! on your computer.
+DeclareGlobalName("RampPath");
+
+#! @Description 
+#! The directory object that represents the location of RAMP data
+#! (e.g. on small maniplexes) on your computer.
+DeclareGlobalName("RampDataPath");
+
+
+#! @Arguments filename
+#! @Description Reloads filename.gd and filename.gi.
+#! @BeginExampleSession
+#! gap> LoadRamp("utils");
+#! gap> 
+#! @EndExampleSession 
+DeclareGlobalFunction("LoadRamp");
+
+#! @Arguments filename
+#! @Description Runs the test file filename.tst.
+#! @BeginExampleSession
+#! gap> TestRamp("utils");
+#! gap> 
+#! @EndExampleSession
+DeclareGlobalFunction("TestRamp");
+
+#! @Arguments
+#! @Description Runs all test files in the tst directory.
+#! May take a couple minutes.
+DeclareGlobalFunction("TEST_RAMP");
+
+#! @Description Rebuilds the RAMP documentation.
+#! You may need to restart GAP before the help links
+#! are regenerated. (That is, using `?FunctionName` may
+#! not find any new or moved entries.)
+#! @BeginExampleSession
+#! gap> DocRamp();
+#! gap> 
+#! @EndExampleSession
+DeclareGlobalFunction("DocRamp");
+
 #! @Section Polytopes
 #! @Arguments args
 #! @Description Calls `Maniplex(args)` and verifies whether the output is polytopal.
