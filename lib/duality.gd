@@ -118,7 +118,7 @@ DeclareProperty("IsImproperlySelfDual", IsManiplex);
 #! When Rank(M) > 3, this is the "generalized Petrial" which essentially
 #! replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators. 
 #! 
-#! Synonym for the command is `PetrieDual`.
+#! The command `PetrieDual` is a synonym for this command.
 DeclareAttribute("Petrial", IsManiplex);
 
 
