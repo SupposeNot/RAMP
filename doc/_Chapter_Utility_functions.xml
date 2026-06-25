@@ -26,6 +26,78 @@ gap> f(3);;
 </ManSection>
 
 
+<ManSection>
+  <Var Name="RampPath" />
+ <Description>
+ The directory object that represents the location of RAMP code
+ on your computer.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Var Name="RampDataPath" />
+ <Description>
+ The directory object that represents the location of RAMP data
+ (e.g. on small maniplexes) on your computer.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="filename" Name="LoadRamp" />
+ <Description>
+Reloads filename.gd and filename.gi.
+<Example><![CDATA[
+gap> LoadRamp("utils");
+gap> 
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="filename" Name="TestRamp" />
+ <Description>
+Runs the test file filename.tst.
+<Example><![CDATA[
+gap> TestRamp("utils");
+gap> 
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="" Name="TEST_RAMP" />
+ <Description>
+Runs all test files in the tst directory.
+ May take a couple minutes.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="DocRamp" />
+ <Description>
+Rebuilds the RAMP documentation.
+ You may need to restart GAP before the help links
+ are regenerated. (That is, using <Code>?FunctionName</Code> may
+ not find any new or moved entries.)
+<Example><![CDATA[
+gap> DocRamp();
+gap> 
+]]></Example>
+
+
+ </Description>
+</ManSection>
+
+
 </Section>
 
 

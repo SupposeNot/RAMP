@@ -66,8 +66,7 @@
   [33X[1;0Y[29X[2XStringCGroupRepresentationSearch[102X( [3Xgamma[103X, [3Xrank[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yrecord[133X
   
-  [33X[0;0YSynonym  for  [2XARPsFromGroupSearch[102X  ([14X???ARPsFromGroupSearch???[114X)  using string
-  C-group terminology.[133X
+  [33X[0;0YSynonym for [10XARPsFromGroupSearch[110X using string C-group terminology.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xsearch := StringCGroupRepresentationSearch(PSL(2,11), 4);;[127X[104X
@@ -80,8 +79,7 @@
   [33X[1;0Y[29X[2XStringCGroupRepresentations[102X( [3Xgamma[103X, [3Xrank[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ylist[133X
   
-  [33X[0;0YSynonym   for   [2XARPsFromGroup[102X  ([14X???ARPsFromGroup???[114X)  using  string  C-group
-  terminology.[133X
+  [33X[0;0YSynonym for [10XARPsFromGroup[110X using string C-group terminology.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLength(StringCGroupRepresentations(PSL(2,11), 3));[127X[104X
@@ -93,11 +91,10 @@
   [33X[1;0Y[29X[2XStringCGroupRepresentations[102X( [3Xgamma[103X, [3Xrank[103X, [3XidentifyDuals[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ylist[133X
   
-  [33X[0;0YSynonym   for   [2XARPsFromGroup[102X  ([14X???ARPsFromGroup???[114X)  using  string  C-group
-  terminology.[133X
+  [33X[0;0YSynonym for [10XARPsFromGroup[110X using string C-group terminology.[133X
   
-  [33X[0;0YAs  for  [2XARPsFromGroup[102X  ([14X???ARPsFromGroup???[114X),  the  third argument controls
-  whether dual representations are identified.[133X
+  [33X[0;0YAs   for   [10XARPsFromGroup[110X,   the   third   argument   controls  whether  dual
+  representations are identified.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XLength(StringCGroupRepresentations(PSL(2,11), 3, true));[127X[104X
@@ -386,7 +383,7 @@
   3, this is the "generalized Petrial" which essentially replaces [23Xr_{n-3}[123X with
   [23Xr_{n-3} r_{n-1}[123X in the set of generators.[133X
   
-  [33X[0;0YSynonym for the command is [10XPetrieDual[110X.[133X
+  [33X[0;0YThe command [10XPetrieDual[110X is a synonym for this command.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XPetrial(HemiCube(3));[127X[104X

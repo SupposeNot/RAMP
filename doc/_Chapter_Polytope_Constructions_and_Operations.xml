@@ -80,7 +80,7 @@ gap> Length(ARPsFromGroup(AlternatingGroup(5), 3, true));
  <Returns>record
 </Returns>
  <Description>
- Synonym for <Ref Func="ARPsFromGroupSearch"/> using string C-group
+ Synonym for <C>ARPsFromGroupSearch</C> using string C-group
  terminology.
  </Description>
 </ManSection>
@@ -98,7 +98,7 @@ gap> Length(search.reps);
  <Returns>list
 </Returns>
  <Description>
- Synonym for <Ref Func="ARPsFromGroup"/> using string C-group terminology.
+ Synonym for <C>ARPsFromGroup</C> using string C-group terminology.
  </Description>
 </ManSection>
 
@@ -114,12 +114,12 @@ gap> Length(StringCGroupRepresentations(PSL(2,11), 3));
  <Returns>list
 </Returns>
  <Description>
- Synonym for <Ref Func="ARPsFromGroup"/> using string C-group terminology.
+ Synonym for <C>ARPsFromGroup</C> using string C-group terminology.
  </Description>
 </ManSection>
 
 
- As for <Ref Func="ARPsFromGroup"/>, the third argument controls whether
+ As for <C>ARPsFromGroup</C>, the third argument controls whether
  dual representations are identified.
 <Example><![CDATA[
 gap> Length(StringCGroupRepresentations(PSL(2,11), 3, true));
@@ -477,7 +477,7 @@ Note that this is not necessarily a polytope, even if <A>M</A> is.
  When Rank(M) > 3, this is the "generalized Petrial" which essentially
  replaces <Math>r_{n-3}</Math> with <Math>r_{n-3} r_{n-1}</Math> in the set of generators. 
 <P/>
- Synonym for the command is <Code>PetrieDual</Code>.
+ The command <Code>PetrieDual</Code> is a synonym for this command.
  </Description>
 </ManSection>
 

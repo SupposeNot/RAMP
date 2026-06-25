@@ -242,8 +242,8 @@
 \contentsline {subsection}{\numberline {9.1.4}\textcolor {Chapter }{StringCGroupRepresentationSearch (for IsGroup, IsPosInt)}}{67}{subsection.9.1.4}%
 \contentsline {subsection}{\numberline {9.1.5}\textcolor {Chapter }{StringCGroupRepresentations (for IsGroup, IsPosInt)}}{67}{subsection.9.1.5}%
 \contentsline {subsection}{\numberline {9.1.6}\textcolor {Chapter }{StringCGroupRepresentations (for IsGroup, IsPosInt, IsBool)}}{67}{subsection.9.1.6}%
-\contentsline {section}{\numberline {9.2}\textcolor {Chapter }{Extensions, amalgamations, and quotients}}{68}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}\textcolor {Chapter }{UniversalPolytope (for IsInt)}}{68}{subsection.9.2.1}%
+\contentsline {section}{\numberline {9.2}\textcolor {Chapter }{Extensions, amalgamations, and quotients}}{67}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}\textcolor {Chapter }{UniversalPolytope (for IsInt)}}{67}{subsection.9.2.1}%
 \contentsline {subsection}{\numberline {9.2.2}\textcolor {Chapter }{UniversalExtension (for IsManiplex)}}{68}{subsection.9.2.2}%
 \contentsline {subsection}{\numberline {9.2.3}\textcolor {Chapter }{UniversalExtension (for IsManiplex, IsInt)}}{68}{subsection.9.2.3}%
 \contentsline {subsection}{\numberline {9.2.4}\textcolor {Chapter }{TrivialExtension (for IsManiplex)}}{68}{subsection.9.2.4}%
@@ -251,7 +251,7 @@
 \contentsline {subsection}{\numberline {9.2.6}\textcolor {Chapter }{Amalgamate (for IsManiplex, IsManiplex)}}{69}{subsection.9.2.6}%
 \contentsline {subsection}{\numberline {9.2.7}\textcolor {Chapter }{AmalgamateNC (for IsManiplex, IsManiplex)}}{69}{subsection.9.2.7}%
 \contentsline {subsection}{\numberline {9.2.8}\textcolor {Chapter }{Medial (for IsManiplex)}}{69}{subsection.9.2.8}%
-\contentsline {subsection}{\numberline {9.2.9}\textcolor {Chapter }{TwoToThe (for IsManiplex)}}{70}{subsection.9.2.9}%
+\contentsline {subsection}{\numberline {9.2.9}\textcolor {Chapter }{TwoToThe (for IsManiplex)}}{69}{subsection.9.2.9}%
 \contentsline {section}{\numberline {9.3}\textcolor {Chapter }{Duality}}{70}{section.9.3}%
 \contentsline {subsection}{\numberline {9.3.1}\textcolor {Chapter }{Dual (for IsManiplex)}}{70}{subsection.9.3.1}%
 \contentsline {subsection}{\numberline {9.3.2}\textcolor {Chapter }{IsSelfDual (for IsManiplex)}}{70}{subsection.9.3.2}%
@@ -261,7 +261,7 @@
 \contentsline {subsection}{\numberline {9.3.6}\textcolor {Chapter }{IsImproperlySelfDual (for IsManiplex)}}{72}{subsection.9.3.6}%
 \contentsline {subsection}{\numberline {9.3.7}\textcolor {Chapter }{Petrie Dual}}{72}{subsection.9.3.7}%
 \contentsline {subsection}{\numberline {9.3.8}\textcolor {Chapter }{IsSelfPetrial (for IsManiplex)}}{72}{subsection.9.3.8}%
-\contentsline {subsection}{\numberline {9.3.9}\textcolor {Chapter }{DirectDerivates (for IsManiplex)}}{73}{subsection.9.3.9}%
+\contentsline {subsection}{\numberline {9.3.9}\textcolor {Chapter }{DirectDerivates (for IsManiplex)}}{72}{subsection.9.3.9}%
 \contentsline {subsection}{\numberline {9.3.10}\textcolor {Chapter }{IsKaleidoscopic (for IsMapOnSurface)}}{73}{subsection.9.3.10}%
 \contentsline {subsection}{\numberline {9.3.11}\textcolor {Chapter }{ExponentGroup (for IsMapOnSurface)}}{73}{subsection.9.3.11}%
 \contentsline {subsection}{\numberline {9.3.12}\textcolor {Chapter }{UpToDuality (for IsList)}}{73}{subsection.9.3.12}%
@@ -497,40 +497,46 @@
 \contentsline {chapter}{\numberline {16}\textcolor {Chapter }{Utility Functions}}{133}{chapter.16}%
 \contentsline {section}{\numberline {16.1}\textcolor {Chapter }{System}}{133}{section.16.1}%
 \contentsline {subsection}{\numberline {16.1.1}\textcolor {Chapter }{InfoRamp}}{133}{subsection.16.1.1}%
-\contentsline {section}{\numberline {16.2}\textcolor {Chapter }{Polytopes}}{133}{section.16.2}%
-\contentsline {subsection}{\numberline {16.2.1}\textcolor {Chapter }{AbstractPolytope}}{133}{subsection.16.2.1}%
-\contentsline {subsection}{\numberline {16.2.2}\textcolor {Chapter }{AbstractRegularPolytope}}{133}{subsection.16.2.2}%
-\contentsline {subsection}{\numberline {16.2.3}\textcolor {Chapter }{AbstractRotaryPolytope}}{134}{subsection.16.2.3}%
-\contentsline {section}{\numberline {16.3}\textcolor {Chapter }{Permutations}}{134}{section.16.3}%
-\contentsline {subsection}{\numberline {16.3.1}\textcolor {Chapter }{TranslatePerm}}{134}{subsection.16.3.1}%
-\contentsline {subsection}{\numberline {16.3.2}\textcolor {Chapter }{MultPerm}}{134}{subsection.16.3.2}%
-\contentsline {subsection}{\numberline {16.3.3}\textcolor {Chapter }{InvolutionListList}}{134}{subsection.16.3.3}%
-\contentsline {subsection}{\numberline {16.3.4}\textcolor {Chapter }{PermFromRange (for IsPerm, IsPerm, IsPerm)}}{135}{subsection.16.3.4}%
-\contentsline {section}{\numberline {16.4}\textcolor {Chapter }{Words on relations}}{135}{section.16.4}%
-\contentsline {subsection}{\numberline {16.4.1}\textcolor {Chapter }{ParseGgiRels}}{135}{subsection.16.4.1}%
-\contentsline {subsection}{\numberline {16.4.2}\textcolor {Chapter }{ParseRotGpRels}}{135}{subsection.16.4.2}%
-\contentsline {subsection}{\numberline {16.4.3}\textcolor {Chapter }{StandardizeSggi}}{136}{subsection.16.4.3}%
-\contentsline {subsection}{\numberline {16.4.4}\textcolor {Chapter }{AddOrAppend}}{136}{subsection.16.4.4}%
-\contentsline {subsection}{\numberline {16.4.5}\textcolor {Chapter }{WrappedPosetOperation}}{137}{subsection.16.4.5}%
-\contentsline {subsection}{\numberline {16.4.6}\textcolor {Chapter }{MarkAsPolytopal (for IsManiplex)}}{137}{subsection.16.4.6}%
-\contentsline {subsection}{\numberline {16.4.7}\textcolor {Chapter }{ReallyNaturalHomomorphismByNormalSubgroup (for IsGroup,IsGroup)}}{137}{subsection.16.4.7}%
-\contentsline {subsection}{\numberline {16.4.8}\textcolor {Chapter }{ActionByGenerators}}{137}{subsection.16.4.8}%
-\contentsline {subsection}{\numberline {16.4.9}\textcolor {Chapter }{ActionOnBlocks}}{137}{subsection.16.4.9}%
-\contentsline {subsection}{\numberline {16.4.10}\textcolor {Chapter }{VerifyProperties}}{138}{subsection.16.4.10}%
-\contentsline {section}{\numberline {16.5}\textcolor {Chapter }{Miscellaneous}}{138}{section.16.5}%
-\contentsline {subsection}{\numberline {16.5.1}\textcolor {Chapter }{XORLists (for IsList,IsList)}}{138}{subsection.16.5.1}%
-\contentsline {subsection}{\numberline {16.5.2}\textcolor {Chapter }{ConvertToBinaryList (for IsInt,IsInt)}}{138}{subsection.16.5.2}%
-\contentsline {subsection}{\numberline {16.5.3}\textcolor {Chapter }{BinaryListToInteger (for IsList)}}{138}{subsection.16.5.3}%
-\contentsline {subsection}{\numberline {16.5.4}\textcolor {Chapter }{CtoL (for IsInt,IsInt,IsInt,IsInt)}}{139}{subsection.16.5.4}%
-\contentsline {subsection}{\numberline {16.5.5}\textcolor {Chapter }{LtoC (for IsInt,IsInt,IsInt)}}{139}{subsection.16.5.5}%
-\contentsline {chapter}{\numberline {17}\textcolor {Chapter }{Synonyms for Commands}}{140}{chapter.17}%
-\contentsline {chapter}{\numberline {18}\textcolor {Chapter }{Hartley atlas}}{141}{chapter.18}%
-\contentsline {section}{\numberline {18.1}\textcolor {Chapter }{Hartley atlas}}{141}{section.18.1}%
-\contentsline {subsection}{\numberline {18.1.1}\textcolor {Chapter }{LoadHartleyAtlas}}{141}{subsection.18.1.1}%
-\contentsline {subsection}{\numberline {18.1.2}\textcolor {Chapter }{HartleyIds}}{141}{subsection.18.1.2}%
-\contentsline {subsection}{\numberline {18.1.3}\textcolor {Chapter }{HartleyGroup}}{141}{subsection.18.1.3}%
-\contentsline {subsection}{\numberline {18.1.4}\textcolor {Chapter }{HartleyFpGroup}}{142}{subsection.18.1.4}%
-\contentsline {subsection}{\numberline {18.1.5}\textcolor {Chapter }{HartleyManiplex}}{142}{subsection.18.1.5}%
-\contentsline {subsection}{\numberline {18.1.6}\textcolor {Chapter }{FindHartleyName}}{142}{subsection.18.1.6}%
-\contentsline {chapter}{References}{144}{chapter*.4}%
-\contentsline {chapter}{Index}{145}{section*.5}%
+\contentsline {subsection}{\numberline {16.1.2}\textcolor {Chapter }{RampPath}}{133}{subsection.16.1.2}%
+\contentsline {subsection}{\numberline {16.1.3}\textcolor {Chapter }{RampDataPath}}{133}{subsection.16.1.3}%
+\contentsline {subsection}{\numberline {16.1.4}\textcolor {Chapter }{LoadRamp}}{133}{subsection.16.1.4}%
+\contentsline {subsection}{\numberline {16.1.5}\textcolor {Chapter }{TestRamp}}{134}{subsection.16.1.5}%
+\contentsline {subsection}{\numberline {16.1.6}\textcolor {Chapter }{TEST{\textunderscore }RAMP}}{134}{subsection.16.1.6}%
+\contentsline {subsection}{\numberline {16.1.7}\textcolor {Chapter }{DocRamp}}{134}{subsection.16.1.7}%
+\contentsline {section}{\numberline {16.2}\textcolor {Chapter }{Polytopes}}{134}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}\textcolor {Chapter }{AbstractPolytope}}{134}{subsection.16.2.1}%
+\contentsline {subsection}{\numberline {16.2.2}\textcolor {Chapter }{AbstractRegularPolytope}}{134}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}\textcolor {Chapter }{AbstractRotaryPolytope}}{135}{subsection.16.2.3}%
+\contentsline {section}{\numberline {16.3}\textcolor {Chapter }{Permutations}}{135}{section.16.3}%
+\contentsline {subsection}{\numberline {16.3.1}\textcolor {Chapter }{TranslatePerm}}{135}{subsection.16.3.1}%
+\contentsline {subsection}{\numberline {16.3.2}\textcolor {Chapter }{MultPerm}}{135}{subsection.16.3.2}%
+\contentsline {subsection}{\numberline {16.3.3}\textcolor {Chapter }{InvolutionListList}}{135}{subsection.16.3.3}%
+\contentsline {subsection}{\numberline {16.3.4}\textcolor {Chapter }{PermFromRange (for IsPerm, IsPerm, IsPerm)}}{136}{subsection.16.3.4}%
+\contentsline {section}{\numberline {16.4}\textcolor {Chapter }{Words on relations}}{136}{section.16.4}%
+\contentsline {subsection}{\numberline {16.4.1}\textcolor {Chapter }{ParseGgiRels}}{136}{subsection.16.4.1}%
+\contentsline {subsection}{\numberline {16.4.2}\textcolor {Chapter }{ParseRotGpRels}}{136}{subsection.16.4.2}%
+\contentsline {subsection}{\numberline {16.4.3}\textcolor {Chapter }{StandardizeSggi}}{137}{subsection.16.4.3}%
+\contentsline {subsection}{\numberline {16.4.4}\textcolor {Chapter }{AddOrAppend}}{137}{subsection.16.4.4}%
+\contentsline {subsection}{\numberline {16.4.5}\textcolor {Chapter }{WrappedPosetOperation}}{138}{subsection.16.4.5}%
+\contentsline {subsection}{\numberline {16.4.6}\textcolor {Chapter }{MarkAsPolytopal (for IsManiplex)}}{138}{subsection.16.4.6}%
+\contentsline {subsection}{\numberline {16.4.7}\textcolor {Chapter }{ReallyNaturalHomomorphismByNormalSubgroup (for IsGroup,IsGroup)}}{138}{subsection.16.4.7}%
+\contentsline {subsection}{\numberline {16.4.8}\textcolor {Chapter }{ActionByGenerators}}{138}{subsection.16.4.8}%
+\contentsline {subsection}{\numberline {16.4.9}\textcolor {Chapter }{ActionOnBlocks}}{138}{subsection.16.4.9}%
+\contentsline {subsection}{\numberline {16.4.10}\textcolor {Chapter }{VerifyProperties}}{139}{subsection.16.4.10}%
+\contentsline {section}{\numberline {16.5}\textcolor {Chapter }{Miscellaneous}}{139}{section.16.5}%
+\contentsline {subsection}{\numberline {16.5.1}\textcolor {Chapter }{XORLists (for IsList,IsList)}}{139}{subsection.16.5.1}%
+\contentsline {subsection}{\numberline {16.5.2}\textcolor {Chapter }{ConvertToBinaryList (for IsInt,IsInt)}}{139}{subsection.16.5.2}%
+\contentsline {subsection}{\numberline {16.5.3}\textcolor {Chapter }{BinaryListToInteger (for IsList)}}{139}{subsection.16.5.3}%
+\contentsline {subsection}{\numberline {16.5.4}\textcolor {Chapter }{CtoL (for IsInt,IsInt,IsInt,IsInt)}}{140}{subsection.16.5.4}%
+\contentsline {subsection}{\numberline {16.5.5}\textcolor {Chapter }{LtoC (for IsInt,IsInt,IsInt)}}{140}{subsection.16.5.5}%
+\contentsline {chapter}{\numberline {17}\textcolor {Chapter }{Synonyms for Commands}}{141}{chapter.17}%
+\contentsline {chapter}{\numberline {18}\textcolor {Chapter }{Hartley atlas}}{142}{chapter.18}%
+\contentsline {section}{\numberline {18.1}\textcolor {Chapter }{Hartley atlas}}{142}{section.18.1}%
+\contentsline {subsection}{\numberline {18.1.1}\textcolor {Chapter }{LoadHartleyAtlas}}{142}{subsection.18.1.1}%
+\contentsline {subsection}{\numberline {18.1.2}\textcolor {Chapter }{HartleyIds}}{142}{subsection.18.1.2}%
+\contentsline {subsection}{\numberline {18.1.3}\textcolor {Chapter }{HartleyGroup}}{142}{subsection.18.1.3}%
+\contentsline {subsection}{\numberline {18.1.4}\textcolor {Chapter }{HartleyFpGroup}}{143}{subsection.18.1.4}%
+\contentsline {subsection}{\numberline {18.1.5}\textcolor {Chapter }{HartleyManiplex}}{143}{subsection.18.1.5}%
+\contentsline {subsection}{\numberline {18.1.6}\textcolor {Chapter }{FindHartleyName}}{143}{subsection.18.1.6}%
+\contentsline {chapter}{References}{145}{chapter*.4}%
+\contentsline {chapter}{Index}{146}{section*.5}%

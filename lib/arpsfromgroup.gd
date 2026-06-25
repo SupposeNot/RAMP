@@ -1,3 +1,4 @@
+
 #! @Chapter Polytope Constructions and Operations
 #! @Section Abstract Regular Polytopes from Groups
 
@@ -54,7 +55,7 @@ DeclareOperation("ARPsFromGroup", [IsGroup, IsPosInt, IsBool]);
 #! @Arguments gamma, rank
 #! @Returns record
 #! @Description
-#! Synonym for <Ref Func="ARPsFromGroupSearch"/> using string C-group
+#! Synonym for <C>ARPsFromGroupSearch</C> using string C-group
 #! terminology.
 DeclareOperation("StringCGroupRepresentationSearch", [IsGroup, IsPosInt]);
 #! @BeginExampleSession
@@ -66,7 +67,7 @@ DeclareOperation("StringCGroupRepresentationSearch", [IsGroup, IsPosInt]);
 #! @Arguments gamma, rank
 #! @Returns list
 #! @Description
-#! Synonym for <Ref Func="ARPsFromGroup"/> using string C-group terminology.
+#! Synonym for <C>ARPsFromGroup</C> using string C-group terminology.
 DeclareOperation("StringCGroupRepresentations", [IsGroup, IsPosInt]);
 #! @BeginExampleSession
 #! gap> Length(StringCGroupRepresentations(PSL(2,11), 3));
@@ -76,9 +77,9 @@ DeclareOperation("StringCGroupRepresentations", [IsGroup, IsPosInt]);
 #! @Arguments gamma, rank, identifyDuals
 #! @Returns list
 #! @Description
-#! Synonym for <Ref Func="ARPsFromGroup"/> using string C-group terminology.
+#! Synonym for <C>ARPsFromGroup</C> using string C-group terminology.
 DeclareOperation("StringCGroupRepresentations", [IsGroup, IsPosInt, IsBool]);
-#! As for <Ref Func="ARPsFromGroup"/>, the third argument controls whether
+#! As for <C>ARPsFromGroup</C>, the third argument controls whether
 #! dual representations are identified.
 #! @BeginExampleSession
 #! gap> Length(StringCGroupRepresentations(PSL(2,11), 3, true));

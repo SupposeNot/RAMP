@@ -228,7 +228,7 @@
 \indexentry{StringCGroupRepresentationSearch@\texttt  {StringCGroupRepresentationSearch}!for IsGroup, IsPosInt|hyperpage}{67}
 \indexentry{StringCGroupRepresentations@\texttt  {StringCGroupRepresentations}!for IsGroup, IsPosInt|hyperpage}{67}
 \indexentry{StringCGroupRepresentations@\texttt  {StringCGroupRepresentations}!for IsGroup, IsPosInt, IsBool|hyperpage}{67}
-\indexentry{UniversalPolytope@\texttt  {UniversalPolytope}!for IsInt|hyperpage}{68}
+\indexentry{UniversalPolytope@\texttt  {UniversalPolytope}!for IsInt|hyperpage}{67}
 \indexentry{UniversalExtension@\texttt  {UniversalExtension}!for IsManiplex|hyperpage}{68}
 \indexentry{UniversalExtension@\texttt  {UniversalExtension}!for IsManiplex, IsInt|hyperpage}{68}
 \indexentry{TrivialExtension@\texttt  {TrivialExtension}!for IsManiplex|hyperpage}{68}
@@ -236,7 +236,7 @@
 \indexentry{Amalgamate@\texttt  {Amalgamate}!for IsManiplex, IsManiplex|hyperpage}{69}
 \indexentry{AmalgamateNC@\texttt  {AmalgamateNC}!for IsManiplex, IsManiplex|hyperpage}{69}
 \indexentry{Medial@\texttt  {Medial}!for IsManiplex|hyperpage}{69}
-\indexentry{TwoToThe@\texttt  {TwoToThe}!for IsManiplex|hyperpage}{70}
+\indexentry{TwoToThe@\texttt  {TwoToThe}!for IsManiplex|hyperpage}{69}
 \indexentry{Dual@\texttt  {Dual}!for IsManiplex|hyperpage}{70}
 \indexentry{IsSelfDual@\texttt  {IsSelfDual}!for IsManiplex|hyperpage}{70}
 \indexentry{IsInternallySelfDual@\texttt  {IsInternallySelfDual}!for IsManiplex|hyperpage}{70}
@@ -245,7 +245,7 @@
 \indexentry{IsImproperlySelfDual@\texttt  {IsImproperlySelfDual}!for IsManiplex|hyperpage}{72}
 \indexentry{Petrial@\texttt  {Petrial}!for IsManiplex|hyperpage}{72}
 \indexentry{IsSelfPetrial@\texttt  {IsSelfPetrial}!for IsManiplex|hyperpage}{72}
-\indexentry{DirectDerivates@\texttt  {DirectDerivates}!for IsManiplex|hyperpage}{73}
+\indexentry{DirectDerivates@\texttt  {DirectDerivates}!for IsManiplex|hyperpage}{72}
 \indexentry{IsKaleidoscopic@\texttt  {IsKaleidoscopic}!for IsMapOnSurface|hyperpage}{73}
 \indexentry{ExponentGroup@\texttt  {ExponentGroup}!for IsMapOnSurface|hyperpage}{73}
 \indexentry{UpToDuality@\texttt  {UpToDuality}!for IsList|hyperpage}{73}
@@ -462,31 +462,37 @@
 \indexentry{ManiplexFromDatabaseString@\texttt  {ManiplexFromDatabaseString}!for IsString|hyperpage}{132}
 \indexentry{InterpolatedString@\texttt  {InterpolatedString}!for IsString|hyperpage}{132}
 \indexentry{InfoRamp@\texttt  {InfoRamp}|hyperpage}{133}
-\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{133}
-\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{133}
-\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{134}
-\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{134}
-\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{134}
-\indexentry{InvolutionListList@\texttt  {InvolutionListList}|hyperpage}{134}
-\indexentry{PermFromRange@\texttt  {PermFromRange}!for IsPerm, IsPerm, IsPerm|hyperpage}{135}
-\indexentry{ParseGgiRels@\texttt  {ParseGgiRels}|hyperpage}{135}
-\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{135}
-\indexentry{StandardizeSggi@\texttt  {StandardizeSggi}|hyperpage}{136}
-\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{136}
-\indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{137}
-\indexentry{MarkAsPolytopal@\texttt  {MarkAsPolytopal}!for IsManiplex|hyperpage}{137}
-\indexentry{ReallyNaturalHomomorphismByNormalSubgroup@\texttt  {Really}\-\texttt  {Natural}\-\texttt  {Homomorphism}\-\texttt  {By}\-\texttt  {Normal}\-\texttt  {Subgroup}!for IsGroup,IsGroup|hyperpage}{137}
-\indexentry{ActionByGenerators@\texttt  {ActionByGenerators}|hyperpage}{137}
-\indexentry{ActionOnBlocks@\texttt  {ActionOnBlocks}|hyperpage}{137}
-\indexentry{VerifyProperties@\texttt  {VerifyProperties}|hyperpage}{138}
-\indexentry{XORLists@\texttt  {XORLists}!for IsList,IsList|hyperpage}{138}
-\indexentry{ConvertToBinaryList@\texttt  {ConvertToBinaryList}!for IsInt,IsInt|hyperpage}{138}
-\indexentry{BinaryListToInteger@\texttt  {BinaryListToInteger}!for IsList|hyperpage}{138}
-\indexentry{CtoL@\texttt  {CtoL}!for IsInt,IsInt,IsInt,IsInt|hyperpage}{139}
-\indexentry{LtoC@\texttt  {LtoC}!for IsInt,IsInt,IsInt|hyperpage}{139}
-\indexentry{LoadHartleyAtlas@\texttt  {LoadHartleyAtlas}|hyperpage}{141}
-\indexentry{HartleyIds@\texttt  {HartleyIds}|hyperpage}{141}
-\indexentry{HartleyGroup@\texttt  {HartleyGroup}|hyperpage}{141}
-\indexentry{HartleyFpGroup@\texttt  {HartleyFpGroup}|hyperpage}{142}
-\indexentry{HartleyManiplex@\texttt  {HartleyManiplex}|hyperpage}{142}
-\indexentry{FindHartleyName@\texttt  {FindHartleyName}|hyperpage}{142}
+\indexentry{RampPath@\texttt  {RampPath}|hyperpage}{133}
+\indexentry{RampDataPath@\texttt  {RampDataPath}|hyperpage}{133}
+\indexentry{LoadRamp@\texttt  {LoadRamp}|hyperpage}{133}
+\indexentry{TestRamp@\texttt  {TestRamp}|hyperpage}{134}
+\indexentry{TEST{\textunderscore }RAMP@\texttt  {TEST{\textunderscore }RAMP}|hyperpage}{134}
+\indexentry{DocRamp@\texttt  {DocRamp}|hyperpage}{134}
+\indexentry{AbstractPolytope@\texttt  {AbstractPolytope}|hyperpage}{134}
+\indexentry{AbstractRegularPolytope@\texttt  {AbstractRegularPolytope}|hyperpage}{134}
+\indexentry{AbstractRotaryPolytope@\texttt  {AbstractRotaryPolytope}|hyperpage}{135}
+\indexentry{TranslatePerm@\texttt  {TranslatePerm}|hyperpage}{135}
+\indexentry{MultPerm@\texttt  {MultPerm}|hyperpage}{135}
+\indexentry{InvolutionListList@\texttt  {InvolutionListList}|hyperpage}{135}
+\indexentry{PermFromRange@\texttt  {PermFromRange}!for IsPerm, IsPerm, IsPerm|hyperpage}{136}
+\indexentry{ParseGgiRels@\texttt  {ParseGgiRels}|hyperpage}{136}
+\indexentry{ParseRotGpRels@\texttt  {ParseRotGpRels}|hyperpage}{136}
+\indexentry{StandardizeSggi@\texttt  {StandardizeSggi}|hyperpage}{137}
+\indexentry{AddOrAppend@\texttt  {AddOrAppend}|hyperpage}{137}
+\indexentry{WrappedPosetOperation@\texttt  {WrappedPosetOperation}|hyperpage}{138}
+\indexentry{MarkAsPolytopal@\texttt  {MarkAsPolytopal}!for IsManiplex|hyperpage}{138}
+\indexentry{ReallyNaturalHomomorphismByNormalSubgroup@\texttt  {Really}\-\texttt  {Natural}\-\texttt  {Homomorphism}\-\texttt  {By}\-\texttt  {Normal}\-\texttt  {Subgroup}!for IsGroup,IsGroup|hyperpage}{138}
+\indexentry{ActionByGenerators@\texttt  {ActionByGenerators}|hyperpage}{138}
+\indexentry{ActionOnBlocks@\texttt  {ActionOnBlocks}|hyperpage}{138}
+\indexentry{VerifyProperties@\texttt  {VerifyProperties}|hyperpage}{139}
+\indexentry{XORLists@\texttt  {XORLists}!for IsList,IsList|hyperpage}{139}
+\indexentry{ConvertToBinaryList@\texttt  {ConvertToBinaryList}!for IsInt,IsInt|hyperpage}{139}
+\indexentry{BinaryListToInteger@\texttt  {BinaryListToInteger}!for IsList|hyperpage}{139}
+\indexentry{CtoL@\texttt  {CtoL}!for IsInt,IsInt,IsInt,IsInt|hyperpage}{140}
+\indexentry{LtoC@\texttt  {LtoC}!for IsInt,IsInt,IsInt|hyperpage}{140}
+\indexentry{LoadHartleyAtlas@\texttt  {LoadHartleyAtlas}|hyperpage}{142}
+\indexentry{HartleyIds@\texttt  {HartleyIds}|hyperpage}{142}
+\indexentry{HartleyGroup@\texttt  {HartleyGroup}|hyperpage}{142}
+\indexentry{HartleyFpGroup@\texttt  {HartleyFpGroup}|hyperpage}{143}
+\indexentry{HartleyManiplex@\texttt  {HartleyManiplex}|hyperpage}{143}
+\indexentry{FindHartleyName@\texttt  {FindHartleyName}|hyperpage}{143}

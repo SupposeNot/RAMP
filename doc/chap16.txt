@@ -21,6 +21,61 @@
   
   [33X[0;0YTo turn off messages from this class, use [10XSetInfoLevel(InfoRamp, 0)[110X.[133X
   
+  [1X16.1-2 RampPath[101X
+  
+  [33X[1;0Y[29X[2XRampPath[102X [32X global variable[133X
+  
+  [33X[0;0YThe  directory  object  that  represents  the  location of RAMP code on your
+  computer.[133X
+  
+  [1X16.1-3 RampDataPath[101X
+  
+  [33X[1;0Y[29X[2XRampDataPath[102X [32X global variable[133X
+  
+  [33X[0;0YThe  directory  object  that  represents  the location of RAMP data (e.g. on
+  small maniplexes) on your computer.[133X
+  
+  [1X16.1-4 LoadRamp[101X
+  
+  [33X[1;0Y[29X[2XLoadRamp[102X( [3Xfilename[103X ) [32X function[133X
+  
+  [33X[0;0YReloads filename.gd and filename.gi.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLoadRamp("utils");[127X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X16.1-5 TestRamp[101X
+  
+  [33X[1;0Y[29X[2XTestRamp[102X( [3Xfilename[103X ) [32X function[133X
+  
+  [33X[0;0YRuns the test file filename.tst.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XTestRamp("utils");[127X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X16.1-6 TEST_RAMP[101X
+  
+  [33X[1;0Y[29X[2XTEST_RAMP[102X(  ) [32X function[133X
+  
+  [33X[0;0YRuns all test files in the tst directory. May take a couple minutes.[133X
+  
+  [1X16.1-7 DocRamp[101X
+  
+  [33X[1;0Y[29X[2XDocRamp[102X( [3Xarg[103X ) [32X function[133X
+  
+  [33X[0;0YRebuilds the RAMP documentation. You may need to restart GAP before the help
+  links are regenerated. (That is, using [10X?FunctionName[110X may not find any new or
+  moved entries.)[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XDocRamp();[127X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
   
   [1X16.2 [33X[0;0YPolytopes[133X[101X
   

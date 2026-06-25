@@ -5239,7 +5239,7 @@ record
 
 
 
- Synonym for \texttt{ARPsFromGroupSearch} (\ref{ARPsFromGroupSearch}) using string C\texttt{\symbol{45}}group terminology. }
+ Synonym for \texttt{ARPsFromGroupSearch} using string C\texttt{\symbol{45}}group terminology. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -5260,7 +5260,7 @@ list
 
 
 
- Synonym for \texttt{ARPsFromGroup} (\ref{ARPsFromGroup}) using string C\texttt{\symbol{45}}group terminology. }
+ Synonym for \texttt{ARPsFromGroup} using string C\texttt{\symbol{45}}group terminology. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -5280,9 +5280,9 @@ list
 
 
 
- Synonym for \texttt{ARPsFromGroup} (\ref{ARPsFromGroup}) using string C\texttt{\symbol{45}}group terminology. }
+ Synonym for \texttt{ARPsFromGroup} using string C\texttt{\symbol{45}}group terminology. }
 
- As for \texttt{ARPsFromGroup} (\ref{ARPsFromGroup}), the third argument controls whether dual representations are identified. 
+ As for \texttt{ARPsFromGroup}, the third argument controls whether dual representations are identified. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   !gapprompt@gap>| !gapinput@Length(StringCGroupRepresentations(PSL(2,11), 3, true));|
   3
@@ -5693,7 +5693,7 @@ The Petrial (Petrie dual) of \mbox{\texttt{\mdseries\slshape M}}.
  Note that this is not necessarily a polytope, even if \mbox{\texttt{\mdseries\slshape M}} is. When Rank(M) {\textgreater} 3, this is the "generalized Petrial" which
 essentially replaces $r_{n-3}$ with $r_{n-3} r_{n-1}$ in the set of generators. 
 
- Synonym for the command is \texttt{PetrieDual}. }
+ The command \texttt{PetrieDual} is a synonym for this command. }
 
  
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
@@ -10658,6 +10658,96 @@ Ramp, use \texttt{Info(InfoRamp, 1, "This is a message!");}. For example, if you
 \end{Verbatim}
  To turn off messages from this class, use \texttt{SetInfoLevel(InfoRamp, 0)}. }
 
+ 
+
+\subsection{\textcolor{Chapter }{RampPath}}
+\logpage{[ 16, 1, 2 ]}\nobreak
+\hyperdef{L}{X81E67AE1872F516E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RampPath\index{RampPath@\texttt{RampPath}}
+\label{RampPath}
+}\hfill{\scriptsize (global variable)}}\\
+
+
+ The directory object that represents the location of RAMP code on your
+computer. }
+
+ 
+
+\subsection{\textcolor{Chapter }{RampDataPath}}
+\logpage{[ 16, 1, 3 ]}\nobreak
+\hyperdef{L}{X7BB631E77BDE1D4B}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{RampDataPath\index{RampDataPath@\texttt{RampDataPath}}
+\label{RampDataPath}
+}\hfill{\scriptsize (global variable)}}\\
+
+
+ The directory object that represents the location of RAMP data (e.g. on small
+maniplexes) on your computer. }
+
+ 
+
+\subsection{\textcolor{Chapter }{LoadRamp}}
+\logpage{[ 16, 1, 4 ]}\nobreak
+\hyperdef{L}{X7E7AEFEA7E7C09F4}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LoadRamp({\mdseries\slshape filename})\index{LoadRamp@\texttt{LoadRamp}}
+\label{LoadRamp}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Reloads filename.gd and filename.gi. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@LoadRamp("utils");|
+  !gapprompt@gap>| !gapinput@|
+\end{Verbatim}
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{TestRamp}}
+\logpage{[ 16, 1, 5 ]}\nobreak
+\hyperdef{L}{X7C27EBF6841F8CF1}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TestRamp({\mdseries\slshape filename})\index{TestRamp@\texttt{TestRamp}}
+\label{TestRamp}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Runs the test file filename.tst. 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@TestRamp("utils");|
+  !gapprompt@gap>| !gapinput@|
+\end{Verbatim}
+ }
+
+ 
+
+\subsection{\textcolor{Chapter }{TEST{\textunderscore}RAMP}}
+\logpage{[ 16, 1, 6 ]}\nobreak
+\hyperdef{L}{X80041F5F85D2DB76}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{TEST{\textunderscore}RAMP({\mdseries\slshape })\index{TEST{\textunderscore}RAMP@\texttt{TEST{\textunderscore}RAMP}}
+\label{TESTuScoreRAMP}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Runs all test files in the tst directory. May take a couple minutes. }
+
+ 
+
+\subsection{\textcolor{Chapter }{DocRamp}}
+\logpage{[ 16, 1, 7 ]}\nobreak
+\hyperdef{L}{X7FB5D81C874ACA9E}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{DocRamp({\mdseries\slshape arg})\index{DocRamp@\texttt{DocRamp}}
+\label{DocRamp}
+}\hfill{\scriptsize (function)}}\\
+
+
+ Rebuilds the RAMP documentation. You may need to restart GAP before the help
+links are regenerated. (That is, using \texttt{?FunctionName} may not find any new or moved entries.) 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@DocRamp();|
+  !gapprompt@gap>| !gapinput@|
+\end{Verbatim}
+ }
+
  }
 
  
@@ -11374,6 +11464,9 @@ isomorphic to \mbox{\texttt{\mdseries\slshape maniplex}}, or \texttt{fail} if no
 
 \printindex
 
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
+\immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \immediate\write\pagenrlog{["Ind", 0, 0], \arabic{page},}
 \newpage
 \immediate\write\pagenrlog{["End"], \arabic{page}];}
