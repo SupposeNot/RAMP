@@ -147,6 +147,64 @@ InstallMethod(CoSkeleton,
 	end);
 
 
+# The skeleton as an edge multiset, preserving multiple edges and loops.
+# Unlike Skeleton, which returns the underlying simple GRAPE graph, this keeps
+# the true multiplicity by building the edges directly from the connection group.
+InstallMethod(SkeletonEdges,
+	[IsGroup],
+	function(c)
+	local gens, n, pts, r0, verts, vertexId, i, f, oneFaces, edges;
+	gens:=GeneratorsOfGroup(c);
+	n:=Size(gens);
+	# A rank-0 maniplex (no generators) has an empty skeleton, matching Skeleton.
+	if n = 0 then return rec( order:=0, edges:=[] ); fi;
+	pts:=MovedPoints(c);
+	r0:=gens[1];
+	# The 0-faces (vertices) are the orbits of <r_1,...,r_{n-1}>.
+	verts:=Orbits(Subgroup(c, gens{[2..n]}), pts);
+	vertexId:=[];
+	for i in [1..Length(verts)] do
+		for f in verts[i] do
+			vertexId[f]:=i;
+		od;
+	od;
+	# The 1-faces (edges) are the orbits of <r_0,r_2,...,r_{n-1}>. For a flag f
+	# in such an orbit, r_0 swaps the two ends of the edge while r_2,...,r_{n-1}
+	# fix the end (they commute with r_0), so f and f^r0 lie in the two incident
+	# 0-faces. Equal ends give a loop; two 1-faces with the same pair of ends
+	# give parallel edges.
+	oneFaces:=Orbits(Subgroup(c, gens{Concatenation([1],[3..n])}), pts);
+	edges:=List(oneFaces, E -> [ vertexId[E[1]], vertexId[E[1]^r0] ]);
+	return rec( order:=Length(verts), edges:=edges );
+end);
+
+
+InstallMethod(SkeletonEdges,
+	[IsManiplex],
+	function(m)
+	return SkeletonEdges(ConnectionGroup(m));
+end);
+
+
+# The co-skeleton is the skeleton of the dual maniplex, whose connection group
+# is obtained by reversing the generator order to (r_{n-1},...,r_0).
+InstallMethod(CoSkeletonEdges,
+	[IsGroup],
+	function(c)
+	local gens;
+	gens:=GeneratorsOfGroup(c);
+	if IsEmpty(gens) then return rec( order:=0, edges:=[] ); fi;
+	return SkeletonEdges(Group(Reversed(gens)));
+end);
+
+
+InstallMethod(CoSkeletonEdges,
+	[IsManiplex],
+	function(m)
+	return CoSkeletonEdges(ConnectionGroup(m));
+end);
+
+
 #Want to run this on just connection groups, but have to rebuild f-vectors on the fly.
 InstallMethod(Hasse,
 	[IsManiplex],
