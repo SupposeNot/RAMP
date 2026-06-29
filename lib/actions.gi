@@ -1,4 +1,44 @@
 
+InstallMethod(AutomorphismGroupOnFlags, 
+	[IsManiplex],
+	function(M)
+	local N, c, base, stab, norm, orb, auts, i, w, aut, notMoved, j, x, plist, agf, cggens, gens, flags;
+	N := Size(M);
+	base := BaseFlag(M);
+	c := ConnectionGroup(M);
+	stab := Stabilizer(c, base);
+	norm := Normalizer(c, stab);
+	orb := Difference(Orbit(norm, base), [base]);
+	auts := [];
+	
+	while not(IsEmpty(orb)) do
+		i := Minimum(orb);
+		
+		# Let's find the automorphism alpha that sends the base flag to i
+		plist := [i];
+		flags := Difference(Flags(M), [base]);
+
+		# Idea: For a generic flag Psi, there is a connection x such that Psi alpha = (x Phi) alpha = x (Phi alpha) = x i.
+		# So, find the connection x that sends Phi to Psi, and then apply it to i
+		for j in [1..N-1] do
+			x := RepresentativeAction(c, base, flags[j]);
+			Add(plist, i^x);
+		od;
+		Add(auts, MappingPermListList(Flags(M), plist));
+		orb := Difference(orb, Orbit(Group(auts), base));
+	od;
+	
+	# We need to invert the auts to account for the difference between left actions and right actions
+	auts := List(auts, x -> x^-1);
+	agf := Group(auts);
+	if IsReflexible(M) then
+		cggens := GeneratorsOfGroup(ConnectionGroup(M));
+		gens := List([1..Rank(M)], i -> RepresentativeAction(agf, base, base^cggens[i]));
+		agf := Group(gens);
+	fi;
+	return agf;
+	end);
+	
 InstallMethod(AutomorphismGroupOnChains,
 	[IsReflexibleManiplex, IsCollection],
 	function(M, I)

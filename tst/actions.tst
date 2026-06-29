@@ -90,3 +90,5 @@ gap> Size(MaxChainStabilizer(Cube(4)));
 gap> M := ReflexibleManiplex([6,3], "(r0 r1)^3 = r0 r2");;
 gap> Size(MaxChainStabilizer(M));
 2
+gap> NrMovedPoints(AutomorphismGroupOnFlags(Cube(3)));
+48
