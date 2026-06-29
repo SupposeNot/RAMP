@@ -317,8 +317,7 @@ InstallMethod(ExtraRotRelators,
 	[IsRotaryManiplex],
 	function(M)
 	local g, rels, type_rels, sym, i;
-	g := RotationGroup(M);
-	g := Image(IsomorphismFpGroupByGenerators(g, GeneratorsOfGroup(g)));
+	g := RotationGroupFpGroup(M);
 	sym := SchlafliSymbol(M);
 	rels := List(RelatorsOfFpGroup(g));
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
