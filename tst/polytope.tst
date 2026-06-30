@@ -26,3 +26,8 @@ gap> IsPolytopal(RotaryManiplex([4,3,6], "s2 = s3^2"));
 false
 gap> IsPolytopal(RotaryManiplex([6,3,4], "s2 = s1^2"));
 false
+gap> IsRegularPolytope(24Cell());
+true
+gap> q:=CartesianProduct(Simplex(2),Cube(2));;
+gap> IsRegularPolytope(q);
+false
