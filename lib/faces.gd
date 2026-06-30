@@ -150,11 +150,11 @@ DeclareAttribute("VertexFigure", IsManiplex);
 DeclareAttribute("VertDegrees", IsManiplex);
 #! @BeginExampleSession
 #! gap> VertDegrees(Pyramid(5));
-#! [ [3, 5], [5, 1] ];
+#! [ [ 3, 5 ], [ 5, 1 ] ]
 #! gap> VertDegrees(Kis(Cube(3)));
-#! [ [4, 6], [6, 8] ];
+#! [ [ 4, 6 ], [ 6, 8 ] ]
 #! gap> VertDegrees(Prism(5));
-#! [ [3, 10] ]
+#! [ [ 3, 10 ] ]
 #! @EndExampleSession
 
 #! @Arguments M
@@ -177,8 +177,7 @@ DeclareAttribute("FaceSizes", IsManiplex);
 #! @Description Lists the facets of the maniplex <A>M</A> as lists of flags.
 DeclareAttribute("FacetList",IsManiplex);
 #! @BeginExampleSession
-#! gap> m:=Cuboctahedron();
-#! 3-maniplex
+#! gap> m:=Cuboctahedron();;
 #! gap> FacetList(m);
 #! [ [ 1, 2, 3, 5, 7, 10, 13, 18 ], [ 4, 6, 9, 12, 16, 21 ], [ 8, 14, 15, 24, 25, 34 ], 
 #! [ 11, 19, 20, 29, 30, 39 ], [ 17, 26, 27, 36, 37, 46, 47, 57 ], [ 22, 31, 32, 41, 42, 52, 53, 62 ],
@@ -192,8 +191,7 @@ DeclareAttribute("FacetList",IsManiplex);
 #! @Description Lists the vertices of the maniplex <A>M</A> as lists of flags.
 DeclareAttribute("VertexList",IsManiplex);
 #! @BeginExampleSession
-#! gap> m:=Cuboctahedron();
-#! 3-maniplex
+#! gap> m:=Cuboctahedron();;
 #! gap> VertexList(m);
 #! [ [ 1, 3, 4, 8, 9, 15, 17, 26 ], [ 2, 5, 6, 11, 12, 20, 22, 31 ], [ 7, 13, 14, 23, 24, 33, 35, 44 ],
 #!   [ 10, 18, 19, 28, 29, 38, 40, 50 ], [ 16, 21, 27, 32, 37, 42, 48, 54 ], 
@@ -208,11 +206,7 @@ DeclareAttribute("VertexList",IsManiplex);
 #! @Description Lists the <A>n</A>-faces of the maniplex <A>M</A> as lists of flags.
 DeclareOperation("NFacesList",[IsManiplex,IsInt]);
 #! @BeginExampleSession
-#! gap> m:=Cuboctahedron();
-#! 3-maniplex
-#! gap> NFacesList(m);
-#! gap> m:=Cuboctahedron();
-#! 3-maniplex
+#! gap> m:=Cuboctahedron();;
 #! gap> NFacesList(m,2)=FacetList(m);
 #! true
 #! gap> NFacesList(m,1);
@@ -305,13 +299,7 @@ DeclareProperty("IsEquivelar", IsManiplex);
 #! even smaller sections.
 DeclareProperty("IsDegenerate", IsManiplex);
 #! @BeginExampleSession
-#! gap> F := FreeGroup("s0","s1","s2","s3");;
-#! gap> s0 := F.1;;  s1 := F.2;;  s2 := F.3;;  s3 := F.4;;  
-#! gap> rels := [ s0*s0, s1*s1, s2*s2, s3*s3, s0*s2*s0*s2, 
-#! > s1*s2*s1*s2, s0*s3*s0*s3, s1*s3*s1*s3, 
-#! > s2*s3*s2*s3*s2*s3*s2*s3, s0*s1*s0*s1*s0*s1*s0*s1*s0*s1 ];;
-#! gap> poly := F / rels;;
-#! gap> IsDegenerate(ARP(poly));
+#! gap> IsDegenerate(ARP([5,2,4]));
 #! true
 #! @EndExampleSession
 
@@ -333,7 +321,7 @@ DeclareProperty("IsTight", IsManiplex);
 #! $f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}$.
 DeclareAttribute("EulerCharacteristic", IsManiplex);
 #! @BeginExampleSession
-#! gap> EulerCharacteristic(Bk2lStar(3,5));
+#! gap> EulerCharacteristic(Bk2lStar(3,10));
 #! -10
 #! @EndExampleSession
 
@@ -341,7 +329,7 @@ DeclareAttribute("EulerCharacteristic", IsManiplex);
 #! @Returns The genus of the given 3-maniplex.
 DeclareAttribute("Genus", IsManiplex);
 #! @BeginExampleSession
-#! gap> Genus(Bk2lStar(3,5));
+#! gap> Genus(Bk2lStar(3,10));
 #! 6
 #! @EndExampleSession
 
