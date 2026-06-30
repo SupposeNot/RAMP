@@ -111,24 +111,39 @@ InstallGlobalFunction(AbstractRotaryPolytopeNC,
 # Modifies the permutation perm by adding k to each entry.
 InstallGlobalFunction(TranslatePerm,
 	function(perm, k)
-	local src, dest;
-	src := MovedPoints(perm)+k;
-	dest := List(MovedPoints(perm), i -> i^perm + k);
-	return MappingPermListList(src, dest);
+	local moved;
+	moved := MovedPoints(perm);
+	return MappingPermListList(moved + k, OnTuples(moved, perm) + k);
 	end);
+	#local src, dest;
+	#src := MovedPoints(perm)+k;
+	#dest := List(MovedPoints(perm), i -> i^perm + k);
+	#return MappingPermListList(src, dest);
+	#end);
 
 # Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with multiplier terms.	
 InstallGlobalFunction(MultPerm,
 	function(perm, multiplier, offset)
-	local newperm, k, i, perms;
+    local moved, dest, src_list, dest_list, i, shift;
 
-	if multiplier = 0 then
-		return ();
-	else
-		perms := List([0, offset..(multiplier-1)*offset], i -> TranslatePerm(perm, i));
-		return Product(perms);
-	fi;
+    if multiplier = 0 or perm = () then
+        return ();
+    fi;
 
+    moved := MovedPoints(perm);
+    dest := OnTuples(moved, perm);
+
+    # Pre-allocate flat lists for the combined mapping
+    src_list := [];
+    dest_list := [];
+
+    for i in [0 .. multiplier - 1] do
+        shift := i * offset;
+        Append(src_list, moved + shift);
+        Append(dest_list, dest + shift);
+    od;
+
+    return MappingPermListList(src_list, dest_list);
 	end);
 	
 InstallMethod(PermFromRange,

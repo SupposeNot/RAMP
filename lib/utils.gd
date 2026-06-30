@@ -118,6 +118,8 @@ DeclareGlobalFunction("TranslatePerm");
 #! @Arguments perm, multiplier, offset
 #! @Description Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), 
 #! ..., with <A>multiplier</A> terms, and returns the result.
+#! This is intended to be used in such a way that the permutations are all disjoint; it will
+#! fail if that is not the case.
 DeclareGlobalFunction("MultPerm");
 #! @BeginExampleSession
 #! gap> MultPerm((1,2,3)(4,5,6),3,7);
