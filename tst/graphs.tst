@@ -37,6 +37,42 @@ gap> Length(UndirectedEdges(g));
 30
 gap> IsIsomorphicGraph(g,Skeleton(Icosahedron()));
 true
+gap> s := SkeletonEdges(Dodecahedron());;
+gap> s.order;
+20
+gap> Length(s.edges);
+30
+gap> Length(Set(List(s.edges, Set)));
+30
+gap> IsIsomorphicGraph(GraphFromListOfEdges([1..s.order], s.edges), Skeleton(Dodecahedron()));
+true
+gap> s := SkeletonEdges(ReflexibleManiplex([2,3]));;
+gap> s.order;
+2
+gap> Length(s.edges);
+3
+gap> Collected(List(s.edges, Set));
+[ [ [ 1, 2 ], 3 ] ]
+gap> Length(UndirectedEdges(Skeleton(ReflexibleManiplex([2,3]))));
+1
+gap> s := CoSkeletonEdges(Dodecahedron());;
+gap> s.order;
+12
+gap> Length(s.edges);
+30
+gap> Length(Set(List(s.edges, Set)));
+30
+gap> s := CoSkeletonEdges(ReflexibleManiplex([3,2]));;
+gap> s.order;
+2
+gap> Collected(List(s.edges, Set));
+[ [ [ 1, 2 ], 3 ] ]
+gap> s := SkeletonEdges(Vertex());;
+gap> [s.order, Length(s.edges)];
+[ 0, 0 ]
+gap> s := CoSkeletonEdges(Vertex());;
+gap> [s.order, Length(s.edges)];
+[ 0, 0 ]
 gap> g := Hasse(Simplex(3));;
 gap> Length(Vertices(g));
 16
