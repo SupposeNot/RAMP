@@ -283,11 +283,11 @@ Pgon(5)
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Pyramid(5));</span>
-[ [3, 5], [5, 1] ];
+[ [ 3, 5 ], [ 5, 1 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Kis(Cube(3)));</span>
-[ [4, 6], [6, 8] ];
+[ [ 4, 6 ], [ 6, 8 ] ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertDegrees(Prism(5));</span>
-[ [3, 10] ]
+[ [ 3, 10 ] ]
 </pre></div>
 
 <p><a id="X783AE9C2807D0309" name="X783AE9C2807D0309"></a></p>
@@ -320,8 +320,7 @@ Pgon(5)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
-3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">FacetList(m);</span>
 [ [ 1, 2, 3, 5, 7, 10, 13, 18 ], [ 4, 6, 9, 12, 16, 21 ], [ 8, 14, 15, 24, 25, 34 ], 
 [ 11, 19, 20, 29, 30, 39 ], [ 17, 26, 27, 36, 37, 46, 47, 57 ], [ 22, 31, 32, 41, 42, 52, 53, 62 ],
@@ -341,8 +340,7 @@ Pgon(5)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
-3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">VertexList(m);</span>
 [ [ 1, 3, 4, 8, 9, 15, 17, 26 ], [ 2, 5, 6, 11, 12, 20, 22, 31 ], [ 7, 13, 14, 23, 24, 33, 35, 44 ],
   [ 10, 18, 19, 28, 29, 38, 40, 50 ], [ 16, 21, 27, 32, 37, 42, 48, 54 ], 
@@ -363,11 +361,7 @@ Pgon(5)
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
-3-maniplex
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();</span>
-3-maniplex
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m:=Cuboctahedron();;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m,2)=FacetList(m);</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">NFacesList(m,1);</span>
@@ -460,13 +454,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">F := FreeGroup("s0","s1","s2","s3");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s0 := F.1;;  s1 := F.2;;  s2 := F.3;;  s3 := F.4;;  </span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rels := [ s0*s0, s1*s1, s2*s2, s3*s3, s0*s2*s0*s2, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">s1*s2*s1*s2, s0*s3*s0*s3, s1*s3*s1*s3, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">s2*s3*s2*s3*s2*s3*s2*s3, s0*s1*s0*s1*s0*s1*s0*s1*s0*s1 ];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">poly := F / rels;;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDegenerate(ARP(poly));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsDegenerate(ARP([5,2,4]));</span>
 true
 </pre></div>
 
@@ -494,7 +482,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EulerCharacteristic(Bk2lStar(3,5));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">EulerCharacteristic(Bk2lStar(3,10));</span>
 -10
 </pre></div>
 
@@ -507,7 +495,7 @@ true
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Genus(Bk2lStar(3,5));</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Genus(Bk2lStar(3,10));</span>
 6
 </pre></div>
 

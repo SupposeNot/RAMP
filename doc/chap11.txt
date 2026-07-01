@@ -114,6 +114,21 @@
   
   [1X11.2 [33X[0;0YMap properties[133X[101X
   
+  [1X11.2-1 FinalizedOutputMap[101X
+  
+  [33X[1;0Y[29X[2XFinalizedOutputMap[102X( [3Xmap[103X, [3Xnewmap[103X, [3Xopname[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsManiplex[133X
+  
+  [33X[0;0YInternal helper for naming the result of a map operation.[133X
+  
+  [1X11.2-2 MapOperation[101X
+  
+  [33X[1;0Y[29X[2XMapOperation[102X( [3Xop[103X, [3Xopname[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10YIsFunction[133X
+  
+  [33X[0;0YInternal  helper  that  wraps  a  map  operation  so that the output has the
+  requested operation name.[133X
+  
   [33X[0;0Y[10XIsMapOnSurface[110X will test to see if you have rank 3 maniplex.[133X
   
   [4X[32X  Example  [32X[104X
@@ -155,11 +170,14 @@
   [33X[1;0Y[29X[2XTruncation[102X( [3Xmap[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ytrunc_map[133X
   
-  [33X[0;0YGiven a [3Xmap[103X on a surface, this function will return the truncation of [3Xmap[103X.[133X
+  [33X[0;0YGiven  a  [3Xmap[103X on a surface, this function will return the truncation of [3Xmap[103X.
+  This is the Wythoffian with ringed nodes [10X[0,1][110X.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Truncation(Simplex(3)));[127X[104X
     [4X[28X[ [ 3, 6 ], 3 ][128X[104X
+    [4X[25Xgap>[125X [27XTruncation(Dodecahedron())=Wythoffian([0,1],Dodecahedron());[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XTruncatedTetrahedron()=Truncation(Simplex(3));[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XTruncation(CrossPolytope(3))=TruncatedOctahedron();[127X[104X
@@ -550,7 +568,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Whirl(Cube(3)));[127X[104X
-    [4X[28X[ [ 4, 6 ], 3 ]              ^[128X[104X
+    [4X[28X[ [ 4, 6 ], 3 ][128X[104X
     [4X[25Xgap>[125X [27XSchlafliSymbol(Whirl(Icosahedron()));[127X[104X
     [4X[28X[ [ 3, 6 ], [ 3, 5 ] ][128X[104X
   [4X[32X[104X

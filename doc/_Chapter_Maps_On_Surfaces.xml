@@ -143,6 +143,26 @@ gap> SchlafliSymbol(m);
 <Section Label="Chapter_Maps_On_Surfaces_Section_Map_properties">
 <Heading>Map properties</Heading>
 
+<ManSection>
+  <Func Arg="map, newmap, opname" Name="FinalizedOutputMap" />
+ <Returns>IsManiplex
+</Returns>
+ <Description>
+Internal helper for naming the result of a map operation.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="op, opname" Name="MapOperation" />
+ <Returns>IsFunction
+</Returns>
+ <Description>
+Internal helper that wraps a map operation so that the output has the requested operation name.
+ </Description>
+</ManSection>
+
+
  <Code>IsMapOnSurface</Code> will test to see if you have rank 3 maniplex.
 <Example><![CDATA[
 gap> Filtered([HemiCube(3),Cube(4),Icosahedron()],IsMapOnSurface);
@@ -193,7 +213,7 @@ gap> Hole(Bk2lStar(5,7),2);
  <Returns>trunc_map
 </Returns>
  <Description>
-Given a <A>map</A> on a surface, this function will return the truncation of <A>map</A>.
+Given a <A>map</A> on a surface, this function will return the truncation of <A>map</A>. This is the Wythoffian with ringed nodes <Code>[0,1]</Code>.
  </Description>
 </ManSection>
 
@@ -201,6 +221,8 @@ Given a <A>map</A> on a surface, this function will return the truncation of <A>
 <Example><![CDATA[
 gap> SchlafliSymbol(Truncation(Simplex(3)));
 [ [ 3, 6 ], 3 ]
+gap> Truncation(Dodecahedron())=Wythoffian([0,1],Dodecahedron());
+true
 gap> TruncatedTetrahedron()=Truncation(Simplex(3));
 true
 gap> Truncation(CrossPolytope(3))=TruncatedOctahedron();
@@ -688,7 +710,7 @@ Constructs the whirl of the map.
 
 <Example><![CDATA[
 gap> SchlafliSymbol(Whirl(Cube(3)));
-[ [ 4, 6 ], 3 ]              ^
+[ [ 4, 6 ], 3 ]
 gap> SchlafliSymbol(Whirl(Icosahedron()));
 [ [ 3, 6 ], [ 3, 5 ] ]
 ]]></Example>

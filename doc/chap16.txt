@@ -141,7 +141,9 @@
   [33X[1;0Y[29X[2XMultPerm[102X( [3Xperm[103X, [3Xmultiplier[103X, [3Xoffset[103X ) [32X function[133X
   
   [33X[0;0YMultiplies  together  perm, TranslatePerm(perm, offset), TranslatePerm(perm,
-  offset*2), ..., with [3Xmultiplier[103X terms, and returns the result.[133X
+  offset*2),  ...,  with  [3Xmultiplier[103X  terms,  and  returns the result. This is
+  intended to be used in such a way that the permutations are all disjoint; it
+  will fail if that is not the case.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XMultPerm((1,2,3)(4,5,6),3,7);[127X[104X

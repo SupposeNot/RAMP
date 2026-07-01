@@ -35,7 +35,10 @@
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11.html#X7BF319E97DEC64D2">11.2 <span class="Heading">Map properties</span></a>
 </span>
-</div>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X836652EA854A2C30">11.2-1 FinalizedOutputMap</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap11.html#X87F05BB986D9D1F5">11.2-2 MapOperation</a></span>
+</div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap11.html#X8688080A7A67C820">11.3 <span class="Heading">Operations on maps</span></a>
 </span>
 <div class="ContSSBlock">
@@ -215,6 +218,24 @@ true
 
 <h4>11.2 <span class="Heading">Map properties</span></h4>
 
+<p><a id="X836652EA854A2C30" name="X836652EA854A2C30"></a></p>
+
+<h5>11.2-1 FinalizedOutputMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FinalizedOutputMap</code>( <var class="Arg">map</var>, <var class="Arg">newmap</var>, <var class="Arg">opname</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsManiplex</p>
+
+<p>Internal helper for naming the result of a map operation.</p>
+
+<p><a id="X87F05BB986D9D1F5" name="X87F05BB986D9D1F5"></a></p>
+
+<h5>11.2-2 MapOperation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MapOperation</code>( <var class="Arg">op</var>, <var class="Arg">opname</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: IsFunction</p>
+
+<p>Internal helper that wraps a map operation so that the output has the requested operation name.</p>
+
 <p><code class="code">IsMapOnSurface</code> will test to see if you have rank 3 maniplex.</p>
 
 
@@ -264,12 +285,14 @@ Petrial(Dual(Petrial(3-maniplex with 140 flags)))
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Truncation</code>( <var class="Arg">map</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
 <p>Returns: trunc_map</p>
 
-<p>Given a <var class="Arg">map</var> on a surface, this function will return the truncation of <var class="Arg">map</var>.</p>
+<p>Given a <var class="Arg">map</var> on a surface, this function will return the truncation of <var class="Arg">map</var>. This is the Wythoffian with ringed nodes <code class="code">[0,1]</code>.</p>
 
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Truncation(Simplex(3)));</span>
 [ [ 3, 6 ], 3 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(Dodecahedron())=Wythoffian([0,1],Dodecahedron());</span>
+true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">TruncatedTetrahedron()=Truncation(Simplex(3));</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Truncation(CrossPolytope(3))=TruncatedOctahedron();</span>
@@ -731,7 +754,7 @@ true
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Whirl(Cube(3)));</span>
-[ [ 4, 6 ], 3 ]              ^
+[ [ 4, 6 ], 3 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SchlafliSymbol(Whirl(Icosahedron()));</span>
 [ [ 3, 6 ], [ 3, 5 ] ]
 </pre></div>

@@ -289,7 +289,101 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X13.2-11 Hasse[101X
+  [1X13.2-11 SkeletonEdges[101X
+  
+  [33X[1;0Y[29X[2XSkeletonEdges[102X( [3Xmaniplex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya record [10Xrec(order, edges)[110X.[133X
+  
+  [33X[0;0YGiven  a  maniplex,  this  outputs  the  skeleton  as  an edge multiset. The
+  record's  [10Xorder[110X is the number of 0-faces (the vertices), and [10Xedges[110X is a list
+  of unordered pairs [10X[u,v][110X of vertex numbers, one per 1-face. Unlike [10XSkeleton[110X,
+  which  returns  the  underlying  simple graph, this preserves multiple edges
+  (distinct  1-faces  sharing  the  same pair of vertices) and loops (a 1-face
+  whose  two  ends are the same vertex). The vertex numbering agrees with that
+  of [10XSkeleton[110X.[133X
+  
+  [33X[0;0YFor  the dodecahedron the skeleton is simple, so the multiset has no repeats
+  and matches [10XSkeleton[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SkeletonEdges(Dodecahedron());;[127X[104X
+    [4X[25Xgap>[125X [27Xs.order;[127X[104X
+    [4X[28X20[128X[104X
+    [4X[25Xgap>[125X [27XLength(s.edges);[127X[104X
+    [4X[28X30[128X[104X
+    [4X[25Xgap>[125X [27XLength(Set(List(s.edges, Set)));[127X[104X
+    [4X[28X30[128X[104X
+    [4X[25Xgap>[125X [27XIsIsomorphicGraph(GraphFromListOfEdges([1..s.order], s.edges), Skeleton(Dodecahedron()));[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  hosohedron  [10X{2,3}[110X  has  a  skeleton  with  three  parallel edges, which
+  [10XSkeleton[110X collapses to one.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := SkeletonEdges(ReflexibleManiplex([2,3]));;[127X[104X
+    [4X[25Xgap>[125X [27Xs.order;[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XLength(s.edges);[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XCollected(List(s.edges, Set));[127X[104X
+    [4X[28X[ [ [ 1, 2 ], 3 ] ][128X[104X
+    [4X[25Xgap>[125X [27XLength(UndirectedEdges(Skeleton(ReflexibleManiplex([2,3]))));[127X[104X
+    [4X[28X1[128X[104X
+  [4X[32X[104X
+  
+  [1X13.2-12 SkeletonEdges[101X
+  
+  [33X[1;0Y[29X[2XSkeletonEdges[102X( [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya record [10Xrec(order, edges)[110X.[133X
+  
+  [33X[0;0YGiven  a  group,  assumed  to  be  the  connection group of a maniplex, this
+  outputs the skeleton edge multiset, as for the maniplex method above.[133X
+  
+  [1X13.2-13 CoSkeletonEdges[101X
+  
+  [33X[1;0Y[29X[2XCoSkeletonEdges[102X( [3Xmaniplex[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya record [10Xrec(order, edges)[110X.[133X
+  
+  [33X[0;0YGiven a maniplex, this outputs the co-skeleton as an edge multiset, i.e. the
+  skeleton  edge  multiset  of  the  dual. The record's [10Xorder[110X is the number of
+  [10X(n-1)[110X-faces,  and  [10Xedges[110X  is  a  list  of  unordered pairs of these, one per
+  [10X(n-2)[110X-face.  Like  [10XSkeletonEdges[110X,  this  preserves multiple edges and loops,
+  where [10XCoSkeleton[110X returns only the underlying simple graph.[133X
+  
+  [33X[0;0YFor  the  dodecahedron  the  co-skeleton  is  simple, so the multiset has no
+  repeats and matches [10XCoSkeleton[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := CoSkeletonEdges(Dodecahedron());;[127X[104X
+    [4X[25Xgap>[125X [27Xs.order;[127X[104X
+    [4X[28X12[128X[104X
+    [4X[25Xgap>[125X [27XLength(s.edges);[127X[104X
+    [4X[28X30[128X[104X
+    [4X[25Xgap>[125X [27XLength(Set(List(s.edges, Set)));[127X[104X
+    [4X[28X30[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  co-skeleton  of  the  dihedron  [10X{3,2}[110X  has  three parallel edges, which
+  [10XCoSkeleton[110X collapses to one.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xs := CoSkeletonEdges(ReflexibleManiplex([3,2]));;[127X[104X
+    [4X[25Xgap>[125X [27Xs.order;[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XCollected(List(s.edges, Set));[127X[104X
+    [4X[28X[ [ [ 1, 2 ], 3 ] ][128X[104X
+  [4X[32X[104X
+  
+  [1X13.2-14 CoSkeletonEdges[101X
+  
+  [33X[1;0Y[29X[2XCoSkeletonEdges[102X( [3Xgroup[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya record [10Xrec(order, edges)[110X.[133X
+  
+  [33X[0;0YGiven  a  group,  assumed  to  be  the  connection group of a maniplex, this
+  outputs the co-skeleton edge multiset, as for the maniplex method above.[133X
+  
+  [1X13.2-15 Hasse[101X
   
   [33X[1;0Y[29X[2XHasse[102X( [3Xmaniplex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns a directed graph.[133X
@@ -307,7 +401,7 @@
     [4X[28X32[128X[104X
   [4X[32X[104X
   
-  [1X13.2-12 QuotientByLabel[101X
+  [1X13.2-16 QuotientByLabel[101X
   
   [33X[1;0Y[29X[2XQuotientByLabel[102X( [3Xobject[103X, [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X. Note this returns an undirected graph.[133X
@@ -330,7 +424,7 @@
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
-  [1X13.2-13 EdgeLabeledGraphFromEdges[101X
+  [1X13.2-17 EdgeLabeledGraphFromEdges[101X
   
   [33X[1;0Y[29X[2XEdgeLabeledGraphFromEdges[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -353,7 +447,7 @@
     [4X[28X[ 0, 1, 0, 1, 0, 1 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-14 EdgeLabeledGraphFromLabeledEdges[101X
+  [1X13.2-18 EdgeLabeledGraphFromLabeledEdges[101X
   
   [33X[1;0Y[29X[2XEdgeLabeledGraphFromLabeledEdges[102X( [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -371,7 +465,7 @@
     [4X[28X[ 0, 0, 1 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-15 FlagGraph[101X
+  [1X13.2-19 FlagGraph[101X
   
   [33X[1;0Y[29X[2XFlagGraph[102X( [3Xgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -392,7 +486,7 @@
     [4X[28X[ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-16 FlagGraph[101X
+  [1X13.2-20 FlagGraph[101X
   
   [33X[1;0Y[29X[2XFlagGraph[102X( [3Xpremaniplex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -407,7 +501,7 @@
     [4X[28X[ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-17 UnlabeledSimpleGraph[101X
+  [1X13.2-21 UnlabeledSimpleGraph[101X
   
   [33X[1;0Y[29X[2XUnlabeledSimpleGraph[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGraph[110X.[133X
@@ -425,7 +519,7 @@
     [4X[28X72[128X[104X
   [4X[32X[104X
   
-  [1X13.2-18 EdgeLabelPreservingAutomorphismGroup[101X
+  [1X13.2-22 EdgeLabelPreservingAutomorphismGroup[101X
   
   [33X[1;0Y[29X[2XEdgeLabelPreservingAutomorphismGroup[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsGroup[110X.[133X
@@ -442,7 +536,7 @@
     [4X[28X31104[128X[104X
   [4X[32X[104X
   
-  [1X13.2-19 Simple[101X
+  [1X13.2-23 Simple[101X
   
   [33X[1;0Y[29X[2XSimple[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -460,7 +554,7 @@
     [4X[28X[ 0, 1, 2, 0 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-20 ConnectedComponents[101X
+  [1X13.2-24 ConnectedComponents[101X
   
   [33X[1;0Y[29X[2XConnectedComponents[102X( [3Xedge-labeled-graph[103X, [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -480,7 +574,7 @@
     [4X[28X[ 4 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-21 ConnectedComponents[101X
+  [1X13.2-25 ConnectedComponents[101X
   
   [33X[1;0Y[29X[2XConnectedComponents[102X( [3Xedge-labeled-graph[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -493,7 +587,7 @@
     [4X[28X1[128X[104X
   [4X[32X[104X
   
-  [1X13.2-22 PRGraph[101X
+  [1X13.2-26 PRGraph[101X
   
   [33X[1;0Y[29X[2XPRGraph[102X( [3Xgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -517,7 +611,7 @@
     [4X[28X[ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-23 CPRGraphFromGroups[101X
+  [1X13.2-27 CPRGraphFromGroups[101X
   
   [33X[1;0Y[29X[2XCPRGraphFromGroups[102X( [3Xgroup[103X, [3Xsubgroup[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -535,7 +629,7 @@
     [4X[28X[ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-24 AdjacentVertices[101X
+  [1X13.2-28 AdjacentVertices[101X
   
   [33X[1;0Y[29X[2XAdjacentVertices[102X( [3XEdgeLabeledGraph[103X, [3Xvertex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -549,7 +643,7 @@
     [4X[28X[ 1, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-25 LabeledAdjacentVertices[101X
+  [1X13.2-29 LabeledAdjacentVertices[101X
   
   [33X[1;0Y[29X[2XLabeledAdjacentVertices[102X( [3XEdgeLabeledGraph[103X, [3Xvertex[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -563,7 +657,7 @@
     [4X[28X[ [ 1, 3 ], [ 0, 1 ] ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-26 SemiEdges[101X
+  [1X13.2-30 SemiEdges[101X
   
   [33X[1;0Y[29X[2XSemiEdges[102X( [3XEdgeLabeledGraph[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -576,7 +670,7 @@
     [4X[28X[ [ 3 ], [ 1 ] ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-27 LabeledSemiEdges[101X
+  [1X13.2-31 LabeledSemiEdges[101X
   
   [33X[1;0Y[29X[2XLabeledSemiEdges[102X( [3XEdgeLabeledGraph[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -590,7 +684,7 @@
     [4X[28X[ [ [ 3 ], [ 1 ] ], [ 2, 1 ] ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-28 LabeledDarts[101X
+  [1X13.2-32 LabeledDarts[101X
   
   [33X[1;0Y[29X[2XLabeledDarts[102X( [3XEdgeLabeledGraph[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsList[110X.[133X
@@ -604,7 +698,7 @@
     [4X[28X6[128X[104X
   [4X[32X[104X
   
-  [1X13.2-29 DerivedGraph[101X
+  [1X13.2-33 DerivedGraph[101X
   
   [33X[1;0Y[29X[2XDerivedGraph[102X( [3Xlist[103X, [3Xlist[103X, [3Xlist[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsEdgeLabeledGraph[110X.[133X
@@ -629,7 +723,7 @@
     [4X[28X[ 0, 1, 2 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-30 ViewGraph[101X
+  [1X13.2-34 ViewGraph[101X
   
   [33X[1;0Y[29X[2XViewGraph[102X( [3XG[103X, [3Xsoftware_name[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ynothing.[133X
@@ -638,7 +732,7 @@
   software.  Currently  Mathematica and Sage are supported. If the software is
   not specified it will print Mathematica code.[133X
   
-  [1X13.2-31 ConnectionGroup[101X
+  [1X13.2-35 ConnectionGroup[101X
   
   [33X[1;0Y[29X[2XConnectionGroup[102X( [3XF[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Y[10XIsPermGroup[110X[133X
@@ -656,7 +750,7 @@
     [4X[28X3[128X[104X
   [4X[32X[104X
   
-  [1X13.2-32 FlagGraph[101X
+  [1X13.2-36 FlagGraph[101X
   
   [33X[1;0Y[29X[2XFlagGraph[102X( [3XM[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Yedgelabeledgraph[133X
@@ -669,7 +763,7 @@
     [4X[28XEdge labeled graph with 3 vertices, and edge labels [ 0, 1, 2, 3 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-33 LabeledDarts[101X
+  [1X13.2-37 LabeledDarts[101X
   
   [33X[1;0Y[29X[2XLabeledDarts[102X( [3XM[103X ) [32X attribute[133X
   [6XReturns:[106X  [33X[0;10Ylist[133X
@@ -685,7 +779,7 @@
     [4X[28X[ 0, 1, 2, 3, 4 ][128X[104X
   [4X[32X[104X
   
-  [1X13.2-34 LabeledDart[101X
+  [1X13.2-38 LabeledDart[101X
   
   [33X[1;0Y[29X[2XLabeledDart[102X( [3XM[103X, [3Xlabel[103X, [3Xstartvert[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ylist or [10Xfail[110X[133X

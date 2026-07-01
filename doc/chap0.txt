@@ -226,21 +226,16 @@
   7 [33X[0;0YAlgebraic Structure of Maniplexes[133X
     7.1 [33X[0;0YGroups of Maps, Polytopes, and Maniplexes[133X
       7.1-1 [33X[0;0YAutomorphism Groups[133X
-      7.1-2 ConnectionGroup
-      7.1-3 EvenConnectionGroup
-      7.1-4 RotationGroup
-      7.1-5 RotationGroupFpGroup
-      7.1-6 RotationGroupPermGroup
-      7.1-7 ChiralityGroup
-      7.1-8 [33X[0;0YExtraRelators[133X
-      7.1-9 ExtraRotRelators
-      7.1-10 IsManiplexable
-    7.2 [33X[0;0YAutomorphism group acting on faces and chains[133X
-      7.2-1 AutomorphismGroupOnChains
-      7.2-2 AutomorphismGroupOnIFaces
-      7.2-3 AutomorphismGroupOnVertices
-      7.2-4 AutomorphismGroupOnEdges
-      7.2-5 AutomorphismGroupOnFacets
+      7.1-2 [33X[0;0YExtraRelators[133X
+      7.1-3 ExtraRotRelators
+      7.1-4 IsManiplexable
+    7.2 [33X[0;0YAutomorphism group acting on flags, faces, and chains[133X
+      7.2-1 AutomorphismGroupOnFlags
+      7.2-2 AutomorphismGroupOnChains
+      7.2-3 AutomorphismGroupOnIFaces
+      7.2-4 AutomorphismGroupOnVertices
+      7.2-5 AutomorphismGroupOnEdges
+      7.2-6 AutomorphismGroupOnFacets
     7.3 [33X[0;0YNumber of orbits and transitivity[133X
       7.3-1 NumberOfChainOrbits
       7.3-2 NumberOfIFaceOrbits
@@ -358,6 +353,8 @@
       11.1-6 Bk2lStar
       11.1-7 Bk2lRhoSigma
     11.2 [33X[0;0YMap properties[133X
+      11.2-1 FinalizedOutputMap
+      11.2-2 MapOperation
     11.3 [33X[0;0YOperations on maps[133X
       11.3-1 Opp
       11.3-2 Hole
@@ -488,30 +485,34 @@
       13.2-8 LayerGraph
       13.2-9 Skeleton
       13.2-10 CoSkeleton
-      13.2-11 Hasse
-      13.2-12 QuotientByLabel
-      13.2-13 EdgeLabeledGraphFromEdges
-      13.2-14 EdgeLabeledGraphFromLabeledEdges
-      13.2-15 FlagGraph
-      13.2-16 FlagGraph
-      13.2-17 UnlabeledSimpleGraph
-      13.2-18 EdgeLabelPreservingAutomorphismGroup
-      13.2-19 Simple
-      13.2-20 ConnectedComponents
-      13.2-21 ConnectedComponents
-      13.2-22 PRGraph
-      13.2-23 CPRGraphFromGroups
-      13.2-24 AdjacentVertices
-      13.2-25 LabeledAdjacentVertices
-      13.2-26 SemiEdges
-      13.2-27 LabeledSemiEdges
-      13.2-28 LabeledDarts
-      13.2-29 DerivedGraph
-      13.2-30 ViewGraph
-      13.2-31 ConnectionGroup
-      13.2-32 FlagGraph
-      13.2-33 LabeledDarts
-      13.2-34 LabeledDart
+      13.2-11 SkeletonEdges
+      13.2-12 SkeletonEdges
+      13.2-13 CoSkeletonEdges
+      13.2-14 CoSkeletonEdges
+      13.2-15 Hasse
+      13.2-16 QuotientByLabel
+      13.2-17 EdgeLabeledGraphFromEdges
+      13.2-18 EdgeLabeledGraphFromLabeledEdges
+      13.2-19 FlagGraph
+      13.2-20 FlagGraph
+      13.2-21 UnlabeledSimpleGraph
+      13.2-22 EdgeLabelPreservingAutomorphismGroup
+      13.2-23 Simple
+      13.2-24 ConnectedComponents
+      13.2-25 ConnectedComponents
+      13.2-26 PRGraph
+      13.2-27 CPRGraphFromGroups
+      13.2-28 AdjacentVertices
+      13.2-29 LabeledAdjacentVertices
+      13.2-30 SemiEdges
+      13.2-31 LabeledSemiEdges
+      13.2-32 LabeledDarts
+      13.2-33 DerivedGraph
+      13.2-34 ViewGraph
+      13.2-35 ConnectionGroup
+      13.2-36 FlagGraph
+      13.2-37 LabeledDarts
+      13.2-38 LabeledDart
   14 [33X[0;0YVoltage Graphs and Operations[133X
     14.1 [33X[0;0YVoltage Operator[133X
       14.1-1 VoltageOperator

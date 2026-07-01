@@ -221,7 +221,7 @@ Error, The given group is not a String Rotation Group...
 <h5>16.3-2 MultPerm</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MultPerm</code>( <var class="Arg">perm</var>, <var class="Arg">multiplier</var>, <var class="Arg">offset</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result.</p>
+<p>Multiplies together perm, TranslatePerm(perm, offset), TranslatePerm(perm, offset*2), ..., with <var class="Arg">multiplier</var> terms, and returns the result. This is intended to be used in such a way that the permutations are all disjoint; it will fail if that is not the case.</p>
 
 
 <div class="example"><pre>
