@@ -2,7 +2,14 @@
 #! @Chapter Maps On Surfaces
 #! @Section Map properties
 
+#! @Arguments map, newmap, opname
+#! @Returns IsManiplex
+#! @Description Internal helper for naming the result of a map operation.
 DeclareGlobalFunction("FinalizedOutputMap");
+
+#! @Arguments op, opname
+#! @Returns IsFunction
+#! @Description Internal helper that wraps a map operation so that the output has the requested operation name.
 DeclareGlobalFunction("MapOperation");
 
 #! `IsMapOnSurface` will test to see if you have rank 3 maniplex.
@@ -35,11 +42,13 @@ DeclareOperation("Hole", [IsMapOnSurface,IsInt]);
 
 #! @Arguments map
 #! @Returns  trunc_map
-#! @Description Given a <A>map</A> on a surface, this function will return the truncation of <A>map</A>.
+#! @Description Given a <A>map</A> on a surface, this function will return the truncation of <A>map</A>. This is the Wythoffian with ringed nodes `[0,1]`.
 DeclareOperation("Truncation", [IsMapOnSurface]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(Truncation(Simplex(3)));
 #! [ [ 3, 6 ], 3 ]
+#! gap> Truncation(Dodecahedron())=Wythoffian([0,1],Dodecahedron());
+#! true
 #! gap> TruncatedTetrahedron()=Truncation(Simplex(3));
 #! true
 #! gap> Truncation(CrossPolytope(3))=TruncatedOctahedron();
@@ -341,7 +350,7 @@ DeclareOperation("Stake", [IsMapOnSurface]);
 DeclareOperation("Whirl", [IsMapOnSurface]);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(Whirl(Cube(3)));
-#! [ [ 4, 6 ], 3 ]              ^
+#! [ [ 4, 6 ], 3 ]
 #! gap> SchlafliSymbol(Whirl(Icosahedron()));
 #! [ [ 3, 6 ], [ 3, 5 ] ]
 #! @EndExampleSession
