@@ -63,8 +63,8 @@ DeclareOperation("Antiprism", [IsInt]);
 #! by their posets.
 DeclareOperation("JoinProduct", [IsManiplex, IsManiplex]);
 #! @BeginExampleSession
-#! gap> SchlafliSymbol(last);
-#! [ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
+#! gap> SchlafliSymbol(JoinProduct(Pgon(3), Pgon(4)));
+#! [ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
 #! @EndExampleSession
 
 #! @Arguments M1, M2
