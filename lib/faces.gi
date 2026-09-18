@@ -309,16 +309,16 @@ InstallMethod(VertexFigure,
 	return VertexFigure(M, 1);
 	end);
 
-# THIS IS WRONG
 InstallMethod(VertDegrees,
 	[IsManiplex],
 	function(M)
-	local g, verts;
+	local verts, vsizes;
 	
-	g := Skeleton(M);
-	verts := Vertices(g);
-	return Collected(List(verts, v -> VertexDegree(g,v)));
+	verts := VertexList(M);
+	vsizes := List(verts, v -> Size(v)/2);
+	return Collected(vsizes);
 	end);
+	
 	
 InstallMethod(FaceSizes,
 	[IsManiplex],
