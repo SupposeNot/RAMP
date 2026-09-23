@@ -802,8 +802,8 @@ Given two maniplexes, this forms the join product.
 
 
 <Example><![CDATA[
-gap> SchlafliSymbol(last);
-[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], 3 ]
+gap> SchlafliSymbol(JoinProduct(Pgon(3), Pgon(4)));
+[ [ 3, 4 ], [ 3, 4 ], [ 3, 4 ], [ 3, 4 ] ]
 ]]></Example>
 
 
