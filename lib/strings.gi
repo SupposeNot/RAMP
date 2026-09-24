@@ -143,6 +143,11 @@ InstallMethod(ViewObj,
 #	function(M)
 #	return MANIPLEX_STRING(M);
 #	end);
+
+InstallMethod(ViewObj, "for maniplexes in conn gp rep", [IsManiplexConnGpRep],
+function(M)
+    Print(RankManiplex(M),"-maniplex with ", Size(M), " flags");
+end);
 	
 
 InstallMethod(InterpolatedString,
