@@ -233,6 +233,7 @@ InstallMethod(ManiplexNC,
 	SetSize(p, NrMovedPoints(g));
 	SetRankManiplex(p, n);
 	SetConnectionGroup(p, g);
+	SetString(p, MANIPLEX_STRING(p));
 	return p;
 	end);
 	
