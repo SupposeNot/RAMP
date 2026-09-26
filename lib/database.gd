@@ -28,6 +28,14 @@
 #! the file representation.
 DeclareGlobalFunction("WriteManiplexesToFile");
 
+#! @Arguments maniplexes, filename, attributeNames
+#! @Description Appends the data in <A>maniplexes</A> to the designated file,
+#! including the defining information and the values of the attributes in
+#! <A>attributeNames</A>. Does not check for duplicate entries, nor that you have entered the attribute names in a manner consistent with the existing data in the file.
+#! This calls `DatabaseString` on each maniplex in <A>maniplexes</A> to get
+#! the file representation.
+DeclareGlobalFunction("AppendManiplexesToFile");
+
 #! @Arguments filename
 #! @Returns IsList
 #! @Description Reads the maniplexes from <A>filename</A> in the data directory
