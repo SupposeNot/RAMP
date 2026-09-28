@@ -29,7 +29,7 @@ InstallMethod(IsIOrientable,
 	rels := List(rels, r -> TietzeWordAbstractWord(r));
 	# Translate I since tietze words are 1-based instead of 0-based
 	I := I+1;
-	return ForAll(rels, r -> Number(r, i -> i in I) mod 2 = 0);
+	return ForAll(rels, r -> Number(r, i -> AbsInt(i) in I) mod 2 = 0);
 	end);
 
 InstallMethod(IsIOrientable,
