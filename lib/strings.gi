@@ -131,23 +131,26 @@ InstallMethod(DisplayString,
 InstallMethod(ViewObj,
 	[IsPremaniplex],
 	function(M)
-	if HasString(M) then
-		Print(String(M));
-	else
+# 	if HasString(M) then
+# 		Print(String(M));
+# 	else
 		Print(MANIPLEX_STRING(M));
-	fi;
+# 	fi;
 	end);
 	
-#InstallMethod(String,
-#	[IsManiplex],
-#	function(M)
-#	return MANIPLEX_STRING(M);
-#	end);
+# InstallMethod(String,
+# 	[IsManiplex],
+# 	function(M)
+# 	return MANIPLEX_STRING(M);
+# 	end);
+# 
+# InstallMethod(ViewObj, "for maniplexes in conn gp rep", [IsManiplexConnGpRep],
+# function(M)
+#     Print(RankManiplex(M),"-maniplex with ", Size(M), " flags");
+# end);
 
-InstallMethod(ViewObj, "for maniplexes in conn gp rep", [IsManiplexConnGpRep],
-function(M)
-    Print(RankManiplex(M),"-maniplex with ", Size(M), " flags");
-end);
+InstallMethod(String, "for premaniplexes", [IsPremaniplex],
+    M -> MANIPLEX_STRING(M));
 	
 
 InstallMethod(InterpolatedString,
