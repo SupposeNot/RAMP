@@ -247,3 +247,6 @@ DeclareOperation("QuotientManiplexByAutomorphismSubgroup",[IsManiplex,IsPermGrou
 # When two maniplexes are found to be isomorphic, they sync the values
 # of some certain attributes / properties.
 DeclareGlobalFunction("SyncManiplexAttributes");
+
+DeclareAttribute("ParentManiplex", IsPremaniplex);
+DeclareAttribute("QuotientSubgroup", IsPremaniplex);

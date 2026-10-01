@@ -616,4 +616,4 @@ TwoOrbit3ManiplexClass2_1 := function(sym, rels)
 	
 	return M;
 	end;
-		
+	

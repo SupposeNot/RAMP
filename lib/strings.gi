@@ -199,3 +199,9 @@ InstallMethod(InterpolatedString,
 	return JoinStringsWithSeparator(L, "");
 	
 	end);
+
+InstallMethod(String, "for quotient-rep maniplexes",
+    [IsPremaniplex and IsManiplexQuotientRep],
+    M -> Concatenation("QuotientManiplex(UniversalPolytope(", String(RankManiplex(M)),
+              "), \"", String(rels), "\")")
+              );
