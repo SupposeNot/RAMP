@@ -54,4 +54,3 @@ DeclareOperation("InterpolatedString", [IsString]);
 #! @EndExampleSession
 
 DeclareOperation("PremaniplexAttrStringOrEmpty",[IsPremaniplex,IsString]);
-DeclareAttribute("QuotientRelatorString", IsPremaniplex);

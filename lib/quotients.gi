@@ -316,14 +316,12 @@ InstallMethod(SmallestReflexibleCover,
 InstallMethod(QuotientManiplex,
 	[IsReflexibleManiplex, IsString],
 	function(M, relStr)
-	local g, h, rels, newM;
+	local g, h, rels;
 	g := AutomorphismGroupFpGroup(M);
 	rels := ParseGgiRels(relStr, g);
 	rels := List(rels, r -> ElementOfFpGroup(FamilyObj(g.1), r));
 	h := Subgroup(g, rels);
-	newM:=Maniplex(M,h);
-	SetQuotientRelatorString(newM,relStr);
-	return newM;
+	return Maniplex(M, h);
 	end);
 	
 InstallOtherMethod(\/,
@@ -405,11 +403,3 @@ InstallMethod(QuotientManiplexByAutomorphismSubgroup,
 	newGens:=List([1..Rank(m)],x->PermListList(orbits,ims[x]));
 	return Maniplex(Group(newGens));
 	end);
-	
-InstallMethod(ParentManiplex, "for maniplexes in quotient rep",
-    [IsPremaniplex and IsManiplexQuotientRep],
-    M -> M!.parent);
-
-InstallMethod(QuotientSubgroup, "for maniplexes in quotient rep",
-    [IsPremaniplex and IsManiplexQuotientRep],
-    M -> M!.subgroup);
