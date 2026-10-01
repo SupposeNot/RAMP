@@ -20,9 +20,9 @@ InstallGlobalFunction(WriteManiplexesToFile,
 	local databaseFile, M, attributes;
 	databaseFile := OutputTextFile(Filename(RampDataPath, filename), false);
 	WriteLine(databaseFile, JoinStringsWithSeparator(attributeNames));
-	attributes := List(attributeNames, EvalString);
+# 	attributes := List(attributeNames, EvalString);
 	for M in maniplexes do
-		WriteLine(databaseFile, DatabaseString(M, attributes));
+		WriteLine(databaseFile, DatabaseString(M, attributeNames));
 	od;
 
 	CloseStream(databaseFile);
@@ -32,9 +32,9 @@ InstallGlobalFunction(AppendManiplexesToFile,
 	function(maniplexes, filename, attributeNames)
 	local databaseFile, M, attributes;
 	databaseFile := OutputTextFile(Filename(RampDataPath, filename),true);
-	attributes := List(attributeNames, EvalString);
+# 	attributes := List(attributeNames, EvalString);
 	for M in maniplexes do
-		WriteLine(databaseFile, DatabaseString(M, attributes));
+		WriteLine(databaseFile, DatabaseString(M, attributeNames));
 	od;
 	CloseStream(databaseFile);
 	end);

@@ -5,7 +5,7 @@
 #! @Description A maniplex is orientable if its flag graph is bipartite.
 #! @Arguments M
 #! @Returns
-DeclareProperty("IsOrientable", IsManiplex);
+DeclareProperty("IsOrientable", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> IsOrientable(HemiCube(3));
 #! false

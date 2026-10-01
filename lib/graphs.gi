@@ -41,7 +41,7 @@ end);
 
 
 InstallMethod(UnlabeledFlagGraph,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	local p;
 	p:=UnlabeledFlagGraph(ConnectionGroup(m));
@@ -74,7 +74,7 @@ end);
 
 
 InstallMethod(FlagGraphWithLabels,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	local p;
 	p:= FlagGraphWithLabels(ConnectionGroup(m));
@@ -116,7 +116,7 @@ InstallMethod(LayerGraph,
 
 
 InstallMethod(LayerGraph,
-	[IsManiplex,IsInt, IsInt],
+	[IsPremaniplex,IsInt, IsInt],
 	function(m,i,j)
 	local p;
 	p:=LayerGraph(ConnectionGroup(m),i,j);
@@ -129,7 +129,7 @@ end);
 
 
 InstallMethod(Skeleton,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	local p;
 	p:=PointGraph(LayerGraph(m,0,1));
@@ -138,7 +138,7 @@ InstallMethod(Skeleton,
 end);
 
 InstallMethod(CoSkeleton,
-	[IsManiplex],
+	[IsPremaniplex],
 	function (m)
 	local r, p;
 	r:=Rank(m);
@@ -180,7 +180,7 @@ end);
 
 
 InstallMethod(SkeletonEdges,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	return SkeletonEdges(ConnectionGroup(m));
 end);
@@ -199,7 +199,7 @@ end);
 
 
 InstallMethod(CoSkeletonEdges,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	return CoSkeletonEdges(ConnectionGroup(m));
 end);
@@ -317,7 +317,7 @@ InstallMethod(FlagGraph,
 
 
 InstallMethod(FlagGraph,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(m)
 	local c, all;
 	c:=ConnectionGroup(m);

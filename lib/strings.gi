@@ -12,13 +12,30 @@ InstallMethod(DatabaseString,
 										String(Size(M))],
 									ManiplexDatabaseStringSeparator);
 	end);
+
+#Trying to make the database commands more tolerant of errors in objects passed to them. Need some helper functions for that.
+
+InstallMethod(PremaniplexAttrStringOrEmpty,
+	[IsPremaniplex,IsString],
+	function(M,attr)
+	local attrE;
+	attrE:=ValueGlobal(attr);
+    if ApplicableMethod(attrE, [M]) = fail then
+        return "";
+    elif Tester(attrE)(M) then
+        return String(attrE(M));
+    else
+        return String(attrE(M));  # not yet known, but computable — this will trigger computation
+    fi;
+end);
+
 	
 InstallOtherMethod(DatabaseString,
-	[IsManiplex, IsList],
+	[IsPremaniplex, IsList],
 	function(M, attrList)
 	local attrStrings;
 	attrStrings := [Chomp(String(M))];
-	Append(attrStrings, List(attrList, attr -> String(attr(M))));
+	Append(attrStrings, List(attrList, attr -> PremaniplexAttrStringOrEmpty(M,attr)));
 	return JoinStringsWithSeparator(attrStrings, ManiplexDatabaseStringSeparator);
 	end);
 	
@@ -131,11 +148,11 @@ InstallMethod(DisplayString,
 InstallMethod(ViewObj,
 	[IsPremaniplex],
 	function(M)
-# 	if HasString(M) then
-# 		Print(String(M));
-# 	else
+	if HasString(M) then
+		Print(String(M));
+	else
 		Print(MANIPLEX_STRING(M));
-# 	fi;
+	fi;
 	end);
 	
 # InstallMethod(String,

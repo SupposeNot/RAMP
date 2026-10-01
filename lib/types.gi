@@ -39,7 +39,7 @@ InstallTrueMethod(IsP1, IsAllMeets and IsAllJoins);
 InstallTrueMethod(IsAllMeets, IsP1 and IsAllJoins);
 InstallTrueMethod(IsAllJoins, IsP1 and IsAllMeets);
 
-InstallImmediateMethod(IsMapOnSurface, IsManiplex and Tester(RankManiplex),	
+InstallImmediateMethod(IsMapOnSurface, IsPremaniplex and Tester(RankManiplex),	
 	function(m)
 	return Rank(m)=3;
 	end);

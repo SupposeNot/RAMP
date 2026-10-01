@@ -53,7 +53,7 @@ DeclareOperation("UnlabeledFlagGraph",[IsGroup]);
 #! @Arguments maniplex
 #! @Returns `IsGraph`. Note this returns an undirected graph.
 #! @Description Given a maniplex, this outputs the simple underlying flag graph.
-DeclareOperation("UnlabeledFlagGraph",[IsManiplex]);
+DeclareOperation("UnlabeledFlagGraph",[IsPremaniplex]);
 #! Here we build the flag graph for the cube.
 #! @BeginExampleSession
 #! gap> g := UnlabeledFlagGraph(Cube(3));;
@@ -84,7 +84,7 @@ DeclareOperation("FlagGraphWithLabels",[IsGroup]);
 #! @Arguments maniplex
 #! @Returns a triple [`IsGraph`, `IsList`, `IsList`].
 #! @Description Given a maniplex, this outputs a triple `[graph, edges, labels]` containing the unlabeled flag graph, its edge list, and its labels. The flag-graph labels are `0..Rank(M)-1`.
-DeclareOperation("FlagGraphWithLabels",[IsManiplex]);
+DeclareOperation("FlagGraphWithLabels",[IsPremaniplex]);
 #! Here we build the labeled flag graph data for the cube.
 #! @BeginExampleSession
 #! gap> f := FlagGraphWithLabels(Cube(3));;
@@ -116,7 +116,7 @@ DeclareOperation("LayerGraph",[IsGroup, IsInt, IsInt]);
 #! @Arguments maniplex, int, int
 #! @Returns `IsGraph`. Note this returns an undirected graph.
 #! @Description Given a maniplex and two ranks `i` and `j`, this outputs the simple graph whose vertices are the faces of ranks `i` and `j`, with edges recording incidence.
-DeclareOperation("LayerGraph",[IsManiplex, IsInt, IsInt]);
+DeclareOperation("LayerGraph",[IsPremaniplex, IsInt, IsInt]);
 #! Here we build the incidence graph of the 6 faces and 12 edges of a cube.
 #! @BeginExampleSession
 #! gap> g := LayerGraph(Cube(3),2,1);
@@ -138,7 +138,7 @@ DeclareOperation("LayerGraph",[IsManiplex, IsInt, IsInt]);
 #! @Arguments maniplex
 #! @Returns `IsGraph`. Note this returns an undirected graph.
 #! @Description Given a maniplex, this outputs the 0-1 skeleton. The vertices are the 0-faces, and the edges are the 1-faces.
-DeclareOperation("Skeleton",[IsManiplex]);
+DeclareOperation("Skeleton",[IsPremaniplex]);
 #! Here we build the skeleton of the dodecahedron.
 #! @BeginExampleSession
 #! gap> g := Skeleton(Dodecahedron());;
@@ -151,7 +151,7 @@ DeclareOperation("Skeleton",[IsManiplex]);
 #! @Arguments maniplex
 #! @Returns `IsGraph`. Note this returns an undirected graph.
 #! @Description Given a maniplex, this outputs the `(n-1)`-`(n-2)` skeleton, i.e. the 0-1 skeleton of the dual. The vertices are the `(n-1)`-faces, and the edges are the `(n-2)`-faces.
-DeclareOperation("CoSkeleton",[IsManiplex]);
+DeclareOperation("CoSkeleton",[IsPremaniplex]);
 #! Here we build the co-skeleton of the dodecahedron and check that it is isomorphic to the skeleton of the icosahedron.
 #! @BeginExampleSession
 #! gap> g := CoSkeleton(Dodecahedron());;
@@ -166,7 +166,7 @@ DeclareOperation("CoSkeleton",[IsManiplex]);
 #! @Arguments maniplex
 #! @Returns a record `rec(order, edges)`.
 #! @Description Given a maniplex, this outputs the skeleton as an edge multiset. The record's `order` is the number of 0-faces (the vertices), and `edges` is a list of unordered pairs `[u,v]` of vertex numbers, one per 1-face. Unlike `Skeleton`, which returns the underlying simple graph, this preserves multiple edges (distinct 1-faces sharing the same pair of vertices) and loops (a 1-face whose two ends are the same vertex). The vertex numbering agrees with that of `Skeleton`.
-DeclareOperation("SkeletonEdges",[IsManiplex]);
+DeclareOperation("SkeletonEdges",[IsPremaniplex]);
 #! For the dodecahedron the skeleton is simple, so the multiset has no repeats and matches `Skeleton`.
 #! @BeginExampleSession
 #! gap> s := SkeletonEdges(Dodecahedron());;
@@ -200,7 +200,7 @@ DeclareOperation("SkeletonEdges",[IsGroup]);
 #! @Arguments maniplex
 #! @Returns a record `rec(order, edges)`.
 #! @Description Given a maniplex, this outputs the co-skeleton as an edge multiset, i.e. the skeleton edge multiset of the dual. The record's `order` is the number of `(n-1)`-faces, and `edges` is a list of unordered pairs of these, one per `(n-2)`-face. Like `SkeletonEdges`, this preserves multiple edges and loops, where `CoSkeleton` returns only the underlying simple graph.
-DeclareOperation("CoSkeletonEdges",[IsManiplex]);
+DeclareOperation("CoSkeletonEdges",[IsPremaniplex]);
 #! For the dodecahedron the co-skeleton is simple, so the multiset has no repeats and matches `CoSkeleton`.
 #! @BeginExampleSession
 #! gap> s := CoSkeletonEdges(Dodecahedron());;

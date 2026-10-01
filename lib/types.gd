@@ -48,7 +48,7 @@ DeclareRepresentation("IsPremaniplexConnGpRep", IsComponentObjectRep and IsAttri
 DeclareRepresentation("IsPremaniplexGraphRep", IsComponentObjectRep and IsAttributeStoringRep, ["conn_gp", "flags", "rank"]);
 
 #Maps on surfaces stuff
-DeclareProperty("IsMapOnSurface", IsManiplex);
+DeclareProperty("IsMapOnSurface", IsPremaniplex);
 
 #VoltageGraph stuff
 DeclareCategory("IsVoltageGraph", IsObject);

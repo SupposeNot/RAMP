@@ -8,7 +8,7 @@
 #! @Description This corresponds to the lengths of orbits under r0 (r1 r2)^j.
 #! If all j-zigzags have the same length, then returns that length as an integer;
 #! otherwise, returns a list of all possible lengths.
-DeclareOperation("ZigzagLength", [IsManiplex, IsInt]);
+DeclareOperation("ZigzagLength", [IsPremaniplex, IsInt]);
 #! @BeginExampleSession
 #! gap> ZigzagLength(Pyramid(8),1);
 #! 32
@@ -21,7 +21,7 @@ DeclareOperation("ZigzagLength", [IsManiplex, IsInt]);
 #! @Arguments M
 #! @Returns The list [ZigzagLength(M,1), ..., ZigzagLength(M,k)], where
 #! k = Floor(q/2), with q the maximum vertex degree.
-DeclareAttribute("ZigzagVector", IsManiplex);
+DeclareAttribute("ZigzagVector", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> ZigzagVector(Pyramid(8));
 #! [ 32, 4, [ 2, 16 ], 16 ]
@@ -32,7 +32,7 @@ DeclareAttribute("ZigzagVector", IsManiplex);
 #! When M has rank 3, this is the same as the length of the 1-zigzags.
 #! Returns a single integer if all Petrie polygons have the same length;
 #! otherwise returns a list of the lengths.
-DeclareAttribute("PetrieLength", IsManiplex);
+DeclareAttribute("PetrieLength", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> PetrieLength(Cube(3));
 #! 6
@@ -62,7 +62,7 @@ DeclareOperation("PetrieRelation", [IsInt, IsInt]);
 #! Usually j is assumed to be at least 2.
 #! If all j-holes have the same length, then returns that length as an integer;
 #! otherwise, returns a list of all possible lengths.
-DeclareOperation("HoleLength", [IsManiplex, IsInt]);
+DeclareOperation("HoleLength", [IsPremaniplex, IsInt]);
 #! @BeginExampleSession
 #! gap> HoleLength(ToroidalMap44([3,0]),2);
 #! 3
@@ -73,7 +73,7 @@ DeclareOperation("HoleLength", [IsManiplex, IsInt]);
 #! @Arguments M
 #! @Returns The list [HoleLength(M,2), ..., HoleLength(M,k)], where
 #! k = Floor((q+1)/2), with q the maximum vertex degree.
-DeclareAttribute("HoleVector", IsManiplex);
+DeclareAttribute("HoleVector", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> HoleVector(Pyramid(6));
 #! [ 6, [ 2, 4 ] ]

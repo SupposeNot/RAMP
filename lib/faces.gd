@@ -4,7 +4,7 @@
 
 #! @Arguments M, i
 #! Returns The number of <A>i</A>-faces of <A>M</A>.
-DeclareOperation("NumberOfIFaces", [IsManiplex, IsInt]);
+DeclareOperation("NumberOfIFaces", [IsPremaniplex, IsInt]);
 #! @BeginExampleSession
 #! gap> NumberOfIFaces(Dodecahedron(),1);
 #! 30
@@ -12,7 +12,7 @@ DeclareOperation("NumberOfIFaces", [IsManiplex, IsInt]);
 
 #! @Arguments M
 #! Returns the number of vertices of <A>M</A>.
-DeclareAttribute("NumberOfVertices", IsManiplex);
+DeclareAttribute("NumberOfVertices", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> NumberOfVertices(HemiDodecahedron());
 #! 10
@@ -20,7 +20,7 @@ DeclareAttribute("NumberOfVertices", IsManiplex);
 
 #! @Arguments M
 #! Returns the number of edges of <A>M</A>.
-DeclareAttribute("NumberOfEdges", IsManiplex);
+DeclareAttribute("NumberOfEdges", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> NumberOfEdges(HemiIcosahedron());
 #! 15
@@ -28,7 +28,7 @@ DeclareAttribute("NumberOfEdges", IsManiplex);
 
 #! @Arguments M
 #! Returns the number of facets of <A>M</A>.
-DeclareAttribute("NumberOfFacets", IsManiplex);
+DeclareAttribute("NumberOfFacets", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> NumberOfFacets(Bk2l(4,6));
 #! 4
@@ -36,7 +36,7 @@ DeclareAttribute("NumberOfFacets", IsManiplex);
 
 #! @Arguments M
 #! Returns the number of ridges ((n-2)-faces) of <A>M</A>.
-DeclareAttribute("NumberOfRidges", IsManiplex);
+DeclareAttribute("NumberOfRidges", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> NumberOfRidges(CrossPolytope(5));
 #! 80
@@ -44,7 +44,7 @@ DeclareAttribute("NumberOfRidges", IsManiplex);
 
 #! @Arguments M, I
 #! Returns the number of chains of type I of <A>M</A>.
-DeclareOperation("NumberOfChains", [IsManiplex, IsCollection]);
+DeclareOperation("NumberOfChains", [IsPremaniplex, IsCollection]);
 #! @BeginExampleSession
 #! gap> NumberOfChains(Pyramid(5), [0,2]);
 #! 20
@@ -52,7 +52,7 @@ DeclareOperation("NumberOfChains", [IsManiplex, IsCollection]);
 
 #! @Arguments M
 #! Returns the f-vector of <A>M</A>.
-DeclareAttribute("Fvector", IsManiplex);
+DeclareAttribute("Fvector", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> Fvector(HemiIcosahedron());
 #! [ 6, 15, 10 ]
@@ -64,18 +64,18 @@ DeclareAttribute("Fvector", IsManiplex);
 #! @Arguments M, j, i
 #! `Section(M,j,i)` returns the section `F_j / F_i`, where `F_j` is the $j$-face of the base flag of <A>M</A> and
 #! `F_i` is the $i$-face of the base flag.
-DeclareOperation("Section", [IsManiplex, IsInt, IsInt]);
+DeclareOperation("Section", [IsPremaniplex, IsInt, IsInt]);
 
 
 #! @Arguments M, j, i, k
 #! `Section(M,j,i,k)` returns the section `F_j / F_i`, where `F_j` is the $j$-face of flag number <A>k</A> of <A>M</A> and
 #! `F_i` is the $i$-face of the same flag.
-DeclareOperation("Section", [IsManiplex, IsInt, IsInt, IsInt]);
+DeclareOperation("Section", [IsPremaniplex, IsInt, IsInt, IsInt]);
 
 
 #! @Arguments M, j, i
 #! `Sections(M,j,i)` returns all sections of type `F_j / F_i`, where `F_j` is a $j$-face and `F_i` is an incident $i$-face.
-DeclareOperation("Sections", [IsManiplex, IsInt, IsInt]);
+DeclareOperation("Sections", [IsPremaniplex, IsInt, IsInt]);
 #! @BeginExampleSession
 #! gap> Section(ToroidalMap44([2,2]),3,0);
 #! Pgon(4)
@@ -88,23 +88,23 @@ DeclareOperation("Sections", [IsManiplex, IsInt, IsInt]);
 #! @EndExampleSession
 #! @EndGroup
 
-DeclareOperation("SectionList", [IsManiplex, IsInt, IsInt]);
+DeclareOperation("SectionList", [IsPremaniplex, IsInt, IsInt]);
 
 #! @BeginGroup Facet
 #! @GroupTitle Facet(s)
 #! @Arguments M
 #! Returns the facet-types of <A>M</A> (i.e. the maniplexes corresponding to the facets).
-DeclareAttribute("Facets", IsManiplex);
+DeclareAttribute("Facets", IsPremaniplex);
 
 
 #! @Arguments M, k
 #! Returns the facet of <A>M</A> that contains the flag number <A>k</A> (that is, the maniplex corresponding to the facet).
-DeclareOperation("Facet", [IsManiplex, IsInt]);
+DeclareOperation("Facet", [IsPremaniplex, IsInt]);
 
 
 #! @Arguments M
 #! Returns the facet of <A>M</A> that contains flag number 1 (that is, the maniplex corresponding to the facet).
-DeclareAttribute("Facet", IsManiplex);
+DeclareAttribute("Facet", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> Facets(Cuboctahedron());
 #! [ Pgon(4), Pgon(3) ]
@@ -120,17 +120,17 @@ DeclareAttribute("Facet", IsManiplex);
 #! @GroupTitle Vertex Figure(s)
 #! @Arguments M
 #! Returns the types of vertex-figures of <A>M</A> (i.e. the maniplexes corresponding to the vertex-figures).
-DeclareAttribute("VertexFigures", IsManiplex);
+DeclareAttribute("VertexFigures", IsPremaniplex);
 
 
 #! @Arguments M, k
 #! Returns the vertex-figure of <A>M</A> that contains flag number <A>k</A>.
-DeclareOperation("VertexFigure", [IsManiplex, IsInt]);
+DeclareOperation("VertexFigure", [IsPremaniplex, IsInt]);
 
 
 #! @Arguments M
 #! Returns the vertex-figure of <A>M</A> that contains the base flag.
-DeclareAttribute("VertexFigure", IsManiplex);
+DeclareAttribute("VertexFigure", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> p:=Dual(SmallRhombicosidodecahedron());
 #! Dual(3-maniplex)
@@ -147,7 +147,7 @@ DeclareAttribute("VertexFigure", IsManiplex);
 #! @Returns IsList
 #! @Description Returns a list that describes how many vertices <A>M</A> has of each valency.
 #! This list has the form [ [v1, n1], [v2, n2], ...] to indicate that there are n1 vertices of valcency v1, etc.
-DeclareAttribute("VertDegrees", IsManiplex);
+DeclareAttribute("VertDegrees", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> VertDegrees(Pyramid(5));
 #! [ [ 3, 5 ], [ 5, 1 ] ]
@@ -161,7 +161,7 @@ DeclareAttribute("VertDegrees", IsManiplex);
 #! @Returns IsList
 #! @Description Returns a list that describes how many 2-faces <A>M</A> has of each size.
 #! This list has the form [ [f1, n1], [f2, n2], ...] to indicate that there are n1 f1-gonal faces, etc.
-DeclareAttribute("FaceSizes", IsManiplex);
+DeclareAttribute("FaceSizes", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> FaceSizes(Cube(3));
 #! [ [ 4, 6 ] ]
@@ -175,7 +175,7 @@ DeclareAttribute("FaceSizes", IsManiplex);
 #! @Arguments M
 #! @Returns list
 #! @Description Lists the facets of the maniplex <A>M</A> as lists of flags.
-DeclareAttribute("FacetList",IsManiplex);
+DeclareAttribute("FacetList",IsPremaniplex);
 #! @BeginExampleSession
 #! gap> m:=Cuboctahedron();;
 #! gap> FacetList(m);
@@ -189,7 +189,7 @@ DeclareAttribute("FacetList",IsManiplex);
 #! @Arguments M
 #! @Returns list
 #! @Description Lists the vertices of the maniplex <A>M</A> as lists of flags.
-DeclareAttribute("VertexList",IsManiplex);
+DeclareAttribute("VertexList",IsPremaniplex);
 #! @BeginExampleSession
 #! gap> m:=Cuboctahedron();;
 #! gap> VertexList(m);
@@ -204,7 +204,7 @@ DeclareAttribute("VertexList",IsManiplex);
 #! @Arguments M,n
 #! @Returns list
 #! @Description Lists the <A>n</A>-faces of the maniplex <A>M</A> as lists of flags.
-DeclareOperation("NFacesList",[IsManiplex,IsInt]);
+DeclareOperation("NFacesList",[IsPremaniplex,IsInt]);
 #! @BeginExampleSession
 #! gap> m:=Cuboctahedron();;
 #! gap> NFacesList(m,2)=FacetList(m);
@@ -227,13 +227,13 @@ DeclareOperation("NFacesList",[IsManiplex,IsInt]);
 #! @Arguments M
 #! In the first form, returns true if every vertex of the maniplex <A>M</A> is incident
 #! to every facet.
-DeclareProperty("IsFlat", IsManiplex);
+DeclareProperty("IsFlat", IsPremaniplex);
 
 
 #! @Arguments M, i, j
 #! In the second form, returns true if every i-face of the maniplex <A>M</A> is
 #! incident to every j-face.
-DeclareOperation("IsFlat", [IsManiplex, IsInt, IsInt]);
+DeclareOperation("IsFlat", [IsPremaniplex, IsInt, IsInt]);
 #! @BeginExampleSession
 #! gap> IsFlat(HemiCube(3));
 #! true
@@ -255,7 +255,7 @@ DeclareOperation("IsFlat", [IsManiplex, IsInt, IsInt]);
 #! as sections of (i+1)-faces over (i-2)-faces.
 #! Also accepts an sggi g as input, in which case it uses
 #! M = Maniplex(g).
-DeclareAttribute("SchlafliSymbol", IsManiplex);
+DeclareAttribute("SchlafliSymbol", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> SchlafliSymbol(SmallRhombicosidodecahedron());
 #! [ [ 3, 4, 5 ], 4 ]
@@ -271,7 +271,7 @@ DeclareAttribute("SchlafliSymbol", IsManiplex);
 #! of <A>M</A>. Note that whenever we compute the actual
 #! Schlafli symbol of <A>M</A>, we update the pseudo-Schlafli
 #! symbol to match.
-DeclareAttribute("PseudoSchlafliSymbol", IsManiplex);
+DeclareAttribute("PseudoSchlafliSymbol", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> M := ReflexibleManiplex([4,4], "(r0 r1)^2");;
 #! gap> PseudoSchlafliSymbol(M);
@@ -287,7 +287,7 @@ DeclareAttribute("PseudoSchlafliSymbol", IsManiplex);
 #! @Returns the the maniplex <A>M</A> is equivelar; i.e.,
 #! whether its Schlafli Symbol consists of integers at each
 #! position (no lists).
-DeclareProperty("IsEquivelar", IsManiplex);
+DeclareProperty("IsEquivelar", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> IsEquivelar(Bk2l(6,18));
 #! true
@@ -297,7 +297,7 @@ DeclareProperty("IsEquivelar", IsManiplex);
 #! Returns whether the maniplex <A>M</A> has any sections that
 #! are digons. We may eventually want to include maniplexes with
 #! even smaller sections.
-DeclareProperty("IsDegenerate", IsManiplex);
+DeclareProperty("IsDegenerate", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> IsDegenerate(ARP([5,2,4]));
 #! true
@@ -319,7 +319,7 @@ DeclareProperty("IsTight", IsManiplex);
 #! @Arguments M
 #! @Returns The Euler characteristic of the maniplex, given by
 #! $f_0 - f_1 + f_2 - \cdots + (-1)^{n-1} f_{n-1}$.
-DeclareAttribute("EulerCharacteristic", IsManiplex);
+DeclareAttribute("EulerCharacteristic", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> EulerCharacteristic(Bk2lStar(3,10));
 #! -10
@@ -327,7 +327,7 @@ DeclareAttribute("EulerCharacteristic", IsManiplex);
 
 #! @Arguments M
 #! @Returns The genus of the given 3-maniplex.
-DeclareAttribute("Genus", IsManiplex);
+DeclareAttribute("Genus", IsPremaniplex);
 #! @BeginExampleSession
 #! gap> Genus(Bk2lStar(3,10));
 #! 6
@@ -347,7 +347,7 @@ DeclareAttribute("Genus", IsManiplex);
 #! gap> IsSpherical(CubicTiling(2));
 #! false
 #! @EndExampleSession
-DeclareProperty("IsSpherical", IsManiplex);
+DeclareProperty("IsSpherical", IsPremaniplex);
 
 
 #! @Arguments M
@@ -364,7 +364,7 @@ DeclareProperty("IsSpherical", IsManiplex);
 #! gap> IsLocallySpherical(Pyramid(Cube(3)));
 #! true
 #! @EndExampleSession
-DeclareProperty("IsLocallySpherical", IsManiplex);
+DeclareProperty("IsLocallySpherical", IsPremaniplex);
 
 
 #! @Arguments M
@@ -379,7 +379,7 @@ DeclareProperty("IsLocallySpherical", IsManiplex);
 #! gap> IsToroidal(Pyramid(5));
 #! false
 #! @EndExampleSession
-DeclareProperty("IsToroidal", IsManiplex);
+DeclareProperty("IsToroidal", IsPremaniplex);
 
 
 #! @Arguments M
@@ -394,5 +394,5 @@ DeclareProperty("IsToroidal", IsManiplex);
 #! gap> IsLocallyToroidal(AbstractRegularPolytope([4,4,4],"(r0 r1 r2 r1)^2, (r1 r2 r3 r2)^2"));
 #! true
 #! @EndExampleSession
-DeclareProperty("IsLocallyToroidal", IsManiplex);
+DeclareProperty("IsLocallyToroidal", IsPremaniplex);
 

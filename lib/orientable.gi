@@ -1,6 +1,6 @@
 
 InstallMethod(IsOrientable,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local isOrientable, g, h;
 	isOrientable := ComputeAttr(M, IsOrientable);

@@ -18,7 +18,7 @@ InstallMethod(ZigzagLength,
 	end);
 
 InstallMethod(ZigzagLength,
-	[IsManiplex, IsInt],
+	[IsPremaniplex, IsInt],
 	function(M, j)
 	local G, zigzag, zgp, orbs;
 	if Rank(M) <> 3 then
@@ -40,7 +40,7 @@ InstallMethod(ZigzagLength,
 	
 	
 InstallMethod(ZigzagVector,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local lens, k, q;
 	if Rank(M) <> 3 then
@@ -81,7 +81,7 @@ InstallMethod(PetrieLength,
 	end);
 
 InstallMethod(PetrieLength,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local g, petrie, lens;
 	g := ConnectionGroup(M);
@@ -114,7 +114,7 @@ InstallMethod(HoleLength,
 	end);
 	
 InstallMethod(HoleLength,
-	[IsManiplex, IsInt],
+	[IsPremaniplex, IsInt],
 	function(M, j)
 	local G, hole, hgp, orbs;
 	if Rank(M) <> 3 then
@@ -134,11 +134,11 @@ InstallMethod(HoleLength,
 	end);
 	
 InstallMethod(HoleVector,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local lens, k, q;
 	if Rank(M) <> 3 then
-		Error("hole vectors are only defined for 3-maniplexes.\n");
+		Error("hole vectors are only defined for 3-premaniplexes.\n");
 	fi;
 	if IsInt(SchlafliSymbol(M)[2]) then
 		q := SchlafliSymbol(M)[2];

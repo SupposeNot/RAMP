@@ -8,7 +8,7 @@
 ##### NUMBER OF FACES, FVECTOR, ETC #####
 
 InstallMethod(NumberOfIFaces,
-	[IsManiplex, IsInt],
+	[IsPremaniplex, IsInt],
 	function(p,i)
 	local g, n, ranks, MP, fvec;
 	n:=Rank(p);
@@ -79,25 +79,25 @@ InstallOtherMethod(NumberOfIFaces,
 	end);
 
 InstallMethod(NumberOfVertices,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(p)
 	return NumberOfIFaces(p,0);
 	end);
 	
 InstallMethod(NumberOfEdges,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(p)
 	return NumberOfIFaces(p,1);
 	end);
 	
 InstallMethod(NumberOfFacets,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(p)
 	return NumberOfIFaces(p,Rank(p)-1);
 	end);
 	
 InstallMethod(NumberOfRidges,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(p)
 	return NumberOfIFaces(p,Rank(p)-2);
 	end);
@@ -121,7 +121,7 @@ InstallMethod(NumberOfChains,
 	end);
 
 InstallMethod(NumberOfChains,
-	[IsManiplex, IsCollection],
+	[IsPremaniplex, IsCollection],
 	function(M, I)
 	local g, h, gens, ranks, chains, n;
 	
@@ -139,7 +139,7 @@ InstallMethod(NumberOfChains,
 	end);
 	
 InstallMethod(Fvector,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local fvector, i, n;
 	fvector := ComputeAttr(M, Fvector);
@@ -157,7 +157,7 @@ InstallMethod(Fvector,
 
 
 InstallMethod(Section,
-	[IsManiplex, IsInt, IsInt, IsInt],
+	[IsPremaniplex, IsInt, IsInt, IsInt],
 	function(M, j, i, k)
 	local g, n, h, o, newgens, q, sym, M2, newconn;
 	n := Rank(M);
@@ -232,19 +232,19 @@ InstallMethod(Section,
 	end);
 
 InstallMethod(Section,
-	[IsManiplex, IsInt, IsInt],
+	[IsPremaniplex, IsInt, IsInt],
 	function(M, j, i)
 	return Section(M, j, i, 1);
 	end);
 
 InstallMethod(Sections,
-	[IsManiplex, IsInt, IsInt],
+	[IsPremaniplex, IsInt, IsInt],
 	function(M, j, i)
 	return Unique(List(FlagOrbitRepresentatives(M), k -> Section(M,j,i,k)));
 	end);
 
 #InstallMethod(SectionList,
-#	[IsManiplex, IsInt, IsInt],
+#	[IsPremaniplex, IsInt, IsInt],
 #	function(M, j, i)
 #	local g, h;
 #	g := ConnectionGroup(M);
@@ -255,7 +255,7 @@ InstallMethod(Sections,
 
 	
 InstallMethod(Facets,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local n, val;
 	if IsManiplexInstructionsRep(M) then
@@ -267,7 +267,7 @@ InstallMethod(Facets,
 	end);
 	
 InstallMethod(Facet,
-	[IsManiplex, IsInt],
+	[IsPremaniplex, IsInt],
 	function(M, k)
 	local n;
 	n := Rank(M);
@@ -278,13 +278,13 @@ InstallMethod(Facet,
 # 2. If P is finite, then try guessing a presentation for the facets.
 #	This will give something that might properly cover the facets -- compare size.
 InstallMethod(Facet,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return Facet(M, 1);
 	end);
 	
 InstallMethod(VertexFigures,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local n, val;
 	if IsManiplexInstructionsRep(M) then
@@ -296,7 +296,7 @@ InstallMethod(VertexFigures,
 	end);
 	
 InstallMethod(VertexFigure,
-	[IsManiplex, IsInt],
+	[IsPremaniplex, IsInt],
 	function(M, k)
 	local n;
 	n := Rank(M);
@@ -304,13 +304,13 @@ InstallMethod(VertexFigure,
 	end);
 	
 InstallMethod(VertexFigure,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return VertexFigure(M, 1);
 	end);
 
 InstallMethod(VertDegrees,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local verts, vsizes;
 	
@@ -321,7 +321,7 @@ InstallMethod(VertDegrees,
 	
 	
 InstallMethod(FaceSizes,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local g, n, faces, mult, L;
 	
@@ -346,7 +346,7 @@ InstallMethod(FaceSizes,
 
 
 InstallMethod(IsFlat,
-	[IsManiplex, IsInt, IsInt],
+	[IsPremaniplex, IsInt, IsInt],
 	function(M, i, j)
 	local g;
 	g := LayerGraph(M, i, j);
@@ -357,7 +357,7 @@ InstallMethod(IsFlat,
 	end);
 
 InstallMethod(IsFlat,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	
 	# Optimization from theory
@@ -393,7 +393,7 @@ InstallMethod(IsFlat,
 ##### SCHLAFLI SYMBOL #####
 
 InstallMethod(SchlafliSymbol,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local schlafliSymbol, gens, g, i, h, orbs, sections;
 	
@@ -434,13 +434,13 @@ InstallMethod(SchlafliSymbol,
 # of an object. Otherwise, we just compute the actual
 # Schlafli symbol.
 InstallMethod(PseudoSchlafliSymbol,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return SchlafliSymbol(M);
 	end);
 	
 InstallMethod(IsEquivelar,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return ForAll(SchlafliSymbol(M), x -> IsInt(x));
 	end);
@@ -451,7 +451,7 @@ InstallTrueMethod(IsEquivelar, IsRotary);
 
 
 InstallMethod(IsDegenerate,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return (2 in Flat(SchlafliSymbol(M)));
 	end);
@@ -468,7 +468,7 @@ InstallMethod(IsTight,
 	end);
 	
 InstallMethod(EulerCharacteristic,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local fv;
 	if HasIsFinite(M) and not(IsFinite(M)) then
@@ -480,7 +480,7 @@ InstallMethod(EulerCharacteristic,
 	end);
 	
 InstallMethod(Genus,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local char;
 	if IsMapOnSurface(M)=false then 
@@ -496,7 +496,7 @@ InstallMethod(Genus,
 	end);
 	
 InstallMethod(IsSpherical,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	if Rank(M) <> 3 then
 		Error("IsSpherical is only supported for maniplexes of rank 3.");
@@ -505,13 +505,13 @@ InstallMethod(IsSpherical,
 	end);
 	
 InstallMethod(IsLocallySpherical,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	return ForAll(Facets(M), IsSpherical) and ForAll(VertexFigures(M), IsSpherical);
 	end);	
 	
 InstallMethod(IsToroidal,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	if Rank(M) <> 3 then
 		Error("IsToroidal is only supported for maniplexes of rank 3.");
@@ -520,7 +520,7 @@ InstallMethod(IsToroidal,
 	end);
 	
 InstallMethod(IsLocallyToroidal,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local facets, vfigs;
 	facets := Facets(M);
@@ -534,7 +534,7 @@ InstallMethod(IsLocallyToroidal,
 	
 
 InstallMethod(FacetList,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local facets, facetSubgroup, orbs;
 	facetSubgroup:=FacetSubgroup(ConnectionGroup(M));
@@ -542,7 +542,7 @@ InstallMethod(FacetList,
 	end);	
 	
 InstallMethod(VertexList,
-	[IsManiplex],
+	[IsPremaniplex],
 	function(M)
 	local facets, vSubgroup, orbs;
 	vSubgroup:=VertexFigureSubgroup(ConnectionGroup(M));
@@ -550,7 +550,7 @@ InstallMethod(VertexList,
 	end);	
 	
 InstallMethod(NFacesList,
-	[IsManiplex,IsInt],
+	[IsPremaniplex,IsInt],
 	function(M,n)
 	local facets, ranks, facesSubgroup, orbs;
 	ranks:=Difference([0..(RankManiplex(M)-1)],[n]);

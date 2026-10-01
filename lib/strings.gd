@@ -52,3 +52,5 @@ DeclareOperation("InterpolatedString", [IsString]);
 #! gap> InterpolatedString("$n and $nn are different");
 #! "5 and 17 are different"
 #! @EndExampleSession
+
+DeclareOperation("PremaniplexAttrStringOrEmpty",[IsPremaniplex,IsString]);
