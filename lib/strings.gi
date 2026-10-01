@@ -34,7 +34,7 @@ InstallOtherMethod(DatabaseString,
 	[IsPremaniplex, IsList],
 	function(M, attrList)
 	local attrStrings;
-	attrStrings := [Chomp(String(M))];
+	attrStrings := [Chomp(ManiplexConstructorString(M))];
 	Append(attrStrings, List(attrList, attr -> PremaniplexAttrStringOrEmpty(M,attr)));
 	return JoinStringsWithSeparator(attrStrings, ManiplexDatabaseStringSeparator);
 	end);
@@ -199,3 +199,31 @@ InstallMethod(InterpolatedString,
 	return JoinStringsWithSeparator(L, "");
 	
 	end);
+
+InstallMethod(ManiplexConstructorString, "for quotient-rep maniplexes",
+	[IsPremaniplex and IsManiplexQuotientRep and HasQuotientRelatorString],
+	function(M)
+	local relText;
+	relText := String(QuotientRelatorString(M));
+	relText := ReplacedString(relText, "^-1", "");
+	relText := ReplacedString(relText, "*", "");
+	relText := relText{[2..Length(relText)-1]};
+	return Concatenation("QuotientManiplex(UniversalPolytope(",
+	                     String(RankManiplex(M)), "), \"", relText, "\")");
+	end);
+
+RAMP_CONN_GP_CONSTRUCTOR_STRING := M ->
+    Concatenation("Maniplex(Group(",
+                  String(GeneratorsOfGroup(ConnectionGroup(M))), "))");
+
+InstallMethod(ManiplexConstructorString, "for maniplexes in conn gp rep",
+	[IsPremaniplex and IsManiplexConnGpRep],
+	RAMP_CONN_GP_CONSTRUCTOR_STRING);
+
+InstallMethod(ManiplexConstructorString, "for premaniplexes in conn gp rep",
+	[IsPremaniplex and IsPremaniplexConnGpRep],
+	RAMP_CONN_GP_CONSTRUCTOR_STRING);
+
+InstallMethod(ManiplexConstructorString, "fallback via String",
+    [IsPremaniplex],
+    M -> String(M));
