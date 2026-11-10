@@ -320,13 +320,22 @@ InstallMethod(IsP1,
 InstallMethod(IsP1,
 	[IsPoset and IsPosetOfAtoms],
 	function(poset)
-	local faceList;
-	faceList:=poset!.faces_list_of_atoms;
-	if [] in faceList and Union(faceList) in faceList then
+	local faceList, successors, predecessors, maxpos, minpos;
+# 	faceList:=poset!.faces_list_of_atoms;
+	successors:=Successors(HasseDiagramBinaryRelation(PartialOrder(poset)));
+	predecessors:= Successors(InverseGeneralMapping(HasseDiagramBinaryRelation(PartialOrder(poset))));
+	maxpos:=PositionsProperty(successors,x->x=[]);
+	minpos:=PositionsProperty(predecessors,x->x=[]);
+	if Size(maxpos)=1 and Size(minpos)=1 then
 		return true;
 	else
 		return false;
 	fi;
+# 	if [] in faceList and Union(faceList) in faceList then
+# 		return true;
+# 	else
+# 		return false;
+# 	fi;
 	end);
 
 InstallOtherMethod(IsP1,
