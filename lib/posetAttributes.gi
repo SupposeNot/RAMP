@@ -50,6 +50,7 @@ InstallOtherMethod(MaximalChains,
 		for i in flags do
 			top:=Last(i);
 			listofparents:=parents[top];
+			if listofparents=[] then Append(newflags,[i]); break; fi;
 			Append(newflags,List(listofparents,x->Concatenation(i,[x])));
 			od;
 		Append(tempflags,Filtered(newflags,x->Last(x) in maxFaces));
