@@ -53,4 +53,10 @@ DeclareOperation("InterpolatedString", [IsString]);
 #! "5 and 17 are different"
 #! @EndExampleSession
 
+#! @Arguments maniplex, attributeString
+#! @Returns IsString
+#! @Description  Given a maniplex and a string containing an attribute, will return the 
+#! value of the attribute as a string, or an empty string if the attribute cannot be
+#! computed for the object. A helper function used in the creation of object names for
+#! premaniplexes.
 DeclareOperation("PremaniplexAttrStringOrEmpty",[IsPremaniplex,IsString]);
