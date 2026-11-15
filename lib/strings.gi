@@ -14,6 +14,7 @@ InstallMethod(DatabaseString,
 	end);
 
 #Trying to make the database commands more tolerant of errors in objects passed to them. Need some helper functions for that.
+#This is one of them.
 
 InstallMethod(PremaniplexAttrStringOrEmpty,
 	[IsPremaniplex,IsString],
